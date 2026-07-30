@@ -1,0 +1,2113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Prestige Rankings v1.0</title>
+<style>
+:root{
+  --bg:#f4f1ea; --panel:#fffdf8; --ink:#1e252d; --muted:#6c747c;
+  --line:#d9d4ca; --accent:#8a6a22; --accent-soft:#eee5cf;
+  --danger:#a23b3b; --success:#46704f; --nav:#202a34;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--ink)}
+button,input,select{font:inherit}
+button{cursor:pointer}
+header{background:var(--nav);color:white;padding:18px 24px;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+header h1{font-size:22px;margin:0}
+header p{margin:4px 0 0;color:#cfd6dc;font-size:14px}
+.nav{display:flex;gap:8px;flex-wrap:wrap}
+.nav button{border:1px solid #54606b;background:transparent;color:white;padding:8px 12px;border-radius:8px}
+.nav button.active{background:white;color:var(--nav);border-color:white}
+main{padding:22px;max-width:1500px;margin:auto}
+.view{display:none}.view.active{display:block}
+.toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.toolbar h2{margin:0;font-size:22px}
+.toolbar .actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{border:1px solid var(--line);background:var(--panel);padding:8px 12px;border-radius:8px;color:var(--ink)}
+.btn.primary{background:var(--nav);color:white;border-color:var(--nav)}
+.btn.danger{color:var(--danger)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.metric{font-size:30px;font-weight:700;margin-top:4px}
+.muted{color:var(--muted);font-size:13px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+table{border-collapse:collapse;width:100%;min-width:980px}
+th,td{padding:10px 11px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th:first-child,td:first-child{text-align:left;position:sticky;left:0;background:var(--panel);z-index:2}
+thead th{position:sticky;top:0;background:#ece8df;z-index:3;font-size:13px}
+thead th:first-child{z-index:4;background:#ece8df}
+tr:last-child td{border-bottom:none}
+.category{font-weight:600}
+.total-row td{font-weight:800;border-top:2px solid var(--ink);background:#f1ede4}
+.leader{font-weight:800;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.negative{color:var(--danger)!important}
+.negative-stat{color:var(--danger)}
+.reveal-row.placeholder{opacity:.45;transform:none}
+.reveal-row.placeholder .rname{font-weight:500;color:#8e9aa5}
+.reveal-row.placeholder .rscore,.reveal-row.placeholder .rchange{color:#71808d}
+.badge{display:inline-block;border-radius:999px;padding:3px 8px;background:var(--accent-soft);font-size:12px}
+.integrity.good{border-left:5px solid var(--success)}
+.integrity.warn{border-left:5px solid #ad7a21}
+.owner-link{border:0;background:transparent;font-weight:700;color:inherit;padding:0}
+[data-tip]{cursor:help}
+.tooltip{position:fixed;z-index:50;background:#17202a;color:white;border-radius:8px;padding:9px 11px;max-width:290px;font-size:13px;pointer-events:none;display:none;box-shadow:0 6px 20px rgba(0,0,0,.25)}
+.audit-controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap;margin-bottom:14px}
+label{font-size:13px;color:var(--muted);display:grid;gap:5px}
+select,input[type=number],input[type=text]{padding:8px;border:1px solid var(--line);border-radius:8px;background:white;color:var(--ink)}
+.event-list{font-size:12px;line-height:1.45;text-align:left}
+.event-pos{color:var(--success)} .event-neg{color:var(--danger)}
+.settings-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.setting{display:grid;gap:5px}
+.setting input{width:100%}
+.reveal-shell{background:#111922;color:white;border-radius:14px;min-height:630px;padding:26px;position:relative;overflow:hidden}
+.reveal-head{text-align:center}
+.reveal-head h2{font-size:27px;margin:0}
+.reveal-head p{color:#b9c2ca;margin:7px 0 0}
+.edition-tabs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:18px}
+.edition-tabs button{border:1px solid #52606d;background:transparent;color:#d7dde2;padding:8px 14px;border-radius:999px}
+.edition-tabs button.active{background:#eff2f5;color:#111922;border-color:#eff2f5}
+.edition-tabs button.completed::after{content:" ✓";font-weight:800}
+.transition-screen{min-height:420px;display:flex;align-items:center;justify-content:center;text-align:center}
+.transition-copy{opacity:0;animation:transitionFade 2s ease forwards}
+.transition-copy .line1{font-size:28px;font-weight:800}
+.transition-copy .line2{font-size:18px;color:#b9c2ca;margin-top:10px}
+@keyframes transitionFade{0%{opacity:0;transform:translateY(8px)}25%,75%{opacity:1;transform:translateY(0)}100%{opacity:0}}
+.recap-wrap{margin-top:24px}
+.recap-title{text-align:center;margin-bottom:18px}
+.recap-title h3{font-size:26px;margin:0}
+.recap-title p{color:#b9c2ca;margin:7px 0 0}
+.recap-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}
+.recap-card{background:#17212b;border:1px solid #3a4652;border-radius:14px;padding:18px}
+.recap-card h4{margin:0 0 12px;font-size:16px}
+.recap-row{display:grid;grid-template-columns:1fr 110px 110px;gap:10px;padding:10px 0;border-bottom:1px solid #33404b;align-items:center}
+.recap-row:last-child{border-bottom:0}
+.recap-owner{font-weight:700}
+.recap-delta,.recap-move{text-align:right;font-weight:800}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.summary-stat{background:#111922;border:1px solid #33404b;border-radius:10px;padding:13px}
+.summary-stat .label{font-size:11px;color:#9aa7b2;text-transform:uppercase;letter-spacing:.06em}
+.summary-stat .value{font-size:24px;font-weight:850;margin-top:5px}
+.summary-stat .detail{font-size:11px;color:#aeb8c1;margin-top:4px;line-height:1.35}
+.archive-line{text-align:center;color:#9aa7b2;font-size:12px;margin-top:18px}
+.benchmark-card{margin-top:20px;background:#17212b;border:1px solid #3a4652;border-radius:14px;padding:18px}
+.benchmark-card h4{margin:0 0 5px;font-size:17px}
+.benchmark-subtitle{color:#9aa7b2;font-size:12px;margin-bottom:14px}
+.benchmark-grid{display:grid;grid-template-columns:repeat(5,minmax(130px,1fr));gap:10px}
+.benchmark-stat{background:#111922;border:1px solid #33404b;border-radius:10px;padding:13px}
+.benchmark-stat .label{font-size:10px;color:#9aa7b2;text-transform:uppercase;letter-spacing:.06em;line-height:1.35}
+.benchmark-stat .value{font-size:22px;font-weight:850;margin-top:6px}
+.benchmark-stat .detail{font-size:11px;color:#b9c2ca;margin-top:4px;line-height:1.35}
+.sortable-header{cursor:pointer;user-select:none;white-space:nowrap}
+.sortable-header:hover{
+  background:#2f3d4a;
+  color:#eff2f5;
+}
+.sortable-header:hover .sort-indicator{
+  color:#eff2f5;
+}
+.sort-indicator{display:inline-block;min-width:14px;margin-left:4px;color:#9aa7b2;font-size:10px}
+.sortable-header.active-sort .sort-indicator{color:#eff2f5}
+@media(max-width:1000px){.benchmark-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.benchmark-grid{grid-template-columns:1fr}}
+.presentation-next{display:flex;justify-content:center;gap:10px;margin-top:18px}
+@media(max-width:800px){.recap-grid{grid-template-columns:1fr}.recap-row{grid-template-columns:1fr 90px 90px}}
+.snapshot-panel{margin-top:24px}
+.snapshot-note{text-align:center;color:#b9c2ca;margin-bottom:14px}
+.snapshot-rankings{max-width:760px;margin:auto;border:1px solid #3a4652;border-radius:14px;overflow:hidden;background:#17212b}
+.snapshot-row{display:grid;grid-template-columns:56px 1fr 88px 80px;padding:12px 14px;border-bottom:1px solid #33404b;align-items:center}
+.snapshot-row:last-child{border-bottom:0}
+.snapshot-row .sname{font-weight:700}
+.snapshot-row .sscore{text-align:right;font-weight:800}
+.snapshot-row .smove{text-align:right;color:#b9c2ca;font-size:13px}
+.move-up,.value-up{color:#42c77a!important}
+.move-down,.value-down{color:#f06464!important}
+.move-flat,.value-flat{color:#b9c2ca!important}
+.new-slot{display:inline-block;margin-left:8px;padding:2px 6px;border:1px solid #58a6ff;border-radius:999px;color:#78b7ff;font-size:10px;font-weight:800;letter-spacing:.08em;vertical-align:middle;white-space:nowrap}
+.no-change-badge{display:inline-block;margin-top:9px;padding:4px 9px;border:1px solid #80909e;border-radius:999px;color:#d7dde2;font-size:11px;font-weight:750;letter-spacing:.08em}
+.zero-pulse{animation:zeroPulse .55s ease-in-out 2}
+@keyframes zeroPulse{0%,100%{transform:scale(1);text-shadow:none}50%{transform:scale(1.08);text-shadow:0 0 18px rgba(215,221,226,.55)}}
+.reveal-stage{display:grid;grid-template-columns:minmax(250px,1.05fr) minmax(320px,1fr);gap:22px;margin-top:24px}
+.spotlight{min-height:460px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid #3a4652;border-radius:14px;background:#17212b}
+.rank-big{font-size:22px;color:#aab4bd;letter-spacing:.08em}
+.owner-big{font-size:58px;font-weight:750;margin:14px 0}
+.score-label{color:#aab4bd;text-transform:uppercase;letter-spacing:.15em;font-size:12px}
+.score-big{font-size:80px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.05;margin-top:6px}
+.change-big{font-size:16px;color:#c8d0d7;margin-top:10px}
+.assembling{border:1px solid #3a4652;border-radius:14px;padding:14px;background:#17212b}
+.assembling h3{margin:0 0 10px;font-size:15px;color:#c5cdd4}
+.reveal-row{display:grid;grid-template-columns:42px 1fr 72px 92px;gap:8px;padding:8px 7px;border-bottom:1px solid #33404b;align-items:center;opacity:0;transform:translateY(10px);transition:.35s}
+.reveal-row.visible{opacity:1;transform:none}
+.reveal-row .rrank{color:#aeb7bf}.reveal-row .rname{font-weight:650}.reveal-row .rscore{text-align:right;font-weight:750}.reveal-row .rchange{text-align:right;font-size:12px;color:#aeb7bf}
+.reveal-controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin-top:18px}
+.reveal-controls button{background:#eff2f5;color:#111922;border:0;border-radius:8px;padding:9px 14px}
+.final-table{display:none;margin-top:24px}
+.final-table.show{display:block;animation:fade .6s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.final-rankings{max-width:760px;margin:auto;border:1px solid #3a4652;border-radius:14px;overflow:hidden}
+.final-row{display:grid;grid-template-columns:50px 1fr 88px 105px 60px;padding:11px 14px;border-bottom:1px solid #33404b;align-items:center}
+.final-row:last-child{border-bottom:0}
+.final-row .name{font-weight:700}.final-row .score{text-align:right;font-weight:800}.final-row .delta{text-align:right;color:#b9c2ca;font-size:13px}.final-row .tier{text-align:right;color:#b9c2ca;font-size:12px}
+.hidden{display:none!important}
+.note{padding:12px 14px;background:#efeae0;border-radius:9px;font-size:14px}
+.editor-table input{width:68px;padding:5px}
+.editor-table td:nth-child(2) input{width:90px}
+@media(max-width:850px){
+  main{padding:12px}.reveal-stage{grid-template-columns:1fr}.assembling{min-height:250px}
+  .owner-big{font-size:44px}.score-big{font-size:62px}
+}
+
+.change-status{display:inline-flex;align-items:center;padding:7px 10px;border-radius:999px;font-size:12px;font-weight:750}
+.change-status.clean{background:#e8f5ed;color:#246b3d}
+.change-status.dirty{background:#fff2cc;color:#7a5900}
+.change-status.error{background:#fde7e7;color:#9b2c2c}
+.setting input.pending,.editor-table input.pending,.setting select.pending{outline:2px solid #d8a800;outline-offset:1px}
+
+
+#discardChanges{
+  background:#ffffff;
+  color:#22313f;
+  border:1px solid #8b98a3;
+  font-weight:650;
+}
+#discardChanges:hover{
+  background:#e9eef2;
+  color:#14212d;
+  border-color:#5f6d78;
+}
+
+
+.header-subtitle{font-size:14px;font-weight:750;letter-spacing:.04em;color:#cbd3da;margin-top:2px}
+.journey-shell{background:#111922;color:#eff2f5;border-radius:14px;padding:24px;min-height:720px}
+.journey-head{text-align:center}
+.journey-head h2{margin:0;font-size:28px}
+.journey-head p{margin:7px 0 0;color:#aeb8c1}
+.journey-controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:18px 0 12px}
+.journey-controls button{background:#eff2f5;color:#111922;border:0;border-radius:8px;padding:9px 15px;font-weight:750}
+.journey-year{font-size:32px;font-weight:850;text-align:center;font-variant-numeric:tabular-nums;margin-bottom:8px}
+.journey-chart-card{background:#17212b;border:1px solid #3a4652;border-radius:14px;padding:14px}
+#journeyChart{display:block;width:100%;height:auto;min-height:430px}
+.journey-line{fill:none;stroke-width:3;opacity:.88;transition:opacity .2s,stroke-width .2s}
+.journey-point{stroke:#111922;stroke-width:2;cursor:pointer}
+.journey-owner-label{font-size:12px;font-weight:800;cursor:pointer}
+.journey-gridline{stroke:#35424e;stroke-width:1}
+.journey-axis-label{fill:#9faab4;font-size:11px}
+.journey-muted{opacity:.12}
+.journey-focused{opacity:1;stroke-width:5}
+.journey-slider-wrap{display:grid;grid-template-columns:46px 1fr 46px;gap:10px;align-items:center;margin:14px 4px 2px;color:#aeb8c1;font-size:12px}
+#journeySlider{width:100%}
+.journey-lower{display:grid;grid-template-columns:.85fr 1.6fr;gap:16px;margin-top:16px}
+.journey-card{background:#17212b;border:1px solid #3a4652;border-radius:14px;padding:16px}
+.journey-card h3{margin:0 0 10px;font-size:16px}
+.journey-table{width:100%;border-collapse:collapse}
+.journey-table th,.journey-table td{padding:8px 7px;border-bottom:1px solid #33404b;text-align:right;font-size:12px}
+.journey-table th:first-child,.journey-table td:first-child{text-align:left}
+.journey-table tr:last-child td{border-bottom:0}
+.journey-metrics{overflow:auto}
+.journey-note{font-size:11px;color:#9faab4;margin-top:9px}
+.journey-rank-pill{display:inline-block;min-width:28px;text-align:center;border:1px solid #52606d;border-radius:999px;padding:2px 6px;color:#dbe1e6}
+@media(max-width:900px){
+ .journey-lower{grid-template-columns:1fr}
+ #journeyChart{min-height:350px}
+}
+
+
+/* Career Journey table contrast polish */
+.journey-table thead th{
+  background:#ece8df;
+  color:#182532;
+  font-weight:800;
+}
+.journey-table tbody td{
+  color:#eef3f7;
+}
+.journey-table tbody td:first-child{
+  color:#182532;
+  background:#f6f3ed;
+}
+.journey-table tbody td:nth-child(2){
+  font-weight:750;
+}
+#journeyMetrics td:first-child{
+  color:#182532;
+  background:#f6f3ed;
+  font-weight:750;
+}
+.journey-year.year-pulse{
+  animation:journeyYearPulse .34s ease;
+}
+@keyframes journeyYearPulse{
+  0%,100%{opacity:1;transform:none}
+}
+
+
+/* Career Journey leadership and standings polish */
+.journey-leader-callout{
+  min-height:24px;
+  margin:-2px 0 7px;
+  text-align:center;
+  color:#f4c542;
+  font-size:14px;
+  font-weight:850;
+  opacity:0;
+  transform:translateY(-3px);
+  transition:opacity .2s ease,transform .2s ease;
+}
+.journey-leader-callout.show{
+  opacity:1;
+  transform:translateY(0);
+}
+.journey-line.leader-glow{
+  filter:drop-shadow(0 0 3px #f4c542) drop-shadow(0 0 8px #f4c542);
+  stroke-width:5;
+}
+.journey-point.leader-glow{
+  filter:drop-shadow(0 0 4px #f4c542) drop-shadow(0 0 9px #f4c542);
+  stroke:#f7dc74;
+  stroke-width:3;
+}
+.journey-owner-label.leader-glow{
+  filter:drop-shadow(0 0 5px rgba(244,197,66,.95));
+}
+.journey-crown{
+  font-size:14px;
+  font-weight:900;
+}
+#journeyStandings tr.journey-rank-move{
+  animation:journeyRankMove .58s cubic-bezier(.2,.8,.2,1);
+}
+#journeyStandings tr.journey-rank-move td{
+  animation:journeyRankFlash .72s ease;
+}
+@keyframes journeyRankMove{
+  from{transform:translateY(var(--rank-shift,0px));opacity:.72}
+  to{transform:translateY(0);opacity:1}
+}
+@keyframes journeyRankFlash{
+  0%,100%{background:transparent}
+  45%{background:rgba(244,197,66,.13)}
+}
+
+
+/* =========================================================
+   v2.4.0 — Presentation Polish / Graphite Edition
+   Original navy styling remains preserved in v2.3.0.
+   ========================================================= */
+:root{
+  --graphite-bg:#17191d;--graphite-bg-2:#1d2025;--graphite-panel:#23272d;
+  --graphite-panel-2:#292e35;--graphite-line:#3a4048;--graphite-text:#f4f3ef;
+  --graphite-muted:#b8b7b1;--prestige-gold:#b99a55;--prestige-gold-soft:#d1bd8a;
+}
+body{background:radial-gradient(circle at 50% 18%,rgba(255,255,255,.025),transparent 34%),linear-gradient(180deg,var(--graphite-bg-2),var(--graphite-bg));color:var(--graphite-text)}
+.app-shell,.app-header,.top-nav,.nav-wrap{background:#1b1f24!important}
+.top-nav,.nav-wrap{border-bottom:1px solid rgba(185,154,85,.18);box-shadow:0 10px 30px rgba(0,0,0,.16)}
+button,.nav-btn,.tab-btn,.presentation-nav button{background:#20242a;color:#ecebe7;border-color:#4a5059;box-shadow:none}
+button:hover,.nav-btn:hover,.tab-btn:hover,.presentation-nav button:hover{background:#292e35;border-color:#686f79}
+button.active,.nav-btn.active,.tab-btn.active,.presentation-nav button.active,.presentation-nav .active{background:#2a2e34!important;color:#f6f3e9!important;border-color:var(--prestige-gold)!important;box-shadow:inset 0 -3px 0 var(--prestige-gold),0 0 0 1px rgba(185,154,85,.12)}
+.card,.panel,.section-card,.presentation-card,.reveal-card,.recap-card,.final-card,.journey-card{background:linear-gradient(180deg,var(--graphite-panel-2),var(--graphite-panel))!important;border-color:rgba(255,255,255,.09)!important;box-shadow:0 16px 38px rgba(0,0,0,.22)}
+.presentation-shell,.presentation-stage,#presentationView{background:radial-gradient(circle at 50% 35%,rgba(185,154,85,.035),transparent 32%),#181b20!important;box-shadow:inset 0 0 95px rgba(0,0,0,.26)}
+.presentation-header,.presentation-hero,.reveal-header,.final-header{background:transparent!important}
+.presentation-title,.brand-title,.reveal-title,.final-title{color:#f7f5ef!important;letter-spacing:-.025em;text-shadow:0 2px 18px rgba(0,0,0,.2)}
+.presentation-title::after,.brand-title::after,.reveal-title::after,.final-title::after{content:"";display:block;width:min(360px,72%);height:2px;margin:14px auto 12px;background:linear-gradient(90deg,transparent,var(--prestige-gold),transparent);opacity:.9}
+.presentation-subtitle,.brand-subtitle,.reveal-subtitle,.final-subtitle{color:var(--graphite-muted)!important}
+.presentation-nav button,.edition-btn{background:#22262c!important;color:#d7d5cf!important;border-color:#4a5058!important}
+.presentation-nav button.active,.edition-btn.active{background:#edece7!important;color:#1d2025!important;border-color:#edece7!important;box-shadow:0 0 0 2px rgba(185,154,85,.18),0 7px 18px rgba(0,0,0,.18)}
+hr,.divider,.section-divider{border-color:rgba(185,154,85,.24)!important}
+thead th{background:#2b3037!important;color:#f0eee8!important;border-color:#414750!important}tbody td{border-color:rgba(255,255,255,.07)!important}
+input,select,textarea{background:#1f2328!important;color:#efeee9!important;border-color:#484e57!important}
+.muted,.subtle,.helper-text{color:#aaa9a4!important}.trophy,.champion,.leader,.journey-crown,.prestige-accent{color:var(--prestige-gold-soft)!important}
+
+
+/* =========================================================
+   v2.4.1 — Midnight Graphite refinement
+   ========================================================= */
+:root{
+  --graphite-bg:#151a20;
+  --graphite-bg-2:#1a2027;
+  --graphite-panel:#20262d;
+  --graphite-panel-2:#262d35;
+  --graphite-line:#3b444e;
+  --prestige-gold:#b89a58;
+  --prestige-gold-soft:#d2bd88;
+}
+body{
+  background:
+    radial-gradient(circle at 50% 14%,rgba(76,96,117,.08),transparent 37%),
+    linear-gradient(180deg,#1a2027,#151a20) !important;
+}
+header h1{
+  letter-spacing:.075em;
+  font-size:29px;
+  font-weight:850;
+}
+.header-subtitle{
+  letter-spacing:.035em;
+  font-weight:700;
+  color:#d8d6d0;
+}
+.reveal-head h2{
+  letter-spacing:.075em;
+  font-weight:850;
+}
+.reveal-descriptor,
+.final-descriptor{
+  margin-top:4px;
+  color:#e4e1d9;
+  font-size:1.04rem;
+  font-weight:750;
+  letter-spacing:.025em;
+}
+.reveal-head h2::after{
+  content:"";
+  display:block;
+  width:min(350px,70%);
+  height:1px;
+  margin:12px auto 10px;
+  background:linear-gradient(90deg,transparent,var(--prestige-gold),transparent);
+}
+.final-branding h3{
+  letter-spacing:.075em;
+  font-size:29px;
+}
+.final-branding h3::after{
+  content:"";
+  display:block;
+  width:min(310px,65%);
+  height:1px;
+  margin:11px auto 9px;
+  background:linear-gradient(90deg,transparent,var(--prestige-gold),transparent);
+}
+
+/* Uniform active outline: no thick lower edge */
+button.active,
+.nav-btn.active,
+.tab-btn.active,
+.presentation-nav button.active,
+.presentation-nav .active,
+.edition-tabs button.active,
+.edition-btn.active{
+  border:2px solid var(--prestige-gold) !important;
+  box-shadow:none !important;
+  outline:none !important;
+}
+.presentation-nav button.active,
+.edition-tabs button.active,
+.edition-btn.active{
+  background:#edece7 !important;
+  color:#1d2228 !important;
+}
+
+/* Slightly tighter component geometry */
+button,.btn,.nav button,.edition-tabs button{
+  border-radius:8px !important;
+}
+.card,.panel,.section-card,.presentation-card,.reveal-card,
+.recap-card,.final-card,.journey-card,.spotlight,.benchmark-card{
+  border-radius:10px !important;
+}
+
+/* Softer vignette than v2.4.0 */
+.presentation-shell,
+#presentationView,
+.reveal-shell{
+  box-shadow:inset 0 0 62px rgba(0,0,0,.18) !important;
+}
+
+
+/* =========================================================
+   v2.4.3 — Readability Pass
+   Rule: theme the shell; never reduce content readability.
+   ========================================================= */
+
+/* Restore the high-contrast light workspace used by v2.3 */
+main{
+  max-width:none;
+  background:#f4f1ea;
+  color:#1e252d;
+  min-height:calc(100vh - 150px);
+}
+
+#rankings,
+#matrix,
+#audit,
+#data{
+  color:#1e252d;
+}
+
+/* Functional cards and tables remain light and immediately scannable */
+#rankings .card,
+#matrix .card,
+#audit .card,
+#data .card,
+#rankings .table-wrap,
+#matrix .table-wrap,
+#audit .table-wrap,
+#data .table-wrap{
+  background:#fffdf8 !important;
+  color:#1e252d !important;
+  border-color:#d9d4ca !important;
+  box-shadow:none !important;
+}
+
+#rankings table,
+#matrix table,
+#audit table,
+#data table{
+  color:#1e252d !important;
+  background:#fffdf8 !important;
+}
+
+#rankings th,
+#rankings td,
+#matrix th,
+#matrix td,
+#audit th,
+#audit td,
+#data th,
+#data td{
+  color:#1e252d;
+  border-color:#d9d4ca !important;
+}
+
+#rankings thead th,
+#matrix thead th,
+#audit thead th,
+#data thead th{
+  background:#ece8df !important;
+  color:#1e252d !important;
+  border-color:#d9d4ca !important;
+}
+
+#rankings th:first-child,
+#rankings td:first-child,
+#matrix th:first-child,
+#matrix td:first-child,
+#audit th:first-child,
+#audit td:first-child,
+#data th:first-child,
+#data td:first-child{
+  background:#fffdf8 !important;
+  color:#1e252d !important;
+}
+
+#rankings thead th:first-child,
+#matrix thead th:first-child,
+#audit thead th:first-child,
+#data thead th:first-child{
+  background:#ece8df !important;
+}
+
+/* Totals, explanatory strips, and settings text */
+#rankings .total-row td,
+#matrix .total-row td,
+#audit .total-row td,
+#data .total-row td{
+  background:#f1ede4 !important;
+  color:#1e252d !important;
+}
+
+#rankings .muted,
+#matrix .muted,
+#audit .muted,
+#data .muted,
+#rankings .subtle,
+#matrix .subtle,
+#audit .subtle,
+#data .subtle,
+#rankings .helper-text,
+#matrix .helper-text,
+#audit .helper-text,
+#data .helper-text,
+#rankings label,
+#matrix label,
+#audit label,
+#data label{
+  color:#59626b !important;
+}
+
+#rankings input,
+#rankings select,
+#rankings textarea,
+#matrix input,
+#matrix select,
+#matrix textarea,
+#audit input,
+#audit select,
+#audit textarea,
+#data input,
+#data select,
+#data textarea{
+  background:#fff !important;
+  color:#1e252d !important;
+  border-color:#cfc9bd !important;
+}
+
+/* Utility buttons inside work tabs use the light v2.3 treatment */
+#rankings .btn,
+#matrix .btn,
+#audit .btn,
+#data .btn{
+  background:#fffdf8 !important;
+  color:#1e252d !important;
+  border-color:#d9d4ca !important;
+}
+
+#rankings .btn.primary,
+#matrix .btn.primary,
+#audit .btn.primary,
+#data .btn.primary{
+  background:#202a34 !important;
+  color:#fff !important;
+  border-color:#202a34 !important;
+}
+
+/* Preserve semantic emphasis */
+#rankings .leader,
+#matrix .leader,
+#audit .leader,
+#data .leader{
+  color:#1e252d !important;
+  font-weight:800;
+  text-decoration-color:#8a6a22 !important;
+}
+#rankings .negative,
+#matrix .negative,
+#audit .negative,
+#data .negative,
+#rankings .negative-stat,
+#matrix .negative-stat,
+#audit .negative-stat,
+#data .negative-stat{
+  color:#a23b3b !important;
+}
+
+/* Sort hover must remain readable on light tables */
+#rankings .sortable-header:hover,
+#matrix .sortable-header:hover,
+#audit .sortable-header:hover,
+#data .sortable-header:hover{
+  background:#dcd6ca !important;
+  color:#1e252d !important;
+}
+#rankings .sortable-header:hover .sort-indicator,
+#matrix .sortable-header:hover .sort-indicator,
+#audit .sortable-header:hover .sort-indicator,
+#data .sortable-header:hover .sort-indicator{
+  color:#1e252d !important;
+}
+
+/* Presentation and Career Journey retain the cinematic graphite treatment */
+#presentation,
+#journey{
+  color:#f4f3ef;
+}
+
+
+/* v2.4.4 — Career Journey interaction + negative totals */
+#journeyClearFocus{display:none}
+#journeyClearFocus.visible{display:inline-flex}
+#journeyStandings tr[data-owner]{cursor:pointer;transition:background-color .24s ease,box-shadow .24s ease,opacity .24s ease}
+#journeyStandings tr[data-owner]:hover td{background:rgba(255,255,255,.055)}
+#journeyStandings tr.journey-owner-selected td,#journeyMetrics tr.journey-owner-selected td{background:rgba(185,154,85,.11)}
+#journeyStandings tr.journey-owner-selected td:first-child,#journeyMetrics tr.journey-owner-selected td:first-child{box-shadow:inset 3px 0 0 #b99a55}
+#journeyStandings tr.journey-owner-muted{opacity:.72}
+.journey-owner-link{cursor:pointer;font-weight:750}
+.journey-owner-link:hover{text-decoration:underline}
+.prestige-negative{color:#a23b3b !important}
+.prestige-zero{color:#777 !important}
+
+
+/* =========================================================
+   v2.4.5 — Career Journey layout refinement
+   ========================================================= */
+
+.journey-upper{
+  display:grid;
+  grid-template-columns:minmax(0,1.55fr) minmax(390px,.95fr);
+  gap:16px;
+  align-items:stretch;
+}
+
+.journey-upper .journey-chart-card,
+.journey-upper .journey-metrics{
+  min-width:0;
+  height:100%;
+}
+
+.journey-metrics{
+  display:flex;
+  flex-direction:column;
+}
+
+.journey-metrics-table-wrap{
+  overflow:auto;
+  flex:1;
+}
+
+.journey-metrics .journey-table{
+  min-width:560px;
+}
+
+.journey-standings-card{
+  margin-top:16px;
+  padding-top:14px;
+}
+
+.journey-card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  margin-bottom:6px;
+}
+
+.journey-card-head h3{
+  margin:0;
+}
+
+.journey-click-hint{
+  color:#9faab4;
+  font-size:11px;
+  white-space:nowrap;
+}
+
+.journey-standings-table{
+  table-layout:fixed;
+}
+
+.journey-col-rank{width:11%}
+.journey-col-owner{width:67%}
+.journey-col-prestige{width:22%}
+
+.journey-standings-table th,
+.journey-standings-table td{
+  padding:7px 10px;
+}
+
+.journey-standings-table th:nth-child(1),
+.journey-standings-table td:nth-child(1){
+  text-align:left;
+  background:transparent !important;
+}
+
+.journey-standings-table th:nth-child(2),
+.journey-standings-table td:nth-child(2){
+  text-align:left;
+  background:transparent !important;
+}
+
+.journey-standings-table th:nth-child(3),
+.journey-standings-table td:nth-child(3){
+  text-align:right;
+  background:transparent !important;
+  font-variant-numeric:tabular-nums;
+}
+
+.journey-standings-table tbody td:nth-child(2){
+  font-weight:750;
+}
+
+.journey-rank-pill{
+  min-width:24px;
+  padding:1px 5px;
+  line-height:1.35;
+}
+
+@media (max-width:1050px){
+  .journey-upper{
+    grid-template-columns:1fr;
+  }
+  .journey-metrics .journey-table{
+    min-width:680px;
+  }
+}
+
+@media (max-width:620px){
+  .journey-col-rank{width:18%}
+  .journey-col-owner{width:57%}
+  .journey-col-prestige{width:25%}
+  .journey-click-hint{display:none}
+}
+
+
+/* =========================================================
+   v3.0.2 — Simplified completed-season year label
+   ========================================================= */
+.journey-upper{display:block}
+.journey-upper .journey-chart-card{height:auto}
+.journey-upper .journey-metrics{height:auto}
+.journey-standings-card{margin-top:16px}
+.journey-metrics{margin-top:16px;display:block}
+.journey-metrics-table-wrap{overflow:auto}
+.journey-metrics .journey-table{min-width:760px}
+.journey-standings-table{width:100%;min-width:0!important;max-width:100%;table-layout:fixed;overflow:hidden}
+.journey-col-rank{width:12%}
+.journey-col-owner{width:63%}
+.journey-col-prestige{width:25%}
+.journey-standings-table th,
+.journey-standings-table td{padding:8px 10px}
+.journey-standings-table th:nth-child(1),
+.journey-standings-table td:nth-child(1){text-align:left}
+.journey-standings-table th:nth-child(2),
+.journey-standings-table td:nth-child(2){text-align:left}
+.journey-standings-table th:nth-child(3),
+.journey-standings-table td:nth-child(3){text-align:right}
+@media (max-width:620px){
+  .journey-col-rank{width:18%}
+  .journey-col-owner{width:55%}
+  .journey-col-prestige{width:27%}
+}
+
+
+/* =========================================================
+   v3.0.4 — Presentation hierarchy polish
+   ========================================================= */
+#presentation .edition-tabs{margin-bottom:12px}
+#presentation .snapshot-panel,
+#presentation #current2026,
+#presentation .recap-wrap,
+#presentation #permanentFinalPanel{margin-top:12px}
+#presentation .presentation-section-title{margin-top:0;margin-bottom:16px}
+#presentation .presentation-section-title h3{font-size:24px;line-height:1.15;margin:0}
+#presentation .presentation-section-title p{margin-top:6px}
+#presentation .reveal-section-title{margin-bottom:12px}
+#presentation .snapshot-note{margin-top:-4px}
+@media(max-width:620px){
+  #presentation .presentation-section-title h3{font-size:22px}
+}
+
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>The Big Board</h1>
+    <div class="header-subtitle">Career Prestige Rankings</div>
+    <p>A measure of sustained excellence across league history.</p>
+  </div>
+  <nav class="nav">
+    <button data-view="rankings" class="active">Career Rankings</button>
+    <button data-view="matrix">Career Totals</button>
+    <button data-view="audit">Season Audit</button>
+    <button data-view="data">Data & Settings</button>
+    <button data-view="presentation">Presentation</button>
+    <button data-view="journey">Career Journey</button>
+  </nav>
+</header>
+<main>
+<section id="rankings" class="view active">
+  <div class="toolbar"><h2>Current Career Rankings</h2><span class="badge">Through 2025</span></div>
+  <div id="integrityCard" class="card integrity"></div>
+  <div style="height:12px"></div>
+  <div id="rankingCards" class="grid"></div>
+</section>
+
+<section id="matrix" class="view">
+  <div class="toolbar">
+    <h2>Career Totals Matrix</h2>
+    <div class="actions"><button class="btn" id="togglePoints">Show Point Contributions</button><button class="btn" id="exportMatrix">Export CSV</button></div>
+  </div>
+  <div class="note">Bold and underlined values are league leaders. Hover over any total to see the seasons behind it.</div>
+  <div style="height:12px"></div>
+  <div class="table-wrap"><table id="matrixTable"></table></div>
+</section>
+
+<section id="audit" class="view">
+  <div class="toolbar"><h2>Season Audit</h2></div>
+  <div class="note">Points For is included as historical reference only. It does not directly add to Prestige; Points Rank drives the Most Points and Least Points categories.</div>
+  <div style="height:12px"></div>
+  <div class="audit-controls">
+    <label>Season<select id="auditYear"></select></label>
+  </div>
+  <div class="table-wrap"><table id="auditTable"></table></div>
+</section>
+
+<section id="data" class="view">
+  <div class="toolbar">
+    <h2>Data & Settings</h2>
+    <div class="actions">
+      <button class="btn" id="downloadBackup">Save JSON Backup</button>
+      <label class="btn" style="display:inline-block;color:var(--ink)">Load JSON Backup<input id="loadBackup" type="file" accept=".json" hidden></label>
+      <button class="btn" id="exportSeasonCsv">Export Season CSV</button>
+      <span id="changeStatus" class="change-status clean">No pending changes</span><button class="btn primary" id="applySettings">Save &amp; Recalculate</button> <button type="button" class="btn discard-btn" id="discardChanges" onclick="discardPendingChanges(); return false;">Discard Changes</button>
+    </div>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0">Scoring Rubric</h3>
+    <div id="settingsGrid" class="settings-grid"></div>
+  </div>
+  <div style="height:12px"></div>
+  <div class="card">
+    <h3 style="margin-top:0">Current Tier Assignments</h3>
+    <div id="tierGrid" class="settings-grid"></div>
+  </div>
+  <div style="height:12px"></div>
+  <div class="card">
+    <h3 style="margin-top:0">Season Data Editor</h3>
+    <p class="muted">Edit freely here. Rankings and presentation outputs do not change until you click <strong>Save &amp; Recalculate</strong>. Career totals are always regenerated from the saved rows.</p>
+    <div class="audit-controls"><label>Season<select id="editYear"></select></label><button class="btn" id="addSeason">Add Next Season</button></div>
+    <div class="table-wrap"><table id="editorTable" class="editor-table"></table></div>
+  </div>
+</section>
+
+<section id="presentation" class="view">
+  <div class="reveal-shell">
+    <div class="reveal-head">
+      <h2>The Big Board</h2>
+      <div class="reveal-descriptor">Career Prestige Rankings</div>
+      <p>A measure of sustained excellence across league history.</p>
+      <div class="edition-tabs">
+        <button data-edition="2018">2018</button>
+        <button data-edition="2022">2022</button>
+        <button data-edition="2026" class="active">2026 Reveal</button>
+        <button data-edition="recap">4-Year Recap</button>
+        <button data-edition="final">Final Rankings</button>
+      </div>
+    </div>
+
+    <div id="snapshot2018" class="snapshot-panel hidden">
+      <div class="recap-title presentation-section-title">
+        <h3>2018 Edition</h3>
+        <p>Official 2018 Rankings</p>
+      </div>
+      <div class="snapshot-note">Inaugural rankings through the 2017 season</div>
+      <div class="snapshot-rankings" id="snapshotRows2018"></div>
+    </div>
+
+    <div id="snapshot2022" class="snapshot-panel hidden">
+      <div class="recap-title presentation-section-title">
+        <h3>2022 Edition</h3>
+        <p>Official 2022 Rankings</p>
+      </div>
+      <div class="snapshot-note">Rankings through the 2021 season</div>
+      <div class="snapshot-rankings" id="snapshotRows2022"></div>
+    </div>
+
+    <div id="current2026">
+      <div class="recap-title presentation-section-title reveal-section-title">
+        <h3>2026 Reveal</h3>
+        <p>Career Prestige Rankings</p>
+      </div>
+      <div id="revealMain">
+        <div class="reveal-stage">
+          <div class="spotlight">
+            <div id="spotContent">
+              <div class="rank-big">READY TO REVEAL</div>
+              <div class="owner-big">2026 Rankings</div>
+              <div class="change-big">Starting from the official 2022 edition</div>
+            </div>
+          </div>
+          <div class="assembling">
+            <h3>Revealed</h3>
+            <div id="assembledRows"></div>
+          </div>
+        </div>
+        <div class="reveal-controls">
+          <button id="startReveal">Start / Replay</button>
+          <button id="nextReveal">Reveal Next</button>
+          <button id="autoReveal">Auto Play</button>
+          <button id="showFinal">Show Final Table</button>
+        </div>
+      </div>
+      <div id="finalTable" class="final-table">
+        <div class="final-rankings" id="finalRows"></div>
+        <div class="reveal-controls"><button id="replayFinal">Replay Reveal</button></div>
+      </div>
+    </div>
+
+    <div id="revealTransition" class="transition-screen hidden">
+      <div class="transition-copy">
+        <div class="line1">The rankings are complete.</div>
+        <div class="line2">Let’s see what changed since the 2022 Edition...</div>
+      </div>
+    </div>
+
+    <div id="recapPanel" class="recap-wrap hidden">
+      <div class="recap-title">
+        <h3>4-Year Recap</h3>
+        <p>How the league changed since 2022</p>
+      </div>
+      <div class="recap-grid">
+        <div class="recap-card">
+          <h4>Prestige Gains · 2022 → 2026</h4>
+          <div id="recapMovementRows"></div>
+        </div>
+        <div class="recap-card">
+          <h4>League Summary</h4>
+          <div class="summary-grid" id="recapSummary"></div>
+        </div>
+      </div>
+      <div class="archive-line">Data through the 2025 season · Official 2026 Edition</div>
+      <div class="presentation-next">
+        <button id="goFinalFromRecap">View Final Rankings</button>
+      </div>
+    </div>
+
+    <div id="permanentFinalPanel" class="hidden">
+      <div class="recap-title final-branding presentation-section-title">
+        <h3>Final Rankings</h3>
+        <p>Official 2026 Rankings</p>
+      </div>
+      <div class="final-rankings" id="permanentFinalRows"></div>
+      <div class="benchmark-card">
+        <h4>Prestige Range & Historical Benchmarks</h4>
+        <div class="benchmark-subtitle">How quickly the career standings can move.</div>
+        <div class="benchmark-grid" id="prestigeBenchmarks"></div>
+      </div>
+      <div class="archive-line">Data through the 2025 season · Official 2026 Edition</div>
+    </div>
+  </div>
+</section>
+
+<section id="journey" class="view">
+  <div class="journey-shell">
+    <div class="journey-head">
+      <h2>Career Journey</h2>
+      <p>How The Big Board evolved over time.</p>
+    </div>
+    <div class="journey-controls">
+      <button id="journeyPlay">▶ Play</button>
+      <button id="journeyPause">❚❚ Pause</button>
+      <button id="journeyReplay">↺ Replay</button>
+      <button id="journeyClearFocus">← Show All Owners</button>
+    </div>
+    <div id="journeyYear" class="journey-year">2010</div>
+    <div id="journeyLeaderCallout" class="journey-leader-callout" aria-live="polite"></div>
+
+    <div class="journey-chart-card">
+      <svg id="journeyChart" viewBox="0 0 1120 500" role="img" aria-label="Animated cumulative Prestige by owner"></svg>
+      <div class="journey-slider-wrap">
+        <span id="journeyMinYear">2010</span>
+        <input id="journeySlider" type="range" min="0" max="15" value="0" step="1">
+        <span id="journeyMaxYear">2025</span>
+      </div>
+    </div>
+
+    <div class="journey-card journey-standings-card">
+      <div class="journey-card-head">
+        <h3 id="journeyStandingsTitle">Standings · 2010</h3>
+        <span class="journey-click-hint">Click an owner to isolate</span>
+      </div>
+      <table class="journey-table journey-standings-table">
+        <colgroup>
+          <col class="journey-col-rank">
+          <col class="journey-col-owner">
+          <col class="journey-col-prestige">
+        </colgroup>
+        <thead><tr><th>Rank</th><th>Owner</th><th>Prestige</th></tr></thead>
+        <tbody id="journeyStandings"></tbody>
+      </table>
+    </div>
+
+    <div class="journey-card journey-metrics">
+      <h3 id="journeyMetricsTitle">Career Metrics · 2010</h3>
+      <div class="journey-metrics-table-wrap">
+        <table class="journey-table">
+          <thead>
+            <tr><th>Owner</th><th>Avg. Rank</th><th>Years #1</th><th>Top 3</th><th>Avg. Behind #1</th><th>Peak</th></tr>
+          </thead>
+          <tbody id="journeyMetrics"></tbody>
+        </table>
+      </div>
+      <div class="journey-note">Career metrics use every completed league season from 2010 through the selected season.</div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div id="tooltip" class="tooltip"></div>
+
+<script>
+const INITIAL_RECORDS = [{"Year":2010,"Owner":"Sam","W":9,"L":4,"RS_Finish":1,"Pts Rank":1,"PO_Finish":1,"PointsFor":1694},{"Year":2010,"Owner":"Dan","W":7,"L":6,"RS_Finish":3,"Pts Rank":4,"PO_Finish":2,"PointsFor":1574},{"Year":2010,"Owner":"RJ","W":7,"L":6,"RS_Finish":4,"Pts Rank":6,"PO_Finish":3,"PointsFor":1531},{"Year":2010,"Owner":"Cory","W":8,"L":5,"RS_Finish":2,"Pts Rank":5,"PO_Finish":4,"PointsFor":1544},{"Year":2010,"Owner":"Bob","W":7,"L":6,"RS_Finish":5,"Pts Rank":10,"PO_Finish":5,"PointsFor":1433},{"Year":2010,"Owner":"Adrian","W":6,"L":7,"RS_Finish":6,"Pts Rank":2,"PO_Finish":6,"PointsFor":1607},{"Year":2010,"Owner":"Mac","W":5,"L":8,"RS_Finish":9,"Pts Rank":9,"PO_Finish":7,"PointsFor":1460},{"Year":2010,"Owner":"Ben","W":4,"L":9,"RS_Finish":10,"Pts Rank":7,"PO_Finish":8,"PointsFor":1507},{"Year":2010,"Owner":"Zac","W":6,"L":7,"RS_Finish":8,"Pts Rank":8,"PO_Finish":9,"PointsFor":1504},{"Year":2010,"Owner":"Harp","W":6,"L":7,"RS_Finish":7,"Pts Rank":3,"PO_Finish":10,"PointsFor":1593},{"Year":2011,"Owner":"Harp","W":7,"L":6,"RS_Finish":4,"Pts Rank":3,"PO_Finish":1,"PointsFor":1639},{"Year":2011,"Owner":"Dan","W":7,"L":6,"RS_Finish":6,"Pts Rank":9,"PO_Finish":2,"PointsFor":1433},{"Year":2011,"Owner":"Bob","W":11,"L":2,"RS_Finish":1,"Pts Rank":1,"PO_Finish":3,"PointsFor":1691},{"Year":2011,"Owner":"Adrian","W":8,"L":5,"RS_Finish":2,"Pts Rank":5,"PO_Finish":4,"PointsFor":1614},{"Year":2011,"Owner":"Sam","W":7,"L":6,"RS_Finish":5,"Pts Rank":4,"PO_Finish":5,"PointsFor":1624},{"Year":2011,"Owner":"Cory","W":7,"L":6,"RS_Finish":3,"Pts Rank":2,"PO_Finish":6,"PointsFor":1646},{"Year":2011,"Owner":"Zac","W":5,"L":8,"RS_Finish":7,"Pts Rank":6,"PO_Finish":7,"PointsFor":1581},{"Year":2011,"Owner":"Mac","W":5,"L":8,"RS_Finish":8,"Pts Rank":7,"PO_Finish":8,"PointsFor":1571},{"Year":2011,"Owner":"Ben","W":4,"L":9,"RS_Finish":9,"Pts Rank":8,"PO_Finish":9,"PointsFor":1498},{"Year":2011,"Owner":"RJ","W":4,"L":9,"RS_Finish":10,"Pts Rank":10,"PO_Finish":10,"PointsFor":1343},{"Year":2012,"Owner":"Harp","W":7,"L":6,"RS_Finish":4,"Pts Rank":1,"PO_Finish":1,"PointsFor":1722},{"Year":2012,"Owner":"Sam","W":6,"L":7,"RS_Finish":6,"Pts Rank":5,"PO_Finish":2,"PointsFor":1616},{"Year":2012,"Owner":"Ben","W":8,"L":5,"RS_Finish":2,"Pts Rank":3,"PO_Finish":3,"PointsFor":1657},{"Year":2012,"Owner":"Adrian","W":9,"L":4,"RS_Finish":1,"Pts Rank":2,"PO_Finish":4,"PointsFor":1680},{"Year":2012,"Owner":"Zac","W":8,"L":5,"RS_Finish":3,"Pts Rank":4,"PO_Finish":5,"PointsFor":1624},{"Year":2012,"Owner":"Dan","W":7,"L":6,"RS_Finish":5,"Pts Rank":6,"PO_Finish":6,"PointsFor":1581},{"Year":2012,"Owner":"RJ","W":6,"L":7,"RS_Finish":7,"Pts Rank":9,"PO_Finish":7,"PointsFor":1461},{"Year":2012,"Owner":"Cory","W":4,"L":9,"RS_Finish":9,"Pts Rank":8,"PO_Finish":8,"PointsFor":1545},{"Year":2012,"Owner":"Bob","W":4,"L":9,"RS_Finish":10,"Pts Rank":10,"PO_Finish":9,"PointsFor":1424},{"Year":2012,"Owner":"Mac","W":5,"L":8,"RS_Finish":8,"Pts Rank":7,"PO_Finish":10,"PointsFor":1571},{"Year":2013,"Owner":"Ben","W":8,"L":5,"RS_Finish":3,"Pts Rank":6,"PO_Finish":1,"PointsFor":1595},{"Year":2013,"Owner":"Bob","W":7,"L":6,"RS_Finish":4,"Pts Rank":4,"PO_Finish":2,"PointsFor":1600},{"Year":2013,"Owner":"Cory","W":10,"L":3,"RS_Finish":1,"Pts Rank":2,"PO_Finish":3,"PointsFor":1748},{"Year":2013,"Owner":"Sam","W":8,"L":5,"RS_Finish":2,"Pts Rank":1,"PO_Finish":4,"PointsFor":1766},{"Year":2013,"Owner":"Zac","W":6,"L":7,"RS_Finish":6,"Pts Rank":7,"PO_Finish":5,"PointsFor":1590},{"Year":2013,"Owner":"Adrian","W":6,"L":7,"RS_Finish":5,"Pts Rank":3,"PO_Finish":6,"PointsFor":1638},{"Year":2013,"Owner":"Mac","W":5,"L":8,"RS_Finish":7,"Pts Rank":5,"PO_Finish":7,"PointsFor":1598},{"Year":2013,"Owner":"Dan","W":5,"L":8,"RS_Finish":9,"Pts Rank":9,"PO_Finish":8,"PointsFor":1540},{"Year":2013,"Owner":"Harp","W":5,"L":8,"RS_Finish":8,"Pts Rank":8,"PO_Finish":9,"PointsFor":1570},{"Year":2013,"Owner":"RJ","W":5,"L":8,"RS_Finish":10,"Pts Rank":10,"PO_Finish":10,"PointsFor":1476},{"Year":2014,"Owner":"Zac","W":11,"L":2,"RS_Finish":1,"Pts Rank":2,"PO_Finish":1,"PointsFor":1726},{"Year":2014,"Owner":"Bob","W":6,"L":7,"RS_Finish":6,"Pts Rank":7,"PO_Finish":2,"PointsFor":1525},{"Year":2014,"Owner":"Cory","W":7,"L":6,"RS_Finish":4,"Pts Rank":1,"PO_Finish":3,"PointsFor":1797},{"Year":2014,"Owner":"Dan","W":8,"L":5,"RS_Finish":2,"Pts Rank":4,"PO_Finish":4,"PointsFor":1692},{"Year":2014,"Owner":"Harp","W":8,"L":5,"RS_Finish":3,"Pts Rank":5,"PO_Finish":5,"PointsFor":1623},{"Year":2014,"Owner":"Sam","W":7,"L":6,"RS_Finish":5,"Pts Rank":3,"PO_Finish":6,"PointsFor":1718},{"Year":2014,"Owner":"Mac","W":5,"L":8,"RS_Finish":8,"Pts Rank":6,"PO_Finish":7,"PointsFor":1561},{"Year":2014,"Owner":"RJ","W":6,"L":7,"RS_Finish":7,"Pts Rank":8,"PO_Finish":8,"PointsFor":1509},{"Year":2014,"Owner":"Adrian","W":2,"L":11,"RS_Finish":10,"Pts Rank":10,"PO_Finish":9,"PointsFor":1418},{"Year":2014,"Owner":"Ben","W":5,"L":8,"RS_Finish":9,"Pts Rank":9,"PO_Finish":10,"PointsFor":1501},{"Year":2015,"Owner":"Harp","W":9,"L":4,"RS_Finish":1,"Pts Rank":1,"PO_Finish":1,"PointsFor":1784},{"Year":2015,"Owner":"Cory","W":8,"L":5,"RS_Finish":4,"Pts Rank":2,"PO_Finish":2,"PointsFor":1778},{"Year":2015,"Owner":"Zac","W":9,"L":4,"RS_Finish":2,"Pts Rank":4,"PO_Finish":3,"PointsFor":1666},{"Year":2015,"Owner":"Ben","W":9,"L":4,"RS_Finish":3,"Pts Rank":5,"PO_Finish":4,"PointsFor":1629},{"Year":2015,"Owner":"Mac","W":6,"L":7,"RS_Finish":6,"Pts Rank":6,"PO_Finish":5,"PointsFor":1617},{"Year":2015,"Owner":"RJ","W":3,"L":10,"RS_Finish":9,"Pts Rank":9,"PO_Finish":6,"PointsFor":1517},{"Year":2015,"Owner":"Adrian","W":8,"L":5,"RS_Finish":5,"Pts Rank":3,"PO_Finish":7,"PointsFor":1751},{"Year":2015,"Owner":"Sam","W":6,"L":7,"RS_Finish":7,"Pts Rank":7,"PO_Finish":8,"PointsFor":1528},{"Year":2015,"Owner":"Bob","W":5,"L":8,"RS_Finish":8,"Pts Rank":8,"PO_Finish":9,"PointsFor":1521},{"Year":2015,"Owner":"Dan","W":2,"L":11,"RS_Finish":10,"Pts Rank":10,"PO_Finish":10,"PointsFor":1466},{"Year":2016,"Owner":"Zac","W":6,"L":7,"RS_Finish":2,"Pts Rank":1,"PO_Finish":1,"PointsFor":1807},{"Year":2016,"Owner":"RJ","W":9,"L":4,"RS_Finish":1,"Pts Rank":4,"PO_Finish":2,"PointsFor":1655},{"Year":2016,"Owner":"Dan","W":7,"L":6,"RS_Finish":4,"Pts Rank":3,"PO_Finish":3,"PointsFor":1661},{"Year":2016,"Owner":"Mac","W":6,"L":7,"RS_Finish":5,"Pts Rank":2,"PO_Finish":4,"PointsFor":1714},{"Year":2016,"Owner":"Sam","W":6,"L":7,"RS_Finish":7,"Pts Rank":6,"PO_Finish":5,"PointsFor":1597},{"Year":2016,"Owner":"Bob","W":9,"L":4,"RS_Finish":3,"Pts Rank":5,"PO_Finish":6,"PointsFor":1620},{"Year":2016,"Owner":"Cory","W":7,"L":6,"RS_Finish":6,"Pts Rank":8,"PO_Finish":7,"PointsFor":1564},{"Year":2016,"Owner":"Adrian","W":5,"L":8,"RS_Finish":9,"Pts Rank":7,"PO_Finish":8,"PointsFor":1592},{"Year":2016,"Owner":"Ben","W":6,"L":7,"RS_Finish":8,"Pts Rank":9,"PO_Finish":9,"PointsFor":1531},{"Year":2016,"Owner":"Harp","W":4,"L":9,"RS_Finish":10,"Pts Rank":10,"PO_Finish":10,"PointsFor":1493},{"Year":2017,"Owner":"RJ","W":5,"L":8,"RS_Finish":5,"Pts Rank":3,"PO_Finish":1,"PointsFor":1722},{"Year":2017,"Owner":"Harp","W":10,"L":3,"RS_Finish":1,"Pts Rank":1,"PO_Finish":2,"PointsFor":1787},{"Year":2017,"Owner":"Bob","W":9,"L":4,"RS_Finish":2,"Pts Rank":2,"PO_Finish":3,"PointsFor":1738},{"Year":2017,"Owner":"Zac","W":8,"L":5,"RS_Finish":4,"Pts Rank":7,"PO_Finish":4,"PointsFor":1595},{"Year":2017,"Owner":"Adrian","W":7,"L":6,"RS_Finish":6,"Pts Rank":6,"PO_Finish":5,"PointsFor":1636},{"Year":2017,"Owner":"Sam","W":8,"L":5,"RS_Finish":3,"Pts Rank":4,"PO_Finish":6,"PointsFor":1672},{"Year":2017,"Owner":"Cory","W":4,"L":9,"RS_Finish":9,"Pts Rank":5,"PO_Finish":7,"PointsFor":1668},{"Year":2017,"Owner":"Dan","W":5,"L":8,"RS_Finish":7,"Pts Rank":9,"PO_Finish":8,"PointsFor":1472},{"Year":2017,"Owner":"Ben","W":4,"L":9,"RS_Finish":10,"Pts Rank":8,"PO_Finish":9,"PointsFor":1592},{"Year":2017,"Owner":"Mac","W":5,"L":8,"RS_Finish":8,"Pts Rank":10,"PO_Finish":10,"PointsFor":1455},{"Year":2018,"Owner":"Mac","W":8,"L":5,"RS_Finish":2,"Pts Rank":1,"PO_Finish":1,"PointsFor":1957},{"Year":2018,"Owner":"Adrian","W":10,"L":3,"RS_Finish":1,"Pts Rank":3,"PO_Finish":2,"PointsFor":1848},{"Year":2018,"Owner":"Zac","W":8,"L":5,"RS_Finish":4,"Pts Rank":2,"PO_Finish":3,"PointsFor":1870},{"Year":2018,"Owner":"Cory","W":9,"L":4,"RS_Finish":3,"Pts Rank":5,"PO_Finish":4,"PointsFor":1802},{"Year":2018,"Owner":"Dan","W":6,"L":7,"RS_Finish":7,"Pts Rank":8,"PO_Finish":5,"PointsFor":1738},{"Year":2018,"Owner":"Harp","W":4,"L":9,"RS_Finish":5,"Pts Rank":4,"PO_Finish":6,"PointsFor":1813},{"Year":2018,"Owner":"Bob","W":6,"L":7,"RS_Finish":6,"Pts Rank":6,"PO_Finish":7,"PointsFor":1781},{"Year":2018,"Owner":"Sam","W":4,"L":9,"RS_Finish":9,"Pts Rank":7,"PO_Finish":8,"PointsFor":1745},{"Year":2018,"Owner":"RJ","W":6,"L":7,"RS_Finish":8,"Pts Rank":10,"PO_Finish":9,"PointsFor":1639},{"Year":2018,"Owner":"Ben","W":4,"L":9,"RS_Finish":10,"Pts Rank":9,"PO_Finish":10,"PointsFor":1680},{"Year":2019,"Owner":"Harp","W":9,"L":4,"RS_Finish":2,"Pts Rank":1,"PO_Finish":1,"PointsFor":2033},{"Year":2019,"Owner":"Sam","W":10,"L":3,"RS_Finish":1,"Pts Rank":2,"PO_Finish":2,"PointsFor":1842},{"Year":2019,"Owner":"Zac","W":7,"L":6,"RS_Finish":6,"Pts Rank":6,"PO_Finish":3,"PointsFor":1732},{"Year":2019,"Owner":"Dan","W":8,"L":5,"RS_Finish":4,"Pts Rank":3,"PO_Finish":4,"PointsFor":1826},{"Year":2019,"Owner":"Cory","W":10,"L":3,"RS_Finish":3,"Pts Rank":4,"PO_Finish":5,"PointsFor":1777},{"Year":2019,"Owner":"Adrian","W":6,"L":7,"RS_Finish":7,"Pts Rank":7,"PO_Finish":6,"PointsFor":1674},{"Year":2019,"Owner":"Bob","W":8,"L":5,"RS_Finish":5,"Pts Rank":5,"PO_Finish":7,"PointsFor":1760},{"Year":2019,"Owner":"Mac","W":3,"L":10,"RS_Finish":8,"Pts Rank":9,"PO_Finish":8,"PointsFor":1482},{"Year":2019,"Owner":"Ben","W":1,"L":12,"RS_Finish":10,"Pts Rank":8,"PO_Finish":9,"PointsFor":1504},{"Year":2019,"Owner":"RJ","W":3,"L":10,"RS_Finish":9,"Pts Rank":10,"PO_Finish":10,"PointsFor":1325},{"Year":2020,"Owner":"Zac","W":10,"L":3,"RS_Finish":1,"Pts Rank":1,"PO_Finish":1,"PointsFor":1898},{"Year":2020,"Owner":"Harp","W":7,"L":6,"RS_Finish":4,"Pts Rank":2,"PO_Finish":2,"PointsFor":1856},{"Year":2020,"Owner":"Dan","W":9,"L":4,"RS_Finish":2,"Pts Rank":4,"PO_Finish":3,"PointsFor":1789},{"Year":2020,"Owner":"RJ","W":8,"L":5,"RS_Finish":3,"Pts Rank":10,"PO_Finish":4,"PointsFor":1569},{"Year":2020,"Owner":"Mac","W":4,"L":9,"RS_Finish":9,"Pts Rank":6,"PO_Finish":5,"PointsFor":1679},{"Year":2020,"Owner":"Sam","W":5,"L":8,"RS_Finish":6,"Pts Rank":5,"PO_Finish":6,"PointsFor":1716},{"Year":2020,"Owner":"Adrian","W":6,"L":7,"RS_Finish":5,"Pts Rank":3,"PO_Finish":7,"PointsFor":1805},{"Year":2020,"Owner":"Bob","W":6,"L":7,"RS_Finish":7,"Pts Rank":8,"PO_Finish":8,"PointsFor":1623},{"Year":2020,"Owner":"Ben","W":6,"L":7,"RS_Finish":8,"Pts Rank":9,"PO_Finish":9,"PointsFor":1588},{"Year":2020,"Owner":"Cory","W":4,"L":9,"RS_Finish":10,"Pts Rank":7,"PO_Finish":10,"PointsFor":1656},{"Year":2021,"Owner":"Sam","W":10,"L":4,"RS_Finish":3,"Pts Rank":2,"PO_Finish":1,"PointsFor":1980},{"Year":2021,"Owner":"Bob","W":11,"L":3,"RS_Finish":1,"Pts Rank":3,"PO_Finish":2,"PointsFor":1942},{"Year":2021,"Owner":"Zac","W":10,"L":4,"RS_Finish":2,"Pts Rank":1,"PO_Finish":3,"PointsFor":2095},{"Year":2021,"Owner":"Adrian","W":8,"L":6,"RS_Finish":5,"Pts Rank":4,"PO_Finish":4,"PointsFor":1916},{"Year":2021,"Owner":"Dan","W":5,"L":9,"RS_Finish":8,"Pts Rank":8,"PO_Finish":5,"PointsFor":1708},{"Year":2021,"Owner":"Ben","W":4,"L":10,"RS_Finish":6,"Pts Rank":6,"PO_Finish":6,"PointsFor":1769},{"Year":2021,"Owner":"Mac","W":9,"L":5,"RS_Finish":4,"Pts Rank":5,"PO_Finish":7,"PointsFor":1861},{"Year":2021,"Owner":"RJ","W":6,"L":8,"RS_Finish":7,"Pts Rank":7,"PO_Finish":8,"PointsFor":1753},{"Year":2021,"Owner":"Cory","W":3,"L":11,"RS_Finish":10,"Pts Rank":9,"PO_Finish":9,"PointsFor":1675},{"Year":2021,"Owner":"Harp","W":4,"L":10,"RS_Finish":9,"Pts Rank":10,"PO_Finish":10,"PointsFor":1660},{"Year":2022,"Owner":"Sam","W":9,"L":5,"RS_Finish":2,"Pts Rank":1,"PO_Finish":1,"PointsFor":1942},{"Year":2022,"Owner":"Adrian","W":9,"L":5,"RS_Finish":3,"Pts Rank":8,"PO_Finish":2,"PointsFor":1684},{"Year":2022,"Owner":"Cory","W":10,"L":4,"RS_Finish":1,"Pts Rank":2,"PO_Finish":3,"PointsFor":1884},{"Year":2022,"Owner":"Zac","W":7,"L":7,"RS_Finish":5,"Pts Rank":4,"PO_Finish":4,"PointsFor":1844},{"Year":2022,"Owner":"Mac","W":8,"L":6,"RS_Finish":4,"Pts Rank":5,"PO_Finish":5,"PointsFor":1843},{"Year":2022,"Owner":"RJ","W":7,"L":7,"RS_Finish":7,"Pts Rank":7,"PO_Finish":6,"PointsFor":1740},{"Year":2022,"Owner":"Ben","W":6,"L":8,"RS_Finish":6,"Pts Rank":3,"PO_Finish":7,"PointsFor":1860},{"Year":2022,"Owner":"Harp","W":5,"L":9,"RS_Finish":9,"Pts Rank":9,"PO_Finish":8,"PointsFor":1627},{"Year":2022,"Owner":"Dan","W":3,"L":11,"RS_Finish":10,"Pts Rank":10,"PO_Finish":9,"PointsFor":1569},{"Year":2022,"Owner":"Bob","W":6,"L":8,"RS_Finish":8,"Pts Rank":6,"PO_Finish":10,"PointsFor":1780},{"Year":2023,"Owner":"RJ","W":10,"L":4,"RS_Finish":1,"Pts Rank":7,"PO_Finish":1,"PointsFor":1754},{"Year":2023,"Owner":"Ben","W":7,"L":7,"RS_Finish":2,"Pts Rank":1,"PO_Finish":2,"PointsFor":1955},{"Year":2023,"Owner":"Adrian","W":8,"L":6,"RS_Finish":3,"Pts Rank":2,"PO_Finish":3,"PointsFor":1909},{"Year":2023,"Owner":"Cory","W":8,"L":6,"RS_Finish":4,"Pts Rank":4,"PO_Finish":4,"PointsFor":1816},{"Year":2023,"Owner":"Zac","W":7,"L":7,"RS_Finish":6,"Pts Rank":3,"PO_Finish":5,"PointsFor":1852},{"Year":2023,"Owner":"Sam","W":8,"L":6,"RS_Finish":7,"Pts Rank":6,"PO_Finish":6,"PointsFor":1782},{"Year":2023,"Owner":"Dan","W":8,"L":6,"RS_Finish":5,"Pts Rank":5,"PO_Finish":7,"PointsFor":1791},{"Year":2023,"Owner":"Bob","W":2,"L":12,"RS_Finish":10,"Pts Rank":9,"PO_Finish":8,"PointsFor":1679},{"Year":2023,"Owner":"Mac","W":8,"L":6,"RS_Finish":8,"Pts Rank":8,"PO_Finish":9,"PointsFor":1722},{"Year":2023,"Owner":"Harp","W":3,"L":11,"RS_Finish":9,"Pts Rank":10,"PO_Finish":10,"PointsFor":1627},{"Year":2024,"Owner":"Dan","W":10,"L":4,"RS_Finish":1,"Pts Rank":2,"PO_Finish":1,"PointsFor":1948},{"Year":2024,"Owner":"Harp","W":9,"L":5,"RS_Finish":2,"Pts Rank":1,"PO_Finish":2,"PointsFor":1966},{"Year":2024,"Owner":"RJ","W":8,"L":6,"RS_Finish":5,"Pts Rank":6,"PO_Finish":3,"PointsFor":1814},{"Year":2024,"Owner":"Sam","W":9,"L":5,"RS_Finish":3,"Pts Rank":3,"PO_Finish":4,"PointsFor":1920},{"Year":2024,"Owner":"Zac","W":6,"L":8,"RS_Finish":7,"Pts Rank":5,"PO_Finish":5,"PointsFor":1815},{"Year":2024,"Owner":"Ben","W":9,"L":5,"RS_Finish":4,"Pts Rank":7,"PO_Finish":6,"PointsFor":1787},{"Year":2024,"Owner":"Bob","W":7,"L":7,"RS_Finish":6,"Pts Rank":4,"PO_Finish":7,"PointsFor":1839},{"Year":2024,"Owner":"Cory","W":6,"L":8,"RS_Finish":8,"Pts Rank":8,"PO_Finish":8,"PointsFor":1729},{"Year":2024,"Owner":"Adrian","W":5,"L":9,"RS_Finish":9,"Pts Rank":9,"PO_Finish":9,"PointsFor":1705},{"Year":2024,"Owner":"Mac","W":1,"L":13,"RS_Finish":10,"Pts Rank":10,"PO_Finish":10,"PointsFor":1612},{"Year":2025,"Owner":"Sam","W":11,"L":3,"RS_Finish":1,"Pts Rank":2,"PO_Finish":1,"PointsFor":1937},{"Year":2025,"Owner":"Ben","W":8,"L":6,"RS_Finish":4,"Pts Rank":3,"PO_Finish":2,"PointsFor":1866},{"Year":2025,"Owner":"Bob","W":9,"L":5,"RS_Finish":2,"Pts Rank":1,"PO_Finish":3,"PointsFor":1973},{"Year":2025,"Owner":"RJ","W":9,"L":5,"RS_Finish":3,"Pts Rank":5,"PO_Finish":4,"PointsFor":1757},{"Year":2025,"Owner":"Cory","W":3,"L":11,"RS_Finish":10,"Pts Rank":8,"PO_Finish":5,"PointsFor":1684},{"Year":2025,"Owner":"Dan","W":3,"L":11,"RS_Finish":6,"Pts Rank":6,"PO_Finish":6,"PointsFor":1736},{"Year":2025,"Owner":"Adrian","W":8,"L":6,"RS_Finish":5,"Pts Rank":4,"PO_Finish":7,"PointsFor":1797},{"Year":2025,"Owner":"Zac","W":8,"L":6,"RS_Finish":7,"Pts Rank":7,"PO_Finish":8,"PointsFor":1731},{"Year":2025,"Owner":"Harp","W":4,"L":10,"RS_Finish":9,"Pts Rank":10,"PO_Finish":9,"PointsFor":1647},{"Year":2025,"Owner":"Mac","W":7,"L":7,"RS_Finish":8,"Pts Rank":9,"PO_Finish":10,"PointsFor":1667}];
+const OFFICIAL_SNAPSHOTS = {"2018":[{"owner":"Harp","prestige":80,"rank":1},{"owner":"Zac","prestige":57,"rank":2},{"owner":"Sam","prestige":55,"rank":3},{"owner":"Bob","prestige":41,"rank":4},{"owner":"Cory","prestige":40,"rank":5},{"owner":"Adrian","prestige":20,"rank":6},{"owner":"RJ","prestige":19,"rank":7},{"owner":"Dan","prestige":18,"rank":8},{"owner":"Ben","prestige":14,"rank":9},{"owner":"Mac","prestige":-14,"rank":10}],"2022":[{"owner":"Zac","prestige":110,"rank":1},{"owner":"Harp","prestige":102,"rank":2},{"owner":"Sam","prestige":87,"rank":3},{"owner":"Bob","prestige":58,"rank":4},{"owner":"Adrian","prestige":40,"rank":5},{"owner":"Cory","prestige":39,"rank":6},{"owner":"Dan","prestige":26,"rank":7},{"owner":"Mac","prestige":10,"rank":8},{"owner":"RJ","prestige":7,"rank":9},{"owner":"Ben","prestige":6,"rank":10}],"2026":[{"owner":"Sam","prestige":137,"rank":1},{"owner":"Zac","prestige":116,"rank":2},{"owner":"Harp","prestige":102,"rank":3},{"owner":"Bob","prestige":64,"rank":4},{"owner":"Adrian","prestige":57,"rank":5},{"owner":"Cory","prestige":54,"rank":6},{"owner":"Dan","prestige":52,"rank":7},{"owner":"RJ","prestige":40,"rank":8},{"owner":"Ben","prestige":33,"rank":9},{"owner":"Mac","prestige":-2,"rank":10}]};
+const DISPLAY_NAMES = {Harp:"Habble", Adrian:"Bubbs"};
+const INTERNAL_NAMES = {Habble:"Harp", Bubbs:"Adrian"};
+let state = {
+  records: structuredClone(INITIAL_RECORDS),
+  weights: {title:10,pennant:7,most_points:6,playoffs:3,runner_up:2,podium:2,above_500:1,below_500:-1,least_points:-2,toilet:-7},
+  tiers: {Sam:1,Zac:2,Harp:3,Bob:4,Adrian:4,Cory:4,Dan:4,RJ:4,Ben:4,Mac:6},
+  snapshotYear: 2021
+};
+let lastSavedState = structuredClone(state);
+
+const categoryLabels = {
+ title:"Titles", runner_up:"Runner-Ups", podium:"Trophies (Podiums)", pennant:"Pennants (RS)",
+ most_points:"Most Points (RS)", playoffs:"Playoff Appearances", above_500:"Seasons > .500",
+ exact_500:"Seasons = .500", below_500:"Seasons < .500", least_points:"Least Points (RS)", toilet:"Toilets (since 2013)"
+};
+const matrixOrder = ["title","runner_up","podium","pennant","most_points","playoffs","above_500","exact_500","below_500","least_points","toilet"];
+const revealOrder = [6,5,4,7,8,3,9,10,2,1];
+let pointMode = false, revealIndex = 0, revealed = [], autoTimer = null, tickerBusy = false, autoPlaying = false;
+let auditSort={key:null,direction:null};
+let pendingRecords = structuredClone(state.records);
+let pendingWeights = structuredClone(state.weights);
+let pendingTiers = structuredClone(state.tiers);
+let hasPendingChanges = false;
+
+
+function setChangeStatus(mode,message){
+ const el=document.getElementById("changeStatus");
+ if(!el)return;
+ el.className=`change-status ${mode}`;
+ el.textContent=message;
+}
+function markPending(el){
+ hasPendingChanges=true;
+ if(el)el.classList.add("pending");
+ setChangeStatus("dirty","Unsaved changes");
+}
+function resetPendingFromSaved(){
+ pendingRecords=structuredClone(state.records);
+ pendingWeights=structuredClone(state.weights);
+ pendingTiers=structuredClone(state.tiers);
+ hasPendingChanges=false;
+ setChangeStatus("clean","No pending changes");
+}
+
+function discardPendingChanges(){
+  // Restore all editable working data from the true last-saved snapshot.
+  pendingRecords = structuredClone(lastSavedState.records);
+  pendingWeights = structuredClone(lastSavedState.weights);
+  pendingTiers = structuredClone(lastSavedState.tiers);
+  hasPendingChanges = false;
+
+  // Rebuild scoring inputs explicitly.
+  const weightLabels={
+    title:"Title",pennant:"RS Title",most_points:"Most Points",
+    playoffs:"Playoff Appearance",runner_up:"Runner-Up",
+    podium:"Trophy / Podium",above_500:"Above .500",
+    below_500:"Below .500",least_points:"Least Points",toilet:"Toilet"
+  };
+  document.getElementById("settingsGrid").innerHTML=
+    Object.keys(pendingWeights).map(k=>
+      `<label class="setting">${weightLabels[k]}<input type="number" data-weight="${k}" value="${pendingWeights[k]}"></label>`
+    ).join("");
+
+  // Rebuild tier selectors explicitly.
+  const owners=career().map(x=>x.owner);
+  document.getElementById("tierGrid").innerHTML=
+    owners.map(owner=>
+      `<label class="setting">${displayName(owner)}<select data-tier="${owner}">${
+        [1,2,3,4,5,6].map(t=>
+          `<option value="${t}" ${Number(pendingTiers[owner])===t?"selected":""}>${t}</option>`
+        ).join("")
+      }</select></label>`
+    ).join("");
+
+  // Rebind scoring and tier change tracking after replacing their HTML.
+  document.querySelectorAll("[data-weight]").forEach(i=>i.addEventListener("input",e=>{
+    pendingWeights[e.target.dataset.weight]=+e.target.value;
+    markPending(e.target);
+  }));
+  document.querySelectorAll("[data-tier]").forEach(i=>i.addEventListener("change",e=>{
+    pendingTiers[e.target.dataset.tier]=+e.target.value;
+    markPending(e.target);
+  }));
+
+  // Rebuild season selector solely from the restored saved records.
+  const years=[...new Set(pendingRecords.map(r=>+r.Year))].sort((a,b)=>b-a);
+  const editYear=document.getElementById("editYear");
+  editYear.innerHTML=years.map(y=>`<option value="${y}">${y}</option>`).join("");
+  editYear.value=String(years[0]);
+
+  // Rebuild the editor table from restored rows.
+  renderEditor();
+
+  document.querySelectorAll(".pending").forEach(el=>el.classList.remove("pending"));
+  setChangeStatus("clean","Changes discarded");
+}
+function integrityFor(records){
+ const issues=[],years=[...new Set(records.map(r=>+r.Year))].sort();
+ years.forEach(y=>{
+  const rows=records.filter(r=>+r.Year===y);
+  if(rows.length!==10)issues.push(`${y}: ${rows.length} owner rows (expected 10)`);
+  const names=rows.map(r=>r.Owner);
+  if(new Set(names).size!==names.length)issues.push(`${y}: duplicate owner row`);
+  ["RS_Finish","Pts Rank","PO_Finish"].forEach(k=>{
+   const vals=rows.map(r=>+r[k]);
+   if(vals.some(v=>!Number.isFinite(v)))issues.push(`${y}: invalid ${k}`);
+   if(new Set(vals).size!==vals.length)issues.push(`${y}: duplicate ${k}`);
+   if(vals.some(v=>v<1||v>10))issues.push(`${y}: invalid ${k}`);
+  });
+  if(rows.filter(r=>+r.PO_Finish===1).length!==1)issues.push(`${y}: champion count is not 1`);
+  if(rows.filter(r=>+r.PO_Finish===2).length!==1)issues.push(`${y}: runner-up count is not 1`);
+ });
+ return issues;
+}
+
+function displayName(n){return DISPLAY_NAMES[n]||n}
+function playoffSlots(y){return (y<=2014 || y>=2019)?6:5}
+function enrichRecord(r){
+  const y=+r.Year,w=+r.W,l=+r.L,rs=+r.RS_Finish,pr=+r["Pts Rank"],po=+r.PO_Finish;
+  const flags={
+    playoffs:rs<=playoffSlots(y), pennant:rs===1, most_points:pr===1, least_points:pr===10,
+    title:po===1, runner_up:po===2, podium:po<=3, toilet:y>=2013&&po===10,
+    above_500:w>l, below_500:w<l, exact_500:w===l
+  };
+  let prestige=0;
+  Object.keys(state.weights).forEach(k=>prestige+=(flags[k]?state.weights[k]:0));
+  return {...r,...flags,prestige};
+}
+function enriched(until=9999){return state.records.filter(r=>+r.Year<=until).map(enrichRecord)}
+function career(until=9999){
+  const rows=enriched(until), owners=[...new Set(rows.map(r=>r.Owner))], out=[];
+  owners.forEach(owner=>{
+    const os=rows.filter(r=>r.Owner===owner), x={owner,seasons:os.length};
+    matrixOrder.forEach(k=>x[k]=os.filter(r=>r[k]).length);
+    x.prestige=os.reduce((a,r)=>a+r.prestige,0);
+    x.years={};
+    matrixOrder.forEach(k=>x.years[k]=os.filter(r=>r[k]).map(r=>+r.Year));
+    out.push(x);
+  });
+  out.sort((a,b)=>b.prestige-a.prestige || displayName(a.owner).localeCompare(displayName(b.owner)));
+  out.forEach((x,i)=>x.rank=i+1);
+  return out;
+}
+function integrity(){return integrityFor(state.records)}
+function renderAll(){
+  resetPendingFromSaved();
+  renderIntegrity(); renderRankings(); renderMatrix(); renderAuditSelectors(); renderAudit();
+  renderSettings(); renderTiers(); renderEditor(); renderHistoricalSnapshots(); renderFourYearRecap(); renderPermanentFinal(); resetReveal(); renderJourney();
+}
+function renderIntegrity(){
+  const issues=integrity(), el=document.getElementById("integrityCard");
+  el.className="card integrity "+(issues.length?"warn":"good");
+  el.innerHTML=issues.length
+   ? `<strong>Data Integrity: ${issues.length} issue${issues.length>1?"s":""} detected</strong><div class="muted">${issues.slice(0,5).join("<br>")}</div>`
+   : `<strong>Data Integrity: Verified</strong><div class="muted">${new Set(state.records.map(r=>r.Year)).size} seasons, ${state.records.length} owner records, no structural issues detected.</div>`;
+}
+function renderRankings(){
+  const current=career(), old=career(state.snapshotYear), om=Object.fromEntries(old.map(x=>[x.owner,x]));
+  document.getElementById("rankingCards").innerHTML=current.map(x=>{
+    const o=om[x.owner],delta=o?x.prestige-o.prestige:0,move=o?o.rank-x.rank:0;
+    return `<div class="card">
+      <div class="muted">#${x.rank} · Tier ${state.tiers[x.owner]||"—"}</div>
+      <div style="font-size:22px;font-weight:750;margin-top:3px">${displayName(x.owner)}</div>
+      <div class="metric ${x.prestige<0?"negative":""}">${x.prestige}</div>
+      <div class="muted">${delta>=0?"+":""}${delta} Prestige since ${state.snapshotYear} · ${move===0?"No rank change":move>0?`▲ ${move}`:`▼ ${Math.abs(move)}`}</div>
+    </div>`;
+  }).join("");
+}
+function expectedAuditText(category,rowTotal){
+ const seasons=[...new Set(state.records.map(r=>+r.Year))].sort((a,b)=>a-b);
+ const first=Math.min(...seasons),last=Math.max(...seasons),count=seasons.length;
+ if(category==="title"){
+   const expected=count;
+   return `Expected: ${expected} (1 title × ${count} seasons) ${rowTotal===expected?"✓":"⚠"}`;
+ }
+ if(category==="runner_up"){
+   const expected=count;
+   return `Expected: ${expected} (1 runner-up × ${count} seasons) ${rowTotal===expected?"✓":"⚠"}`;
+ }
+ if(category==="podium"){
+   const expected=count*3;
+   return `Expected: ${expected} (3 podiums × ${count} seasons) ${rowTotal===expected?"✓":"⚠"}`;
+ }
+ if(category==="pennant" || category==="most_points" || category==="least_points"){
+   const expected=count;
+   const label=category==="pennant"?"pennant":category==="most_points"?"Most Points award":"Least Points award";
+   return `Expected: ${expected} (1 ${label} × ${count} seasons) ${rowTotal===expected?"✓":"⚠"}`;
+ }
+ if(category==="playoffs"){
+   const groups=[
+     {label:"2010–2014",years:seasons.filter(y=>y>=2010&&y<=2014),slots:6},
+     {label:"2015–2018",years:seasons.filter(y=>y>=2015&&y<=2018),slots:5},
+     {label:"2019–Present",years:seasons.filter(y=>y>=2019),slots:6}
+   ].filter(g=>g.years.length);
+   const expected=groups.reduce((a,g)=>a+g.years.length*g.slots,0);
+   const detail=groups.map(g=>`${g.label}: ${g.slots} × ${g.years.length} = ${g.slots*g.years.length}`).join("<br>");
+   return `${detail}<br><strong>Expected: ${expected}</strong> ${rowTotal===expected?"✓":"⚠"}`;
+ }
+ if(category==="above_500" || category==="exact_500" || category==="below_500"){
+   return `Audit with the other record categories: > .500 + = .500 + < .500 should equal ${state.records.length} owner-seasons.`;
+ }
+ if(category==="toilet"){
+   const active=seasons.filter(y=>y>=2013).length;
+   const expected=active;
+   return `Expected: ${expected} (1 Toilet × ${active} active seasons, beginning 2013) ${rowTotal===expected?"✓":"⚠"}`;
+ }
+ return `Observed total across all owners: ${rowTotal}`;
+}
+function renderMatrix(){
+  const arr=career(), table=document.getElementById("matrixTable");
+  let html="<thead><tr><th>Category</th>"+arr.map(x=>`<th>${displayName(x.owner)}</th>`).join("")+`<th>Total</th>`+"</tr></thead><tbody>";
+  matrixOrder.forEach(k=>{
+    const vals=arr.map(x=>pointMode ? (k==="exact_500"?0:x[k]*(state.weights[k]||0)) : x[k]);
+    const leader=(k==="least_points"||k==="toilet"||k==="below_500")?Math.max(...vals):Math.max(...vals);
+    html+=`<tr><td class="category">${pointMode?categoryLabels[k]+" Points":categoryLabels[k]}</td>`;
+    let rowTotal=0;
+    arr.forEach((x,i)=>{
+      const years=x.years[k].join(", ")||"None";
+      const isNegativeCategory=["below_500","least_points","toilet"].includes(k);
+      const classes=[vals[i]===leader?"leader":"",isNegativeCategory?"negative-stat":""].filter(Boolean).join(" ");
+      rowTotal+=vals[i];
+      html+=`<td class="${classes}" data-tip="${displayName(x.owner)} — ${categoryLabels[k]}<br>${years}">${vals[i]}</td>`;
+    });
+    html+=`<td data-tip="${categoryLabels[k]} — League Total<br>${expectedAuditText(k,rowTotal)}"><strong>${rowTotal}</strong></td></tr>`;
+  });
+  html+=`<tr class="total-row prestige-total-row"><td>Prestige Score</td>${arr.map(x=>`<td style="${x.prestige<0?"color:#a23b3b!important;":x.prestige===0?"color:#777!important;":""}" class="${x.prestige<0?"negative prestige-negative":x.prestige===0?"prestige-zero":""}">${x.prestige}</td>`).join("")}<td>—</td></tr></tbody>`;
+  table.innerHTML=html; bindTooltips();
+}
+function renderAuditSelectors(){
+  const years=[...new Set(state.records.map(r=>+r.Year))].sort((a,b)=>b-a);
+  ["auditYear","editYear"].forEach(id=>{
+    const source=id==="editYear"?pendingRecords:state.records;
+    const list=[...new Set(source.map(r=>+r.Year))].sort((a,b)=>b-a);
+    const el=document.getElementById(id),old=el.value;
+    el.innerHTML=list.map(y=>`<option>${y}</option>`).join("");
+    if(list.includes(+old)) el.value=old;
+  });
+}
+function eventText(r){
+  const p=[],n=[];
+  [["title","Title"],["runner_up","Runner-Up"],["podium","Podium"],["pennant","Pennant"],["most_points","Most Points"],["playoffs","Playoffs"],["above_500","> .500"]].forEach(([k,l])=>{if(r[k])p.push(`${l} (${state.weights[k]>=0?"+":""}${state.weights[k]})`)});
+  [["below_500","< .500"],["least_points","Least Points"],["toilet","Toilet"]].forEach(([k,l])=>{if(r[k])n.push(`${l} (${state.weights[k]})`)});
+  if(r.exact_500)p.push("Exactly .500 (0)");
+  return `<span class="event-pos">${p.join(", ")}</span>${p.length&&n.length?"<br>":""}<span class="event-neg">${n.join(", ")}</span>`;
+}
+function renderAudit(){
+  const y=+document.getElementById("auditYear").value || Math.max(...state.records.map(r=>+r.Year));
+  const baseRows=enriched(y).filter(r=>+r.Year===y);
+  const allThroughYear=enriched(y);
+  const cumulativeByOwner={};
+  allThroughYear.forEach(r=>cumulativeByOwner[r.Owner]=(cumulativeByOwner[r.Owner]||0)+r.prestige);
+
+  const rows=baseRows.map(r=>({...r,cumulativePrestige:cumulativeByOwner[r.Owner]||0}));
+  const defaultSort=(a,b)=>a.RS_Finish-b.RS_Finish;
+
+  const comparators={
+    owner:(a,b)=>displayName(a.Owner).localeCompare(displayName(b.Owner)),
+    wins:(a,b)=>(+a.W)-(+b.W),
+    losses:(a,b)=>(+a.L)-(+b.L),
+    rsFinish:(a,b)=>(+a.RS_Finish)-(+b.RS_Finish),
+    ptsRank:(a,b)=>(+a["Pts Rank"])-(+b["Pts Rank"]),
+    pointsFor:(a,b)=>(+a.PointsFor)-(+b.PointsFor),
+    poFinish:(a,b)=>(+a.PO_Finish)-(+b.PO_Finish),
+    seasonPrestige:(a,b)=>(+a.prestige)-(+b.prestige),
+    cumulativePrestige:(a,b)=>(+a.cumulativePrestige)-(+b.cumulativePrestige)
+  };
+
+  if(auditSort.key && auditSort.direction){
+    const cmp=comparators[auditSort.key];
+    rows.sort((a,b)=>{
+      const result=cmp(a,b);
+      if(result!==0) return auditSort.direction==="asc"?result:-result;
+      return defaultSort(a,b);
+    });
+  }else{
+    rows.sort(defaultSort);
+  }
+
+  const headers=[
+    ["owner","Owner"],
+    ["wins","W"],
+    ["losses","L"],
+    ["rsFinish","RS Finish"],
+    ["ptsRank","Pts Rank"],
+    ["pointsFor","Points For"],
+    ["poFinish","PO Finish"],
+    [null,"Derived Events"],
+    ["seasonPrestige","Season Prestige"],
+    ["cumulativePrestige","Cumulative Prestige"]
+  ];
+
+  const headerHtml=headers.map(([key,label])=>{
+    if(!key) return `<th>${label}</th>`;
+    const active=auditSort.key===key && auditSort.direction;
+    const indicator=active?(auditSort.direction==="asc"?"▲":"▼"):"";
+    return `<th class="sortable-header ${active?"active-sort":""}" data-sort-key="${key}" title="Click to sort; click again to reverse; click a third time to reset">${label}<span class="sort-indicator">${indicator}</span></th>`;
+  }).join("");
+
+  const seasonTotal=rows.reduce((sum,r)=>sum+r.prestige,0);
+  const leagueCumulative=Object.values(cumulativeByOwner).reduce((sum,v)=>sum+v,0);
+
+  document.getElementById("auditTable").innerHTML=`<thead><tr>${headerHtml}</tr></thead><tbody>`+
+    rows.map(r=>{
+      const cumulative=r.cumulativePrestige;
+      return `<tr><td>${displayName(r.Owner)}</td><td>${r.W}</td><td>${r.L}</td><td>${r.RS_Finish}</td><td>${r["Pts Rank"]}</td><td>${Number(r.PointsFor).toLocaleString(undefined,{maximumFractionDigits:2})}</td><td>${r.PO_Finish}</td><td class="event-list">${eventText(r)}</td><td class="${r.prestige<0?"negative":""}"><strong>${r.prestige>=0?"+":""}${r.prestige}</strong></td><td class="${cumulative<0?"negative":""}"><strong>${cumulative}</strong></td></tr>`;
+    }).join("")+
+    `<tr class="total-row"><td colspan="8">League Prestige — ${y}</td><td class="${seasonTotal<0?"negative":""}">${seasonTotal>=0?"+":""}${seasonTotal} this season</td><td class="${leagueCumulative<0?"negative":""}">${leagueCumulative} cumulative</td></tr></tbody>`;
+
+  document.querySelectorAll("#auditTable .sortable-header").forEach(th=>{
+    th.addEventListener("click",()=>{
+      const key=th.dataset.sortKey;
+      if(auditSort.key!==key){
+        auditSort={key,direction:"asc"};
+      }else if(auditSort.direction==="asc"){
+        auditSort.direction="desc";
+      }else{
+        auditSort={key:null,direction:null};
+      }
+      renderAudit();
+    });
+  });
+}
+function renderSettings(){
+  const labels={title:"Title",pennant:"RS Title",most_points:"Most Points",playoffs:"Playoff Appearance",runner_up:"Runner-Up",podium:"Trophy / Podium",above_500:"Above .500",below_500:"Below .500",least_points:"Least Points",toilet:"Toilet"};
+  document.getElementById("settingsGrid").innerHTML=Object.keys(pendingWeights).map(k=>`<label class="setting">${labels[k]}<input type="number" data-weight="${k}" value="${pendingWeights[k]}"></label>`).join("");
+  document.querySelectorAll("[data-weight]").forEach(i=>i.addEventListener("input",e=>{
+    pendingWeights[e.target.dataset.weight]=+e.target.value;
+    markPending(e.target);
+  }));
+}
+function renderTiers(){
+  document.getElementById("tierGrid").innerHTML=career().map(x=>`<label class="setting">${displayName(x.owner)}<select data-tier="${x.owner}">${[1,2,3,4,5,6].map(t=>`<option ${pendingTiers[x.owner]===t?"selected":""}>${t}</option>`).join("")}</select></label>`).join("");
+  document.querySelectorAll("[data-tier]").forEach(i=>i.addEventListener("change",e=>{
+    pendingTiers[e.target.dataset.tier]=+e.target.value;
+    markPending(e.target);
+  }));
+}
+function renderEditor(){
+  const y=+document.getElementById("editYear").value||Math.max(...pendingRecords.map(r=>+r.Year));
+  const rows=pendingRecords.filter(r=>+r.Year===y).sort((a,b)=>a.RS_Finish-b.RS_Finish);
+  document.getElementById("editorTable").innerHTML=`<thead><tr><th>Owner</th><th>W</th><th>L</th><th>RS Finish</th><th>Pts Rank</th><th>PO Finish</th><th>Points For</th></tr></thead><tbody>`+
+  rows.map(r=>`<tr data-owner="${r.Owner}">
+    <td>${displayName(r.Owner)}</td>
+    ${["W","L","RS_Finish","Pts Rank","PO_Finish","PointsFor"].map(k=>`<td><input type="number" data-field="${k}" value="${r[k]}"></td>`).join("")}
+  </tr>`).join("")+"</tbody>";
+  document.querySelectorAll("#editorTable input").forEach(inp=>inp.addEventListener("input",e=>{
+    const owner=e.target.closest("tr").dataset.owner,field=e.target.dataset.field;
+    const rec=pendingRecords.find(r=>+r.Year===y&&r.Owner===owner);
+    rec[field]=+e.target.value;
+    markPending(e.target);
+  }));
+}
+function bindTooltips(){
+  const tip=document.getElementById("tooltip");
+  document.querySelectorAll("[data-tip]").forEach(el=>{
+    el.addEventListener("mouseenter",()=>{tip.innerHTML=el.dataset.tip;tip.style.display="block"});
+    el.addEventListener("mousemove",e=>{tip.style.left=(e.clientX+14)+"px";tip.style.top=(e.clientY+14)+"px"});
+    el.addEventListener("mouseleave",()=>tip.style.display="none");
+  });
+}
+function download(name,text,type="application/json"){
+  const a=document.createElement("a"); a.href=URL.createObjectURL(new Blob([text],{type}));a.download=name;a.click();URL.revokeObjectURL(a.href);
+}
+function csvEscape(v){const s=String(v??"");return /[",\n]/.test(s)?`"${s.replaceAll('"','""')}"`:s}
+function exportMatrixCsv(){
+ const arr=career(), rows=[["Category",...arr.map(x=>displayName(x.owner))]];
+ matrixOrder.forEach(k=>rows.push([categoryLabels[k],...arr.map(x=>x[k])]));
+ rows.push(["Prestige Score",...arr.map(x=>x.prestige)]);
+ download("career-prestige-matrix.csv",rows.map(r=>r.map(csvEscape).join(",")).join("\n"),"text/csv");
+}
+function exportSeasonCsv(){
+ const cols=["Year","Owner","W","L","RS_Finish","Pts Rank","PO_Finish","PointsFor"];
+ const rows=[cols,...state.records.map(r=>cols.map(c=>r[c]))];
+ download("prestige-season-history.csv",rows.map(r=>r.map(csvEscape).join(",")).join("\n"),"text/csv");
+}
+function movementText(oldRank,newRank){
+ const move=oldRank-newRank;
+ if(move===0)return "No rank change";
+ return move>0?`▲ ${move} rank${move===1?"":"s"}`:`▼ ${Math.abs(move)} rank${Math.abs(move)===1?"":"s"}`;
+}
+function movementClass(oldRank,newRank){
+ const move=oldRank-newRank;
+ return move>0?"move-up":move<0?"move-down":"move-flat";
+}
+function valueClass(delta){
+ return delta>0?"value-up":delta<0?"value-down":"value-flat";
+}
+function newSlotBadge(oldRank,newRank){
+ return oldRank!==newRank?`<span class="new-slot">NEW SLOT</span>`:"";
+}
+function renderOfficialSnapshot(snapshotKey,priorKey,targetId){
+ const rows=OFFICIAL_SNAPSHOTS[String(snapshotKey)];
+ const prior=priorKey?Object.fromEntries(OFFICIAL_SNAPSHOTS[String(priorKey)].map(x=>[x.owner,x])):{};
+ document.getElementById(targetId).innerHTML=rows.map(x=>{
+   const old=prior[x.owner];
+   const move=old?movementText(old.rank,x.rank):"Original";
+   return `<div class="snapshot-row">
+     <div>#${x.rank}</div>
+     <div class="sname">${displayName(x.owner)}</div>
+     <div class="sscore ${x.prestige<0?"negative":""}">${x.prestige}</div>
+     <div class="smove ${old?movementClass(old.rank,x.rank):"move-flat"}">${move}</div>
+   </div>`;
+ }).join("");
+}
+
+function recapData(){
+ const curr=OFFICIAL_SNAPSHOTS["2026"];
+ const prior=Object.fromEntries(OFFICIAL_SNAPSHOTS["2022"].map(x=>[x.owner,x]));
+ return curr.map(x=>{
+   const old=prior[x.owner];
+   return {
+     ...x,
+     oldRank:old.rank,
+     oldPrestige:old.prestige,
+     prestigeDelta:x.prestige-old.prestige,
+     rankDelta:old.rank-x.rank
+   };
+ });
+}
+function recapDriverText(owner,direction){
+ const categoryLabels={
+   title:["title","titles"], pennant:["pennant","pennants"], most_points:["most-points finish","most-points finishes"],
+   playoffs:["playoff appearance","playoff appearances"], runner_up:["runner-up","runner-ups"], podium:["podium","podiums"],
+   above_500:["season above .500","seasons above .500"], below_500:["season below .500","seasons below .500"],
+   least_points:["least-points finish","least-points finishes"], toilet:["toilet","toilets"]
+ };
+ const categories=direction==="positive"
+   ? ["title","pennant","most_points","playoffs","runner_up","podium","above_500"]
+   : ["toilet","least_points","below_500"];
+ const ownerRows=enriched().filter(r=>r.Owner===owner && +r.Year>=2022 && +r.Year<=2025);
+ const drivers=categories.map(category=>{
+   const count=ownerRows.reduce((sum,r)=>sum+(r[category]?1:0),0);
+   return {category,count,impact:count*Math.abs(state.weights[category]||0)};
+ }).filter(x=>x.count>0).sort((a,b)=>b.impact-a.impact || b.count-a.count).slice(0,3);
+ if(!drivers.length) return displayName(owner);
+ const parts=drivers.map(x=>`${x.count} ${categoryLabels[x.category][x.count===1?0:1]}`);
+ return `${displayName(owner)} · ${parts.join(" · ")}`;
+}
+
+function renderFourYearRecap(){
+ const rows=recapData().sort((a,b)=>b.prestigeDelta-a.prestigeDelta || b.rankDelta-a.rankDelta || a.rank-b.rank);
+ document.getElementById("recapMovementRows").innerHTML=rows.map(x=>`
+   <div class="recap-row">
+     <div class="recap-owner">${displayName(x.owner)}${newSlotBadge(x.oldRank,x.rank)}</div>
+     <div class="recap-delta ${valueClass(x.prestigeDelta)}">${x.prestigeDelta>=0?"+":""}${x.prestigeDelta}</div>
+     <div class="recap-move ${movementClass(x.oldRank,x.rank)}">${movementText(x.oldRank,x.rank)}</div>
+   </div>`).join("");
+ const total=rows.reduce((s,x)=>s+x.prestigeDelta,0);
+ const largestGain=rows.reduce((best,x)=>x.prestigeDelta>best.prestigeDelta?x:best,rows[0]);
+ const largestDrop=rows.reduce((worst,x)=>x.prestigeDelta<worst.prestigeDelta?x:worst,rows[0]);
+ const positive=rows.filter(x=>x.rankDelta>0).length;
+ const neutral=rows.filter(x=>x.rankDelta===0).length;
+ const negative=rows.filter(x=>x.rankDelta<0).length;
+ const stats=[
+   ["Prestige Added",`${total>=0?"+":""}${total}`,"Across the full league"],
+   ["Largest Gain",`${largestGain.prestigeDelta>=0?"+":""}${largestGain.prestigeDelta}`,recapDriverText(largestGain.owner,"positive")],
+   ["Largest Drop",`${largestDrop.prestigeDelta>=0?"+":""}${largestDrop.prestigeDelta}`,recapDriverText(largestDrop.owner,"negative")],
+   ["Positive Movers",positive,"Moved up in rank"],
+   ["No Change",neutral,"Held the same rank"],
+   ["Negative Movers",negative,"Moved down in rank"]
+ ];
+ document.getElementById("recapSummary").innerHTML=stats.map(([label,value,detail])=>`
+   <div class="summary-stat">
+     <div class="label">${label}</div>
+     <div class="value">${value}</div>
+     ${detail?`<div class="detail">${detail}</div>`:""}
+   </div>`).join("");
+}
+
+function fourSeasonRecords(){
+ const seasons=[...new Set(state.records.map(r=>+r.Year))].sort((a,b)=>a-b);
+ const owners=[...new Set(state.records.map(r=>r.Owner))];
+ const seasonScores={};
+ enriched().forEach(r=>{
+   seasonScores[r.Owner]??={};
+   seasonScores[r.Owner][+r.Year]=r.prestige;
+ });
+ let best=null,worst=null;
+ for(const owner of owners){
+   for(let i=0;i<=seasons.length-4;i++){
+     const window=seasons.slice(i,i+4);
+     const consecutive=window.every((y,j)=>j===0 || y===window[j-1]+1);
+     if(!consecutive) continue;
+     const total=window.reduce((sum,y)=>sum+(seasonScores[owner]?.[y]??0),0);
+     const rec={owner,total,start:window[0],end:window[3]};
+     if(!best || total>best.total) best=rec;
+     if(!worst || total<worst.total) worst=rec;
+   }
+ }
+ return {best,worst};
+}
+function renderPrestigeBenchmarks(){
+ const records=fourSeasonRecords();
+ const bestSeason=(state.weights.title||0)+(state.weights.pennant||0)+(state.weights.most_points||0)+(state.weights.playoffs||0)+(state.weights.podium||0)+(state.weights.above_500||0);
+ const worstSeason=(state.weights.toilet||0)+(state.weights.least_points||0)+(state.weights.below_500||0);
+ const maxSwing=bestSeason-worstSeason;
+ const items=[
+   ["Best Possible Season",`${bestSeason>=0?"+":""}${bestSeason}`,"Title · RS Title · Most Points · Playoffs · Podium · Above .500"],
+   ["Worst Possible Season",`${worstSeason>=0?"+":""}${worstSeason}`,"Toilet · Least Points · Below .500"],
+   ["Maximum 1-Year Swing",`${maxSwing}`,"Best possible owner vs. worst possible owner"],
+   ["Largest Actual 4-Year Gain",`${records.best.total>=0?"+":""}${records.best.total}`,`${displayName(records.best.owner)} · ${records.best.start}–${records.best.end}`],
+   ["Largest Actual 4-Year Loss",`${records.worst.total>=0?"+":""}${records.worst.total}`,`${displayName(records.worst.owner)} · ${records.worst.start}–${records.worst.end}`]
+ ];
+ document.getElementById("prestigeBenchmarks").innerHTML=items.map(([label,value,detail])=>`
+   <div class="benchmark-stat">
+     <div class="label">${label}</div>
+     <div class="value ${String(value).startsWith("-")?"negative":""}">${value}</div>
+     <div class="detail">${detail}</div>
+   </div>`).join("");
+}
+
+function renderPermanentFinal(){
+ const curr=OFFICIAL_SNAPSHOTS["2026"];
+ const prior=Object.fromEntries(OFFICIAL_SNAPSHOTS["2022"].map(x=>[x.owner,x]));
+ document.getElementById("permanentFinalRows").innerHTML=curr.map(x=>{
+   const o=prior[x.owner],d=x.prestige-o.prestige;
+   return `<div class="final-row">
+     <div>#${x.rank}</div>
+     <div class="name">${displayName(x.owner)}${newSlotBadge(o.rank,x.rank)}</div>
+     <div class="score ${x.prestige<0?"negative":""}">${x.prestige}</div>
+     <div class="delta ${movementClass(o.rank,x.rank)}" title="${d>=0?"+":""}${d} Prestige since 2022">${movementText(o.rank,x.rank)}</div>
+     <div class="tier">Tier ${OFFICIAL_SNAPSHOTS["2026"].find(y=>y.owner===x.owner)?.tier||state.tiers[x.owner]||"—"}</div>
+   </div>`;
+ }).join("");
+ renderPrestigeBenchmarks();
+}
+
+function renderHistoricalSnapshots(){
+ renderOfficialSnapshot(2018,null,"snapshotRows2018");
+ renderOfficialSnapshot(2022,2018,"snapshotRows2022");
+}
+function showEdition(view){
+ const key=String(view);
+ document.querySelectorAll(".edition-tabs button").forEach(b=>b.classList.toggle("active",b.dataset.edition===key));
+ document.getElementById("snapshot2018").classList.toggle("hidden",key!=="2018");
+ document.getElementById("snapshot2022").classList.toggle("hidden",key!=="2022");
+ document.getElementById("current2026").classList.toggle("hidden",key!=="2026");
+ document.getElementById("revealTransition").classList.add("hidden");
+ document.getElementById("recapPanel").classList.toggle("hidden",key!=="recap");
+ document.getElementById("permanentFinalPanel").classList.toggle("hidden",key!=="final");
+ if(key!=="2026"){
+   if(autoTimer) clearTimeout(autoTimer);
+   autoTimer=null;autoPlaying=false;tickerBusy=false;
+   document.getElementById("autoReveal").textContent="Auto Play";
+ }
+}
+function resetReveal(){
+ if(autoTimer) clearTimeout(autoTimer);
+ autoTimer=null;autoPlaying=false;tickerBusy=false;revealIndex=0;revealed=[];
+ initializeRevealSlots();
+ document.getElementById("revealMain").classList.remove("hidden");
+ document.getElementById("finalTable").classList.remove("show");
+ document.getElementById("spotContent").innerHTML=`<div class="rank-big">READY TO REVEAL</div><div class="owner-big">2026 Rankings</div><div class="change-big">Starting from the official 2022 edition</div>`;
+ document.getElementById("autoReveal").textContent="Auto Play";
+}
+function getRevealTarget(){
+ const curr=career(), rank=revealOrder[revealIndex]; return curr.find(x=>x.rank===rank);
+}
+function initializeRevealSlots(){
+ const container=document.getElementById("assembledRows");
+ container.innerHTML=Array.from({length:10},(_,i)=>`<div class="reveal-row placeholder visible" data-rank="${i+1}">
+   <div class="rrank">#${i+1}</div><div class="rname">Awaiting reveal</div><div class="rscore">—</div><div class="rchange">—</div>
+ </div>`).join("");
+}
+function addAssembled(x,old){
+ const d=x.prestige-old.prestige;
+ const row=document.querySelector(`#assembledRows [data-rank="${x.rank}"]`);
+ row.className="reveal-row";
+ const moveText=movementText(old.rank,x.rank);
+ row.innerHTML=`<div class="rrank">#${x.rank}</div><div class="rname">${displayName(x.owner)}${newSlotBadge(old.rank,x.rank)}</div><div class="rscore ${x.prestige<0?"negative":""}">${x.prestige}</div><div class="rchange ${movementClass(old.rank,x.rank)}" title="${d>=0?"+":""}${d} Prestige since ${state.snapshotYear}">${moveText}</div>`;
+ requestAnimationFrame(()=>row.classList.add("visible"));
+}
+function revealNext(onComplete){
+ if(tickerBusy)return;
+ if(revealIndex>=revealOrder.length){showFinal();return}
+ tickerBusy=true;
+ const x=getRevealTarget(),old=career(state.snapshotYear).find(o=>o.owner===x.owner);
+ const spot=document.getElementById("spotContent"),start=old.prestige,end=x.prestige,delta=end-start;
+ spot.innerHTML=`<div class="rank-big">RANK #${x.rank}</div><div class="owner-big">${displayName(x.owner)}</div><div class="score-label">Prestige</div><div id="ticker" class="score-big ${start<0?"negative":""}">${start}</div><div class="change-big">${start} in ${state.snapshotYear}</div>`;
+ const ticker=document.getElementById("ticker"),duration=3500,steps=Math.max(1,Math.abs(delta)),base=Math.max(45,Math.floor(duration/steps));
+ let val=start;
+ const finish=()=>{
+   ticker.classList.toggle("negative",val<0);
+   const moveText=movementText(old.rank,x.rank);
+   const rankClass=movementClass(old.rank,x.rank);
+   const deltaClass=valueClass(delta);
+   spot.querySelector(".owner-big").innerHTML=`${displayName(x.owner)}${newSlotBadge(old.rank,x.rank)}`;
+   spot.querySelector(".change-big").innerHTML=`<span class="${deltaClass}">${delta>=0?"+":""}${delta} Prestige since ${state.snapshotYear}</span> · <span class="${rankClass}">${moveText}</span>${delta===0?'<br><span class="no-change-badge">NO PRESTIGE CHANGE</span>':""}`;
+   addAssembled(x,old);
+   revealIndex++;
+   setTimeout(()=>{
+     tickerBusy=false;
+     const revealFinished=revealIndex>=revealOrder.length;
+     if(revealFinished){
+       document.querySelector('[data-edition="2026"]').classList.add("completed");
+       document.getElementById("current2026").classList.add("hidden");
+       document.getElementById("revealTransition").classList.remove("hidden");
+       setTimeout(()=>{
+         document.getElementById("revealTransition").classList.add("hidden");
+         showEdition("recap");
+       },2200);
+     }else if(onComplete){
+       onComplete();
+     }
+   },4500);
+ };
+ const advance=()=>{
+   if(val===end){
+     if(delta===0){
+       ticker.classList.add("zero-pulse");
+       spot.querySelector(".change-big").innerHTML=`<span class="value-flat">0 Prestige since ${state.snapshotYear}</span><br><span class="no-change-badge">NO PRESTIGE CHANGE</span>`;
+       setTimeout(finish,1250);
+     }else{
+       finish();
+     }
+     return;
+   }
+   val+=Math.sign(delta);ticker.textContent=val;ticker.classList.toggle("negative",val<0);
+   const pause=(val===0 && end<0 && start>=0)?650:base;
+   setTimeout(advance,pause);
+ };
+ setTimeout(advance,350);
+}
+function runAutoReveal(){
+ if(!autoPlaying || tickerBusy)return;
+ if(revealIndex>=revealOrder.length){
+   autoPlaying=false;
+   document.getElementById("autoReveal").textContent="Auto Play";
+   autoTimer=setTimeout(showFinal,1200);
+   return;
+ }
+ revealNext(()=>{ if(autoPlaying) autoTimer=setTimeout(runAutoReveal,250); });
+}
+function showFinal(){
+ if(autoTimer) clearTimeout(autoTimer);autoTimer=null;autoPlaying=false;tickerBusy=false;
+ const curr=OFFICIAL_SNAPSHOTS['2026'],old=Object.fromEntries(OFFICIAL_SNAPSHOTS['2022'].map(x=>[x.owner,x]));
+ document.getElementById("finalRows").innerHTML=curr.map(x=>{
+   const o=old[x.owner],d=x.prestige-o.prestige,m=o.rank-x.rank;
+   return `<div class="final-row"><div>#${x.rank}</div><div class="name">${displayName(x.owner)}${newSlotBadge(o.rank,x.rank)}</div><div class="score ${x.prestige<0?"negative":""}">${x.prestige}</div><div class="delta ${movementClass(o.rank,x.rank)}" title="${d>=0?"+":""}${d} Prestige since ${state.snapshotYear}">${movementText(o.rank,x.rank)}</div><div class="tier">Tier ${state.tiers[x.owner]||"—"}</div></div>`;
+ }).join("");
+ document.getElementById("revealMain").classList.add("hidden");document.getElementById("finalTable").classList.add("show");
+}
+
+const JOURNEY_COLORS={
+  Sam:"#f4c542",Zac:"#5cb8ff",Harp:"#d98cff",Bob:"#ff8b5c",Adrian:"#61d6a8",
+  Cory:"#ff6b8a",Dan:"#9fa8ff",RJ:"#8fd14f",Ben:"#e2a85c",Mac:"#b58b62"
+};
+let journeyTimer=null;
+let journeyPlaying=false;
+let journeyIndex=0;
+let journeyFocusedOwner=null;
+let journeyProgress=0;
+let journeyAnimFrame=null;
+let journeyPhase="idle"; // idle | travel | hold
+let journeyPhaseStart=null;
+let journeyPausedElapsed=0;
+const journeyTransitionDuration=1500;
+const journeyYearPause=1300;
+const journeyLeaderPause=1800;
+const journeyFinalPause=3000;
+let journeyCurrentLeader=null;
+let journeyLeaderFlashOwner=null;
+let journeyLeaderFlashUntil=0;
+let journeyLeaderCalloutUntil=0;
+let journeyRenderedStandingsYear=null;
+let journeyRenderedFocusOwner=null;
+let journeyPreviousStandingsRanks={};
+let journeyHoldIndex=null;
+
+function journeyYears(){
+  return [...new Set(state.records.map(r=>+r.Year))].sort((a,b)=>a-b);
+}
+function journeySeries(){
+  const years=journeyYears();
+  const owners=[...new Set(state.records.map(r=>r.Owner))];
+  const totals=Object.fromEntries(owners.map(o=>[o,0]));
+  const byYear={};
+  years.forEach(year=>{
+    state.records.filter(r=>+r.Year===year).forEach(r=>{
+      totals[r.Owner]+=enrichRecord(r).prestige;
+    });
+    const rows=owners.map(owner=>({owner,prestige:totals[owner]}))
+      .sort((a,b)=>b.prestige-a.prestige || displayName(a.owner).localeCompare(displayName(b.owner)));
+    let lastScore=null,lastRank=0;
+    rows.forEach((r,i)=>{
+      if(r.prestige!==lastScore){lastRank=i+1;lastScore=r.prestige}
+      r.rank=lastRank;
+    });
+    byYear[year]=rows;
+  });
+  return {years,owners,byYear};
+}
+function journeyMetricRows(selectedYear){
+  const {years,owners,byYear}=journeySeries();
+  const metricYears=years.filter(y=>y<=selectedYear);
+  if(!metricYears.length){
+    return owners.map(owner=>({owner,avgRank:null,yearsOne:0,yearsTopThree:0,avgBehind:null,peak:null}));
+  }
+  return owners.map(owner=>{
+    const entries=metricYears.map(y=>{
+      const rows=byYear[y],me=rows.find(r=>r.owner===owner),leader=rows[0].prestige;
+      return {rank:me.rank,behind:leader-me.prestige};
+    });
+    return {
+      owner,
+      avgRank:entries.reduce((a,e)=>a+e.rank,0)/entries.length,
+      yearsOne:entries.filter(e=>e.rank===1).length,
+      yearsTopThree:entries.filter(e=>e.rank<=3).length,
+      avgBehind:entries.reduce((a,e)=>a+e.behind,0)/entries.length,
+      peak:Math.min(...entries.map(e=>e.rank))
+    };
+  }).sort((a,b)=>(a.avgRank??99)-(b.avgRank??99) || displayName(a.owner).localeCompare(displayName(b.owner)));
+}
+
+
+function journeyVisualStandings(currentYear,nextYear,progress,owners,byYear){
+  return owners.map(owner=>{
+    const start=byYear[currentYear].find(r=>r.owner===owner).prestige;
+    const end=byYear[nextYear].find(r=>r.owner===owner).prestige;
+    return {owner,prestige:start+(end-start)*progress};
+  }).sort((a,b)=>b.prestige-a.prestige || displayName(a.owner).localeCompare(displayName(b.owner)));
+}
+function setJourneyLeader(owner,announce=true){
+  if(!owner || owner===journeyCurrentLeader)return;
+  const hadLeader=journeyCurrentLeader!==null;
+  journeyCurrentLeader=owner;
+  if(announce && hadLeader){
+    journeyLeaderFlashOwner=owner;
+    journeyLeaderFlashUntil=performance.now()+850;
+    journeyLeaderCalloutUntil=performance.now()+1450;
+    const callout=document.getElementById("journeyLeaderCallout");
+    callout.textContent=`♛ New Leader: ${displayName(owner)}`;
+    callout.classList.add("show");
+  }
+}
+function updateJourneyLeaderCallout(now){
+  const callout=document.getElementById("journeyLeaderCallout");
+  if(now>=journeyLeaderCalloutUntil){
+    callout.classList.remove("show");
+  }
+}
+function renderJourneyStandings(year,standings){
+  if(journeyRenderedStandingsYear===year && journeyRenderedFocusOwner===journeyFocusedOwner)return;
+  const tbody=document.getElementById("journeyStandings");
+  const nextRanks=Object.fromEntries(standings.map((r,i)=>[r.owner,i]));
+  tbody.innerHTML=standings.map((r,newIndex)=>{
+    const oldIndex=journeyPreviousStandingsRanks[r.owner];
+    const moved=oldIndex!==undefined && oldIndex!==newIndex;
+    const shift=moved?(oldIndex-newIndex)*35:0;
+    const crown=r.owner===journeyCurrentLeader?"<span class='journey-crown' title='Current leader'>♛ </span>":"";
+    const selected=journeyFocusedOwner===r.owner;
+    const muted=journeyFocusedOwner && !selected;
+    return `<tr data-owner="${r.owner}" class="${moved?"journey-rank-move ":""}${selected?"journey-owner-selected ":""}${muted?"journey-owner-muted":""}" style="--rank-shift:${shift}px">
+      <td><span class="journey-rank-pill">#${r.rank}</span></td>
+      <td><span class="journey-owner-link">${crown}${displayName(r.owner)}</span></td>
+      <td>${r.prestige}</td>
+    </tr>`;
+  }).join("");
+  tbody.querySelectorAll("tr[data-owner]").forEach(row=>row.addEventListener("click",()=>{
+    journeyFocusedOwner=journeyFocusedOwner===row.dataset.owner?null:row.dataset.owner;
+    renderJourney();
+  }));
+  journeyPreviousStandingsRanks=nextRanks;
+  journeyRenderedStandingsYear=year;
+  journeyRenderedFocusOwner=journeyFocusedOwner;
+}
+
+function pulseJourneyYear(){
+  const el=document.getElementById("journeyYear");
+  el.classList.remove("year-pulse");
+  void el.offsetWidth;
+  el.classList.add("year-pulse");
+}
+
+function renderJourney(){
+  const {years,owners,byYear}=journeySeries();
+  if(!years.length)return;
+
+  journeyIndex=Math.max(0,Math.min(journeyIndex,years.length-1));
+  const currentYear=years[journeyIndex];
+  const hasNext=journeyIndex<years.length-1;
+  const nextYear=hasNext?years[journeyIndex+1]:currentYear;
+  const progress=hasNext?Math.max(0,Math.min(1,journeyProgress)):0;
+  const visualStandings=journeyVisualStandings(currentYear,nextYear,progress,owners,byYear);
+  if(!journeyCurrentLeader){
+    setJourneyLeader(byYear[currentYear][0]?.owner||null,false);
+  }
+  const now=performance.now();
+  updateJourneyLeaderCallout(now);
+  const leaderGlowActive=journeyLeaderFlashOwner && now<journeyLeaderFlashUntil;
+
+  const svg=document.getElementById("journeyChart");
+  const W=1120,H=500,margin={left:58,right:130,top:24,bottom:44};
+  const allValues=years.flatMap(y=>byYear[y].map(r=>r.prestige));
+  let minV=Math.min(0,...allValues),maxV=Math.max(...allValues);
+  const pad=Math.max(10,(maxV-minV)*.08); minV-=pad; maxV+=pad;
+
+  const visualX=journeyIndex + progress;
+  const xPos=i=>margin.left+(i/(years.length-1||1))*(W-margin.left-margin.right);
+  const yPos=v=>margin.top+(maxV-v)/(maxV-minV||1)*(H-margin.top-margin.bottom);
+
+  let parts=[];
+  const ticks=5;
+  for(let i=0;i<=ticks;i++){
+    const val=minV+(maxV-minV)*i/ticks, yy=yPos(val);
+    parts.push(`<line class="journey-gridline" x1="${margin.left}" y1="${yy}" x2="${W-margin.right}" y2="${yy}"/>`);
+    parts.push(`<text class="journey-axis-label" x="${margin.left-10}" y="${yy+4}" text-anchor="end">${Math.round(val)}</text>`);
+  }
+  years.forEach((yr,i)=>{
+    if(i===0 || i===years.length-1 || i%2===0){
+      parts.push(`<text class="journey-axis-label" x="${xPos(i)}" y="${H-16}" text-anchor="middle">${yr}</text>`);
+    }
+  });
+
+  owners.forEach(owner=>{
+    const points=[];
+    for(let i=0;i<=journeyIndex;i++){
+      const r=byYear[years[i]].find(x=>x.owner===owner);
+      points.push([xPos(i),yPos(r.prestige),r.prestige]);
+    }
+
+    let endpointPrestige=byYear[currentYear].find(x=>x.owner===owner).prestige;
+    if(hasNext && progress>0){
+      const startPrestige=byYear[currentYear].find(x=>x.owner===owner).prestige;
+      const endPrestige=byYear[nextYear].find(x=>x.owner===owner).prestige;
+      endpointPrestige=startPrestige+(endPrestige-startPrestige)*progress;
+      points.push([xPos(visualX),yPos(endpointPrestige),endpointPrestige]);
+    }
+
+    const d=points.map((c,i)=>(i?"L":"M")+c[0].toFixed(1)+","+c[1].toFixed(1)).join(" ");
+    const muted=journeyFocusedOwner && journeyFocusedOwner!==owner;
+    const focused=journeyFocusedOwner===owner;
+    const end=points[points.length-1];
+
+    const isLeader=owner===journeyCurrentLeader;
+    const glow=isLeader && leaderGlowActive && journeyLeaderFlashOwner===owner;
+    parts.push(`<path class="journey-line ${muted?"journey-muted":""} ${focused?"journey-focused":""} ${glow?"leader-glow":""}" data-owner="${owner}" d="${d}" stroke="${JOURNEY_COLORS[owner]||"#ccc"}"/>`);
+    parts.push(`<circle class="journey-point ${muted?"journey-muted":""} ${glow?"leader-glow":""}" data-owner="${owner}" cx="${end[0]}" cy="${end[1]}" r="${focused?6:4}" fill="${JOURNEY_COLORS[owner]||"#ccc"}"/>`);
+    parts.push(`<text class="journey-owner-label ${muted?"journey-muted":""} ${glow?"leader-glow":""}" data-owner="${owner}" x="${end[0]+9}" y="${end[1]+4}" fill="${JOURNEY_COLORS[owner]||"#ddd"}">${isLeader?"♛ ":""}${displayName(owner)} · ${Math.round(endpointPrestige)}</text>`);
+  });
+
+  svg.innerHTML=parts.join("");
+  svg.querySelectorAll("[data-owner]").forEach(el=>el.addEventListener("click",()=>{
+    journeyFocusedOwner=journeyFocusedOwner===el.dataset.owner?null:el.dataset.owner;
+    renderJourney();
+  }));
+  document.getElementById("journeyClearFocus").classList.toggle("visible",!!journeyFocusedOwner);
+
+  const holdingAtDestination=journeyPhase==="hold" && journeyHoldIndex!==null && progress>=1;
+  // Show only the most recently completed season while the line travels.
+  // Flip to the destination year once its data point has been reached.
+  const displayYear=holdingAtDestination ? years[journeyHoldIndex] : currentYear;
+  document.getElementById("journeyYear").textContent=displayYear;
+  document.getElementById("journeyMinYear").textContent=years[0];
+  document.getElementById("journeyMaxYear").textContent=years[years.length-1];
+
+  const slider=document.getElementById("journeySlider");
+  slider.max=years.length-1;
+  slider.value=holdingAtDestination ? journeyHoldIndex : journeyIndex;
+
+  // During the checkpoint hold, update the panels without rebuilding a different chart endpoint.
+  const tableYear=holdingAtDestination ? years[journeyHoldIndex] : currentYear;
+  const standings=byYear[tableYear];
+  document.getElementById("journeyStandingsTitle").textContent=`Standings · ${tableYear}`;
+  renderJourneyStandings(tableYear,standings);
+
+  const metrics=journeyMetricRows(tableYear);
+  const orderedMetrics=journeyFocusedOwner
+    ? [...metrics].sort((a,b)=>(a.owner===journeyFocusedOwner?-1:b.owner===journeyFocusedOwner?1:0)||((a.avgRank??99)-(b.avgRank??99)))
+    : metrics;
+  document.getElementById("journeyMetricsTitle").textContent=`Career Metrics · 2010–${tableYear}`;
+  document.getElementById("journeyMetrics").innerHTML=orderedMetrics.map(m=>
+    `<tr data-owner="${m.owner}" class="${journeyFocusedOwner===m.owner?"journey-owner-selected":""}"><td><span class="journey-owner-link">${displayName(m.owner)}</span></td><td>${m.avgRank==null?"—":m.avgRank.toFixed(2)}</td><td>${m.avgRank==null?"—":m.yearsOne}</td><td>${m.avgRank==null?"—":m.yearsTopThree}</td><td>${m.avgBehind==null?"—":m.avgBehind.toFixed(1)}</td><td>${m.peak==null?"—":"#"+m.peak}</td></tr>`
+  ).join("");
+  document.querySelectorAll("#journeyMetrics tr[data-owner]").forEach(row=>row.addEventListener("click",()=>{
+    journeyFocusedOwner=journeyFocusedOwner===row.dataset.owner?null:row.dataset.owner;
+    renderJourney();
+  }));
+  document.getElementById("journeyClearFocus").classList.toggle("visible",!!journeyFocusedOwner);
+}
+function journeyStop(){
+  if(!journeyPlaying)return;
+  journeyPlaying=false;
+  if(journeyAnimFrame)cancelAnimationFrame(journeyAnimFrame);
+  journeyAnimFrame=null;
+  if(journeyPhaseStart!==null){
+    journeyPausedElapsed=Math.max(0,performance.now()-journeyPhaseStart);
+  }
+  journeyPhaseStart=null;
+  document.getElementById("journeyPlay").textContent="▶ Resume";
+}
+function journeyCheckpoint(destinationIndex){
+  const years=journeyYears();
+  const {byYear}=journeySeries();
+  const leader=byYear[years[destinationIndex]][0]?.owner||null;
+  const previous=journeyCurrentLeader;
+  setJourneyLeader(leader,true);
+  const changed=previous!==null && leader!==previous;
+  journeyHoldIndex=destinationIndex;
+  journeyRenderedStandingsYear=null;
+  renderJourney();
+  return changed;
+}
+function journeyAdvance(timestamp){
+  const years=journeyYears();
+  if(!journeyPlaying)return;
+  if(journeyPhaseStart===null){
+    journeyPhaseStart=timestamp-journeyPausedElapsed;
+    journeyPausedElapsed=0;
+  }
+  const elapsed=timestamp-journeyPhaseStart;
+
+  if(journeyPhase==="travel"){
+    journeyProgress=Math.min(1,elapsed/journeyTransitionDuration);
+    renderJourney();
+    if(journeyProgress>=1){
+      journeyProgress=1;
+      const destinationIndex=Math.min(journeyIndex+1,years.length-1);
+      journeyPhase="hold";
+      const leaderChanged=journeyCheckpoint(destinationIndex);
+      journeyPhaseStart=timestamp;
+      journeyPausedElapsed=0;
+      journeyTimer=destinationIndex>=years.length-1?journeyFinalPause:(leaderChanged?journeyLeaderPause:journeyYearPause);
+    }
+  }else if(journeyPhase==="hold"){
+    updateJourneyLeaderCallout(timestamp);
+    if(elapsed>=journeyTimer){
+      if(journeyHoldIndex!==null && journeyHoldIndex>=years.length-1){
+        journeyIndex=journeyHoldIndex;
+        journeyHoldIndex=null;
+        journeyProgress=0;
+        journeyPlaying=false;
+        journeyPhase="idle";
+        journeyPhaseStart=null;
+        journeyPausedElapsed=0;
+        document.getElementById("journeyPlay").textContent="▶ Play";
+        renderJourney();
+        return;
+      }
+      if(journeyHoldIndex!==null)journeyIndex=journeyHoldIndex;
+      journeyHoldIndex=null;
+      journeyProgress=0;
+      journeyPhase="travel";
+      journeyPhaseStart=timestamp;
+      journeyPausedElapsed=0;
+    }
+  }
+  journeyAnimFrame=requestAnimationFrame(journeyAdvance);
+}
+function journeyPlay(){
+  if(journeyPlaying)return;
+  const years=journeyYears();
+  if(journeyIndex>=years.length-1 && journeyPhase==="idle"){
+    journeyIndex=0;
+    journeyProgress=0;
+    journeyHoldIndex=null;
+    journeyCurrentLeader=null;
+    journeyRenderedStandingsYear=null;
+    journeyPreviousStandingsRanks={};
+    renderJourney();
+  }
+  journeyPlaying=true;
+  if(journeyPhase==="idle")journeyPhase="travel";
+  document.getElementById("journeyPlay").textContent="Playing…";
+  journeyAnimFrame=requestAnimationFrame(journeyAdvance);
+}
+function journeyReplay(){
+  if(journeyAnimFrame)cancelAnimationFrame(journeyAnimFrame);
+  journeyPlaying=false;
+  journeyIndex=0;
+  journeyProgress=0;
+  journeyHoldIndex=null;
+  journeyPhase="idle";
+  journeyPhaseStart=null;
+  journeyPausedElapsed=0;
+  journeyFocusedOwner=null;
+  journeyCurrentLeader=null;
+  journeyLeaderFlashOwner=null;
+  journeyLeaderFlashUntil=0;
+  journeyLeaderCalloutUntil=0;
+  journeyRenderedStandingsYear=null;
+  journeyRenderedFocusOwner=null;
+  journeyPreviousStandingsRanks={};
+  const callout=document.getElementById("journeyLeaderCallout");
+  callout.textContent="";
+  callout.classList.remove("show");
+  document.getElementById("journeyPlay").textContent="▶ Play";
+  renderJourney();
+  journeyPlay();
+}
+
+document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>{
+ document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");
+ document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(b.dataset.view).classList.add("active");
+ if(b.dataset.view==="journey") renderJourney(); else journeyStop();
+}));
+document.getElementById("togglePoints").addEventListener("click",e=>{pointMode=!pointMode;e.target.textContent=pointMode?"Show Raw Totals":"Show Point Contributions";renderMatrix()});
+document.getElementById("auditYear").addEventListener("change",()=>{auditSort={key:null,direction:null};renderAudit();});
+document.getElementById("editYear").addEventListener("change",renderEditor);
+document.getElementById("exportMatrix").addEventListener("click",exportMatrixCsv);
+document.getElementById("exportSeasonCsv").addEventListener("click",exportSeasonCsv);
+document.getElementById("downloadBackup").addEventListener("click",()=>download("career-prestige-backup.json",JSON.stringify(state,null,2)));
+document.getElementById("loadBackup").addEventListener("change",e=>{
+ const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{state=JSON.parse(r.result);
+lastSavedState=structuredClone(state);
+renderAll();alert("Backup loaded.")}catch{alert("Could not read backup.")}};r.readAsText(f);
+});
+
+
+document.getElementById("applySettings").addEventListener("click",()=>{
+ const badWeights=Object.entries(pendingWeights).filter(([,v])=>!Number.isFinite(v));
+ if(badWeights.length){
+   setChangeStatus("error","Invalid scoring value");
+   alert("Please correct the invalid scoring value before saving.");
+   return;
+ }
+ const issues=integrityFor(pendingRecords);
+ if(issues.length){
+   setChangeStatus("error","Cannot save: integrity issue");
+   alert("Changes were not saved.\n\n"+issues.slice(0,10).join("\n"));
+   return;
+ }
+ state.records=structuredClone(pendingRecords);
+ state.weights=structuredClone(pendingWeights);
+ state.tiers=structuredClone(pendingTiers);
+ lastSavedState=structuredClone(state);
+ renderAll();
+ setChangeStatus("clean","Saved & recalculated");
+});
+document.getElementById("addSeason").addEventListener("click",()=>{
+ const max=Math.max(...pendingRecords.map(r=>+r.Year)), owners=[...new Set(pendingRecords.map(r=>r.Owner))];
+ owners.forEach((o,i)=>pendingRecords.push({Year:max+1,Owner:o,W:0,L:0,RS_Finish:i+1,"Pts Rank":i+1,PO_Finish:i+1,PointsFor:0}));
+ markPending();
+ renderAuditSelectors();
+ document.getElementById("editYear").value=max+1;
+ renderEditor();
+});
+document.querySelectorAll(".edition-tabs button").forEach(b=>b.addEventListener("click",()=>showEdition(b.dataset.edition)));
+document.getElementById("goFinalFromRecap").addEventListener("click",()=>showEdition("final"));
+document.getElementById("startReveal").addEventListener("click",()=>{
+ resetReveal();
+ autoPlaying=true;
+ document.getElementById("autoReveal").textContent="Pause";
+ autoTimer=setTimeout(runAutoReveal,350);
+});
+document.getElementById("nextReveal").addEventListener("click",()=>revealNext());
+document.getElementById("autoReveal").addEventListener("click",()=>{
+ if(autoPlaying){
+   autoPlaying=false;
+   if(autoTimer) clearTimeout(autoTimer);
+   autoTimer=null;
+   document.getElementById("autoReveal").textContent="Resume Auto";
+ }else{
+   autoPlaying=true;
+   document.getElementById("autoReveal").textContent="Pause";
+   if(!tickerBusy) runAutoReveal();
+ }
+});
+document.getElementById("showFinal").addEventListener("click",()=>showEdition("final"));
+document.getElementById("replayFinal").addEventListener("click",resetReveal);
+
+document.getElementById("journeyPlay").addEventListener("click",journeyPlay);
+document.getElementById("journeyPause").addEventListener("click",journeyStop);
+document.getElementById("journeyReplay").addEventListener("click",journeyReplay);
+document.getElementById("journeyClearFocus").addEventListener("click",()=>{journeyFocusedOwner=null;renderJourney()});
+document.getElementById("journeySlider").addEventListener("input",e=>{
+  journeyStop();
+  journeyIndex=+e.target.value;
+  journeyProgress=0;
+  journeyPhase="idle";
+  journeyPhaseStart=null;
+  journeyPausedElapsed=0;
+  journeyCurrentLeader=null;
+  journeyRenderedStandingsYear=null;
+  journeyRenderedFocusOwner=null;
+  journeyPreviousStandingsRanks={};
+  const callout=document.getElementById("journeyLeaderCallout");
+  callout.textContent="";
+  callout.classList.remove("show");
+  renderJourney();
+});
+
+window.addEventListener("beforeunload",e=>{
+ if(hasPendingChanges){e.preventDefault();e.returnValue="";}
+});
+renderAll();
+showEdition("2026");
+</script>
+</body>
+</html>
