@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Big Board</title>
-<!-- v4.0 Engine -->
+<!-- v4.0.1 Engine — fixes Discard Changes season reset -->
 <meta name="description" content="Career Prestige Rankings — a measure of sustained excellence across league history.">
 <meta name="theme-color" content="#202a34">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -847,7 +847,7 @@ main{
       <button class="btn" id="downloadBackup">Save JSON Backup</button>
       <label class="btn" style="display:inline-block;color:var(--ink)">Load JSON Backup<input id="loadBackup" type="file" accept=".json" hidden></label>
       <button class="btn" id="exportSeasonCsv">Export Season CSV</button>
-      <span id="changeStatus" class="change-status clean">No pending changes</span><button class="btn primary" id="applySettings">Save &amp; Recalculate</button> <button type="button" class="btn discard-btn" id="discardChanges" onclick="discardPendingChanges(); return false;">Discard Changes</button>
+      <span id="changeStatus" class="change-status clean">No pending changes</span><button class="btn primary" id="applySettings">Save &amp; Recalculate</button> <button type="button" class="btn discard-btn" id="discardChanges">Discard Changes</button>
     </div>
   </div>
   <div class="card">
@@ -2137,6 +2137,7 @@ document.getElementById("applySettings").addEventListener("click",()=>{
  renderAll();
  setChangeStatus("clean","Saved & recalculated");
 });
+document.getElementById("discardChanges").addEventListener("click",discardPendingChanges);
 document.getElementById("addSeason").addEventListener("click",()=>{
  const max=Math.max(...pendingRecords.map(r=>+r.Year)), owners=[...new Set(pendingRecords.map(r=>r.Owner))];
  owners.forEach((o,i)=>pendingRecords.push({Year:max+1,Owner:o,W:0,L:0,RS_Finish:i+1,"Pts Rank":i+1,PO_Finish:i+1,PointsFor:0}));
