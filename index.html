@@ -4,7 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Big Board</title>
-<link rel="icon" href="favicon.ico">
+<meta name="description" content="Career Prestige Rankings — a measure of sustained excellence across league history.">
+<meta name="theme-color" content="#202a34">
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
 <style>
 :root{
   --bg:#f4f1ea; --panel:#fffdf8; --ink:#1e252d; --muted:#6c747c;
@@ -778,6 +784,13 @@ main{
   #presentation .presentation-section-title h3{font-size:22px}
 }
 
+
+/* =========================================================
+   v3.0.6 — Commissioner tools and favicon polish
+   Ctrl+Shift+D toggles the hidden maintenance tab for this browser session.
+   ========================================================= */
+.nav button[hidden]{display:none !important}
+
 </style>
 </head>
 <body>
@@ -791,7 +804,7 @@ main{
     <button data-view="rankings" class="active">Career Rankings</button>
     <button data-view="matrix">Career Totals</button>
     <button data-view="audit">Season Audit</button>
-    <button data-view="data">Data & Settings</button>
+    <button data-view="data" id="commissionerDataTab" class="commissioner-only" hidden>Data & Settings</button>
     <button data-view="presentation">Presentation</button>
     <button data-view="journey">Career Journey</button>
   </nav>
@@ -1483,12 +1496,15 @@ function renderFourYearRecap(){
    ["No Change",neutral,"Held the same rank"],
    ["Negative Movers",negative,"Moved down in rank"]
  ];
- document.getElementById("recapSummary").innerHTML=stats.map(([label,value,detail])=>`
+ document.getElementById("recapSummary").innerHTML=stats.map(([label,value,detail])=>{
+   const valueTone=label==="Largest Gain"?"value-up":label==="Largest Drop"?"value-down":"";
+   return `
    <div class="summary-stat">
      <div class="label">${label}</div>
-     <div class="value">${value}</div>
+     <div class="value ${valueTone}">${value}</div>
      ${detail?`<div class="detail">${detail}</div>`:""}
-   </div>`).join("");
+   </div>`;
+ }).join("");
 }
 
 function fourSeasonRecords(){
@@ -2012,6 +2028,41 @@ function journeyReplay(){
   renderJourney();
   journeyPlay();
 }
+
+function openView(viewName){
+ const button=document.querySelector(`.nav button[data-view="${viewName}"]`);
+ if(!button || button.hidden)return;
+ document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
+ button.classList.add("active");
+ document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
+ const view=document.getElementById(viewName);
+ if(view)view.classList.add("active");
+ if(viewName==="journey") renderJourney(); else journeyStop();
+}
+
+let commissionerMode=sessionStorage.getItem("bigBoardCommissionerMode")==="on";
+function setCommissionerMode(enabled,announce=true){
+ commissionerMode=Boolean(enabled);
+ const tab=document.getElementById("commissionerDataTab");
+ if(tab)tab.hidden=!commissionerMode;
+ sessionStorage.setItem("bigBoardCommissionerMode",commissionerMode?"on":"off");
+ if(!commissionerMode && document.getElementById("data")?.classList.contains("active")){
+   openView("rankings");
+ }
+ if(announce){
+   alert(commissionerMode
+     ? "Commissioner tools unlocked for this browser tab. Data & Settings is now visible."
+     : "Commissioner tools hidden.");
+ }
+}
+setCommissionerMode(commissionerMode,false);
+
+document.addEventListener("keydown",event=>{
+ if(event.ctrlKey && event.shiftKey && event.key.toLowerCase()==="d"){
+   event.preventDefault();
+   setCommissionerMode(!commissionerMode,true);
+ }
+});
 
 document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>{
  document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");
