@@ -618,6 +618,8 @@ main{
 #journeyStandings tr[data-owner]:hover td{background:rgba(255,255,255,.055)}
 #journeyStandings tr.journey-owner-selected td,#journeyMetrics tr.journey-owner-selected td{background:rgba(185,154,85,.11)}
 #journeyStandings tr.journey-owner-selected td:first-child,#journeyMetrics tr.journey-owner-selected td:first-child{box-shadow:inset 3px 0 0 #b99a55}
+#journeyMetrics tr.journey-owner-selected td:first-child{color:#f6f3ed;background:rgba(185,154,85,.22)}
+#journeyMetrics tr.journey-owner-selected .journey-owner-link{color:#f6f3ed}
 #journeyStandings tr.journey-owner-muted{opacity:.72}
 .journey-owner-link{cursor:pointer;font-weight:750}
 .journey-owner-link:hover{text-decoration:underline}
@@ -986,21 +988,21 @@ main{
       <button id="journeyReplay">↺ Replay</button>
       <button id="journeyClearFocus">← Show All Owners</button>
     </div>
-    <div id="journeyYear" class="journey-year">2010</div>
+    <div id="journeyYear" class="journey-year">Starting Point</div>
     <div id="journeyLeaderCallout" class="journey-leader-callout" aria-live="polite"></div>
 
     <div class="journey-chart-card">
       <svg id="journeyChart" viewBox="0 0 1120 500" role="img" aria-label="Animated cumulative Prestige by owner"></svg>
       <div class="journey-slider-wrap">
-        <span id="journeyMinYear">2010</span>
-        <input id="journeySlider" type="range" min="0" max="15" value="0" step="1">
+        <span id="journeyMinYear">Start</span>
+        <input id="journeySlider" type="range" min="0" max="16" value="0" step="1">
         <span id="journeyMaxYear">2025</span>
       </div>
     </div>
 
     <div class="journey-card journey-standings-card">
       <div class="journey-card-head">
-        <h3 id="journeyStandingsTitle">Standings · 2010</h3>
+        <h3 id="journeyStandingsTitle">Standings · Starting Point</h3>
         <span class="journey-click-hint">Click an owner to isolate</span>
       </div>
       <table class="journey-table journey-standings-table">
@@ -1015,7 +1017,7 @@ main{
     </div>
 
     <div class="journey-card journey-metrics">
-      <h3 id="journeyMetricsTitle">Career Metrics · 2010</h3>
+      <h3 id="journeyMetricsTitle">Career Metrics · Before 2010</h3>
       <div class="journey-metrics-table-wrap">
         <table class="journey-table">
           <thead>
@@ -1695,8 +1697,9 @@ let journeyPhase="idle"; // idle | travel | hold
 let journeyPhaseStart=null;
 let journeyPausedElapsed=0;
 const journeyTransitionDuration=1500;
-const journeyYearPause=1300;
+const journeyYearPause=1040;
 const journeyLeaderPause=1800;
+const journeyReleasePause=1800;
 const journeyFinalPause=3000;
 let journeyCurrentLeader=null;
 let journeyLeaderFlashOwner=null;
@@ -1708,17 +1711,21 @@ let journeyPreviousStandingsRanks={};
 let journeyHoldIndex=null;
 
 function journeyYears(){
-  return [...new Set(state.records.map(r=>+r.Year))].sort((a,b)=>a-b);
+  const seasons=[...new Set(state.records.map(r=>+r.Year))].sort((a,b)=>a-b);
+  return seasons.length?[seasons[0]-1,...seasons]:seasons; // virtual all-zero starting point
 }
 function journeySeries(){
   const years=journeyYears();
   const owners=[...new Set(state.records.map(r=>r.Owner))];
   const totals=Object.fromEntries(owners.map(o=>[o,0]));
   const byYear={};
+  const firstSeason=Math.min(...state.records.map(r=>+r.Year));
   years.forEach(year=>{
-    state.records.filter(r=>+r.Year===year).forEach(r=>{
-      totals[r.Owner]+=enrichRecord(r).prestige;
-    });
+    if(year>=firstSeason){
+      state.records.filter(r=>+r.Year===year).forEach(r=>{
+        totals[r.Owner]+=enrichRecord(r).prestige;
+      });
+    }
     const rows=owners.map(owner=>({owner,prestige:totals[owner]}))
       .sort((a,b)=>b.prestige-a.prestige || displayName(a.owner).localeCompare(displayName(b.owner)));
     let lastScore=null,lastRank=0;
@@ -1732,7 +1739,8 @@ function journeySeries(){
 }
 function journeyMetricRows(selectedYear){
   const {years,owners,byYear}=journeySeries();
-  const metricYears=years.filter(y=>y<=selectedYear);
+  const firstSeason=Math.min(...state.records.map(r=>+r.Year));
+  const metricYears=years.filter(y=>y>=firstSeason && y<=selectedYear);
   if(!metricYears.length){
     return owners.map(owner=>({owner,avgRank:null,yearsOne:0,yearsTopThree:0,avgBehind:null,peak:null}));
   }
@@ -1848,7 +1856,8 @@ function renderJourney(){
   }
   years.forEach((yr,i)=>{
     if(i===0 || i===years.length-1 || i%2===0){
-      parts.push(`<text class="journey-axis-label" x="${xPos(i)}" y="${H-16}" text-anchor="middle">${yr}</text>`);
+      const axisLabel=i===0?"Start":yr;
+      parts.push(`<text class="journey-axis-label" x="${xPos(i)}" y="${H-16}" text-anchor="middle">${axisLabel}</text>`);
     }
   });
 
@@ -1890,8 +1899,8 @@ function renderJourney(){
   // Show only the most recently completed season while the line travels.
   // Flip to the destination year once its data point has been reached.
   const displayYear=holdingAtDestination ? years[journeyHoldIndex] : currentYear;
-  document.getElementById("journeyYear").textContent=displayYear;
-  document.getElementById("journeyMinYear").textContent=years[0];
+  document.getElementById("journeyYear").textContent=displayYear<2010?"Starting Point":displayYear;
+  document.getElementById("journeyMinYear").textContent="Start";
   document.getElementById("journeyMaxYear").textContent=years[years.length-1];
 
   const slider=document.getElementById("journeySlider");
@@ -1901,14 +1910,14 @@ function renderJourney(){
   // During the checkpoint hold, update the panels without rebuilding a different chart endpoint.
   const tableYear=holdingAtDestination ? years[journeyHoldIndex] : currentYear;
   const standings=byYear[tableYear];
-  document.getElementById("journeyStandingsTitle").textContent=`Standings · ${tableYear}`;
+  document.getElementById("journeyStandingsTitle").textContent=tableYear<2010?"Standings · Starting Point":`Standings · ${tableYear}`;
   renderJourneyStandings(tableYear,standings);
 
   const metrics=journeyMetricRows(tableYear);
   const orderedMetrics=journeyFocusedOwner
     ? [...metrics].sort((a,b)=>(a.owner===journeyFocusedOwner?-1:b.owner===journeyFocusedOwner?1:0)||((a.avgRank??99)-(b.avgRank??99)))
     : metrics;
-  document.getElementById("journeyMetricsTitle").textContent=`Career Metrics · 2010–${tableYear}`;
+  document.getElementById("journeyMetricsTitle").textContent=tableYear<2010?"Career Metrics · Before 2010":`Career Metrics · 2010–${tableYear}`;
   document.getElementById("journeyMetrics").innerHTML=orderedMetrics.map(m=>
     `<tr data-owner="${m.owner}" class="${journeyFocusedOwner===m.owner?"journey-owner-selected":""}"><td><span class="journey-owner-link">${displayName(m.owner)}</span></td><td>${m.avgRank==null?"—":m.avgRank.toFixed(2)}</td><td>${m.avgRank==null?"—":m.yearsOne}</td><td>${m.avgRank==null?"—":m.yearsTopThree}</td><td>${m.avgBehind==null?"—":m.avgBehind.toFixed(1)}</td><td>${m.peak==null?"—":"#"+m.peak}</td></tr>`
   ).join("");
@@ -1960,7 +1969,11 @@ function journeyAdvance(timestamp){
       const leaderChanged=journeyCheckpoint(destinationIndex);
       journeyPhaseStart=timestamp;
       journeyPausedElapsed=0;
-      journeyTimer=destinationIndex>=years.length-1?journeyFinalPause:(leaderChanged?journeyLeaderPause:journeyYearPause);
+      const destinationYear=years[destinationIndex];
+      const isReleaseYear=destinationYear===2018 || destinationYear===2022;
+      journeyTimer=destinationIndex>=years.length-1
+        ? journeyFinalPause
+        : (leaderChanged?journeyLeaderPause:(isReleaseYear?journeyReleasePause:journeyYearPause));
     }
   }else if(journeyPhase==="hold"){
     updateJourneyLeaderCallout(timestamp);
