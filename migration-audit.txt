@@ -1,0 +1,35 @@
+THE BIG BOARD v4.0 ENGINE — MIGRATION AUDIT
+====================================================
+
+BASELINE
+Current uploaded production index.html
+
+STRUCTURAL CHECKS
+Seasons: 16
+Owners: 10
+Records: 160
+Expected records: 160
+Exact source-to-JSON record extraction: PASS
+
+PRODUCTION-CALCULATED PRESTIGE TOTALS
+Sam: 137
+Zac: 116
+Harp: 102
+Bob: 64
+Adrian: 57
+Cory: 54
+Dan: 52
+RJ: 40
+Ben: 33
+Mac: -2
+
+Every season has 10 owners: PASS
+Every owner has 16 seasons: PASS
+Overall structural/calculation migration audit: PASS
+
+NOTE
+The Prestige totals above are calculated directly from the current uploaded production records and scoring rubric.
+They replace older remembered reference totals that no longer matched the uploaded production dataset.
+
+NEXT STEP
+Browser comparison of v3 production and v4 Engine for visual output and interaction behavior.

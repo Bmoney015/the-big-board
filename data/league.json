@@ -1,0 +1,70 @@
+{
+  "schemaVersion": "1.0",
+  "league": {
+    "siteName": "The Big Board",
+    "subtitle": "Career Prestige Rankings",
+    "tagline": "A measure of sustained excellence across league history.",
+    "startYear": 2010,
+    "latestCompletedSeason": 2025,
+    "officialSnapshotThroughYear": 2021,
+    "owners": [
+      "Sam",
+      "Dan",
+      "RJ",
+      "Cory",
+      "Bob",
+      "Adrian",
+      "Mac",
+      "Ben",
+      "Zac",
+      "Harp"
+    ],
+    "releaseYears": [
+      2018,
+      2022,
+      2026
+    ],
+    "toiletCountsFromYear": 2013,
+    "playoffQualifiers": [
+      {
+        "startYear": 2010,
+        "endYear": 2014,
+        "teams": 6
+      },
+      {
+        "startYear": 2015,
+        "endYear": 2018,
+        "teams": 5
+      },
+      {
+        "startYear": 2019,
+        "endYear": null,
+        "teams": 6
+      }
+    ]
+  },
+  "scoring": {
+    "title": 10,
+    "pennant": 7,
+    "most_points": 6,
+    "playoffs": 3,
+    "runner_up": 2,
+    "podium": 2,
+    "above_500": 1,
+    "below_500": -1,
+    "least_points": -2,
+    "toilet": -7
+  },
+  "tiers": {
+    "Sam": 1,
+    "Zac": 2,
+    "Harp": 3,
+    "Bob": 4,
+    "Adrian": 4,
+    "Cory": 4,
+    "Dan": 4,
+    "RJ": 4,
+    "Ben": 4,
+    "Mac": 6
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "baseline": "uploaded production index.html",
+  "seasons": 16,
+  "owners": 10,
+  "records": 160,
+  "exactRecordExtraction": true,
+  "completeSeasonCounts": true,
+  "completeOwnerCounts": true,
+  "productionCalculatedPrestigeTotals": {
+    "Sam": 137,
+    "Zac": 116,
+    "Harp": 102,
+    "Bob": 64,
+    "Adrian": 57,
+    "Cory": 54,
+    "Dan": 52,
+    "RJ": 40,
+    "Ben": 33,
+    "Mac": -2
+  }
+}
