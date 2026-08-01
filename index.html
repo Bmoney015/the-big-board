@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Big Board</title>
-<!-- v4.1.0 Draft Hub — imports 2020–2025 draft history -->
+<!-- v4.1.1 Draft Slot Analytics — commissioner cards + sortable analysis table -->
 <meta name="description" content="Career Prestige Rankings — a measure of sustained excellence across league history.">
 <meta name="theme-color" content="#202a34">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -853,6 +853,55 @@ main{
 @media(max-width:1050px){.draft-summary-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:560px){.draft-summary-grid{grid-template-columns:1fr}.draft-shell{padding:14px}}
 
+
+/* =========================================================
+   v4.1.1 — Draft Slot Analytics
+   Commissioner cards + sortable analysis table
+   ========================================================= */
+.draft-slot-hero{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;flex-wrap:wrap;background:linear-gradient(135deg,#17212b,#202a34);border:1px solid #3d4955;border-radius:12px;padding:18px;margin-bottom:12px}
+.draft-slot-eyebrow{font-size:10px;color:#c8ad6b;text-transform:uppercase;letter-spacing:.1em;font-weight:850}
+.draft-slot-hero h3{font-size:30px;margin:6px 0 4px}
+.draft-slot-hero p{margin:0;color:#aeb8c1;font-size:12px}
+.draft-slot-selector{color:#b8c1c9;min-width:150px}
+.draft-slot-selector select{background:#f7f4ee!important;color:#18222c!important;border-color:#75818c!important}
+.draft-slot-card-grid{display:grid;grid-template-columns:repeat(6,minmax(150px,1fr));gap:10px;margin-bottom:14px}
+.draft-slot-card{background:#17212b;border:1px solid #3a4652;border-radius:10px;padding:14px;min-height:105px}
+.draft-slot-card.featured{border-color:#8f773f;box-shadow:inset 0 0 0 1px rgba(185,154,85,.14)}
+.draft-slot-card .label{font-size:9px;color:#97a4af;text-transform:uppercase;letter-spacing:.075em;line-height:1.35}
+.draft-slot-card .value{font-size:25px;font-weight:875;margin-top:6px;font-variant-numeric:tabular-nums}
+.draft-slot-card .detail{font-size:10px;color:#aeb8c1;margin-top:5px;line-height:1.35}
+.draft-slot-analysis-grid{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(285px,.8fr);gap:14px;align-items:start}
+.draft-slot-section{background:#17212b;border:1px solid #3a4652;border-radius:10px;padding:14px;min-width:0}
+.draft-slot-section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.draft-slot-section-head h3{margin:0;font-size:16px}
+.draft-slot-section-head p{margin:4px 0 0;font-size:10px;color:#9ca8b2}
+.draft-slot-table-wrap{overflow:auto;border:1px solid #36424d;border-radius:9px}
+.draft-slot-table{min-width:1380px;background:#111922;color:#eff2f5;font-size:11px}
+.draft-slot-table th{background:#26313b!important;color:#eef2f5!important;cursor:pointer;user-select:none;padding:9px 8px}
+.draft-slot-table th:hover{background:#303d49!important}
+.draft-slot-table td{background:#17212b!important;color:#e9eef2!important;padding:8px;text-align:right;font-variant-numeric:tabular-nums}
+.draft-slot-table th:first-child,.draft-slot-table td:first-child{position:sticky;left:0;z-index:2;text-align:left;background:#202a34!important;font-weight:850}
+.draft-slot-table thead th:first-child{z-index:3;background:#26313b!important}
+.draft-slot-table tr.selected-slot td{box-shadow:inset 0 1px 0 rgba(185,154,85,.65),inset 0 -1px 0 rgba(185,154,85,.65)}
+.draft-slot-table tr.selected-slot td:first-child{box-shadow:inset 4px 0 0 #b99a55,inset 0 1px 0 rgba(185,154,85,.65),inset 0 -1px 0 rgba(185,154,85,.65)}
+.slot-heat{border-radius:5px;font-weight:800}
+.slot-heat-best{background:rgba(70,112,79,.58)!important;color:#eef8f0!important}
+.slot-heat-good{background:rgba(114,145,80,.37)!important}
+.slot-heat-mid{background:rgba(186,157,71,.28)!important}
+.slot-heat-low{background:rgba(173,122,33,.25)!important}
+.slot-heat-worst{background:rgba(162,59,59,.34)!important;color:#ffecec!important}
+.draft-slot-history{position:sticky;top:12px}
+.draft-slot-history-rows{display:grid;gap:6px;max-height:610px;overflow:auto;padding-right:2px}
+.draft-slot-history-row{display:grid;grid-template-columns:48px 1fr 50px 52px;gap:7px;align-items:center;background:#111922;border:1px solid #33404b;border-radius:8px;padding:8px;font-size:10px}
+.draft-slot-history-row.champion{border-color:#8f773f;background:linear-gradient(90deg,rgba(185,154,85,.16),#111922 44%)}
+.draft-slot-history-row .year{color:#9da9b3}
+.draft-slot-history-row .owner{font-weight:850}
+.draft-slot-history-row .finish{text-align:right;color:#c5cdd4}
+.draft-slot-history-row .points{text-align:right;color:#9eabb5}
+.draft-slot-crown{color:#d2bd88;margin-right:3px}
+@media(max-width:1180px){.draft-slot-card-grid{grid-template-columns:repeat(3,1fr)}.draft-slot-analysis-grid{grid-template-columns:1fr}.draft-slot-history{position:static}}
+@media(max-width:600px){.draft-slot-card-grid{grid-template-columns:repeat(2,1fr)}}
+
 </style>
 </head>
 <body>
@@ -1113,6 +1162,7 @@ main{
         <button id="draftBoardView" class="active">Draft Board</button>
         <button id="draftTableView">Pick Table</button>
         <button id="draftOwnerView">Owner Cards</button>
+        <button id="draftSlotsView">Draft Slots</button>
       </div>
     </div>
 
@@ -1137,6 +1187,64 @@ main{
       <div class="draft-owner-intro">Career tendencies use all imported drafts from 2020–2025.</div>
       <div id="draftOwnerCards" class="draft-owner-grid"></div>
     </div>
+
+    <div id="draftSlotsPanel" class="hidden">
+      <div class="draft-slot-hero">
+        <div class="draft-slot-hero-copy">
+          <div class="draft-slot-eyebrow">Draft Position Outcomes · 2010–2025</div>
+          <h3 id="draftSlotHeroTitle">Draft Slot #1</h3>
+          <p>How teams assigned this original draft slot performed that season.</p>
+        </div>
+        <label class="draft-slot-selector">Selected Slot
+          <select id="draftSlotSelect"></select>
+        </label>
+      </div>
+
+      <div id="draftSlotCards" class="draft-slot-card-grid"></div>
+
+      <div class="draft-slot-analysis-grid">
+        <div class="draft-slot-section">
+          <div class="draft-slot-section-head">
+            <div>
+              <h3>Draft Slot Comparison</h3>
+              <p>Click any column to sort. Better outcomes shade greener.</p>
+            </div>
+          </div>
+          <div class="draft-slot-table-wrap">
+            <table id="draftSlotTable" class="draft-slot-table">
+              <thead>
+                <tr>
+                  <th data-slot-sort="slot">Slot <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="seasons">Seasons <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="avgRS">Avg RS Finish <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="bestRS">Best RS <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="avgPO">Avg PO Finish <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="bestPO">Best PO <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="playoffRate">Playoff % <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="titles">Titles <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="titleRate">Title % <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="avgPoints">Avg Points <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="highPoints">High Points <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="avgPtsRank">Avg Pts Rank <span class="sort-indicator"></span></th>
+                  <th data-slot-sort="bestPtsRank">Best Pts Rank <span class="sort-indicator"></span></th>
+                </tr>
+              </thead>
+              <tbody id="draftSlotRows"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="draft-slot-section draft-slot-history">
+          <div class="draft-slot-section-head">
+            <div>
+              <h3 id="draftSlotHistoryTitle">Slot #1 History</h3>
+              <p>Every owner-season assigned this slot.</p>
+            </div>
+          </div>
+          <div id="draftSlotHistoryRows" class="draft-slot-history-rows"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1148,23 +1256,28 @@ main{
 let LEAGUE_CONFIG;
 let RECORDS_DATA;
 let DRAFTS_DATA;
+let DRAFT_SLOTS_DATA;
 let INITIAL_RECORDS;
 let INITIAL_DRAFTS;
 try {
-  const [leagueResponse, recordsResponse, draftsResponse] = await Promise.all([
+  const [leagueResponse, recordsResponse, draftsResponse, draftSlotsResponse] = await Promise.all([
     fetch("./data/league.json", {cache:"no-store"}),
     fetch("./data/records.json", {cache:"no-store"}),
-    fetch("./data/drafts.json", {cache:"no-store"})
+    fetch("./data/drafts.json", {cache:"no-store"}),
+    fetch("./data/draftSlots.json", {cache:"no-store"})
   ]);
   if(!leagueResponse.ok) throw new Error(`Could not load data/league.json (HTTP ${leagueResponse.status})`);
   if(!recordsResponse.ok) throw new Error(`Could not load data/records.json (HTTP ${recordsResponse.status})`);
   if(!draftsResponse.ok) throw new Error(`Could not load data/drafts.json (HTTP ${draftsResponse.status})`);
+  if(!draftSlotsResponse.ok) throw new Error(`Could not load data/draftSlots.json (HTTP ${draftSlotsResponse.status})`);
   LEAGUE_CONFIG = await leagueResponse.json();
   RECORDS_DATA = await recordsResponse.json();
   DRAFTS_DATA = await draftsResponse.json();
+  DRAFT_SLOTS_DATA = await draftSlotsResponse.json();
   if(!LEAGUE_CONFIG?.league || !LEAGUE_CONFIG?.scoring || !LEAGUE_CONFIG?.tiers) throw new Error("Invalid league.json");
   if(!Array.isArray(RECORDS_DATA?.records)) throw new Error("Invalid records.json");
   if(!Array.isArray(DRAFTS_DATA?.picks)) throw new Error("Invalid drafts.json");
+  if(!Array.isArray(DRAFT_SLOTS_DATA?.records)) throw new Error("Invalid draftSlots.json");
   INITIAL_RECORDS = RECORDS_DATA.records;
   INITIAL_DRAFTS = DRAFTS_DATA.picks;
 } catch (error) {
@@ -2329,14 +2442,172 @@ function renderDraftOwnerCards(){
     </div>`;
   }).join("");
 }
+
+let draftSelectedSlot=1;
+let draftSlotSort={key:"titles",direction:"desc"};
+
+function draftOrdinal(n){
+  const value=Number(n),mod100=value%100;
+  if(mod100>=11&&mod100<=13)return `${value}th`;
+  return `${value}${value%10===1?"st":value%10===2?"nd":value%10===3?"rd":"th"}`;
+}
+function playoffTeamsForYear(year){
+  const rules=LEAGUE_CONFIG.league.playoffQualifiers||[];
+  const match=rules.find(r=>+year>=+r.startYear&&(r.endYear==null||+year<=+r.endYear));
+  return match?+match.teams:6;
+}
+function draftSlotJoinedRows(){
+  const seasonMap=new Map(INITIAL_RECORDS.map(r=>[`${r.Year}|${r.Owner}`,r]));
+  return DRAFT_SLOTS_DATA.records.map(s=>{
+    const result=seasonMap.get(`${s.year}|${s.owner}`);
+    return result?{...s,result}:null;
+  }).filter(Boolean);
+}
+function draftSlotMetrics(){
+  const grouped=new Map();
+  draftSlotJoinedRows().forEach(row=>{
+    if(!grouped.has(row.draftSlot))grouped.set(row.draftSlot,[]);
+    grouped.get(row.draftSlot).push(row);
+  });
+  return [...grouped.entries()].map(([slot,rows])=>{
+    const avg=key=>rows.reduce((sum,r)=>sum+Number(r.result[key]),0)/rows.length;
+    const min=key=>Math.min(...rows.map(r=>Number(r.result[key])));
+    const max=key=>Math.max(...rows.map(r=>Number(r.result[key])));
+    const titles=rows.filter(r=>+r.result.PO_Finish===1).length;
+    const playoffCount=rows.filter(r=>+r.result.RS_Finish<=playoffTeamsForYear(r.year)).length;
+    return {
+      slot:+slot,
+      seasons:rows.length,
+      avgRS:avg("RS_Finish"),
+      bestRS:min("RS_Finish"),
+      avgPO:avg("PO_Finish"),
+      bestPO:min("PO_Finish"),
+      playoffRate:playoffCount/rows.length,
+      playoffCount,
+      titles,
+      titleRate:titles/rows.length,
+      avgPoints:avg("PointsFor"),
+      highPoints:max("PointsFor"),
+      avgPtsRank:avg("Pts Rank"),
+      bestPtsRank:min("Pts Rank"),
+      rows:[...rows].sort((a,b)=>b.year-a.year)
+    };
+  }).sort((a,b)=>a.slot-b.slot);
+}
+function slotMetricFormat(key,value){
+  if(["avgRS","avgPO","avgPtsRank"].includes(key))return Number(value).toFixed(1);
+  if(["playoffRate","titleRate"].includes(key))return `${Math.round(Number(value)*100)}%`;
+  if(["avgPoints","highPoints"].includes(key))return Math.round(Number(value)).toLocaleString();
+  if(["bestRS","bestPO"].includes(key))return draftOrdinal(value);
+  if(key==="bestPtsRank")return `#${value}`;
+  return String(value);
+}
+function slotHeatClass(metrics,key,value){
+  const directionHigherBetter=["playoffRate","titles","titleRate","avgPoints","highPoints","seasons"].includes(key);
+  const values=metrics.map(m=>Number(m[key])).filter(Number.isFinite);
+  const min=Math.min(...values),max=Math.max(...values);
+  if(max===min)return "slot-heat-mid";
+  let score=(Number(value)-min)/(max-min);
+  if(!directionHigherBetter)score=1-score;
+  if(score>=.82)return "slot-heat-best";
+  if(score>=.62)return "slot-heat-good";
+  if(score>=.38)return "slot-heat-mid";
+  if(score>=.18)return "slot-heat-low";
+  return "slot-heat-worst";
+}
+function renderDraftSlotSelectors(){
+  const select=document.getElementById("draftSlotSelect");
+  if(!select.options.length){
+    select.innerHTML=Array.from({length:10},(_,i)=>`<option value="${i+1}">${draftOrdinal(i+1)} Slot</option>`).join("");
+  }
+  select.value=String(draftSelectedSlot);
+}
+function renderDraftSlotCards(){
+  const metric=draftSlotMetrics().find(m=>m.slot===draftSelectedSlot);
+  if(!metric)return;
+  document.getElementById("draftSlotHeroTitle").textContent=`Draft Slot #${metric.slot}`;
+  const bestSeason=[...metric.rows].sort((a,b)=>{
+    if(+a.result.PO_Finish!==+b.result.PO_Finish)return +a.result.PO_Finish-+b.result.PO_Finish;
+    if(+a.result.RS_Finish!==+b.result.RS_Finish)return +a.result.RS_Finish-+b.result.RS_Finish;
+    return +b.result.PointsFor-+a.result.PointsFor;
+  })[0];
+  const cards=[
+    ["Titles",metric.titles,`${Math.round(metric.titleRate*100)}% of seasons`,"featured"],
+    ["Playoff Rate",`${Math.round(metric.playoffRate*100)}%`,`${metric.playoffCount} of ${metric.seasons} seasons`,""],
+    ["Avg RS Finish",metric.avgRS.toFixed(1),`Best: ${draftOrdinal(metric.bestRS)}`,""],
+    ["Avg PO Finish",metric.avgPO.toFixed(1),`Best: ${metric.bestPO===1?"Champion":draftOrdinal(metric.bestPO)}`,""],
+    ["Avg Points",Math.round(metric.avgPoints).toLocaleString(),`High: ${Math.round(metric.highPoints).toLocaleString()}`,""],
+    ["Avg Points Rank",metric.avgPtsRank.toFixed(1),`Best: #${metric.bestPtsRank}`,""]
+  ];
+  document.getElementById("draftSlotCards").innerHTML=cards.map(([label,value,detail,cls])=>
+    `<div class="draft-slot-card ${cls}"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`
+  ).join("");
+}
+function sortedDraftSlotMetrics(){
+  const metrics=draftSlotMetrics();
+  const {key,direction}=draftSlotSort;
+  return metrics.sort((a,b)=>{
+    const av=Number(a[key]),bv=Number(b[key]);
+    const diff=av-bv;
+    return direction==="asc"?diff:-diff;
+  });
+}
+function renderDraftSlotTable(){
+  const all=draftSlotMetrics();
+  const sorted=sortedDraftSlotMetrics();
+  const keys=["slot","seasons","avgRS","bestRS","avgPO","bestPO","playoffRate","titles","titleRate","avgPoints","highPoints","avgPtsRank","bestPtsRank"];
+  document.getElementById("draftSlotRows").innerHTML=sorted.map(m=>
+    `<tr class="${m.slot===draftSelectedSlot?"selected-slot":""}" data-slot="${m.slot}">
+      ${keys.map(key=>{
+        const heat=key==="slot"?"":`slot-heat ${slotHeatClass(all,key,m[key])}`;
+        return `<td class="${heat}">${key==="slot"?draftOrdinal(m.slot):slotMetricFormat(key,m[key])}</td>`;
+      }).join("")}
+    </tr>`
+  ).join("");
+  document.querySelectorAll("[data-slot-sort]").forEach(th=>{
+    const key=th.dataset.slotSort;
+    const indicator=th.querySelector(".sort-indicator");
+    th.classList.toggle("active-sort",draftSlotSort.key===key);
+    indicator.textContent=draftSlotSort.key===key?(draftSlotSort.direction==="asc"?"▲":"▼"):"";
+  });
+  document.querySelectorAll("#draftSlotRows tr").forEach(row=>{
+    row.addEventListener("click",()=>{
+      draftSelectedSlot=+row.dataset.slot;
+      renderDraftSlotsView();
+    });
+  });
+}
+function renderDraftSlotHistory(){
+  const metric=draftSlotMetrics().find(m=>m.slot===draftSelectedSlot);
+  if(!metric)return;
+  document.getElementById("draftSlotHistoryTitle").textContent=`Slot #${metric.slot} History`;
+  document.getElementById("draftSlotHistoryRows").innerHTML=metric.rows.map(r=>{
+    const champion=+r.result.PO_Finish===1;
+    return `<div class="draft-slot-history-row ${champion?"champion":""}">
+      <div class="year">${r.year}</div>
+      <div class="owner">${champion?'<span class="draft-slot-crown">♛</span>':""}${displayName(r.owner)}</div>
+      <div class="finish">RS ${r.result.RS_Finish}<br>PO ${r.result.PO_Finish}</div>
+      <div class="points">${Math.round(r.result.PointsFor).toLocaleString()}<br>#${r.result["Pts Rank"]}</div>
+    </div>`;
+  }).join("");
+}
+function renderDraftSlotsView(){
+  renderDraftSlotSelectors();
+  renderDraftSlotCards();
+  renderDraftSlotTable();
+  renderDraftSlotHistory();
+}
+
 function setDraftView(view){
   draftCurrentView=view;
   document.getElementById("draftBoardPanel").classList.toggle("hidden",view!=="board");
   document.getElementById("draftTablePanel").classList.toggle("hidden",view!=="table");
   document.getElementById("draftOwnerPanel").classList.toggle("hidden",view!=="owners");
+  document.getElementById("draftSlotsPanel").classList.toggle("hidden",view!=="slots");
   document.getElementById("draftBoardView").classList.toggle("active",view==="board");
   document.getElementById("draftTableView").classList.toggle("active",view==="table");
   document.getElementById("draftOwnerView").classList.toggle("active",view==="owners");
+  document.getElementById("draftSlotsView").classList.toggle("active",view==="slots");
 }
 function renderDraftHub(){
   renderDraftSelectors();
@@ -2345,6 +2616,7 @@ function renderDraftHub(){
   renderDraftBoard();
   renderDraftTable();
   renderDraftOwnerCards();
+  renderDraftSlotsView();
   setDraftView(draftCurrentView);
 }
 
@@ -2396,6 +2668,17 @@ document.getElementById("draftOwnerFilter").addEventListener("change",e=>{draftS
 document.getElementById("draftBoardView").addEventListener("click",()=>setDraftView("board"));
 document.getElementById("draftTableView").addEventListener("click",()=>setDraftView("table"));
 document.getElementById("draftOwnerView").addEventListener("click",()=>setDraftView("owners"));
+document.getElementById("draftSlotsView").addEventListener("click",()=>setDraftView("slots"));
+document.getElementById("draftSlotSelect").addEventListener("change",e=>{draftSelectedSlot=+e.target.value;renderDraftSlotsView();});
+document.querySelectorAll("[data-slot-sort]").forEach(th=>th.addEventListener("click",()=>{
+  const key=th.dataset.slotSort;
+  if(draftSlotSort.key===key)draftSlotSort.direction=draftSlotSort.direction==="asc"?"desc":"asc";
+  else{
+    draftSlotSort.key=key;
+    draftSlotSort.direction=["avgRS","bestRS","avgPO","bestPO","avgPtsRank","bestPtsRank","slot"].includes(key)?"asc":"desc";
+  }
+  renderDraftSlotTable();
+}));
 
 document.getElementById("togglePoints").addEventListener("click",e=>{pointMode=!pointMode;e.target.textContent=pointMode?"Show Raw Totals":"Show Point Contributions";renderMatrix()});
 document.getElementById("auditYear").addEventListener("change",()=>{auditSort={key:null,direction:null};renderAudit();});

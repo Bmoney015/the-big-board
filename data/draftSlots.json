@@ -1,0 +1,976 @@
+{
+  "schemaVersion": "1.0",
+  "source": {
+    "file": "08.2026 Draft Slot data - Website League Archive.csv",
+    "ownerAliases": {
+      "Habble": "Harp",
+      "Bunz": "Adrian"
+    },
+    "coverage": {
+      "startYear": 2010,
+      "endYear": 2025
+    }
+  },
+  "records": [
+    {
+      "year": 2010,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 1
+    },
+    {
+      "year": 2010,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 2
+    },
+    {
+      "year": 2010,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 3
+    },
+    {
+      "year": 2010,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 4
+    },
+    {
+      "year": 2010,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 5
+    },
+    {
+      "year": 2010,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 6
+    },
+    {
+      "year": 2010,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 7
+    },
+    {
+      "year": 2010,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 8
+    },
+    {
+      "year": 2010,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 9
+    },
+    {
+      "year": 2010,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 10
+    },
+    {
+      "year": 2011,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 1
+    },
+    {
+      "year": 2011,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 2
+    },
+    {
+      "year": 2011,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 3
+    },
+    {
+      "year": 2011,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 4
+    },
+    {
+      "year": 2011,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 5
+    },
+    {
+      "year": 2011,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 6
+    },
+    {
+      "year": 2011,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 7
+    },
+    {
+      "year": 2011,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 8
+    },
+    {
+      "year": 2011,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 9
+    },
+    {
+      "year": 2011,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 10
+    },
+    {
+      "year": 2012,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 1
+    },
+    {
+      "year": 2012,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 2
+    },
+    {
+      "year": 2012,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 3
+    },
+    {
+      "year": 2012,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 4
+    },
+    {
+      "year": 2012,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 5
+    },
+    {
+      "year": 2012,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 6
+    },
+    {
+      "year": 2012,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 7
+    },
+    {
+      "year": 2012,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 8
+    },
+    {
+      "year": 2012,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 9
+    },
+    {
+      "year": 2012,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 10
+    },
+    {
+      "year": 2013,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 1
+    },
+    {
+      "year": 2013,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 2
+    },
+    {
+      "year": 2013,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 3
+    },
+    {
+      "year": 2013,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 4
+    },
+    {
+      "year": 2013,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 5
+    },
+    {
+      "year": 2013,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 6
+    },
+    {
+      "year": 2013,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 7
+    },
+    {
+      "year": 2013,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 8
+    },
+    {
+      "year": 2013,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 9
+    },
+    {
+      "year": 2013,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 10
+    },
+    {
+      "year": 2014,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 1
+    },
+    {
+      "year": 2014,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 2
+    },
+    {
+      "year": 2014,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 3
+    },
+    {
+      "year": 2014,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 4
+    },
+    {
+      "year": 2014,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 5
+    },
+    {
+      "year": 2014,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 6
+    },
+    {
+      "year": 2014,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 7
+    },
+    {
+      "year": 2014,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 8
+    },
+    {
+      "year": 2014,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 9
+    },
+    {
+      "year": 2014,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 10
+    },
+    {
+      "year": 2015,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 1
+    },
+    {
+      "year": 2015,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 2
+    },
+    {
+      "year": 2015,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 3
+    },
+    {
+      "year": 2015,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 4
+    },
+    {
+      "year": 2015,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 5
+    },
+    {
+      "year": 2015,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 6
+    },
+    {
+      "year": 2015,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 7
+    },
+    {
+      "year": 2015,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 8
+    },
+    {
+      "year": 2015,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 9
+    },
+    {
+      "year": 2015,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 10
+    },
+    {
+      "year": 2016,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 1
+    },
+    {
+      "year": 2016,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 2
+    },
+    {
+      "year": 2016,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 3
+    },
+    {
+      "year": 2016,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 4
+    },
+    {
+      "year": 2016,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 5
+    },
+    {
+      "year": 2016,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 6
+    },
+    {
+      "year": 2016,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 7
+    },
+    {
+      "year": 2016,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 8
+    },
+    {
+      "year": 2016,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 9
+    },
+    {
+      "year": 2016,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 10
+    },
+    {
+      "year": 2017,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 1
+    },
+    {
+      "year": 2017,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 2
+    },
+    {
+      "year": 2017,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 3
+    },
+    {
+      "year": 2017,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 4
+    },
+    {
+      "year": 2017,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 5
+    },
+    {
+      "year": 2017,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 6
+    },
+    {
+      "year": 2017,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 7
+    },
+    {
+      "year": 2017,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 8
+    },
+    {
+      "year": 2017,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 9
+    },
+    {
+      "year": 2017,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 10
+    },
+    {
+      "year": 2018,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 1
+    },
+    {
+      "year": 2018,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 2
+    },
+    {
+      "year": 2018,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 3
+    },
+    {
+      "year": 2018,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 4
+    },
+    {
+      "year": 2018,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 5
+    },
+    {
+      "year": 2018,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 6
+    },
+    {
+      "year": 2018,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 7
+    },
+    {
+      "year": 2018,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 8
+    },
+    {
+      "year": 2018,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 9
+    },
+    {
+      "year": 2018,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 10
+    },
+    {
+      "year": 2019,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 1
+    },
+    {
+      "year": 2019,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 2
+    },
+    {
+      "year": 2019,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 3
+    },
+    {
+      "year": 2019,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 4
+    },
+    {
+      "year": 2019,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 5
+    },
+    {
+      "year": 2019,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 6
+    },
+    {
+      "year": 2019,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 7
+    },
+    {
+      "year": 2019,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 8
+    },
+    {
+      "year": 2019,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 9
+    },
+    {
+      "year": 2019,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 10
+    },
+    {
+      "year": 2020,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 1
+    },
+    {
+      "year": 2020,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 2
+    },
+    {
+      "year": 2020,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 3
+    },
+    {
+      "year": 2020,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 4
+    },
+    {
+      "year": 2020,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 5
+    },
+    {
+      "year": 2020,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 6
+    },
+    {
+      "year": 2020,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 7
+    },
+    {
+      "year": 2020,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 8
+    },
+    {
+      "year": 2020,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 9
+    },
+    {
+      "year": 2020,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 10
+    },
+    {
+      "year": 2021,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 1
+    },
+    {
+      "year": 2021,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 2
+    },
+    {
+      "year": 2021,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 3
+    },
+    {
+      "year": 2021,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 4
+    },
+    {
+      "year": 2021,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 5
+    },
+    {
+      "year": 2021,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 6
+    },
+    {
+      "year": 2021,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 7
+    },
+    {
+      "year": 2021,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 8
+    },
+    {
+      "year": 2021,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 9
+    },
+    {
+      "year": 2021,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 10
+    },
+    {
+      "year": 2022,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 1
+    },
+    {
+      "year": 2022,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 2
+    },
+    {
+      "year": 2022,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 3
+    },
+    {
+      "year": 2022,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 4
+    },
+    {
+      "year": 2022,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 5
+    },
+    {
+      "year": 2022,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 6
+    },
+    {
+      "year": 2022,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 7
+    },
+    {
+      "year": 2022,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 8
+    },
+    {
+      "year": 2022,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 9
+    },
+    {
+      "year": 2022,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 10
+    },
+    {
+      "year": 2023,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 1
+    },
+    {
+      "year": 2023,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 2
+    },
+    {
+      "year": 2023,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 3
+    },
+    {
+      "year": 2023,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 4
+    },
+    {
+      "year": 2023,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 5
+    },
+    {
+      "year": 2023,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 6
+    },
+    {
+      "year": 2023,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 7
+    },
+    {
+      "year": 2023,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 8
+    },
+    {
+      "year": 2023,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 9
+    },
+    {
+      "year": 2023,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 10
+    },
+    {
+      "year": 2024,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 1
+    },
+    {
+      "year": 2024,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 2
+    },
+    {
+      "year": 2024,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 3
+    },
+    {
+      "year": 2024,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 4
+    },
+    {
+      "year": 2024,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 5
+    },
+    {
+      "year": 2024,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 6
+    },
+    {
+      "year": 2024,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 7
+    },
+    {
+      "year": 2024,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 8
+    },
+    {
+      "year": 2024,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 9
+    },
+    {
+      "year": 2024,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 10
+    },
+    {
+      "year": 2025,
+      "owner": "Dan",
+      "ownerSource": "Dan",
+      "draftSlot": 1
+    },
+    {
+      "year": 2025,
+      "owner": "Sam",
+      "ownerSource": "Sam",
+      "draftSlot": 2
+    },
+    {
+      "year": 2025,
+      "owner": "Adrian",
+      "ownerSource": "Adrian",
+      "draftSlot": 3
+    },
+    {
+      "year": 2025,
+      "owner": "Zac",
+      "ownerSource": "Zac",
+      "draftSlot": 4
+    },
+    {
+      "year": 2025,
+      "owner": "Ben",
+      "ownerSource": "Ben",
+      "draftSlot": 5
+    },
+    {
+      "year": 2025,
+      "owner": "Mac",
+      "ownerSource": "Mac",
+      "draftSlot": 6
+    },
+    {
+      "year": 2025,
+      "owner": "Cory",
+      "ownerSource": "Cory",
+      "draftSlot": 7
+    },
+    {
+      "year": 2025,
+      "owner": "RJ",
+      "ownerSource": "RJ",
+      "draftSlot": 8
+    },
+    {
+      "year": 2025,
+      "owner": "Bob",
+      "ownerSource": "Bob",
+      "draftSlot": 9
+    },
+    {
+      "year": 2025,
+      "owner": "Harp",
+      "ownerSource": "Habble",
+      "draftSlot": 10
+    }
+  ]
+}
