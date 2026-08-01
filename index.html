@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Big Board</title>
-<!-- v4.0.1 Engine — fixes Discard Changes season reset -->
+<!-- v4.1.0 Draft Hub — imports 2020–2025 draft history -->
 <meta name="description" content="Career Prestige Rankings — a measure of sustained excellence across league history.">
 <meta name="theme-color" content="#202a34">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -794,6 +794,65 @@ main{
    ========================================================= */
 .nav button[hidden]{display:none !important}
 
+
+/* =========================================================
+   v4.1.0 — Draft Hub
+   ========================================================= */
+.draft-shell{background:#111922;color:#eff2f5;border-radius:14px;padding:24px;min-height:720px}
+.draft-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap}
+.draft-head h2{margin:0;font-size:28px}
+.draft-head p{margin:7px 0 0;color:#aeb8c1}
+.draft-era-badge{border:1px solid #6b5c37;background:#201c14;color:#d8bd78;border-radius:999px;padding:7px 12px;font-size:12px;font-weight:800}
+.draft-controls{display:flex;align-items:end;gap:12px;flex-wrap:wrap;margin:20px 0 14px}
+.draft-controls label{color:#b7c0c8}
+.draft-controls select{background:#f7f4ee!important;color:#18222c!important;border-color:#75818c!important;min-width:145px}
+.draft-view-switch{display:flex;gap:7px;flex-wrap:wrap}
+.draft-view-switch button{border:1px solid #52606d;background:#202a34;color:#eef2f5;padding:8px 12px;border-radius:8px}
+.draft-view-switch button.active{border:2px solid var(--prestige-gold)!important;background:#edece7!important;color:#1d2228!important}
+.draft-summary-grid{display:grid;grid-template-columns:repeat(5,minmax(150px,1fr));gap:10px;margin-bottom:12px}
+.draft-summary-card{background:#17212b;border:1px solid #3a4652;border-radius:10px;padding:13px}
+.draft-summary-card .label{font-size:10px;color:#9aa7b2;text-transform:uppercase;letter-spacing:.07em}
+.draft-summary-card .value{font-size:23px;font-weight:850;margin-top:5px}
+.draft-summary-card .detail{font-size:11px;color:#aeb8c1;margin-top:4px}
+.draft-legend{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 14px}
+.draft-legend-item{display:inline-flex;align-items:center;gap:6px;border:1px solid #44505b;border-radius:999px;padding:4px 9px;font-size:11px;color:#d7dde2}
+.draft-legend-dot{width:12px;height:12px;border-radius:3px;border:1px solid rgba(0,0,0,.25)}
+.draft-board-wrap{overflow:auto;border:1px solid #3a4652;border-radius:12px;background:#0e151d;padding:12px}
+.draft-board{display:grid;grid-template-columns:62px repeat(10,minmax(125px,1fr));gap:7px;min-width:1390px}
+.draft-board-header{font-size:10px;text-align:center;color:#9aa7b2;text-transform:uppercase;letter-spacing:.06em;padding:4px}
+.draft-round-label{display:flex;align-items:center;justify-content:center;background:#202a34;border:1px solid #45515d;border-radius:8px;font-size:12px;font-weight:850;color:#d6dde3;min-height:70px}
+.draft-pick-card{position:relative;border-radius:8px;padding:8px 8px 7px;min-height:70px;border:2px solid transparent;color:#17202a;transition:opacity .18s,transform .18s}
+.draft-pick-card:hover{transform:translateY(-1px)}
+.draft-pick-card.draft-muted{opacity:.18}
+.draft-pick-number{position:absolute;right:6px;top:5px;font-size:10px;font-weight:850;opacity:.68}
+.draft-player{font-size:12px;font-weight:850;line-height:1.18;padding-right:24px;white-space:normal}
+.draft-owner{font-size:10px;font-weight:750;margin-top:6px;opacity:.78}
+.draft-pos-label{font-size:10px;font-weight:850;margin-top:2px;opacity:.78}
+.draft-trade-notes{margin-top:12px;background:#17212b;border:1px solid #3a4652;border-radius:10px;padding:13px}
+.draft-trade-notes h3{font-size:14px;margin:0 0 8px}
+.draft-trade-notes ul{margin:0;padding-left:19px;color:#c4ccd3;font-size:12px;line-height:1.5}
+.draft-no-notes{color:#93a0ab;font-size:12px}
+.draft-table-wrap{overflow:auto;border:1px solid #3a4652;border-radius:12px}
+.draft-pick-table{min-width:780px;background:#17212b;color:#eff2f5}
+.draft-pick-table thead th{background:#242f39!important;color:#eff2f5!important}
+.draft-pick-table tbody td{color:#e7edf1!important;background:#17212b!important}
+.draft-pick-table tbody tr.draft-muted{opacity:.22}
+.draft-position-chip{display:inline-block;border-radius:999px;padding:3px 8px;font-size:10px;font-weight:850;border:1px solid rgba(0,0,0,.22);color:#17202a}
+.draft-owner-intro{color:#9faab4;font-size:12px;margin:4px 0 12px}
+.draft-owner-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:12px}
+.draft-owner-card{background:#17212b;border:1px solid #3a4652;border-radius:10px;padding:15px}
+.draft-owner-card.highlighted{border:2px solid var(--prestige-gold);box-shadow:0 0 0 1px rgba(185,154,85,.12)}
+.draft-owner-card h3{margin:0;font-size:18px}
+.draft-owner-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.draft-owner-stat{background:#111922;border:1px solid #33404b;border-radius:8px;padding:9px}
+.draft-owner-stat .label{font-size:9px;text-transform:uppercase;color:#8f9da8;letter-spacing:.06em}
+.draft-owner-stat .value{font-size:17px;font-weight:850;margin-top:3px}
+.draft-owner-position-bar{display:flex;height:8px;border-radius:999px;overflow:hidden;margin-top:12px;background:#0e151d}
+.draft-owner-position-bar span{height:100%}
+.draft-owner-foot{font-size:11px;color:#aeb8c1;margin-top:10px;line-height:1.4}
+@media(max-width:1050px){.draft-summary-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.draft-summary-grid{grid-template-columns:1fr}.draft-shell{padding:14px}}
+
 </style>
 </head>
 <body>
@@ -810,6 +869,7 @@ main{
     <button data-view="data" id="commissionerDataTab" class="commissioner-only" hidden>Data & Settings</button>
     <button data-view="presentation">Presentation</button>
     <button data-view="journey">Career Journey</button>
+    <button data-view="draftHub">Draft Hub</button>
   </nav>
 </header>
 <main>
@@ -1032,6 +1092,54 @@ main{
   </div>
 </section>
 
+<section id="draftHub" class="view">
+  <div class="draft-shell">
+    <div class="draft-head">
+      <div>
+        <h2>Draft Hub</h2>
+        <p>Historical draft boards, positional runs, and owner tendencies.</p>
+      </div>
+      <span class="draft-era-badge">2020–2025</span>
+    </div>
+
+    <div class="draft-controls">
+      <label>Draft Year
+        <select id="draftYear"></select>
+      </label>
+      <label>Highlight Owner
+        <select id="draftOwnerFilter"></select>
+      </label>
+      <div class="draft-view-switch" role="group" aria-label="Draft Hub view">
+        <button id="draftBoardView" class="active">Draft Board</button>
+        <button id="draftTableView">Pick Table</button>
+        <button id="draftOwnerView">Owner Cards</button>
+      </div>
+    </div>
+
+    <div id="draftSummary" class="draft-summary-grid"></div>
+    <div id="draftLegend" class="draft-legend"></div>
+
+    <div id="draftBoardPanel">
+      <div id="draftBoard" class="draft-board-wrap"></div>
+      <div id="draftTradeNotes" class="draft-trade-notes"></div>
+    </div>
+
+    <div id="draftTablePanel" class="hidden">
+      <div class="draft-table-wrap">
+        <table class="draft-pick-table">
+          <thead><tr><th>Pick</th><th>Round</th><th>Owner</th><th>Player</th><th>Pos</th><th>Positional Pick</th></tr></thead>
+          <tbody id="draftPickRows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="draftOwnerPanel" class="hidden">
+      <div class="draft-owner-intro">Career tendencies use all imported drafts from 2020–2025.</div>
+      <div id="draftOwnerCards" class="draft-owner-grid"></div>
+    </div>
+  </div>
+</section>
+
 </main>
 <div id="tooltip" class="tooltip"></div>
 
@@ -1039,19 +1147,26 @@ main{
 (async function bootBigBoard(){
 let LEAGUE_CONFIG;
 let RECORDS_DATA;
+let DRAFTS_DATA;
 let INITIAL_RECORDS;
+let INITIAL_DRAFTS;
 try {
-  const [leagueResponse, recordsResponse] = await Promise.all([
+  const [leagueResponse, recordsResponse, draftsResponse] = await Promise.all([
     fetch("./data/league.json", {cache:"no-store"}),
-    fetch("./data/records.json", {cache:"no-store"})
+    fetch("./data/records.json", {cache:"no-store"}),
+    fetch("./data/drafts.json", {cache:"no-store"})
   ]);
   if(!leagueResponse.ok) throw new Error(`Could not load data/league.json (HTTP ${leagueResponse.status})`);
   if(!recordsResponse.ok) throw new Error(`Could not load data/records.json (HTTP ${recordsResponse.status})`);
+  if(!draftsResponse.ok) throw new Error(`Could not load data/drafts.json (HTTP ${draftsResponse.status})`);
   LEAGUE_CONFIG = await leagueResponse.json();
   RECORDS_DATA = await recordsResponse.json();
+  DRAFTS_DATA = await draftsResponse.json();
   if(!LEAGUE_CONFIG?.league || !LEAGUE_CONFIG?.scoring || !LEAGUE_CONFIG?.tiers) throw new Error("Invalid league.json");
   if(!Array.isArray(RECORDS_DATA?.records)) throw new Error("Invalid records.json");
+  if(!Array.isArray(DRAFTS_DATA?.picks)) throw new Error("Invalid drafts.json");
   INITIAL_RECORDS = RECORDS_DATA.records;
+  INITIAL_DRAFTS = DRAFTS_DATA.picks;
 } catch (error) {
   document.body.innerHTML = `<main style="max-width:760px;margin:60px auto;font-family:Segoe UI,Arial,sans-serif;padding:24px">
   <h1>The Big Board could not load its data.</h1><p><strong>${error.message}</strong></p>
@@ -1206,7 +1321,7 @@ function integrity(){return integrityFor(state.records)}
 function renderAll(){
   resetPendingFromSaved();
   renderIntegrity(); renderRankings(); renderMatrix(); renderAuditSelectors(); renderAudit();
-  renderSettings(); renderTiers(); renderEditor(); renderHistoricalSnapshots(); renderFourYearRecap(); renderPermanentFinal(); resetReveal(); renderJourney();
+  renderSettings(); renderTiers(); renderEditor(); renderHistoricalSnapshots(); renderFourYearRecap(); renderPermanentFinal(); resetReveal(); renderJourney(); renderDraftHub();
 }
 function renderIntegrity(){
   const issues=integrity(), el=document.getElementById("integrityCard");
@@ -2064,6 +2179,175 @@ function journeyReplay(){
   journeyPlay();
 }
 
+
+/* =========================================================
+   Draft Hub v1
+   ========================================================= */
+let draftSelectedYear=Math.max(...DRAFTS_DATA.years.map(Number));
+let draftSelectedOwner="ALL";
+let draftCurrentView="board";
+
+function draftPositionStyle(position){
+  const palette=DRAFTS_DATA.positionPalette[position]||{background:"#ececec",border:"#999",text:"#222"};
+  return `background:${palette.background};border-color:${palette.border};color:${palette.text}`;
+}
+function draftYears(){return [...new Set(INITIAL_DRAFTS.map(p=>+p.year))].sort((a,b)=>b-a)}
+function draftOwners(){
+  const configured=LEAGUE_CONFIG.league.owners||[];
+  const observed=[...new Set(INITIAL_DRAFTS.map(p=>p.owner))];
+  return [...configured.filter(o=>observed.includes(o)),...observed.filter(o=>!configured.includes(o)).sort()];
+}
+function draftPicksForYear(year=draftSelectedYear){
+  return INITIAL_DRAFTS.filter(p=>+p.year===+year).sort((a,b)=>a.overallPick-b.overallPick);
+}
+function firstPositionPick(picks,position){
+  return picks.find(p=>p.position===position)||null;
+}
+function average(values){
+  const valid=values.filter(Number.isFinite);
+  return valid.length?valid.reduce((a,b)=>a+b,0)/valid.length:null;
+}
+function draftRepeatFavorite(picks){
+  const counts={};
+  picks.forEach(p=>counts[p.player]=(counts[p.player]||0)+1);
+  const entries=Object.entries(counts).sort((a,b)=>b[1]-a[1]||a[0].localeCompare(b[0]));
+  return entries.length&&entries[0][1]>1?entries[0]:null;
+}
+function renderDraftSelectors(){
+  const yearSelect=document.getElementById("draftYear");
+  const years=draftYears();
+  if(!yearSelect.options.length){
+    yearSelect.innerHTML=years.map(y=>`<option value="${y}">${y}</option>`).join("");
+  }
+  yearSelect.value=String(draftSelectedYear);
+  const ownerSelect=document.getElementById("draftOwnerFilter");
+  if(!ownerSelect.options.length){
+    ownerSelect.innerHTML=`<option value="ALL">All Owners</option>`+
+      draftOwners().map(o=>`<option value="${o}">${displayName(o)}</option>`).join("");
+  }
+  ownerSelect.value=draftSelectedOwner;
+}
+function renderDraftSummary(){
+  const picks=draftPicksForYear();
+  const firstQB=firstPositionPick(picks,"QB");
+  const firstTE=firstPositionPick(picks,"TE");
+  const positionCounts=picks.reduce((acc,p)=>(acc[p.position]=(acc[p.position]||0)+1,acc),{});
+  const mostPosition=Object.entries(positionCounts).sort((a,b)=>b[1]-a[1])[0];
+  document.getElementById("draftSummary").innerHTML=[
+    ["Total Picks",picks.length,`${Math.max(...picks.map(p=>p.round))} rounds`],
+    ["First QB",firstQB?firstQB.positionLabel:"—",firstQB?`#${firstQB.overallPick} · ${firstQB.player}`:""],
+    ["First TE",firstTE?firstTE.positionLabel:"—",firstTE?`#${firstTE.overallPick} · ${firstTE.player}`:""],
+    ["Most Drafted Position",mostPosition?mostPosition[0]:"—",mostPosition?`${mostPosition[1]} selections`:""],
+    ["Draft-Day Trades",(DRAFTS_DATA.tradeNotes[String(draftSelectedYear)]||[]).length,"preserved from board notes"]
+  ].map(([label,value,detail])=>`<div class="draft-summary-card"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`).join("");
+}
+function renderDraftLegend(){
+  const order=["QB","RB","WR","TE","K","DST"];
+  document.getElementById("draftLegend").innerHTML=order.map(pos=>{
+    const p=DRAFTS_DATA.positionPalette[pos];
+    return `<span class="draft-legend-item"><span class="draft-legend-dot" style="background:${p.background};border-color:${p.border}"></span>${pos}</span>`;
+  }).join("");
+}
+function renderDraftBoard(){
+  const picks=draftPicksForYear();
+  const byPick=Object.fromEntries(picks.map(p=>[p.overallPick,p]));
+  const rounds=Math.max(...picks.map(p=>p.round));
+  let html=`<div class="draft-board"><div></div>${Array.from({length:10},(_,i)=>`<div class="draft-board-header">Pick ${i+1}</div>`).join("")}`;
+  for(let round=1;round<=rounds;round++){
+    html+=`<div class="draft-round-label">Rd ${round}</div>`;
+    for(let pickInRound=1;pickInRound<=10;pickInRound++){
+      const overall=(round-1)*10+pickInRound;
+      const p=byPick[overall];
+      if(!p){html+=`<div></div>`;continue}
+      const muted=draftSelectedOwner!=="ALL"&&p.owner!==draftSelectedOwner;
+      html+=`<div class="draft-pick-card ${muted?"draft-muted":""}" style="${draftPositionStyle(p.position)}" title="#${p.overallPick} · ${p.ownerSource} · ${p.positionLabel}">
+        <div class="draft-pick-number">#${p.overallPick}</div>
+        <div class="draft-player">${p.player}</div>
+        <div class="draft-owner">${displayName(p.owner)}</div>
+        <div class="draft-pos-label">${p.positionLabel}</div>
+      </div>`;
+    }
+  }
+  html+=`</div>`;
+  document.getElementById("draftBoard").innerHTML=html;
+  const notes=DRAFTS_DATA.tradeNotes[String(draftSelectedYear)]||[];
+  document.getElementById("draftTradeNotes").innerHTML=`<h3>Draft-Day Trade Notes</h3>`+
+    (notes.length?`<ul>${notes.map(n=>`<li>${n}</li>`).join("")}</ul>`:`<div class="draft-no-notes">No trade notes were recorded on this board.</div>`);
+}
+function renderDraftTable(){
+  const picks=draftPicksForYear();
+  document.getElementById("draftPickRows").innerHTML=picks.map(p=>{
+    const muted=draftSelectedOwner!=="ALL"&&p.owner!==draftSelectedOwner;
+    return `<tr class="${muted?"draft-muted":""}">
+      <td>${p.overallPick}</td><td>${p.round}.${p.pickInRound}</td><td>${displayName(p.owner)}</td>
+      <td>${p.player}</td><td><span class="draft-position-chip" style="${draftPositionStyle(p.position)}">${p.position}</span></td>
+      <td>${p.positionLabel}</td>
+    </tr>`;
+  }).join("");
+}
+function ownerDraftMetrics(owner){
+  const picks=INITIAL_DRAFTS.filter(p=>p.owner===owner);
+  const years=[...new Set(picks.map(p=>+p.year))].sort();
+  const firstQBRounds=years.map(y=>{
+    const p=picks.filter(x=>+x.year===y&&x.position==="QB").sort((a,b)=>a.overallPick-b.overallPick)[0];
+    return p?p.round:NaN;
+  });
+  const firstTERounds=years.map(y=>{
+    const p=picks.filter(x=>+x.year===y&&x.position==="TE").sort((a,b)=>a.overallPick-b.overallPick)[0];
+    return p?p.round:NaN;
+  });
+  const counts=picks.reduce((a,p)=>(a[p.position]=(a[p.position]||0)+1,a),{});
+  const topPosition=Object.entries(counts).sort((a,b)=>b[1]-a[1])[0]||["—",0];
+  return {
+    owner,picks,years,counts,topPosition,
+    avgFirstQB:average(firstQBRounds),
+    avgFirstTE:average(firstTERounds),
+    favorite:draftRepeatFavorite(picks)
+  };
+}
+function renderDraftOwnerCards(){
+  const owners=draftSelectedOwner==="ALL"?draftOwners():[draftSelectedOwner];
+  document.getElementById("draftOwnerCards").innerHTML=owners.map(owner=>{
+    const m=ownerDraftMetrics(owner);
+    const total=m.picks.length||1;
+    const positions=["QB","RB","WR","TE","K","DST"];
+    const bar=positions.map(pos=>{
+      const count=m.counts[pos]||0,p=DRAFTS_DATA.positionPalette[pos];
+      return count?`<span title="${pos}: ${count}" style="width:${count/total*100}%;background:${p.background};border-top:1px solid ${p.border}"></span>`:"";
+    }).join("");
+    return `<div class="draft-owner-card ${draftSelectedOwner===owner?"highlighted":""}">
+      <h3>${displayName(owner)}</h3>
+      <div class="draft-owner-stat-grid">
+        <div class="draft-owner-stat"><div class="label">Drafts</div><div class="value">${m.years.length}</div></div>
+        <div class="draft-owner-stat"><div class="label">Total Picks</div><div class="value">${m.picks.length}</div></div>
+        <div class="draft-owner-stat"><div class="label">Avg First QB</div><div class="value">${m.avgFirstQB?`Rd ${m.avgFirstQB.toFixed(1)}`:"—"}</div></div>
+        <div class="draft-owner-stat"><div class="label">Avg First TE</div><div class="value">${m.avgFirstTE?`Rd ${m.avgFirstTE.toFixed(1)}`:"—"}</div></div>
+      </div>
+      <div class="draft-owner-position-bar">${bar}</div>
+      <div class="draft-owner-foot">Most selections: <strong>${m.topPosition[0]}</strong> (${m.topPosition[1]})<br>
+      ${m.favorite?`Most drafted player: <strong>${m.favorite[0]}</strong> (${m.favorite[1]}×)`:"No repeat player drafted more than once."}</div>
+    </div>`;
+  }).join("");
+}
+function setDraftView(view){
+  draftCurrentView=view;
+  document.getElementById("draftBoardPanel").classList.toggle("hidden",view!=="board");
+  document.getElementById("draftTablePanel").classList.toggle("hidden",view!=="table");
+  document.getElementById("draftOwnerPanel").classList.toggle("hidden",view!=="owners");
+  document.getElementById("draftBoardView").classList.toggle("active",view==="board");
+  document.getElementById("draftTableView").classList.toggle("active",view==="table");
+  document.getElementById("draftOwnerView").classList.toggle("active",view==="owners");
+}
+function renderDraftHub(){
+  renderDraftSelectors();
+  renderDraftSummary();
+  renderDraftLegend();
+  renderDraftBoard();
+  renderDraftTable();
+  renderDraftOwnerCards();
+  setDraftView(draftCurrentView);
+}
+
 function openView(viewName){
  const button=document.querySelector(`.nav button[data-view="${viewName}"]`);
  if(!button || button.hidden)return;
@@ -2073,6 +2357,7 @@ function openView(viewName){
  const view=document.getElementById(viewName);
  if(view)view.classList.add("active");
  if(viewName==="journey") renderJourney(); else journeyStop();
+ if(viewName==="draftHub") renderDraftHub();
 }
 
 let commissionerMode=sessionStorage.getItem("bigBoardCommissionerMode")==="on";
@@ -2103,7 +2388,15 @@ document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",(
  document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");
  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(b.dataset.view).classList.add("active");
  if(b.dataset.view==="journey") renderJourney(); else journeyStop();
+ if(b.dataset.view==="draftHub") renderDraftHub();
 }));
+
+document.getElementById("draftYear").addEventListener("change",e=>{draftSelectedYear=+e.target.value;renderDraftHub();});
+document.getElementById("draftOwnerFilter").addEventListener("change",e=>{draftSelectedOwner=e.target.value;renderDraftHub();});
+document.getElementById("draftBoardView").addEventListener("click",()=>setDraftView("board"));
+document.getElementById("draftTableView").addEventListener("click",()=>setDraftView("table"));
+document.getElementById("draftOwnerView").addEventListener("click",()=>setDraftView("owners"));
+
 document.getElementById("togglePoints").addEventListener("click",e=>{pointMode=!pointMode;e.target.textContent=pointMode?"Show Raw Totals":"Show Point Contributions";renderMatrix()});
 document.getElementById("auditYear").addEventListener("change",()=>{auditSort={key:null,direction:null};renderAudit();});
 document.getElementById("editYear").addEventListener("change",renderEditor);
