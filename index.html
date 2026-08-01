@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Big Board</title>
-<!-- v4.1.3 Draft Hub Polish — readability, cumulative title deltas, simplified trade line -->
+<!-- v4.1.4 Draft Capital — snake board, slot headers, Prestige order, configurable capital profile -->
 <meta name="description" content="Career Prestige Rankings — a measure of sustained excellence across league history.">
 <meta name="theme-color" content="#202a34">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -1011,6 +1011,75 @@ main{
   background:#15202a!important;
 }
 
+
+/* =========================================================
+   v4.1.4 — Snake board + Draft Capital Profile
+   ========================================================= */
+.draft-board-slot-header{
+  background:#202a34;
+  border:1px solid #45515d;
+  border-radius:8px;
+  padding:7px 5px;
+  text-align:center;
+  min-height:44px;
+}
+.draft-board-slot-header .slot{
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  color:#91a0ac;
+}
+.draft-board-slot-header .owner{
+  margin-top:3px;
+  font-size:11px;
+  font-weight:850;
+  color:#f1f4f6;
+}
+.draft-capital-profile{
+  margin-top:10px;
+  background:#111922;
+  border:1px solid #33404b;
+  border-radius:8px;
+  padding:9px;
+}
+.draft-capital-profile .title{
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  color:#8f9da8;
+  margin-bottom:7px;
+}
+.draft-capital-row{
+  display:grid;
+  grid-template-columns:28px 1fr 34px;
+  gap:6px;
+  align-items:center;
+  margin-top:5px;
+  font-size:9px;
+}
+.draft-capital-row .pos{font-weight:850}
+.draft-capital-track{
+  height:8px;
+  background:#0b1218;
+  border-radius:999px;
+  overflow:hidden;
+}
+.draft-capital-fill{
+  height:100%;
+  min-width:2px;
+  border-radius:999px;
+}
+.draft-capital-pct{
+  text-align:right;
+  font-weight:850;
+  color:#dce2e7;
+}
+.draft-capital-note{
+  margin-top:7px;
+  font-size:8px;
+  color:#7f8d98;
+}
+
 </style>
 </head>
 <body>
@@ -1417,27 +1486,32 @@ let LEAGUE_CONFIG;
 let RECORDS_DATA;
 let DRAFTS_DATA;
 let DRAFT_SLOTS_DATA;
+let DRAFT_CAPITAL_CONFIG;
 let INITIAL_RECORDS;
 let INITIAL_DRAFTS;
 try {
-  const [leagueResponse, recordsResponse, draftsResponse, draftSlotsResponse] = await Promise.all([
+  const [leagueResponse, recordsResponse, draftsResponse, draftSlotsResponse, draftCapitalResponse] = await Promise.all([
     fetch("./data/league.json", {cache:"no-store"}),
     fetch("./data/records.json", {cache:"no-store"}),
     fetch("./data/drafts.json", {cache:"no-store"}),
-    fetch("./data/draftSlots.json", {cache:"no-store"})
+    fetch("./data/draftSlots.json", {cache:"no-store"}),
+    fetch("./data/draftCapital.json", {cache:"no-store"})
   ]);
   if(!leagueResponse.ok) throw new Error(`Could not load data/league.json (HTTP ${leagueResponse.status})`);
   if(!recordsResponse.ok) throw new Error(`Could not load data/records.json (HTTP ${recordsResponse.status})`);
   if(!draftsResponse.ok) throw new Error(`Could not load data/drafts.json (HTTP ${draftsResponse.status})`);
   if(!draftSlotsResponse.ok) throw new Error(`Could not load data/draftSlots.json (HTTP ${draftSlotsResponse.status})`);
+  if(!draftCapitalResponse.ok) throw new Error(`Could not load data/draftCapital.json (HTTP ${draftCapitalResponse.status})`);
   LEAGUE_CONFIG = await leagueResponse.json();
   RECORDS_DATA = await recordsResponse.json();
   DRAFTS_DATA = await draftsResponse.json();
   DRAFT_SLOTS_DATA = await draftSlotsResponse.json();
+  DRAFT_CAPITAL_CONFIG = await draftCapitalResponse.json();
   if(!LEAGUE_CONFIG?.league || !LEAGUE_CONFIG?.scoring || !LEAGUE_CONFIG?.tiers) throw new Error("Invalid league.json");
   if(!Array.isArray(RECORDS_DATA?.records)) throw new Error("Invalid records.json");
   if(!Array.isArray(DRAFTS_DATA?.picks)) throw new Error("Invalid drafts.json");
   if(!Array.isArray(DRAFT_SLOTS_DATA?.records)) throw new Error("Invalid draftSlots.json");
+  if(!DRAFT_CAPITAL_CONFIG?.pickValues) throw new Error("Invalid draftCapital.json");
   INITIAL_RECORDS = RECORDS_DATA.records;
   INITIAL_DRAFTS = DRAFTS_DATA.picks;
 } catch (error) {
@@ -2767,11 +2841,23 @@ function renderDraftBoard(){
   const picks=enrichedDraftPicks(draftSelectedYear);
   const byPick=Object.fromEntries(picks.map(p=>[p.overallPick,p]));
   const rounds=Math.max(...picks.map(p=>p.round));
-  let board=`<div class="draft-board"><div></div>${Array.from({length:10},(_,i)=>`<div class="draft-board-header">Pick ${i+1}</div>`).join("")}`;
+  const slotOwners=Array.from({length:10},(_,i)=>{
+    const slot=i+1;
+    return DRAFT_SLOTS_DATA.records.find(r=>+r.year===+draftSelectedYear&&+r.draftSlot===slot)?.owner||"";
+  });
+
+  let board=`<div class="draft-board"><div></div>${slotOwners.map((owner,i)=>`
+    <div class="draft-board-slot-header">
+      <div class="slot">Slot ${i+1}</div>
+      <div class="owner">${displayName(owner)}</div>
+    </div>`).join("")}`;
+
   for(let round=1;round<=rounds;round++){
     board+=`<div class="draft-round-label">Rd ${round}</div>`;
-    for(let pickInRound=1;pickInRound<=10;pickInRound++){
-      const overall=(round-1)*10+pickInRound,p=byPick[overall];
+    for(let visualSlot=1;visualSlot<=10;visualSlot++){
+      const pickInRound=round%2===1?visualSlot:11-visualSlot;
+      const overall=(round-1)*10+pickInRound;
+      const p=byPick[overall];
       if(!p){board+=`<div></div>`;continue}
       const muted=draftSelectedOwner!=="ALL"&&p.owner!==draftSelectedOwner;
       board+=`<div class="draft-pick-card ${muted?"draft-muted":""}" style="${draftPositionStyle(p.position)}" title="#${p.overallPick} · ${displayName(p.owner)} · ${p.positionLabel}${p.traded?` · originally ${displayName(p.originalOwner)}`:""}">
@@ -2785,6 +2871,7 @@ function renderDraftBoard(){
   }
   board+=`</div>`;
   document.getElementById("draftBoard").innerHTML=board;
+
   const notes=DRAFTS_DATA.tradeNotes[String(draftSelectedYear)]||[];
   const traded=picks.filter(p=>p.traded).length;
   document.getElementById("draftTradeNotes").innerHTML=
@@ -2862,8 +2949,70 @@ function ownerBreakdownHtml(metric){
       <td class="${deltaClass(r.delta.title,"title")}">${formatDelta(r.delta.title,"title")}</td></tr>`).join("")}
     </tbody></table></div>`;
 }
+
+function currentPrestigeOrder(){
+  const latestYear=Math.max(...INITIAL_RECORDS.map(r=>+r.Year));
+  const through=INITIAL_RECORDS.filter(r=>+r.Year<=latestYear);
+  const owners=[...new Set(through.map(r=>r.Owner))];
+  const totals=owners.map(owner=>{
+    const rows=through.filter(r=>r.Owner===owner);
+    let total=0;
+    rows.forEach(r=>{
+      const year=+r.Year;
+      const playoffSpots=year<=2014?6:year<=2018?5:6;
+      if(+r.PO_Finish===1) total+=state.weights.title;
+      if(+r.RS_Finish===1) total+=state.weights.pennant;
+      if(+r["Pts Rank"]===1) total+=state.weights.most_points;
+      if(+r.RS_Finish<=playoffSpots) total+=state.weights.playoffs;
+      if(+r.PO_Finish===2) total+=state.weights.runner_up;
+      if(+r.PO_Finish<=3) total+=state.weights.podium;
+      if(+r.W>+r.L) total+=state.weights.above_500;
+      if(+r.W<+r.L) total+=state.weights.below_500;
+      if(+r["Pts Rank"]===10) total+=state.weights.least_points;
+      if(year>=2013&&+r.PO_Finish===10) total+=state.weights.toilet;
+    });
+    return {owner,total};
+  });
+  return totals.sort((a,b)=>b.total-a.total||displayName(a.owner).localeCompare(displayName(b.owner))).map(x=>x.owner);
+}
+function draftCapitalValue(overallPick){
+  const values=DRAFT_CAPITAL_CONFIG.pickValues||{};
+  const floor=Number(DRAFT_CAPITAL_CONFIG.lateRoundFloor)||0;
+  return Number(values[String(overallPick)]??floor);
+}
+function ownerDraftCapitalProfile(owner){
+  const picks=INITIAL_DRAFTS.filter(p=>p.owner===owner);
+  const totals={QB:0,RB:0,WR:0,TE:0,K:0,DST:0};
+  picks.forEach(p=>{
+    if(totals[p.position]===undefined)totals[p.position]=0;
+    totals[p.position]+=draftCapitalValue(+p.overallPick);
+  });
+  const grand=Object.values(totals).reduce((a,b)=>a+b,0)||1;
+  const percentages={};
+  Object.keys(totals).forEach(pos=>percentages[pos]=totals[pos]/grand);
+  return {totals,percentages,grand};
+}
+function draftCapitalProfileHtml(owner){
+  const profile=ownerDraftCapitalProfile(owner);
+  const order=["QB","RB","WR","TE","K","DST"];
+  return `<div class="draft-capital-profile">
+    <div class="title">Draft Capital Profile</div>
+    ${order.map(pos=>{
+      const pct=profile.percentages[pos]||0;
+      const palette=DRAFTS_DATA.positionPalette[pos];
+      return `<div class="draft-capital-row">
+        <div class="pos">${pos}</div>
+        <div class="draft-capital-track"><div class="draft-capital-fill" style="width:${pct*100}%;background:${palette.background};border-right:1px solid ${palette.border}"></div></div>
+        <div class="draft-capital-pct">${Math.round(pct*100)}%</div>
+      </div>`;
+    }).join("")}
+    <div class="draft-capital-note">Share of weighted draft capital · configurable in data/draftCapital.json</div>
+  </div>`;
+}
+
 function renderDraftOwnerCards(){
-  const owners=draftSelectedOwner==="ALL"?draftOwners():[draftSelectedOwner];
+  const prestigeOrder=currentPrestigeOrder().filter(o=>draftOwners().includes(o));
+  const owners=draftSelectedOwner==="ALL"?prestigeOrder:[draftSelectedOwner];
   document.getElementById("draftOwnerCards").innerHTML=owners.map(owner=>{
     const m=ownerDraftMetrics(owner),total=m.picks.length||1;
     const positions=["QB","RB","WR","TE","K","DST"];
@@ -2883,10 +3032,8 @@ function renderDraftOwnerCards(){
       <div class="draft-owner-stat-grid">
         <div class="draft-owner-stat"><div class="label">Avg First QB</div><div class="value">${m.avgFirstQB?`Rd ${m.avgFirstQB.toFixed(1)}`:"—"}</div></div>
         <div class="draft-owner-stat"><div class="label">Avg First TE</div><div class="value">${m.avgFirstTE?`Rd ${m.avgFirstTE.toFixed(1)}`:"—"}</div></div>
-        <div class="draft-owner-stat"><div class="label">Most Selected Pos</div><div class="value">${m.topPosition[0]} · ${m.topPosition[1]}</div></div>
-        <div class="draft-owner-stat"><div class="label">Imported Picks</div><div class="value">${m.picks.length}</div></div>
       </div>
-      <div class="draft-owner-position-bar">${bar}</div>
+      ${draftCapitalProfileHtml(owner)}
       <div class="draft-owner-favorites"><div class="label">Most Drafted Players</div>${favorites}</div>
       <div class="draft-owner-slot-summary">
         <div class="draft-owner-slot-stat"><div class="label">Avg Slot</div><div class="value">${m.slots.avg.toFixed(1)}</div></div>
