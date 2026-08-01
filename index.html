@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Big Board</title>
-<!-- v4.1.4 Draft Capital — snake board, slot headers, Prestige order, configurable capital profile -->
+<!-- v4.1.5 Draft Capital Scope — selected-year default with career option -->
 <meta name="description" content="Career Prestige Rankings — a measure of sustained excellence across league history.">
 <meta name="theme-color" content="#202a34">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -1080,6 +1080,41 @@ main{
   color:#7f8d98;
 }
 
+
+/* =========================================================
+   v4.1.5 — Draft Capital Scope
+   ========================================================= */
+.draft-owner-panel-head{
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-bottom:12px;
+}
+.draft-owner-panel-head .draft-owner-intro{margin:0}
+.draft-capital-scope-control{
+  color:#b8c1c9;
+  min-width:180px;
+}
+.draft-capital-scope-control select{
+  background:#f7f4ee!important;
+  color:#18222c!important;
+  border-color:#75818c!important;
+  min-width:180px;
+}
+.draft-capital-profile .scope{
+  font-size:8px;
+  color:#d0b977;
+  margin-top:-3px;
+  margin-bottom:7px;
+  font-weight:800;
+  letter-spacing:.03em;
+}
+.draft-capital-fill{
+  transition:width .24s ease;
+}
+
 </style>
 </head>
 <body>
@@ -1396,8 +1431,13 @@ main{
     </div>
 
     <div id="draftOwnerPanel" class="hidden">
-      <div class="draft-owner-intro">
-        Owner cards combine six imported draft boards with all sixteen years of original draft-slot assignments.
+      <div class="draft-owner-panel-head">
+        <div class="draft-owner-intro">
+          Owner cards combine six imported draft boards with all sixteen years of original draft-slot assignments.
+        </div>
+        <label class="draft-capital-scope-control">Draft Capital Scope
+          <select id="draftCapitalScope"></select>
+        </label>
       </div>
       <div id="draftOwnerCards" class="draft-owner-grid"></div>
     </div>
@@ -2532,6 +2572,7 @@ function journeyReplay(){
    Draft Hub v4.1.2
    ========================================================= */
 let draftSelectedYear=Math.max(...DRAFTS_DATA.years.map(Number));
+let draftCapitalScope=String(draftSelectedYear);
 let draftSelectedOwner="ALL";
 let draftCurrentView="board";
 let draftTableOwner="ALL";
@@ -2800,6 +2841,14 @@ function renderDraftSelectors(){
   roundSelect.innerHTML=`<option value="ALL">All Rounds</option>`+Array.from({length:maxRound},(_,i)=>`<option value="${i+1}">Round ${i+1}</option>`).join("");
   roundSelect.value=draftTableRound;
   document.getElementById("draftTablePosition").value=draftTablePosition;
+
+  const scopeSelect=document.getElementById("draftCapitalScope");
+  if(scopeSelect && !scopeSelect.options.length){
+    scopeSelect.innerHTML=
+      draftYears().map(y=>`<option value="${y}">${y}</option>`).join("")+
+      `<option value="CAREER">Career (${Math.min(...draftYears())}–${Math.max(...draftYears())})</option>`;
+  }
+  if(scopeSelect)scopeSelect.value=draftCapitalScope;
 }
 function renderDraftSummary(){
   const picks=draftPicksForYear();
@@ -2980,8 +3029,17 @@ function draftCapitalValue(overallPick){
   const floor=Number(DRAFT_CAPITAL_CONFIG.lateRoundFloor)||0;
   return Number(values[String(overallPick)]??floor);
 }
+function draftCapitalScopeLabel(){
+  return draftCapitalScope==="CAREER"
+    ? `Career (${Math.min(...draftYears())}–${Math.max(...draftYears())})`
+    : String(draftCapitalScope);
+}
 function ownerDraftCapitalProfile(owner){
-  const picks=INITIAL_DRAFTS.filter(p=>p.owner===owner);
+  const picks=INITIAL_DRAFTS.filter(p=>{
+    if(p.owner!==owner)return false;
+    if(draftCapitalScope==="CAREER")return true;
+    return +p.year===+draftCapitalScope;
+  });
   const totals={QB:0,RB:0,WR:0,TE:0,K:0,DST:0};
   picks.forEach(p=>{
     if(totals[p.position]===undefined)totals[p.position]=0;
@@ -2990,13 +3048,14 @@ function ownerDraftCapitalProfile(owner){
   const grand=Object.values(totals).reduce((a,b)=>a+b,0)||1;
   const percentages={};
   Object.keys(totals).forEach(pos=>percentages[pos]=totals[pos]/grand);
-  return {totals,percentages,grand};
+  return {totals,percentages,grand,pickCount:picks.length};
 }
 function draftCapitalProfileHtml(owner){
   const profile=ownerDraftCapitalProfile(owner);
   const order=["QB","RB","WR","TE","K","DST"];
   return `<div class="draft-capital-profile">
     <div class="title">Draft Capital Profile</div>
+    <div class="scope">${draftCapitalScopeLabel()}</div>
     ${order.map(pos=>{
       const pct=profile.percentages[pos]||0;
       const palette=DRAFTS_DATA.positionPalette[pos];
@@ -3244,10 +3303,12 @@ document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",(
 
 document.getElementById("draftYear").addEventListener("change",e=>{
   draftSelectedYear=+e.target.value;
+  draftCapitalScope=String(draftSelectedYear);
   draftTableRound="ALL";
   renderDraftHub();
 });
 document.getElementById("draftOwnerFilter").addEventListener("change",e=>{draftSelectedOwner=e.target.value;renderDraftHub();});
+document.getElementById("draftCapitalScope").addEventListener("change",e=>{draftCapitalScope=e.target.value;renderDraftOwnerCards();});
 document.getElementById("draftBoardView").addEventListener("click",()=>setDraftView("board"));
 document.getElementById("draftTableView").addEventListener("click",()=>setDraftView("table"));
 document.getElementById("draftOwnerView").addEventListener("click",()=>setDraftView("owners"));
