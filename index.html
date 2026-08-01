@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Big Board</title>
-<!-- v4.1.2 Draft Hub Analytics — trades, filters, owner slots, Slot Impact & Slot Overperformance -->
+<!-- v4.1.3 Draft Hub Polish — readability, cumulative title deltas, simplified trade line -->
 <meta name="description" content="Career Prestige Rankings — a measure of sustained excellence across league history.">
 <meta name="theme-color" content="#202a34">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -987,6 +987,29 @@ main{
 @media(max-width:900px){.draft-position-volume{grid-template-columns:1fr}.draft-delta-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.draft-owner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.draft-summary-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:460px){.draft-owner-grid,.draft-summary-grid,.draft-delta-grid{grid-template-columns:1fr}}
+
+
+/* =========================================================
+   v4.1.3 — Draft Hub readability polish
+   ========================================================= */
+.draft-owner-grid{gap:16px}
+.draft-owner-card{
+  background:#1a2632;
+  border:1px solid #4a5966;
+  box-shadow:0 5px 14px rgba(0,0,0,.18);
+}
+.draft-owner-card:nth-child(even){background:#18232e}
+.draft-owner-card:hover{border-color:#677684}
+.draft-owner-breakdown table th:first-child,
+.draft-owner-breakdown table td:first-child{
+  position:static!important;
+  background:#202a34!important;
+  color:#f1f4f6!important;
+  font-weight:850!important;
+}
+.draft-owner-breakdown table tbody tr:nth-child(even) td{
+  background:#15202a!important;
+}
 
 </style>
 </head>
@@ -2603,7 +2626,7 @@ function meanDeltas(items){
     rs:average(items.map(x=>x.delta.rs))||0,
     po:average(items.map(x=>x.delta.po))||0,
     points:average(items.map(x=>x.delta.points))||0,
-    title:average(items.map(x=>x.delta.title))||0
+    title:items.reduce((sum,x)=>sum+(Number(x.delta.title)||0),0)
   };
 }
 
@@ -2662,7 +2685,7 @@ function formatDelta(value,key){
   return `${arrow} ${v>=0?"+":""}${v.toFixed(2)}`;
 }
 function deltaDetail(key){
-  return key==="rs"?"finish places":key==="po"?"finish places":key==="points"?"points":"titles per season";
+  return key==="rs"?"finish places":key==="po"?"finish places":key==="points"?"points":"titles vs expected";
 }
 function deltaCardsHtml(delta){
   return [
@@ -2832,7 +2855,7 @@ function ownerDraftMetrics(owner){
 function ownerBreakdownHtml(metric){
   return `<div class="draft-owner-breakdown">
     <table><thead><tr><th>Slot</th><th>Times</th><th>RS Δ</th><th>PO Δ</th><th>Pts Δ</th><th>Title Δ</th></tr></thead><tbody>
-    ${metric.bySlot.map(r=>`<tr><td>${draftOrdinal(r.slot)}</td><td>${r.seasons}</td>
+    ${metric.bySlot.map(r=>`<tr><td class="owner-breakdown-slot">${draftOrdinal(r.slot)}</td><td>${r.seasons}</td>
       <td class="${deltaClass(r.delta.rs,"rs")}">${formatDelta(r.delta.rs,"rs")}</td>
       <td class="${deltaClass(r.delta.po,"po")}">${formatDelta(r.delta.po,"po")}</td>
       <td class="${deltaClass(r.delta.points,"points")}">${formatDelta(r.delta.points,"points")}</td>
@@ -2867,15 +2890,14 @@ function renderDraftOwnerCards(){
       <div class="draft-owner-favorites"><div class="label">Most Drafted Players</div>${favorites}</div>
       <div class="draft-owner-slot-summary">
         <div class="draft-owner-slot-stat"><div class="label">Avg Slot</div><div class="value">${m.slots.avg.toFixed(1)}</div></div>
-        <div class="draft-owner-slot-stat"><div class="label">Best / Worst</div><div class="value">${m.slots.min} / ${m.slots.max}</div></div>
-        <div class="draft-owner-slot-stat"><div class="label">Most Common</div><div class="value">${m.slots.common} · ${m.slots.commonCount}×</div></div>
+        <div class="draft-owner-slot-stat"><div class="label">Best / Worst</div><div class="value">${draftOrdinal(m.slots.min)} / ${draftOrdinal(m.slots.max)}</div></div>
+        <div class="draft-owner-slot-stat"><div class="label">Most Common</div><div class="value">${draftOrdinal(m.slots.common)} · ${m.slots.commonCount}×</div></div>
         <div class="draft-owner-slot-stat"><div class="label">Median</div><div class="value">${m.slots.median.toFixed(1)}</div></div>
         <div class="draft-owner-slot-stat"><div class="label">Top 3</div><div class="value">${m.slots.top3}/16</div></div>
         <div class="draft-owner-slot-stat"><div class="label">Bottom 3</div><div class="value">${m.slots.bottom3}/16</div></div>
       </div>
       <div class="draft-owner-distribution">${dist}</div>
-      <div class="draft-owner-trade-line"><strong>Trade-acquired:</strong> ${m.trades.acquired}/${m.trades.picks} (${Math.round(m.trades.acquiredRate*100)}%)<br>
-        <strong>Original picks traded away:</strong> ${m.trades.away}/${m.trades.original} (${Math.round(m.trades.awayRate*100)}%)</div>
+      <div class="draft-owner-trade-line"><strong>Traded selections:</strong> ${m.trades.acquired}/${m.trades.picks} (${Math.round(m.trades.acquiredRate*100)}%)</div>
       <div class="draft-owner-adjustment">
         <div class="draft-owner-adjustment-head"><h4>Slot Overperformance</h4>
           <button class="draft-mini-expand" data-owner-adjust="${owner}">${expanded?"Hide":"Show"} Calculation</button></div>
