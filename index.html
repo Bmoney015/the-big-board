@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>The Big Board</title>
-<!-- v4.1.5 Draft Capital Scope — selected-year default with career option -->
+<!-- v4.1.6 Complete Draft Archive — imports 2010–2019; 2017 archive-only -->
 <meta name="description" content="Career Prestige Rankings — a measure of sustained excellence across league history.">
 <meta name="theme-color" content="#202a34">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -1115,6 +1115,332 @@ main{
   transition:width .24s ease;
 }
 
+
+/* =========================================================
+   v4.1.6 — Complete Draft Archive 2010–2025
+   ========================================================= */
+.draft-archive-warning{
+  grid-column:1/-1;
+  background:#2a2417;
+  border:1px solid #8c7440;
+  color:#ead9ad;
+  border-radius:10px;
+  padding:14px;
+}
+.draft-archive-warning strong{display:block;font-size:14px;margin-bottom:4px}
+.draft-archive-warning span{font-size:11px;color:#cdbd94}
+.draft-position-archive-note{
+  grid-column:1/-1;
+  background:#17212b;
+  border:1px solid #6d5d39;
+  border-radius:10px;
+  padding:14px;
+  color:#d8c79e;
+  font-size:12px;
+}
+.draft-trade-chip.unknown{
+  background:#26313b;
+  color:#b9c2ca;
+  border:1px dashed #697682;
+}
+
+
+/* =========================================================
+   v4.2.0 — Draft Lab
+   ========================================================= */
+.lab-shell{background:#101820;color:#edf2f5;border-radius:14px;padding:24px;min-height:760px}
+.lab-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;flex-wrap:wrap}
+.lab-kicker,.lab-eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#c9ad68;font-weight:850}
+.lab-head h2{font-size:30px;margin:5px 0}
+.lab-head p{margin:0;color:#a9b5bf;max-width:760px}
+.lab-coverage-badge{border:1px solid #6a5b38;background:#211d15;color:#d7bf82;border-radius:999px;padding:8px 12px;font-size:11px;font-weight:850}
+.lab-caution{margin:16px 0;background:#1a2530;border:1px solid #605536;border-left:4px solid #b99a55;border-radius:10px;padding:12px 14px;color:#c9d1d7;font-size:11px;line-height:1.5}
+.lab-caution strong{color:#f0dfb4}
+.lab-section{background:#17222c;border:1px solid #3c4955;border-radius:12px;padding:17px;margin-top:14px}
+.lab-section-head{display:flex;justify-content:space-between;gap:15px;align-items:flex-end;flex-wrap:wrap;margin-bottom:12px}
+.lab-section-head h3{font-size:19px;margin:4px 0}
+.lab-section-head p{font-size:10px;color:#9eabb5;margin:0;max-width:800px}
+.lab-select-label{color:#b4bec6;min-width:135px}
+.lab-select-label select,.lab-query-grid select,.lab-query-grid input{background:#f5f3ed!important;color:#18222c!important;border-color:#78848f!important}
+.lab-profile-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:11px}
+.lab-profile-card{background:#111a22;border:1px solid #3d4a56;border-radius:10px;padding:14px}
+.lab-profile-card.highlight{border-color:#8d7540;box-shadow:inset 0 0 0 1px rgba(185,154,85,.13)}
+.lab-profile-card h4{margin:0;font-size:15px}
+.lab-profile-card .sample{font-size:9px;color:#91a0ab;margin-top:3px}
+.lab-profile-bars{display:grid;gap:7px;margin-top:12px}
+.lab-profile-row{display:grid;grid-template-columns:30px 1fr 38px;gap:7px;align-items:center;font-size:10px}
+.lab-profile-row strong{font-size:9px}
+.lab-profile-track{height:10px;background:#080e13;border-radius:999px;overflow:hidden}
+.lab-profile-fill{height:100%;border-radius:999px}
+.lab-profile-pct{text-align:right;font-weight:850}
+.lab-table-wrap{overflow:auto;border:1px solid #36434e;border-radius:9px}
+.lab-table{width:100%;min-width:760px;background:#111a22;color:#edf2f5;font-size:10px;border-collapse:collapse}
+.lab-table th{background:#26323d!important;color:#eef3f6!important;padding:9px 8px;text-align:right;white-space:nowrap}
+.lab-table th:first-child,.lab-table td:first-child{text-align:left}
+.lab-table td{background:#17222c!important;color:#e8edf1!important;padding:8px;text-align:right;font-variant-numeric:tabular-nums}
+.lab-table tbody tr:nth-child(even) td{background:#141f28!important}
+.lab-table tfoot td{background:#222e38!important;font-weight:900;border-top:1px solid #63717d}
+.lab-heat{font-weight:900;border-radius:4px}
+.lab-heat-strong-pos{background:rgba(69,137,91,.55)!important;color:#effff3!important}
+.lab-heat-pos{background:rgba(90,133,84,.31)!important}
+.lab-heat-neutral{background:rgba(136,145,151,.14)!important}
+.lab-heat-neg{background:rgba(176,113,57,.27)!important}
+.lab-heat-strong-neg{background:rgba(169,60,60,.42)!important;color:#fff1f1!important}
+.lab-scale-note{font-size:9px;color:#8795a0;margin-top:8px}
+.lab-chart-card{margin-top:12px;background:#111a22;border:1px solid #36434e;border-radius:10px;padding:12px}
+.lab-chart-head{display:flex;justify-content:space-between;gap:12px;align-items:center;color:#dfe5e9;font-size:11px}
+.lab-chart-head span{font-size:9px;color:#8f9ca7}
+#labArchetypeChart{display:block;width:100%;min-height:360px}
+.lab-query-section{border-color:#665938}
+.lab-query-grid{display:grid;grid-template-columns:repeat(4,minmax(135px,1fr));gap:10px}
+.lab-query-grid label{font-size:10px;color:#aab5be}
+.lab-query-grid input,.lab-query-grid select{width:100%}
+.lab-query-actions{display:flex;gap:7px;align-items:end}
+.lab-primary-btn,.lab-secondary-btn{border-radius:8px;padding:9px 12px;font-weight:850}
+.lab-primary-btn{background:#ede9df;color:#18222c;border:1px solid #b99a55}
+.lab-secondary-btn{background:#26323d;color:#e9eef2;border:1px solid #576572}
+.lab-query-summary{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:13px 0}
+.lab-query-card{background:#111a22;border:1px solid #3a4752;border-radius:9px;padding:10px}
+.lab-query-card .label{font-size:8px;text-transform:uppercase;letter-spacing:.07em;color:#8c9aa5}
+.lab-query-card .value{font-size:18px;font-weight:900;margin-top:4px}
+.lab-empty{padding:18px;color:#9ca8b2;text-align:center;font-size:11px}
+@media(max-width:1000px){.lab-profile-grid{grid-template-columns:1fr}.lab-query-grid{grid-template-columns:repeat(2,1fr)}.lab-query-summary{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:560px){.lab-shell{padding:14px}.lab-query-grid,.lab-query-summary{grid-template-columns:1fr}}
+
+
+/* =========================================================
+   v4.2.1 — Draft Lab sorting and draft links
+   ========================================================= */
+.lab-table th[data-lab-sort]{
+  cursor:pointer;
+  user-select:none;
+}
+.lab-table th[data-lab-sort]:hover{
+  background:#303d49!important;
+}
+.lab-sort-indicator{
+  display:inline-block;
+  min-width:10px;
+  margin-left:3px;
+  color:#d7bd7a;
+}
+.lab-year-link{
+  border:0;
+  background:transparent;
+  color:#d7bd7a;
+  font-weight:850;
+  text-decoration:underline;
+  text-underline-offset:2px;
+  cursor:pointer;
+  padding:0;
+}
+.lab-year-link:hover{color:#f2ddb0}
+
+
+/* =========================================================
+   v4.2.2 — Query Builder clarity
+   ========================================================= */
+.lab-query-help{
+  margin-top:10px;
+  padding:9px 11px;
+  border-radius:8px;
+  background:#111a22;
+  border:1px solid #394752;
+  color:#aeb9c1;
+  font-size:10px;
+  line-height:1.45;
+}
+.lab-query-help strong{color:#e6d29b}
+
+
+/* =========================================================
+   v4.2.3 — Career Resume
+   ========================================================= */
+.career-resume-section,
+.career-matrix-section{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:16px;
+}
+.career-matrix-section{margin-top:14px}
+.career-section-head{
+  display:flex;
+  justify-content:space-between;
+  gap:14px;
+  align-items:flex-end;
+  margin-bottom:11px;
+}
+.career-section-head h3,
+.career-matrix-section h3{margin:0;font-size:18px}
+.career-section-head p{margin:4px 0 0;color:var(--muted);font-size:11px}
+.career-resume-table th{cursor:pointer;user-select:none;white-space:nowrap}
+.career-resume-table th:hover{background:#e8e4da!important}
+.career-resume-table td{font-variant-numeric:tabular-nums}
+.career-resume-table tbody tr{cursor:pointer}
+.career-resume-table tbody tr:hover td{background:#f5f2eb!important}
+.career-resume-table tbody tr.selected-owner td{
+  background:#efe8d8!important;
+  box-shadow:inset 0 1px 0 rgba(185,154,85,.35),inset 0 -1px 0 rgba(185,154,85,.35);
+}
+.career-resume-table tbody tr.selected-owner td:first-child{
+  box-shadow:inset 4px 0 0 var(--prestige-gold),inset 0 1px 0 rgba(185,154,85,.35),inset 0 -1px 0 rgba(185,154,85,.35);
+}
+.career-owner-cell{font-weight:850;text-align:left!important}
+.career-medal{margin-right:4px;font-size:12px}
+.career-sort-indicator{display:inline-block;min-width:10px;margin-left:3px;color:#7b6431}
+.career-summary-grid{
+  display:grid;
+  grid-template-columns:repeat(7,minmax(120px,1fr));
+  gap:10px;
+  margin-top:14px;
+}
+.career-summary-card{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:13px;
+  min-height:92px;
+}
+.career-summary-owner{
+  grid-column:span 2;
+  border-color:#8d7540;
+  background:linear-gradient(135deg,#fff,#f6f0e3);
+}
+.career-summary-card .label{
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  color:var(--muted);
+}
+.career-summary-card .value{
+  font-size:23px;
+  font-weight:875;
+  margin-top:5px;
+  font-variant-numeric:tabular-nums;
+}
+.career-summary-owner .value{font-size:25px}
+.career-summary-card .rank{
+  font-size:10px;
+  color:#8a7138;
+  font-weight:800;
+  margin-top:5px;
+}
+.career-summary-card .detail{
+  font-size:10px;
+  color:var(--muted);
+  margin-top:4px;
+}
+@media(max-width:1100px){.career-summary-grid{grid-template-columns:repeat(4,1fr)}}
+@media(max-width:680px){.career-summary-grid{grid-template-columns:repeat(2,1fr)}.career-summary-owner{grid-column:span 2}}
+
+
+/* =========================================================
+   v4.2.4 — Career Resume tie/rank polish
+   ========================================================= */
+.career-medal{
+  margin-right:3px;
+  font-size:10px;
+  opacity:.78;
+  vertical-align:1px;
+}
+.career-points-context{
+  display:block;
+  margin-top:2px;
+  font-size:9px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+
+/* =========================================================
+   v4.2.5 — Career Totals visual hierarchy
+   ========================================================= */
+.career-matrix-section{
+  margin-top:34px;
+  background:#f1eee7;
+  border-color:#cfc7b8;
+  box-shadow:0 6px 18px rgba(49,43,32,.06);
+}
+.career-matrix-section .toolbar{
+  padding-bottom:12px;
+  border-bottom:1px solid #d6cec0;
+  margin-bottom:10px;
+}
+.career-matrix-section h3{
+  font-size:20px;
+  letter-spacing:.01em;
+}
+.career-matrix-subtitle{
+  margin-top:5px;
+  font-size:11px;
+  color:#6f6658;
+  font-weight:700;
+}
+.career-matrix-section .note{
+  margin-top:5px;
+  color:#7d7466;
+}
+.career-matrix-section .table-wrap{
+  background:#fff;
+  border-radius:9px;
+  overflow:auto;
+  border:1px solid #d7d0c4;
+}
+
+
+/* =========================================================
+   v4.3.0 — League Glossary
+   ========================================================= */
+.glossary-term{
+  border-bottom:1px dotted currentColor;
+  cursor:help;
+  position:relative;
+}
+.glossary-term:focus{outline:2px solid rgba(185,154,85,.45);outline-offset:2px;border-radius:2px}
+.glossary-tooltip{
+  position:fixed;
+  z-index:9999;
+  max-width:310px;
+  background:#101820;
+  color:#eef2f5;
+  border:1px solid #66727d;
+  border-radius:8px;
+  padding:9px 11px;
+  font-size:10px;
+  line-height:1.45;
+  box-shadow:0 10px 28px rgba(0,0,0,.28);
+  pointer-events:none;
+  opacity:0;
+  transform:translateY(3px);
+  transition:opacity .12s ease,transform .12s ease;
+}
+.glossary-tooltip.show{opacity:1;transform:translateY(0)}
+.glossary-shell{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.glossary-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.glossary-kicker{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#9c7f3e;font-weight:850}
+.glossary-head h2{margin:5px 0;font-size:28px}
+.glossary-head p{margin:0;color:var(--muted);max-width:760px}
+.glossary-search-label{min-width:240px;color:var(--muted)}
+.glossary-search-label input{width:100%;background:#f7f4ee!important;color:#18222c!important;border-color:#9aa4ad!important}
+.glossary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:11px;margin-top:18px}
+.glossary-card{background:#f8f6f1;border:1px solid #d8d1c5;border-radius:10px;padding:14px}
+.glossary-card h3{margin:0;font-size:15px;color:#2a2d31}
+.glossary-card p{margin:7px 0 0;color:#666d72;font-size:11px;line-height:1.5}
+.glossary-empty{grid-column:1/-1;padding:22px;text-align:center;color:var(--muted)}
+@media(max-width:760px){.glossary-grid{grid-template-columns:1fr}.glossary-search-label{width:100%}}
+
+
+/* =========================================================
+   v4.3.2 — Career activity and contextual archive note
+   ========================================================= */
+.career-resume-table{min-width:1180px}
+.career-activity-card{min-width:155px}
+.career-activity-lines{margin-top:7px;display:grid;gap:7px}
+.career-activity-lines div{display:flex;justify-content:space-between;gap:10px;align-items:center}
+.career-activity-lines span{font-size:10px;color:var(--muted)}
+.career-activity-lines strong{font-size:17px;font-variant-numeric:tabular-nums}
+
 </style>
 </head>
 <body>
@@ -1132,6 +1458,8 @@ main{
     <button data-view="presentation">Presentation</button>
     <button data-view="journey">Career Journey</button>
     <button data-view="draftHub">Draft Hub</button>
+    <button data-view="glossary">Glossary</button>
+    <button data-view="draftLab" id="draftLabTab" class="commissioner-only" hidden>Draft Lab</button>
   </nav>
 </header>
 <main>
@@ -1144,12 +1472,33 @@ main{
 
 <section id="matrix" class="view">
   <div class="toolbar">
-    <h2>Career Totals Matrix</h2>
-    <div class="actions"><button class="btn" id="togglePoints">Show Point Contributions</button><button class="btn" id="exportMatrix">Export CSV</button></div>
+    <h2>Career Totals</h2>
   </div>
-  <div class="note">Bold and underlined values are league leaders. Hover over any total to see the seasons behind it.</div>
-  <div style="height:12px"></div>
-  <div class="table-wrap"><table id="matrixTable"></table></div>
+
+  <div class="career-resume-section">
+    <div class="career-section-head">
+      <div>
+        <h3>Career Resume</h3>
+        <p>All-time regular-season standings and resume metrics. Click any column to sort; click an owner to update the summary cards.</p>
+      </div>
+    </div>
+    <div class="table-wrap"><table id="careerResumeTable" class="career-resume-table"></table></div>
+  </div>
+
+  <div id="careerSummaryCards" class="career-summary-grid"></div>
+
+  <div class="career-matrix-section">
+    <div class="toolbar">
+      <div>
+        <h3><span class="glossary-term" tabindex="0" data-glossary="prestige">Prestige</span> Input Matrix</h3>
+        <div class="career-matrix-subtitle">The category totals that drive Career Prestige.</div>
+        <div class="note">Bold and underlined values are league leaders. Hover over any total to see the seasons behind it.</div>
+      </div>
+      <div class="actions"><button class="btn" id="togglePoints">Show Point Contributions</button><button class="btn" id="exportMatrix">Export CSV</button></div>
+    </div>
+    <div style="height:12px"></div>
+    <div class="table-wrap"><table id="matrixTable"></table></div>
+  </div>
 </section>
 
 <section id="audit" class="view">
@@ -1362,7 +1711,7 @@ main{
         <h2>Draft Hub</h2>
         <p>Historical boards, owner tendencies, traded selections, and draft-slot outcomes.</p>
       </div>
-      <span class="draft-era-badge">Draft Boards 2020–2025 · Slots 2010–2025</span>
+      <span class="draft-era-badge" id="draftEraBadge">Draft Boards 2010–2025</span>
     </div>
 
     <div class="draft-controls">
@@ -1433,7 +1782,7 @@ main{
     <div id="draftOwnerPanel" class="hidden">
       <div class="draft-owner-panel-head">
         <div class="draft-owner-intro">
-          Owner cards combine six imported draft boards with all sixteen years of original draft-slot assignments.
+          Owner cards use 2010–2025 draft history, with 2017 displayed as archive-only and excluded from analytics.
         </div>
         <label class="draft-capital-scope-control">Draft Capital Scope
           <select id="draftCapitalScope"></select>
@@ -1460,7 +1809,7 @@ main{
         <div class="draft-adjustment-head">
           <div>
             <div class="draft-adjustment-eyebrow">Owner-Adjusted</div>
-            <h3>Slot Impact</h3>
+            <h3><span class="glossary-term" tabindex="0" data-glossary="slotImpact">Slot Impact</span></h3>
             <p>How owners performed from this slot compared with their own results from every other slot.</p>
           </div>
           <button id="toggleSlotImpact" class="draft-expand-btn">Show Calculation</button>
@@ -1517,6 +1866,174 @@ main{
   </div>
 </section>
 
+<section id="draftLab" class="view">
+  <div class="lab-shell">
+    <div class="lab-head">
+      <div>
+        <div class="lab-kicker">Commissioner Research</div>
+        <h2>Draft Lab</h2>
+        <p>Explore how draft-capital allocation has aligned with outcomes in this league’s history.</p>
+      </div>
+      <div id="labCoverageBadge" class="lab-coverage-badge"></div>
+    </div>
+
+    <div class="lab-caution">
+      <strong>League trends, not universal draft advice.</strong>
+      Draft capital is one ingredient among waivers, trades, injuries, lineup decisions, and luck. Archetypes may overlap.
+    </div>
+
+    <div class="lab-section">
+      <div class="lab-section-head">
+        <div>
+          <div class="lab-eyebrow">Capital Profiles</div>
+          <h3>League vs Champions vs Most Points</h3>
+          <p>Average position share for every eligible owner-season compared with the two most successful yearly profiles.</p>
+        </div>
+      </div>
+      <div id="labProfileCards" class="lab-profile-grid"></div>
+      <div id="labProfileDeltaTable" class="lab-table-wrap"></div>
+    </div>
+
+    <div class="lab-section">
+      <div class="lab-section-head">
+        <div>
+          <div class="lab-eyebrow">Relationship Scan</div>
+          <h3><span data-glossary="correlation" class="glossary-term" tabindex="0">Draft-Capital Correlations</span></h3>
+          <p>Pearson correlations. Positive numbers mean higher position spend aligned with a better outcome.</p>
+        </div>
+      </div>
+      <div id="labCorrelationTable" class="lab-table-wrap"></div>
+      <div class="lab-scale-note">Near 0 = little linear relationship · ±0.10 weak · ±0.30 moderate · ±0.50 strong</div>
+    </div>
+
+    <div class="lab-section">
+      <div class="lab-section-head">
+        <div>
+          <div class="lab-eyebrow">Spend Buckets</div>
+          <h3><span data-glossary="quartile" class="glossary-term" tabindex="0">Draft-Capital Quartiles</span></h3>
+          <p>Each position’s owner-seasons are sorted by capital percentage and divided into four equally sized groups.</p>
+        </div>
+        <label class="lab-select-label">Position
+          <select id="labQuartilePosition">
+            <option value="QB">QB</option>
+            <option value="RB" selected>RB</option>
+            <option value="WR">WR</option>
+            <option value="TE">TE</option>
+          </select>
+        </label>
+      </div>
+      <div id="labQuartileTable" class="lab-table-wrap"></div>
+    </div>
+
+    <div class="lab-section">
+      <div class="lab-section-head">
+        <div>
+          <div class="lab-eyebrow">Strategy Profiles</div>
+          <h3><span data-glossary="draftArchetype" class="glossary-term" tabindex="0">Draft Archetypes</span></h3>
+          <p>Transparent, configurable definitions applied to each eligible owner-season. A draft may match more than one archetype.</p>
+        </div>
+      </div>
+      <div id="labArchetypeTable" class="lab-table-wrap"></div>
+      <div class="lab-chart-card">
+        <div class="lab-chart-head">
+          <strong>Archetype Outcome Map</strong>
+          <span>X = sample size · Y = average points rank · bubble size = titles</span>
+        </div>
+        <svg id="labArchetypeChart" viewBox="0 0 1050 430" role="img" aria-label="Draft archetype outcome chart"></svg>
+      </div>
+    </div>
+
+    <div class="lab-section">
+      <div class="lab-section-head">
+        <div>
+          <div class="lab-eyebrow">Normalization Audit</div>
+          <h3>Owner Overperformance vs Slot Expectation</h3>
+          <p>League-wide view of the owner-card metric, including an integrity footer that should reconcile to approximately zero.</p>
+        </div>
+      </div>
+      <div id="labOwnerOverperformance" class="lab-table-wrap"></div>
+    </div>
+
+    <div class="lab-section lab-query-section">
+      <div class="lab-section-head">
+        <div>
+          <div class="lab-eyebrow">Custom Research</div>
+          <h3><span data-glossary="queryBuilder" class="glossary-term" tabindex="0">Query Builder</span></h3>
+          <p>Define a draft profile and inspect the matching owner-seasons and their outcomes.</p>
+        </div>
+      </div>
+
+      <div class="lab-query-grid">
+        <label>Capital Position
+          <select id="labQueryCapitalPosition">
+            <option value="QB">QB</option>
+            <option value="RB" selected>RB</option>
+            <option value="WR">WR</option>
+            <option value="TE">TE</option>
+          </select>
+        </label>
+        <label>Minimum Capital %
+          <input id="labQueryCapitalMin" type="number" min="0" max="100" step="1" value="0">
+        </label>
+        <label>Maximum Capital %
+          <input id="labQueryCapitalMax" type="number" min="0" max="100" step="1" value="100">
+        </label>
+        <label>Position A
+          <select id="labQueryFirstPosition">
+            <option value="ANY">Any</option>
+            <option value="QB">QB</option>
+            <option value="RB">RB</option>
+            <option value="WR">WR</option>
+            <option value="TE">TE</option>
+          </select>
+        </label>
+        <label>First A Selected By
+          <input id="labQueryFirstPickMax" type="number" min="1" max="200" step="1" placeholder="Any">
+        </label>
+        <label>Position B
+          <select id="labQuerySecondPosition">
+            <option value="ANY">Any</option>
+            <option value="QB">QB</option>
+            <option value="RB">RB</option>
+            <option value="WR">WR</option>
+            <option value="TE">TE</option>
+          </select>
+        </label>
+        <label>First B Selected By
+          <input id="labQuerySecondPickMax" type="number" min="1" max="200" step="1" placeholder="Any">
+        </label>
+        <div class="lab-query-actions">
+          <button id="labRunQuery" class="lab-primary-btn">Run Query</button>
+          <button id="labResetQuery" class="lab-secondary-btn">Reset</button>
+        </div>
+      </div>
+      <div class="lab-query-help">
+        Position A and Position B each refer to the <strong>first player drafted at that position</strong>.
+        Their order does not matter. Example: RB by pick 20 plus QB by pick 20 matches either RB–QB or QB–RB.
+      </div>
+
+      <div id="labQuerySummary" class="lab-query-summary"></div>
+      <div id="labQueryResults" class="lab-table-wrap"></div>
+    </div>
+  </div>
+</section>
+
+<section id="glossary" class="view">
+  <div class="glossary-shell">
+    <div class="glossary-head">
+      <div>
+        <div class="glossary-kicker">League Language</div>
+        <h2>Glossary</h2>
+        <p>Definitions for league-specific and potentially ambiguous terms used throughout The Big Board.</p>
+      </div>
+      <label class="glossary-search-label">Search
+        <input id="glossarySearch" type="search" placeholder="Search terms or definitions">
+      </label>
+    </div>
+    <div id="glossaryList" class="glossary-grid"></div>
+  </div>
+</section>
+
 </main>
 <div id="tooltip" class="tooltip"></div>
 
@@ -1527,31 +2044,46 @@ let RECORDS_DATA;
 let DRAFTS_DATA;
 let DRAFT_SLOTS_DATA;
 let DRAFT_CAPITAL_CONFIG;
+let DRAFT_LAB_CONFIG;
+let GLOSSARY_DATA;
+let MANAGER_ACTIVITY_DATA;
 let INITIAL_RECORDS;
 let INITIAL_DRAFTS;
 try {
-  const [leagueResponse, recordsResponse, draftsResponse, draftSlotsResponse, draftCapitalResponse] = await Promise.all([
+  const [leagueResponse, recordsResponse, draftsResponse, draftSlotsResponse, draftCapitalResponse, draftLabResponse, glossaryResponse, managerActivityResponse] = await Promise.all([
     fetch("./data/league.json", {cache:"no-store"}),
     fetch("./data/records.json", {cache:"no-store"}),
     fetch("./data/drafts.json", {cache:"no-store"}),
     fetch("./data/draftSlots.json", {cache:"no-store"}),
-    fetch("./data/draftCapital.json", {cache:"no-store"})
+    fetch("./data/draftCapital.json", {cache:"no-store"}),
+    fetch("./data/draftLab.json", {cache:"no-store"}),
+    fetch("./data/glossary.json", {cache:"no-store"}),
+    fetch("./data/managerActivity.json", {cache:"no-store"})
   ]);
   if(!leagueResponse.ok) throw new Error(`Could not load data/league.json (HTTP ${leagueResponse.status})`);
   if(!recordsResponse.ok) throw new Error(`Could not load data/records.json (HTTP ${recordsResponse.status})`);
   if(!draftsResponse.ok) throw new Error(`Could not load data/drafts.json (HTTP ${draftsResponse.status})`);
   if(!draftSlotsResponse.ok) throw new Error(`Could not load data/draftSlots.json (HTTP ${draftSlotsResponse.status})`);
   if(!draftCapitalResponse.ok) throw new Error(`Could not load data/draftCapital.json (HTTP ${draftCapitalResponse.status})`);
+  if(!draftLabResponse.ok) throw new Error(`Could not load data/draftLab.json (HTTP ${draftLabResponse.status})`);
+  if(!glossaryResponse.ok) throw new Error(`Could not load data/glossary.json (HTTP ${glossaryResponse.status})`);
+  if(!managerActivityResponse.ok) throw new Error(`Could not load data/managerActivity.json (HTTP ${managerActivityResponse.status})`);
   LEAGUE_CONFIG = await leagueResponse.json();
   RECORDS_DATA = await recordsResponse.json();
   DRAFTS_DATA = await draftsResponse.json();
   DRAFT_SLOTS_DATA = await draftSlotsResponse.json();
   DRAFT_CAPITAL_CONFIG = await draftCapitalResponse.json();
+  DRAFT_LAB_CONFIG = await draftLabResponse.json();
+  GLOSSARY_DATA = await glossaryResponse.json();
+  MANAGER_ACTIVITY_DATA = await managerActivityResponse.json();
   if(!LEAGUE_CONFIG?.league || !LEAGUE_CONFIG?.scoring || !LEAGUE_CONFIG?.tiers) throw new Error("Invalid league.json");
   if(!Array.isArray(RECORDS_DATA?.records)) throw new Error("Invalid records.json");
   if(!Array.isArray(DRAFTS_DATA?.picks)) throw new Error("Invalid drafts.json");
   if(!Array.isArray(DRAFT_SLOTS_DATA?.records)) throw new Error("Invalid draftSlots.json");
   if(!DRAFT_CAPITAL_CONFIG?.pickValues) throw new Error("Invalid draftCapital.json");
+  if(!Array.isArray(DRAFT_LAB_CONFIG?.archetypes)) throw new Error("Invalid draftLab.json");
+  if(!GLOSSARY_DATA?.terms) throw new Error("Invalid glossary.json");
+  if(!Array.isArray(MANAGER_ACTIVITY_DATA?.records)) throw new Error("Invalid managerActivity.json");
   INITIAL_RECORDS = RECORDS_DATA.records;
   INITIAL_DRAFTS = DRAFTS_DATA.picks;
 } catch (error) {
@@ -1572,13 +2104,15 @@ let state = {
 let lastSavedState = structuredClone(state);
 
 const categoryLabels = {
- title:"Titles", runner_up:"Runner-Ups", podium:"Trophies (Podiums)", pennant:"Pennants (RS)",
+ title:"Titles", runner_up:"Runner-Ups", podium:"Trophies (Podiums)", pennant:"Pennants",
  most_points:"Most Points (RS)", playoffs:"Playoff Appearances", above_500:"Seasons > .500",
  exact_500:"Seasons = .500", below_500:"Seasons < .500", least_points:"Least Points (RS)", toilet:"Toilets (since 2013)"
 };
 const matrixOrder = ["title","runner_up","podium","pennant","most_points","playoffs","above_500","exact_500","below_500","least_points","toilet"];
 const revealOrder = [6,5,4,7,8,3,9,10,2,1];
 let pointMode = false, revealIndex = 0, revealed = [], autoTimer = null, tickerBusy = false, autoPlaying = false;
+let careerResumeSort={key:"winPct",direction:"desc"};
+let careerSelectedOwner=null;
 let auditSort={key:null,direction:null};
 let pendingRecords = structuredClone(state.records);
 let pendingWeights = structuredClone(state.weights);
@@ -1614,10 +2148,10 @@ function discardPendingChanges(){
 
   // Rebuild scoring inputs explicitly.
   const weightLabels={
-    title:"Title",pennant:"RS Title",most_points:"Most Points",
+    title:"Title",pennant:"RS Title",most_points:glossaryTerm("mostPoints"),
     playoffs:"Playoff Appearance",runner_up:"Runner-Up",
-    podium:"Trophy / Podium",above_500:"Above .500",
-    below_500:"Below .500",least_points:"Least Points",toilet:"Toilet"
+    podium:"Trophy / Podium",above_500:glossaryTerm("above500"),
+    below_500:glossaryTerm("below500"),least_points:glossaryTerm("leastPoints"),toilet:"Toilet"
   };
   document.getElementById("settingsGrid").innerHTML=
     Object.keys(pendingWeights).map(k=>
@@ -1769,13 +2303,174 @@ function expectedAuditText(category,rowTotal){
  }
  return `Observed total across all owners: ${rowTotal}`;
 }
+
+function careerResumeData(){
+  const rows=enriched(),owners=[...new Set(rows.map(r=>r.Owner))];
+  return owners.map(owner=>{
+    const os=rows.filter(r=>r.Owner===owner);
+    const activity=(MANAGER_ACTIVITY_DATA?.records||[]).filter(r=>r.owner===owner);
+    const wins=os.reduce((sum,r)=>sum+(+r.W||0),0);
+    const losses=os.reduce((sum,r)=>sum+(+r.L||0),0);
+    const points=os.reduce((sum,r)=>sum+(+r.PointsFor||0),0);
+    const games=wins+losses;
+    return {
+      owner,seasons:os.length,wins,losses,
+      winPct:games?wins/games:0,
+      points,avgPoints:os.length?points/os.length:0,
+      playoffs:os.filter(r=>r.playoffs).length,
+      titles:os.filter(r=>r.title).length,
+      pennants:os.filter(r=>r.pennant).length,
+      transactions:activity.reduce((sum,r)=>sum+(+r.moves||0),0),
+      trades:activity.reduce((sum,r)=>sum+(+r.trades||0),0),
+      prestige:os.reduce((sum,r)=>sum+r.prestige,0)
+    };
+  });
+}
+function careerMetricRank(rows,owner,key,higherBetter=true){
+  const target=rows.find(r=>r.owner===owner);
+  if(!target)return null;
+  const targetValue=Number(target[key]);
+  const betterValues=rows
+    .map(r=>Number(r[key]))
+    .filter(v=>Number.isFinite(v) && (higherBetter?v>targetValue:v<targetValue));
+  return betterValues.length+1;
+}
+function careerMetricTieCount(rows,owner,key){
+  const target=rows.find(r=>r.owner===owner);
+  if(!target)return 0;
+  const targetValue=Number(target[key]);
+  return rows.filter(r=>Number(r[key])===targetValue).length;
+}
+function careerMedal(rows,owner,key,higherBetter=true){
+  const rank=careerMetricRank(rows,owner,key,higherBetter);
+  const icon=rank===1?"🥇":rank===2?"🥈":rank===3?"🥉":"";
+  return icon?`<span class="career-medal">${icon}</span>`:"";
+}
+function careerOrdinal(n){
+  const v=+n,mod=v%100;
+  if(mod>=11&&mod<=13)return `${v}th`;
+  return `${v}${v%10===1?"st":v%10===2?"nd":v%10===3?"rd":"th"}`;
+}
+function careerRankLabel(rows,owner,key,higherBetter=true){
+  const rank=careerMetricRank(rows,owner,key,higherBetter);
+  const tied=careerMetricTieCount(rows,owner,key)>1;
+  return `${tied?"T-":""}${careerOrdinal(rank)}`;
+}
+function sortCareerResumeRows(rows){
+  const {key,direction}=careerResumeSort;
+  return [...rows].sort((a,b)=>{
+    let av=a[key],bv=b[key];
+    if(typeof av==="string"||typeof bv==="string"){
+      av=String(av??"");bv=String(bv??"");
+      return direction==="asc"?av.localeCompare(bv):bv.localeCompare(av);
+    }
+    const diff=(+av)-(+bv);
+    return direction==="asc"?diff:-diff;
+  });
+}
+function careerResumeHeader(label,key){
+  const active=careerResumeSort.key===key;
+  return `<th data-career-sort="${key}">${label}<span class="career-sort-indicator">${active?(careerResumeSort.direction==="asc"?"▲":"▼"):""}</span></th>`;
+}
+function renderCareerResume(){
+  const all=careerResumeData();
+  if(!careerSelectedOwner || !all.some(r=>r.owner===careerSelectedOwner)){
+    careerSelectedOwner=[...all].sort((a,b)=>b.prestige-a.prestige)[0]?.owner||null;
+  }
+  const rows=sortCareerResumeRows(all);
+  const table=document.getElementById("careerResumeTable");
+  table.innerHTML=`<thead><tr>
+    ${careerResumeHeader("Owner","owner")}
+    ${careerResumeHeader("W","wins")}
+    ${careerResumeHeader("L","losses")}
+    ${careerResumeHeader("Win %","winPct")}
+    ${careerResumeHeader("Total Points","points")}
+    ${careerResumeHeader("Avg Points","avgPoints")}
+    ${careerResumeHeader(glossaryTerm("playoffAppearances"),"playoffs")}
+    ${careerResumeHeader(glossaryTerm("titles"),"titles")}
+    ${careerResumeHeader(glossaryTerm("pennants"),"pennants")}
+    ${careerResumeHeader(glossaryTerm("transactions"),"transactions")}
+    ${careerResumeHeader(glossaryTerm("trades"),"trades")}
+  </tr></thead><tbody>${rows.map(r=>`<tr data-career-owner="${r.owner}" class="${r.owner===careerSelectedOwner?"selected-owner":""}">
+    <td class="career-owner-cell">${displayName(r.owner)}</td>
+    <td>${careerMedal(all,r.owner,"wins")}${r.wins}</td>
+    <td>${r.losses}</td>
+    <td>${(r.winPct*100).toFixed(1)}%</td>
+    <td>${careerMedal(all,r.owner,"points")}${Math.round(r.points).toLocaleString()}<span class="career-points-context">${r.points===Math.max(...all.map(x=>x.points))?"Leader":`${Math.round(Math.max(...all.map(x=>x.points))-r.points).toLocaleString()} behind leader`}</span></td>
+    <td>${Math.round(r.avgPoints).toLocaleString()}</td>
+    <td>${careerMedal(all,r.owner,"playoffs")}${r.playoffs}</td>
+    <td>${careerMedal(all,r.owner,"titles")}${r.titles}</td>
+    <td>${careerMedal(all,r.owner,"pennants")}${r.pennants}</td>
+    <td>${r.transactions.toLocaleString()}</td>
+    <td>${r.trades.toLocaleString()}</td>
+  </tr>`).join("")}</tbody>`;
+
+  document.querySelectorAll("[data-career-sort]").forEach(th=>th.addEventListener("click",()=>{
+    const key=th.dataset.careerSort;
+    if(careerResumeSort.key===key)careerResumeSort.direction=careerResumeSort.direction==="asc"?"desc":"asc";
+    else{
+      careerResumeSort.key=key;
+      careerResumeSort.direction=key==="owner"?"asc":"desc";
+    }
+    renderCareerResume();
+  }));
+  document.querySelectorAll("[data-career-owner]").forEach(row=>row.addEventListener("click",()=>{
+    careerSelectedOwner=row.dataset.careerOwner;
+    renderCareerResume();
+  }));
+  renderCareerSummaryCards(all);
+}
+function renderCareerSummaryCards(allRows=careerResumeData()){
+  const owner=careerSelectedOwner||allRows[0]?.owner;
+  const r=allRows.find(x=>x.owner===owner);
+  if(!r)return;
+  const rank=key=>careerRankLabel(allRows,owner,key,true);
+  const pointsLeader=Math.max(...allRows.map(x=>x.points));
+  const pointsContext=r.points===pointsLeader?"Leader":`${Math.round(pointsLeader-r.points).toLocaleString()} behind leader`;
+  document.getElementById("careerSummaryCards").innerHTML=`
+    <div class="career-summary-card career-summary-owner">
+      <div class="label">Selected Owner</div>
+      <div class="value">${displayName(owner)}</div>
+      <div class="detail">${r.seasons} seasons · ${r.prestige} Prestige</div>
+    </div>
+    <div class="career-summary-card"><div class="label">Career Record</div><div class="value">${r.wins}–${r.losses}</div><div class="rank">Rank: ${rank("wins")}</div></div>
+    <div class="career-summary-card"><div class="label">Win Percentage</div><div class="value">${(r.winPct*100).toFixed(1)}%</div><div class="rank">Rank: ${rank("winPct")}</div></div>
+    <div class="career-summary-card"><div class="label">Total Points</div><div class="value">${Math.round(r.points).toLocaleString()}</div><div class="rank">Rank: ${rank("points")} · ${pointsContext}</div></div>
+    <div class="career-summary-card"><div class="label">Avg Points / Season</div><div class="value">${Math.round(r.avgPoints).toLocaleString()}</div><div class="rank">Rank: ${rank("avgPoints")}</div></div>
+    <div class="career-summary-card"><div class="label">${glossaryTerm("playoffAppearances")}</div><div class="value">${r.playoffs}</div><div class="rank">Rank: ${rank("playoffs")}</div></div>
+    <div class="career-summary-card"><div class="label">${glossaryTerm("titles")}</div><div class="value">${r.titles}</div><div class="rank">Rank: ${rank("titles")}</div></div>
+    <div class="career-summary-card career-activity-card">
+      <div class="label">Manager Activity</div>
+      <div class="career-activity-lines">
+        <div><span>${glossaryTerm("transactions")}</span><strong>${r.transactions.toLocaleString()}</strong></div>
+        <div><span>${glossaryTerm("trades")}</span><strong>${r.trades.toLocaleString()}</strong></div>
+      </div>
+    </div>`;
+}
+
+
+function matrixGlossaryLabel(label){
+  const map={
+    "Titles":["titles","Titles"],
+    "Trophies (Podiums)":["trophies","Trophies (Podiums)"],
+    "Pennants":["pennants","Pennants"],
+    "Most Points (RS)":["mostPoints","Most Points (RS)"],
+    "Playoff Appearances":["playoffAppearances","Playoff Appearances"],
+    "Least Points (RS)":["leastPoints","Least Points (RS)"],
+    "Toilets (since 2013)":["toilets","Toilets (since 2013)"]
+  };
+  const item=map[label];
+  return item?glossaryTerm(item[0],item[1]):label;
+}
+
 function renderMatrix(){
+  renderCareerResume();
   const arr=career(), table=document.getElementById("matrixTable");
   let html="<thead><tr><th>Category</th>"+arr.map(x=>`<th>${displayName(x.owner)}</th>`).join("")+`<th>Total</th>`+"</tr></thead><tbody>";
   matrixOrder.forEach(k=>{
     const vals=arr.map(x=>pointMode ? (k==="exact_500"?0:x[k]*(state.weights[k]||0)) : x[k]);
     const leader=(k==="least_points"||k==="toilet"||k==="below_500")?Math.max(...vals):Math.max(...vals);
-    html+=`<tr><td class="category">${pointMode?categoryLabels[k]+" Points":categoryLabels[k]}</td>`;
+    html+=`<tr><td class="category">${pointMode?categoryLabels[k]+" Points":matrixGlossaryLabel(categoryLabels[k])}</td>`;
     let rowTotal=0;
     arr.forEach((x,i)=>{
       const years=x.years[k].join(", ")||"None";
@@ -1801,8 +2496,8 @@ function renderAuditSelectors(){
 }
 function eventText(r){
   const p=[],n=[];
-  [["title","Title"],["runner_up","Runner-Up"],["podium","Podium"],["pennant","Pennant"],["most_points","Most Points"],["playoffs","Playoffs"],["above_500","> .500"]].forEach(([k,l])=>{if(r[k])p.push(`${l} (${state.weights[k]>=0?"+":""}${state.weights[k]})`)});
-  [["below_500","< .500"],["least_points","Least Points"],["toilet","Toilet"]].forEach(([k,l])=>{if(r[k])n.push(`${l} (${state.weights[k]})`)});
+  [["title","Title"],["runner_up","Runner-Up"],["podium","Podium"],["pennant","Pennant"],["most_points",glossaryTerm("mostPoints")],["playoffs","Playoffs"],["above_500","> .500"]].forEach(([k,l])=>{if(r[k])p.push(`${l} (${state.weights[k]>=0?"+":""}${state.weights[k]})`)});
+  [["below_500","< .500"],["least_points",glossaryTerm("leastPoints")],["toilet","Toilet"]].forEach(([k,l])=>{if(r[k])n.push(`${l} (${state.weights[k]})`)});
   if(r.exact_500)p.push("Exactly .500 (0)");
   return `<span class="event-pos">${p.join(", ")}</span>${p.length&&n.length?"<br>":""}<span class="event-neg">${n.join(", ")}</span>`;
 }
@@ -1884,7 +2579,7 @@ function renderAudit(){
   });
 }
 function renderSettings(){
-  const labels={title:"Title",pennant:"RS Title",most_points:"Most Points",playoffs:"Playoff Appearance",runner_up:"Runner-Up",podium:"Trophy / Podium",above_500:"Above .500",below_500:"Below .500",least_points:"Least Points",toilet:"Toilet"};
+  const labels={title:"Title",pennant:"RS Title",most_points:glossaryTerm("mostPoints"),playoffs:"Playoff Appearance",runner_up:"Runner-Up",podium:"Trophy / Podium",above_500:glossaryTerm("above500"),below_500:glossaryTerm("below500"),least_points:glossaryTerm("leastPoints"),toilet:"Toilet"};
   document.getElementById("settingsGrid").innerHTML=Object.keys(pendingWeights).map(k=>`<label class="setting">${labels[k]}<input type="number" data-weight="${k}" value="${pendingWeights[k]}"></label>`).join("");
   document.querySelectorAll("[data-weight]").forEach(i=>i.addEventListener("input",e=>{
     pendingWeights[e.target.dataset.weight]=+e.target.value;
@@ -2588,6 +3283,22 @@ function draftPositionStyle(position){
   const palette=DRAFTS_DATA.positionPalette[position]||{background:"#ececec",border:"#999",text:"#222"};
   return `background:${palette.background};border-color:${palette.border};color:${palette.text}`;
 }
+function draftYearMeta(year){
+  return DRAFTS_DATA.yearMetadata?.[String(year)]||{analysisEligible:true,tradeTracking:"known",integrity:"verified",note:""};
+}
+function isDraftAnalysisYear(year){
+  return draftYearMeta(year).analysisEligible!==false;
+}
+function analysisDraftPicks(year=null){
+  return INITIAL_DRAFTS.filter(p=>
+    (year==null||+p.year===+year) &&
+    isDraftAnalysisYear(+p.year) &&
+    p.analysisEligible!==false
+  );
+}
+function analysisDraftYears(){
+  return draftYears().filter(isDraftAnalysisYear);
+}
 function draftYears(){return [...new Set(INITIAL_DRAFTS.map(p=>+p.year))].sort((a,b)=>b-a)}
 function draftOwners(){
   const configured=LEAGUE_CONFIG.league.owners||[];
@@ -2631,7 +3342,8 @@ function expectedOwnerForPick(year,overallPick){
 }
 function enrichDraftPick(p){
   const originalOwner=expectedOwnerForPick(+p.year,+p.overallPick);
-  return {...p,originalOwner,traded:Boolean(originalOwner&&originalOwner!==p.owner)};
+  const tracked=p.tradeStatus!=="unknown"&&draftYearMeta(+p.year).tradeTracking!=="unknown";
+  return {...p,originalOwner,traded:tracked?Boolean(originalOwner&&originalOwner!==p.owner):null};
 }
 function enrichedDraftPicks(year=null){
   const picks=year==null?INITIAL_DRAFTS:INITIAL_DRAFTS.filter(p=>+p.year===+year);
@@ -2662,17 +3374,17 @@ function draftPositionCounts(picks){
   return picks.reduce((acc,p)=>(acc[p.position]=(acc[p.position]||0)+1,acc),{});
 }
 function allDraftPositionAverages(){
-  const years=draftYears();
+  const years=analysisDraftYears();
   const totals={QB:0,RB:0,WR:0,TE:0,K:0,DST:0};
   years.forEach(year=>{
-    const counts=draftPositionCounts(draftPicksForYear(year));
+    const counts=draftPositionCounts(analysisDraftPicks(year));
     Object.keys(totals).forEach(pos=>totals[pos]+=counts[pos]||0);
   });
   Object.keys(totals).forEach(pos=>totals[pos]=totals[pos]/years.length);
   return totals;
 }
 function ownerSlotRows(owner){
-  return DRAFT_SLOTS_DATA.records.filter(r=>r.owner===owner).sort((a,b)=>a.year-b.year);
+  return DRAFT_SLOTS_DATA.records.filter(r=>r.owner===owner&&isDraftAnalysisYear(+r.year)).sort((a,b)=>a.year-b.year);
 }
 function ownerSlotSummary(owner){
   const rows=ownerSlotRows(owner),slots=rows.map(r=>+r.draftSlot);
@@ -2692,9 +3404,10 @@ function ownerSlotSummary(owner){
   };
 }
 function ownerTradeMetrics(owner){
-  const picks=enrichedDraftPicks().filter(p=>p.owner===owner);
-  const acquired=picks.filter(p=>p.traded).length;
-  const originalAssigned=enrichedDraftPicks().filter(p=>p.originalOwner===owner);
+  const tracked=enrichedDraftPicks().filter(p=>p.traded!==null);
+  const picks=tracked.filter(p=>p.owner===owner);
+  const acquired=picks.filter(p=>p.traded===true).length;
+  const originalAssigned=tracked.filter(p=>p.originalOwner===owner);
   const away=originalAssigned.filter(p=>p.owner!==owner).length;
   return {
     picks:picks.length,
@@ -2707,10 +3420,12 @@ function ownerTradeMetrics(owner){
 }
 function draftSlotJoinedRows(){
   const seasonMap=new Map(INITIAL_RECORDS.map(r=>[`${r.Year}|${r.Owner}`,r]));
-  return DRAFT_SLOTS_DATA.records.map(s=>{
-    const result=seasonMap.get(`${s.year}|${s.owner}`);
-    return result?{...s,result}:null;
-  }).filter(Boolean);
+  return DRAFT_SLOTS_DATA.records
+    .filter(s=>isDraftAnalysisYear(+s.year))
+    .map(s=>{
+      const result=seasonMap.get(`${s.year}|${s.owner}`);
+      return result?{...s,result}:null;
+    }).filter(Boolean);
 }
 function resultVector(row){
   return {
@@ -2846,21 +3561,32 @@ function renderDraftSelectors(){
   if(scopeSelect && !scopeSelect.options.length){
     scopeSelect.innerHTML=
       draftYears().map(y=>`<option value="${y}">${y}</option>`).join("")+
-      `<option value="CAREER">Career (${Math.min(...draftYears())}–${Math.max(...draftYears())})</option>`;
+      `<option value="CAREER">Career (${Math.min(...draftYears())}–${Math.max(...draftYears())}, excl. 2017)</option>`;
   }
   if(scopeSelect)scopeSelect.value=draftCapitalScope;
 }
 function renderDraftSummary(){
   const picks=draftPicksForYear();
-  const firsts=["QB","RB","WR","TE"].map(pos=>[pos,firstPositionPick(picks,pos)]);
-  const traded=enrichedDraftPicks(draftSelectedYear).filter(p=>p.traded);
+  const meta=draftYearMeta(draftSelectedYear);
+  if(!isDraftAnalysisYear(draftSelectedYear)){
+    document.getElementById("draftSummary").innerHTML=
+      `<div class="draft-archive-warning"><strong>${draftSelectedYear} Archive-Only Draft</strong><span>${meta.note||"This draft is displayed for historical reference and excluded from every Draft Hub calculation."}</span></div>`;
+    return;
+  }
+  const analyticPicks=analysisDraftPicks(draftSelectedYear);
+  const firsts=["QB","RB","WR","TE"].map(pos=>[pos,firstPositionPick(analyticPicks,pos)]);
   document.getElementById("draftSummary").innerHTML=[
     ["Total Picks",picks.length,`${Math.max(...picks.map(p=>p.round))} rounds`],
     ...firsts.map(([pos,p])=>[`First ${pos}`,p?p.positionLabel:"—",p?`#${p.overallPick} · ${p.player}`:""]),
   ].map(([label,value,detail])=>`<div class="draft-summary-card"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`).join("");
 }
 function renderDraftPositionVolume(){
-  const picks=draftPicksForYear();
+  if(!isDraftAnalysisYear(draftSelectedYear)){
+    document.getElementById("draftPositionVolume").innerHTML=
+      `<div class="draft-position-archive-note">Position-volume analytics are intentionally disabled for ${draftSelectedYear}. The board remains available as a historical archive.</div>`;
+    return;
+  }
+  const picks=analysisDraftPicks(draftSelectedYear);
   const counts=draftPositionCounts(picks);
   const averages=allDraftPositionAverages();
   const order=["QB","RB","WR","TE","K","DST"];
@@ -2877,14 +3603,17 @@ function renderDraftPositionVolume(){
   const avgGrid=order.map(pos=>`<div class="draft-position-average"><div class="pos">${pos} Avg</div><div class="value">${averages[pos].toFixed(1)}</div></div>`).join("");
   document.getElementById("draftPositionVolume").innerHTML=
     `<div class="draft-position-chart"><h3>${draftSelectedYear} Position Volume</h3><div class="draft-position-bars">${bars}</div></div>
-     <div class="draft-position-averages"><h3>Average Per Draft · 2020–2025</h3><div class="draft-position-average-grid">${avgGrid}</div></div>`;
+     <div class="draft-position-averages"><h3>Average Per Draft · 2010–2025 (excl. 2017)</h3><div class="draft-position-average-grid">${avgGrid}</div></div>`;
 }
 function renderDraftLegend(){
   const order=["QB","RB","WR","TE","K","DST"];
+  const tradeLegend=draftYearMeta(draftSelectedYear).tradeTracking==="unknown"
+    ? `<span class="draft-legend-item">Trade tracking unavailable</span>`
+    : `<span class="draft-legend-item"><span class="draft-traded-marker" style="position:static">↔</span> ${glossaryTerm("tradedSelections","Traded selection")}</span>`;
   document.getElementById("draftLegend").innerHTML=order.map(pos=>{
     const p=DRAFTS_DATA.positionPalette[pos];
     return `<span class="draft-legend-item"><span class="draft-legend-dot" style="background:${p.background};border-color:${p.border}"></span>${pos}</span>`;
-  }).join("")+`<span class="draft-legend-item"><span class="draft-traded-marker" style="position:static">↔</span> Traded selection</span>`;
+  }).join("")+tradeLegend;
 }
 function renderDraftBoard(){
   const picks=enrichedDraftPicks(draftSelectedYear);
@@ -2909,12 +3638,12 @@ function renderDraftBoard(){
       const p=byPick[overall];
       if(!p){board+=`<div></div>`;continue}
       const muted=draftSelectedOwner!=="ALL"&&p.owner!==draftSelectedOwner;
-      board+=`<div class="draft-pick-card ${muted?"draft-muted":""}" style="${draftPositionStyle(p.position)}" title="#${p.overallPick} · ${displayName(p.owner)} · ${p.positionLabel}${p.traded?` · originally ${displayName(p.originalOwner)}`:""}">
+      board+=`<div class="draft-pick-card ${muted?"draft-muted":""}" style="${draftPositionStyle(p.position)}" title="#${p.overallPick} · ${displayName(p.owner)} · ${p.positionLabel}${p.traded===true?` · originally ${displayName(p.originalOwner)}`:p.traded===null?" · trade tracking unavailable":""}">
         <div class="draft-pick-number">#${p.overallPick}</div>
         <div class="draft-player">${p.player}</div>
         <div class="draft-owner">${displayName(p.owner)}</div>
         <div class="draft-pos-label">${p.positionLabel}</div>
-        ${p.traded?'<div class="draft-traded-marker">↔</div>':""}
+        ${p.traded===true?'<div class="draft-traded-marker">↔</div>':""}
       </div>`;
     }
   }
@@ -2922,10 +3651,12 @@ function renderDraftBoard(){
   document.getElementById("draftBoard").innerHTML=board;
 
   const notes=DRAFTS_DATA.tradeNotes[String(draftSelectedYear)]||[];
-  const traded=picks.filter(p=>p.traded).length;
-  document.getElementById("draftTradeNotes").innerHTML=
-    `<h3>Traded Selections · ${traded} of ${picks.length} (${Math.round(traded/picks.length*100)}%)</h3>`+
-    (notes.length?`<ul>${notes.map(n=>`<li>${n}</li>`).join("")}</ul>`:`<div class="draft-no-notes">No separate transaction notes were recorded on this board.</div>`);
+  const tradeKnown=draftYearMeta(draftSelectedYear).tradeTracking!=="unknown";
+  const traded=picks.filter(p=>p.traded===true).length;
+  document.getElementById("draftTradeNotes").innerHTML=tradeKnown
+    ? `<h3>Traded Selections · ${traded} of ${picks.length} (${Math.round(traded/picks.length*100)}%)</h3>`+
+      (notes.length?`<ul>${notes.map(n=>`<li>${n}</li>`).join("")}</ul>`:`<div class="draft-no-notes">No separate transaction notes were recorded on this board.</div>`)
+    : `<h3>Trade Tracking Unavailable</h3><div class="draft-no-notes">Draft-day deals were not preserved for ${draftSelectedYear}; no trade assumptions are included.</div>`;
 }
 function filteredDraftTableRows(){
   let rows=enrichedDraftPicks(draftSelectedYear);
@@ -2947,7 +3678,7 @@ function renderDraftTable(){
     <td>${p.overallPick}</td><td>${p.round}.${p.pickInRound}</td><td>${displayName(p.owner)}</td>
     <td>${p.player}</td><td><span class="draft-position-chip" style="${draftPositionStyle(p.position)}">${p.position}</span></td>
     <td>${p.positionLabel}</td><td>${displayName(p.originalOwner)}</td>
-    <td><span class="draft-trade-chip ${p.traded?"yes":"no"}">${p.traded?"Yes":"No"}</span></td>
+    <td><span class="draft-trade-chip ${p.traded===null?"unknown":p.traded?"yes":"no"}">${p.traded===null?"Unknown":p.traded?"Yes":"No"}</span></td>
   </tr>`).join("");
   document.querySelectorAll("[data-draft-sort]").forEach(th=>{
     const key=th.dataset.draftSort;
@@ -2968,7 +3699,7 @@ function exportCurrentDraftTable(){
   URL.revokeObjectURL(url);
 }
 function ownerDraftMetrics(owner){
-  const picks=INITIAL_DRAFTS.filter(p=>p.owner===owner);
+  const picks=analysisDraftPicks().filter(p=>p.owner===owner);
   const years=[...new Set(picks.map(p=>+p.year))].sort();
   const firstRounds=position=>years.map(y=>{
     const p=picks.filter(x=>+x.year===y&&x.position===position).sort((a,b)=>a.overallPick-b.overallPick)[0];
@@ -3031,11 +3762,11 @@ function draftCapitalValue(overallPick){
 }
 function draftCapitalScopeLabel(){
   return draftCapitalScope==="CAREER"
-    ? `Career (${Math.min(...draftYears())}–${Math.max(...draftYears())})`
+    ? `Career (${Math.min(...draftYears())}–${Math.max(...draftYears())}, excl. 2017)`
     : String(draftCapitalScope);
 }
 function ownerDraftCapitalProfile(owner){
-  const picks=INITIAL_DRAFTS.filter(p=>{
+  const picks=analysisDraftPicks().filter(p=>{
     if(p.owner!==owner)return false;
     if(draftCapitalScope==="CAREER")return true;
     return +p.year===+draftCapitalScope;
@@ -3054,7 +3785,7 @@ function draftCapitalProfileHtml(owner){
   const profile=ownerDraftCapitalProfile(owner);
   const order=["QB","RB","WR","TE","K","DST"];
   return `<div class="draft-capital-profile">
-    <div class="title">Draft Capital Profile</div>
+    <div class="title">${glossaryTerm("draftCapitalProfile")}</div>
     <div class="scope">${draftCapitalScopeLabel()}</div>
     ${order.map(pos=>{
       const pct=profile.percentages[pos]||0;
@@ -3065,7 +3796,7 @@ function draftCapitalProfileHtml(owner){
         <div class="draft-capital-pct">${Math.round(pct*100)}%</div>
       </div>`;
     }).join("")}
-    <div class="draft-capital-note">Share of weighted draft capital · configurable in data/draftCapital.json</div>
+    <div class="draft-capital-note">${draftCapitalScope!=="CAREER"&&!isDraftAnalysisYear(+draftCapitalScope)?"Archive-only year · excluded from analytics":"Share of weighted draft capital · configurable in data/draftCapital.json"}</div>
   </div>`;
 }
 
@@ -3099,13 +3830,13 @@ function renderDraftOwnerCards(){
         <div class="draft-owner-slot-stat"><div class="label">Best / Worst</div><div class="value">${draftOrdinal(m.slots.min)} / ${draftOrdinal(m.slots.max)}</div></div>
         <div class="draft-owner-slot-stat"><div class="label">Most Common</div><div class="value">${draftOrdinal(m.slots.common)} · ${m.slots.commonCount}×</div></div>
         <div class="draft-owner-slot-stat"><div class="label">Median</div><div class="value">${m.slots.median.toFixed(1)}</div></div>
-        <div class="draft-owner-slot-stat"><div class="label">Top 3</div><div class="value">${m.slots.top3}/16</div></div>
-        <div class="draft-owner-slot-stat"><div class="label">Bottom 3</div><div class="value">${m.slots.bottom3}/16</div></div>
+        <div class="draft-owner-slot-stat"><div class="label">Top 3</div><div class="value">${m.slots.top3}/${m.slots.slots.length}</div></div>
+        <div class="draft-owner-slot-stat"><div class="label">Bottom 3</div><div class="value">${m.slots.bottom3}/${m.slots.slots.length}</div></div>
       </div>
       <div class="draft-owner-distribution">${dist}</div>
-      <div class="draft-owner-trade-line"><strong>Traded selections:</strong> ${m.trades.acquired}/${m.trades.picks} (${Math.round(m.trades.acquiredRate*100)}%)</div>
+      <div class="draft-owner-trade-line"><strong>Traded selections (tracked years):</strong> ${m.trades.acquired}/${m.trades.picks} (${Math.round(m.trades.acquiredRate*100)}%)</div>
       <div class="draft-owner-adjustment">
-        <div class="draft-owner-adjustment-head"><h4>Slot Overperformance</h4>
+        <div class="draft-owner-adjustment-head"><h4>${glossaryTerm("slotOverperformance")}</h4>
           <button class="draft-mini-expand" data-owner-adjust="${owner}">${expanded?"Hide":"Show"} Calculation</button></div>
         <div class="draft-owner-deltas">
           ${[["RS","rs"],["PO","po"],["Points","points"],["Titles","title"]].map(([label,key])=>`<div class="draft-owner-delta"><div class="label">${label}</div><div class="value ${deltaClass(m.overperformance.delta[key],key)}">${formatDelta(m.overperformance.delta[key],key)}</div></div>`).join("")}
@@ -3253,8 +3984,482 @@ function setDraftView(view){
   document.getElementById("draftSlotsView").classList.toggle("active",view==="slots");
 }
 function renderDraftHub(){
+  const eraBadge=document.getElementById("draftEraBadge");
+  if(eraBadge){
+    eraBadge.innerHTML=draftSelectedYear===2017
+      ? `Draft Boards 2010–2025 · ${glossaryTerm("archiveOnly","2017 Archive Only")} · #MacatronEffect`
+      : "Draft Boards 2010–2025";
+  }
   renderDraftSelectors();renderDraftSummary();renderDraftPositionVolume();renderDraftLegend();
   renderDraftBoard();renderDraftTable();renderDraftOwnerCards();renderDraftSlotsView();setDraftView(draftCurrentView);
+}
+
+
+/* =========================================================
+   Draft Lab v1
+   ========================================================= */
+let labQuartilePosition="RB";
+let labArchetypeSort={key:"titles",direction:"desc"};
+let labOwnerSort={key:"title",direction:"desc"};
+let labQuartileSort={key:"quartile",direction:"asc"};
+let labQuerySort={key:"year",direction:"desc"};
+let labQueryState={
+  capitalPosition:"RB",capitalMinPct:0,capitalMaxPct:100,
+  firstPosition:"ANY",firstPickMax:null,secondPosition:"ANY",secondPickMax:null
+};
+
+function labEligibleYear(year){
+  const meta=DRAFTS_DATA.yearMetadata?.[String(year)];
+  return meta?.analysisEligible!==false && !(DRAFT_LAB_CONFIG.analysisExcludedYears||[]).includes(+year);
+}
+function labOwnerSeasonDataset(){
+  const outcomeMap=new Map(INITIAL_RECORDS.map(r=>[`${r.Year}|${r.Owner}`,r]));
+  const grouped=new Map();
+  INITIAL_DRAFTS.forEach(p=>{
+    if(!labEligibleYear(+p.year) || p.analysisEligible===false || p.player==="--empty--")return;
+    const key=`${p.year}|${p.owner}`;
+    if(!grouped.has(key))grouped.set(key,[]);
+    grouped.get(key).push(p);
+  });
+  return [...grouped.entries()].map(([key,picks])=>{
+    const [yearText,owner]=key.split("|"),year=+yearText;
+    const result=outcomeMap.get(key);
+    if(!result)return null;
+    const totals={QB:0,RB:0,WR:0,TE:0,K:0,DST:0};
+    const byPosition={QB:[],RB:[],WR:[],TE:[],K:[],DST:[]};
+    picks.forEach(p=>{
+      const value=draftCapitalValue(+p.overallPick);
+      if(totals[p.position]===undefined)totals[p.position]=0;
+      totals[p.position]+=value;
+      if(!byPosition[p.position])byPosition[p.position]=[];
+      byPosition[p.position].push(+p.overallPick);
+    });
+    Object.values(byPosition).forEach(arr=>arr.sort((a,b)=>a-b));
+    const grand=Object.values(totals).reduce((a,b)=>a+b,0)||1;
+    const capitalPct={};
+    Object.keys(totals).forEach(pos=>capitalPct[pos]=totals[pos]/grand);
+    const playoff=+result.RS_Finish<=playoffTeamsForYear(year);
+    return {
+      year,owner,picks,result,totals,capitalPct,byPosition,grand,
+      firstPick:Object.fromEntries(Object.entries(byPosition).map(([pos,arr])=>[pos,arr[0]??Infinity])),
+      secondPick:Object.fromEntries(Object.entries(byPosition).map(([pos,arr])=>[pos,arr[1]??Infinity])),
+      champion:+result.PO_Finish===1,
+      mostPoints:+result["Pts Rank"]===1,
+      playoff,
+      betterRS:11-(+result.RS_Finish),
+      betterPtsRank:11-(+result["Pts Rank"])
+    };
+  }).filter(Boolean).sort((a,b)=>a.year-b.year||a.owner.localeCompare(b.owner));
+}
+function labAverage(rows,getter){
+  const values=rows.map(getter).map(Number).filter(Number.isFinite);
+  return values.length?values.reduce((a,b)=>a+b,0)/values.length:0;
+}
+function labOutcomeSummary(rows){
+  return {
+    count:rows.length,
+    avgRS:labAverage(rows,r=>r.result.RS_Finish),
+    avgPO:labAverage(rows,r=>r.result.PO_Finish),
+    avgPoints:labAverage(rows,r=>r.result.PointsFor),
+    avgPtsRank:labAverage(rows,r=>r.result["Pts Rank"]),
+    playoffRate:rows.length?rows.filter(r=>r.playoff).length/rows.length:0,
+    titles:rows.filter(r=>r.champion).length,
+    titleRate:rows.length?rows.filter(r=>r.champion).length/rows.length:0
+  };
+}
+function labCapitalProfile(rows){
+  const profile={QB:0,RB:0,WR:0,TE:0,K:0,DST:0};
+  Object.keys(profile).forEach(pos=>profile[pos]=labAverage(rows,r=>r.capitalPct[pos]||0));
+  return profile;
+}
+function labPearson(xs,ys){
+  const pairs=xs.map((x,i)=>[Number(x),Number(ys[i])]).filter(([x,y])=>Number.isFinite(x)&&Number.isFinite(y));
+  if(pairs.length<3)return 0;
+  const mx=labAverage(pairs,p=>p[0]),my=labAverage(pairs,p=>p[1]);
+  let numerator=0,dx=0,dy=0;
+  pairs.forEach(([x,y])=>{const a=x-mx,b=y-my;numerator+=a*b;dx+=a*a;dy+=b*b;});
+  return dx&&dy?numerator/Math.sqrt(dx*dy):0;
+}
+function labCorrelationClass(value){
+  const v=Number(value);
+  if(v>=.3)return "lab-heat-strong-pos";
+  if(v>=.1)return "lab-heat-pos";
+  if(v<=-.3)return "lab-heat-strong-neg";
+  if(v<=-.1)return "lab-heat-neg";
+  return "lab-heat-neutral";
+}
+function labFormatCorrelation(value){
+  const v=Number(value)||0;
+  return `${v>=0?"+":""}${v.toFixed(2)}`;
+}
+function labPct(value,digits=1){return `${(Number(value)*100).toFixed(digits)}%`}
+function labProfileCardHtml(title,rows,highlight=false){
+  const profile=labCapitalProfile(rows),order=["QB","RB","WR","TE","K","DST"];
+  const max=Math.max(...order.map(pos=>profile[pos]),.01);
+  return `<div class="lab-profile-card ${highlight?"highlight":""}">
+    <h4>${title}</h4><div class="sample">${rows.length} owner-seasons</div>
+    <div class="lab-profile-bars">${order.map(pos=>{
+      const p=DRAFTS_DATA.positionPalette[pos];
+      return `<div class="lab-profile-row"><strong>${pos}</strong>
+        <div class="lab-profile-track"><div class="lab-profile-fill" style="width:${profile[pos]/max*100}%;background:${p.background};border-right:1px solid ${p.border}"></div></div>
+        <div class="lab-profile-pct">${labPct(profile[pos],0)}</div></div>`;
+    }).join("")}</div></div>`;
+}
+function renderLabProfiles(){
+  const rows=labOwnerSeasonDataset(),champions=rows.filter(r=>r.champion),points=rows.filter(r=>r.mostPoints);
+  document.getElementById("labProfileCards").innerHTML=
+    labProfileCardHtml("League Average",rows)+
+    labProfileCardHtml("Champions",champions,true)+
+    labProfileCardHtml("Most Points Teams",points,true);
+  const league=labCapitalProfile(rows),champ=labCapitalProfile(champions),most=labCapitalProfile(points);
+  const order=["QB","RB","WR","TE","K","DST"];
+  document.getElementById("labProfileDeltaTable").innerHTML=`<table class="lab-table"><thead><tr>
+    <th>Position</th><th>League</th><th>Champions</th><th>Champion Δ</th><th>Most Points</th><th>Most Points Δ</th>
+  </tr></thead><tbody>${order.map(pos=>{
+    const cd=champ[pos]-league[pos],md=most[pos]-league[pos];
+    return `<tr><td>${pos}</td><td>${labPct(league[pos])}</td><td>${labPct(champ[pos])}</td>
+      <td class="${labCorrelationClass(cd*5)}">${cd>=0?"+":""}${(cd*100).toFixed(1)} pts</td>
+      <td>${labPct(most[pos])}</td><td class="${labCorrelationClass(md*5)}">${md>=0?"+":""}${(md*100).toFixed(1)} pts</td></tr>`;
+  }).join("")}</tbody></table>`;
+}
+function renderLabCorrelations(){
+  const rows=labOwnerSeasonDataset(),positions=["QB","RB","WR","TE"];
+  const outcomes=[
+    ["RS Finish",r=>r.betterRS],
+    ["Points Rank",r=>r.betterPtsRank],
+    ["Points Scored",r=>+r.result.PointsFor],
+    ["Playoff",r=>r.playoff?1:0],
+    ["Title",r=>r.champion?1:0]
+  ];
+  document.getElementById("labCorrelationTable").innerHTML=`<table class="lab-table"><thead><tr>
+    <th>Capital %</th>${outcomes.map(([label])=>`<th>${label}</th>`).join("")}
+  </tr></thead><tbody>${positions.map(pos=>`<tr><td>${pos}%</td>${outcomes.map(([,getter])=>{
+    const value=labPearson(rows.map(r=>r.capitalPct[pos]||0),rows.map(getter));
+    return `<td class="lab-heat ${labCorrelationClass(value)}">${labFormatCorrelation(value)}</td>`;
+  }).join("")}</tr>`).join("")}</tbody></table>`;
+}
+function labQuartiles(rows,position){
+  const sorted=[...rows].sort((a,b)=>(a.capitalPct[position]||0)-(b.capitalPct[position]||0));
+  return Array.from({length:4},(_,q)=>{
+    const start=Math.floor(q*sorted.length/4),end=Math.floor((q+1)*sorted.length/4);
+    const group=sorted.slice(start,end);
+    return {quartile:q+1,rows:group,summary:labOutcomeSummary(group),
+      min:Math.min(...group.map(r=>r.capitalPct[position]||0)),
+      max:Math.max(...group.map(r=>r.capitalPct[position]||0)),
+      avg:labAverage(group,r=>r.capitalPct[position]||0)};
+  });
+}
+
+function labSortRows(rows,sortState){
+  const {key,direction}=sortState;
+  return [...rows].sort((a,b)=>{
+    let av=a[key],bv=b[key];
+    if(typeof av==="string"||typeof bv==="string"){
+      av=String(av??"");bv=String(bv??"");
+      return direction==="asc"?av.localeCompare(bv):bv.localeCompare(av);
+    }
+    av=Number(av);bv=Number(bv);
+    return direction==="asc"?av-bv:bv-av;
+  });
+}
+function labSortHeader(label,key,state){
+  const active=state.key===key;
+  return `<th data-lab-sort="${key}">${label}<span class="lab-sort-indicator">${active?(state.direction==="asc"?"▲":"▼"):""}</span></th>`;
+}
+function labBindSortHeaders(containerSelector,state,renderFn){
+  document.querySelectorAll(`${containerSelector} [data-lab-sort]`).forEach(th=>{
+    th.addEventListener("click",()=>{
+      const key=th.dataset.labSort;
+      if(state.key===key)state.direction=state.direction==="asc"?"desc":"asc";
+      else{
+        state.key=key;
+        state.direction=["owner","name","year","quartile"].includes(key)?"asc":"desc";
+      }
+      renderFn();
+    });
+  });
+}
+
+function renderLabQuartiles(){
+  let groups=labQuartiles(labOwnerSeasonDataset(),labQuartilePosition);
+  const labels=["Lowest Spend","Low-Mid","High-Mid","Highest Spend"];
+  groups=groups.map((g,i)=>({...g,label:`Q${g.quartile} · ${labels[i]}`}));
+  const sortable=groups.map(g=>({
+    ...g,
+    capitalMin:g.min,
+    capitalMax:g.max,
+    drafts:g.summary.count,
+    avgRS:g.summary.avgRS,
+    avgPtsRank:g.summary.avgPtsRank,
+    avgPoints:g.summary.avgPoints,
+    playoffRate:g.summary.playoffRate,
+    titles:g.summary.titles
+  }));
+  const rows=labSortRows(sortable,labQuartileSort);
+  document.getElementById("labQuartileTable").innerHTML=`<table class="lab-table"><thead><tr>
+    ${labSortHeader(`${labQuartilePosition} Capital Bucket`,"quartile",labQuartileSort)}
+    ${labSortHeader("Capital Range","capitalMin",labQuartileSort)}
+    ${labSortHeader("Drafts","drafts",labQuartileSort)}
+    ${labSortHeader("Avg RS","avgRS",labQuartileSort)}
+    ${labSortHeader("Avg Pts Rank","avgPtsRank",labQuartileSort)}
+    ${labSortHeader("Avg Points","avgPoints",labQuartileSort)}
+    ${labSortHeader("Playoff %","playoffRate",labQuartileSort)}
+    ${labSortHeader("Titles","titles",labQuartileSort)}
+  </tr></thead><tbody>${rows.map(g=>`<tr><td>${g.label}</td>
+    <td>${labPct(g.capitalMin,0)}–${labPct(g.capitalMax,0)}</td><td>${g.drafts}</td>
+    <td>${g.avgRS.toFixed(2)}</td><td>${g.avgPtsRank.toFixed(2)}</td>
+    <td>${Math.round(g.avgPoints).toLocaleString()}</td><td>${labPct(g.playoffRate,0)}</td><td>${g.titles}</td></tr>`).join("")}</tbody></table>`;
+  labBindSortHeaders("#labQuartileTable",labQuartileSort,renderLabQuartiles);
+}
+function labRuleMatches(row,rules){
+  if(!rules)return true;
+  if(rules.any)return rules.any.some(rule=>labRuleMatches(row,rule));
+  if(rules.capitalMin && !Object.entries(rules.capitalMin).every(([p,v])=>(row.capitalPct[p]||0)>=v))return false;
+  if(rules.capitalMax && !Object.entries(rules.capitalMax).every(([p,v])=>(row.capitalPct[p]||0)<=v))return false;
+  if(rules.firstPickMax && !Object.entries(rules.firstPickMax).every(([p,v])=>(row.firstPick[p]??Infinity)<=v))return false;
+  if(rules.firstPickMin && !Object.entries(rules.firstPickMin).every(([p,v])=>(row.firstPick[p]??Infinity)>=v))return false;
+  if(rules.secondPickMax && !Object.entries(rules.secondPickMax).every(([p,v])=>(row.secondPick[p]??Infinity)<=v))return false;
+  if(rules.secondPickMin && !Object.entries(rules.secondPickMin).every(([p,v])=>(row.secondPick[p]??Infinity)>=v))return false;
+  if(rules.positionCountByPick){
+    const r=rules.positionCountByPick,count=row.picks.filter(p=>p.position===r.position&&+p.overallPick<=r.pickMax).length;
+    if(count<r.countMin)return false;
+  }
+  return true;
+}
+function labArchetypeRows(){
+  const rows=labOwnerSeasonDataset();
+  return DRAFT_LAB_CONFIG.archetypes.map(a=>{
+    const matches=rows.filter(r=>labRuleMatches(r,a.rules));
+    return {...a,rows:matches,summary:labOutcomeSummary(matches)};
+  });
+}
+function renderLabArchetypes(){
+  const archetypes=labArchetypeRows().map(a=>({
+    ...a,
+    nameSort:a.name,
+    drafts:a.summary.count,
+    avgRS:a.summary.avgRS,
+    avgPtsRank:a.summary.avgPtsRank,
+    avgPoints:a.summary.avgPoints,
+    playoffRate:a.summary.playoffRate,
+    titles:a.summary.titles
+  }));
+  const sorted=labSortRows(archetypes.map(a=>({...a,name:a.nameSort})),labArchetypeSort);
+  document.getElementById("labArchetypeTable").innerHTML=`<table class="lab-table"><thead><tr>
+    ${labSortHeader("Archetype","name",labArchetypeSort)}
+    <th>Definition</th>
+    ${labSortHeader("Drafts","drafts",labArchetypeSort)}
+    ${labSortHeader("Avg RS","avgRS",labArchetypeSort)}
+    ${labSortHeader("Avg Pts Rank","avgPtsRank",labArchetypeSort)}
+    ${labSortHeader("Avg Points","avgPoints",labArchetypeSort)}
+    ${labSortHeader("Playoff %","playoffRate",labArchetypeSort)}
+    ${labSortHeader("Titles","titles",labArchetypeSort)}
+  </tr></thead><tbody>${sorted.map(a=>`<tr><td><strong>${a.name}</strong></td><td style="text-align:left">${a.description}</td>
+    <td>${a.drafts}</td><td>${a.avgRS.toFixed(2)}</td><td>${a.avgPtsRank.toFixed(2)}</td>
+    <td>${Math.round(a.avgPoints).toLocaleString()}</td><td>${labPct(a.playoffRate,0)}</td><td>${a.titles}</td></tr>`).join("")}</tbody></table>`;
+  labBindSortHeaders("#labArchetypeTable",labArchetypeSort,renderLabArchetypes);
+  renderLabArchetypeChart(archetypes);
+}
+function renderLabArchetypeChart(archetypes){
+  const svg=document.getElementById("labArchetypeChart"),W=1050,H=430,pad={l:65,r:35,t:30,b:55};
+  const usableW=W-pad.l-pad.r,usableH=H-pad.t-pad.b;
+  const maxN=Math.max(...archetypes.map(a=>a.summary.count),1);
+  const x=n=>pad.l+(n/maxN)*usableW;
+  const y=rank=>pad.t+((rank-1)/9)*usableH;
+  let markup=`<rect x="0" y="0" width="${W}" height="${H}" rx="10" fill="#111a22"/>`;
+  for(let rank=1;rank<=10;rank++){
+    const yy=y(rank);
+    markup+=`<line x1="${pad.l}" y1="${yy}" x2="${W-pad.r}" y2="${yy}" stroke="#2e3a44" stroke-width="1"/>
+      <text x="${pad.l-12}" y="${yy+4}" text-anchor="end" fill="#8f9ca7" font-size="10">${rank}</text>`;
+  }
+  [0,.25,.5,.75,1].forEach(frac=>{
+    const xx=pad.l+frac*usableW;
+    markup+=`<line x1="${xx}" y1="${pad.t}" x2="${xx}" y2="${H-pad.b}" stroke="#26323c" stroke-width="1"/>
+      <text x="${xx}" y="${H-25}" text-anchor="middle" fill="#8f9ca7" font-size="10">${Math.round(frac*maxN)}</text>`;
+  });
+  markup+=`<text x="${W/2}" y="${H-7}" text-anchor="middle" fill="#a8b3bc" font-size="11">Sample Size</text>
+    <text x="15" y="${H/2}" transform="rotate(-90 15 ${H/2})" text-anchor="middle" fill="#a8b3bc" font-size="11">Average Points Rank (better is higher)</text>`;
+  archetypes.filter(a=>a.summary.count).forEach((a,i)=>{
+    const cx=x(a.summary.count),cy=y(a.summary.avgPtsRank),r=7+Math.sqrt(a.summary.titles)*4;
+    const fill=["#b99a55","#7fa5bd","#8bb58e","#bd8d75","#9d8bbb"][i%5];
+    markup+=`<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" fill-opacity=".72" stroke="#edf2f5" stroke-opacity=".55">
+      <title>${a.name}: ${a.summary.count} drafts, avg points rank ${a.summary.avgPtsRank.toFixed(2)}, ${a.summary.titles} titles</title></circle>
+      <text x="${cx+r+4}" y="${cy+3}" fill="#dfe5e9" font-size="9">${a.name}</text>`;
+  });
+  svg.innerHTML=markup;
+}
+function renderLabOwnerOverperformance(){
+  const owners=draftOwners(),rows=owners.map(owner=>({owner,...slotOverperformanceFor(owner).delta}));
+  const sums={rs:0,po:0,points:0,title:0};
+  rows.forEach(r=>Object.keys(sums).forEach(k=>sums[k]+=Number(r[k])||0));
+  const sorted=labSortRows(rows,labOwnerSort);
+  document.getElementById("labOwnerOverperformance").innerHTML=`<table class="lab-table"><thead><tr>
+    ${labSortHeader("Owner","owner",labOwnerSort)}
+    ${labSortHeader("RS Δ","rs",labOwnerSort)}
+    ${labSortHeader("PO Δ","po",labOwnerSort)}
+    ${labSortHeader("Points Δ","points",labOwnerSort)}
+    ${labSortHeader("Titles Δ","title",labOwnerSort)}
+  </tr></thead><tbody>${sorted.map(r=>`<tr><td>${displayName(r.owner)}</td>
+    ${["rs","po","points","title"].map(k=>`<td class="${deltaClass(r[k],k)}">${formatDelta(r[k],k)}</td>`).join("")}</tr>`).join("")}
+  </tbody><tfoot><tr><td>League Reconciliation</td>
+    <td>${sums.rs.toFixed(2)}</td><td>${sums.po.toFixed(2)}</td><td>${Math.round(sums.points)}</td><td>${sums.title.toFixed(2)}</td>
+  </tr></tfoot></table>`;
+  labBindSortHeaders("#labOwnerOverperformance",labOwnerSort,renderLabOwnerOverperformance);
+}
+function labReadQuery(){
+  const numberOrNull=id=>{const raw=document.getElementById(id).value;return raw===""?null:Number(raw);};
+  labQueryState={
+    capitalPosition:document.getElementById("labQueryCapitalPosition").value,
+    capitalMinPct:Number(document.getElementById("labQueryCapitalMin").value||0),
+    capitalMaxPct:Number(document.getElementById("labQueryCapitalMax").value||100),
+    firstPosition:document.getElementById("labQueryFirstPosition").value,
+    firstPickMax:numberOrNull("labQueryFirstPickMax"),
+    secondPosition:document.getElementById("labQuerySecondPosition").value,
+    secondPickMax:numberOrNull("labQuerySecondPickMax")
+  };
+}
+function labMatchingQueryRows(){
+  const q=labQueryState;
+  return labOwnerSeasonDataset().filter(r=>{
+    const pct=(r.capitalPct[q.capitalPosition]||0)*100;
+    if(pct<q.capitalMinPct||pct>q.capitalMaxPct)return false;
+    if(q.firstPosition!=="ANY"&&q.firstPickMax!=null&&(r.firstPick[q.firstPosition]??Infinity)>q.firstPickMax)return false;
+    if(q.secondPosition!=="ANY"&&q.secondPickMax!=null&&(r.firstPick[q.secondPosition]??Infinity)>q.secondPickMax)return false;
+    return true;
+  });
+}
+function renderLabQuery(){
+  let rows=labMatchingQueryRows(),summary=labOutcomeSummary(rows);
+  document.getElementById("labQuerySummary").innerHTML=[
+    ["Matches",summary.count],
+    ["Avg RS",summary.count?summary.avgRS.toFixed(2):"—"],
+    ["Avg Pts Rank",summary.count?summary.avgPtsRank.toFixed(2):"—"],
+    ["Avg Points",summary.count?Math.round(summary.avgPoints).toLocaleString():"—"],
+    ["Playoff %",summary.count?labPct(summary.playoffRate,0):"—"],
+    ["Titles",summary.titles]
+  ].map(([label,value])=>`<div class="lab-query-card"><div class="label">${label}</div><div class="value">${value}</div></div>`).join("");
+
+  rows=labSortRows(rows.map(r=>({
+    ...r,
+    capitalValue:r.capitalPct[labQueryState.capitalPosition]||0,
+    rs:+r.result.RS_Finish,
+    ptsRank:+r.result["Pts Rank"],
+    points:+r.result.PointsFor,
+    playoffValue:r.playoff?1:0,
+    titleValue:r.champion?1:0
+  })),labQuerySort);
+
+  document.getElementById("labQueryResults").innerHTML=rows.length?`<table class="lab-table"><thead><tr>
+    ${labSortHeader("Year","year",labQuerySort)}
+    ${labSortHeader("Owner","owner",labQuerySort)}
+    ${labSortHeader(`${labQueryState.capitalPosition} Capital`,"capitalValue",labQuerySort)}
+    ${labSortHeader("RS","rs",labQuerySort)}
+    ${labSortHeader("Pts Rank","ptsRank",labQuerySort)}
+    ${labSortHeader("Points","points",labQuerySort)}
+    ${labSortHeader("Playoffs","playoffValue",labQuerySort)}
+    ${labSortHeader("Title","titleValue",labQuerySort)}
+  </tr></thead><tbody>${rows.map(r=>`<tr>
+    <td><button class="lab-year-link" data-open-draft-year="${r.year}" title="Open the ${r.year} draft board">${r.year}</button></td>
+    <td>${displayName(r.owner)}</td><td>${labPct(r.capitalValue)}</td>
+    <td>${r.rs}</td><td>${r.ptsRank}</td><td>${Math.round(r.points).toLocaleString()}</td>
+    <td>${r.playoff?"Yes":"No"}</td><td>${r.champion?"Yes":"No"}</td></tr>`).join("")}</tbody></table>`:
+    `<div class="lab-empty">No owner-seasons match this query.</div>`;
+
+  labBindSortHeaders("#labQueryResults",labQuerySort,renderLabQuery);
+  document.querySelectorAll("[data-open-draft-year]").forEach(btn=>btn.addEventListener("click",()=>{
+    const year=+btn.dataset.openDraftYear;
+    draftSelectedYear=year;
+    draftCapitalScope=String(year);
+    draftTableRound="ALL";
+    renderDraftHub();
+    openView("draftHub");
+    requestAnimationFrame(()=>document.getElementById("draftHub")?.scrollIntoView({behavior:"smooth",block:"start"}));
+  }));
+}
+function resetLabQuery(){
+  document.getElementById("labQueryCapitalPosition").value="RB";
+  document.getElementById("labQueryCapitalMin").value="0";
+  document.getElementById("labQueryCapitalMax").value="100";
+  document.getElementById("labQueryFirstPosition").value="ANY";
+  document.getElementById("labQueryFirstPickMax").value="";
+  document.getElementById("labQuerySecondPosition").value="ANY";
+  document.getElementById("labQuerySecondPickMax").value="";
+  labReadQuery();renderLabQuery();
+}
+function renderDraftLab(){
+  const rows=labOwnerSeasonDataset(),years=[...new Set(rows.map(r=>r.year))].sort((a,b)=>a-b);
+  document.getElementById("labCoverageBadge").textContent=`${rows.length} drafts · ${years[0]}–${years.at(-1)} · 2017 excluded`;
+  renderLabProfiles();renderLabCorrelations();renderLabQuartiles();renderLabArchetypes();renderLabOwnerOverperformance();renderLabQuery();
+}
+
+
+/* =========================================================
+   League Glossary
+   ========================================================= */
+let glossaryTooltipEl=null;
+function glossaryTerm(key,label=null){
+  const term=GLOSSARY_DATA?.terms?.[key];
+  const text=label||term?.label||key;
+  if(!term)return text;
+  return `<span class="glossary-term" tabindex="0" data-glossary="${key}">${text}</span>`;
+}
+function ensureGlossaryTooltip(){
+  if(glossaryTooltipEl)return glossaryTooltipEl;
+  glossaryTooltipEl=document.createElement("div");
+  glossaryTooltipEl.className="glossary-tooltip";
+  glossaryTooltipEl.setAttribute("role","tooltip");
+  document.body.appendChild(glossaryTooltipEl);
+  return glossaryTooltipEl;
+}
+function showGlossaryTooltip(target){
+  const key=target.dataset.glossary,term=GLOSSARY_DATA?.terms?.[key];
+  if(!term)return;
+  const tip=ensureGlossaryTooltip();
+  tip.innerHTML=`<strong>${term.label}</strong><br>${term.description}`;
+  tip.classList.add("show");
+  const rect=target.getBoundingClientRect();
+  const width=Math.min(310,window.innerWidth-24);
+  tip.style.maxWidth=`${width}px`;
+  requestAnimationFrame(()=>{
+    const box=tip.getBoundingClientRect();
+    let left=rect.left;
+    if(left+box.width>window.innerWidth-12)left=window.innerWidth-box.width-12;
+    if(left<12)left=12;
+    let top=rect.top-box.height-12;
+    if(top<12)top=rect.bottom+12;
+    if(top+box.height>window.innerHeight-12)top=Math.max(12,window.innerHeight-box.height-12);
+    tip.style.left=`${left}px`;
+    tip.style.top=`${top}px`;
+  });
+}
+function hideGlossaryTooltip(){
+  if(glossaryTooltipEl)glossaryTooltipEl.classList.remove("show");
+}
+document.addEventListener("mouseover",e=>{
+  const target=e.target.closest?.("[data-glossary]");
+  if(target)showGlossaryTooltip(target);
+});
+document.addEventListener("mouseout",e=>{
+  if(e.target.closest?.("[data-glossary]"))hideGlossaryTooltip();
+});
+document.addEventListener("focusin",e=>{
+  const target=e.target.closest?.("[data-glossary]");
+  if(target)showGlossaryTooltip(target);
+});
+document.addEventListener("focusout",e=>{
+  if(e.target.closest?.("[data-glossary]"))hideGlossaryTooltip();
+});
+function renderGlossary(){
+  const list=document.getElementById("glossaryList");
+  if(!list)return;
+  const query=(document.getElementById("glossarySearch")?.value||"").trim().toLowerCase();
+  const terms=Object.entries(GLOSSARY_DATA.terms)
+    .map(([key,value])=>({key,...value}))
+    .filter(t=>!query||t.label.toLowerCase().includes(query)||t.description.toLowerCase().includes(query))
+    .sort((a,b)=>a.label.localeCompare(b.label));
+  list.innerHTML=terms.length?terms.map(t=>`<article class="glossary-card">
+    <h3>${t.label}</h3><p>${t.description}</p>
+  </article>`).join(""):`<div class="glossary-empty">No glossary terms match that search.</div>`;
 }
 
 function openView(viewName){
@@ -3267,15 +4472,19 @@ function openView(viewName){
  if(view)view.classList.add("active");
  if(viewName==="journey") renderJourney(); else journeyStop();
  if(viewName==="draftHub") renderDraftHub();
+ if(viewName==="draftLab") renderDraftLab();
+ if(viewName==="glossary") renderGlossary();
 }
 
 let commissionerMode=sessionStorage.getItem("bigBoardCommissionerMode")==="on";
 function setCommissionerMode(enabled,announce=true){
  commissionerMode=Boolean(enabled);
  const tab=document.getElementById("commissionerDataTab");
+ const labTab=document.getElementById("draftLabTab");
  if(tab)tab.hidden=!commissionerMode;
+ if(labTab)labTab.hidden=!commissionerMode;
  sessionStorage.setItem("bigBoardCommissionerMode",commissionerMode?"on":"off");
- if(!commissionerMode && document.getElementById("data")?.classList.contains("active")){
+ if(!commissionerMode && (document.getElementById("data")?.classList.contains("active") || document.getElementById("draftLab")?.classList.contains("active"))){
    openView("rankings");
  }
  if(announce){
@@ -3298,6 +4507,8 @@ document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",(
  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(b.dataset.view).classList.add("active");
  if(b.dataset.view==="journey") renderJourney(); else journeyStop();
  if(b.dataset.view==="draftHub") renderDraftHub();
+ if(b.dataset.view==="draftLab") renderDraftLab();
+ if(b.dataset.view==="glossary") renderGlossary();
 }));
 
 
@@ -3337,6 +4548,12 @@ document.querySelectorAll("[data-slot-sort]").forEach(th=>th.addEventListener("c
   }
   renderDraftSlotTable();
 }));
+
+document.getElementById("labQuartilePosition").addEventListener("change",e=>{labQuartilePosition=e.target.value;renderLabQuartiles();});
+document.getElementById("labRunQuery").addEventListener("click",()=>{labReadQuery();renderLabQuery();});
+document.getElementById("labResetQuery").addEventListener("click",resetLabQuery);
+
+document.getElementById("glossarySearch").addEventListener("input",renderGlossary);
 document.getElementById("togglePoints").addEventListener("click",e=>{pointMode=!pointMode;e.target.textContent=pointMode?"Show Raw Totals":"Show Point Contributions";renderMatrix()});
 document.getElementById("auditYear").addEventListener("change",()=>{auditSort={key:null,direction:null};renderAudit();});
 document.getElementById("editYear").addEventListener("change",renderEditor);

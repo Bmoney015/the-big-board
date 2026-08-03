@@ -1,0 +1,97 @@
+{
+  "schemaVersion": "1.0",
+  "terms": {
+    "prestige": {
+      "label": "Prestige",
+      "description": "Career scoring system measuring sustained league success using championships, pennants, podium finishes, consistency, and other accomplishments."
+    },
+    "bigBoard": {
+      "label": "The Big Board",
+      "description": "The league's Career Prestige Rankings."
+    },
+    "titles": {
+      "label": "Titles",
+      "description": "Fantasy Super Bowl championships."
+    },
+    "pennants": {
+      "label": "Pennants",
+      "description": "1st-place finishes in the Regular Season standings."
+    },
+    "trophies": {
+      "label": "Trophies",
+      "description": "Top-3 playoff finishes: Champion, Runner-Up, or 3rd Place."
+    },
+    "playoffAppearances": {
+      "label": "Playoff Appearances",
+      "description": "Seasons in which the owner qualified for the league playoffs."
+    },
+    "mostPoints": {
+      "label": "Most Points",
+      "description": "Highest Regular Season points scored in a season."
+    },
+    "leastPoints": {
+      "label": "Least Points",
+      "description": "Fewest Regular Season points scored in a season."
+    },
+    "toilets": {
+      "label": "Toilets",
+      "description": "Last-place playoff finishes."
+    },
+    "above500": {
+      "label": "Above .500",
+      "description": "Regular Season record finished above .500."
+    },
+    "below500": {
+      "label": "Below .500",
+      "description": "Regular Season record finished below .500."
+    },
+    "draftCapital": {
+      "label": "Draft Capital",
+      "description": "Weighted value assigned to draft selections. Earlier picks receive more value than later picks."
+    },
+    "draftCapitalProfile": {
+      "label": "Draft Capital Profile",
+      "description": "The percentage of an owner's weighted draft capital spent at each position."
+    },
+    "slotImpact": {
+      "label": "Slot Impact",
+      "description": "How owners performed from a draft slot compared with their own results from every other slot."
+    },
+    "slotOverperformance": {
+      "label": "Slot Overperformance",
+      "description": "How an owner performed compared with the historical results of the draft slots they received."
+    },
+    "draftArchetype": {
+      "label": "Draft Archetype",
+      "description": "A transparent strategy label assigned from draft-capital allocation and positional pick timing. Archetypes may overlap."
+    },
+    "quartile": {
+      "label": "Quartile",
+      "description": "One of four equally sized spend groups, from the lowest 25% to the highest 25%."
+    },
+    "correlation": {
+      "label": "Correlation",
+      "description": "A measure of linear association. It can reveal a trend but does not establish causation."
+    },
+    "queryBuilder": {
+      "label": "Query Builder",
+      "description": "A tool for filtering league draft history by capital allocation and positional pick timing."
+    },
+    "tradedSelections": {
+      "label": "Traded Selections",
+      "description": "Draft picks made by an owner other than the owner originally assigned that snake-draft slot."
+    },
+    "archiveOnly": {
+      "label": "Archive Only",
+      "description": "Displayed for historical reference only. The 2017 Yahoo draft archive was entered in lineup order rather than true draft order, so it is excluded from Draft Hub and Draft Lab analysis."
+    },
+    "transactions": {
+      "label": "Transactions",
+      "description": "Total recorded in-season roster moves across league history."
+    },
+    "trades": {
+      "label": "Trades",
+      "description": "Total recorded in-season trades across league history. Draft-day traded selections are tracked separately."
+    }
+  }
+}

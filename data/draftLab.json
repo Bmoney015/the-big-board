@@ -1,0 +1,170 @@
+{
+  "schemaVersion": "1.0",
+  "title": "Draft Lab",
+  "analysisExcludedYears": [
+    2017
+  ],
+  "positions": [
+    "QB",
+    "RB",
+    "WR",
+    "TE"
+  ],
+  "allPositions": [
+    "QB",
+    "RB",
+    "WR",
+    "TE",
+    "K",
+    "DST"
+  ],
+  "archetypes": [
+    {
+      "id": "rbHeavy",
+      "name": "RB Heavy",
+      "description": "At least 45% of weighted draft capital invested at RB.",
+      "rules": {
+        "capitalMin": {
+          "RB": 0.45
+        }
+      }
+    },
+    {
+      "id": "wrHeavy",
+      "name": "WR Heavy",
+      "description": "At least 42% of weighted draft capital invested at WR.",
+      "rules": {
+        "capitalMin": {
+          "WR": 0.42
+        }
+      }
+    },
+    {
+      "id": "qbHeavy",
+      "name": "QB Heavy",
+      "description": "At least 22% of weighted draft capital invested at QB.",
+      "rules": {
+        "capitalMin": {
+          "QB": 0.22
+        }
+      }
+    },
+    {
+      "id": "tePremium",
+      "name": "TE Premium",
+      "description": "First TE by pick 30 or at least 14% of capital invested at TE.",
+      "rules": {
+        "any": [
+          {
+            "firstPickMax": {
+              "TE": 30
+            }
+          },
+          {
+            "capitalMin": {
+              "TE": 0.14
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "earlyQB",
+      "name": "Early QB",
+      "description": "First QB selected by overall pick 25.",
+      "rules": {
+        "firstPickMax": {
+          "QB": 25
+        }
+      }
+    },
+    {
+      "id": "doubleEarlyQB",
+      "name": "Double Early QB",
+      "description": "Second QB selected by overall pick 40.",
+      "rules": {
+        "secondPickMax": {
+          "QB": 40
+        }
+      }
+    },
+    {
+      "id": "zeroRB",
+      "name": "Zero RB",
+      "description": "No RB selected before overall pick 50.",
+      "rules": {
+        "firstPickMin": {
+          "RB": 51
+        }
+      }
+    },
+    {
+      "id": "heroRB",
+      "name": "Hero RB",
+      "description": "First RB by pick 15, but less than 45% total RB capital.",
+      "rules": {
+        "firstPickMax": {
+          "RB": 15
+        },
+        "capitalMax": {
+          "RB": 0.4499
+        }
+      }
+    },
+    {
+      "id": "heroWR",
+      "name": "Hero WR",
+      "description": "First WR by pick 15, but less than 42% total WR capital.",
+      "rules": {
+        "firstPickMax": {
+          "WR": 15
+        },
+        "capitalMax": {
+          "WR": 0.4199
+        }
+      }
+    },
+    {
+      "id": "rbAvalanche",
+      "name": "RB Avalanche",
+      "description": "At least three RBs selected in the first 50 overall picks.",
+      "rules": {
+        "positionCountByPick": {
+          "position": "RB",
+          "pickMax": 50,
+          "countMin": 3
+        }
+      }
+    },
+    {
+      "id": "balanced",
+      "name": "Balanced",
+      "description": "No core position exceeds its heavy threshold and no early-double-QB flag.",
+      "rules": {
+        "capitalMax": {
+          "RB": 0.4499,
+          "WR": 0.4199,
+          "QB": 0.2199,
+          "TE": 0.1399
+        },
+        "secondPickMin": {
+          "QB": 41
+        }
+      }
+    }
+  ],
+  "queryDefaults": {
+    "capitalPosition": "RB",
+    "capitalMinPct": 0,
+    "capitalMaxPct": 100,
+    "firstPosition": "ANY",
+    "firstPickMax": null,
+    "secondPosition": "ANY",
+    "secondPickMax": null
+  },
+  "notes": [
+    "2017 is excluded because its Yahoo board was entered in roster-position order rather than true draft order.",
+    "Archetypes can overlap. Results describe this league's history and do not establish causation.",
+    "All capital percentages use the configurable values in data/draftCapital.json."
+  ]
+}
