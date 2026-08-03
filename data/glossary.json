@@ -92,6 +92,22 @@
     "trades": {
       "label": "Trades",
       "description": "Total recorded in-season trades across league history. Draft-day traded selections are tracked separately."
+    },
+    "allPlayRecord": {
+      "label": "All-Play Record",
+      "description": "Each weekly score is compared with all nine other teams. Highest earns 9\u20130, second-highest 8\u20131, and lowest 0\u20139."
+    },
+    "expectedWins": {
+      "label": "Expected Wins",
+      "description": "All-play wins divided by nine, converting the all-play record back to a normal head-to-head season scale."
+    },
+    "luckDelta": {
+      "label": "Luck Delta",
+      "description": "Actual wins minus expected wins. Positive means more wins than weekly scoring would predict; negative means fewer."
+    },
+    "averageWeeklyRank": {
+      "label": "Average Weekly Rank",
+      "description": "Average place among the ten weekly scores. Lower is better."
     }
   }
 }

@@ -1441,6 +1441,20 @@ main{
 .career-activity-lines span{font-size:10px;color:var(--muted)}
 .career-activity-lines strong{font-size:17px;font-variant-numeric:tabular-nums}
 
+
+/* v4.4.0 Weekly Analytics */
+.weekly-shell{background:#101820;color:#eef2f5;border-radius:14px;padding:24px;min-height:700px}.weekly-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;flex-wrap:wrap}.weekly-kicker,.weekly-eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#c9ad68;font-weight:850}.weekly-head h2{font-size:30px;margin:5px 0}.weekly-head p{margin:0;color:#a9b5bf}.weekly-controls{display:flex;gap:10px}.weekly-controls label{font-size:10px;color:#aab5be;min-width:160px}.weekly-controls select{width:100%;background:#f5f3ed!important;color:#18222c!important}.weekly-load-state,.weekly-section{margin-top:14px;background:#17222c;border:1px solid #3b4954;border-radius:11px;padding:15px}.weekly-section-head{margin-bottom:12px}.weekly-section-head h3{margin:4px 0;font-size:19px}.weekly-section-head p{margin:0;color:#9daab4;font-size:10px}.weekly-summary-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:12px}.weekly-summary-card{background:#111a22;border:1px solid #3b4853;border-radius:9px;padding:11px}.weekly-summary-card .label{font-size:8px;text-transform:uppercase;color:#8f9ca7}.weekly-summary-card .value{font-size:20px;font-weight:900;margin-top:4px}.weekly-summary-card .detail{font-size:9px;color:#a8b3bc}.weekly-table-wrap{overflow:auto;border:1px solid #36434e;border-radius:9px}.weekly-table{width:100%;min-width:900px;border-collapse:collapse;font-size:10px}.weekly-table th{background:#26323d;color:#eef3f6;padding:9px 8px;text-align:right;white-space:nowrap;cursor:pointer}.weekly-table th:first-child,.weekly-table td:first-child{text-align:left}.weekly-table td{background:#17222c;color:#e8edf1;padding:8px;text-align:right}.weekly-table tbody tr:nth-child(even) td{background:#141f28}.weekly-table tbody tr:hover td{background:#1e2b36}.weekly-positive{color:#6ee7a8!important;font-weight:850}.weekly-negative{color:#ff9a82!important;font-weight:850}.weekly-neutral{color:#c7d0d7!important}.weekly-sort{color:#d7bd7a;margin-left:3px}@media(max-width:900px){.weekly-summary-grid{grid-template-columns:repeat(2,1fr)}}@media(max-width:520px){.weekly-summary-grid{grid-template-columns:1fr}}
+
+
+/* v4.4.1 Weekly Analytics polish */
+.weekly-owner-link{border:0;background:transparent;color:#e8edf1;padding:0;font:inherit;font-weight:850;cursor:pointer;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px}
+.weekly-owner-link:hover{color:#d7bd7a}
+.weekly-owner-filter{margin-top:12px;display:flex;align-items:center;justify-content:space-between;gap:10px;background:#202c36;border:1px solid #6c5b35;border-radius:9px;padding:9px 11px;color:#e8edf1;font-size:10px}
+.weekly-owner-filter button{background:#f2eee5;color:#18222c;border:1px solid #b99a55;border-radius:7px;padding:6px 9px;font-weight:800;cursor:pointer}
+.weekly-table tfoot td{background:#222e38!important;color:#edf2f5!important;font-weight:900;border-top:1px solid #687682}
+.weekly-audit-pass{color:#6ee7a8!important}.weekly-audit-review{color:#ffb08f!important}
+.weekly-summary-card.selected{border-color:#8d7540;box-shadow:inset 0 0 0 1px rgba(185,154,85,.16)}
+
 </style>
 </head>
 <body>
@@ -1458,6 +1472,7 @@ main{
     <button data-view="presentation">Presentation</button>
     <button data-view="journey">Career Journey</button>
     <button data-view="draftHub">Draft Hub</button>
+    <button data-view="weeklyAnalytics">Weekly Analytics</button>
     <button data-view="glossary">Glossary</button>
     <button data-view="draftLab" id="draftLabTab" class="commissioner-only" hidden>Draft Lab</button>
   </nav>
@@ -2034,6 +2049,24 @@ main{
   </div>
 </section>
 
+<section id="weeklyAnalytics" class="view">
+  <div class="weekly-shell">
+    <div class="weekly-head">
+      <div><div class="weekly-kicker">Game-by-Game History</div><h2>Weekly Analytics</h2><p>All-play standings, expected wins, schedule effects, and weekly scoring performance.</p></div>
+      <div class="weekly-controls"><label>Season<select id="weeklyYear"></select></label><label>View<select id="weeklyScope"><option value="SEASON">Selected Season</option><option value="CAREER">Combined History</option></select></label></div>
+    </div>
+    <div id="weeklyOwnerFilter" class="weekly-owner-filter hidden">
+      <span id="weeklyOwnerFilterText"></span>
+      <button id="weeklyClearOwner" type="button">Clear filter</button>
+    </div>
+    <div id="weeklyLoadState" class="weekly-load-state">Weekly history loads only when this module is opened.</div>
+    <div id="weeklyContent" class="hidden">
+      <div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Flagship View</div><h3>Alt Standings</h3><p>Each weekly score is compared against all nine opponents. Expected wins convert that all-play record back to a normal season scale.</p></div></div><div id="weeklySummaryCards" class="weekly-summary-grid"></div><div id="weeklyAltTable" class="weekly-table-wrap"></div></div>
+      <div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Schedule Context</div><h3>Luck & Schedule</h3><p>Actual wins versus expected wins, plus average opponent scoring.</p></div></div><div id="weeklyLuckTable" class="weekly-table-wrap"></div></div>
+      <div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Weekly Performance</div><h3>Scoring Distribution</h3><p>Weekly high scores, top-three weeks, bottom-three weeks, and average weekly rank.</p></div></div><div id="weeklyDistributionTable" class="weekly-table-wrap"></div></div>
+    </div>
+  </div>
+</section>
 </main>
 <div id="tooltip" class="tooltip"></div>
 
@@ -4462,6 +4495,157 @@ function renderGlossary(){
   </article>`).join(""):`<div class="glossary-empty">No glossary terms match that search.</div>`;
 }
 
+
+let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null;
+let weeklySortStates={alt:{key:"allPlayWins",direction:"desc"},luck:{key:"luckDelta",direction:"desc"},distribution:{key:"weeklyHighs",direction:"desc"}};
+async function ensureWeeklyHistoryLoaded(){if(WEEKLY_HISTORY_DATA)return WEEKLY_HISTORY_DATA;if(weeklyLoadingPromise)return weeklyLoadingPromise;const s=document.getElementById("weeklyLoadState");if(s)s.textContent="Loading weekly history…";weeklyLoadingPromise=fetch("./data/weeklyHistory.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Could not load weeklyHistory.json (${r.status})`);return r.json();}).then(d=>{WEEKLY_HISTORY_DATA=d;weeklySelectedYear=Math.max(...d.years.map(Number));return d;});return weeklyLoadingPromise;}
+function weeklyRowsForScope(includeOwnerFilter=true){
+  const rows=WEEKLY_HISTORY_DATA.seasonSummaries||[];
+  let result;
+  if(weeklyScope==="SEASON"){
+    result=rows.filter(r=>+r.year===+weeklySelectedYear);
+  }else{
+    const grouped=new Map();
+    rows.forEach(r=>{if(!grouped.has(r.owner))grouped.set(r.owner,[]);grouped.get(r.owner).push(r);});
+    result=[...grouped.entries()].map(([owner,os])=>{
+      const weeks=os.reduce((s,r)=>s+r.weeks,0);
+      const actualWins=os.reduce((s,r)=>s+r.actualWins,0);
+      const actualLosses=os.reduce((s,r)=>s+r.actualLosses,0);
+      const allPlayWins=os.reduce((s,r)=>s+r.allPlayWins,0);
+      const allPlayLosses=os.reduce((s,r)=>s+r.allPlayLosses,0);
+      return {
+        owner,weeks,actualWins,actualLosses,allPlayWins,allPlayLosses,
+        allPlayPct:allPlayWins/(allPlayWins+allPlayLosses),
+        expectedWins:os.reduce((s,r)=>s+r.expectedWins,0),
+        luckDelta:os.reduce((s,r)=>s+r.luckDelta,0),
+        pointsFor:os.reduce((s,r)=>s+r.pointsFor,0),
+        pointsAgainst:os.reduce((s,r)=>s+r.pointsAgainst,0),
+        avgOpponentScore:os.reduce((s,r)=>s+r.avgOpponentScore*r.weeks,0)/weeks,
+        avgWeeklyRank:os.reduce((s,r)=>s+r.avgWeeklyRank*r.weeks,0)/weeks,
+        weeklyHighs:os.reduce((s,r)=>s+r.weeklyHighs,0),
+        top3Weeks:os.reduce((s,r)=>s+r.top3Weeks,0),
+        bottom3Weeks:os.reduce((s,r)=>s+r.bottom3Weeks,0)
+      };
+    });
+  }
+  return includeOwnerFilter&&weeklySelectedOwner?result.filter(r=>r.owner===weeklySelectedOwner):result;
+}
+function weeklyOwnerButton(owner){return `<button class="weekly-owner-link" data-weekly-owner="${owner}">${displayName(owner)}</button>`;}
+function bindWeeklyOwnerLinks(){
+  document.querySelectorAll("[data-weekly-owner]").forEach(btn=>btn.addEventListener("click",()=>{
+    const owner=btn.dataset.weeklyOwner;
+    weeklySelectedOwner=weeklySelectedOwner===owner?null:owner;
+    renderWeeklyAnalytics();
+  }));
+}
+function weeklyTotals(rows){
+  const sum=key=>rows.reduce((s,r)=>s+(Number(r[key])||0),0);
+  const weeks=sum("weeks"),allPlayWins=sum("allPlayWins"),allPlayLosses=sum("allPlayLosses");
+  return {
+    actualWins:sum("actualWins"),actualLosses:sum("actualLosses"),
+    allPlayWins,allPlayLosses,
+    allPlayPct:(allPlayWins+allPlayLosses)?allPlayWins/(allPlayWins+allPlayLosses):0,
+    expectedWins:sum("expectedWins"),luckDelta:sum("luckDelta"),
+    pointsFor:sum("pointsFor"),pointsAgainst:sum("pointsAgainst"),
+    avgOpponentScore:weeks?rows.reduce((s,r)=>s+r.avgOpponentScore*r.weeks,0)/weeks:0,
+    avgWeeklyRank:weeks?rows.reduce((s,r)=>s+r.avgWeeklyRank*r.weeks,0)/weeks:0,
+    weeklyHighs:sum("weeklyHighs"),top3Weeks:sum("top3Weeks"),
+    bottom3Weeks:sum("bottom3Weeks"),weeks
+  };
+}
+function weeklySort(rows,state){return[...rows].sort((a,b)=>{const av=a[state.key],bv=b[state.key];if(typeof av==="string"||typeof bv==="string")return state.direction==="asc"?String(av).localeCompare(String(bv)):String(bv).localeCompare(String(av));return state.direction==="asc"?(+av)-(+bv):(+bv)-(+av);});}
+function weeklyHeader(label,key,state){const active=state.key===key;return`<th data-weekly-sort="${key}">${label}<span class="weekly-sort">${active?(state.direction==="asc"?"▲":"▼"):""}</span></th>`;}
+function weeklyBindSort(sel,state,fn){document.querySelectorAll(`${sel} [data-weekly-sort]`).forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.weeklySort;if(state.key===k)state.direction=state.direction==="asc"?"desc":"asc";else{state.key=k;state.direction=k==="owner"?"asc":"desc";}fn();}));}
+function weeklyDeltaClass(v){return v>.005?"weekly-positive":v<-.005?"weekly-negative":"weekly-neutral";}
+function renderWeeklySummaryCards(rows){
+  const allRows=weeklyRowsForScope(false);
+  if(weeklySelectedOwner){
+    const r=rows[0];
+    document.getElementById("weeklySummaryCards").innerHTML=[
+      ["Selected Owner",r?displayName(r.owner):"—",weeklyScope==="SEASON"?String(weeklySelectedYear):"Combined History"],
+      ["Alt Record",r?`${r.allPlayWins.toFixed(1)}–${r.allPlayLosses.toFixed(1)}`:"—",r?`${(r.allPlayPct*100).toFixed(1)}%`:""],
+      ["Expected Wins",r?r.expectedWins.toFixed(2):"—",r?`${r.actualWins} actual wins`:""],
+      ["Luck Delta",r?`${r.luckDelta>=0?"+":""}${r.luckDelta.toFixed(2)}`:"—","Actual minus expected"],
+      ["Weekly Highs",r?String(r.weeklyHighs):"—",r?`${r.top3Weeks} top-3 weeks`:""]
+    ].map(([label,value,detail])=>`<div class="weekly-summary-card selected"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`).join("");
+    return;
+  }
+  const best=[...allRows].sort((a,b)=>b.allPlayPct-a.allPlayPct)[0];
+  const lucky=[...allRows].sort((a,b)=>b.luckDelta-a.luckDelta)[0];
+  const unlucky=[...allRows].sort((a,b)=>a.luckDelta-b.luckDelta)[0];
+  const highs=[...allRows].sort((a,b)=>b.weeklyHighs-a.weeklyHighs)[0];
+  const finish=[...allRows].sort((a,b)=>a.avgWeeklyRank-b.avgWeeklyRank)[0];
+  document.getElementById("weeklySummaryCards").innerHTML=[
+    ["Best Alt Record",best,`${best?.allPlayWins.toFixed(1)}–${best?.allPlayLosses.toFixed(1)}`],
+    ["Luckiest",lucky,`${lucky?.luckDelta>=0?"+":""}${lucky?.luckDelta.toFixed(2)} wins`],
+    ["Unluckiest",unlucky,`${unlucky?.luckDelta.toFixed(2)} wins`],
+    ["Most Weekly Highs",highs,`${highs?.weeklyHighs} weeks`],
+    ["Best Avg Finish",finish,finish?`${finish.avgWeeklyRank.toFixed(2)} weekly rank`:""]
+  ].map(([label,r,detail])=>`<div class="weekly-summary-card"><div class="label">${label}</div><div class="value">${r?weeklyOwnerButton(r.owner):"—"}</div><div class="detail">${detail||""}</div></div>`).join("");
+}
+function renderWeeklyAltTable(){
+  const rows=weeklySort(weeklyRowsForScope(),weeklySortStates.alt),s=weeklySortStates.alt,totals=weeklyTotals(weeklyRowsForScope(false));
+  const pass=Math.abs(totals.luckDelta)<.01;
+  document.getElementById("weeklyAltTable").innerHTML=`<table class="weekly-table"><thead><tr>
+    ${weeklyHeader("Owner","owner",s)}${weeklyHeader("Actual W","actualWins",s)}${weeklyHeader("Actual L","actualLosses",s)}
+    ${weeklyHeader(glossaryTerm("allPlayRecord","All-Play W"),"allPlayWins",s)}
+    ${weeklyHeader(glossaryTerm("allPlayRecord","All-Play L"),"allPlayLosses",s)}
+    ${weeklyHeader(glossaryTerm("allPlayRecord","All-Play %"),"allPlayPct",s)}
+    ${weeklyHeader(glossaryTerm("expectedWins"),"expectedWins",s)}
+    ${weeklyHeader(glossaryTerm("luckDelta","Actual − Expected"),"luckDelta",s)}
+  </tr></thead><tbody>${rows.map(r=>`<tr><td>${weeklyOwnerButton(r.owner)}</td><td>${r.actualWins}</td><td>${r.actualLosses}</td>
+    <td>${r.allPlayWins.toFixed(1)}</td><td>${r.allPlayLosses.toFixed(1)}</td><td>${(r.allPlayPct*100).toFixed(1)}%</td>
+    <td>${r.expectedWins.toFixed(2)}</td><td class="${weeklyDeltaClass(r.luckDelta)}">${r.luckDelta>=0?"+":""}${r.luckDelta.toFixed(2)}</td></tr>`).join("")}</tbody>
+    <tfoot><tr><td>League Total / Audit</td><td>${totals.actualWins}</td><td>${totals.actualLosses}</td>
+    <td>${totals.allPlayWins.toFixed(1)}</td><td>${totals.allPlayLosses.toFixed(1)}</td><td>${(totals.allPlayPct*100).toFixed(1)}%</td>
+    <td>${totals.expectedWins.toFixed(2)}</td><td class="${pass?"weekly-audit-pass":"weekly-audit-review"}">${totals.luckDelta.toFixed(2)}</td></tr></tfoot></table>`;
+  weeklyBindSort("#weeklyAltTable",s,renderWeeklyAltTable);bindWeeklyOwnerLinks();
+}
+function renderWeeklyLuckTable(){
+  const rows=weeklySort(weeklyRowsForScope(),weeklySortStates.luck),s=weeklySortStates.luck,totals=weeklyTotals(weeklyRowsForScope(false));
+  const luckPass=Math.abs(totals.luckDelta)<.01,pointsPass=Math.abs(totals.pointsFor-totals.pointsAgainst)<.01;
+  document.getElementById("weeklyLuckTable").innerHTML=`<table class="weekly-table"><thead><tr>
+    ${weeklyHeader("Owner","owner",s)}${weeklyHeader("Actual Wins","actualWins",s)}
+    ${weeklyHeader(glossaryTerm("expectedWins"),"expectedWins",s)}
+    ${weeklyHeader(glossaryTerm("luckDelta","Luck Δ"),"luckDelta",s)}
+    ${weeklyHeader("Points For","pointsFor",s)}${weeklyHeader("Points Against","pointsAgainst",s)}
+    ${weeklyHeader("Avg Opponent Score","avgOpponentScore",s)}
+  </tr></thead><tbody>${rows.map(r=>`<tr><td>${weeklyOwnerButton(r.owner)}</td><td>${r.actualWins}</td><td>${r.expectedWins.toFixed(2)}</td>
+    <td class="${weeklyDeltaClass(r.luckDelta)}">${r.luckDelta>=0?"+":""}${r.luckDelta.toFixed(2)}</td>
+    <td>${r.pointsFor.toFixed(2)}</td><td>${r.pointsAgainst.toFixed(2)}</td><td>${r.avgOpponentScore.toFixed(2)}</td></tr>`).join("")}</tbody>
+    <tfoot><tr><td>League Total / Average</td><td>${totals.actualWins}</td><td>${totals.expectedWins.toFixed(2)}</td>
+    <td class="${luckPass?"weekly-audit-pass":"weekly-audit-review"}">${totals.luckDelta.toFixed(2)}</td>
+    <td class="${pointsPass?"weekly-audit-pass":"weekly-audit-review"}">${totals.pointsFor.toFixed(2)}</td>
+    <td class="${pointsPass?"weekly-audit-pass":"weekly-audit-review"}">${totals.pointsAgainst.toFixed(2)}</td>
+    <td>${totals.avgOpponentScore.toFixed(2)}</td></tr></tfoot></table>`;
+  weeklyBindSort("#weeklyLuckTable",s,renderWeeklyLuckTable);bindWeeklyOwnerLinks();
+}
+function renderWeeklyDistributionTable(){
+  const rows=weeklySort(weeklyRowsForScope(),weeklySortStates.distribution),s=weeklySortStates.distribution,totals=weeklyTotals(weeklyRowsForScope(false));
+  document.getElementById("weeklyDistributionTable").innerHTML=`<table class="weekly-table"><thead><tr>
+    ${weeklyHeader("Owner","owner",s)}${weeklyHeader(glossaryTerm("averageWeeklyRank"),"avgWeeklyRank",s)}
+    ${weeklyHeader("Weekly Highs","weeklyHighs",s)}${weeklyHeader("Top-3 Weeks","top3Weeks",s)}
+    ${weeklyHeader("Bottom-3 Weeks","bottom3Weeks",s)}${weeklyHeader("Total Weeks","weeks",s)}
+  </tr></thead><tbody>${rows.map(r=>`<tr><td>${weeklyOwnerButton(r.owner)}</td><td>${r.avgWeeklyRank.toFixed(2)}</td>
+    <td>${r.weeklyHighs}</td><td>${r.top3Weeks}</td><td>${r.bottom3Weeks}</td><td>${r.weeks}</td></tr>`).join("")}</tbody>
+    <tfoot><tr><td>League Average / Total</td><td>${totals.avgWeeklyRank.toFixed(2)}</td>
+    <td>${totals.weeklyHighs}</td><td>${totals.top3Weeks}</td><td>${totals.bottom3Weeks}</td><td>${totals.weeks}</td></tr></tfoot></table>`;
+  weeklyBindSort("#weeklyDistributionTable",s,renderWeeklyDistributionTable);bindWeeklyOwnerLinks();
+}
+function renderWeeklyAnalytics(){
+  const rows=weeklyRowsForScope(),years=[...WEEKLY_HISTORY_DATA.years].sort((a,b)=>b-a),sel=document.getElementById("weeklyYear");
+  if(!sel.options.length)sel.innerHTML=years.map(y=>`<option value="${y}">${y}</option>`).join("");
+  sel.value=weeklySelectedYear;sel.disabled=weeklyScope==="CAREER";
+  document.getElementById("weeklyScope").value=weeklyScope;
+  document.getElementById("weeklyLoadState").classList.add("hidden");
+  document.getElementById("weeklyContent").classList.remove("hidden");
+  const filter=document.getElementById("weeklyOwnerFilter");
+  if(weeklySelectedOwner){filter.classList.remove("hidden");document.getElementById("weeklyOwnerFilterText").textContent=`Viewing ${displayName(weeklySelectedOwner)} only`;}
+  else filter.classList.add("hidden");
+  renderWeeklySummaryCards(rows);renderWeeklyAltTable();renderWeeklyLuckTable();renderWeeklyDistributionTable();bindWeeklyOwnerLinks();
+}
+async function openWeeklyAnalytics(){await ensureWeeklyHistoryLoaded();renderWeeklyAnalytics();}
+
 function openView(viewName){
  const button=document.querySelector(`.nav button[data-view="${viewName}"]`);
  if(!button || button.hidden)return;
@@ -4474,6 +4658,7 @@ function openView(viewName){
  if(viewName==="draftHub") renderDraftHub();
  if(viewName==="draftLab") renderDraftLab();
  if(viewName==="glossary") renderGlossary();
+ if(viewName==="weeklyAnalytics") openWeeklyAnalytics();
 }
 
 let commissionerMode=sessionStorage.getItem("bigBoardCommissionerMode")==="on";
@@ -4509,6 +4694,7 @@ document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",(
  if(b.dataset.view==="draftHub") renderDraftHub();
  if(b.dataset.view==="draftLab") renderDraftLab();
  if(b.dataset.view==="glossary") renderGlossary();
+ if(b.dataset.view==="weeklyAnalytics") openWeeklyAnalytics();
 }));
 
 
@@ -4554,6 +4740,9 @@ document.getElementById("labRunQuery").addEventListener("click",()=>{labReadQuer
 document.getElementById("labResetQuery").addEventListener("click",resetLabQuery);
 
 document.getElementById("glossarySearch").addEventListener("input",renderGlossary);
+document.getElementById("weeklyYear").addEventListener("change",e=>{weeklySelectedYear=+e.target.value;weeklySelectedOwner=null;renderWeeklyAnalytics();});
+document.getElementById("weeklyScope").addEventListener("change",e=>{weeklyScope=e.target.value;weeklySelectedOwner=null;renderWeeklyAnalytics();});
+document.getElementById("weeklyClearOwner").addEventListener("click",()=>{weeklySelectedOwner=null;renderWeeklyAnalytics();});
 document.getElementById("togglePoints").addEventListener("click",e=>{pointMode=!pointMode;e.target.textContent=pointMode?"Show Raw Totals":"Show Point Contributions";renderMatrix()});
 document.getElementById("auditYear").addEventListener("change",()=>{auditSort={key:null,direction:null};renderAudit();});
 document.getElementById("editYear").addEventListener("change",renderEditor);
