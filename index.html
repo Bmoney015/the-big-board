@@ -1455,6 +1455,113 @@ main{
 .weekly-audit-pass{color:#6ee7a8!important}.weekly-audit-review{color:#ffb08f!important}
 .weekly-summary-card.selected{border-color:#8d7540;box-shadow:inset 0 0 0 1px rgba(185,154,85,.16)}
 
+
+/* =========================================================
+   v4.4.2 — Draft Board owner focus
+   ========================================================= */
+.draft-board-slot-header{
+  cursor:pointer;
+  user-select:none;
+  transition:opacity .14s ease,border-color .14s ease,box-shadow .14s ease,transform .14s ease;
+}
+.draft-board-slot-header:hover{
+  border-color:#b99a55;
+  transform:translateY(-1px);
+}
+.draft-board-slot-header.focused{
+  border-color:#b99a55;
+  box-shadow:inset 0 0 0 1px rgba(185,154,85,.28),0 0 0 1px rgba(185,154,85,.10);
+}
+.draft-board-slot-header.unfocused{
+  opacity:.34;
+}
+
+
+/* =========================================================
+   v4.5.0 — Weekly Analytics Phase 2: Head-to-Head
+   ========================================================= */
+.weekly-subnav{
+  display:flex;
+  gap:8px;
+  margin-top:14px;
+}
+.weekly-subnav button{
+  border:1px solid #52606b;
+  background:#17222c;
+  color:#c8d1d8;
+  border-radius:8px;
+  padding:8px 13px;
+  font-weight:850;
+  cursor:pointer;
+}
+.weekly-subnav button.active{
+  border-color:#b99a55;
+  background:#2a2a23;
+  color:#f0d99b;
+}
+.weekly-h2h-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  gap:16px;
+  flex-wrap:wrap;
+}
+.weekly-h2h-controls{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(145px,1fr));
+  gap:9px;
+  min-width:min(100%,520px);
+}
+.weekly-h2h-controls label{
+  color:#aab5be;
+  font-size:9px;
+}
+.weekly-h2h-controls select{
+  width:100%;
+  background:#f5f3ed!important;
+  color:#18222c!important;
+}
+.weekly-h2h-summary{
+  display:grid;
+  grid-template-columns:repeat(6,minmax(130px,1fr));
+  gap:9px;
+  margin-bottom:12px;
+}
+.weekly-h2h-card{
+  background:#111a22;
+  border:1px solid #3b4853;
+  border-radius:9px;
+  padding:11px;
+  min-height:84px;
+}
+.weekly-h2h-card .label{
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.07em;
+  color:#8f9ca7;
+}
+.weekly-h2h-card .value{
+  font-size:18px;
+  font-weight:900;
+  margin-top:5px;
+  color:#eef2f5;
+}
+.weekly-h2h-card .detail{
+  font-size:9px;
+  color:#a8b3bc;
+  margin-top:4px;
+  line-height:1.35;
+}
+.weekly-h2h-score-a{color:#8ec5ff!important}
+.weekly-h2h-score-b{color:#f1c680!important}
+.weekly-h2h-winner{font-weight:900;color:#6ee7a8!important}
+.weekly-h2h-tie{color:#c7d0d7!important}
+@media(max-width:1150px){.weekly-h2h-summary{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:760px){
+  .weekly-h2h-controls{grid-template-columns:1fr;width:100%}
+  .weekly-h2h-summary{grid-template-columns:repeat(2,1fr)}
+}
+
 </style>
 </head>
 <body>
@@ -1891,13 +1998,7 @@ main{
       </div>
       <div id="labCoverageBadge" class="lab-coverage-badge"></div>
     </div>
-
-    <div class="lab-caution">
-      <strong>League trends, not universal draft advice.</strong>
-      Draft capital is one ingredient among waivers, trades, injuries, lineup decisions, and luck. Archetypes may overlap.
-    </div>
-
-    <div class="lab-section">
+<div class="lab-section">
       <div class="lab-section-head">
         <div>
           <div class="lab-eyebrow">Capital Profiles</div>
@@ -2055,15 +2156,40 @@ main{
       <div><div class="weekly-kicker">Game-by-Game History</div><h2>Weekly Analytics</h2><p>All-play standings, expected wins, schedule effects, and weekly scoring performance.</p></div>
       <div class="weekly-controls"><label>Season<select id="weeklyYear"></select></label><label>View<select id="weeklyScope"><option value="SEASON">Selected Season</option><option value="CAREER">Combined History</option></select></label></div>
     </div>
+    <div class="weekly-subnav" role="tablist" aria-label="Weekly Analytics views">
+      <button id="weeklyOverviewTab" class="active" type="button">Overview</button>
+      <button id="weeklyH2HTab" type="button">Head-to-Head</button>
+    </div>
     <div id="weeklyOwnerFilter" class="weekly-owner-filter hidden">
       <span id="weeklyOwnerFilterText"></span>
       <button id="weeklyClearOwner" type="button">Clear filter</button>
     </div>
     <div id="weeklyLoadState" class="weekly-load-state">Weekly history loads only when this module is opened.</div>
     <div id="weeklyContent" class="hidden">
+      <div id="weeklyOverviewPanel">
       <div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Flagship View</div><h3>Alt Standings</h3><p>Each weekly score is compared against all nine opponents. Expected wins convert that all-play record back to a normal season scale.</p></div></div><div id="weeklySummaryCards" class="weekly-summary-grid"></div><div id="weeklyAltTable" class="weekly-table-wrap"></div></div>
       <div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Schedule Context</div><h3>Luck & Schedule</h3><p>Actual wins versus expected wins, plus average opponent scoring.</p></div></div><div id="weeklyLuckTable" class="weekly-table-wrap"></div></div>
       <div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Weekly Performance</div><h3>Scoring Distribution</h3><p>Weekly high scores, top-three weeks, bottom-three weeks, and average weekly rank.</p></div></div><div id="weeklyDistributionTable" class="weekly-table-wrap"></div></div>
+      </div>
+
+      <div id="weeklyH2HPanel" class="hidden">
+        <div class="weekly-section weekly-h2h-section">
+          <div class="weekly-section-head weekly-h2h-head">
+            <div>
+              <div class="weekly-eyebrow">Phase 2</div>
+              <h3>Head-to-Head Records</h3>
+              <p>Regular-season meetings from the weekly history currently loaded into the site.</p>
+            </div>
+            <div class="weekly-h2h-controls">
+              <label>Owner A<select id="weeklyH2HOwnerA"></select></label>
+              <label>Owner B<select id="weeklyH2HOwnerB"></select></label>
+              <label>Season<select id="weeklyH2HYear"></select></label>
+            </div>
+          </div>
+          <div id="weeklyH2HSummary" class="weekly-h2h-summary"></div>
+          <div id="weeklyH2HTable" class="weekly-table-wrap"></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -3657,11 +3783,14 @@ function renderDraftBoard(){
     return DRAFT_SLOTS_DATA.records.find(r=>+r.year===+draftSelectedYear&&+r.draftSlot===slot)?.owner||"";
   });
 
-  let board=`<div class="draft-board"><div></div>${slotOwners.map((owner,i)=>`
-    <div class="draft-board-slot-header">
+  let board=`<div class="draft-board"><div></div>${slotOwners.map((owner,i)=>{
+    const focused=draftSelectedOwner!=="ALL"&&owner===draftSelectedOwner;
+    const unfocused=draftSelectedOwner!=="ALL"&&owner!==draftSelectedOwner;
+    return `<div class="draft-board-slot-header ${focused?"focused":""} ${unfocused?"unfocused":""}" data-draft-board-owner="${owner}" title="${focused?`Show all selections`:`Focus ${displayName(owner)} selections`}">
       <div class="slot">Slot ${i+1}</div>
       <div class="owner">${displayName(owner)}</div>
-    </div>`).join("")}`;
+    </div>`;
+  }).join("")}`;
 
   for(let round=1;round<=rounds;round++){
     board+=`<div class="draft-round-label">Rd ${round}</div>`;
@@ -3682,6 +3811,14 @@ function renderDraftBoard(){
   }
   board+=`</div>`;
   document.getElementById("draftBoard").innerHTML=board;
+
+  document.querySelectorAll("[data-draft-board-owner]").forEach(header=>{
+    header.addEventListener("click",()=>{
+      const owner=header.dataset.draftBoardOwner;
+      draftSelectedOwner=draftSelectedOwner===owner?"ALL":owner;
+      renderDraftHub();
+    });
+  });
 
   const notes=DRAFTS_DATA.tradeNotes[String(draftSelectedYear)]||[];
   const tradeKnown=draftYearMeta(draftSelectedYear).tradeTracking!=="unknown";
@@ -4496,7 +4633,7 @@ function renderGlossary(){
 }
 
 
-let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null;
+let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL";
 let weeklySortStates={alt:{key:"allPlayWins",direction:"desc"},luck:{key:"luckDelta",direction:"desc"},distribution:{key:"weeklyHighs",direction:"desc"}};
 async function ensureWeeklyHistoryLoaded(){if(WEEKLY_HISTORY_DATA)return WEEKLY_HISTORY_DATA;if(weeklyLoadingPromise)return weeklyLoadingPromise;const s=document.getElementById("weeklyLoadState");if(s)s.textContent="Loading weekly history…";weeklyLoadingPromise=fetch("./data/weeklyHistory.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Could not load weeklyHistory.json (${r.status})`);return r.json();}).then(d=>{WEEKLY_HISTORY_DATA=d;weeklySelectedYear=Math.max(...d.years.map(Number));return d;});return weeklyLoadingPromise;}
 function weeklyRowsForScope(includeOwnerFilter=true){
@@ -4581,7 +4718,7 @@ function renderWeeklySummaryCards(rows){
     ["Unluckiest",unlucky,`${unlucky?.luckDelta.toFixed(2)} wins`],
     ["Most Weekly Highs",highs,`${highs?.weeklyHighs} weeks`],
     ["Best Avg Finish",finish,finish?`${finish.avgWeeklyRank.toFixed(2)} weekly rank`:""]
-  ].map(([label,r,detail])=>`<div class="weekly-summary-card"><div class="label">${label}</div><div class="value">${r?weeklyOwnerButton(r.owner):"—"}</div><div class="detail">${detail||""}</div></div>`).join("");
+  ].map(([label,r,detail])=>`<div class="weekly-summary-card"><div class="label">${label}</div><div class="value">${r?displayName(r.owner):"—"}</div><div class="detail">${detail||""}</div></div>`).join("");
 }
 function renderWeeklyAltTable(){
   const rows=weeklySort(weeklyRowsForScope(),weeklySortStates.alt),s=weeklySortStates.alt,totals=weeklyTotals(weeklyRowsForScope(false));
@@ -4632,6 +4769,89 @@ function renderWeeklyDistributionTable(){
     <td>${totals.weeklyHighs}</td><td>${totals.top3Weeks}</td><td>${totals.bottom3Weeks}</td><td>${totals.weeks}</td></tr></tfoot></table>`;
   weeklyBindSort("#weeklyDistributionTable",s,renderWeeklyDistributionTable);bindWeeklyOwnerLinks();
 }
+
+function weeklySetActiveView(view){
+  weeklyActiveView=view;
+  const overview=view==="OVERVIEW";
+  document.getElementById("weeklyOverviewPanel").classList.toggle("hidden",!overview);
+  document.getElementById("weeklyH2HPanel").classList.toggle("hidden",overview);
+  document.getElementById("weeklyOverviewTab").classList.toggle("active",overview);
+  document.getElementById("weeklyH2HTab").classList.toggle("active",!overview);
+  document.querySelector(".weekly-controls").classList.toggle("hidden",!overview);
+  document.getElementById("weeklyOwnerFilter").classList.toggle("hidden",!overview||!weeklySelectedOwner);
+  if(!overview)renderWeeklyH2H();
+}
+function weeklyH2HOwners(){
+  return [...new Set((WEEKLY_HISTORY_DATA?.records||[]).flatMap(r=>[r.owner,r.opponent]))]
+    .sort((a,b)=>displayName(a).localeCompare(displayName(b)));
+}
+function weeklyH2HMeetings(){
+  return (WEEKLY_HISTORY_DATA?.records||[])
+    .filter(r=>r.owner===weeklyH2HOwnerA&&r.opponent===weeklyH2HOwnerB)
+    .filter(r=>weeklyH2HYear==="ALL"||+r.year===+weeklyH2HYear)
+    .sort((a,b)=>a.year-b.year||a.week-b.week);
+}
+function weeklyLongestH2HStreak(meetings){
+  let bestOwner=null,best=0,currentOwner=null,current=0;
+  meetings.forEach(r=>{
+    const winner=r.pointsFor>r.pointsAgainst?weeklyH2HOwnerA:r.pointsFor<r.pointsAgainst?weeklyH2HOwnerB:"TIE";
+    if(winner==="TIE"){currentOwner=null;current=0;return;}
+    if(winner===currentOwner)current+=1;
+    else{currentOwner=winner;current=1;}
+    if(current>best){best=current;bestOwner=winner;}
+  });
+  return {owner:bestOwner,count:best};
+}
+function renderWeeklyH2HControls(){
+  const owners=weeklyH2HOwners();
+  if(!owners.includes(weeklyH2HOwnerA))weeklyH2HOwnerA=owners[0]||null;
+  if(!owners.includes(weeklyH2HOwnerB)||weeklyH2HOwnerB===weeklyH2HOwnerA){
+    weeklyH2HOwnerB=owners.find(o=>o!==weeklyH2HOwnerA)||null;
+  }
+  const ownerOptions=owners.map(o=>`<option value="${o}">${displayName(o)}</option>`).join("");
+  const a=document.getElementById("weeklyH2HOwnerA"),b=document.getElementById("weeklyH2HOwnerB"),y=document.getElementById("weeklyH2HYear");
+  if(!a.options.length)a.innerHTML=ownerOptions;
+  if(!b.options.length)b.innerHTML=ownerOptions;
+  if(!y.options.length)y.innerHTML=`<option value="ALL">All Loaded Seasons</option>${[...WEEKLY_HISTORY_DATA.years].sort((x,z)=>z-x).map(year=>`<option value="${year}">${year}</option>`).join("")}`;
+  a.value=weeklyH2HOwnerA;b.value=weeklyH2HOwnerB;y.value=weeklyH2HYear;
+}
+function renderWeeklyH2H(){
+  renderWeeklyH2HControls();
+  const meetings=weeklyH2HMeetings();
+  const aName=displayName(weeklyH2HOwnerA),bName=displayName(weeklyH2HOwnerB);
+  const aWins=meetings.filter(r=>r.pointsFor>r.pointsAgainst).length;
+  const bWins=meetings.filter(r=>r.pointsFor<r.pointsAgainst).length;
+  const ties=meetings.length-aWins-bWins;
+  const avgA=meetings.length?meetings.reduce((s,r)=>s+r.pointsFor,0)/meetings.length:0;
+  const avgB=meetings.length?meetings.reduce((s,r)=>s+r.pointsAgainst,0)/meetings.length:0;
+  const largest=[...meetings].sort((x,z)=>Math.abs(z.pointsFor-z.pointsAgainst)-Math.abs(x.pointsFor-x.pointsAgainst))[0];
+  const closest=[...meetings].sort((x,z)=>Math.abs(x.pointsFor-x.pointsAgainst)-Math.abs(z.pointsFor-z.pointsAgainst))[0];
+  const highest=[...meetings].sort((x,z)=>(z.pointsFor+z.pointsAgainst)-(x.pointsFor+x.pointsAgainst))[0];
+  const streak=weeklyLongestH2HStreak(meetings);
+  const gameLabel=r=>r?`${r.year} W${r.week}`:"—";
+  const winnerLabel=r=>!r?"—":r.pointsFor>r.pointsAgainst?aName:r.pointsFor<r.pointsAgainst?bName:"Tie";
+  document.getElementById("weeklyH2HSummary").innerHTML=[
+    ["Series Record",`${aWins}–${bWins}${ties?`–${ties}`:""}`,`${aName} listed first`],
+    ["Average Score",`${avgA.toFixed(1)} – ${avgB.toFixed(1)}`,`${aName} – ${bName}`],
+    ["Largest Win",largest?`${winnerLabel(largest)} +${Math.abs(largest.pointsFor-largest.pointsAgainst).toFixed(2)}`:"—",gameLabel(largest)],
+    ["Closest Game",closest?`${Math.abs(closest.pointsFor-closest.pointsAgainst).toFixed(2)} pts`:"—",closest?`${gameLabel(closest)} · ${winnerLabel(closest)}`:""],
+    ["Highest Combined",highest?`${(highest.pointsFor+highest.pointsAgainst).toFixed(2)}`:"—",gameLabel(highest)],
+    ["Longest Streak",streak.owner?`${displayName(streak.owner)} · ${streak.count}`:"—",`${meetings.length} total meetings`]
+  ].map(([label,value,detail])=>`<div class="weekly-h2h-card"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`).join("");
+
+  document.getElementById("weeklyH2HTable").innerHTML=meetings.length?`<table class="weekly-table"><thead><tr>
+    <th style="text-align:left">Season</th><th>Week</th><th>${aName}</th><th>${bName}</th><th>Winner</th><th>Margin</th><th>Combined</th>
+  </tr></thead><tbody>${[...meetings].sort((x,z)=>z.year-x.year||z.week-x.week).map(r=>{
+    const winner=winnerLabel(r),tie=winner==="Tie";
+    return `<tr><td style="text-align:left">${r.year}</td><td>${r.week}</td>
+      <td class="weekly-h2h-score-a">${r.pointsFor.toFixed(2)}</td>
+      <td class="weekly-h2h-score-b">${r.pointsAgainst.toFixed(2)}</td>
+      <td class="${tie?"weekly-h2h-tie":"weekly-h2h-winner"}">${winner}</td>
+      <td>${Math.abs(r.pointsFor-r.pointsAgainst).toFixed(2)}</td>
+      <td>${(r.pointsFor+r.pointsAgainst).toFixed(2)}</td></tr>`;
+  }).join("")}</tbody></table>`:`<div class="weekly-load-state">No meetings are available for this owner and season combination.</div>`;
+}
+
 function renderWeeklyAnalytics(){
   const rows=weeklyRowsForScope(),years=[...WEEKLY_HISTORY_DATA.years].sort((a,b)=>b-a),sel=document.getElementById("weeklyYear");
   if(!sel.options.length)sel.innerHTML=years.map(y=>`<option value="${y}">${y}</option>`).join("");
@@ -4642,7 +4862,7 @@ function renderWeeklyAnalytics(){
   const filter=document.getElementById("weeklyOwnerFilter");
   if(weeklySelectedOwner){filter.classList.remove("hidden");document.getElementById("weeklyOwnerFilterText").textContent=`Viewing ${displayName(weeklySelectedOwner)} only`;}
   else filter.classList.add("hidden");
-  renderWeeklySummaryCards(rows);renderWeeklyAltTable();renderWeeklyLuckTable();renderWeeklyDistributionTable();bindWeeklyOwnerLinks();
+  renderWeeklySummaryCards(rows);renderWeeklyAltTable();renderWeeklyLuckTable();renderWeeklyDistributionTable();bindWeeklyOwnerLinks();weeklySetActiveView(weeklyActiveView);
 }
 async function openWeeklyAnalytics(){await ensureWeeklyHistoryLoaded();renderWeeklyAnalytics();}
 
@@ -4743,6 +4963,23 @@ document.getElementById("glossarySearch").addEventListener("input",renderGlossar
 document.getElementById("weeklyYear").addEventListener("change",e=>{weeklySelectedYear=+e.target.value;weeklySelectedOwner=null;renderWeeklyAnalytics();});
 document.getElementById("weeklyScope").addEventListener("change",e=>{weeklyScope=e.target.value;weeklySelectedOwner=null;renderWeeklyAnalytics();});
 document.getElementById("weeklyClearOwner").addEventListener("click",()=>{weeklySelectedOwner=null;renderWeeklyAnalytics();});
+document.getElementById("weeklyOverviewTab").addEventListener("click",()=>weeklySetActiveView("OVERVIEW"));
+document.getElementById("weeklyH2HTab").addEventListener("click",()=>weeklySetActiveView("H2H"));
+document.getElementById("weeklyH2HOwnerA").addEventListener("change",e=>{
+  weeklyH2HOwnerA=e.target.value;
+  if(weeklyH2HOwnerA===weeklyH2HOwnerB){
+    weeklyH2HOwnerB=weeklyH2HOwners().find(o=>o!==weeklyH2HOwnerA)||weeklyH2HOwnerB;
+  }
+  renderWeeklyH2H();
+});
+document.getElementById("weeklyH2HOwnerB").addEventListener("change",e=>{
+  weeklyH2HOwnerB=e.target.value;
+  if(weeklyH2HOwnerA===weeklyH2HOwnerB){
+    weeklyH2HOwnerA=weeklyH2HOwners().find(o=>o!==weeklyH2HOwnerB)||weeklyH2HOwnerA;
+  }
+  renderWeeklyH2H();
+});
+document.getElementById("weeklyH2HYear").addEventListener("change",e=>{weeklyH2HYear=e.target.value;renderWeeklyH2H();});
 document.getElementById("togglePoints").addEventListener("click",e=>{pointMode=!pointMode;e.target.textContent=pointMode?"Show Raw Totals":"Show Point Contributions";renderMatrix()});
 document.getElementById("auditYear").addEventListener("change",()=>{auditSort={key:null,direction:null};renderAudit();});
 document.getElementById("editYear").addEventListener("change",renderEditor);

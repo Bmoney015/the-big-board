@@ -539,7 +539,7 @@
       "RS_Finish": 3,
       "Pts Rank": 5,
       "PO_Finish": 4,
-      "PointsFor": 1629
+      "PointsFor": 1636
     },
     {
       "Year": 2015,
@@ -639,7 +639,7 @@
       "RS_Finish": 5,
       "Pts Rank": 2,
       "PO_Finish": 4,
-      "PointsFor": 1714
+      "PointsFor": 1698
     },
     {
       "Year": 2016,
@@ -689,7 +689,7 @@
       "RS_Finish": 8,
       "Pts Rank": 9,
       "PO_Finish": 9,
-      "PointsFor": 1531
+      "PointsFor": 1544
     },
     {
       "Year": 2016,
@@ -1314,8 +1314,8 @@
     {
       "Year": 2023,
       "Owner": "Ben",
-      "W": 7,
-      "L": 7,
+      "W": 8,
+      "L": 6,
       "RS_Finish": 2,
       "Pts Rank": 1,
       "PO_Finish": 2,
