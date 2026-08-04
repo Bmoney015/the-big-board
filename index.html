@@ -1,17 +1,18 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v4.1.6 Complete Draft Archive — imports 2010–2019; 2017 archive-only -->
-<meta name="description" content="Career Prestige Rankings — a measure of sustained excellence across league history.">
-<meta name="theme-color" content="#202a34">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-<link rel="manifest" href="site.webmanifest">
+<!-- v4.7.0 League Portal Refresh — Career Totals home, streamlined rankings architecture, grouped navigation -->
+<meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
+<meta content="#202a34" name="theme-color"/>
+<link href="favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="site.webmanifest" rel="manifest"/>
 <style>
 :root{
   --bg:#f4f1ea; --panel:#fffdf8; --ink:#1e252d; --muted:#6c747c;
@@ -1562,640 +1563,820 @@ main{
   .weekly-h2h-summary{grid-template-columns:repeat(2,1fr)}
 }
 
+
+/* =========================================================
+   v4.6.0 — Remarkable Feats
+   ========================================================= */
+.weekly-feats-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:11px;
+}
+.weekly-feat-card{
+  width:100%;
+  text-align:left;
+  background:#111a22;
+  border:1px solid #3b4853;
+  border-radius:10px;
+  padding:14px;
+  color:#edf2f5;
+  cursor:pointer;
+  transition:transform .14s ease,border-color .14s ease,box-shadow .14s ease;
+}
+.weekly-feat-card:hover{
+  transform:translateY(-1px);
+  border-color:#b99a55;
+  box-shadow:0 6px 16px rgba(0,0,0,.16);
+}
+.weekly-feat-card.active{
+  border-color:#d2b76d;
+  box-shadow:inset 0 0 0 1px rgba(210,183,109,.22);
+}
+.weekly-feat-card .kicker{
+  font-size:8px;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+  color:#c9ad68;
+  font-weight:850;
+}
+.weekly-feat-card .headline{
+  margin-top:7px;
+  font-size:17px;
+  line-height:1.25;
+  font-weight:900;
+}
+.weekly-feat-card .description{
+  margin-top:7px;
+  color:#aeb8c0;
+  font-size:10px;
+  line-height:1.45;
+}
+.weekly-feat-card .range{
+  margin-top:10px;
+  color:#7f8c96;
+  font-size:9px;
+}
+.weekly-feat-detail{
+  margin-top:14px;
+  background:#0f1820;
+  border:1px solid #4b5964;
+  border-radius:10px;
+  padding:14px;
+}
+.weekly-feat-detail-head{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:flex-end;
+  margin-bottom:10px;
+}
+.weekly-feat-detail-head h4{
+  margin:4px 0 0;
+  font-size:17px;
+}
+.weekly-feat-detail-head button{
+  background:#f2eee5;
+  color:#18222c;
+  border:1px solid #b99a55;
+  border-radius:7px;
+  padding:7px 10px;
+  font-weight:850;
+  cursor:pointer;
+}
+@media(max-width:1050px){.weekly-feats-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.weekly-feats-grid{grid-template-columns:1fr}}
+
+
+/* v4.6.1 — H2H sorting and All modes */
+#weeklyH2HTable .weekly-table th[data-h2h-sort]{cursor:pointer}
+#weeklyH2HTable .weekly-table th[data-h2h-sort]:hover{color:#f0d99b}
+
+
+/* =========================================================
+   v4.6.2 — League Links
+   ========================================================= */
+header,
+.site-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  flex-wrap:wrap;
+}
+.site-header-title{min-width:0}
+.league-links{
+  display:flex;
+  align-items:center;
+  justify-content:flex-end;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-left:auto;
+}
+.league-links a{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  background:#151d24;
+  border:1px solid #7b6739;
+  border-radius:999px;
+  padding:7px 11px;
+  color:#d9e0e5;
+  text-decoration:none;
+  font-size:10px;
+  font-weight:850;
+  line-height:1;
+  white-space:nowrap;
+  transition:transform .14s ease,border-color .14s ease,color .14s ease,box-shadow .14s ease;
+}
+.league-links a:hover,
+.league-links a:focus-visible{
+  color:#f1d893;
+  border-color:#c4a75b;
+  transform:translateY(-1px);
+  box-shadow:0 5px 14px rgba(0,0,0,.18);
+  outline:none;
+}
+.league-link-arrow{
+  color:#9aa7b0;
+  font-size:9px;
+}
+@media(max-width:720px){
+  .league-links{
+    width:100%;
+    justify-content:flex-start;
+    margin-left:0;
+  }
+}
+
+
+/* =========================================================
+   v4.7.0 — League Portal navigation architecture
+   ========================================================= */
+.nav{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+  align-items:center;
+}
+.nav button{
+  position:relative;
+  transition:background .14s ease,border-color .14s ease,color .14s ease,opacity .14s ease,transform .14s ease;
+}
+.nav button:hover{transform:translateY(-1px)}
+.nav button.nav-group-primary{
+  background:#242b32;
+  border-color:#8d7540;
+  color:#f2eee4;
+}
+.nav button.nav-group-analytics{
+  background:#20272e;
+  border-color:#61717e;
+  color:#dce4e9;
+}
+.nav button.nav-group-reference{
+  background:#1d2329;
+  border-color:#46515b;
+  color:#abb5bd;
+  opacity:.88;
+}
+.nav button.nav-group-primary.active,
+.nav button.nav-group-analytics.active,
+.nav button.nav-group-reference.active{
+  background:#f3f0e8 !important;
+  color:#1d252d !important;
+  border:2px solid #b99a55 !important;
+  opacity:1;
+}
+.nav button[data-view="draftHub"]{margin-left:5px}
+.nav button[data-view="glossary"]{margin-left:5px}
+.nav button[data-view="draftHub"]::before,
+.nav button[data-view="glossary"]::before{
+  content:"";
+  position:absolute;
+  left:-7px;
+  top:18%;
+  bottom:18%;
+  width:1px;
+  background:rgba(185,154,85,.28);
+}
+@media(max-width:900px){
+  .nav button[data-view="draftHub"],
+  .nav button[data-view="glossary"]{margin-left:0}
+  .nav button[data-view="draftHub"]::before,
+  .nav button[data-view="glossary"]::before{display:none}
+}
+
 </style>
 </head>
 <body>
 <header>
-  <div>
-    <h1>The Big Board</h1>
-    <div class="header-subtitle">Career Prestige Rankings</div>
-    <p>A measure of sustained excellence across league history.</p>
-  </div>
-  <nav class="nav">
-    <button data-view="rankings" class="active">Career Rankings</button>
-    <button data-view="matrix">Career Totals</button>
-    <button data-view="audit">Season Audit</button>
-    <button data-view="data" id="commissionerDataTab" class="commissioner-only" hidden>Data & Settings</button>
-    <button data-view="presentation">Presentation</button>
-    <button data-view="journey">Career Journey</button>
-    <button data-view="draftHub">Draft Hub</button>
-    <button data-view="weeklyAnalytics">Weekly Analytics</button>
-    <button data-view="glossary">Glossary</button>
-    <button data-view="draftLab" id="draftLabTab" class="commissioner-only" hidden>Draft Lab</button>
-  </nav>
+<div class="site-header-title">
+<h1>The Big Board</h1>
+<div class="header-subtitle">Career Prestige Rankings</div>
+<p>A measure of sustained excellence across league history.</p>
+</div>
+<nav class="nav"><button class="nav-group-primary active" data-view="matrix" id="careerTotalsTab">Career Totals</button><button class="nav-group-primary" data-view="presentation">The Big Board</button><button class="nav-group-primary" data-view="journey">Career Journey</button><button class="nav-group-primary" data-view="audit">Season Audit</button><button class="nav-group-analytics" data-view="draftHub">Draft Hub</button><button class="nav-group-analytics commissioner-only" data-view="draftLab" hidden="" id="draftLabTab">Draft Lab</button><button class="nav-group-analytics" data-view="weeklyAnalytics">Weekly Analytics</button><button class="nav-group-reference" data-view="glossary">Glossary</button><button class="nav-group-reference commissioner-only" data-view="data" hidden="" id="commissionerDataTab">Data &amp; Settings</button></nav>
+<div aria-label="League links" class="league-links">
+<a href="https://football.fantasysports.yahoo.com/league/hot_n_bothered/2026" rel="noopener noreferrer" target="_blank" title="Open Yahoo League">
+<span aria-hidden="true">🏈</span> Yahoo <span aria-hidden="true" class="league-link-arrow">↗</span>
+</a>
+<a href="https://discord.com/channels/1002682549249777675/1006218007623766076" rel="noopener noreferrer" target="_blank" title="Open League Discord">
+<span aria-hidden="true">💬</span> Discord <span aria-hidden="true" class="league-link-arrow">↗</span>
+</a>
+<a href="https://docs.google.com/spreadsheets/d/15wBcEN_7MBwiAvrg3gKO4w2Is2p76_YqwI8JjvBA2S8/edit?usp=sharing" rel="noopener noreferrer" target="_blank" title="Open League Archive">
+<span aria-hidden="true">📚</span> Archive <span aria-hidden="true" class="league-link-arrow">↗</span>
+</a>
+</div>
 </header>
 <main>
-<section id="rankings" class="view active">
-  <div class="toolbar"><h2>Current Career Rankings</h2><span class="badge">Through 2025</span></div>
-  <div id="integrityCard" class="card integrity"></div>
-  <div style="height:12px"></div>
-  <div id="rankingCards" class="grid"></div>
+
+<section class="view active" id="matrix">
+<div class="toolbar">
+<h2>Career Totals</h2>
+</div>
+<div class="career-resume-section">
+<div class="career-section-head">
+<div>
+<h3>Career Resume</h3>
+<p>All-time regular-season standings and resume metrics. Click any column to sort; click an owner to update the summary cards.</p>
+</div>
+</div>
+<div class="table-wrap"><table class="career-resume-table" id="careerResumeTable"></table></div>
+</div>
+<div class="career-summary-grid" id="careerSummaryCards"></div>
+<div class="career-matrix-section">
+<div class="toolbar">
+<div>
+<h3><span class="glossary-term" data-glossary="prestige" tabindex="0">Prestige</span> Input Matrix</h3>
+<div class="career-matrix-subtitle">The category totals that drive Career Prestige.</div>
+<div class="note">Bold and underlined values are league leaders. Hover over any total to see the seasons behind it.</div>
+</div>
+<div class="actions"><button class="btn" id="togglePoints">Show Point Contributions</button><button class="btn" id="exportMatrix">Export CSV</button></div>
+</div>
+<div style="height:12px"></div>
+<div class="table-wrap"><table id="matrixTable"></table></div>
+</div>
 </section>
-
-<section id="matrix" class="view">
-  <div class="toolbar">
-    <h2>Career Totals</h2>
-  </div>
-
-  <div class="career-resume-section">
-    <div class="career-section-head">
-      <div>
-        <h3>Career Resume</h3>
-        <p>All-time regular-season standings and resume metrics. Click any column to sort; click an owner to update the summary cards.</p>
-      </div>
-    </div>
-    <div class="table-wrap"><table id="careerResumeTable" class="career-resume-table"></table></div>
-  </div>
-
-  <div id="careerSummaryCards" class="career-summary-grid"></div>
-
-  <div class="career-matrix-section">
-    <div class="toolbar">
-      <div>
-        <h3><span class="glossary-term" tabindex="0" data-glossary="prestige">Prestige</span> Input Matrix</h3>
-        <div class="career-matrix-subtitle">The category totals that drive Career Prestige.</div>
-        <div class="note">Bold and underlined values are league leaders. Hover over any total to see the seasons behind it.</div>
-      </div>
-      <div class="actions"><button class="btn" id="togglePoints">Show Point Contributions</button><button class="btn" id="exportMatrix">Export CSV</button></div>
-    </div>
-    <div style="height:12px"></div>
-    <div class="table-wrap"><table id="matrixTable"></table></div>
-  </div>
+<section class="view" id="audit">
+<div class="toolbar"><h2>Season Audit</h2></div>
+<div class="note">Points For is included as historical reference only. It does not directly add to Prestige; Points Rank drives the Most Points and Least Points categories.</div>
+<div style="height:12px"></div>
+<div class="audit-controls">
+<label>Season<select id="auditYear"></select></label>
+</div>
+<div class="table-wrap"><table id="auditTable"></table></div>
 </section>
-
-<section id="audit" class="view">
-  <div class="toolbar"><h2>Season Audit</h2></div>
-  <div class="note">Points For is included as historical reference only. It does not directly add to Prestige; Points Rank drives the Most Points and Least Points categories.</div>
-  <div style="height:12px"></div>
-  <div class="audit-controls">
-    <label>Season<select id="auditYear"></select></label>
-  </div>
-  <div class="table-wrap"><table id="auditTable"></table></div>
+<section class="view" id="data">
+<div class="toolbar">
+<h2>Data &amp; Settings</h2>
+<div class="actions">
+<button class="btn" id="downloadBackup">Save JSON Backup</button>
+<label class="btn" style="display:inline-block;color:var(--ink)">Load JSON Backup<input accept=".json" hidden="" id="loadBackup" type="file"/></label>
+<button class="btn" id="exportSeasonCsv">Export Season CSV</button>
+<span class="change-status clean" id="changeStatus">No pending changes</span><button class="btn primary" id="applySettings">Save &amp; Recalculate</button> <button class="btn discard-btn" id="discardChanges" type="button">Discard Changes</button>
+</div>
+</div>
+<div class="card">
+<h3 style="margin-top:0">Scoring Rubric</h3>
+<div class="settings-grid" id="settingsGrid"></div>
+</div>
+<div style="height:12px"></div>
+<div class="card">
+<h3 style="margin-top:0">Current Tier Assignments</h3>
+<div class="settings-grid" id="tierGrid"></div>
+</div>
+<div style="height:12px"></div>
+<div class="card">
+<h3 style="margin-top:0">Season Data Editor</h3>
+<p class="muted">Edit freely here. Rankings and presentation outputs do not change until you click <strong>Save &amp; Recalculate</strong>. Career totals are always regenerated from the saved rows.</p>
+<div class="audit-controls"><label>Season<select id="editYear"></select></label><button class="btn" id="addSeason">Add Next Season</button></div>
+<div class="table-wrap"><table class="editor-table" id="editorTable"></table></div>
+</div>
 </section>
-
-<section id="data" class="view">
-  <div class="toolbar">
-    <h2>Data & Settings</h2>
-    <div class="actions">
-      <button class="btn" id="downloadBackup">Save JSON Backup</button>
-      <label class="btn" style="display:inline-block;color:var(--ink)">Load JSON Backup<input id="loadBackup" type="file" accept=".json" hidden></label>
-      <button class="btn" id="exportSeasonCsv">Export Season CSV</button>
-      <span id="changeStatus" class="change-status clean">No pending changes</span><button class="btn primary" id="applySettings">Save &amp; Recalculate</button> <button type="button" class="btn discard-btn" id="discardChanges">Discard Changes</button>
-    </div>
-  </div>
-  <div class="card">
-    <h3 style="margin-top:0">Scoring Rubric</h3>
-    <div id="settingsGrid" class="settings-grid"></div>
-  </div>
-  <div style="height:12px"></div>
-  <div class="card">
-    <h3 style="margin-top:0">Current Tier Assignments</h3>
-    <div id="tierGrid" class="settings-grid"></div>
-  </div>
-  <div style="height:12px"></div>
-  <div class="card">
-    <h3 style="margin-top:0">Season Data Editor</h3>
-    <p class="muted">Edit freely here. Rankings and presentation outputs do not change until you click <strong>Save &amp; Recalculate</strong>. Career totals are always regenerated from the saved rows.</p>
-    <div class="audit-controls"><label>Season<select id="editYear"></select></label><button class="btn" id="addSeason">Add Next Season</button></div>
-    <div class="table-wrap"><table id="editorTable" class="editor-table"></table></div>
-  </div>
+<section class="view" id="presentation">
+<div class="reveal-shell">
+<div class="reveal-head">
+<h2>The Big Board</h2>
+<div class="reveal-descriptor">Career Prestige Rankings</div>
+<p>A measure of sustained excellence across league history.</p>
+<div class="edition-tabs">
+<button data-edition="2018">2018</button>
+<button data-edition="2022">2022</button>
+<button class="active" data-edition="2026">2026 Reveal</button>
+<button data-edition="recap">4-Year Recap</button>
+<button data-edition="final">Final Rankings</button>
+</div>
+</div>
+<div class="snapshot-panel hidden" id="snapshot2018">
+<div class="recap-title presentation-section-title">
+<h3>2018 Edition</h3>
+<p>Official 2018 Rankings</p>
+</div>
+<div class="snapshot-note">Inaugural rankings through the 2017 season</div>
+<div class="snapshot-rankings" id="snapshotRows2018"></div>
+</div>
+<div class="snapshot-panel hidden" id="snapshot2022">
+<div class="recap-title presentation-section-title">
+<h3>2022 Edition</h3>
+<p>Official 2022 Rankings</p>
+</div>
+<div class="snapshot-note">Rankings through the 2021 season</div>
+<div class="snapshot-rankings" id="snapshotRows2022"></div>
+</div>
+<div id="current2026">
+<div class="recap-title presentation-section-title reveal-section-title">
+<h3>2026 Reveal</h3>
+<p>Career Prestige Rankings</p>
+</div>
+<div id="revealMain">
+<div class="reveal-stage">
+<div class="spotlight">
+<div id="spotContent">
+<div class="rank-big">READY TO REVEAL</div>
+<div class="owner-big">2026 Rankings</div>
+<div class="change-big">Starting from the official 2022 edition</div>
+</div>
+</div>
+<div class="assembling">
+<h3>Revealed</h3>
+<div id="assembledRows"></div>
+</div>
+</div>
+<div class="reveal-controls">
+<button id="startReveal">Start / Replay</button>
+<button id="nextReveal">Reveal Next</button>
+<button id="autoReveal">Auto Play</button>
+<button id="showFinal">Show Final Table</button>
+</div>
+</div>
+<div class="final-table" id="finalTable">
+<div class="final-rankings" id="finalRows"></div>
+<div class="reveal-controls"><button id="replayFinal">Replay Reveal</button></div>
+</div>
+</div>
+<div class="transition-screen hidden" id="revealTransition">
+<div class="transition-copy">
+<div class="line1">The rankings are complete.</div>
+<div class="line2">Let’s see what changed since the 2022 Edition...</div>
+</div>
+</div>
+<div class="recap-wrap hidden" id="recapPanel">
+<div class="recap-title">
+<h3>4-Year Recap</h3>
+<p>How the league changed since 2022</p>
+</div>
+<div class="recap-grid">
+<div class="recap-card">
+<h4>Prestige Gains · 2022 → 2026</h4>
+<div id="recapMovementRows"></div>
+</div>
+<div class="recap-card">
+<h4>League Summary</h4>
+<div class="summary-grid" id="recapSummary"></div>
+</div>
+</div>
+<div class="archive-line">Data through the 2025 season · Official 2026 Edition</div>
+<div class="presentation-next">
+<button id="goFinalFromRecap">View Final Rankings</button>
+</div>
+</div>
+<div class="hidden" id="permanentFinalPanel">
+<div class="recap-title final-branding presentation-section-title">
+<h3>Final Rankings</h3>
+<p>Official 2026 Rankings</p>
+</div>
+<div class="final-rankings" id="permanentFinalRows"></div>
+<div class="benchmark-card">
+<h4>Prestige Range &amp; Historical Benchmarks</h4>
+<div class="benchmark-subtitle">How quickly the career standings can move.</div>
+<div class="benchmark-grid" id="prestigeBenchmarks"></div>
+</div>
+<div class="archive-line">Data through the 2025 season · Official 2026 Edition</div>
+</div>
+</div>
 </section>
-
-<section id="presentation" class="view">
-  <div class="reveal-shell">
-    <div class="reveal-head">
-      <h2>The Big Board</h2>
-      <div class="reveal-descriptor">Career Prestige Rankings</div>
-      <p>A measure of sustained excellence across league history.</p>
-      <div class="edition-tabs">
-        <button data-edition="2018">2018</button>
-        <button data-edition="2022">2022</button>
-        <button data-edition="2026" class="active">2026 Reveal</button>
-        <button data-edition="recap">4-Year Recap</button>
-        <button data-edition="final">Final Rankings</button>
-      </div>
-    </div>
-
-    <div id="snapshot2018" class="snapshot-panel hidden">
-      <div class="recap-title presentation-section-title">
-        <h3>2018 Edition</h3>
-        <p>Official 2018 Rankings</p>
-      </div>
-      <div class="snapshot-note">Inaugural rankings through the 2017 season</div>
-      <div class="snapshot-rankings" id="snapshotRows2018"></div>
-    </div>
-
-    <div id="snapshot2022" class="snapshot-panel hidden">
-      <div class="recap-title presentation-section-title">
-        <h3>2022 Edition</h3>
-        <p>Official 2022 Rankings</p>
-      </div>
-      <div class="snapshot-note">Rankings through the 2021 season</div>
-      <div class="snapshot-rankings" id="snapshotRows2022"></div>
-    </div>
-
-    <div id="current2026">
-      <div class="recap-title presentation-section-title reveal-section-title">
-        <h3>2026 Reveal</h3>
-        <p>Career Prestige Rankings</p>
-      </div>
-      <div id="revealMain">
-        <div class="reveal-stage">
-          <div class="spotlight">
-            <div id="spotContent">
-              <div class="rank-big">READY TO REVEAL</div>
-              <div class="owner-big">2026 Rankings</div>
-              <div class="change-big">Starting from the official 2022 edition</div>
-            </div>
-          </div>
-          <div class="assembling">
-            <h3>Revealed</h3>
-            <div id="assembledRows"></div>
-          </div>
-        </div>
-        <div class="reveal-controls">
-          <button id="startReveal">Start / Replay</button>
-          <button id="nextReveal">Reveal Next</button>
-          <button id="autoReveal">Auto Play</button>
-          <button id="showFinal">Show Final Table</button>
-        </div>
-      </div>
-      <div id="finalTable" class="final-table">
-        <div class="final-rankings" id="finalRows"></div>
-        <div class="reveal-controls"><button id="replayFinal">Replay Reveal</button></div>
-      </div>
-    </div>
-
-    <div id="revealTransition" class="transition-screen hidden">
-      <div class="transition-copy">
-        <div class="line1">The rankings are complete.</div>
-        <div class="line2">Let’s see what changed since the 2022 Edition...</div>
-      </div>
-    </div>
-
-    <div id="recapPanel" class="recap-wrap hidden">
-      <div class="recap-title">
-        <h3>4-Year Recap</h3>
-        <p>How the league changed since 2022</p>
-      </div>
-      <div class="recap-grid">
-        <div class="recap-card">
-          <h4>Prestige Gains · 2022 → 2026</h4>
-          <div id="recapMovementRows"></div>
-        </div>
-        <div class="recap-card">
-          <h4>League Summary</h4>
-          <div class="summary-grid" id="recapSummary"></div>
-        </div>
-      </div>
-      <div class="archive-line">Data through the 2025 season · Official 2026 Edition</div>
-      <div class="presentation-next">
-        <button id="goFinalFromRecap">View Final Rankings</button>
-      </div>
-    </div>
-
-    <div id="permanentFinalPanel" class="hidden">
-      <div class="recap-title final-branding presentation-section-title">
-        <h3>Final Rankings</h3>
-        <p>Official 2026 Rankings</p>
-      </div>
-      <div class="final-rankings" id="permanentFinalRows"></div>
-      <div class="benchmark-card">
-        <h4>Prestige Range & Historical Benchmarks</h4>
-        <div class="benchmark-subtitle">How quickly the career standings can move.</div>
-        <div class="benchmark-grid" id="prestigeBenchmarks"></div>
-      </div>
-      <div class="archive-line">Data through the 2025 season · Official 2026 Edition</div>
-    </div>
-  </div>
+<section class="view" id="journey">
+<div class="journey-shell">
+<div class="journey-head">
+<h2>Career Journey</h2>
+<p>How The Big Board evolved over time.</p>
+</div>
+<div class="journey-controls">
+<button id="journeyPlay">▶ Play</button>
+<button id="journeyPause">❚❚ Pause</button>
+<button id="journeyReplay">↺ Replay</button>
+<button id="journeyClearFocus">← Show All Owners</button>
+</div>
+<div class="journey-year" id="journeyYear">Starting Point</div>
+<div aria-live="polite" class="journey-leader-callout" id="journeyLeaderCallout"></div>
+<div class="journey-chart-card">
+<svg aria-label="Animated cumulative Prestige by owner" id="journeyChart" role="img" viewbox="0 0 1120 500"></svg>
+<div class="journey-slider-wrap">
+<span id="journeyMinYear">Start</span>
+<input id="journeySlider" max="16" min="0" step="1" type="range" value="0"/>
+<span id="journeyMaxYear">2025</span>
+</div>
+</div>
+<div class="journey-card journey-standings-card">
+<div class="journey-card-head">
+<h3 id="journeyStandingsTitle">Standings · Starting Point</h3>
+<span class="journey-click-hint">Click an owner to isolate</span>
+</div>
+<table class="journey-table journey-standings-table">
+<colgroup>
+<col class="journey-col-rank"/>
+<col class="journey-col-owner"/>
+<col class="journey-col-prestige"/>
+</colgroup>
+<thead><tr><th>Rank</th><th>Owner</th><th>Prestige</th></tr></thead>
+<tbody id="journeyStandings"></tbody>
+</table>
+</div>
+<div class="journey-card journey-metrics">
+<h3 id="journeyMetricsTitle">Career Metrics · Before 2010</h3>
+<div class="journey-metrics-table-wrap">
+<table class="journey-table">
+<thead>
+<tr><th>Owner</th><th>Avg. Rank</th><th>Years #1</th><th>Top 3</th><th>Avg. Behind #1</th><th>Peak</th></tr>
+</thead>
+<tbody id="journeyMetrics"></tbody>
+</table>
+</div>
+<div class="journey-note">Career metrics use every completed league season from 2010 through the selected season.</div>
+</div>
+</div>
 </section>
-
-<section id="journey" class="view">
-  <div class="journey-shell">
-    <div class="journey-head">
-      <h2>Career Journey</h2>
-      <p>How The Big Board evolved over time.</p>
-    </div>
-    <div class="journey-controls">
-      <button id="journeyPlay">▶ Play</button>
-      <button id="journeyPause">❚❚ Pause</button>
-      <button id="journeyReplay">↺ Replay</button>
-      <button id="journeyClearFocus">← Show All Owners</button>
-    </div>
-    <div id="journeyYear" class="journey-year">Starting Point</div>
-    <div id="journeyLeaderCallout" class="journey-leader-callout" aria-live="polite"></div>
-
-    <div class="journey-chart-card">
-      <svg id="journeyChart" viewBox="0 0 1120 500" role="img" aria-label="Animated cumulative Prestige by owner"></svg>
-      <div class="journey-slider-wrap">
-        <span id="journeyMinYear">Start</span>
-        <input id="journeySlider" type="range" min="0" max="16" value="0" step="1">
-        <span id="journeyMaxYear">2025</span>
-      </div>
-    </div>
-
-    <div class="journey-card journey-standings-card">
-      <div class="journey-card-head">
-        <h3 id="journeyStandingsTitle">Standings · Starting Point</h3>
-        <span class="journey-click-hint">Click an owner to isolate</span>
-      </div>
-      <table class="journey-table journey-standings-table">
-        <colgroup>
-          <col class="journey-col-rank">
-          <col class="journey-col-owner">
-          <col class="journey-col-prestige">
-        </colgroup>
-        <thead><tr><th>Rank</th><th>Owner</th><th>Prestige</th></tr></thead>
-        <tbody id="journeyStandings"></tbody>
-      </table>
-    </div>
-
-    <div class="journey-card journey-metrics">
-      <h3 id="journeyMetricsTitle">Career Metrics · Before 2010</h3>
-      <div class="journey-metrics-table-wrap">
-        <table class="journey-table">
-          <thead>
-            <tr><th>Owner</th><th>Avg. Rank</th><th>Years #1</th><th>Top 3</th><th>Avg. Behind #1</th><th>Peak</th></tr>
-          </thead>
-          <tbody id="journeyMetrics"></tbody>
-        </table>
-      </div>
-      <div class="journey-note">Career metrics use every completed league season from 2010 through the selected season.</div>
-    </div>
-  </div>
-</section>
-
-
-<section id="draftHub" class="view">
-  <div class="draft-shell">
-    <div class="draft-head">
-      <div>
-        <h2>Draft Hub</h2>
-        <p>Historical boards, owner tendencies, traded selections, and draft-slot outcomes.</p>
-      </div>
-      <span class="draft-era-badge" id="draftEraBadge">Draft Boards 2010–2025</span>
-    </div>
-
-    <div class="draft-controls">
-      <label>Draft Year
+<section class="view" id="draftHub">
+<div class="draft-shell">
+<div class="draft-head">
+<div>
+<h2>Draft Hub</h2>
+<p>Historical boards, owner tendencies, traded selections, and draft-slot outcomes.</p>
+</div>
+<span class="draft-era-badge" id="draftEraBadge">Draft Boards 2010–2025</span>
+</div>
+<div class="draft-controls">
+<label>Draft Year
         <select id="draftYear"></select>
-      </label>
-      <label>Highlight Owner
+</label>
+<label>Highlight Owner
         <select id="draftOwnerFilter"></select>
-      </label>
-      <div class="draft-view-switch" role="group" aria-label="Draft Hub view">
-        <button id="draftBoardView" class="active">Draft Board</button>
-        <button id="draftTableView">Pick Table</button>
-        <button id="draftOwnerView">Owner Cards</button>
-        <button id="draftSlotsView">Draft Slots</button>
-      </div>
-    </div>
-
-    <div id="draftSummary" class="draft-summary-grid"></div>
-    <div id="draftPositionVolume" class="draft-position-volume"></div>
-    <div id="draftLegend" class="draft-legend"></div>
-
-    <div id="draftBoardPanel">
-      <div id="draftBoard" class="draft-board-wrap"></div>
-      <div id="draftTradeNotes" class="draft-trade-notes"></div>
-    </div>
-
-    <div id="draftTablePanel" class="hidden">
-      <div class="draft-table-toolbar">
-        <label>Owner
+</label>
+<div aria-label="Draft Hub view" class="draft-view-switch" role="group">
+<button class="active" id="draftBoardView">Draft Board</button>
+<button id="draftTableView">Pick Table</button>
+<button id="draftOwnerView">Owner Cards</button>
+<button id="draftSlotsView">Draft Slots</button>
+</div>
+</div>
+<div class="draft-summary-grid" id="draftSummary"></div>
+<div class="draft-position-volume" id="draftPositionVolume"></div>
+<div class="draft-legend" id="draftLegend"></div>
+<div id="draftBoardPanel">
+<div class="draft-board-wrap" id="draftBoard"></div>
+<div class="draft-trade-notes" id="draftTradeNotes"></div>
+</div>
+<div class="hidden" id="draftTablePanel">
+<div class="draft-table-toolbar">
+<label>Owner
           <select id="draftTableOwner"></select>
-        </label>
-        <label>Position
+</label>
+<label>Position
           <select id="draftTablePosition">
-            <option value="ALL">All Positions</option>
-            <option value="QB">QB</option>
-            <option value="RB">RB</option>
-            <option value="WR">WR</option>
-            <option value="TE">TE</option>
-            <option value="K">K</option>
-            <option value="DST">DST</option>
-          </select>
-        </label>
-        <label>Round
+<option value="ALL">All Positions</option>
+<option value="QB">QB</option>
+<option value="RB">RB</option>
+<option value="WR">WR</option>
+<option value="TE">TE</option>
+<option value="K">K</option>
+<option value="DST">DST</option>
+</select>
+</label>
+<label>Round
           <select id="draftTableRound"></select>
-        </label>
-        <button class="draft-export-btn" id="exportDraftTable">Export Current Table</button>
-        <span id="draftTableCount" class="draft-table-count"></span>
-      </div>
-      <div class="draft-table-wrap">
-        <table class="draft-pick-table" id="draftPickTable">
-          <thead>
-            <tr>
-              <th data-draft-sort="overallPick">Pick <span class="sort-indicator"></span></th>
-              <th data-draft-sort="round">Round <span class="sort-indicator"></span></th>
-              <th data-draft-sort="owner">Owner <span class="sort-indicator"></span></th>
-              <th data-draft-sort="player">Player <span class="sort-indicator"></span></th>
-              <th data-draft-sort="position">Pos <span class="sort-indicator"></span></th>
-              <th data-draft-sort="positionPick">Positional Pick <span class="sort-indicator"></span></th>
-              <th data-draft-sort="originalOwner">Original Slot Owner <span class="sort-indicator"></span></th>
-              <th data-draft-sort="traded">Traded? <span class="sort-indicator"></span></th>
-            </tr>
-          </thead>
-          <tbody id="draftPickRows"></tbody>
-        </table>
-      </div>
-    </div>
-
-    <div id="draftOwnerPanel" class="hidden">
-      <div class="draft-owner-panel-head">
-        <div class="draft-owner-intro">
+</label>
+<button class="draft-export-btn" id="exportDraftTable">Export Current Table</button>
+<span class="draft-table-count" id="draftTableCount"></span>
+</div>
+<div class="draft-table-wrap">
+<table class="draft-pick-table" id="draftPickTable">
+<thead>
+<tr>
+<th data-draft-sort="overallPick">Pick <span class="sort-indicator"></span></th>
+<th data-draft-sort="round">Round <span class="sort-indicator"></span></th>
+<th data-draft-sort="owner">Owner <span class="sort-indicator"></span></th>
+<th data-draft-sort="player">Player <span class="sort-indicator"></span></th>
+<th data-draft-sort="position">Pos <span class="sort-indicator"></span></th>
+<th data-draft-sort="positionPick">Positional Pick <span class="sort-indicator"></span></th>
+<th data-draft-sort="originalOwner">Original Slot Owner <span class="sort-indicator"></span></th>
+<th data-draft-sort="traded">Traded? <span class="sort-indicator"></span></th>
+</tr>
+</thead>
+<tbody id="draftPickRows"></tbody>
+</table>
+</div>
+</div>
+<div class="hidden" id="draftOwnerPanel">
+<div class="draft-owner-panel-head">
+<div class="draft-owner-intro">
           Owner cards use 2010–2025 draft history, with 2017 displayed as archive-only and excluded from analytics.
         </div>
-        <label class="draft-capital-scope-control">Draft Capital Scope
+<label class="draft-capital-scope-control">Draft Capital Scope
           <select id="draftCapitalScope"></select>
-        </label>
-      </div>
-      <div id="draftOwnerCards" class="draft-owner-grid"></div>
-    </div>
-
-    <div id="draftSlotsPanel" class="hidden">
-      <div class="draft-slot-hero">
-        <div class="draft-slot-hero-copy">
-          <div class="draft-slot-eyebrow">Draft Position Outcomes · 2010–2025</div>
-          <h3 id="draftSlotHeroTitle">Draft Slot #1</h3>
-          <p>Raw outcomes plus owner-adjusted performance from this original snake-draft slot.</p>
-        </div>
-        <label class="draft-slot-selector">Selected Slot
+</label>
+</div>
+<div class="draft-owner-grid" id="draftOwnerCards"></div>
+</div>
+<div class="hidden" id="draftSlotsPanel">
+<div class="draft-slot-hero">
+<div class="draft-slot-hero-copy">
+<div class="draft-slot-eyebrow">Draft Position Outcomes · 2010–2025</div>
+<h3 id="draftSlotHeroTitle">Draft Slot #1</h3>
+<p>Raw outcomes plus owner-adjusted performance from this original snake-draft slot.</p>
+</div>
+<label class="draft-slot-selector">Selected Slot
           <select id="draftSlotSelect"></select>
-        </label>
-      </div>
-
-      <div id="draftSlotCards" class="draft-slot-card-grid"></div>
-
-      <div class="draft-adjustment-feature">
-        <div class="draft-adjustment-head">
-          <div>
-            <div class="draft-adjustment-eyebrow">Owner-Adjusted</div>
-            <h3><span class="glossary-term" tabindex="0" data-glossary="slotImpact">Slot Impact</span></h3>
-            <p>How owners performed from this slot compared with their own results from every other slot.</p>
-          </div>
-          <button id="toggleSlotImpact" class="draft-expand-btn">Show Calculation</button>
-        </div>
-        <div id="slotImpactCards" class="draft-delta-grid"></div>
-        <div id="slotImpactBreakdown" class="draft-calc-wrap hidden"></div>
-      </div>
-
-      <div class="draft-slot-analysis-grid">
-        <div class="draft-slot-section">
-          <div class="draft-slot-section-head">
-            <div>
-              <h3>Draft Slot Comparison</h3>
-              <p>Click any column to sort. Better outcomes shade greener.</p>
-            </div>
-          </div>
-          <div class="draft-slot-table-wrap">
-            <table id="draftSlotTable" class="draft-slot-table">
-              <thead>
-                <tr>
-                  <th data-slot-sort="slot">Slot <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="seasons">Seasons <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="avgRS">Avg RS Finish <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="bestRS">Best RS <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="avgPO">Avg PO Finish <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="bestPO">Best PO <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="playoffRate">Playoff % <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="titles">Titles <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="titleRate">Title % <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="avgPoints">Avg Points <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="highPoints">High Points <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="avgPtsRank">Avg Pts Rank <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="bestPtsRank">Best Pts Rank <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="impactRS">Slot Impact RS <span class="sort-indicator"></span></th>
-                  <th data-slot-sort="impactPO">Slot Impact PO <span class="sort-indicator"></span></th>
-                </tr>
-              </thead>
-              <tbody id="draftSlotRows"></tbody>
-            </table>
-          </div>
-        </div>
-
-        <div class="draft-slot-section draft-slot-history">
-          <div class="draft-slot-section-head">
-            <div>
-              <h3 id="draftSlotHistoryTitle">Slot #1 History</h3>
-              <p>Every owner-season assigned this slot.</p>
-            </div>
-          </div>
-          <div id="draftSlotHistoryRows" class="draft-slot-history-rows"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+</label>
+</div>
+<div class="draft-slot-card-grid" id="draftSlotCards"></div>
+<div class="draft-adjustment-feature">
+<div class="draft-adjustment-head">
+<div>
+<div class="draft-adjustment-eyebrow">Owner-Adjusted</div>
+<h3><span class="glossary-term" data-glossary="slotImpact" tabindex="0">Slot Impact</span></h3>
+<p>How owners performed from this slot compared with their own results from every other slot.</p>
+</div>
+<button class="draft-expand-btn" id="toggleSlotImpact">Show Calculation</button>
+</div>
+<div class="draft-delta-grid" id="slotImpactCards"></div>
+<div class="draft-calc-wrap hidden" id="slotImpactBreakdown"></div>
+</div>
+<div class="draft-slot-analysis-grid">
+<div class="draft-slot-section">
+<div class="draft-slot-section-head">
+<div>
+<h3>Draft Slot Comparison</h3>
+<p>Click any column to sort. Better outcomes shade greener.</p>
+</div>
+</div>
+<div class="draft-slot-table-wrap">
+<table class="draft-slot-table" id="draftSlotTable">
+<thead>
+<tr>
+<th data-slot-sort="slot">Slot <span class="sort-indicator"></span></th>
+<th data-slot-sort="seasons">Seasons <span class="sort-indicator"></span></th>
+<th data-slot-sort="avgRS">Avg RS Finish <span class="sort-indicator"></span></th>
+<th data-slot-sort="bestRS">Best RS <span class="sort-indicator"></span></th>
+<th data-slot-sort="avgPO">Avg PO Finish <span class="sort-indicator"></span></th>
+<th data-slot-sort="bestPO">Best PO <span class="sort-indicator"></span></th>
+<th data-slot-sort="playoffRate">Playoff % <span class="sort-indicator"></span></th>
+<th data-slot-sort="titles">Titles <span class="sort-indicator"></span></th>
+<th data-slot-sort="titleRate">Title % <span class="sort-indicator"></span></th>
+<th data-slot-sort="avgPoints">Avg Points <span class="sort-indicator"></span></th>
+<th data-slot-sort="highPoints">High Points <span class="sort-indicator"></span></th>
+<th data-slot-sort="avgPtsRank">Avg Pts Rank <span class="sort-indicator"></span></th>
+<th data-slot-sort="bestPtsRank">Best Pts Rank <span class="sort-indicator"></span></th>
+<th data-slot-sort="impactRS">Slot Impact RS <span class="sort-indicator"></span></th>
+<th data-slot-sort="impactPO">Slot Impact PO <span class="sort-indicator"></span></th>
+</tr>
+</thead>
+<tbody id="draftSlotRows"></tbody>
+</table>
+</div>
+</div>
+<div class="draft-slot-section draft-slot-history">
+<div class="draft-slot-section-head">
+<div>
+<h3 id="draftSlotHistoryTitle">Slot #1 History</h3>
+<p>Every owner-season assigned this slot.</p>
+</div>
+</div>
+<div class="draft-slot-history-rows" id="draftSlotHistoryRows"></div>
+</div>
+</div>
+</div>
+</div>
 </section>
-
-<section id="draftLab" class="view">
-  <div class="lab-shell">
-    <div class="lab-head">
-      <div>
-        <div class="lab-kicker">Commissioner Research</div>
-        <h2>Draft Lab</h2>
-        <p>Explore how draft-capital allocation has aligned with outcomes in this league’s history.</p>
-      </div>
-      <div id="labCoverageBadge" class="lab-coverage-badge"></div>
-    </div>
+<section class="view" id="draftLab">
+<div class="lab-shell">
+<div class="lab-head">
+<div>
+<div class="lab-kicker">Commissioner Research</div>
+<h2>Draft Lab</h2>
+<p>Explore how draft-capital allocation has aligned with outcomes in this league’s history.</p>
+</div>
+<div class="lab-coverage-badge" id="labCoverageBadge"></div>
+</div>
 <div class="lab-section">
-      <div class="lab-section-head">
-        <div>
-          <div class="lab-eyebrow">Capital Profiles</div>
-          <h3>League vs Champions vs Most Points</h3>
-          <p>Average position share for every eligible owner-season compared with the two most successful yearly profiles.</p>
-        </div>
-      </div>
-      <div id="labProfileCards" class="lab-profile-grid"></div>
-      <div id="labProfileDeltaTable" class="lab-table-wrap"></div>
-    </div>
-
-    <div class="lab-section">
-      <div class="lab-section-head">
-        <div>
-          <div class="lab-eyebrow">Relationship Scan</div>
-          <h3><span data-glossary="correlation" class="glossary-term" tabindex="0">Draft-Capital Correlations</span></h3>
-          <p>Pearson correlations. Positive numbers mean higher position spend aligned with a better outcome.</p>
-        </div>
-      </div>
-      <div id="labCorrelationTable" class="lab-table-wrap"></div>
-      <div class="lab-scale-note">Near 0 = little linear relationship · ±0.10 weak · ±0.30 moderate · ±0.50 strong</div>
-    </div>
-
-    <div class="lab-section">
-      <div class="lab-section-head">
-        <div>
-          <div class="lab-eyebrow">Spend Buckets</div>
-          <h3><span data-glossary="quartile" class="glossary-term" tabindex="0">Draft-Capital Quartiles</span></h3>
-          <p>Each position’s owner-seasons are sorted by capital percentage and divided into four equally sized groups.</p>
-        </div>
-        <label class="lab-select-label">Position
+<div class="lab-section-head">
+<div>
+<div class="lab-eyebrow">Capital Profiles</div>
+<h3>League vs Champions vs Most Points</h3>
+<p>Average position share for every eligible owner-season compared with the two most successful yearly profiles.</p>
+</div>
+</div>
+<div class="lab-profile-grid" id="labProfileCards"></div>
+<div class="lab-table-wrap" id="labProfileDeltaTable"></div>
+</div>
+<div class="lab-section">
+<div class="lab-section-head">
+<div>
+<div class="lab-eyebrow">Relationship Scan</div>
+<h3><span class="glossary-term" data-glossary="correlation" tabindex="0">Draft-Capital Correlations</span></h3>
+<p>Pearson correlations. Positive numbers mean higher position spend aligned with a better outcome.</p>
+</div>
+</div>
+<div class="lab-table-wrap" id="labCorrelationTable"></div>
+<div class="lab-scale-note">Near 0 = little linear relationship · ±0.10 weak · ±0.30 moderate · ±0.50 strong</div>
+</div>
+<div class="lab-section">
+<div class="lab-section-head">
+<div>
+<div class="lab-eyebrow">Spend Buckets</div>
+<h3><span class="glossary-term" data-glossary="quartile" tabindex="0">Draft-Capital Quartiles</span></h3>
+<p>Each position’s owner-seasons are sorted by capital percentage and divided into four equally sized groups.</p>
+</div>
+<label class="lab-select-label">Position
           <select id="labQuartilePosition">
-            <option value="QB">QB</option>
-            <option value="RB" selected>RB</option>
-            <option value="WR">WR</option>
-            <option value="TE">TE</option>
-          </select>
-        </label>
-      </div>
-      <div id="labQuartileTable" class="lab-table-wrap"></div>
-    </div>
-
-    <div class="lab-section">
-      <div class="lab-section-head">
-        <div>
-          <div class="lab-eyebrow">Strategy Profiles</div>
-          <h3><span data-glossary="draftArchetype" class="glossary-term" tabindex="0">Draft Archetypes</span></h3>
-          <p>Transparent, configurable definitions applied to each eligible owner-season. A draft may match more than one archetype.</p>
-        </div>
-      </div>
-      <div id="labArchetypeTable" class="lab-table-wrap"></div>
-      <div class="lab-chart-card">
-        <div class="lab-chart-head">
-          <strong>Archetype Outcome Map</strong>
-          <span>X = sample size · Y = average points rank · bubble size = titles</span>
-        </div>
-        <svg id="labArchetypeChart" viewBox="0 0 1050 430" role="img" aria-label="Draft archetype outcome chart"></svg>
-      </div>
-    </div>
-
-    <div class="lab-section">
-      <div class="lab-section-head">
-        <div>
-          <div class="lab-eyebrow">Normalization Audit</div>
-          <h3>Owner Overperformance vs Slot Expectation</h3>
-          <p>League-wide view of the owner-card metric, including an integrity footer that should reconcile to approximately zero.</p>
-        </div>
-      </div>
-      <div id="labOwnerOverperformance" class="lab-table-wrap"></div>
-    </div>
-
-    <div class="lab-section lab-query-section">
-      <div class="lab-section-head">
-        <div>
-          <div class="lab-eyebrow">Custom Research</div>
-          <h3><span data-glossary="queryBuilder" class="glossary-term" tabindex="0">Query Builder</span></h3>
-          <p>Define a draft profile and inspect the matching owner-seasons and their outcomes.</p>
-        </div>
-      </div>
-
-      <div class="lab-query-grid">
-        <label>Capital Position
+<option value="QB">QB</option>
+<option selected="" value="RB">RB</option>
+<option value="WR">WR</option>
+<option value="TE">TE</option>
+</select>
+</label>
+</div>
+<div class="lab-table-wrap" id="labQuartileTable"></div>
+</div>
+<div class="lab-section">
+<div class="lab-section-head">
+<div>
+<div class="lab-eyebrow">Strategy Profiles</div>
+<h3><span class="glossary-term" data-glossary="draftArchetype" tabindex="0">Draft Archetypes</span></h3>
+<p>Transparent, configurable definitions applied to each eligible owner-season. A draft may match more than one archetype.</p>
+</div>
+</div>
+<div class="lab-table-wrap" id="labArchetypeTable"></div>
+<div class="lab-chart-card">
+<div class="lab-chart-head">
+<strong>Archetype Outcome Map</strong>
+<span>X = sample size · Y = average points rank · bubble size = titles</span>
+</div>
+<svg aria-label="Draft archetype outcome chart" id="labArchetypeChart" role="img" viewbox="0 0 1050 430"></svg>
+</div>
+</div>
+<div class="lab-section">
+<div class="lab-section-head">
+<div>
+<div class="lab-eyebrow">Normalization Audit</div>
+<h3>Owner Overperformance vs Slot Expectation</h3>
+<p>League-wide view of the owner-card metric, including an integrity footer that should reconcile to approximately zero.</p>
+</div>
+</div>
+<div class="lab-table-wrap" id="labOwnerOverperformance"></div>
+</div>
+<div class="lab-section lab-query-section">
+<div class="lab-section-head">
+<div>
+<div class="lab-eyebrow">Custom Research</div>
+<h3><span class="glossary-term" data-glossary="queryBuilder" tabindex="0">Query Builder</span></h3>
+<p>Define a draft profile and inspect the matching owner-seasons and their outcomes.</p>
+</div>
+</div>
+<div class="lab-query-grid">
+<label>Capital Position
           <select id="labQueryCapitalPosition">
-            <option value="QB">QB</option>
-            <option value="RB" selected>RB</option>
-            <option value="WR">WR</option>
-            <option value="TE">TE</option>
-          </select>
-        </label>
-        <label>Minimum Capital %
-          <input id="labQueryCapitalMin" type="number" min="0" max="100" step="1" value="0">
-        </label>
-        <label>Maximum Capital %
-          <input id="labQueryCapitalMax" type="number" min="0" max="100" step="1" value="100">
-        </label>
-        <label>Position A
+<option value="QB">QB</option>
+<option selected="" value="RB">RB</option>
+<option value="WR">WR</option>
+<option value="TE">TE</option>
+</select>
+</label>
+<label>Minimum Capital %
+          <input id="labQueryCapitalMin" max="100" min="0" step="1" type="number" value="0"/>
+</label>
+<label>Maximum Capital %
+          <input id="labQueryCapitalMax" max="100" min="0" step="1" type="number" value="100"/>
+</label>
+<label>Position A
           <select id="labQueryFirstPosition">
-            <option value="ANY">Any</option>
-            <option value="QB">QB</option>
-            <option value="RB">RB</option>
-            <option value="WR">WR</option>
-            <option value="TE">TE</option>
-          </select>
-        </label>
-        <label>First A Selected By
-          <input id="labQueryFirstPickMax" type="number" min="1" max="200" step="1" placeholder="Any">
-        </label>
-        <label>Position B
+<option value="ANY">Any</option>
+<option value="QB">QB</option>
+<option value="RB">RB</option>
+<option value="WR">WR</option>
+<option value="TE">TE</option>
+</select>
+</label>
+<label>First A Selected By
+          <input id="labQueryFirstPickMax" max="200" min="1" placeholder="Any" step="1" type="number"/>
+</label>
+<label>Position B
           <select id="labQuerySecondPosition">
-            <option value="ANY">Any</option>
-            <option value="QB">QB</option>
-            <option value="RB">RB</option>
-            <option value="WR">WR</option>
-            <option value="TE">TE</option>
-          </select>
-        </label>
-        <label>First B Selected By
-          <input id="labQuerySecondPickMax" type="number" min="1" max="200" step="1" placeholder="Any">
-        </label>
-        <div class="lab-query-actions">
-          <button id="labRunQuery" class="lab-primary-btn">Run Query</button>
-          <button id="labResetQuery" class="lab-secondary-btn">Reset</button>
-        </div>
-      </div>
-      <div class="lab-query-help">
+<option value="ANY">Any</option>
+<option value="QB">QB</option>
+<option value="RB">RB</option>
+<option value="WR">WR</option>
+<option value="TE">TE</option>
+</select>
+</label>
+<label>First B Selected By
+          <input id="labQuerySecondPickMax" max="200" min="1" placeholder="Any" step="1" type="number"/>
+</label>
+<div class="lab-query-actions">
+<button class="lab-primary-btn" id="labRunQuery">Run Query</button>
+<button class="lab-secondary-btn" id="labResetQuery">Reset</button>
+</div>
+</div>
+<div class="lab-query-help">
         Position A and Position B each refer to the <strong>first player drafted at that position</strong>.
         Their order does not matter. Example: RB by pick 20 plus QB by pick 20 matches either RB–QB or QB–RB.
       </div>
-
-      <div id="labQuerySummary" class="lab-query-summary"></div>
-      <div id="labQueryResults" class="lab-table-wrap"></div>
-    </div>
-  </div>
+<div class="lab-query-summary" id="labQuerySummary"></div>
+<div class="lab-table-wrap" id="labQueryResults"></div>
+</div>
+</div>
 </section>
-
-<section id="glossary" class="view">
-  <div class="glossary-shell">
-    <div class="glossary-head">
-      <div>
-        <div class="glossary-kicker">League Language</div>
-        <h2>Glossary</h2>
-        <p>Definitions for league-specific and potentially ambiguous terms used throughout The Big Board.</p>
-      </div>
-      <label class="glossary-search-label">Search
-        <input id="glossarySearch" type="search" placeholder="Search terms or definitions">
-      </label>
-    </div>
-    <div id="glossaryList" class="glossary-grid"></div>
-  </div>
+<section class="view" id="glossary">
+<div class="glossary-shell">
+<div class="glossary-head">
+<div>
+<div class="glossary-kicker">League Language</div>
+<h2>Glossary</h2>
+<p>Definitions for league-specific and potentially ambiguous terms used throughout The Big Board.</p>
+</div>
+<label class="glossary-search-label">Search
+        <input id="glossarySearch" placeholder="Search terms or definitions" type="search"/>
+</label>
+</div>
+<div class="glossary-grid" id="glossaryList"></div>
+</div>
 </section>
-
-<section id="weeklyAnalytics" class="view">
-  <div class="weekly-shell">
-    <div class="weekly-head">
-      <div><div class="weekly-kicker">Game-by-Game History</div><h2>Weekly Analytics</h2><p>All-play standings, expected wins, schedule effects, and weekly scoring performance.</p></div>
-      <div class="weekly-controls"><label>Season<select id="weeklyYear"></select></label><label>View<select id="weeklyScope"><option value="SEASON">Selected Season</option><option value="CAREER">Combined History</option></select></label></div>
-    </div>
-    <div class="weekly-subnav" role="tablist" aria-label="Weekly Analytics views">
-      <button id="weeklyOverviewTab" class="active" type="button">Overview</button>
-      <button id="weeklyH2HTab" type="button">Head-to-Head</button>
-    </div>
-    <div id="weeklyOwnerFilter" class="weekly-owner-filter hidden">
-      <span id="weeklyOwnerFilterText"></span>
-      <button id="weeklyClearOwner" type="button">Clear filter</button>
-    </div>
-    <div id="weeklyLoadState" class="weekly-load-state">Weekly history loads only when this module is opened.</div>
-    <div id="weeklyContent" class="hidden">
-      <div id="weeklyOverviewPanel">
-      <div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Flagship View</div><h3>Alt Standings</h3><p>Each weekly score is compared against all nine opponents. Expected wins convert that all-play record back to a normal season scale.</p></div></div><div id="weeklySummaryCards" class="weekly-summary-grid"></div><div id="weeklyAltTable" class="weekly-table-wrap"></div></div>
-      <div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Schedule Context</div><h3>Luck & Schedule</h3><p>Actual wins versus expected wins, plus average opponent scoring.</p></div></div><div id="weeklyLuckTable" class="weekly-table-wrap"></div></div>
-      <div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Weekly Performance</div><h3>Scoring Distribution</h3><p>Weekly high scores, top-three weeks, bottom-three weeks, and average weekly rank.</p></div></div><div id="weeklyDistributionTable" class="weekly-table-wrap"></div></div>
-      </div>
-
-      <div id="weeklyH2HPanel" class="hidden">
-        <div class="weekly-section weekly-h2h-section">
-          <div class="weekly-section-head weekly-h2h-head">
-            <div>
-              <div class="weekly-eyebrow">Phase 2</div>
-              <h3>Head-to-Head Records</h3>
-              <p>Regular-season meetings from the weekly history currently loaded into the site.</p>
-            </div>
-            <div class="weekly-h2h-controls">
-              <label>Owner A<select id="weeklyH2HOwnerA"></select></label>
-              <label>Owner B<select id="weeklyH2HOwnerB"></select></label>
-              <label>Season<select id="weeklyH2HYear"></select></label>
-            </div>
-          </div>
-          <div id="weeklyH2HSummary" class="weekly-h2h-summary"></div>
-          <div id="weeklyH2HTable" class="weekly-table-wrap"></div>
-        </div>
-      </div>
-    </div>
-  </div>
+<section class="view" id="weeklyAnalytics">
+<div class="weekly-shell">
+<div class="weekly-head">
+<div><div class="weekly-kicker">Game-by-Game History</div><h2>Weekly Analytics</h2><p>All-play standings, expected wins, schedule effects, and weekly scoring performance.</p></div>
+<div class="weekly-controls"><label>Season<select id="weeklyYear"></select></label><label>View<select id="weeklyScope"><option value="SEASON">Selected Season</option><option value="CAREER">Combined History</option></select></label></div>
+</div>
+<div aria-label="Weekly Analytics views" class="weekly-subnav" role="tablist">
+<button class="active" id="weeklyOverviewTab" type="button">Overview</button>
+<button id="weeklyH2HTab" type="button">Head-to-Head</button>
+<button id="weeklyFeatsTab" type="button">Remarkable Feats</button>
+</div>
+<div class="weekly-owner-filter hidden" id="weeklyOwnerFilter">
+<span id="weeklyOwnerFilterText"></span>
+<button id="weeklyClearOwner" type="button">Clear filter</button>
+</div>
+<div class="weekly-load-state" id="weeklyLoadState">Weekly history loads only when this module is opened.</div>
+<div class="hidden" id="weeklyContent">
+<div id="weeklyOverviewPanel">
+<div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Flagship View</div><h3>Alt Standings</h3><p>Each weekly score is compared against all nine opponents. Expected wins convert that all-play record back to a normal season scale.</p></div></div><div class="weekly-summary-grid" id="weeklySummaryCards"></div><div class="weekly-table-wrap" id="weeklyAltTable"></div></div>
+<div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Schedule Context</div><h3>Luck &amp; Schedule</h3><p>Actual wins versus expected wins, plus average opponent scoring.</p></div></div><div class="weekly-table-wrap" id="weeklyLuckTable"></div></div>
+<div class="weekly-section"><div class="weekly-section-head"><div><div class="weekly-eyebrow">Weekly Performance</div><h3>Scoring Distribution</h3><p>Weekly high scores, top-three weeks, bottom-three weeks, and average weekly rank.</p></div></div><div class="weekly-table-wrap" id="weeklyDistributionTable"></div></div>
+</div>
+<div class="hidden" id="weeklyH2HPanel">
+<div class="weekly-section weekly-h2h-section">
+<div class="weekly-section-head weekly-h2h-head">
+<div>
+<div class="weekly-eyebrow">Phase 2</div>
+<h3>Head-to-Head Records</h3>
+<p>Regular-season meetings from the weekly history currently loaded into the site.</p>
+</div>
+<div class="weekly-h2h-controls">
+<label>Owner A<select id="weeklyH2HOwnerA"></select></label>
+<label>Owner B<select id="weeklyH2HOwnerB"></select></label>
+<label>Season<select id="weeklyH2HYear"></select></label>
+</div>
+</div>
+<div class="weekly-h2h-summary" id="weeklyH2HSummary"></div>
+<div class="weekly-table-wrap" id="weeklyH2HTable"></div>
+</div>
+</div>
+<div class="hidden" id="weeklyFeatsPanel">
+<div class="weekly-section weekly-feats-section">
+<div class="weekly-section-head">
+<div>
+<div class="weekly-eyebrow">Career-Spanning Records</div>
+<h3>Remarkable Feats</h3>
+<p>Automatically discovered regular-season streaks across the full weekly history. Streaks may span seasons.</p>
+</div>
+</div>
+<div class="weekly-feats-grid" id="weeklyFeatsGrid"></div>
+<div class="weekly-feat-detail hidden" id="weeklyFeatDetail">
+<div class="weekly-feat-detail-head">
+<div>
+<div class="weekly-eyebrow">Underlying Weeks</div>
+<h4 id="weeklyFeatDetailTitle"></h4>
+</div>
+<button id="weeklyFeatClear" type="button">Close detail</button>
+</div>
+<div class="weekly-table-wrap" id="weeklyFeatDetailTable"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 </main>
-<div id="tooltip" class="tooltip"></div>
-
+<div class="tooltip" id="tooltip"></div>
 <script>
 (async function bootBigBoard(){
 let LEAGUE_CONFIG;
@@ -2400,27 +2581,8 @@ function career(until=9999){
 function integrity(){return integrityFor(state.records)}
 function renderAll(){
   resetPendingFromSaved();
-  renderIntegrity(); renderRankings(); renderMatrix(); renderAuditSelectors(); renderAudit();
+  renderMatrix(); renderAuditSelectors(); renderAudit();
   renderSettings(); renderTiers(); renderEditor(); renderHistoricalSnapshots(); renderFourYearRecap(); renderPermanentFinal(); resetReveal(); renderJourney(); renderDraftHub();
-}
-function renderIntegrity(){
-  const issues=integrity(), el=document.getElementById("integrityCard");
-  el.className="card integrity "+(issues.length?"warn":"good");
-  el.innerHTML=issues.length
-   ? `<strong>Data Integrity: ${issues.length} issue${issues.length>1?"s":""} detected</strong><div class="muted">${issues.slice(0,5).join("<br>")}</div>`
-   : `<strong>Data Integrity: Verified</strong><div class="muted">${new Set(state.records.map(r=>r.Year)).size} seasons, ${state.records.length} owner records, no structural issues detected.</div>`;
-}
-function renderRankings(){
-  const current=career(), old=career(state.snapshotYear), om=Object.fromEntries(old.map(x=>[x.owner,x]));
-  document.getElementById("rankingCards").innerHTML=current.map(x=>{
-    const o=om[x.owner],delta=o?x.prestige-o.prestige:0,move=o?o.rank-x.rank:0;
-    return `<div class="card">
-      <div class="muted">#${x.rank} · Tier ${state.tiers[x.owner]||"—"}</div>
-      <div style="font-size:22px;font-weight:750;margin-top:3px">${displayName(x.owner)}</div>
-      <div class="metric ${x.prestige<0?"negative":""}">${x.prestige}</div>
-      <div class="muted">${delta>=0?"+":""}${delta} Prestige since ${state.snapshotYear} · ${move===0?"No rank change":move>0?`▲ ${move}`:`▼ ${Math.abs(move)}`}</div>
-    </div>`;
-  }).join("");
 }
 function expectedAuditText(category,rowTotal){
  const seasons=[...new Set(state.records.map(r=>+r.Year))].sort((a,b)=>a-b);
@@ -4633,7 +4795,7 @@ function renderGlossary(){
 }
 
 
-let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL";
+let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL",weeklyH2HSort={key:"year",direction:"desc"},weeklySelectedFeatId=null;
 let weeklySortStates={alt:{key:"allPlayWins",direction:"desc"},luck:{key:"luckDelta",direction:"desc"},distribution:{key:"weeklyHighs",direction:"desc"}};
 async function ensureWeeklyHistoryLoaded(){if(WEEKLY_HISTORY_DATA)return WEEKLY_HISTORY_DATA;if(weeklyLoadingPromise)return weeklyLoadingPromise;const s=document.getElementById("weeklyLoadState");if(s)s.textContent="Loading weekly history…";weeklyLoadingPromise=fetch("./data/weeklyHistory.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Could not load weeklyHistory.json (${r.status})`);return r.json();}).then(d=>{WEEKLY_HISTORY_DATA=d;weeklySelectedYear=Math.max(...d.years.map(Number));return d;});return weeklyLoadingPromise;}
 function weeklyRowsForScope(includeOwnerFilter=true){
@@ -4773,83 +4935,416 @@ function renderWeeklyDistributionTable(){
 function weeklySetActiveView(view){
   weeklyActiveView=view;
   const overview=view==="OVERVIEW";
+  const h2h=view==="H2H";
+  const feats=view==="FEATS";
   document.getElementById("weeklyOverviewPanel").classList.toggle("hidden",!overview);
-  document.getElementById("weeklyH2HPanel").classList.toggle("hidden",overview);
+  document.getElementById("weeklyH2HPanel").classList.toggle("hidden",!h2h);
+  document.getElementById("weeklyFeatsPanel").classList.toggle("hidden",!feats);
   document.getElementById("weeklyOverviewTab").classList.toggle("active",overview);
-  document.getElementById("weeklyH2HTab").classList.toggle("active",!overview);
+  document.getElementById("weeklyH2HTab").classList.toggle("active",h2h);
+  document.getElementById("weeklyFeatsTab").classList.toggle("active",feats);
   document.querySelector(".weekly-controls").classList.toggle("hidden",!overview);
   document.getElementById("weeklyOwnerFilter").classList.toggle("hidden",!overview||!weeklySelectedOwner);
-  if(!overview)renderWeeklyH2H();
+  if(h2h)renderWeeklyH2H();
+  if(feats)renderWeeklyFeats();
 }
+
 function weeklyH2HOwners(){
   return [...new Set((WEEKLY_HISTORY_DATA?.records||[]).flatMap(r=>[r.owner,r.opponent]))]
     .sort((a,b)=>displayName(a).localeCompare(displayName(b)));
 }
-function weeklyH2HMeetings(){
-  return (WEEKLY_HISTORY_DATA?.records||[])
-    .filter(r=>r.owner===weeklyH2HOwnerA&&r.opponent===weeklyH2HOwnerB)
-    .filter(r=>weeklyH2HYear==="ALL"||+r.year===+weeklyH2HYear)
-    .sort((a,b)=>a.year-b.year||a.week-b.week);
+function weeklyUniqueGames(){
+  const seen=new Set(),games=[];
+  (WEEKLY_HISTORY_DATA?.records||[]).forEach(r=>{
+    const owners=[r.owner,r.opponent].sort();
+    const key=`${r.year}|${r.week}|${owners[0]}|${owners[1]}`;
+    if(seen.has(key))return;
+    seen.add(key);
+    games.push({...r});
+  });
+  return games;
 }
-function weeklyLongestH2HStreak(meetings){
+function weeklyH2HMode(){
+  if(weeklyH2HOwnerA==="ALL"&&weeklyH2HOwnerB==="ALL")return "LEAGUE";
+  if(weeklyH2HOwnerA==="ALL"||weeklyH2HOwnerB==="ALL")return "OWNER_ALL";
+  return "RIVALRY";
+}
+function weeklyH2HFocusOwner(){
+  if(weeklyH2HOwnerA!=="ALL")return weeklyH2HOwnerA;
+  if(weeklyH2HOwnerB!=="ALL")return weeklyH2HOwnerB;
+  return null;
+}
+function weeklyH2HMeetings(){
+  const mode=weeklyH2HMode();
+  let meetings=weeklyUniqueGames();
+
+  if(mode==="RIVALRY"){
+    meetings=meetings.filter(r=>{
+      const pair=new Set([r.owner,r.opponent]);
+      return pair.has(weeklyH2HOwnerA)&&pair.has(weeklyH2HOwnerB);
+    }).map(r=>{
+      if(r.owner===weeklyH2HOwnerA)return {...r,viewOwnerA:weeklyH2HOwnerA,viewOwnerB:weeklyH2HOwnerB,scoreA:r.pointsFor,scoreB:r.pointsAgainst};
+      return {...r,viewOwnerA:weeklyH2HOwnerA,viewOwnerB:weeklyH2HOwnerB,scoreA:r.pointsAgainst,scoreB:r.pointsFor};
+    });
+  }else if(mode==="OWNER_ALL"){
+    const focus=weeklyH2HFocusOwner();
+    meetings=meetings.filter(r=>r.owner===focus||r.opponent===focus).map(r=>{
+      if(r.owner===focus)return {...r,focusOwner:focus,otherOwner:r.opponent,focusScore:r.pointsFor,otherScore:r.pointsAgainst};
+      return {...r,focusOwner:focus,otherOwner:r.owner,focusScore:r.pointsAgainst,otherScore:r.pointsFor};
+    });
+  }else{
+    meetings=meetings.map(r=>{
+      const tie=r.pointsFor===r.pointsAgainst;
+      const winner=tie?"Tie":r.pointsFor>r.pointsAgainst?r.owner:r.opponent;
+      const loser=tie?"Tie":r.pointsFor>r.pointsAgainst?r.opponent:r.owner;
+      const winningScore=Math.max(r.pointsFor,r.pointsAgainst);
+      const losingScore=Math.min(r.pointsFor,r.pointsAgainst);
+      return {...r,winner,loser,winningScore,losingScore};
+    });
+  }
+
+  if(weeklyH2HYear!=="ALL")meetings=meetings.filter(r=>+r.year===+weeklyH2HYear);
+  return meetings;
+}
+function weeklyLongestH2HStreak(meetings,mode){
   let bestOwner=null,best=0,currentOwner=null,current=0;
-  meetings.forEach(r=>{
-    const winner=r.pointsFor>r.pointsAgainst?weeklyH2HOwnerA:r.pointsFor<r.pointsAgainst?weeklyH2HOwnerB:"TIE";
-    if(winner==="TIE"){currentOwner=null;current=0;return;}
+  const ordered=[...meetings].sort((a,b)=>a.year-b.year||a.week-b.week);
+  ordered.forEach(r=>{
+    let winner;
+    if(mode==="RIVALRY")winner=r.scoreA>r.scoreB?r.viewOwnerA:r.scoreA<r.scoreB?r.viewOwnerB:"TIE";
+    else if(mode==="OWNER_ALL")winner=r.focusScore>r.otherScore?r.focusOwner:r.focusScore<r.otherScore?r.otherOwner:"TIE";
+    else winner=r.winner;
+    if(winner==="TIE"||winner==="Tie"){currentOwner=null;current=0;return;}
     if(winner===currentOwner)current+=1;
     else{currentOwner=winner;current=1;}
     if(current>best){best=current;bestOwner=winner;}
   });
   return {owner:bestOwner,count:best};
 }
+function weeklyH2HSortValue(r,key,mode){
+  if(key==="year")return r.year;
+  if(key==="week")return r.week;
+  if(key==="margin"){
+    if(mode==="RIVALRY")return Math.abs(r.scoreA-r.scoreB);
+    if(mode==="OWNER_ALL")return Math.abs(r.focusScore-r.otherScore);
+    return r.winningScore-r.losingScore;
+  }
+  if(key==="combined"){
+    if(mode==="RIVALRY")return r.scoreA+r.scoreB;
+    if(mode==="OWNER_ALL")return r.focusScore+r.otherScore;
+    return r.winningScore+r.losingScore;
+  }
+  if(key==="scoreA")return r.scoreA;
+  if(key==="scoreB")return r.scoreB;
+  if(key==="focusScore")return r.focusScore;
+  if(key==="otherScore")return r.otherScore;
+  if(key==="winningScore")return r.winningScore;
+  if(key==="losingScore")return r.losingScore;
+  if(key==="owner"){
+    const value=mode==="OWNER_ALL"?r.otherOwner:mode==="LEAGUE"?r.winner:r.viewOwnerA;
+    return displayName(value);
+  }
+  return r[key]??"";
+}
+function weeklyH2HSorted(meetings,mode){
+  const {key,direction}=weeklyH2HSort;
+  return [...meetings].sort((a,b)=>{
+    const av=weeklyH2HSortValue(a,key,mode),bv=weeklyH2HSortValue(b,key,mode);
+    let result;
+    if(typeof av==="string"||typeof bv==="string")result=String(av).localeCompare(String(bv));
+    else result=(+av)-(+bv);
+    if(result===0)result=(a.year-b.year)||(a.week-b.week);
+    return direction==="asc"?result:-result;
+  });
+}
+function weeklyH2HHeader(label,key){
+  const active=weeklyH2HSort.key===key;
+  return `<th data-h2h-sort="${key}">${label}<span class="weekly-sort">${active?(weeklyH2HSort.direction==="asc"?"▲":"▼"):""}</span></th>`;
+}
+function bindWeeklyH2HSort(){
+  document.querySelectorAll("[data-h2h-sort]").forEach(th=>th.addEventListener("click",()=>{
+    const key=th.dataset.h2hSort;
+    if(weeklyH2HSort.key===key)weeklyH2HSort.direction=weeklyH2HSort.direction==="asc"?"desc":"asc";
+    else{
+      weeklyH2HSort.key=key;
+      weeklyH2HSort.direction=["owner"].includes(key)?"asc":"desc";
+    }
+    renderWeeklyH2H();
+  }));
+}
 function renderWeeklyH2HControls(){
   const owners=weeklyH2HOwners();
-  if(!owners.includes(weeklyH2HOwnerA))weeklyH2HOwnerA=owners[0]||null;
-  if(!owners.includes(weeklyH2HOwnerB)||weeklyH2HOwnerB===weeklyH2HOwnerA){
-    weeklyH2HOwnerB=owners.find(o=>o!==weeklyH2HOwnerA)||null;
-  }
-  const ownerOptions=owners.map(o=>`<option value="${o}">${displayName(o)}</option>`).join("");
+  const ownerOptions=`<option value="ALL">All</option>${owners.map(o=>`<option value="${o}">${displayName(o)}</option>`).join("")}`;
   const a=document.getElementById("weeklyH2HOwnerA"),b=document.getElementById("weeklyH2HOwnerB"),y=document.getElementById("weeklyH2HYear");
-  if(!a.options.length)a.innerHTML=ownerOptions;
-  if(!b.options.length)b.innerHTML=ownerOptions;
+  a.innerHTML=ownerOptions;b.innerHTML=ownerOptions;
   if(!y.options.length)y.innerHTML=`<option value="ALL">All Loaded Seasons</option>${[...WEEKLY_HISTORY_DATA.years].sort((x,z)=>z-x).map(year=>`<option value="${year}">${year}</option>`).join("")}`;
   a.value=weeklyH2HOwnerA;b.value=weeklyH2HOwnerB;y.value=weeklyH2HYear;
 }
 function renderWeeklyH2H(){
   renderWeeklyH2HControls();
+  const mode=weeklyH2HMode();
   const meetings=weeklyH2HMeetings();
-  const aName=displayName(weeklyH2HOwnerA),bName=displayName(weeklyH2HOwnerB);
-  const aWins=meetings.filter(r=>r.pointsFor>r.pointsAgainst).length;
-  const bWins=meetings.filter(r=>r.pointsFor<r.pointsAgainst).length;
-  const ties=meetings.length-aWins-bWins;
-  const avgA=meetings.length?meetings.reduce((s,r)=>s+r.pointsFor,0)/meetings.length:0;
-  const avgB=meetings.length?meetings.reduce((s,r)=>s+r.pointsAgainst,0)/meetings.length:0;
-  const largest=[...meetings].sort((x,z)=>Math.abs(z.pointsFor-z.pointsAgainst)-Math.abs(x.pointsFor-x.pointsAgainst))[0];
-  const closest=[...meetings].sort((x,z)=>Math.abs(x.pointsFor-x.pointsAgainst)-Math.abs(z.pointsFor-z.pointsAgainst))[0];
-  const highest=[...meetings].sort((x,z)=>(z.pointsFor+z.pointsAgainst)-(x.pointsFor+x.pointsAgainst))[0];
-  const streak=weeklyLongestH2HStreak(meetings);
+  const sorted=weeklyH2HSorted(meetings,mode);
   const gameLabel=r=>r?`${r.year} W${r.week}`:"—";
-  const winnerLabel=r=>!r?"—":r.pointsFor>r.pointsAgainst?aName:r.pointsFor<r.pointsAgainst?bName:"Tie";
-  document.getElementById("weeklyH2HSummary").innerHTML=[
-    ["Series Record",`${aWins}–${bWins}${ties?`–${ties}`:""}`,`${aName} listed first`],
-    ["Average Score",`${avgA.toFixed(1)} – ${avgB.toFixed(1)}`,`${aName} – ${bName}`],
-    ["Largest Win",largest?`${winnerLabel(largest)} +${Math.abs(largest.pointsFor-largest.pointsAgainst).toFixed(2)}`:"—",gameLabel(largest)],
-    ["Closest Game",closest?`${Math.abs(closest.pointsFor-closest.pointsAgainst).toFixed(2)} pts`:"—",closest?`${gameLabel(closest)} · ${winnerLabel(closest)}`:""],
-    ["Highest Combined",highest?`${(highest.pointsFor+highest.pointsAgainst).toFixed(2)}`:"—",gameLabel(highest)],
-    ["Longest Streak",streak.owner?`${displayName(streak.owner)} · ${streak.count}`:"—",`${meetings.length} total meetings`]
-  ].map(([label,value,detail])=>`<div class="weekly-h2h-card"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`).join("");
+  let cards=[],table="";
 
-  document.getElementById("weeklyH2HTable").innerHTML=meetings.length?`<table class="weekly-table"><thead><tr>
-    <th style="text-align:left">Season</th><th>Week</th><th>${aName}</th><th>${bName}</th><th>Winner</th><th>Margin</th><th>Combined</th>
-  </tr></thead><tbody>${[...meetings].sort((x,z)=>z.year-x.year||z.week-x.week).map(r=>{
-    const winner=winnerLabel(r),tie=winner==="Tie";
-    return `<tr><td style="text-align:left">${r.year}</td><td>${r.week}</td>
-      <td class="weekly-h2h-score-a">${r.pointsFor.toFixed(2)}</td>
-      <td class="weekly-h2h-score-b">${r.pointsAgainst.toFixed(2)}</td>
-      <td class="${tie?"weekly-h2h-tie":"weekly-h2h-winner"}">${winner}</td>
-      <td>${Math.abs(r.pointsFor-r.pointsAgainst).toFixed(2)}</td>
-      <td>${(r.pointsFor+r.pointsAgainst).toFixed(2)}</td></tr>`;
-  }).join("")}</tbody></table>`:`<div class="weekly-load-state">No meetings are available for this owner and season combination.</div>`;
+  if(mode==="RIVALRY"){
+    const aName=displayName(weeklyH2HOwnerA),bName=displayName(weeklyH2HOwnerB);
+    const aWins=meetings.filter(r=>r.scoreA>r.scoreB).length;
+    const bWins=meetings.filter(r=>r.scoreA<r.scoreB).length;
+    const ties=meetings.length-aWins-bWins;
+    const avgA=meetings.length?meetings.reduce((s,r)=>s+r.scoreA,0)/meetings.length:0;
+    const avgB=meetings.length?meetings.reduce((s,r)=>s+r.scoreB,0)/meetings.length:0;
+    const largest=[...meetings].sort((x,z)=>Math.abs(z.scoreA-z.scoreB)-Math.abs(x.scoreA-x.scoreB))[0];
+    const closest=[...meetings].sort((x,z)=>Math.abs(x.scoreA-x.scoreB)-Math.abs(z.scoreA-z.scoreB))[0];
+    const highest=[...meetings].sort((x,z)=>(z.scoreA+z.scoreB)-(x.scoreA+x.scoreB))[0];
+    const streak=weeklyLongestH2HStreak(meetings,mode);
+    const winner=r=>!r?"—":r.scoreA>r.scoreB?aName:r.scoreA<r.scoreB?bName:"Tie";
+
+    cards=[
+      ["Series Record",`${aWins}–${bWins}${ties?`–${ties}`:""}`,`${aName} listed first`],
+      ["Average Score",`${avgA.toFixed(1)} – ${avgB.toFixed(1)}`,`${aName} – ${bName}`],
+      ["Largest Win",largest?`${winner(largest)} +${Math.abs(largest.scoreA-largest.scoreB).toFixed(2)}`:"—",gameLabel(largest)],
+      ["Closest Game",closest?`${Math.abs(closest.scoreA-closest.scoreB).toFixed(2)} pts`:"—",closest?`${gameLabel(closest)} · ${winner(closest)}`:""],
+      ["Highest Combined",highest?`${(highest.scoreA+highest.scoreB).toFixed(2)}`:"—",gameLabel(highest)],
+      ["Longest Streak",streak.owner?`${displayName(streak.owner)} · ${streak.count}`:"—",`${meetings.length} total meetings`]
+    ];
+
+    table=`<table class="weekly-table"><thead><tr>
+      ${weeklyH2HHeader("Season","year")}${weeklyH2HHeader("Week","week")}
+      ${weeklyH2HHeader(aName,"scoreA")}${weeklyH2HHeader(bName,"scoreB")}
+      <th>Winner</th>${weeklyH2HHeader("Margin","margin")}${weeklyH2HHeader("Combined","combined")}
+    </tr></thead><tbody>${sorted.map(r=>{
+      const w=winner(r),tie=w==="Tie";
+      return `<tr><td style="text-align:left">${r.year}</td><td>${r.week}</td>
+        <td class="weekly-h2h-score-a">${r.scoreA.toFixed(2)}</td>
+        <td class="weekly-h2h-score-b">${r.scoreB.toFixed(2)}</td>
+        <td class="${tie?"weekly-h2h-tie":"weekly-h2h-winner"}">${w}</td>
+        <td>${Math.abs(r.scoreA-r.scoreB).toFixed(2)}</td>
+        <td>${(r.scoreA+r.scoreB).toFixed(2)}</td></tr>`;
+    }).join("")}</tbody></table>`;
+  }else if(mode==="OWNER_ALL"){
+    const focus=weeklyH2HFocusOwner(),focusName=displayName(focus);
+    const wins=meetings.filter(r=>r.focusScore>r.otherScore).length;
+    const losses=meetings.filter(r=>r.focusScore<r.otherScore).length;
+    const ties=meetings.length-wins-losses;
+    const avg=meetings.length?meetings.reduce((s,r)=>s+r.focusScore,0)/meetings.length:0;
+    const largest=[...meetings].filter(r=>r.focusScore>r.otherScore).sort((x,z)=>(z.focusScore-z.otherScore)-(x.focusScore-x.otherScore))[0];
+    const closest=[...meetings].sort((x,z)=>Math.abs(x.focusScore-x.otherScore)-Math.abs(z.focusScore-z.otherScore))[0];
+    const highest=[...meetings].sort((x,z)=>(z.focusScore+z.otherScore)-(x.focusScore+x.otherScore))[0];
+    const highScore=[...meetings].sort((x,z)=>z.focusScore-x.focusScore)[0];
+    const streak=weeklyLongestH2HStreak(meetings,mode);
+
+    cards=[
+      ["Overall Record",`${wins}–${losses}${ties?`–${ties}`:""}`,`${meetings.length} regular-season games`],
+      ["Average Score",avg.toFixed(1),focusName],
+      ["Largest Win",largest?`+${(largest.focusScore-largest.otherScore).toFixed(2)}`:"—",largest?`${gameLabel(largest)} · vs ${displayName(largest.otherOwner)}`:""],
+      ["Closest Game",closest?`${Math.abs(closest.focusScore-closest.otherScore).toFixed(2)} pts`:"—",closest?`${gameLabel(closest)} · vs ${displayName(closest.otherOwner)}`:""],
+      ["Highest Score",highScore?highScore.focusScore.toFixed(2):"—",highScore?`${gameLabel(highScore)} · vs ${displayName(highScore.otherOwner)}`:""],
+      ["Highest Combined",highest?(highest.focusScore+highest.otherScore).toFixed(2):"—",highest?`${gameLabel(highest)} · vs ${displayName(highest.otherOwner)}`:""]
+    ];
+
+    table=`<table class="weekly-table"><thead><tr>
+      ${weeklyH2HHeader("Season","year")}${weeklyH2HHeader("Week","week")}
+      ${weeklyH2HHeader("Opponent","owner")}${weeklyH2HHeader(focusName,"focusScore")}
+      ${weeklyH2HHeader("Opponent Score","otherScore")}<th>Result</th>
+      ${weeklyH2HHeader("Margin","margin")}${weeklyH2HHeader("Combined","combined")}
+    </tr></thead><tbody>${sorted.map(r=>{
+      const result=r.focusScore>r.otherScore?"Win":r.focusScore<r.otherScore?"Loss":"Tie";
+      return `<tr><td style="text-align:left">${r.year}</td><td>${r.week}</td>
+        <td>${displayName(r.otherOwner)}</td><td class="weekly-h2h-score-a">${r.focusScore.toFixed(2)}</td>
+        <td class="weekly-h2h-score-b">${r.otherScore.toFixed(2)}</td>
+        <td class="${result==="Win"?"weekly-h2h-winner":result==="Tie"?"weekly-h2h-tie":""}">${result}</td>
+        <td>${Math.abs(r.focusScore-r.otherScore).toFixed(2)}</td>
+        <td>${(r.focusScore+r.otherScore).toFixed(2)}</td></tr>`;
+    }).join("")}</tbody></table>`;
+  }else{
+    const largest=[...meetings].sort((x,z)=>(z.winningScore-z.losingScore)-(x.winningScore-x.losingScore))[0];
+    const closest=[...meetings].sort((x,z)=>(x.winningScore-x.losingScore)-(z.winningScore-z.losingScore))[0];
+    const highestCombined=[...meetings].sort((x,z)=>(z.winningScore+z.losingScore)-(x.winningScore+x.losingScore))[0];
+    const highestScore=[...meetings].sort((x,z)=>z.winningScore-x.winningScore)[0];
+    const lowestWin=[...meetings].filter(r=>r.winner!=="Tie").sort((x,z)=>x.winningScore-z.winningScore)[0];
+    const highestLoss=[...meetings].filter(r=>r.loser!=="Tie").sort((x,z)=>z.losingScore-x.losingScore)[0];
+
+    cards=[
+      ["Games Loaded",String(meetings.length),weeklyH2HYear==="ALL"?"All regular seasons":String(weeklyH2HYear)],
+      ["Highest Score",highestScore?highestScore.winningScore.toFixed(2):"—",highestScore?`${gameLabel(highestScore)} · ${displayName(highestScore.winner)}`:""],
+      ["Largest Margin",largest?(largest.winningScore-largest.losingScore).toFixed(2):"—",largest?`${gameLabel(largest)} · ${displayName(largest.winner)}`:""],
+      ["Closest Game",closest?(closest.winningScore-closest.losingScore).toFixed(2):"—",closest?`${gameLabel(closest)} · ${displayName(closest.winner)}`:""],
+      ["Highest Combined",highestCombined?(highestCombined.winningScore+highestCombined.losingScore).toFixed(2):"—",highestCombined?gameLabel(highestCombined):""],
+      ["Highest Losing Score",highestLoss?highestLoss.losingScore.toFixed(2):"—",highestLoss?`${gameLabel(highestLoss)} · ${displayName(highestLoss.loser)}`:""]
+    ];
+
+    table=`<table class="weekly-table"><thead><tr>
+      ${weeklyH2HHeader("Season","year")}${weeklyH2HHeader("Week","week")}
+      ${weeklyH2HHeader("Winner","owner")}<th>Loser</th>
+      ${weeklyH2HHeader("Winning Score","winningScore")}${weeklyH2HHeader("Losing Score","losingScore")}
+      ${weeklyH2HHeader("Margin","margin")}${weeklyH2HHeader("Combined","combined")}
+    </tr></thead><tbody>${sorted.map(r=>`<tr>
+      <td style="text-align:left">${r.year}</td><td>${r.week}</td>
+      <td class="weekly-h2h-winner">${displayName(r.winner)}</td><td>${displayName(r.loser)}</td>
+      <td class="weekly-h2h-score-a">${r.winningScore.toFixed(2)}</td>
+      <td class="weekly-h2h-score-b">${r.losingScore.toFixed(2)}</td>
+      <td>${(r.winningScore-r.losingScore).toFixed(2)}</td>
+      <td>${(r.winningScore+r.losingScore).toFixed(2)}</td></tr>`).join("")}</tbody></table>`;
+  }
+
+  document.getElementById("weeklyH2HSummary").innerHTML=cards.map(([label,value,detail])=>`
+    <div class="weekly-h2h-card"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`).join("");
+  document.getElementById("weeklyH2HTable").innerHTML=meetings.length?table:`<div class="weekly-load-state">No matchups are available for this selection.</div>`;
+  bindWeeklyH2HSort();
+}
+function weeklyOrderedOwnerGames(owner){
+  return (WEEKLY_HISTORY_DATA.records||[])
+    .filter(r=>r.owner===owner)
+    .sort((a,b)=>a.year-b.year||a.week-b.week);
+}
+function weeklyOrderedH2HGames(owner,opponent){
+  return weeklyOrderedOwnerGames(owner).filter(r=>r.opponent===opponent);
+}
+function weeklyRangeLabel(rows){
+  if(!rows?.length)return "—";
+  const a=rows[0],b=rows[rows.length-1];
+  const first=`${a.year} Week ${a.week}`;
+  const last=`${b.year} Week ${b.week}`;
+  return first===last?first:`${first} → ${last}`;
+}
+function weeklyLongestRuns(rows,predicate,limit=2){
+  const runs=[];
+  let current=[];
+  rows.forEach(row=>{
+    if(predicate(row))current.push(row);
+    else{
+      if(current.length)runs.push(current);
+      current=[];
+    }
+  });
+  if(current.length)runs.push(current);
+  return runs.sort((a,b)=>b.length-a.length||a[0].year-b[0].year||a[0].week-b[0].week).slice(0,limit);
+}
+function weeklyTopRunsAcrossOwners(predicate,limit=2){
+  const runs=[];
+  weeklyH2HOwners().forEach(owner=>{
+    weeklyLongestRuns(weeklyOrderedOwnerGames(owner),predicate,999).forEach(rows=>runs.push({owner,rows}));
+  });
+  return runs.sort((a,b)=>b.rows.length-a.rows.length||displayName(a.owner).localeCompare(displayName(b.owner))).slice(0,limit);
+}
+function weeklyTopH2HRuns(limit=2){
+  const owners=weeklyH2HOwners(),runs=[];
+  owners.forEach(owner=>{
+    owners.filter(o=>o!==owner).forEach(opponent=>{
+      weeklyLongestRuns(weeklyOrderedH2HGames(owner,opponent),r=>r.pointsFor>r.pointsAgainst,999)
+        .forEach(rows=>runs.push({owner,opponent,rows}));
+    });
+  });
+  return runs.sort((a,b)=>b.rows.length-a.rows.length||displayName(a.owner).localeCompare(displayName(b.owner))).slice(0,limit);
+}
+function weeklyMakeFeat(id,kicker,headline,description,rows,owner,extra={}){
+  return {id,kicker,headline,description,rows,owner,range:weeklyRangeLabel(rows),...extra};
+}
+function weeklyBuildFeats(){
+  const feats=[];
+  const winRuns=weeklyTopRunsAcrossOwners(r=>r.pointsFor>r.pointsAgainst,2);
+  winRuns.forEach((x,i)=>feats.push(weeklyMakeFeat(
+    `overall-win-${i}`,"Regular-Season Win Streak",
+    `${displayName(x.owner)} · ${x.rows.length} straight wins`,
+    i===0?"Longest regular-season winning streak in league history.":"Second-longest regular-season winning streak.",
+    x.rows,x.owner
+  )));
+  const lossRuns=weeklyTopRunsAcrossOwners(r=>r.pointsFor<r.pointsAgainst,2);
+  lossRuns.forEach((x,i)=>feats.push(weeklyMakeFeat(
+    `overall-loss-${i}`,"Regular-Season Losing Streak",
+    `${displayName(x.owner)} · ${x.rows.length} straight losses`,
+    i===0?"Longest regular-season losing streak in league history.":"Second-longest regular-season losing streak.",
+    x.rows,x.owner
+  )));
+  const h2hRuns=weeklyTopH2HRuns(2);
+  h2hRuns.forEach((x,i)=>feats.push(weeklyMakeFeat(
+    `h2h-${i}`,"Head-to-Head Domination",
+    `${displayName(x.owner)} over ${displayName(x.opponent)} · ${x.rows.length} straight`,
+    i===0?"Longest winning streak against one specific opponent.":"Second-longest winning streak against one specific opponent.",
+    x.rows,x.owner,{opponent:x.opponent}
+  )));
+  const highRuns=weeklyTopRunsAcrossOwners(r=>r.weeklyHigh===true,2);
+  highRuns.forEach((x,i)=>feats.push(weeklyMakeFeat(
+    `high-${i}`,"Weekly High-Score Streak",
+    `${displayName(x.owner)} · ${x.rows.length} consecutive weekly highs`,
+    i===0?"Longest run of finishing first in weekly scoring.":"Second-longest run of finishing first in weekly scoring.",
+    x.rows,x.owner
+  )));
+  const top5=weeklyTopRunsAcrossOwners(r=>r.weeklyRank<=5,1)[0];
+  if(top5)feats.push(weeklyMakeFeat(
+    "top5","Top-Five Scoring Streak",
+    `${displayName(top5.owner)} · ${top5.rows.length} straight top-five weeks`,
+    "Longest regular-season streak finishing in the top half of weekly scoring.",
+    top5.rows,top5.owner
+  ));
+  const top3=weeklyTopRunsAcrossOwners(r=>r.weeklyRank<=3,1)[0];
+  if(top3)feats.push(weeklyMakeFeat(
+    "top3","Top-Three Scoring Streak",
+    `${displayName(top3.owner)} · ${top3.rows.length} straight top-three weeks`,
+    "Longest regular-season streak finishing among the three highest scores.",
+    top3.rows,top3.owner
+  ));
+  const lucky=weeklyTopRunsAcrossOwners(r=>r.pointsFor>r.pointsAgainst&&r.weeklyRank>=6,1)[0];
+  if(lucky)feats.push(weeklyMakeFeat(
+    "lucky","Lucky Win Streak",
+    `${displayName(lucky.owner)} · ${lucky.rows.length} wins while 6th or worse`,
+    "Longest winning streak without once finishing above sixth in weekly scoring.",
+    lucky.rows,lucky.owner
+  ));
+  const unlucky=weeklyTopRunsAcrossOwners(r=>r.pointsFor<r.pointsAgainst&&r.weeklyRank<=5,1)[0];
+  if(unlucky)feats.push(weeklyMakeFeat(
+    "unlucky","Unlucky Losing Streak",
+    `${displayName(unlucky.owner)} · ${unlucky.rows.length} losses while top five`,
+    "Longest losing streak while still finishing in the top half of weekly scoring.",
+    unlucky.rows,unlucky.owner
+  ));
+  const above=weeklyTopRunsAcrossOwners(r=>r.aboveMedian===true,1)[0];
+  if(above)feats.push(weeklyMakeFeat(
+    "above-median","Above-Median Streak",
+    `${displayName(above.owner)} · ${above.rows.length} straight above median`,
+    "Longest regular-season streak scoring above the league's weekly median.",
+    above.rows,above.owner
+  ));
+  const below=weeklyTopRunsAcrossOwners(r=>r.aboveMedian===false&&r.weeklyRank>5,1)[0];
+  if(below)feats.push(weeklyMakeFeat(
+    "below-median","Below-Median Streak",
+    `${displayName(below.owner)} · ${below.rows.length} straight below median`,
+    "Longest regular-season streak scoring in the bottom half.",
+    below.rows,below.owner
+  ));
+  return feats;
+}
+function renderWeeklyFeatDetail(feat){
+  const panel=document.getElementById("weeklyFeatDetail");
+  if(!feat){panel.classList.add("hidden");return;}
+  panel.classList.remove("hidden");
+  document.getElementById("weeklyFeatDetailTitle").textContent=feat.headline;
+  document.getElementById("weeklyFeatDetailTable").innerHTML=`<table class="weekly-table"><thead><tr>
+    <th style="text-align:left">Season</th><th>Week</th><th style="text-align:left">Owner</th><th style="text-align:left">Opponent</th>
+    <th>Score</th><th>Opp Score</th><th>Weekly Rank</th><th>Result</th>
+  </tr></thead><tbody>${feat.rows.map(r=>`<tr>
+    <td style="text-align:left">${r.year}</td><td>${r.week}</td>
+    <td style="text-align:left">${displayName(r.owner)}</td><td style="text-align:left">${displayName(r.opponent)}</td>
+    <td>${r.pointsFor.toFixed(2)}</td><td>${r.pointsAgainst.toFixed(2)}</td>
+    <td>${Number(r.weeklyRank).toFixed(1)}</td><td>${r.result}</td>
+  </tr>`).join("")}</tbody></table>`;
+}
+function renderWeeklyFeats(){
+  const feats=weeklyBuildFeats();
+  document.getElementById("weeklyFeatsGrid").innerHTML=feats.map(feat=>`
+    <button class="weekly-feat-card ${weeklySelectedFeatId===feat.id?"active":""}" data-weekly-feat="${feat.id}" type="button">
+      <div class="kicker">${feat.kicker}</div>
+      <div class="headline">${feat.headline}</div>
+      <div class="description">${feat.description}</div>
+      <div class="range">${feat.range}</div>
+    </button>`).join("");
+  document.querySelectorAll("[data-weekly-feat]").forEach(card=>card.addEventListener("click",()=>{
+    weeklySelectedFeatId=weeklySelectedFeatId===card.dataset.weeklyFeat?null:card.dataset.weeklyFeat;
+    renderWeeklyFeats();
+  }));
+  renderWeeklyFeatDetail(feats.find(f=>f.id===weeklySelectedFeatId)||null);
 }
 
 function renderWeeklyAnalytics(){
@@ -4890,7 +5385,7 @@ function setCommissionerMode(enabled,announce=true){
  if(labTab)labTab.hidden=!commissionerMode;
  sessionStorage.setItem("bigBoardCommissionerMode",commissionerMode?"on":"off");
  if(!commissionerMode && (document.getElementById("data")?.classList.contains("active") || document.getElementById("draftLab")?.classList.contains("active"))){
-   openView("rankings");
+   openView("matrix");
  }
  if(announce){
    alert(commissionerMode
@@ -4965,21 +5460,19 @@ document.getElementById("weeklyScope").addEventListener("change",e=>{weeklyScope
 document.getElementById("weeklyClearOwner").addEventListener("click",()=>{weeklySelectedOwner=null;renderWeeklyAnalytics();});
 document.getElementById("weeklyOverviewTab").addEventListener("click",()=>weeklySetActiveView("OVERVIEW"));
 document.getElementById("weeklyH2HTab").addEventListener("click",()=>weeklySetActiveView("H2H"));
+document.getElementById("weeklyFeatsTab").addEventListener("click",()=>weeklySetActiveView("FEATS"));
+document.getElementById("weeklyFeatClear").addEventListener("click",()=>{weeklySelectedFeatId=null;renderWeeklyFeats();});
 document.getElementById("weeklyH2HOwnerA").addEventListener("change",e=>{
   weeklyH2HOwnerA=e.target.value;
-  if(weeklyH2HOwnerA===weeklyH2HOwnerB){
-    weeklyH2HOwnerB=weeklyH2HOwners().find(o=>o!==weeklyH2HOwnerA)||weeklyH2HOwnerB;
-  }
+  weeklyH2HSort={key:"year",direction:"desc"};
   renderWeeklyH2H();
 });
 document.getElementById("weeklyH2HOwnerB").addEventListener("change",e=>{
   weeklyH2HOwnerB=e.target.value;
-  if(weeklyH2HOwnerA===weeklyH2HOwnerB){
-    weeklyH2HOwnerA=weeklyH2HOwners().find(o=>o!==weeklyH2HOwnerB)||weeklyH2HOwnerA;
-  }
+  weeklyH2HSort={key:"year",direction:"desc"};
   renderWeeklyH2H();
 });
-document.getElementById("weeklyH2HYear").addEventListener("change",e=>{weeklyH2HYear=e.target.value;renderWeeklyH2H();});
+document.getElementById("weeklyH2HYear").addEventListener("change",e=>{weeklyH2HYear=e.target.value;weeklyH2HSort={key:"year",direction:"desc"};renderWeeklyH2H();});
 document.getElementById("togglePoints").addEventListener("click",e=>{pointMode=!pointMode;e.target.textContent=pointMode?"Show Raw Totals":"Show Point Contributions";renderMatrix()});
 document.getElementById("auditYear").addEventListener("change",()=>{auditSort={key:null,direction:null};renderAudit();});
 document.getElementById("editYear").addEventListener("change",renderEditor);
