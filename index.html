@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v4.8.2 Survivor Metrics and Animation — safety margin, elimination context, and playable survival path -->
+<!-- v4.8.3 Survivor Animation Timing — slower reveal cadence and elimination pacing -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -1861,7 +1861,7 @@ header,
   position:relative;
 }
 .survivor-pill.just-eliminated{
-  animation:survivorEliminate .72s ease forwards;
+  animation:survivorEliminate .95s ease forwards;
   border-color:#a85b5b;
 }
 .survivor-pill.belt-winner{
@@ -5655,7 +5655,7 @@ function survivorPlayAnimation(){
     row.classList.add("animation-visible");
     row.querySelectorAll(".survivor-pill.eliminated").forEach(p=>p.classList.add("just-eliminated"));
     survivorAnimationStep+=1;
-    survivorAnimationTimer=setTimeout(reveal,650);
+    survivorAnimationTimer=setTimeout(reveal,850);
   };
   reveal();
 }
