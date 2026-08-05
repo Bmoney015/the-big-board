@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v4.9.6 Champions Shrine Paths — era-preserving brackets, postseason records, and champions shrine -->
+<!-- v4.9.7 Championship Path Final Polish — era-preserving brackets, postseason records, and champions shrine -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -2334,6 +2334,76 @@ header,
 #playoffHub .playoff-path-week .result-win{color:#78d49d}
 #playoffHub .playoff-path-week .result-loss{color:#f08b8b}
 #playoffHub .playoff-path-week .result-bye{color:#d4b96d}
+
+
+/* =========================================================
+   v4.9.7 — Championship Path final polish
+   ========================================================= */
+#playoffHub #playoffChampionPathPanel{
+  overflow:hidden;
+}
+#playoffHub .playoff-path-section{
+  margin-top:14px;
+}
+#playoffHub .playoff-path-section + .playoff-path-section{
+  margin-top:22px;
+  padding-top:18px;
+  border-top:1px solid rgba(185,154,85,.45);
+}
+#playoffHub .playoff-path-section-title{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:10px;
+  color:#d4b96d;
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.09em;
+}
+#playoffHub .playoff-path-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:10px;
+  width:100%;
+}
+#playoffHub .playoff-path-grid.regular-season{
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+}
+#playoffHub .playoff-path-grid.championship-run{
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+}
+#playoffHub .playoff-path-week{
+  min-width:0;
+  width:100%;
+  max-width:100%;
+  box-sizing:border-box;
+  overflow:hidden;
+}
+#playoffHub .playoff-path-week .matchup,
+#playoffHub .playoff-path-week .detail{
+  overflow-wrap:anywhere;
+}
+#playoffHub .playoff-path-grid.championship-run .playoff-path-week{
+  background:linear-gradient(180deg,#211d15,#131a20);
+  border-color:#9b7b43;
+  box-shadow:inset 0 0 0 1px rgba(185,154,85,.06);
+}
+#playoffHub .playoff-path-grid.championship-run .playoff-path-week.super-bowl{
+  border-color:#d0ae58;
+  box-shadow:0 0 0 1px rgba(208,174,88,.14),0 8px 18px rgba(0,0,0,.14);
+}
+#playoffHub .playoff-path-grid.championship-run .playoff-path-week.bye{
+  background:#181a18;
+  border-style:dashed;
+}
+@media(max-width:760px){
+  #playoffHub .playoff-path-grid,
+  #playoffHub .playoff-path-grid.regular-season,
+  #playoffHub .playoff-path-grid.championship-run{
+    grid-template-columns:1fr;
+  }
+}
 
 </style>
 </head>
@@ -6534,12 +6604,22 @@ function renderPlayoffChampionPath(year,owner){
 
   title.textContent=`${playoffOwnerLabel(owner)} ${year} Championship Path`;
   subtitle.textContent=`Regular season plus every postseason round through Super Bowl ${playoffRomanNumeral(playoffSuperBowlNumber(year))}.`;
-  body.innerHTML=`<div class="playoff-path-grid">${path.map(item=>`
-    <div class="playoff-path-week ${item.playoff?"playoff-round":""} ${item.bye?"bye":""}">
+  const regular=path.filter(item=>!item.playoff);
+  const postseason=path.filter(item=>item.playoff);
+  const card=item=>`<div class="playoff-path-week ${item.playoff?"playoff-round":""} ${item.bye?"bye":""} ${item.detail.startsWith("Super Bowl")?"super-bowl":""}">
       <div class="week">${item.label}</div>
       <div class="matchup result-${item.result}">${item.matchup}</div>
       <div class="detail">${item.detail}</div>
-    </div>`).join("")}</div>`;
+    </div>`;
+  body.innerHTML=`
+    <div class="playoff-path-section">
+      <div class="playoff-path-section-title">Regular Season</div>
+      <div class="playoff-path-grid regular-season">${regular.map(card).join("")}</div>
+    </div>
+    <div class="playoff-path-section">
+      <div class="playoff-path-section-title">🏆 Championship Run</div>
+      <div class="playoff-path-grid championship-run">${postseason.map(card).join("")}</div>
+    </div>`;
   panel.classList.remove("hidden");
   document.querySelectorAll(".playoff-champ-card").forEach(card=>card.classList.toggle("selected",+card.dataset.year===+year));
   panel.scrollIntoView({behavior:"smooth",block:"start"});
