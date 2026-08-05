@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v4.9.1 Playoff Hub Contrast Repair — era-preserving brackets, postseason records, and champions shrine -->
+<!-- v4.9.5 Playoff Records Sorting, Totals, and Layout Repair — era-preserving brackets, postseason records, and champions shrine -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -2021,6 +2021,254 @@ header,
   color:#aeb8c1 !important;
 }
 
+
+/* =========================================================
+   v4.9.2 — Playoff bracket architecture and records repair
+   ========================================================= */
+#playoffHub .playoff-summary-card.champion{
+  background:#17212b !important;
+  border:1px solid #b99a55 !important;
+  border-left:4px solid #d1b768 !important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.025) !important;
+}
+#playoffHub .playoff-summary-card.champion .value{
+  color:#f0d58d !important;
+}
+#playoffHub .playoff-picture-section{
+  background:#141d25 !important;
+}
+.playoff-picture-standard{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(260px,1fr));
+  gap:10px;
+  margin-top:12px;
+}
+.playoff-picture-era2{
+  display:grid;
+  grid-template-columns:minmax(260px,.85fr) minmax(360px,1.15fr);
+  gap:10px;
+  margin-top:12px;
+}
+.playoff-picture-card{
+  background:#0f1820;
+  border:1px solid #46535f;
+  border-radius:9px;
+  padding:11px;
+}
+.playoff-picture-card.bye{
+  border-color:#847143;
+  background:#191a17;
+}
+.playoff-picture-card.special{
+  border-color:#9b7b43;
+  background:#1d1a14;
+}
+.playoff-picture-card .title{
+  color:#d4b96d;
+  font-size:9px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  font-weight:850;
+  margin-bottom:7px;
+}
+.playoff-picture-team{
+  display:grid;
+  grid-template-columns:34px 1fr auto;
+  gap:8px;
+  align-items:center;
+  padding:7px 5px;
+  border-top:1px solid #303b45;
+}
+.playoff-picture-team:first-of-type{border-top:0}
+.playoff-picture-team .seed{color:#aab5be;font-size:10px}
+.playoff-picture-team .owner{color:#edf2f5;font-size:12px;font-weight:850}
+.playoff-picture-team .role{color:#aeb8c1;font-size:9px}
+.playoff-data-note{
+  margin-top:10px;
+  padding:9px 11px;
+  background:#2a2317;
+  border:1px solid #7c6839;
+  border-radius:8px;
+  color:#e3ce91;
+  font-size:10px;
+  line-height:1.4;
+}
+.playoff-bye-card{
+  border:1px dashed #7e6d43 !important;
+  background:#181a18 !important;
+}
+.playoff-bye-card .playoff-game-title{
+  color:#d4b96d !important;
+}
+.playoff-bye-card .playoff-team{
+  background:rgba(185,154,85,.08);
+  border-radius:6px;
+}
+.playoff-score-missing{
+  display:block;
+  color:#aeb8c1 !important;
+  font-size:9px;
+  font-weight:700;
+  white-space:nowrap;
+}
+#playoffPlacement.playoff-placement-timeline{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(250px,1fr));
+  gap:18px;
+  align-items:start;
+  margin-top:12px;
+  overflow:auto;
+}
+.playoff-placement-week{
+  min-width:240px;
+  display:grid;
+  gap:10px;
+}
+.playoff-placement-week-title{
+  text-align:center;
+  color:#d4b96d;
+  font-size:10px;
+  font-weight:850;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  padding-bottom:3px;
+}
+.playoff-placement-week .playoff-game::after{display:none}
+#playoffHub .playoff-table th,
+#playoffHub .playoff-table td{
+  white-space:nowrap;
+}
+@media(max-width:900px){
+  .playoff-picture-standard,.playoff-picture-era2{grid-template-columns:1fr}
+  #playoffPlacement.playoff-placement-timeline{grid-template-columns:1fr}
+}
+
+
+/* =========================================================
+   v4.9.4 — Complete postseason totals and Shrine simplification
+   ========================================================= */
+#playoffHub .playoff-all-postseason{
+  margin-top:14px;
+  padding:14px;
+  border:1px dashed #667480;
+  border-radius:10px;
+  background:#ece8df !important;
+  color:#27323b !important;
+}
+#playoffHub .playoff-all-postseason > span{
+  color:#52606b !important;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+#playoffHub .playoff-all-note{
+  color:#6b747c !important;
+  font-size:10px;
+  line-height:1.4;
+  margin:4px 0 10px;
+}
+#playoffHub .playoff-all-postseason .playoff-table-wrap{
+  border-color:#d4cec2 !important;
+  background:#fffdf8 !important;
+}
+#playoffHub .playoff-all-postseason .playoff-table{
+  background:#fffdf8 !important;
+  color:#29343d !important;
+}
+#playoffHub .playoff-all-postseason .playoff-table th{
+  background:#ddd7cc !important;
+  color:#25313b !important;
+  border-color:#c9c2b6 !important;
+}
+#playoffHub .playoff-all-postseason .playoff-table td,
+#playoffHub .playoff-all-postseason .playoff-table td:first-child{
+  background:#fffdf8 !important;
+  color:#29343d !important;
+  border-color:#ddd7cd !important;
+}
+#playoffHub .playoff-champ-year{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:48px;
+  padding:3px 8px;
+  border:1px solid #7c6839;
+  border-radius:999px;
+  color:#e2c978 !important;
+  background:#211d15;
+  font-size:9px;
+  font-weight:900;
+  line-height:1;
+}
+#playoffHub .playoff-champ-card{
+  background:#101820 !important;
+  border-color:#8c7136 !important;
+}
+#playoffHub .playoff-champ-owner{
+  color:#f2d68a !important;
+}
+#playoffHub .playoff-champ-score{
+  color:#dbe2e7 !important;
+  opacity:1 !important;
+}
+
+
+/* =========================================================
+   v4.9.5 — Playoff records polish
+   ========================================================= */
+#playoffHub .playoff-head h2{
+  color:#17212b !important;
+  text-shadow:none !important;
+}
+#playoffHub .playoff-records-grid{
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr) !important;
+}
+#playoffHub .playoff-records-grid > .playoff-section{
+  min-width:0;
+}
+#playoffHub .playoff-table-wrap{
+  width:100%;
+  max-width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+}
+#playoffHub .playoff-table{
+  width:100%;
+  min-width:640px;
+  table-layout:auto;
+}
+#playoffHub .playoff-table th[data-playoff-sort]{
+  cursor:pointer;
+  user-select:none;
+}
+#playoffHub .playoff-table th[data-playoff-sort]:hover{
+  color:#f1d893 !important;
+}
+#playoffHub .playoff-sort-indicator{
+  display:inline-block;
+  min-width:12px;
+  margin-left:4px;
+  color:#9aa7b0;
+  font-size:9px;
+}
+#playoffHub .playoff-total-row td{
+  font-weight:850 !important;
+  border-top:2px solid #8a6a22 !important;
+  background:#202a34 !important;
+  color:#f2f4f5 !important;
+}
+#playoffHub .playoff-all-postseason .playoff-total-row td{
+  background:#ece8df !important;
+  color:#25313b !important;
+  border-top:2px solid #8a6a22 !important;
+}
+@media(max-width:1100px){
+  #playoffHub .playoff-records-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -2642,10 +2890,21 @@ header,
     <div id="playoffContent" class="hidden">
       <div id="playoffBracketPanel">
         <div id="playoffEraBanner"></div><div id="playoffSummary" class="playoff-summary"></div>
+        <div class="playoff-section playoff-picture-section">
+          <div class="playoff-eyebrow">Postseason Field</div>
+          <h3>Playoff Picture</h3>
+          <p>Every championship qualifier is shown before the bracket begins, including first-round byes.</p>
+          <div id="playoffPicture"></div>
+          <div id="playoffDataNote" class="playoff-data-note hidden"></div>
+        </div>
         <div class="playoff-section"><div class="playoff-section-head"><div><div class="playoff-eyebrow">Title Hopes Alive</div><h3>Championship Bracket</h3></div><button id="playoffFormatInfo">How this format worked</button></div><div id="playoffChampionshipBracket" class="playoff-bracket"></div></div>
         <div class="playoff-section muted-section"><div class="playoff-eyebrow">Placement Still Matters</div><h3>Placement, Consolation & Toilet</h3><div id="playoffPlacement" class="playoff-placement-grid"></div></div>
       </div>
-      <div id="playoffRecordsPanel" class="hidden"><div class="playoff-record-grid"><div class="playoff-section"><div class="playoff-eyebrow">Prestige Record</div><h3>Championship Playoff Record</h3><p>Only games played while a title remained attainable.</p><div id="playoffTrueRecords" class="playoff-table-wrap"></div></div><div class="playoff-section muted-section"><div class="playoff-eyebrow">Season Finish Record</div><h3>Placement & Consolation Record</h3><p>Third-place, consolation, placement and Toilet Bowl results.</p><div id="playoffPlacementRecords" class="playoff-table-wrap"></div></div></div><div class="playoff-all-postseason"><span>All Postseason Totals</span><div id="playoffAllRecords"></div></div></div>
+      <div id="playoffRecordsPanel" class="hidden"><div class="playoff-record-grid"><div class="playoff-section"><div class="playoff-eyebrow">Prestige Record</div><h3>Championship Playoff Record</h3><p>Only games played while a title remained attainable.</p><div id="playoffTrueRecords" class="playoff-table-wrap"></div></div><div class="playoff-section muted-section"><div class="playoff-eyebrow">Season Finish Record</div><h3>Placement & Consolation Record</h3><p>Third-place, consolation, placement and Toilet Bowl results.</p><div id="playoffPlacementRecords" class="playoff-table-wrap"></div></div></div><div class="playoff-all-postseason">
+  <span>All Postseason Totals</span>
+  <div class="playoff-all-note">Championship, placement, consolation, and Toilet Bowl results combined. Shown for completeness; championship-playoff performance remains the primary record.</div>
+  <div id="playoffAllRecords"></div>
+</div></div>
       <div id="playoffShrinePanel" class="hidden"><div class="playoff-section"><div class="playoff-eyebrow">League Champions</div><h3>Super Bowl Champions Shrine</h3><div id="playoffShrine" class="playoff-shrine"></div></div></div>
     </div>
   </div>
@@ -5129,7 +5388,7 @@ function renderGlossary(){
 
 
 let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL",weeklyH2HSort={key:"year",direction:"desc"},weeklySelectedFeatId=null;
-let PLAYOFF_HISTORY_DATA=null,playoffLoadingPromise=null,playoffSelectedYear=2025,playoffActiveView="BRACKET";
+let PLAYOFF_HISTORY_DATA=null,playoffLoadingPromise=null,playoffSelectedYear=2025,playoffActiveView="BRACKET",playoffRecordSort={true:{key:"w",direction:"desc"},placement:{key:"w",direction:"desc"},all:{key:"w",direction:"desc"}};
 let weeklySortStates={alt:{key:"allPlayWins",direction:"desc"},luck:{key:"luckDelta",direction:"desc"},distribution:{key:"weeklyHighs",direction:"desc"}};
 async function ensureWeeklyHistoryLoaded(){if(WEEKLY_HISTORY_DATA)return WEEKLY_HISTORY_DATA;if(weeklyLoadingPromise)return weeklyLoadingPromise;const s=document.getElementById("weeklyLoadState");if(s)s.textContent="Loading weekly history…";weeklyLoadingPromise=fetch("./data/weeklyHistory.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Could not load weeklyHistory.json (${r.status})`);return r.json();}).then(d=>{WEEKLY_HISTORY_DATA=d;weeklySelectedYear=Math.max(...d.years.map(Number));return d;});return weeklyLoadingPromise;}
 function weeklyRowsForScope(includeOwnerFilter=true){
@@ -5904,16 +6163,238 @@ async function ensurePlayoffHistoryLoaded(){
 }
 function playoffSeasonEntries(year){return (PLAYOFF_HISTORY_DATA.entries||[]).filter(e=>+e.year===+year)}
 function playoffSummaryFor(year){return PLAYOFF_HISTORY_DATA.seasonSummaries.find(s=>+s.year===+year)}
-function playoffDisplayScore(e){if(!Number.isFinite(e.finalScore))return "—";const extra=Number(e.hfa)>0?`<small>${Number(e.rawScore).toFixed(2)} raw · +${Number(e.hfa).toFixed(2)} HFA</small>`:"";return `${Number(e.finalScore).toFixed(2)}${extra}`}
-function playoffContestCard(group){const rnd=group[0].round;const special=group.length===3||rnd.includes("Play-In");return `<div class="playoff-game ${special?"special":""}"><div class="playoff-game-title">${rnd}</div>${group.sort((a,b)=>(a.seed||99)-(b.seed||99)).map(e=>`<div class="playoff-team ${e.outcome==="Win"?"winner":""}"><div class="playoff-seed">${e.seed?`#${e.seed}`:"—"}</div><div class="playoff-owner">${displayName(e.owner)}</div><div class="playoff-score">${playoffDisplayScore(e)}</div></div>`).join("")}</div>`}
-function playoffGroupContests(entries){const map=new Map();entries.forEach(e=>{if(!map.has(e.contestId))map.set(e.contestId,[]);map.get(e.contestId).push(e)});return [...map.values()]}
-function playoffSetView(view){playoffActiveView=view;const bracket=view==="BRACKET",records=view==="RECORDS",shrine=view==="SHRINE";document.getElementById("playoffBracketTab").classList.toggle("active",bracket);document.getElementById("playoffRecordsTab").classList.toggle("active",records);document.getElementById("playoffShrineTab").classList.toggle("active",shrine);document.getElementById("playoffBracketPanel").classList.toggle("hidden",!bracket);document.getElementById("playoffRecordsPanel").classList.toggle("hidden",!records);document.getElementById("playoffShrinePanel").classList.toggle("hidden",!shrine);document.getElementById("playoffYear").parentElement.classList.toggle("hidden",!bracket);if(bracket)renderPlayoffSeason();if(records)renderPlayoffRecords();if(shrine)renderPlayoffShrine()}
-function renderPlayoffYearOptions(){const sel=document.getElementById("playoffYear");sel.innerHTML=[...PLAYOFF_HISTORY_DATA.years].sort((a,b)=>b-a).map(y=>`<option value="${y}">${y}</option>`).join("");sel.value=playoffSelectedYear}
-function renderPlayoffSeason(){renderPlayoffYearOptions();const year=+playoffSelectedYear,s=playoffSummaryFor(year),entries=playoffSeasonEntries(year);const format=s.format;document.getElementById("playoffEraBanner").className=`playoff-era-banner ${format.accent}`;document.getElementById("playoffEraBanner").innerHTML=`<div class="playoff-era-title">${format.label}</div><div class="playoff-era-copy">${format.description}</div>`;const sb=entries.filter(e=>e.round==="Super Bowl");const champ=sb.find(e=>e.owner===s.champion);const runner=sb.find(e=>e.owner===s.runnerUp);document.getElementById("playoffSummary").innerHTML=[["Champion",`🏆 ${displayName(s.champion)}`,champ?playoffDisplayScore(champ):"",'champion'],["Runner-up",displayName(s.runnerUp),runner?playoffDisplayScore(runner):"",''],["3rd Place",displayName(s.thirdPlace||"—"),"Final podium position",''],["Format",format.years,format.label,''],["HFA Awarded",`${Number(s.hfaAwarded||0).toFixed(1)} pts`,`Across recorded postseason entries`,'']].map(([l,v,d,c])=>`<div class="playoff-summary-card ${c}"><div class="label">${l}</div><div class="value">${v}</div><div class="detail">${d}</div></div>`).join("");const title=entries.filter(e=>e.titleHopesAlive);const groups=playoffGroupContests(title);const roundOrder=format.id==="ERA_II"?[["Opening Round",["Super Bowl Play-In","Three-Team Elimination Pod"]],["Semifinal",["Semifinal"]],["Super Bowl",["Super Bowl"]]]:[["First Round",["Quarterfinal"]],["Semifinals",["Semifinal"]],["Super Bowl",["Super Bowl"]]];document.getElementById("playoffChampionshipBracket").innerHTML=roundOrder.map(([label,rounds])=>`<div class="playoff-round"><div class="playoff-round-title">${label}</div>${groups.filter(g=>rounds.includes(g[0].round)).map(playoffContestCard).join("")||`<div class="playoff-game"><div class="playoff-game-title">Bye / awaiting source</div></div>`}</div>`).join("");const placement=playoffGroupContests(entries.filter(e=>e.placementGame));document.getElementById("playoffPlacement").innerHTML=placement.map(playoffContestCard).join("")||'<div class="weekly-load-state">No placement data recorded.</div>'}
-function playoffOwnerRecords(filter){const entries=(PLAYOFF_HISTORY_DATA.entries||[]).filter(filter);const owners=[...new Set(entries.map(e=>e.owner))];return owners.map(owner=>{const r=entries.filter(e=>e.owner===owner&&["Win","Loss"].includes(e.outcome));return {owner,gp:r.length,w:r.filter(e=>e.outcome==="Win").length,l:r.filter(e=>e.outcome==="Loss").length,pct:r.length?r.filter(e=>e.outcome==="Win").length/r.length:0,titles:(PLAYOFF_HISTORY_DATA.seasonSummaries||[]).filter(s=>s.champion===owner).length,finals:(PLAYOFF_HISTORY_DATA.seasonSummaries||[]).filter(s=>s.champion===owner||s.runnerUp===owner).length}}).sort((a,b)=>b.w-a.w||b.pct-a.pct||displayName(a.owner).localeCompare(displayName(b.owner)))}
-function playoffRecordTable(rows,showTitles){return `<table class="playoff-table"><thead><tr><th>Owner</th><th>GP</th><th>W</th><th>L</th><th>Win %</th>${showTitles?"<th>Finals</th><th>Titles</th>":""}</tr></thead><tbody>${rows.map(r=>`<tr><td>${displayName(r.owner)}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.l}</td><td>${(r.pct*100).toFixed(1)}%</td>${showTitles?`<td>${r.finals}</td><td>${r.titles}</td>`:""}</tr>`).join("")}</tbody></table>`}
-function renderPlayoffRecords(){const trueRows=playoffOwnerRecords(e=>e.titleHopesAlive),placeRows=playoffOwnerRecords(e=>e.placementGame),allRows=playoffOwnerRecords(e=>e.titleHopesAlive||e.placementGame);document.getElementById("playoffTrueRecords").innerHTML=playoffRecordTable(trueRows,true);document.getElementById("playoffPlacementRecords").innerHTML=playoffRecordTable(placeRows,false);document.getElementById("playoffAllRecords").textContent=allRows.slice(0,5).map(r=>`${displayName(r.owner)} ${r.w}-${r.l}`).join(" · ")}
-function renderPlayoffShrine(){document.getElementById("playoffShrine").innerHTML=[...PLAYOFF_HISTORY_DATA.seasonSummaries].sort((a,b)=>b.year-a.year).map(s=>{const final=playoffSeasonEntries(s.year).filter(e=>e.round==="Super Bowl");const champ=final.find(e=>e.owner===s.champion),runner=final.find(e=>e.owner===s.runnerUp);return `<div class="playoff-champ-card"><div class="playoff-champ-year">${s.year} · ${s.format.label}</div><div class="playoff-champ-owner">🏆 ${displayName(s.champion)}</div><div class="playoff-champ-score">${champ&&runner&&Number.isFinite(champ.finalScore)&&Number.isFinite(runner.finalScore)?`${champ.finalScore.toFixed(2)}–${runner.finalScore.toFixed(2)} over ${displayName(s.runnerUp)}`:`over ${displayName(s.runnerUp)}`}</div></div>`}).join("")}
+const PLAYOFF_OWNER_ALIASES={Harp:"Habble",Adrian:"Bubbs"};
+function playoffOwnerKey(owner){return PLAYOFF_OWNER_ALIASES[owner]||owner}
+function playoffOwnerLabel(owner){return displayName(playoffOwnerKey(owner))}
+function playoffDisplayScore(e){
+  if(!Number.isFinite(e.finalScore))return `<span class="playoff-score-missing">Score not recorded</span>`;
+  const extra=Number(e.hfa)>0?`<small>${Number(e.rawScore).toFixed(2)} raw · +${Number(e.hfa).toFixed(2)} HFA</small>`:"";
+  return `${Number(e.finalScore).toFixed(2)}${extra}`;
+}
+function playoffContestCard(group){
+  const rnd=group[0].round;
+  const special=group.length===3||rnd.includes("Play-In");
+  return `<div class="playoff-game ${special?"special":""}">
+    <div class="playoff-game-title">${rnd}</div>
+    ${[...group].sort((a,b)=>(a.seed||99)-(b.seed||99)).map(e=>`
+      <div class="playoff-team ${e.outcome==="Win"?"winner":""}">
+        <div class="playoff-seed">${e.seed?`#${e.seed}`:"—"}</div>
+        <div class="playoff-owner">${playoffOwnerLabel(e.owner)}</div>
+        <div class="playoff-score">${playoffDisplayScore(e)}</div>
+      </div>`).join("")}
+  </div>`;
+}
+function playoffByeCard(seed,owner){
+  return `<div class="playoff-game playoff-bye-card">
+    <div class="playoff-game-title">First-Round Bye</div>
+    <div class="playoff-team winner">
+      <div class="playoff-seed">#${seed}</div>
+      <div class="playoff-owner">${playoffOwnerLabel(owner)}</div>
+      <div class="playoff-score"><span class="playoff-score-missing">Advances to semifinal</span></div>
+    </div>
+  </div>`;
+}
+function playoffGroupContests(entries){
+  const map=new Map();
+  entries.forEach(e=>{if(!map.has(e.contestId))map.set(e.contestId,[]);map.get(e.contestId).push(e)});
+  return [...map.values()];
+}
+function playoffSeedMap(entries){
+  const map=new Map();
+  entries.filter(e=>e.titleHopesAlive&&e.seed).forEach(e=>{
+    if(!map.has(+e.seed))map.set(+e.seed,e.owner);
+  });
+  return map;
+}
+function playoffPictureHtml(format,entries){
+  const seeds=playoffSeedMap(entries);
+  if(format.id==="ERA_II"){
+    return `<div class="playoff-picture-era2">
+      <div class="playoff-picture-card special">
+        <div class="title">Super Bowl Play-In</div>
+        ${[1,2].map(seed=>`<div class="playoff-picture-team"><span class="seed">#${seed}</span><span class="owner">${playoffOwnerLabel(seeds.get(seed)||"—")}</span><span class="role">${seed===1?"Top seed":"Points-protected seed"}</span></div>`).join("")}
+      </div>
+      <div class="playoff-picture-card special">
+        <div class="title">Three-Team Elimination Pod</div>
+        ${[3,4,5].map(seed=>`<div class="playoff-picture-team"><span class="seed">#${seed}</span><span class="owner">${playoffOwnerLabel(seeds.get(seed)||"—")}</span><span class="role">Highest score advances</span></div>`).join("")}
+      </div>
+    </div>`;
+  }
+  return `<div class="playoff-picture-standard">
+    ${[1,2].map(seed=>`<div class="playoff-picture-card bye"><div class="title">First-Round Bye</div><div class="playoff-picture-team"><span class="seed">#${seed}</span><span class="owner">${playoffOwnerLabel(seeds.get(seed)||"—")}</span><span class="role">Semifinal berth</span></div></div>`).join("")}
+    <div class="playoff-picture-card"><div class="title">Opening-Round Matchup</div>
+      ${[3,6].map(seed=>`<div class="playoff-picture-team"><span class="seed">#${seed}</span><span class="owner">${playoffOwnerLabel(seeds.get(seed)||"—")}</span><span class="role">${seed===3?"Higher seed":"Challenger"}</span></div>`).join("")}
+    </div>
+    <div class="playoff-picture-card"><div class="title">Opening-Round Matchup</div>
+      ${[4,5].map(seed=>`<div class="playoff-picture-team"><span class="seed">#${seed}</span><span class="owner">${playoffOwnerLabel(seeds.get(seed)||"—")}</span><span class="role">${seed===4?"Higher seed":"Challenger"}</span></div>`).join("")}
+    </div>
+  </div>`;
+}
+function playoffSetView(view){
+  playoffActiveView=view;
+  const bracket=view==="BRACKET",records=view==="RECORDS",shrine=view==="SHRINE";
+  document.getElementById("playoffBracketTab").classList.toggle("active",bracket);
+  document.getElementById("playoffRecordsTab").classList.toggle("active",records);
+  document.getElementById("playoffShrineTab").classList.toggle("active",shrine);
+  document.getElementById("playoffBracketPanel").classList.toggle("hidden",!bracket);
+  document.getElementById("playoffRecordsPanel").classList.toggle("hidden",!records);
+  document.getElementById("playoffShrinePanel").classList.toggle("hidden",!shrine);
+  document.getElementById("playoffYear").parentElement.classList.toggle("hidden",!bracket);
+  if(bracket)renderPlayoffSeason();
+  if(records)renderPlayoffRecords();
+  if(shrine)renderPlayoffShrine();
+}
+function renderPlayoffYearOptions(){
+  const sel=document.getElementById("playoffYear");
+  sel.innerHTML=[...PLAYOFF_HISTORY_DATA.years].sort((a,b)=>b-a).map(y=>`<option value="${y}">${y}</option>`).join("");
+  sel.value=playoffSelectedYear;
+}
+function renderPlayoffSeason(){
+  renderPlayoffYearOptions();
+  const year=+playoffSelectedYear,s=playoffSummaryFor(year),entries=playoffSeasonEntries(year),format=s.format;
+  document.getElementById("playoffEraBanner").className=`playoff-era-banner ${format.accent}`;
+  document.getElementById("playoffEraBanner").innerHTML=`<div class="playoff-era-title">${format.label}</div><div class="playoff-era-copy">${format.description}</div>`;
+  const sb=entries.filter(e=>e.round==="Super Bowl");
+  const champ=sb.find(e=>playoffOwnerKey(e.owner)===playoffOwnerKey(s.champion));
+  const runner=sb.find(e=>playoffOwnerKey(e.owner)===playoffOwnerKey(s.runnerUp));
+  document.getElementById("playoffSummary").innerHTML=[
+    ["Champion",`🏆 ${playoffOwnerLabel(s.champion)}`,champ?playoffDisplayScore(champ):"",'champion'],
+    ["Runner-up",playoffOwnerLabel(s.runnerUp),runner?playoffDisplayScore(runner):"",''],
+    ["3rd Place",playoffOwnerLabel(s.thirdPlace||"—"),"Final podium position",''],
+    ["Format",format.years,format.label,''],
+    ["HFA Awarded",`${Number(s.hfaAwarded||0).toFixed(1)} pts`,`Across recorded postseason entries`,'']
+  ].map(([l,v,d,c])=>`<div class="playoff-summary-card ${c}"><div class="label">${l}</div><div class="value">${v}</div><div class="detail">${d}</div></div>`).join("");
+
+  document.getElementById("playoffPicture").innerHTML=playoffPictureHtml(format,entries);
+  const note=document.getElementById("playoffDataNote");
+  note.classList.add("hidden");
+
+  const title=entries.filter(e=>e.titleHopesAlive);
+  const groups=playoffGroupContests(title);
+  let bracketHtml="";
+  if(format.id==="ERA_II"){
+    const columns=[
+      ["Opening Round",["Super Bowl Play-In","Three-Team Elimination Pod"]],
+      ["Semifinal",["Semifinal"]],
+      ["Super Bowl",["Super Bowl"]]
+    ];
+    bracketHtml=columns.map(([label,rounds])=>`<div class="playoff-round"><div class="playoff-round-title">${label}</div>${groups.filter(g=>rounds.includes(g[0].round)).map(playoffContestCard).join("")}</div>`).join("");
+  }else{
+    const seeds=playoffSeedMap(entries);
+    const qf=groups.filter(g=>g[0].round==="Quarterfinal");
+    const sf=groups.filter(g=>g[0].round==="Semifinal");
+    const final=groups.filter(g=>g[0].round==="Super Bowl");
+    bracketHtml=`
+      <div class="playoff-round"><div class="playoff-round-title">First Round</div>
+        ${playoffByeCard(1,seeds.get(1)||"—")}
+        ${playoffByeCard(2,seeds.get(2)||"—")}
+        ${qf.map(playoffContestCard).join("")}
+      </div>
+      <div class="playoff-round"><div class="playoff-round-title">Semifinals</div>${sf.map(playoffContestCard).join("")}</div>
+      <div class="playoff-round"><div class="playoff-round-title">Super Bowl</div>${final.map(playoffContestCard).join("")}</div>`;
+  }
+  document.getElementById("playoffChampionshipBracket").innerHTML=bracketHtml;
+
+  const placementEntries=entries.filter(e=>e.placementGame);
+  const placementWeeks=[...new Set(placementEntries.map(e=>+e.week))].sort((a,b)=>a-b);
+  const placementEl=document.getElementById("playoffPlacement");
+  placementEl.className="playoff-placement-timeline";
+  placementEl.innerHTML=placementWeeks.map(week=>{
+    const weekGroups=playoffGroupContests(placementEntries.filter(e=>+e.week===week));
+    return `<div class="playoff-placement-week"><div class="playoff-placement-week-title">Week ${week}</div>${weekGroups.map(playoffContestCard).join("")}</div>`;
+  }).join("")||'<div class="weekly-load-state">No placement data recorded.</div>';
+}
+function playoffOwnerRecords(filter){
+  const filtered=(PLAYOFF_HISTORY_DATA.entries||[]).filter(filter);
+  const valid=filtered.filter(e=>{
+    const key=playoffOwnerKey(e.owner);
+    return key&&key!=="3rd Place"&&key!=="Consolation"&&key!=="Toilet Bowl";
+  });
+  const ownerKeys=[...new Set(valid.map(e=>playoffOwnerKey(e.owner)).filter(Boolean))];
+  const summaries=PLAYOFF_HISTORY_DATA.seasonSummaries||[];
+  return ownerKeys.map(owner=>{
+    const all=valid.filter(e=>playoffOwnerKey(e.owner)===owner);
+    const decisions=all.filter(e=>["Win","Loss"].includes(e.outcome));
+    const scored=decisions.filter(e=>Number.isFinite(e.finalScore));
+    const w=decisions.filter(e=>e.outcome==="Win").length;
+    const l=decisions.filter(e=>e.outcome==="Loss").length;
+    const titles=summaries.filter(s=>playoffOwnerKey(s.champion)===owner).length;
+    const finals=summaries.filter(s=>playoffOwnerKey(s.champion)===owner||playoffOwnerKey(s.runnerUp)===owner).length;
+    return {
+      owner,gp:decisions.length,w,l,pct:decisions.length?w/decisions.length:0,
+      avgPoints:scored.length?scored.reduce((sum,e)=>sum+Number(e.finalScore),0)/scored.length:null,
+      titles,finals,totalPoints:scored.reduce((sum,e)=>sum+Number(e.finalScore),0),scoredGames:scored.length
+    };
+  });
+}
+function playoffSortedRows(rows,tableType){
+  const state=playoffRecordSort[tableType]||{key:"w",direction:"desc"};
+  return [...rows].sort((a,b)=>{
+    const av=state.key==="owner"?playoffOwnerLabel(a.owner):a[state.key];
+    const bv=state.key==="owner"?playoffOwnerLabel(b.owner):b[state.key];
+    let result;
+    if(typeof av==="string"||typeof bv==="string")result=String(av).localeCompare(String(bv));
+    else result=(Number(av)||0)-(Number(bv)||0);
+    if(result===0)result=playoffOwnerLabel(a.owner).localeCompare(playoffOwnerLabel(b.owner));
+    return state.direction==="asc"?result:-result;
+  });
+}
+function playoffRecordHeader(label,key,tableType){
+  const state=playoffRecordSort[tableType]||{};
+  const indicator=state.key===key?(state.direction==="asc"?"▲":"▼"):"";
+  return `<th data-playoff-sort="${key}" data-playoff-table="${tableType}">${label}<span class="playoff-sort-indicator">${indicator}</span></th>`;
+}
+function playoffRecordTotals(rows,showTitles){
+  const gp=rows.reduce((s,r)=>s+r.gp,0);
+  const w=rows.reduce((s,r)=>s+r.w,0);
+  const l=rows.reduce((s,r)=>s+r.l,0);
+  const pct=gp?w/gp:0;
+  const scoredGames=rows.reduce((s,r)=>s+r.scoredGames,0);
+  const totalPoints=rows.reduce((s,r)=>s+r.totalPoints,0);
+  const avgPoints=scoredGames?totalPoints/scoredGames:null;
+  const finals=rows.reduce((s,r)=>s+r.finals,0);
+  const titles=rows.reduce((s,r)=>s+r.titles,0);
+  return {gp,w,l,pct,avgPoints,finals,titles};
+}
+function playoffRecordTable(rows,showTitles,tableType){
+  const sorted=playoffSortedRows(rows,tableType);
+  const totals=playoffRecordTotals(rows,showTitles);
+  return `<table class="playoff-table"><thead><tr>
+    ${playoffRecordHeader("Owner","owner",tableType)}
+    ${playoffRecordHeader("GP","gp",tableType)}
+    ${playoffRecordHeader("W","w",tableType)}
+    ${playoffRecordHeader("L","l",tableType)}
+    ${playoffRecordHeader("Win %","pct",tableType)}
+    ${playoffRecordHeader("Avg Points","avgPoints",tableType)}
+    ${showTitles?playoffRecordHeader("Finals","finals",tableType)+playoffRecordHeader("Titles","titles",tableType):""}
+  </tr></thead><tbody>
+    ${sorted.map(r=>`<tr><td>${playoffOwnerLabel(r.owner)}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.l}</td><td>${(r.pct*100).toFixed(1)}%</td><td>${Number.isFinite(r.avgPoints)?r.avgPoints.toFixed(2):"—"}</td>${showTitles?`<td>${r.finals}</td><td>${r.titles}</td>`:""}</tr>`).join("")}
+    <tr class="playoff-total-row"><td>Total</td><td>${totals.gp}</td><td>${totals.w}</td><td>${totals.l}</td><td>${(totals.pct*100).toFixed(1)}%</td><td>${Number.isFinite(totals.avgPoints)?totals.avgPoints.toFixed(2):"—"}</td>${showTitles?`<td>${totals.finals}</td><td>${totals.titles}</td>`:""}</tr>
+  </tbody></table>`;
+}
+function bindPlayoffRecordSort(){
+  document.querySelectorAll("[data-playoff-sort]").forEach(th=>th.addEventListener("click",()=>{
+    const tableType=th.dataset.playoffTable;
+    const key=th.dataset.playoffSort;
+    const state=playoffRecordSort[tableType];
+    if(state.key===key)state.direction=state.direction==="asc"?"desc":"asc";
+    else{
+      state.key=key;
+      state.direction=key==="owner"?"asc":"desc";
+    }
+    renderPlayoffRecords();
+  }));
+}
+function renderPlayoffRecords(){
+  const trueRows=playoffOwnerRecords(e=>e.titleHopesAlive);
+  const placeRows=playoffOwnerRecords(e=>e.placementGame);
+  const allRows=playoffOwnerRecords(e=>e.titleHopesAlive||e.placementGame);
+  document.getElementById("playoffTrueRecords").innerHTML=`<div class="playoff-table-wrap">${playoffRecordTable(trueRows,true,"true")}</div>`;
+  document.getElementById("playoffPlacementRecords").innerHTML=`<div class="playoff-table-wrap">${playoffRecordTable(placeRows,false,"placement")}</div>`;
+  document.getElementById("playoffAllRecords").innerHTML=`<div class="playoff-table-wrap">${playoffRecordTable(allRows,false,"all")}</div>`;
+  bindPlayoffRecordSort();
+}
+function renderPlayoffShrine(){document.getElementById("playoffShrine").innerHTML=[...PLAYOFF_HISTORY_DATA.seasonSummaries].sort((a,b)=>b.year-a.year).map(s=>{const final=playoffSeasonEntries(s.year).filter(e=>e.round==="Super Bowl");const champ=final.find(e=>playoffOwnerKey(e.owner)===playoffOwnerKey(s.champion)),runner=final.find(e=>playoffOwnerKey(e.owner)===playoffOwnerKey(s.runnerUp));return `<div class="playoff-champ-card"><div class="playoff-champ-year">${s.year}</div><div class="playoff-champ-owner">🏆 ${playoffOwnerLabel(s.champion)}</div><div class="playoff-champ-score">${champ&&runner&&Number.isFinite(champ.finalScore)&&Number.isFinite(runner.finalScore)?`${champ.finalScore.toFixed(2)}–${runner.finalScore.toFixed(2)} over ${playoffOwnerLabel(s.runnerUp)}`:`over ${playoffOwnerLabel(s.runnerUp)}`}</div></div>`}).join("")}
 async function openPlayoffHub(){const state=document.getElementById("playoffLoadState");try{state.textContent="Loading playoff history…";await ensurePlayoffHistoryLoaded();state.classList.add("hidden");document.getElementById("playoffContent").classList.remove("hidden");playoffSetView(playoffActiveView)}catch(error){state.textContent=`Unable to load playoff history: ${error.message}`}}
 
 function openView(viewName){
