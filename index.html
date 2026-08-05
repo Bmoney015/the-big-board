@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v4.7.0 League Portal Refresh — Career Totals home, streamlined rankings architecture, grouped navigation -->
+<!-- v4.8.2 Survivor Metrics and Animation — safety margin, elimination context, and playable survival path -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -1766,6 +1766,125 @@ header,
   .nav button[data-view="glossary"]::before{display:none}
 }
 
+
+/* =========================================================
+   v4.8.0 — Survivor Belt Hub
+   ========================================================= */
+.survivor-shell{background:#101820;color:#edf2f5;border-radius:14px;padding:24px;min-height:760px}
+.survivor-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;flex-wrap:wrap}
+.survivor-kicker,.survivor-eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:#c9ad68;font-weight:850}
+.survivor-head h2{font-size:30px;margin:5px 0}
+.survivor-head p{margin:0;color:#a9b5bf;max-width:760px}
+.survivor-controls{display:flex;gap:10px;align-items:end;flex-wrap:wrap}
+.survivor-controls label{color:#b4bec6;min-width:145px}
+.survivor-controls select{background:#f5f3ed!important;color:#18222c!important;border-color:#78848f!important;min-width:145px}
+.survivor-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 14px}
+.survivor-tabs button{border:1px solid #52606d;background:#202a34;color:#eef2f5;padding:8px 13px;border-radius:8px;font-weight:800}
+.survivor-tabs button.active{border:2px solid var(--prestige-gold)!important;background:#edece7!important;color:#1d2228!important}
+.survivor-note{background:#17222c;border:1px solid #4a5864;border-radius:10px;padding:11px 13px;color:#aeb8c0;font-size:10px;line-height:1.45;margin-bottom:12px}
+.survivor-note.retro{border-color:#545b62;background:#191e23;color:#949da5}
+.survivor-summary{display:grid;grid-template-columns:repeat(5,minmax(145px,1fr));gap:10px;margin-bottom:14px}
+.survivor-card{background:#17222c;border:1px solid #3c4955;border-radius:10px;padding:14px;min-height:100px}
+.survivor-card.champion{border-color:#9a7d3d;background:linear-gradient(135deg,rgba(185,154,85,.18),#17222c 55%)}
+.survivor-card.retro{filter:saturate(.35);border-color:#555e66}
+.survivor-card .label{font-size:9px;text-transform:uppercase;letter-spacing:.08em;color:#929faa}
+.survivor-card .value{font-size:24px;font-weight:900;margin-top:6px}
+.survivor-card .detail{font-size:10px;color:#a9b4bd;margin-top:4px;line-height:1.35}
+.survivor-grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(300px,.75fr);gap:14px;align-items:start}
+.survivor-section{background:#17222c;border:1px solid #3c4955;border-radius:11px;padding:15px;min-width:0}
+.survivor-section h3{margin:0;font-size:17px}
+.survivor-section p{margin:4px 0 12px;color:#97a4ae;font-size:10px}
+.survivor-timeline{display:grid;grid-template-columns:repeat(3,minmax(170px,1fr));gap:9px}
+.survivor-week-card{background:#111a22;border:1px solid #34424d;border-radius:9px;padding:11px}
+.survivor-week-card.final{border-color:#8f773f;background:linear-gradient(135deg,rgba(185,154,85,.14),#111a22 60%)}
+.survivor-week-card.deferred{border-style:dashed;border-color:#78838c}
+.survivor-week-card .week{font-size:9px;color:#c9ad68;text-transform:uppercase;font-weight:850;letter-spacing:.08em}
+.survivor-week-card .out{font-size:15px;font-weight:900;margin-top:5px}
+.survivor-week-card .score{font-size:10px;color:#aeb8c1;margin-top:4px}
+.survivor-week-card .alive{font-size:9px;color:#7f8c96;margin-top:6px}
+.survivor-path{display:grid;gap:7px}
+.survivor-path-row{display:grid;grid-template-columns:55px 1fr;gap:8px;align-items:start}
+.survivor-path-week{font-size:9px;color:#c9ad68;font-weight:850;padding-top:5px}
+.survivor-pills{display:flex;gap:5px;flex-wrap:wrap}
+.survivor-pill{border:1px solid #46535e;background:#111a22;color:#dce3e8;border-radius:999px;padding:4px 8px;font-size:9px;font-weight:800}
+.survivor-pill.eliminated{opacity:.28;text-decoration:line-through}
+.survivor-pill.winner{border-color:#b99a55;color:#f0d99b;background:#29251b}
+.survivor-table-wrap{overflow:auto;border:1px solid #36434e;border-radius:9px}
+.survivor-table{min-width:830px;background:#111a22;color:#edf2f5;font-size:10px}
+.survivor-table th{background:#26323d!important;color:#eef3f6!important;cursor:pointer;user-select:none}
+.survivor-table td{background:#17222c!important;color:#e8edf1!important;font-variant-numeric:tabular-nums}
+.survivor-table tbody tr:nth-child(even) td{background:#141f28!important}
+.survivor-table th:first-child,.survivor-table td:first-child{background:#202a34!important;color:#f1f4f6!important}
+.survivor-official{color:#d8bd78;font-weight:850}.survivor-hypothetical{color:#929ca4}
+.survivor-records-intro{margin-bottom:12px;color:#a5b0b8;font-size:10px}
+@media(max-width:1100px){.survivor-summary{grid-template-columns:repeat(3,1fr)}.survivor-grid{grid-template-columns:1fr}.survivor-timeline{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:650px){.survivor-shell{padding:14px}.survivor-summary,.survivor-timeline{grid-template-columns:1fr}.survivor-path-row{grid-template-columns:45px 1fr}}
+
+
+/* =========================================================
+   v4.8.2 — Survivor metrics and elimination animation
+   ========================================================= */
+.survivor-section-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:12px;
+  flex-wrap:wrap;
+}
+.survivor-animation-controls{
+  display:flex;
+  gap:7px;
+  flex-wrap:wrap;
+}
+.survivor-animation-controls button{
+  border:1px solid #6f6040;
+  background:#201d16;
+  color:#e4cf98;
+  border-radius:7px;
+  padding:7px 10px;
+  font-size:9px;
+  font-weight:850;
+}
+.survivor-animation-controls button:hover{border-color:#b99a55}
+.survivor-path-row{
+  transition:opacity .32s ease,transform .32s ease;
+}
+.survivor-path-row.animation-hidden{
+  opacity:0;
+  transform:translateY(6px);
+  pointer-events:none;
+  position:absolute;
+}
+.survivor-path-row.animation-visible{
+  opacity:1;
+  transform:none;
+  position:relative;
+}
+.survivor-pill.just-eliminated{
+  animation:survivorEliminate .72s ease forwards;
+  border-color:#a85b5b;
+}
+.survivor-pill.belt-winner{
+  border-color:#c5a655;
+  color:#f4dda0;
+  background:#2a2519;
+  box-shadow:0 0 0 1px rgba(197,166,85,.18),0 0 14px rgba(197,166,85,.16);
+}
+.survivor-belt-icon{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-right:4px;
+  font-size:11px;
+}
+.survivor-metric-positive{color:#75d39a!important}
+.survivor-metric-negative{color:#f08b8b!important}
+@keyframes survivorEliminate{
+  0%{opacity:1;transform:scale(1)}
+  45%{opacity:1;transform:scale(1.05);background:#4b2323;color:#fff}
+  100%{opacity:.28;transform:scale(.96);text-decoration:line-through}
+}
+
 </style>
 </head>
 <body>
@@ -1775,7 +1894,7 @@ header,
 <div class="header-subtitle">Career Prestige Rankings</div>
 <p>A measure of sustained excellence across league history.</p>
 </div>
-<nav class="nav"><button class="nav-group-primary active" data-view="matrix" id="careerTotalsTab">Career Totals</button><button class="nav-group-primary" data-view="presentation">The Big Board</button><button class="nav-group-primary" data-view="journey">Career Journey</button><button class="nav-group-primary" data-view="audit">Season Audit</button><button class="nav-group-analytics" data-view="draftHub">Draft Hub</button><button class="nav-group-analytics commissioner-only" data-view="draftLab" hidden="" id="draftLabTab">Draft Lab</button><button class="nav-group-analytics" data-view="weeklyAnalytics">Weekly Analytics</button><button class="nav-group-reference" data-view="glossary">Glossary</button><button class="nav-group-reference commissioner-only" data-view="data" hidden="" id="commissionerDataTab">Data &amp; Settings</button></nav>
+<nav class="nav"><button class="nav-group-primary active" data-view="matrix" id="careerTotalsTab">Career Totals</button><button class="nav-group-primary" data-view="presentation">The Big Board</button><button class="nav-group-primary" data-view="journey">Career Journey</button><button class="nav-group-primary" data-view="audit">Season Audit</button><button class="nav-group-analytics" data-view="draftHub">Draft Hub</button><button class="nav-group-analytics commissioner-only" data-view="draftLab" hidden="" id="draftLabTab">Draft Lab</button><button class="nav-group-analytics" data-view="weeklyAnalytics">Weekly Analytics</button><button class="nav-group-analytics" data-view="survivorHub">Survivor Belt</button><button class="nav-group-reference" data-view="glossary">Glossary</button><button class="nav-group-reference commissioner-only" data-view="data" hidden="" id="commissionerDataTab">Data &amp; Settings</button></nav>
 <div aria-label="League links" class="league-links">
 <a href="https://football.fantasysports.yahoo.com/league/hot_n_bothered/2026" rel="noopener noreferrer" target="_blank" title="Open Yahoo League">
 <span aria-hidden="true">🏈</span> Yahoo <span aria-hidden="true" class="league-link-arrow">↗</span>
@@ -2375,6 +2494,64 @@ header,
 </div>
 </div>
 </section>
+
+<section class="view" id="survivorHub">
+  <div class="survivor-shell">
+    <div class="survivor-head">
+      <div>
+        <div class="survivor-kicker">Last Team Standing</div>
+        <h2>Survivor Belt</h2>
+        <p>One team is eliminated each week for posting the lowest score among those still alive. Official competition began in 2023; earlier seasons are simulated using the same rules.</p>
+      </div>
+      <div class="survivor-controls">
+        <label id="survivorYearLabel">Season<select id="survivorYear"></select></label>
+      </div>
+    </div>
+    <div class="survivor-tabs" role="tablist" aria-label="Survivor Belt views">
+      <button id="survivorOfficialTab" class="active" type="button">Official Era</button>
+      <button id="survivorRetroTab" type="button">Retroactive What-If</button>
+      <button id="survivorRecordsTab" type="button">Career Records</button>
+    </div>
+    <div id="survivorLoadState" class="weekly-load-state">Weekly history loads only when this module is opened.</div>
+    <div id="survivorContent" class="hidden">
+      <div id="survivorSeasonPanel">
+        <div id="survivorEraNote" class="survivor-note"></div>
+        <div id="survivorSummary" class="survivor-summary"></div>
+        <div class="survivor-grid">
+          <div class="survivor-section">
+            <div class="survivor-eyebrow">Elimination Order</div>
+            <h3>Road to the Belt</h3>
+            <p>Scores are compared only among teams still alive entering that week.</p>
+            <div id="survivorTimeline" class="survivor-timeline"></div>
+          </div>
+          <div class="survivor-section">
+            <div class="survivor-section-head">
+              <div>
+                <div class="survivor-eyebrow">Field Remaining</div>
+                <h3>Survival Path</h3>
+                <p>Watch the field narrow from ten teams to one.</p>
+              </div>
+              <div class="survivor-animation-controls">
+                <button id="survivorPlayAnimation" type="button">▶ Play Eliminations</button>
+                <button id="survivorResetAnimation" class="hidden" type="button">Reset</button>
+              </div>
+            </div>
+            <div id="survivorPath" class="survivor-path"></div>
+          </div>
+        </div>
+      </div>
+      <div id="survivorRecordsPanel" class="hidden">
+        <div class="survivor-section">
+          <div class="survivor-eyebrow">Career-Spanning Results</div>
+          <h3>Survivor Record Book</h3>
+          <div class="survivor-records-intro">Official titles are kept separate from retroactive simulations. Combined totals are included only as a muted reference.</div>
+          <div id="survivorRecordsTable" class="survivor-table-wrap"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 <div class="tooltip" id="tooltip"></div>
 <script>
@@ -5361,6 +5538,208 @@ function renderWeeklyAnalytics(){
 }
 async function openWeeklyAnalytics(){await ensureWeeklyHistoryLoaded();renderWeeklyAnalytics();}
 
+
+let survivorActiveView="OFFICIAL",survivorSelectedYear=null,survivorSort={key:"officialTitles",direction:"desc"},survivorAnimationTimer=null,survivorAnimationStep=null;
+function survivorSimulation(year){
+  const metadata=WEEKLY_HISTORY_DATA.yearMetadata?.[String(year)]||{};
+  const endWeek=Number(metadata.regularSeasonWeeks||Math.max(...WEEKLY_HISTORY_DATA.records.filter(r=>+r.year===+year).map(r=>+r.week)));
+  const startWeek=endWeek-8;
+  const seasonRows=WEEKLY_HISTORY_DATA.records.filter(r=>+r.year===+year);
+  let alive=[...new Set(seasonRows.map(r=>r.owner))].sort((a,b)=>displayName(a).localeCompare(displayName(b)));
+  const initial=[...alive],events=[],paths=[];
+  let carried=0,review=false;
+  for(let week=startWeek;week<=endWeek;week++){
+    const entering=[...alive];
+    const rows=seasonRows.filter(r=>+r.week===week&&alive.includes(r.owner));
+    const scoreMap=new Map(rows.map(r=>[r.owner,+r.pointsFor]));
+    const due=Math.min(alive.length-1,1+carried);
+    const ordered=[...alive].sort((a,b)=>(scoreMap.get(a)-scoreMap.get(b))||displayName(a).localeCompare(displayName(b)));
+    let eliminated=[];
+    carried=0;
+    if(due>0&&ordered.length>1){
+      const cutoff=scoreMap.get(ordered[due-1]);
+      const below=ordered.filter(o=>scoreMap.get(o)<cutoff);
+      const tiedAtCutoff=ordered.filter(o=>scoreMap.get(o)===cutoff);
+      if(tiedAtCutoff.length>1){
+        eliminated=below;
+        carried=due-below.length;
+      }else eliminated=ordered.slice(0,due);
+    }
+    const aliveAverage=rows.length?rows.reduce((sum,r)=>sum+(+r.pointsFor),0)/rows.length:null;
+    const eliminationLine=eliminated.length?Math.max(...eliminated.map(o=>scoreMap.get(o))):null;
+    const safetyMargins={};
+    entering.forEach(owner=>{
+      if(!eliminated.includes(owner)&&eliminationLine!=null){
+        safetyMargins[owner]=scoreMap.get(owner)-eliminationLine;
+      }
+    });
+    eliminated.forEach(o=>alive=alive.filter(x=>x!==o));
+    paths.push({week,entering,remaining:[...alive],eliminated:[...eliminated],scores:Object.fromEntries(rows.map(r=>[r.owner,+r.pointsFor])),carried,aliveAverage,eliminationLine,safetyMargins});
+    events.push({week,eliminated:[...eliminated],score:eliminated.length?Math.min(...eliminated.map(o=>scoreMap.get(o))):null,remaining:alive.length,carried,aliveAverage,eliminationLine,safetyMargins});
+  }
+  if(alive.length!==1)review=true;
+  const champion=alive.length===1?alive[0]:null;
+  const finalPath=paths[paths.length-1];
+  let runnerUp=null;
+  if(finalPath){
+    const finalOut=finalPath.eliminated;
+    if(finalOut.length===1)runnerUp=finalOut[0];
+  }
+  const finalScores=finalPath?.scores||{};
+  const eliminationWeek={};
+  events.forEach(e=>e.eliminated.forEach(o=>eliminationWeek[o]=e.week));
+  if(champion)eliminationWeek[champion]=endWeek+1;
+  return {year,startWeek,endWeek,official:+year>=2023,initial,champion,runnerUp,events,paths,finalScores,eliminationWeek,review};
+}
+function survivorAllResults(){return (WEEKLY_HISTORY_DATA.years||[]).map(Number).sort((a,b)=>a-b).map(survivorSimulation);}
+function survivorSetView(view){
+  survivorActiveView=view;
+  const records=view==="RECORDS";
+  document.getElementById("survivorOfficialTab").classList.toggle("active",view==="OFFICIAL");
+  document.getElementById("survivorRetroTab").classList.toggle("active",view==="RETRO");
+  document.getElementById("survivorRecordsTab").classList.toggle("active",records);
+  document.getElementById("survivorSeasonPanel").classList.toggle("hidden",records);
+  document.getElementById("survivorRecordsPanel").classList.toggle("hidden",!records);
+  document.getElementById("survivorYearLabel").classList.toggle("hidden",records);
+  if(records)renderSurvivorRecords(); else renderSurvivorSeason();
+}
+function renderSurvivorYearOptions(){
+  const select=document.getElementById("survivorYear");
+  const years=(WEEKLY_HISTORY_DATA.years||[]).map(Number).filter(y=>survivorActiveView==="OFFICIAL"?y>=2023:y<2023).sort((a,b)=>b-a);
+  if(!years.includes(+survivorSelectedYear))survivorSelectedYear=years[0];
+  select.innerHTML=years.map(y=>`<option value="${y}">${y}</option>`).join("");
+  select.value=survivorSelectedYear;
+}
+
+function survivorOwnerSeasonMetrics(result,owner){
+  const safety=result.paths.flatMap(p=>Number.isFinite(p.safetyMargins?.[owner])?[p.safetyMargins[owner]]:[]);
+  const elimination=result.events.find(e=>e.eliminated.includes(owner));
+  const eliminationDelta=elimination&&Number.isFinite(elimination.score)&&Number.isFinite(elimination.aliveAverage)
+    ? elimination.score-elimination.aliveAverage : null;
+  return {
+    avgSafety:safety.length?safety.reduce((a,b)=>a+b,0)/safety.length:null,
+    eliminationDelta,
+    eliminationScore:elimination?.score??null,
+    eliminationAliveAverage:elimination?.aliveAverage??null
+  };
+}
+function survivorFormatDelta(value){
+  if(!Number.isFinite(value))return "—";
+  return `${value>=0?"+":""}${value.toFixed(2)}`;
+}
+function survivorStopAnimation(){
+  if(survivorAnimationTimer){clearTimeout(survivorAnimationTimer);survivorAnimationTimer=null;}
+  survivorAnimationStep=null;
+}
+function survivorResetAnimation(){
+  survivorStopAnimation();
+  document.querySelectorAll("#survivorPath .survivor-path-row").forEach(row=>{
+    row.classList.remove("animation-hidden","animation-visible");
+  });
+  document.querySelectorAll("#survivorPath .survivor-pill").forEach(p=>p.classList.remove("just-eliminated"));
+  document.getElementById("survivorPlayAnimation")?.classList.remove("hidden");
+  document.getElementById("survivorResetAnimation")?.classList.add("hidden");
+}
+function survivorPlayAnimation(){
+  survivorStopAnimation();
+  const rows=[...document.querySelectorAll("#survivorPath .survivor-path-row")];
+  if(!rows.length)return;
+  rows.forEach(row=>{row.classList.add("animation-hidden");row.classList.remove("animation-visible")});
+  document.getElementById("survivorPlayAnimation")?.classList.add("hidden");
+  document.getElementById("survivorResetAnimation")?.classList.remove("hidden");
+  survivorAnimationStep=0;
+  const reveal=()=>{
+    if(survivorAnimationStep>=rows.length){survivorAnimationTimer=null;return;}
+    const row=rows[survivorAnimationStep];
+    row.classList.remove("animation-hidden");
+    row.classList.add("animation-visible");
+    row.querySelectorAll(".survivor-pill.eliminated").forEach(p=>p.classList.add("just-eliminated"));
+    survivorAnimationStep+=1;
+    survivorAnimationTimer=setTimeout(reveal,650);
+  };
+  reveal();
+}
+
+function renderSurvivorSeason(){
+  survivorStopAnimation();
+  renderSurvivorYearOptions();
+  const result=survivorSimulation(+survivorSelectedYear),retro=!result.official;
+  const note=document.getElementById("survivorEraNote");
+  note.className=`survivor-note ${retro?"retro":""}`;
+  note.textContent=retro
+    ? `Hypothetical simulation only. The Survivor Belt did not officially exist in ${result.year}. This season uses Weeks ${result.startWeek}–${result.endWeek}.`
+    : `Official Survivor Belt season. The ${result.year} competition ran from Week ${result.startWeek} through Week ${result.endWeek}.`;
+  const champScore=result.champion?result.finalScores[result.champion]:null;
+  const runnerScore=result.runnerUp?result.finalScores[result.runnerUp]:null;
+  const champMetrics=result.champion?survivorOwnerSeasonMetrics(result,result.champion):{};
+  const runnerMetrics=result.runnerUp?survivorOwnerSeasonMetrics(result,result.runnerUp):{};
+  document.getElementById("survivorSummary").innerHTML=[
+    [retro?"Hypothetical Champion":"Belt Champion",result.champion?displayName(result.champion):"Review",retro?"Simulation only":"Official title","champion"],
+    ["Runner-up",result.runnerUp?displayName(result.runnerUp):"—",result.runnerUp&&runnerScore!=null?`${runnerScore.toFixed(2)} in final week`:"",retro?"retro":""],
+    ["Final Score",champScore!=null&&runnerScore!=null?`${champScore.toFixed(2)}–${runnerScore.toFixed(2)}`:"—",`Week ${result.endWeek}`,retro?"retro":""],
+    ["Champion Avg Safety",Number.isFinite(champMetrics.avgSafety)?`${champMetrics.avgSafety.toFixed(2)} pts`:"—","Average cushion above the elimination line",retro?"retro":""],
+    ["Runner-up Exit vs Avg",Number.isFinite(runnerMetrics.eliminationDelta)?survivorFormatDelta(runnerMetrics.eliminationDelta):"—","Final-week score minus alive-field average",retro?"retro":""],
+    ["Competition Window",`W${result.startWeek}–W${result.endWeek}`,"Nine elimination weeks",retro?"retro":""],
+    ["Field",`${result.initial.length} teams`,result.review?"Commissioner review needed":"Simulation complete",retro?"retro":""]
+  ].map(([label,value,detail,cls])=>`<div class="survivor-card ${cls||""}"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`).join("");
+  document.getElementById("survivorTimeline").innerHTML=result.events.map((e,i)=>{
+    const final=i===result.events.length-1;
+    const names=e.eliminated.length?e.eliminated.map(displayName).join(" & "):"No elimination";
+    const elimDelta=e.score!=null&&Number.isFinite(e.aliveAverage)?e.score-e.aliveAverage:null;
+    const score=e.score!=null?`${e.score.toFixed(2)} points · ${survivorFormatDelta(elimDelta)} vs alive avg`:e.carried?`${e.carried} elimination${e.carried===1?"":"s"} deferred`:"Tie review";
+    return `<div class="survivor-week-card ${final?"final":""} ${!e.eliminated.length?"deferred":""}"><div class="week">Week ${e.week}${final?" · Final":""}</div><div class="out">${final&&result.champion?`🥇 ${displayName(result.champion)}`:`❌ ${names}`}</div><div class="score">${final&&result.runnerUp?`${displayName(result.runnerUp)} eliminated · ${score}`:score}</div><div class="alive">${e.remaining} team${e.remaining===1?"":"s"} remaining</div></div>`;
+  }).join("");
+  document.getElementById("survivorPath").innerHTML=result.paths.map(p=>`<div class="survivor-path-row"><div class="survivor-path-week">W${p.week}</div><div class="survivor-pills">${result.initial.map(owner=>{
+    const entered=p.entering.includes(owner),remaining=p.remaining.includes(owner),winner=owner===result.champion&&p.week===result.endWeek;
+    if(!entered&&!remaining)return "";
+    return `<span class="survivor-pill ${!remaining?"eliminated":""} ${winner?"winner belt-winner":""}">${winner?`<span class="survivor-belt-icon">🥇</span>`:""}${displayName(owner)}</span>`;
+  }).join("")}</div></div>`).join("");
+}
+function survivorCareerRows(){
+  const results=survivorAllResults(),owners=weeklyH2HOwners();
+  return owners.map(owner=>{
+    const official=results.filter(r=>r.official),retro=results.filter(r=>!r.official);
+    const titles=list=>list.filter(r=>r.champion===owner).length;
+    const finals=list=>list.filter(r=>r.champion===owner||r.runnerUp===owner).length;
+    const avg=list=>{const vals=list.map(r=>r.eliminationWeek[owner]).filter(Number.isFinite);return vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:0};
+    const allSafety=results.flatMap(result=>{
+      const metric=survivorOwnerSeasonMetrics(result,owner).avgSafety;
+      return Number.isFinite(metric)?[metric]:[];
+    });
+    const allExitDelta=results.flatMap(result=>{
+      const metric=survivorOwnerSeasonMetrics(result,owner).eliminationDelta;
+      return Number.isFinite(metric)?[metric]:[];
+    });
+    return {
+      owner,officialTitles:titles(official),officialFinals:finals(official),
+      retroTitles:titles(retro),retroFinals:finals(retro),
+      combinedTitles:titles(results),combinedFinals:finals(results),
+      officialAvg:avg(official),retroAvg:avg(retro),
+      avgSafety:allSafety.length?allSafety.reduce((a,b)=>a+b,0)/allSafety.length:0,
+      avgElimVsAlive:allExitDelta.length?allExitDelta.reduce((a,b)=>a+b,0)/allExitDelta.length:0
+    };
+  });
+}
+function renderSurvivorRecords(){
+  let rows=survivorCareerRows();
+  const {key,direction}=survivorSort;
+  rows.sort((a,b)=>{let av=a[key],bv=b[key];let c=typeof av==="string"?av.localeCompare(bv):av-bv;if(c===0)c=displayName(a.owner).localeCompare(displayName(b.owner));return direction==="asc"?c:-c});
+  const h=(label,key)=>`<th data-survivor-sort="${key}">${label}<span class="sort-indicator">${survivorSort.key===key?(survivorSort.direction==="asc"?"▲":"▼"):""}</span></th>`;
+  document.getElementById("survivorRecordsTable").innerHTML=`<table class="survivor-table"><thead><tr>${h("Owner","owner")}${h("Official Titles","officialTitles")}${h("Official Finals","officialFinals")}${h("Avg Safety Margin","avgSafety")}${h("Elim Score vs Alive Avg","avgElimVsAlive")}${h("Official Avg Exit","officialAvg")}${h("Hypothetical Titles","retroTitles")}${h("Hypothetical Finals","retroFinals")}${h("Retro Avg Exit","retroAvg")}${h("Combined Titles","combinedTitles")}</tr></thead><tbody>${rows.map(r=>`<tr><td>${displayName(r.owner)}</td><td class="survivor-official">${r.officialTitles}</td><td>${r.officialFinals}</td><td>${r.avgSafety.toFixed(2)}</td><td class="${r.avgElimVsAlive>=0?"survivor-metric-positive":"survivor-metric-negative"}">${survivorFormatDelta(r.avgElimVsAlive)}</td><td>${r.officialAvg?r.officialAvg.toFixed(2):"—"}</td><td class="survivor-hypothetical">${r.retroTitles}</td><td class="survivor-hypothetical">${r.retroFinals}</td><td class="survivor-hypothetical">${r.retroAvg?r.retroAvg.toFixed(2):"—"}</td><td class="survivor-hypothetical">${r.combinedTitles}</td></tr>`).join("")}</tbody></table>`;
+  document.querySelectorAll("[data-survivor-sort]").forEach(th=>th.addEventListener("click",()=>{const k=th.dataset.survivorSort;if(survivorSort.key===k)survivorSort.direction=survivorSort.direction==="asc"?"desc":"asc";else{survivorSort.key=k;survivorSort.direction=k==="owner"?"asc":"desc"}renderSurvivorRecords()}));
+}
+async function openSurvivorHub(){
+  const state=document.getElementById("survivorLoadState");
+  try{
+    if(state)state.textContent="Loading weekly history…";
+    await ensureWeeklyHistoryLoaded();
+    if(state)state.classList.add("hidden");
+    document.getElementById("survivorContent").classList.remove("hidden");
+    if(!survivorSelectedYear)survivorSelectedYear=Math.max(...WEEKLY_HISTORY_DATA.years.filter(y=>+y>=2023).map(Number));
+    survivorSetView(survivorActiveView);
+  }catch(error){if(state)state.textContent=`Unable to load Survivor history: ${error.message}`;}
+}
+
 function openView(viewName){
  const button=document.querySelector(`.nav button[data-view="${viewName}"]`);
  if(!button || button.hidden)return;
@@ -5374,6 +5753,7 @@ function openView(viewName){
  if(viewName==="draftLab") renderDraftLab();
  if(viewName==="glossary") renderGlossary();
  if(viewName==="weeklyAnalytics") openWeeklyAnalytics();
+ if(viewName==="survivorHub") openSurvivorHub();
 }
 
 let commissionerMode=sessionStorage.getItem("bigBoardCommissionerMode")==="on";
@@ -5410,6 +5790,7 @@ document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",(
  if(b.dataset.view==="draftLab") renderDraftLab();
  if(b.dataset.view==="glossary") renderGlossary();
  if(b.dataset.view==="weeklyAnalytics") openWeeklyAnalytics();
+ if(b.dataset.view==="survivorHub") openSurvivorHub();
 }));
 
 
@@ -5458,6 +5839,13 @@ document.getElementById("glossarySearch").addEventListener("input",renderGlossar
 document.getElementById("weeklyYear").addEventListener("change",e=>{weeklySelectedYear=+e.target.value;weeklySelectedOwner=null;renderWeeklyAnalytics();});
 document.getElementById("weeklyScope").addEventListener("change",e=>{weeklyScope=e.target.value;weeklySelectedOwner=null;renderWeeklyAnalytics();});
 document.getElementById("weeklyClearOwner").addEventListener("click",()=>{weeklySelectedOwner=null;renderWeeklyAnalytics();});
+
+document.getElementById("survivorOfficialTab").addEventListener("click",()=>{survivorActiveView="OFFICIAL";survivorSetView("OFFICIAL")});
+document.getElementById("survivorRetroTab").addEventListener("click",()=>{survivorActiveView="RETRO";survivorSetView("RETRO")});
+document.getElementById("survivorRecordsTab").addEventListener("click",()=>{survivorActiveView="RECORDS";survivorSetView("RECORDS")});
+document.getElementById("survivorYear").addEventListener("change",e=>{survivorSelectedYear=+e.target.value;renderSurvivorSeason()});
+document.getElementById("survivorPlayAnimation").addEventListener("click",survivorPlayAnimation);
+document.getElementById("survivorResetAnimation").addEventListener("click",survivorResetAnimation);
 document.getElementById("weeklyOverviewTab").addEventListener("click",()=>weeklySetActiveView("OVERVIEW"));
 document.getElementById("weeklyH2HTab").addEventListener("click",()=>weeklySetActiveView("H2H"));
 document.getElementById("weeklyFeatsTab").addEventListener("click",()=>weeklySetActiveView("FEATS"));
