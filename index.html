@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v5.0.0 Schedule Lab Foundation — era-preserving brackets, postseason records, and champions shrine -->
+<!-- v5.0.3 Career SOS View — era-preserving brackets, postseason records, and champions shrine -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -2442,6 +2442,49 @@ header,
 @media(max-width:1050px){.schedule-hero-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:760px){.schedule-hero-grid,.schedule-findings-grid,.schedule-coming-grid{grid-template-columns:1fr}.schedule-random-card{grid-template-columns:1fr}.schedule-random-record{text-align:left}}
 
+
+/* =========================================================
+   v5.0.1 — Corrected What If engine and UI polish
+   ========================================================= */
+.schedule-lab-hero{align-items:center}
+.schedule-random-card{
+  grid-template-columns:minmax(0,1fr) auto;
+}
+.schedule-random-result{
+  min-width:180px;
+  display:grid;
+  justify-items:end;
+  gap:4px;
+}
+.schedule-random-label{
+  color:#6f6551;
+  font-size:9px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+.schedule-random-result #scheduleRandomWhatIf{
+  margin-top:5px;
+  border:1px solid #8b733b;
+  background:#211d15;
+  color:#e5cf91;
+  border-radius:8px;
+  padding:7px 10px;
+  font-weight:850;
+  font-size:10px;
+}
+@media(max-width:760px){
+  .schedule-random-result{justify-items:start;min-width:0}
+}
+
+
+/* =========================================================
+   v5.0.3 — Career SOS view
+   ========================================================= */
+#scheduleLabYear option[value="CAREER"]{
+  font-weight:800;
+}
+
 </style>
 </head>
 <body>
@@ -3057,16 +3100,20 @@ header,
         <h3>Schedule Lab</h3>
         <p>Quantify schedule strength, replay real scores against different opponents, and settle every “I would’ve made the playoffs with his schedule” argument.</p>
       </div>
-      <button id="scheduleRandomWhatIf" type="button">🎲 Random What If</button>
+      
     </div>
     <div id="scheduleHeroCards" class="schedule-hero-grid"></div>
     <div class="schedule-random-card">
-      <div>
-        <div class="weekly-eyebrow">Water-Cooler Generator</div>
+      <div class="schedule-random-main">
+        <div class="weekly-eyebrow">What If Generator</div>
         <h4 id="scheduleRandomQuestion">Random scenario loading…</h4>
         <p id="scheduleRandomDetail"></p>
       </div>
-      <div id="scheduleRandomRecord" class="schedule-random-record">—</div>
+      <div class="schedule-random-result">
+        <div class="schedule-random-label">Projected Record</div>
+        <div id="scheduleRandomRecord" class="schedule-random-record">—</div>
+        <button id="scheduleRandomWhatIf" type="button">🎲 Another Scenario</button>
+      </div>
     </div>
     <div class="weekly-section">
       <div class="weekly-section-head schedule-explorer-head">
@@ -5619,7 +5666,7 @@ function renderGlossary(){
 }
 
 
-let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL",weeklyH2HSort={key:"year",direction:"desc"},weeklySelectedFeatId=null,SCHEDULE_LAB_DATA=null,scheduleLabLoadingPromise=null,scheduleLabSelectedYear=2025,scheduleLabSort={key:"scheduleDifficultyIndex",direction:"desc"},scheduleRandomIndex=0;
+let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL",weeklyH2HSort={key:"year",direction:"desc"},weeklySelectedFeatId=null,SCHEDULE_LAB_DATA=null,scheduleLabLoadingPromise=null,scheduleLabSelectedYear="CAREER",scheduleLabSort={key:"scheduleDifficultyIndex",direction:"desc"},scheduleRandomIndex=0;
 let PLAYOFF_HISTORY_DATA=null,playoffLoadingPromise=null,playoffSelectedYear=2025,playoffActiveView="BRACKET",playoffRecordSort={true:{key:"w",direction:"desc"},placement:{key:"w",direction:"desc"},all:{key:"w",direction:"desc"}};
 let weeklySortStates={alt:{key:"allPlayWins",direction:"desc"},luck:{key:"luckDelta",direction:"desc"},distribution:{key:"weeklyHighs",direction:"desc"}};
 async function ensureWeeklyHistoryLoaded(){if(WEEKLY_HISTORY_DATA)return WEEKLY_HISTORY_DATA;if(weeklyLoadingPromise)return weeklyLoadingPromise;const s=document.getElementById("weeklyLoadState");if(s)s.textContent="Loading weekly history…";weeklyLoadingPromise=fetch("./data/weeklyHistory.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Could not load weeklyHistory.json (${r.status})`);return r.json();}).then(d=>{WEEKLY_HISTORY_DATA=d;weeklySelectedYear=Math.max(...d.years.map(Number));return d;});return weeklyLoadingPromise;}
@@ -5777,10 +5824,10 @@ function scheduleHeroCard(label,value,detail){return `<div class="schedule-hero-
 function renderScheduleHero(){
   const f=SCHEDULE_LAB_DATA.interestingFindings;
   document.getElementById("scheduleHeroCards").innerHTML=[
-    scheduleHeroCard("🥵 Hardest Schedule Ever",`${f.hardestSeasonEver.displayName} · ${f.hardestSeasonEver.year}`,`${f.hardestSeasonEver.scheduleExpectedWins.toFixed(2)} opponent-difficulty wins · SOS ${f.hardestSeasonEver.scheduleDifficultyIndex.toFixed(0)}`),
-    scheduleHeroCard("😌 Easiest Schedule Ever",`${f.easiestSeasonEver.displayName} · ${f.easiestSeasonEver.year}`,`${f.easiestSeasonEver.scheduleExpectedWins.toFixed(2)} opponent-difficulty wins · SOS ${f.easiestSeasonEver.scheduleDifficultyIndex.toFixed(0)}`),
-    scheduleHeroCard("🎁 Biggest Schedule Gift",`${f.biggestScheduleBeneficiary.displayName} · ${f.biggestScheduleBeneficiary.year}`,`${f.biggestScheduleBeneficiary.actualVsScheduleAverage>=0?"+":""}${f.biggestScheduleBeneficiary.actualVsScheduleAverage.toFixed(2)} wins vs schedule average`),
-    scheduleHeroCard("💀 Biggest Schedule Victim",`${f.biggestScheduleVictim.displayName} · ${f.biggestScheduleVictim.year}`,`${f.biggestScheduleVictim.actualVsScheduleAverage.toFixed(2)} wins vs schedule average`)
+    scheduleHeroCard("🔴 Hardest Schedule Ever",`${f.hardestSeasonEver.displayName} · ${f.hardestSeasonEver.year}`,`${f.hardestSeasonEver.scheduleExpectedWins.toFixed(2)} opponent-difficulty wins · SOS ${f.hardestSeasonEver.scheduleDifficultyIndex.toFixed(0)}`),
+    scheduleHeroCard("🟢 Easiest Schedule Ever",`${f.easiestSeasonEver.displayName} · ${f.easiestSeasonEver.year}`,`${f.easiestSeasonEver.scheduleExpectedWins.toFixed(2)} opponent-difficulty wins · SOS ${f.easiestSeasonEver.scheduleDifficultyIndex.toFixed(0)}`),
+    scheduleHeroCard("📈 Luckiest Schedule",`${f.biggestScheduleBeneficiary.displayName} · ${f.biggestScheduleBeneficiary.year}`,`${f.biggestScheduleBeneficiary.actualVsScheduleAverage>=0?"+":""}${f.biggestScheduleBeneficiary.actualVsScheduleAverage.toFixed(2)} wins vs schedule average`),
+    scheduleHeroCard("📉 Unluckiest Schedule",`${f.biggestScheduleVictim.displayName} · ${f.biggestScheduleVictim.year}`,`${f.biggestScheduleVictim.actualVsScheduleAverage.toFixed(2)} wins vs schedule average`)
   ].join("");
 }
 function renderScheduleRandom(){
@@ -5793,7 +5840,9 @@ function renderScheduleRandom(){
 }
 function renderScheduleYearOptions(){
   const sel=document.getElementById("scheduleLabYear");
-  sel.innerHTML=[...SCHEDULE_LAB_DATA.years].sort((a,b)=>b-a).map(y=>`<option value="${y}">${y}</option>`).join("");
+  const careerLabel=SCHEDULE_LAB_DATA.careerViewLabel||"2010–2025 Career";
+  sel.innerHTML=`<option value="CAREER">${careerLabel}</option>`+
+    [...SCHEDULE_LAB_DATA.years].sort((a,b)=>b-a).map(y=>`<option value="${y}">${y}</option>`).join("");
   sel.value=String(scheduleLabSelectedYear);
 }
 function scheduleSortRows(rows){
@@ -5810,18 +5859,44 @@ function scheduleHeader(label,key){
   return `<th data-schedule-sort="${key}">${label}<span class="weekly-sort">${active?(scheduleLabSort.direction==="asc"?"▲":"▼"):""}</span></th>`;
 }
 function renderScheduleTable(){
-  const rows=scheduleSortRows(Object.values(SCHEDULE_LAB_DATA.seasons[String(scheduleLabSelectedYear)].metrics));
+  const careerView=String(scheduleLabSelectedYear)==="CAREER";
+  let rows;
+  if(careerView){
+    rows=Object.values(SCHEDULE_LAB_DATA.career).map(m=>({
+      ...m,
+      actualWinEquivalent:m.actualWins+0.5*m.actualTies,
+      scheduleDifficultyRank:m.careerSOSRank
+    }));
+  }else{
+    rows=Object.values(SCHEDULE_LAB_DATA.seasons[String(scheduleLabSelectedYear)].metrics);
+  }
+  rows=scheduleSortRows(rows);
+
+  const rankLabel=careerView?"Career SOS Rank":"Hardest Rank";
+  const difficultyLabel=careerView?"Career Schedule Exp Wins":"Opponent Difficulty";
+
   document.getElementById("scheduleLabTable").innerHTML=`<table class="weekly-table"><thead><tr>
-    ${scheduleHeader("Owner","displayName")}${scheduleHeader("Actual","actualWinEquivalent")}
-    ${scheduleHeader("Expected Wins","expectedWins")}${scheduleHeader("Opponent Difficulty","scheduleExpectedWins")}
-    ${scheduleHeader("SOS Index","scheduleDifficultyIndex")}${scheduleHeader("Opp Avg Score","opponentAvgScore")}
-    ${scheduleHeader("Opp Avg Finish","opponentAvgWeeklyFinish")}${scheduleHeader("Hardest Rank","scheduleDifficultyRank")}
+    ${scheduleHeader("Owner","displayName")}
+    ${scheduleHeader("Actual","actualWinEquivalent")}
+    ${scheduleHeader("Expected Wins","expectedWins")}
+    ${scheduleHeader(difficultyLabel,"scheduleExpectedWins")}
+    ${scheduleHeader("Difficulty vs Avg","scheduleDifficultyWins")}
+    ${scheduleHeader("SOS Index","scheduleDifficultyIndex")}
+    ${scheduleHeader("Opp Avg Score","opponentAvgScore")}
+    ${scheduleHeader("Opp Avg Finish","opponentAvgWeeklyFinish")}
+    ${scheduleHeader(rankLabel,"scheduleDifficultyRank")}
   </tr></thead><tbody>${rows.map(m=>`<tr>
-    <td class="schedule-table-owner">${m.displayName}</td><td>${scheduleRecord(m)}</td>
-    <td>${m.expectedWins.toFixed(2)}</td><td>${m.scheduleExpectedWins.toFixed(2)}</td>
+    <td class="schedule-table-owner">${m.displayName}</td>
+    <td>${scheduleRecord(m)}</td>
+    <td>${m.expectedWins.toFixed(2)}</td>
+    <td>${m.scheduleExpectedWins.toFixed(2)}</td>
+    <td>${m.scheduleDifficultyWins>=0?"+":""}${m.scheduleDifficultyWins.toFixed(2)}</td>
     <td>${m.scheduleDifficultyIndex.toFixed(0)} ${scheduleBadge(m.scheduleDifficultyIndex)}</td>
-    <td>${m.opponentAvgScore.toFixed(2)}</td><td>${m.opponentAvgWeeklyFinish.toFixed(2)}</td><td>${m.scheduleDifficultyRank}</td>
+    <td>${m.opponentAvgScore.toFixed(2)}</td>
+    <td>${m.opponentAvgWeeklyFinish.toFixed(2)}</td>
+    <td>${m.scheduleDifficultyRank}</td>
   </tr>`).join("")}</tbody></table>`;
+
   document.querySelectorAll("#scheduleLabTable [data-schedule-sort]").forEach(th=>th.addEventListener("click",()=>{
     const key=th.dataset.scheduleSort;
     if(scheduleLabSort.key===key)scheduleLabSort.direction=scheduleLabSort.direction==="asc"?"desc":"asc";
@@ -6945,7 +7020,7 @@ document.getElementById("weeklyOverviewTab").addEventListener("click",()=>weekly
 document.getElementById("weeklyH2HTab").addEventListener("click",()=>weeklySetActiveView("H2H"));
 document.getElementById("weeklyFeatsTab").addEventListener("click",()=>weeklySetActiveView("FEATS"));
 document.getElementById("weeklyScheduleTab").addEventListener("click",()=>weeklySetActiveView("SCHEDULE"));
-document.getElementById("scheduleLabYear").addEventListener("change",e=>{scheduleLabSelectedYear=+e.target.value;renderScheduleTable()});
+document.getElementById("scheduleLabYear").addEventListener("change",e=>{scheduleLabSelectedYear=e.target.value==="CAREER"?"CAREER":+e.target.value;renderScheduleTable()});
 document.getElementById("scheduleRandomWhatIf").addEventListener("click",()=>{
   const pool=SCHEDULE_LAB_DATA?.interestingFindings?.randomWhatIfPool||[];
   if(!pool.length)return;
