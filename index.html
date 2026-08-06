@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v4.9.7 Championship Path Final Polish — era-preserving brackets, postseason records, and champions shrine -->
+<!-- v5.0.0 Schedule Lab Foundation — era-preserving brackets, postseason records, and champions shrine -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -2405,6 +2405,43 @@ header,
   }
 }
 
+
+/* =========================================================
+   v5.0.0 — Schedule Lab foundation
+   ========================================================= */
+.schedule-lab-shell{display:grid;gap:14px}
+.schedule-lab-hero{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap;background:linear-gradient(135deg,#17212b,#111922);color:#edf2f5;border:1px solid #3e4a55;border-radius:12px;padding:18px}
+.schedule-lab-hero h3{margin:3px 0 6px;font-size:24px;color:#f5f2e9}
+.schedule-lab-hero p{margin:0;color:#aeb8c1;max-width:760px}
+#scheduleRandomWhatIf{border:1px solid #8b733b;background:#211d15;color:#e5cf91;border-radius:8px;padding:9px 13px;font-weight:850}
+.schedule-hero-grid{display:grid;grid-template-columns:repeat(4,minmax(180px,1fr));gap:10px}
+.schedule-hero-card{background:#17212b;color:#eef3f6;border:1px solid #3c4853;border-radius:10px;padding:14px}
+.schedule-hero-card .label{color:#91a0ab;font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.08em}
+.schedule-hero-card .value{font-size:21px;font-weight:900;color:#f0d58d;margin-top:5px}
+.schedule-hero-card .detail{font-size:10px;color:#aeb8c1;margin-top:4px;line-height:1.35}
+.schedule-random-card{display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;background:#efeae0;border:1px solid #d1c6b0;border-left:4px solid #8a6a22;border-radius:10px;padding:14px;color:#1e252d}
+.schedule-random-card h4{margin:3px 0 4px;font-size:18px}
+.schedule-random-card p{margin:0;color:#5d6670}
+.schedule-random-record{font-size:32px;font-weight:900;color:#8a6a22;white-space:nowrap}
+.schedule-explorer-head label{min-width:125px}
+.schedule-sos-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 7px;border-radius:999px;font-size:9px;font-weight:900;white-space:nowrap}
+.schedule-sos-badge.hard{background:#4b2424;color:#ffd0d0}
+.schedule-sos-badge.average{background:#3d3a2c;color:#f0dda2}
+.schedule-sos-badge.easy{background:#21412f;color:#c7f1d6}
+.schedule-table-owner{font-weight:800}
+.schedule-findings-grid{display:grid;grid-template-columns:repeat(3,minmax(210px,1fr));gap:10px;margin-top:10px}
+.schedule-finding-card{background:#fffdf8;border:1px solid #d9d4ca;border-radius:10px;padding:13px}
+.schedule-finding-card .label{font-size:9px;color:#6c747c;font-weight:850;text-transform:uppercase;letter-spacing:.08em}
+.schedule-finding-card .value{font-size:17px;font-weight:900;margin-top:5px;color:#1e252d}
+.schedule-finding-card .detail{font-size:10px;color:#69727b;margin-top:4px;line-height:1.4}
+.schedule-coming-soon{background:#f0ede6!important}
+.schedule-coming-grid{display:grid;grid-template-columns:repeat(3,minmax(200px,1fr));gap:10px;margin-top:10px}
+.schedule-coming-grid>div{background:#fffdf8;border:1px dashed #b7afa0;border-radius:9px;padding:12px}
+.schedule-coming-grid strong{display:block;color:#26313b}
+.schedule-coming-grid span{display:block;color:#6c747c;font-size:10px;margin-top:4px}
+@media(max-width:1050px){.schedule-hero-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:760px){.schedule-hero-grid,.schedule-findings-grid,.schedule-coming-grid{grid-template-columns:1fr}.schedule-random-card{grid-template-columns:1fr}.schedule-random-record{text-align:left}}
+
 </style>
 </head>
 <body>
@@ -2959,6 +2996,7 @@ header,
 <button class="active" id="weeklyOverviewTab" type="button">Overview</button>
 <button id="weeklyH2HTab" type="button">Head-to-Head</button>
 <button id="weeklyFeatsTab" type="button">Remarkable Feats</button>
+<button id="weeklyScheduleTab" type="button">Schedule Lab</button>
 </div>
 <div class="weekly-owner-filter hidden" id="weeklyOwnerFilter">
 <span id="weeklyOwnerFilterText"></span>
@@ -3010,6 +3048,52 @@ header,
 <div class="weekly-table-wrap" id="weeklyFeatDetailTable"></div>
 </div>
 </div>
+</div>
+<div class="hidden" id="weeklySchedulePanel">
+  <div class="schedule-lab-shell">
+    <div class="schedule-lab-hero">
+      <div>
+        <div class="weekly-eyebrow">Alternate Reality Engine</div>
+        <h3>Schedule Lab</h3>
+        <p>Quantify schedule strength, replay real scores against different opponents, and settle every “I would’ve made the playoffs with his schedule” argument.</p>
+      </div>
+      <button id="scheduleRandomWhatIf" type="button">🎲 Random What If</button>
+    </div>
+    <div id="scheduleHeroCards" class="schedule-hero-grid"></div>
+    <div class="schedule-random-card">
+      <div>
+        <div class="weekly-eyebrow">Water-Cooler Generator</div>
+        <h4 id="scheduleRandomQuestion">Random scenario loading…</h4>
+        <p id="scheduleRandomDetail"></p>
+      </div>
+      <div id="scheduleRandomRecord" class="schedule-random-record">—</div>
+    </div>
+    <div class="weekly-section">
+      <div class="weekly-section-head schedule-explorer-head">
+        <div>
+          <div class="weekly-eyebrow">Season Explorer</div>
+          <h3>Strength of Schedule</h3>
+          <p>Opponent Difficulty estimates how many games a random league team would have won against each owner’s exact opponent scores.</p>
+        </div>
+        <label>Season<select id="scheduleLabYear"></select></label>
+      </div>
+      <div class="weekly-table-wrap" id="scheduleLabTable"></div>
+    </div>
+    <div class="weekly-section">
+      <div class="weekly-eyebrow">Interesting Findings</div>
+      <h3>Schedule Stories</h3>
+      <div id="scheduleFindingsGrid" class="schedule-findings-grid"></div>
+    </div>
+    <div class="weekly-section schedule-coming-soon">
+      <div class="weekly-eyebrow">Next Releases</div>
+      <h3>Coming Soon</h3>
+      <div class="schedule-coming-grid">
+        <div><strong>Schedule Replay</strong><span>Choose one owner’s scores and another owner’s schedule.</span></div>
+        <div><strong>League Matrix</strong><span>View every owner across all ten schedules.</span></div>
+        <div><strong>Schedule Equity</strong><span>Best, worst, average, and schedule-proof seasons.</span></div>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
 </div>
@@ -5535,7 +5619,7 @@ function renderGlossary(){
 }
 
 
-let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL",weeklyH2HSort={key:"year",direction:"desc"},weeklySelectedFeatId=null;
+let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL",weeklyH2HSort={key:"year",direction:"desc"},weeklySelectedFeatId=null,SCHEDULE_LAB_DATA=null,scheduleLabLoadingPromise=null,scheduleLabSelectedYear=2025,scheduleLabSort={key:"scheduleDifficultyIndex",direction:"desc"},scheduleRandomIndex=0;
 let PLAYOFF_HISTORY_DATA=null,playoffLoadingPromise=null,playoffSelectedYear=2025,playoffActiveView="BRACKET",playoffRecordSort={true:{key:"w",direction:"desc"},placement:{key:"w",direction:"desc"},all:{key:"w",direction:"desc"}};
 let weeklySortStates={alt:{key:"allPlayWins",direction:"desc"},luck:{key:"luckDelta",direction:"desc"},distribution:{key:"weeklyHighs",direction:"desc"}};
 async function ensureWeeklyHistoryLoaded(){if(WEEKLY_HISTORY_DATA)return WEEKLY_HISTORY_DATA;if(weeklyLoadingPromise)return weeklyLoadingPromise;const s=document.getElementById("weeklyLoadState");if(s)s.textContent="Loading weekly history…";weeklyLoadingPromise=fetch("./data/weeklyHistory.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Could not load weeklyHistory.json (${r.status})`);return r.json();}).then(d=>{WEEKLY_HISTORY_DATA=d;weeklySelectedYear=Math.max(...d.years.map(Number));return d;});return weeklyLoadingPromise;}
@@ -5673,21 +5757,114 @@ function renderWeeklyDistributionTable(){
   weeklyBindSort("#weeklyDistributionTable",s,renderWeeklyDistributionTable);bindWeeklyOwnerLinks();
 }
 
+
+async function ensureScheduleLabLoaded(){
+  if(SCHEDULE_LAB_DATA)return SCHEDULE_LAB_DATA;
+  if(scheduleLabLoadingPromise)return scheduleLabLoadingPromise;
+  scheduleLabLoadingPromise=fetch("./data/scheduleLab.json",{cache:"no-store"})
+    .then(r=>{if(!r.ok)throw new Error(`Could not load scheduleLab.json (${r.status})`);return r.json()})
+    .then(d=>{SCHEDULE_LAB_DATA=d;scheduleLabSelectedYear=Math.max(...d.years.map(Number));return d});
+  return scheduleLabLoadingPromise;
+}
+function scheduleBadge(index){
+  const t=SCHEDULE_LAB_DATA.scheduleBadgeThresholds;
+  if(index>=t.hard.minimumIndex)return `<span class="schedule-sos-badge hard">${t.hard.emoji} ${t.hard.label}</span>`;
+  if(index<t.easy.maximumIndexExclusive)return `<span class="schedule-sos-badge easy">${t.easy.emoji} ${t.easy.label}</span>`;
+  return `<span class="schedule-sos-badge average">${t.average.emoji} ${t.average.label}</span>`;
+}
+function scheduleRecord(m){return `${m.actualWins}-${m.actualLosses}${m.actualTies?`-${m.actualTies}`:""}`}
+function scheduleHeroCard(label,value,detail){return `<div class="schedule-hero-card"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`}
+function renderScheduleHero(){
+  const f=SCHEDULE_LAB_DATA.interestingFindings;
+  document.getElementById("scheduleHeroCards").innerHTML=[
+    scheduleHeroCard("🥵 Hardest Schedule Ever",`${f.hardestSeasonEver.displayName} · ${f.hardestSeasonEver.year}`,`${f.hardestSeasonEver.scheduleExpectedWins.toFixed(2)} opponent-difficulty wins · SOS ${f.hardestSeasonEver.scheduleDifficultyIndex.toFixed(0)}`),
+    scheduleHeroCard("😌 Easiest Schedule Ever",`${f.easiestSeasonEver.displayName} · ${f.easiestSeasonEver.year}`,`${f.easiestSeasonEver.scheduleExpectedWins.toFixed(2)} opponent-difficulty wins · SOS ${f.easiestSeasonEver.scheduleDifficultyIndex.toFixed(0)}`),
+    scheduleHeroCard("🎁 Biggest Schedule Gift",`${f.biggestScheduleBeneficiary.displayName} · ${f.biggestScheduleBeneficiary.year}`,`${f.biggestScheduleBeneficiary.actualVsScheduleAverage>=0?"+":""}${f.biggestScheduleBeneficiary.actualVsScheduleAverage.toFixed(2)} wins vs schedule average`),
+    scheduleHeroCard("💀 Biggest Schedule Victim",`${f.biggestScheduleVictim.displayName} · ${f.biggestScheduleVictim.year}`,`${f.biggestScheduleVictim.actualVsScheduleAverage.toFixed(2)} wins vs schedule average`)
+  ].join("");
+}
+function renderScheduleRandom(){
+  const pool=SCHEDULE_LAB_DATA.interestingFindings.randomWhatIfPool||[];
+  if(!pool.length)return;
+  const item=pool[scheduleRandomIndex%pool.length];
+  document.getElementById("scheduleRandomQuestion").textContent=item.prompt;
+  document.getElementById("scheduleRandomRecord").textContent=item.record;
+  document.getElementById("scheduleRandomDetail").textContent=`${item.scoringDisplayName}'s real scores against ${item.scheduleDisplayName}'s opponents · ${item.deltaWins>=0?"+":""}${item.deltaWins.toFixed(1)} wins vs actual`;
+}
+function renderScheduleYearOptions(){
+  const sel=document.getElementById("scheduleLabYear");
+  sel.innerHTML=[...SCHEDULE_LAB_DATA.years].sort((a,b)=>b-a).map(y=>`<option value="${y}">${y}</option>`).join("");
+  sel.value=String(scheduleLabSelectedYear);
+}
+function scheduleSortRows(rows){
+  const {key,direction}=scheduleLabSort;
+  return [...rows].sort((a,b)=>{
+    let av=key==="displayName"?a.displayName:a[key],bv=key==="displayName"?b.displayName:b[key];
+    let cmp=typeof av==="string"?String(av).localeCompare(String(bv)):(Number(av)||0)-(Number(bv)||0);
+    if(cmp===0)cmp=a.displayName.localeCompare(b.displayName);
+    return direction==="asc"?cmp:-cmp;
+  });
+}
+function scheduleHeader(label,key){
+  const active=scheduleLabSort.key===key;
+  return `<th data-schedule-sort="${key}">${label}<span class="weekly-sort">${active?(scheduleLabSort.direction==="asc"?"▲":"▼"):""}</span></th>`;
+}
+function renderScheduleTable(){
+  const rows=scheduleSortRows(Object.values(SCHEDULE_LAB_DATA.seasons[String(scheduleLabSelectedYear)].metrics));
+  document.getElementById("scheduleLabTable").innerHTML=`<table class="weekly-table"><thead><tr>
+    ${scheduleHeader("Owner","displayName")}${scheduleHeader("Actual","actualWinEquivalent")}
+    ${scheduleHeader("Expected Wins","expectedWins")}${scheduleHeader("Opponent Difficulty","scheduleExpectedWins")}
+    ${scheduleHeader("SOS Index","scheduleDifficultyIndex")}${scheduleHeader("Opp Avg Score","opponentAvgScore")}
+    ${scheduleHeader("Opp Avg Finish","opponentAvgWeeklyFinish")}${scheduleHeader("Hardest Rank","scheduleDifficultyRank")}
+  </tr></thead><tbody>${rows.map(m=>`<tr>
+    <td class="schedule-table-owner">${m.displayName}</td><td>${scheduleRecord(m)}</td>
+    <td>${m.expectedWins.toFixed(2)}</td><td>${m.scheduleExpectedWins.toFixed(2)}</td>
+    <td>${m.scheduleDifficultyIndex.toFixed(0)} ${scheduleBadge(m.scheduleDifficultyIndex)}</td>
+    <td>${m.opponentAvgScore.toFixed(2)}</td><td>${m.opponentAvgWeeklyFinish.toFixed(2)}</td><td>${m.scheduleDifficultyRank}</td>
+  </tr>`).join("")}</tbody></table>`;
+  document.querySelectorAll("#scheduleLabTable [data-schedule-sort]").forEach(th=>th.addEventListener("click",()=>{
+    const key=th.dataset.scheduleSort;
+    if(scheduleLabSort.key===key)scheduleLabSort.direction=scheduleLabSort.direction==="asc"?"desc":"asc";
+    else{scheduleLabSort.key=key;scheduleLabSort.direction=key==="displayName"?"asc":"desc";}
+    renderScheduleTable();
+  }));
+}
+function renderScheduleFindings(){
+  const f=SCHEDULE_LAB_DATA.interestingFindings;
+  const cards=[
+    ["Most Schedule-Proof",f.mostScheduleProofSeason,`${f.mostScheduleProofSeason.scheduleRangeWins.toFixed(1)}-win range across all schedules`],
+    ["Most Volatile",f.mostVolatileSeason,`${f.mostVolatileSeason.scheduleRangeWins.toFixed(1)}-win range across all schedules`],
+    ["Best Hypothetical Record",f.bestHypotheticalRecord,`${f.bestHypotheticalRecord.record} using ${f.bestHypotheticalRecord.scheduleDisplayName}'s schedule`],
+    ["Largest Replay Gain",f.largestReplayGain,`${f.largestReplayGain.record} · ${f.largestReplayGain.deltaWins>=0?"+":""}${f.largestReplayGain.deltaWins.toFixed(1)} wins`],
+    ["Largest Replay Loss",f.largestReplayLoss,`${f.largestReplayLoss.record} · ${f.largestReplayLoss.deltaWins.toFixed(1)} wins`],
+    ["Worst Hypothetical Record",f.worstHypotheticalRecord,`${f.worstHypotheticalRecord.record} using ${f.worstHypotheticalRecord.scheduleDisplayName}'s schedule`]
+  ];
+  document.getElementById("scheduleFindingsGrid").innerHTML=cards.map(([label,item,detail])=>{
+    const value=item.displayName?`${item.displayName} · ${item.year}`:`${item.scoringDisplayName} · ${item.year}`;
+    return `<div class="schedule-finding-card"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`;
+  }).join("");
+}
+async function renderScheduleLab(){
+  try{await ensureScheduleLabLoaded();renderScheduleYearOptions();renderScheduleHero();renderScheduleRandom();renderScheduleTable();renderScheduleFindings()}
+  catch(error){document.getElementById("weeklySchedulePanel").innerHTML=`<div class="weekly-load-state">Unable to load Schedule Lab: ${error.message}</div>`}
+}
+
 function weeklySetActiveView(view){
   weeklyActiveView=view;
-  const overview=view==="OVERVIEW";
-  const h2h=view==="H2H";
-  const feats=view==="FEATS";
+  const overview=view==="OVERVIEW",h2h=view==="H2H",feats=view==="FEATS",schedule=view==="SCHEDULE";
   document.getElementById("weeklyOverviewPanel").classList.toggle("hidden",!overview);
   document.getElementById("weeklyH2HPanel").classList.toggle("hidden",!h2h);
   document.getElementById("weeklyFeatsPanel").classList.toggle("hidden",!feats);
+  document.getElementById("weeklySchedulePanel").classList.toggle("hidden",!schedule);
   document.getElementById("weeklyOverviewTab").classList.toggle("active",overview);
   document.getElementById("weeklyH2HTab").classList.toggle("active",h2h);
   document.getElementById("weeklyFeatsTab").classList.toggle("active",feats);
+  document.getElementById("weeklyScheduleTab").classList.toggle("active",schedule);
   document.querySelector(".weekly-controls").classList.toggle("hidden",!overview);
   document.getElementById("weeklyOwnerFilter").classList.toggle("hidden",!overview||!weeklySelectedOwner);
   if(h2h)renderWeeklyH2H();
   if(feats)renderWeeklyFeats();
+  if(schedule)renderScheduleLab();
 }
 
 function weeklyH2HOwners(){
@@ -6767,6 +6944,15 @@ document.getElementById("survivorResetAnimation").addEventListener("click",survi
 document.getElementById("weeklyOverviewTab").addEventListener("click",()=>weeklySetActiveView("OVERVIEW"));
 document.getElementById("weeklyH2HTab").addEventListener("click",()=>weeklySetActiveView("H2H"));
 document.getElementById("weeklyFeatsTab").addEventListener("click",()=>weeklySetActiveView("FEATS"));
+document.getElementById("weeklyScheduleTab").addEventListener("click",()=>weeklySetActiveView("SCHEDULE"));
+document.getElementById("scheduleLabYear").addEventListener("change",e=>{scheduleLabSelectedYear=+e.target.value;renderScheduleTable()});
+document.getElementById("scheduleRandomWhatIf").addEventListener("click",()=>{
+  const pool=SCHEDULE_LAB_DATA?.interestingFindings?.randomWhatIfPool||[];
+  if(!pool.length)return;
+  let next=Math.floor(Math.random()*pool.length);
+  if(pool.length>1&&next===scheduleRandomIndex)next=(next+1)%pool.length;
+  scheduleRandomIndex=next;renderScheduleRandom();
+});
 document.getElementById("weeklyFeatClear").addEventListener("click",()=>{weeklySelectedFeatId=null;renderWeeklyFeats();});
 document.getElementById("weeklyH2HOwnerA").addEventListener("change",e=>{
   weeklyH2HOwnerA=e.target.value;
