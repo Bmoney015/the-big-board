@@ -2582,6 +2582,69 @@ header,
   font-size:10px;
 }
 
+
+/* =========================================================
+   v5.2.0 — Draft Skill
+   ========================================================= */
+.draft-skill-hero{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;margin:2px 0 14px;padding:15px 16px;border:1px solid #35414a;border-radius:12px;background:linear-gradient(135deg,#131d26,#18242e)}
+.draft-skill-eyebrow{font-size:9px;line-height:1;text-transform:uppercase;letter-spacing:.11em;font-weight:900;color:#c2a860}
+.draft-skill-hero h3,.draft-skill-explorer h3{margin:4px 0 3px;color:#f2f5f7}
+.draft-skill-hero p,.draft-skill-explorer p{margin:0;color:#98a5ae;font-size:10px}
+.draft-skill-scope{min-width:190px;font-size:9px;font-weight:850;text-transform:uppercase;letter-spacing:.06em;color:#aeb8bf}
+.draft-skill-scope select,.draft-skill-filter-row select{display:block;width:100%;margin-top:5px;padding:8px 9px;border:1px solid #4b5862;border-radius:7px;background:#0f171e;color:#edf2f5;font-weight:750}
+.draft-skill-leaderboard{display:grid;gap:6px}
+.draft-skill-row{display:grid;grid-template-columns:42px minmax(110px,1.25fr) 90px 58px repeat(4,minmax(72px,.8fr));gap:8px;align-items:center;padding:9px 10px;border:1px solid #34414b;border-radius:9px;background:#151f28;cursor:pointer;transition:.15s ease}
+.draft-skill-row:hover,.draft-skill-row.selected{border-color:#b99a55;background:#1b2630;transform:translateY(-1px)}
+.draft-skill-row.head{cursor:default;background:transparent;border:0;padding:0 10px 4px;color:#7e8b95;font-size:8px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.draft-skill-row.head:hover{transform:none}
+.draft-skill-rank{font-size:16px;font-weight:950;color:#d7bd74}
+.draft-skill-owner{font-size:12px;font-weight:900;color:#edf2f5}
+.draft-skill-score{font-size:18px;font-weight:950;color:#f2d786}
+.draft-skill-grade{font-size:11px;font-weight:950;text-align:center;padding:4px 6px;border-radius:6px;background:#28333c;color:#edf2f5}
+.draft-skill-component{text-align:center}.draft-skill-component b{display:block;color:#dfe6ea;font-size:11px}.draft-skill-component span{display:block;color:#74818a;font-size:7px;text-transform:uppercase}
+.draft-skill-profile{margin:12px 0 17px;border:1px solid #5f5435;border-radius:11px;background:#171b1d;padding:14px}
+.draft-skill-profile-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:11px}
+.draft-skill-profile-head h3{margin:2px 0;color:#f0f3f5}.draft-skill-profile-score{text-align:right}.draft-skill-profile-score strong{display:block;color:#d8bd70;font-size:24px}.draft-skill-profile-score span{font-size:10px;color:#9da8af;font-weight:800}
+.draft-skill-profile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:11px}
+.draft-skill-profile-card{padding:9px;border:1px solid #303c45;border-radius:8px;background:#111920}.draft-skill-profile-card .label{font-size:8px;color:#7f8d97;text-transform:uppercase;font-weight:850}.draft-skill-profile-card .value{font-size:17px;color:#edf2f5;font-weight:900;margin-top:3px}
+.draft-skill-profile-highlights{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.draft-skill-highlight{padding:10px;border-radius:8px;background:#202a31}.draft-skill-highlight .label{font-size:8px;text-transform:uppercase;color:#9aa5ad;font-weight:900}.draft-skill-highlight .pick{margin-top:4px;color:#edf2f5;font-size:10px;font-weight:800}.draft-skill-highlight.good{border-left:3px solid #629872}.draft-skill-highlight.bad{border-left:3px solid #a35d5d}
+.draft-skill-explorer{margin-top:14px;border-top:1px solid #35414a;padding-top:15px}.draft-skill-explorer-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px}.draft-pick-mode{display:flex;gap:5px}.draft-pick-mode button{border:1px solid #46525b;background:#151e25;color:#aeb8bf;padding:7px 10px;border-radius:7px;font-size:9px;font-weight:850;cursor:pointer}.draft-pick-mode button.active{background:#8b733b;border-color:#b99a55;color:#fff}
+.draft-skill-filter-row{display:flex;gap:10px;align-items:flex-end;margin:11px 0}.draft-skill-filter-row label{width:180px;font-size:8px;color:#8e9aa3;text-transform:uppercase;font-weight:850}.draft-skill-count{margin-left:auto;color:#7f8c96;font-size:9px;padding-bottom:8px}
+.draft-skill-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.draft-skill-pick{display:grid;grid-template-columns:52px 1fr auto;gap:9px;align-items:center;padding:9px 10px;border:1px solid #34414a;border-radius:8px;background:#111920}.draft-skill-pick-rank{font-size:9px;color:#71808a}.draft-skill-pick-main strong{display:block;color:#edf2f5;font-size:10px}.draft-skill-pick-main span{display:block;color:#8d9aa3;font-size:8px;margin-top:2px}.draft-skill-pick-grade{text-align:right}.draft-skill-pick-grade strong{display:block;color:#e2c878;font-size:12px}.draft-skill-pick-grade span{display:block;color:#82909a;font-size:8px}
+.draft-skill-method{margin-top:13px;border:1px solid #303b44;border-radius:8px;background:#11181e}.draft-skill-method summary{cursor:pointer;padding:9px 11px;color:#9ca8b0;font-size:9px;font-weight:850}.draft-skill-method-body{padding:0 11px 11px;color:#95a1aa;font-size:9px;line-height:1.5}.draft-skill-method-body strong{color:#d6dde2}
+@media(max-width:1000px){.draft-skill-row{grid-template-columns:35px minmax(100px,1fr) 72px 48px repeat(4,55px)}.draft-skill-row.head{display:none}.draft-skill-picks{grid-template-columns:1fr}}
+@media(max-width:760px){.draft-skill-hero,.draft-skill-explorer-head{align-items:stretch;flex-direction:column}.draft-skill-scope{width:100%}.draft-skill-row{grid-template-columns:32px 1fr 65px 45px}.draft-skill-component{display:none}.draft-skill-profile-grid{grid-template-columns:repeat(2,1fr)}.draft-skill-profile-highlights{grid-template-columns:1fr}.draft-skill-filter-row{flex-wrap:wrap}.draft-skill-filter-row label{width:calc(50% - 5px)}}
+
+
+/* v5.2.1 Draft Class Rankings + readability */
+.draft-skill-pick-main strong{font-size:11px!important}
+.draft-skill-pick-main span{font-size:9px!important;line-height:1.35}
+.draft-skill-pick-grade strong{font-size:13px!important}
+.draft-skill-pick-grade span{font-size:9px!important}
+.draft-skill-pick-rank{font-size:9px!important}
+
+.draft-class-rankings{margin:14px 0 18px;border-top:1px solid #35414a;padding-top:15px}
+.draft-class-rankings-head{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;margin-bottom:10px}
+.draft-class-rankings-head h3{margin:4px 0 3px;color:#f2f5f7}
+.draft-class-rankings-head p{margin:0;color:#98a5ae;font-size:10px}
+.draft-class-mode{display:flex;gap:5px}
+.draft-class-mode button{border:1px solid #46525b;background:#151e25;color:#aeb8bf;padding:7px 10px;border-radius:7px;font-size:9px;font-weight:850;cursor:pointer}
+.draft-class-mode button.active{background:#8b733b;border-color:#b99a55;color:#fff}
+.draft-class-table-wrap{overflow:auto;border:1px solid #34414a;border-radius:9px}
+.draft-class-table{width:100%;border-collapse:collapse;min-width:760px;background:#111920}
+.draft-class-table th,.draft-class-table td{padding:8px 10px;border-bottom:1px solid #26323b;font-size:9px;text-align:right;white-space:nowrap}
+.draft-class-table th{background:#202a33;color:#aab5bc;font-size:8px;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;user-select:none}
+.draft-class-table th:first-child,.draft-class-table td:first-child,
+.draft-class-table th:nth-child(2),.draft-class-table td:nth-child(2),
+.draft-class-table th:nth-child(3),.draft-class-table td:nth-child(3){text-align:left}
+.draft-class-table tr:last-child td{border-bottom:0}
+.draft-class-table tbody tr:hover{background:#17232c}
+.draft-class-rank{color:#d7bd74;font-weight:900}
+.draft-class-owner{color:#eef2f5;font-weight:900}
+.draft-class-score{color:#f1d57f;font-weight:950;font-size:11px!important}
+.draft-class-grade{font-weight:900;color:#e7ecef}
+@media(max-width:760px){.draft-class-rankings-head{flex-direction:column;align-items:stretch}.draft-class-mode{width:100%}.draft-class-mode button{flex:1}}
+
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -2901,14 +2964,15 @@ header,
 <span class="draft-era-badge" id="draftEraBadge">Draft Boards 2010–2025</span>
 </div>
 <div class="draft-controls">
-<label>Draft Year
+<label class="draft-legacy-control">Draft Year
         <select id="draftYear"></select>
 </label>
-<label>Highlight Owner
+<label class="draft-legacy-control">Highlight Owner
         <select id="draftOwnerFilter"></select>
 </label>
 <div aria-label="Draft Hub view" class="draft-view-switch" role="group">
-<button class="active" id="draftBoardView">Draft Board</button>
+<button class="active" id="draftSkillView">Draft Skill</button>
+<button id="draftBoardView">Draft Board</button>
 <button id="draftTableView">Pick Table</button>
 <button id="draftOwnerView">Owner Cards</button>
 <button id="draftSlotsView">Draft Slots</button>
@@ -2917,6 +2981,73 @@ header,
 <div class="draft-summary-grid" id="draftSummary"></div>
 <div class="draft-position-volume" id="draftPositionVolume"></div>
 <div class="draft-legend" id="draftLegend"></div>
+<div id="draftSkillPanel">
+  <div class="draft-skill-hero">
+    <div>
+      <div class="draft-skill-eyebrow">Historical Drafting Performance</div>
+      <h3 id="draftSkillTitle">Career Draft Skill</h3>
+      <p id="draftSkillSubtitle">Who has drafted the best across the league's valid historical draft records?</p>
+    </div>
+    <label class="draft-skill-scope">View
+      <select id="draftSkillScope"></select>
+    </label>
+  </div>
+
+  <div class="draft-skill-leaderboard" id="draftSkillLeaderboard"></div>
+  <div class="draft-skill-profile hidden" id="draftSkillProfile"></div>
+
+  <div class="draft-class-rankings">
+    <div class="draft-class-rankings-head">
+      <div>
+        <div class="draft-skill-eyebrow">Draft Class Rankings</div>
+        <h3 id="draftClassRankingsTitle">Best Drafts Ever</h3>
+        <p>Compare complete owner draft classes across every valid season.</p>
+      </div>
+      <div class="draft-class-mode" role="group" aria-label="Draft class ranking mode">
+        <button type="button" class="active" data-draft-class-mode="best">Best 5</button>
+        <button type="button" data-draft-class-mode="worst">Worst 5</button>
+        <button type="button" data-draft-class-mode="all">Show All</button>
+      </div>
+    </div>
+    <div class="draft-class-table-wrap" id="draftClassRankings"></div>
+  </div>
+
+  <div class="draft-skill-explorer">
+    <div class="draft-skill-explorer-head">
+      <div>
+        <div class="draft-skill-eyebrow">Pick Explorer</div>
+        <h3 id="draftPickExplorerTitle">Best Picks</h3>
+        <p>Explore the picks behind the grades without exposing the grading laboratory.</p>
+      </div>
+      <div class="draft-pick-mode" role="group" aria-label="Pick Explorer mode">
+        <button class="active" type="button" data-pick-mode="best">Best Picks</button>
+        <button type="button" data-pick-mode="worst">Worst Picks</button>
+        <button type="button" data-pick-mode="all">All Picks</button>
+      </div>
+    </div>
+    <div class="draft-skill-filter-row">
+      <label>Owner
+        <select id="draftSkillOwnerFilter"></select>
+      </label>
+      <label>Position
+        <select id="draftSkillPositionFilter">
+          <option value="ALL">All Positions</option>
+          <option value="QB">QB</option>
+          <option value="RB">RB</option>
+          <option value="WR">WR</option>
+          <option value="TE">TE</option>
+        </select>
+      </label>
+      <span class="draft-skill-count" id="draftSkillPickCount"></span>
+    </div>
+    <div class="draft-skill-picks" id="draftSkillPicks"></div>
+  </div>
+
+  <details class="draft-skill-method">
+    <summary>How Draft Skill Works</summary>
+    <div class="draft-skill-method-body" id="draftSkillMethod"></div>
+  </details>
+</div>
 <div id="draftBoardPanel">
 <div class="draft-board-wrap" id="draftBoard"></div>
 <div class="draft-trade-notes" id="draftTradeNotes"></div>
@@ -4641,7 +4772,15 @@ function journeyReplay(){
 let draftSelectedYear=Math.max(...DRAFTS_DATA.years.map(Number));
 let draftCapitalScope=String(draftSelectedYear);
 let draftSelectedOwner="ALL";
-let draftCurrentView="board";
+let draftCurrentView="skill";
+let DRAFT_SKILL_DATA=null;
+let draftSkillScope="CAREER";
+let draftSkillOwner="ALL";
+let draftSkillPosition="ALL";
+let draftSkillPickMode="best";
+let draftSkillSelectedOwner=null;
+let draftClassMode="best";
+let draftClassSort={key:"score",dir:"desc"};
 let draftTableOwner="ALL";
 let draftTablePosition="ALL";
 let draftTableRound="ALL";
@@ -5179,7 +5318,7 @@ function draftCapitalProfileHtml(owner){
         <div class="draft-capital-pct">${Math.round(pct*100)}%</div>
       </div>`;
     }).join("")}
-    <div class="draft-capital-note">${draftCapitalScope!=="CAREER"&&!isDraftAnalysisYear(+draftCapitalScope)?"Archive-only year · excluded from analytics":"Share of weighted draft capital · configurable in data/draftCapital.json"}</div>
+    <div class="draft-capital-note">${draftCapitalScope!=="CAREER"&&!isDraftAnalysisYear(+draftCapitalScope)?"Archive-only year · excluded from analytics":"Share of weighted draft capital · steep shared decay curve"}</div>
   </div>`;
 }
 
@@ -5355,16 +5494,218 @@ function renderDraftSlotHistory(){
 function renderDraftSlotsView(){
   renderDraftSlotSelectors();renderDraftSlotCards();renderSlotImpact();renderDraftSlotTable();renderDraftSlotHistory();
 }
+
+async function ensureDraftSkillLoaded(){
+  if(DRAFT_SKILL_DATA)return DRAFT_SKILL_DATA;
+  const response=await fetch("./data/draftSkill.json",{cache:"no-store"});
+  if(!response.ok)throw new Error(`Could not load data/draftSkill.json (HTTP ${response.status})`);
+  DRAFT_SKILL_DATA=await response.json();
+  return DRAFT_SKILL_DATA;
+}
+function draftSkillGradeClass(grade){
+  return String(grade||"").replace("+","plus").toLowerCase();
+}
+function draftSkillComponent(label,value){
+  return `<div class="draft-skill-component"><b>${Math.round(value)}</b><span>${label}</span></div>`;
+}
+function draftSkillPickLine(p){
+  if(!p)return "—";
+  const final=p.finalRank>=101?`${p.position}100+`:`${p.position}${p.finalRank}`;
+  return `${p.player} · #${p.overallPick} · ${p.position}${p.positionPick} → ${final}`;
+}
+function draftSkillRowsForScope(){
+  if(draftSkillScope==="CAREER")return [...DRAFT_SKILL_DATA.career].sort((a,b)=>a.rank-b.rank);
+  return DRAFT_SKILL_DATA.annual.filter(r=>+r.year===+draftSkillScope).sort((a,b)=>a.rank-b.rank);
+}
+function renderDraftSkillSelectors(){
+  const scope=document.getElementById("draftSkillScope");
+  if(scope&&!scope.options.length){
+    scope.innerHTML=`<option value="CAREER">${DRAFT_SKILL_DATA.careerLabel}</option>`+
+      [...DRAFT_SKILL_DATA.validYears].sort((a,b)=>b-a).map(y=>`<option value="${y}">${y} Draft</option>`).join("");
+  }
+  if(scope)scope.value=draftSkillScope;
+  const owner=document.getElementById("draftSkillOwnerFilter");
+  if(owner&&!owner.options.length){
+    owner.innerHTML=`<option value="ALL">All Owners</option>`+
+      draftOwners().map(o=>`<option value="${o}">${displayName(o)}</option>`).join("");
+  }
+  if(owner)owner.value=draftSkillOwner;
+  const pos=document.getElementById("draftSkillPositionFilter");
+  if(pos)pos.value=draftSkillPosition;
+}
+function renderDraftSkillLeaderboard(){
+  const rows=draftSkillRowsForScope();
+  const career=draftSkillScope==="CAREER";
+  document.getElementById("draftSkillTitle").textContent=career?"Career Draft Skill":`${draftSkillScope} Draft Grades`;
+  document.getElementById("draftSkillSubtitle").textContent=career
+    ?"Who has drafted the best across every valid historical draft? 2017 is excluded."
+    :"How did each owner's draft class grade against the full history of owner-seasons?";
+  const header=`<div class="draft-skill-row head"><div>Rank</div><div>Owner</div><div>Score</div><div>Grade</div><div>Overall</div><div>Hit</div><div>Premium</div><div>Home Run</div></div>`;
+  document.getElementById("draftSkillLeaderboard").innerHTML=header+rows.map(r=>`
+    <div class="draft-skill-row ${draftSkillSelectedOwner===r.owner?"selected":""}" data-draft-skill-owner="${r.owner}">
+      <div class="draft-skill-rank">#${r.rank}</div>
+      <div class="draft-skill-owner">${displayName(r.owner)}</div>
+      <div class="draft-skill-score">${Number(r.score).toFixed(1)}</div>
+      <div class="draft-skill-grade">${r.grade}</div>
+      ${draftSkillComponent("Overall",r.overallScore)}
+      ${draftSkillComponent("Hit",r.hitScore)}
+      ${draftSkillComponent("Premium",r.premiumScore)}
+      ${draftSkillComponent("Home Run",r.homeRunScore)}
+    </div>`).join("");
+  document.querySelectorAll("[data-draft-skill-owner]").forEach(row=>row.addEventListener("click",()=>{
+    const owner=row.dataset.draftSkillOwner;
+    draftSkillSelectedOwner=draftSkillSelectedOwner===owner?null:owner;
+    if(draftSkillSelectedOwner){
+      draftSkillOwner=draftSkillSelectedOwner;
+      document.getElementById("draftSkillOwnerFilter").value=draftSkillOwner;
+    }
+    renderDraftSkillLeaderboard();
+    renderDraftSkillProfile();
+    renderDraftPickExplorer();
+  }));
+}
+function renderDraftSkillProfile(){
+  const panel=document.getElementById("draftSkillProfile");
+  if(!draftSkillSelectedOwner){panel.classList.add("hidden");panel.innerHTML="";return}
+  const rows=draftSkillRowsForScope();
+  const r=rows.find(x=>x.owner===draftSkillSelectedOwner);
+  if(!r){panel.classList.add("hidden");return}
+  const career=draftSkillScope==="CAREER";
+  panel.innerHTML=`
+    <div class="draft-skill-profile-head">
+      <div><div class="draft-skill-eyebrow">${career?"Career Draft Profile":`${draftSkillScope} Draft Class`}</div><h3>${displayName(r.owner)}</h3></div>
+      <div class="draft-skill-profile-score"><strong>${Number(r.score).toFixed(1)}</strong><span>${r.grade} · #${r.rank}</span></div>
+    </div>
+    <div class="draft-skill-profile-grid">
+      <div class="draft-skill-profile-card"><div class="label">True Hit Rate</div><div class="value">${(Number(r.trueHitRate)*100).toFixed(1)}%</div></div>
+      <div class="draft-skill-profile-card"><div class="label">Avg Pick %ile</div><div class="value">${Number(r.avgPickPercentile).toFixed(1)}</div></div>
+      <div class="draft-skill-profile-card"><div class="label">Elite Hits</div><div class="value">${r.eliteHits}</div></div>
+      <div class="draft-skill-profile-card"><div class="label">${career?"Career Picks":"Draft Picks"}</div><div class="value">${career?(r.hits+r.near+r.misses):r.pickCount}</div></div>
+    </div>
+    <div class="draft-skill-profile-highlights">
+      <div class="draft-skill-highlight good"><div class="label">Best Pick</div><div class="pick">${draftSkillPickLine(r.bestPick)}</div></div>
+      <div class="draft-skill-highlight bad"><div class="label">Worst Pick</div><div class="pick">${draftSkillPickLine(r.worstPick)}</div></div>
+    </div>`;
+  panel.classList.remove("hidden");
+}
+function draftSkillFilteredPicks(){
+  let rows=DRAFT_SKILL_DATA.picks.filter(p=>draftSkillScope==="CAREER"||+p.year===+draftSkillScope);
+  if(draftSkillOwner!=="ALL")rows=rows.filter(p=>p.owner===draftSkillOwner);
+  if(draftSkillPosition!=="ALL")rows=rows.filter(p=>p.position===draftSkillPosition);
+  rows.sort((a,b)=>draftSkillPickMode==="worst"?a.score-b.score:draftSkillPickMode==="all"?(b.year-a.year||a.overallPick-b.overallPick):b.score-a.score);
+  return rows;
+}
+
+function draftClassRows(){
+  let rows=[...DRAFT_SKILL_DATA.annual];
+  const {key,dir}=draftClassSort;
+  rows.sort((a,b)=>{
+    let av=a[key],bv=b[key];
+    if(typeof av==="string")return dir==="asc"?av.localeCompare(bv):bv.localeCompare(av);
+    av=Number(av);bv=Number(bv);
+    return dir==="asc"?av-bv:bv-av;
+  });
+  if(draftClassMode==="best"){
+    rows=[...DRAFT_SKILL_DATA.annual].sort((a,b)=>b.score-a.score).slice(0,5);
+  }else if(draftClassMode==="worst"){
+    rows=[...DRAFT_SKILL_DATA.annual].sort((a,b)=>a.score-b.score).slice(0,5);
+  }
+  return rows;
+}
+function renderDraftClassRankings(){
+  const rows=draftClassRows();
+  const title=draftClassMode==="best"?"Best Drafts Ever":draftClassMode==="worst"?"Worst Drafts Ever":"All Draft Classes";
+  document.getElementById("draftClassRankingsTitle").textContent=title;
+  document.querySelectorAll("[data-draft-class-mode]").forEach(b=>b.classList.toggle("active",b.dataset.draftClassMode===draftClassMode));
+  const allMode=draftClassMode==="all";
+  const hdr=(label,key)=>`<th ${allMode?`data-draft-class-sort="${key}"`:""}>${label}${allMode&&draftClassSort.key===key?(draftClassSort.dir==="asc"?" ↑":" ↓"):""}</th>`;
+  document.getElementById("draftClassRankings").innerHTML=`
+    <table class="draft-class-table">
+      <thead><tr>
+        ${hdr("Rank","rank")}${hdr("Year","year")}${hdr("Owner","owner")}${hdr("Score","score")}${hdr("Grade","grade")}
+        ${hdr("Overall","overallScore")}${hdr("Hit","hitScore")}${hdr("Premium","premiumScore")}${hdr("Home Run","homeRunScore")}
+        ${hdr("True Hit Rate","trueHitRate")}${hdr("Elite Hits","eliteHits")}
+      </tr></thead>
+      <tbody>${rows.map((r,i)=>`<tr data-draft-class-year="${r.year}" data-draft-class-owner="${r.owner}">
+        <td class="draft-class-rank">#${draftClassMode==="all"?i+1:i+1}</td>
+        <td>${r.year}</td><td class="draft-class-owner">${displayName(r.owner)}</td>
+        <td class="draft-class-score">${Number(r.score).toFixed(1)}</td><td class="draft-class-grade">${r.grade}</td>
+        <td>${Math.round(r.overallScore)}</td><td>${Math.round(r.hitScore)}</td><td>${Math.round(r.premiumScore)}</td><td>${Math.round(r.homeRunScore)}</td>
+        <td>${(Number(r.trueHitRate)*100).toFixed(1)}%</td><td>${r.eliteHits}</td>
+      </tr>`).join("")}</tbody>
+    </table>`;
+  document.querySelectorAll("[data-draft-class-sort]").forEach(th=>th.addEventListener("click",()=>{
+    const key=th.dataset.draftClassSort;
+    if(draftClassSort.key===key)draftClassSort.dir=draftClassSort.dir==="asc"?"desc":"asc";
+    else{draftClassSort.key=key;draftClassSort.dir=key==="owner"?"asc":"desc";}
+    renderDraftClassRankings();
+  }));
+  document.querySelectorAll("[data-draft-class-year]").forEach(tr=>tr.addEventListener("click",()=>{
+    draftSkillScope=tr.dataset.draftClassYear;
+    draftSkillSelectedOwner=tr.dataset.draftClassOwner;
+    draftSkillOwner=draftSkillSelectedOwner;
+    renderDraftSkillSelectors();
+    renderDraftSkillLeaderboard();
+    renderDraftSkillProfile();
+    renderDraftPickExplorer();
+    document.getElementById("draftSkillProfile")?.scrollIntoView({behavior:"smooth",block:"nearest"});
+  }));
+}
+
+function renderDraftPickExplorer(){
+  const rows=draftSkillFilteredPicks();
+  const shown=draftSkillPickMode==="all"?rows.slice(0,80):rows.slice(0,30);
+  const label=draftSkillPickMode==="best"?"Best Picks":draftSkillPickMode==="worst"?"Worst Picks":"All Picks";
+  document.getElementById("draftPickExplorerTitle").textContent=`${label}${draftSkillScope==="CAREER"?"":` · ${draftSkillScope}`}`;
+  document.getElementById("draftSkillPickCount").textContent=`${rows.length} picks${rows.length>shown.length?` · showing ${shown.length}`:""}`;
+  document.querySelectorAll("[data-pick-mode]").forEach(b=>b.classList.toggle("active",b.dataset.pickMode===draftSkillPickMode));
+  document.getElementById("draftSkillPicks").innerHTML=shown.map((p,i)=>{
+    const final=p.finalRank>=101?`${p.position}100+`:`${p.position}${p.finalRank}`;
+    const par=p.pointsAboveReplacement>0?` · +${p.pointsAboveReplacement.toFixed(1)} pts vs replacement`:"";
+    const dom=p.pointsAbovePos2>0?` · +${p.pointsAbovePos2.toFixed(1)} vs ${p.position}2`:"";
+    return `<div class="draft-skill-pick">
+      <div class="draft-skill-pick-rank">${draftSkillPickMode==="all"?p.year:`#${i+1}`}</div>
+      <div class="draft-skill-pick-main"><strong>${p.player}</strong><span>${displayName(p.owner)} · ${p.year} · Pick ${p.overallPick} (${p.round}.${p.pickInRound}) · ${p.position}${p.positionPick} → ${final}${par}${dom}</span></div>
+      <div class="draft-skill-pick-grade"><strong>${p.grade}</strong><span>${p.percentile.toFixed(1)} %ile</span></div>
+    </div>`;
+  }).join("")||`<div class="draft-no-notes">No picks match these filters.</div>`;
+}
+function renderDraftSkillMethod(){
+  document.getElementById("draftSkillMethod").innerHTML=`
+    <strong>Career Draft Skill:</strong> ${DRAFT_SKILL_DATA.notes.methodologyShort}.<br>
+    <strong>Pick grades:</strong> ${DRAFT_SKILL_DATA.notes.pickShort}<br>
+    Late misses are discounted by draft capital and positional replaceability; late home-run upside is preserved. 2017 is excluded because true draft order is unavailable.`;
+}
+async function renderDraftSkill(){
+  const panel=document.getElementById("draftSkillPanel");
+  try{
+    await ensureDraftSkillLoaded();
+    renderDraftSkillSelectors();
+    renderDraftSkillLeaderboard();
+    renderDraftSkillProfile();
+    renderDraftClassRankings();
+    renderDraftPickExplorer();
+    renderDraftSkillMethod();
+  }catch(error){
+    panel.innerHTML=`<div class="draft-archive-warning"><strong>Draft Skill could not load</strong><span>${error.message}</span></div>`;
+  }
+}
+
 function setDraftView(view){
   draftCurrentView=view;
+  document.getElementById("draftSkillPanel").classList.toggle("hidden",view!=="skill");
   document.getElementById("draftBoardPanel").classList.toggle("hidden",view!=="board");
   document.getElementById("draftTablePanel").classList.toggle("hidden",view!=="table");
   document.getElementById("draftOwnerPanel").classList.toggle("hidden",view!=="owners");
   document.getElementById("draftSlotsPanel").classList.toggle("hidden",view!=="slots");
+  document.getElementById("draftSkillView").classList.toggle("active",view==="skill");
   document.getElementById("draftBoardView").classList.toggle("active",view==="board");
   document.getElementById("draftTableView").classList.toggle("active",view==="table");
   document.getElementById("draftOwnerView").classList.toggle("active",view==="owners");
   document.getElementById("draftSlotsView").classList.toggle("active",view==="slots");
+  document.querySelectorAll(".draft-legacy-control").forEach(el=>el.classList.toggle("hidden",view==="skill"));
+  ["draftSummary","draftPositionVolume","draftLegend"].forEach(id=>document.getElementById(id)?.classList.toggle("hidden",view==="skill"));
+  if(view==="skill")renderDraftSkill();
 }
 function renderDraftHub(){
   const eraBadge=document.getElementById("draftEraBadge");
@@ -7231,6 +7572,25 @@ document.getElementById("draftYear").addEventListener("change",e=>{
 });
 document.getElementById("draftOwnerFilter").addEventListener("change",e=>{draftSelectedOwner=e.target.value;renderDraftHub();});
 document.getElementById("draftCapitalScope").addEventListener("change",e=>{draftCapitalScope=e.target.value;renderDraftOwnerCards();});
+document.getElementById("draftSkillView").addEventListener("click",()=>setDraftView("skill"));
+document.getElementById("draftSkillScope").addEventListener("change",e=>{
+  draftSkillScope=e.target.value;
+  draftSkillSelectedOwner=null;
+  renderDraftSkillLeaderboard();renderDraftSkillProfile();renderDraftPickExplorer();
+});
+document.getElementById("draftSkillOwnerFilter").addEventListener("change",e=>{
+  draftSkillOwner=e.target.value;
+  draftSkillSelectedOwner=draftSkillOwner==="ALL"?null:draftSkillOwner;
+  renderDraftSkillLeaderboard();renderDraftSkillProfile();renderDraftPickExplorer();
+});
+document.getElementById("draftSkillPositionFilter").addEventListener("change",e=>{draftSkillPosition=e.target.value;renderDraftPickExplorer();});
+document.querySelectorAll("[data-pick-mode]").forEach(btn=>btn.addEventListener("click",()=>{draftSkillPickMode=btn.dataset.pickMode;renderDraftPickExplorer();}));
+document.querySelectorAll("[data-draft-class-mode]").forEach(btn=>btn.addEventListener("click",()=>{
+  draftClassMode=btn.dataset.draftClassMode;
+  if(draftClassMode==="best")draftClassSort={key:"score",dir:"desc"};
+  if(draftClassMode==="worst")draftClassSort={key:"score",dir:"asc"};
+  renderDraftClassRankings();
+}));
 document.getElementById("draftBoardView").addEventListener("click",()=>setDraftView("board"));
 document.getElementById("draftTableView").addEventListener("click",()=>setDraftView("table"));
 document.getElementById("draftOwnerView").addEventListener("click",()=>setDraftView("owners"));
