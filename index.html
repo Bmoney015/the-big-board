@@ -2485,6 +2485,103 @@ header,
   font-weight:800;
 }
 
+
+/* =========================================================
+   v5.1.4 — Champions Shrine Drafted Roster
+   ========================================================= */
+#playoffHub .playoff-drafted-roster-wrap{
+  margin-top:14px;
+}
+#playoffHub .playoff-drafted-roster-toggle{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  width:100%;
+  padding:10px 12px;
+  border:1px solid #8a6a22;
+  border-radius:8px;
+  background:#171a18;
+  color:#e3cc87;
+  font-size:10px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  cursor:pointer;
+}
+#playoffHub .playoff-drafted-roster-toggle:hover{
+  background:#211d15;
+  border-color:#b8943e;
+}
+#playoffHub .playoff-drafted-roster-toggle .chevron{
+  font-size:12px;
+}
+#playoffHub .playoff-drafted-roster{
+  margin-top:10px;
+}
+#playoffHub .playoff-drafted-roster-title{
+  color:#eef3f6;
+  font-size:15px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+#playoffHub .playoff-drafted-roster-note{
+  color:#8f9ba5;
+  font-size:9px;
+  margin:-5px 0 10px;
+}
+#playoffHub .playoff-drafted-position-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:9px;
+}
+#playoffHub .playoff-drafted-position{
+  background:#101820;
+  border:1px solid #3e4a55;
+  border-radius:9px;
+  overflow:hidden;
+}
+#playoffHub .playoff-drafted-position-head{
+  padding:7px 10px;
+  background:#202a34;
+  color:#d4b96d;
+  font-size:9px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+#playoffHub .playoff-drafted-player{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:10px;
+  align-items:center;
+  padding:7px 10px;
+  border-top:1px solid #28343e;
+}
+#playoffHub .playoff-drafted-player:first-of-type{
+  border-top:none;
+}
+#playoffHub .playoff-drafted-player-name{
+  color:#eef3f6;
+  font-size:10px;
+  font-weight:750;
+  overflow-wrap:anywhere;
+}
+#playoffHub .playoff-drafted-slot{
+  color:#e0c475;
+  font-size:9px;
+  font-weight:900;
+  white-space:nowrap;
+}
+#playoffHub .playoff-drafted-empty{
+  padding:10px 12px;
+  color:#9aa6af;
+  background:#101820;
+  border:1px dashed #48545e;
+  border-radius:8px;
+  font-size:10px;
+}
+
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -6930,6 +7027,64 @@ function playoffChampionSeasonPath(year,owner){
 
   return [...regular,...postseason].sort((a,b)=>a.week-b.week||Number(a.playoff)-Number(b.playoff));
 }
+
+function playoffDraftOwnerKey(owner){
+  const canonical=playoffOwnerKey(owner);
+  if(canonical==="Habble")return "Harp";
+  if(canonical==="Bubbs")return "Adrian";
+  return canonical;
+}
+function playoffDraftSlotLabel(pick){
+  if(Number.isFinite(+pick.round)&&Number.isFinite(+pick.pickInRound)){
+    return `${+pick.round}.${+pick.pickInRound}`;
+  }
+  if(Number.isFinite(+pick.overallPick)){
+    const overall=+pick.overallPick;
+    const round=Math.floor((overall-1)/10)+1;
+    const slot=((overall-1)%10)+1;
+    return `${round}.${slot}`;
+  }
+  return "—";
+}
+function playoffDraftedRoster(year,owner){
+  const draftOwner=playoffDraftOwnerKey(owner);
+  return (DRAFTS_DATA?.picks||[])
+    .filter(p=>+p.year===+year&&p.owner===draftOwner)
+    .sort((a,b)=>(+a.overallPick||999)-(+b.overallPick||999));
+}
+function playoffDraftedRosterHtml(year,owner){
+  const picks=playoffDraftedRoster(year,owner);
+  const label=playoffOwnerLabel(owner);
+  if(!picks.length){
+    return `<div class="playoff-drafted-empty">No drafted roster data is available for ${label} in ${year}.</div>`;
+  }
+  const order=["QB","RB","WR","TE","K","DEF","DST","D/ST","OTHER"];
+  const normalized=picks.map(p=>({
+    ...p,
+    pos:["DST","D/ST"].includes(String(p.position||"").toUpperCase())?"DEF":String(p.position||"OTHER").toUpperCase()
+  }));
+  const groups={};
+  normalized.forEach(p=>{
+    const pos=order.includes(p.pos)?p.pos:"OTHER";
+    (groups[pos]||(groups[pos]=[])).push(p);
+  });
+  const groupOrder=["QB","RB","WR","TE","K","DEF","OTHER"].filter(pos=>groups[pos]?.length);
+  return `
+    <div class="playoff-drafted-roster-title">${label} ${year} — Drafted Roster</div>
+    <div class="playoff-drafted-roster-note">Draft-day roster only · slot shown as round.pick (2.7 = 17th overall in a 10-team draft).</div>
+    <div class="playoff-drafted-position-grid">
+      ${groupOrder.map(pos=>`
+        <div class="playoff-drafted-position">
+          <div class="playoff-drafted-position-head">${pos}</div>
+          ${groups[pos].map(p=>`
+            <div class="playoff-drafted-player">
+              <div class="playoff-drafted-player-name">${p.player||"Unknown Player"}</div>
+              <div class="playoff-drafted-slot">${playoffDraftSlotLabel(p)}</div>
+            </div>`).join("")}
+        </div>`).join("")}
+    </div>`;
+}
+
 function renderPlayoffChampionPath(year,owner){
   const panel=document.getElementById("playoffChampionPathPanel");
   const title=document.getElementById("playoffChampionPathTitle");
@@ -6954,7 +7109,28 @@ function renderPlayoffChampionPath(year,owner){
     <div class="playoff-path-section">
       <div class="playoff-path-section-title">🏆 Championship Run</div>
       <div class="playoff-path-grid championship-run">${postseason.map(card).join("")}</div>
+      <div class="playoff-drafted-roster-wrap">
+        <button type="button" class="playoff-drafted-roster-toggle" id="playoffDraftedRosterToggle" aria-expanded="false">
+          <span>View Drafted Roster</span><span class="chevron">▾</span>
+        </button>
+        <div class="playoff-drafted-roster hidden" id="playoffDraftedRoster"></div>
+      </div>
     </div>`;
+  const draftedToggle=document.getElementById("playoffDraftedRosterToggle");
+  const draftedBody=document.getElementById("playoffDraftedRoster");
+  if(draftedToggle&&draftedBody){
+    draftedToggle.addEventListener("click",()=>{
+      const opening=draftedBody.classList.contains("hidden");
+      draftedBody.classList.toggle("hidden",!opening);
+      draftedToggle.setAttribute("aria-expanded",String(opening));
+      draftedToggle.querySelector("span:first-child").textContent=opening?"Hide Drafted Roster":"View Drafted Roster";
+      draftedToggle.querySelector(".chevron").textContent=opening?"▴":"▾";
+      if(opening&&!draftedBody.dataset.loaded){
+        draftedBody.innerHTML=playoffDraftedRosterHtml(year,owner);
+        draftedBody.dataset.loaded="true";
+      }
+    });
+  }
   panel.classList.remove("hidden");
   document.querySelectorAll(".playoff-champ-card").forEach(card=>card.classList.toggle("selected",+card.dataset.year===+year));
   panel.scrollIntoView({behavior:"smooth",block:"start"});
