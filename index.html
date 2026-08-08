@@ -2645,6 +2645,99 @@ header,
 .draft-class-grade{font-weight:900;color:#e7ecef}
 @media(max-width:760px){.draft-class-rankings-head{flex-direction:column;align-items:stretch}.draft-class-mode{width:100%}.draft-class-mode button{flex:1}}
 
+
+/* =========================================================
+   v5.3.0 — Trivia Studio Shell
+   ========================================================= */
+.trivia-shell{background:#101820;color:#edf2f5;border-radius:14px;padding:24px;min-height:720px}
+.trivia-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px}
+.trivia-head h2{margin:3px 0 4px;color:#f4f6f7}.trivia-head p{margin:0;color:#8f9ca6;font-size:10px}
+.trivia-kicker,.trivia-eyebrow{font-size:9px;text-transform:uppercase;letter-spacing:.11em;color:#c3a85f;font-weight:900}
+.trivia-era{padding:6px 9px;border:1px solid #4b5660;border-radius:999px;color:#aeb8bf;font-size:8px;font-weight:850}
+.trivia-builder-card{max-width:760px;margin:0 auto;padding:18px;border:1px solid #36434d;border-radius:14px;background:linear-gradient(145deg,#131d25,#17232c)}
+.trivia-builder-card h3{margin:5px 0 14px}
+.trivia-control-grid{display:grid;grid-template-columns:repeat(2,minmax(180px,1fr));gap:12px}
+.trivia-control-grid label,.trivia-label{font-size:9px;color:#a3aeb6;text-transform:uppercase;font-weight:900}
+.trivia-control-grid select{display:block;width:100%;margin-top:5px;padding:9px;border:1px solid #4a5761;border-radius:8px;background:#0e171d;color:#edf2f5;font-weight:800}
+.trivia-category-wrap{margin-top:14px}.trivia-category-checks{display:flex;flex-wrap:wrap;gap:7px;margin-top:7px}
+.trivia-category-chip{display:flex;align-items:center;gap:6px;padding:7px 9px;border:1px solid #46525c;border-radius:999px;background:#111a21;color:#cbd4da;font-size:9px;font-weight:800}.trivia-category-chip input{accent-color:#ad8d45}
+.trivia-generate{margin-top:16px;width:100%;padding:11px;border:1px solid #c09c4f;border-radius:9px;background:#8c7135;color:#fff;font-size:10px;font-weight:950;text-transform:uppercase;cursor:pointer}.trivia-generate:hover{background:#a48642}
+.trivia-bank-meta{margin-top:9px;color:#77858f;font-size:9px;text-align:center}
+.trivia-host{max-width:900px;margin:0 auto}.trivia-host-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.trivia-progress{margin-top:3px;color:#8f9ca6;font-size:10px;font-weight:800}
+.trivia-exit{border:1px solid #4b5862;background:#111920;color:#aeb8bf;padding:7px 10px;border-radius:7px;font-size:9px;font-weight:800}
+.trivia-question-card{padding:24px;border:1px solid #3d4952;border-radius:15px;background:radial-gradient(circle at top right,#25303a 0,#141d24 45%,#10171d 100%)}
+.trivia-difficulty-pill{display:inline-block;padding:4px 7px;border-radius:999px;background:#2b3740;color:#d8e0e5;font-size:8px;text-transform:uppercase;font-weight:900}
+.trivia-question-card h3{font-size:24px;line-height:1.25;margin:14px 0 18px;color:#f4f7f8}
+.trivia-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.trivia-choice{padding:12px 13px;border:1px solid #3e4b55;border-radius:9px;background:#172129;color:#eaf0f4;font-size:11px;font-weight:800}.trivia-choice b{display:inline-block;width:23px;color:#d6b969}
+.trivia-choice.correct{border-color:#5d9a72;background:#173024}
+.trivia-answer-panel{margin-top:14px;padding:12px;border-left:3px solid #c3a45d;background:#1f2527;border-radius:7px;color:#dfe6ea;font-size:10px;line-height:1.45}.trivia-answer-panel strong{display:block;color:#f1d681;font-size:13px;margin-bottom:3px}
+.trivia-host-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:16px}.trivia-reveal,.trivia-next{padding:9px 13px;border-radius:8px;font-size:9px;font-weight:900;text-transform:uppercase}
+.trivia-reveal{border:1px solid #b8954a;background:#8a7035;color:white}.trivia-next{border:1px solid #64717a;background:#26313a;color:white}
+@media(max-width:760px){.trivia-control-grid,.trivia-choices{grid-template-columns:1fr}.trivia-question-card h3{font-size:19px}}
+
+
+/* v5.3.1 Trivia Gameplay */
+.trivia-mode-row{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:0 0 15px}
+.trivia-mode{padding:9px;border:1px solid #46525c;border-radius:8px;background:#101920;color:#aeb9c1;font-size:9px;font-weight:900}
+.trivia-mode.active{border-color:#c29d4d;background:#2a2519;color:#f1d37a}
+.trivia-team-actions{display:flex;align-items:center;gap:10px;margin:13px 0 8px;color:#85939d;font-size:9px}
+.trivia-team-actions button{padding:7px 9px;border:1px solid #53616b;border-radius:7px;background:#18232b;color:#e4eaee;font-weight:800}
+.trivia-team-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.trivia-team-box{padding:10px;border:1px solid #3c4953;border-radius:10px;background:#101920}
+.trivia-team-box input{width:100%;box-sizing:border-box;padding:7px 8px;border:0;border-bottom:1px solid #3e4a54;background:transparent;color:#f3f5f6;font-size:13px;font-weight:900}
+.trivia-owner-chips{display:flex;flex-wrap:wrap;gap:6px;padding-top:9px;min-height:64px}
+.trivia-owner-chip{padding:6px 8px;border:1px solid #4a5862;border-radius:999px;background:#1b2730;color:#dce4e8;font-size:9px;font-weight:850;cursor:pointer}
+.trivia-survival-help{margin:10px 0 0;color:#82919b;font-size:9px;line-height:1.5}
+.trivia-choice{cursor:pointer;transition:.12s ease}.trivia-choice:hover{border-color:#71808b}.trivia-choice.selected{border-color:#d2aa52;background:#30291a;box-shadow:inset 0 0 0 1px #d2aa52}.trivia-choice.wrong{border-color:#a55757;background:#321c1d}.trivia-choice.correct{border-color:#5d9a72;background:#173024}
+.trivia-answer-panel .trivia-result-wrong{color:#ef9b9b}.trivia-answer-panel .trivia-result-right{color:#91d4a5}
+.trivia-scoreboard{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin:0 auto 12px;max-width:520px}
+.trivia-scoreboard>div:not(.trivia-versus){display:flex;justify-content:space-between;align-items:center;padding:9px 12px;border:1px solid #3d4a54;border-radius:9px;background:#121c23;color:#dfe6ea;font-size:10px;font-weight:900}
+.trivia-scoreboard strong{font-size:19px;color:#f0cd70}.trivia-versus{font-size:8px;color:#75838d;font-weight:900}
+.trivia-turn-banner{margin-bottom:12px;padding:8px 10px;border:1px solid #806a39;border-radius:8px;background:#282316;color:#f0cf72;font-size:11px;font-weight:950;text-align:center}
+.survival-entry-row{display:grid;grid-template-columns:1fr auto auto;gap:8px}.survival-entry-row input{padding:11px;border:1px solid #47545e;border-radius:8px;background:#0e171d;color:#f0f3f5;font-weight:800}.survival-entry-row button{padding:9px 11px;border-radius:8px;font-size:9px;font-weight:900}
+#survivalSubmit{border:1px solid #669079;background:#23402f;color:#e7f5ec}#survivalWhiff{border:1px solid #925f5f;background:#3a2222;color:#f4dcdc}
+.survival-message{min-height:38px;margin-top:10px;padding:9px 10px;border-radius:8px;background:#111a20;color:#b9c4ca;font-size:10px}.survival-message.good{border-left:3px solid #5c9c72;color:#bfe8cb}.survival-message.bad{border-left:3px solid #ad6262;color:#efc1c1}
+.survival-used{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}.survival-used span{padding:5px 7px;border-radius:999px;background:#202c34;color:#98a6af;font-size:8px}
+.survival-host-answers{margin-top:14px;border-top:1px solid #33414a;padding-top:10px;color:#8e9ca5;font-size:9px}.survival-host-answers summary{cursor:pointer;font-weight:900;color:#c1a65f}.survival-host-answers div{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}.survival-host-answers span{padding:4px 6px;background:#151f26;border-radius:5px}
+@media(max-width:760px){.trivia-mode-row,.trivia-team-grid{grid-template-columns:1fr}.survival-entry-row{grid-template-columns:1fr}.trivia-scoreboard{grid-template-columns:1fr auto 1fr}}
+
+
+/* v5.3.2 Survival matching + Last Player Standing */
+.survival-lives{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.survival-life-team{padding:8px;border:1px solid #33414a;border-radius:8px;background:#101920}
+.survival-life-team b{display:block;margin-bottom:6px;color:#d8c079;font-size:9px;text-transform:uppercase}
+.survival-life-chips{display:flex;flex-wrap:wrap;gap:5px}
+.survival-life{padding:5px 7px;border-radius:999px;background:#20302a;color:#c8ead4;font-size:8px;font-weight:850}
+.survival-life.out{background:#2d2020;color:#b78686;text-decoration:line-through;opacity:.72}
+.survival-message.ambiguous{border-left:3px solid #c89d52;color:#efd8a1}
+@media(max-width:760px){.survival-lives{grid-template-columns:1fr}}
+
+
+/* v5.3.3 Manual team builder + deeper trivia pool */
+.trivia-unassigned{margin:10px 0;padding:10px;border:1px dashed #596773;border-radius:10px;background:#0e171d}
+.trivia-owner-chip.selected-owner{border-color:#d1aa52;background:#30291a;color:#f1d37a}
+.trivia-team-actions{flex-wrap:wrap}
+.trivia-team-actions button{cursor:pointer}
+.trivia-team-box input:focus{outline:none;border-bottom-color:#c3a65d}
+
+
+.trivia-manual-owner{display:inline-flex;align-items:center;gap:2px}
+.trivia-mini-team{width:25px;height:25px;border:1px solid #58656f;border-radius:50%;background:#172129;color:#d9e2e7;font-size:8px;font-weight:950;cursor:pointer}
+.trivia-mini-team:hover{border-color:#c7a75c;color:#f1d37a}
+
+
+/* v5.3.5 Trivia polish + Missing Pick visuals */
+.draft-class-table td:first-child,.draft-class-table .draft-class-rank{background:#111920!important;color:#d7bd74!important}.draft-class-table tbody tr:hover td:first-child{background:#17232c!important}
+.trivia-visual-wrap{margin:4px 0 18px}.trivia-visual-title{font-size:9px;color:#c8ab62;font-weight:900;text-transform:uppercase;letter-spacing:.08em;margin-bottom:8px}.missing-owner-board{display:flex;gap:8px;overflow:auto}.missing-owner-card{min-width:135px;padding:10px;border:1px solid #52606a;border-radius:9px;background:#18232b}.missing-owner-card.hidden-pick,.missing-round-card.hidden-pick{border:2px dashed #c7a553;background:#292316}.missing-owner-card .round{font-size:8px;color:#8e9ca5;font-weight:900}.missing-owner-card .player,.missing-round-card .player{margin-top:6px;color:#eef2f4;font-size:11px;font-weight:950}.missing-owner-card.hidden-pick .player,.missing-round-card.hidden-pick .player{color:#f0d27c;font-size:17px;text-align:center}.missing-owner-card .meta,.missing-round-card .meta{margin-top:4px;color:#91a0aa;font-size:8px}.missing-round-board{display:grid;grid-template-columns:repeat(5,minmax(110px,1fr));gap:7px}.missing-round-card{padding:10px;border:1px solid #4a5862;border-radius:9px;background:#172129}.missing-round-card .pickno{color:#d8bd71;font-size:9px;font-weight:950}.missing-round-card .owner{margin-top:5px;color:#98a6af;font-size:8px;font-weight:800}
+.trivia-results{max-width:780px;margin:0 auto;padding:22px;border:1px solid #3d4a54;border-radius:14px;background:linear-gradient(145deg,#131d25,#17232c);text-align:center}.trivia-results h3{font-size:28px;margin:8px 0}.trivia-results-score{font-size:44px;color:#efd077;font-weight:950}.trivia-results-sub{margin-top:7px;color:#9ba8b1;font-size:11px}.trivia-results-recap{display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:left;margin-top:18px}.trivia-results-box{padding:12px;border:1px solid #34414a;border-radius:9px;background:#101920}.trivia-results-box b{display:block;color:#c3a75f;font-size:9px;text-transform:uppercase}.trivia-results-box span{color:#c9d2d7;font-size:9px}.trivia-results-actions{display:flex;justify-content:center;gap:8px;margin-top:18px}@media(max-width:760px){.missing-round-board{grid-template-columns:1fr}.trivia-results-recap{grid-template-columns:1fr}}
+
+/* v5.3.6 reliability patch */
+.trivia-commish-actions{display:flex;align-items:center;gap:7px}
+.trivia-mulligan{border:1px solid #74633d;background:#1d1b15;color:#cbb36f;padding:7px 10px;border-radius:7px;font-size:8px;font-weight:850;cursor:pointer}
+.trivia-mulligan:hover{border-color:#c4a45b;color:#f0d27b}
+@media(max-width:760px){.trivia-commish-actions{flex-wrap:wrap;justify-content:flex-end}}
+
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -2723,7 +2816,7 @@ header,
 <div class="header-subtitle">Career Prestige Rankings</div>
 <p>A measure of sustained excellence across league history.</p>
 </div>
-<nav class="nav"><button class="nav-group-primary active" data-view="matrix" id="careerTotalsTab">Career Totals</button><button class="nav-group-primary" data-view="presentation">The Big Board</button><button class="nav-group-primary" data-view="journey">Career Journey</button><button class="nav-group-primary" data-view="audit">Season Audit</button><button class="nav-group-analytics" data-view="draftHub">Draft Hub</button><button class="nav-group-analytics commissioner-only" data-view="draftLab" hidden="" id="draftLabTab">Draft Lab</button><button class="nav-group-analytics" data-view="weeklyAnalytics">Weekly Analytics</button><button class="nav-group-analytics" data-view="playoffHub">Playoff Hub</button><button class="nav-group-analytics" data-view="survivorHub">Survivor Belt</button><button class="nav-group-reference" data-view="glossary">Glossary</button><button class="nav-group-reference commissioner-only" data-view="data" hidden="" id="commissionerDataTab">Data &amp; Settings</button></nav>
+<nav class="nav"><button class="nav-group-primary active" data-view="matrix" id="careerTotalsTab">Career Totals</button><button class="nav-group-primary" data-view="presentation">The Big Board</button><button class="nav-group-primary" data-view="journey">Career Journey</button><button class="nav-group-primary" data-view="audit">Season Audit</button><button class="nav-group-analytics" data-view="draftHub">Draft Hub</button><button class="nav-group-analytics commissioner-only" data-view="draftLab" hidden="" id="draftLabTab">Draft Lab</button><button class="nav-group-analytics" data-view="weeklyAnalytics">Weekly Analytics</button><button class="nav-group-analytics" data-view="playoffHub">Playoff Hub</button><button class="nav-group-analytics" data-view="survivorHub">Survivor Belt</button><button class="nav-group-analytics" data-view="triviaStudio">Trivia Studio</button><button class="nav-group-reference" data-view="glossary">Glossary</button><button class="nav-group-reference commissioner-only" data-view="data" hidden="" id="commissionerDataTab">Data &amp; Settings</button></nav>
 <div aria-label="League links" class="league-links">
 <a href="https://football.fantasysports.yahoo.com/league/hot_n_bothered/2026" rel="noopener noreferrer" target="_blank" title="Open Yahoo League">
 <span aria-hidden="true">🏈</span> Yahoo <span aria-hidden="true" class="league-link-arrow">↗</span>
@@ -2954,6 +3047,94 @@ header,
 </div>
 </div>
 </section>
+
+
+<section class="view" id="triviaStudio">
+<div class="trivia-shell">
+  <div class="trivia-head">
+    <div><div class="trivia-kicker">League Game Night</div><h2>Trivia Studio</h2><p>Multiple choice, 5-on-5 team battles, and rotating-player survival rounds.</p></div>
+    <span class="trivia-era">V1.1 · Game Day</span>
+  </div>
+
+  <div id="triviaBuilder" class="trivia-builder">
+    <div class="trivia-builder-card">
+      <div class="trivia-eyebrow">Build a Game</div><h3>Trivia Night Setup</h3>
+
+      <div class="trivia-mode-row">
+        <button class="trivia-mode active" data-trivia-mode="standard">Standard Trivia</button>
+        <button class="trivia-mode" data-trivia-mode="teams">Team Trivia · 5v5</button>
+        <button class="trivia-mode" data-trivia-mode="survival">Name One · Survival</button>
+      </div>
+
+      <div id="triviaStandardControls">
+        <div class="trivia-control-grid">
+          <label>Questions<select id="triviaQuestionCount"><option value="5">5 Questions</option><option value="10" selected>10 Questions</option><option value="15">15 Questions</option><option value="20">20 Questions</option></select></label>
+          <label>Difficulty<select id="triviaDifficulty"><option value="casual" selected>Casual</option><option value="competitive">Competitive</option><option value="sicko">Sicko</option><option value="mixed">Mixed</option></select></label>
+        </div>
+        <div class="trivia-category-wrap"><div class="trivia-label">Categories</div><div id="triviaCategoryChecks" class="trivia-category-checks"></div></div>
+      </div>
+
+      <div id="triviaTeamBuilder" class="hidden">
+        <div class="trivia-team-actions"><button id="triviaRandomizeTeams" type="button">🎲 Randomize Teams</button><button id="triviaClearTeams" type="button">Clear / Build Manually</button><span>Rename either team. In manual mode, click an owner below, then choose Team A or Team B.</span></div>
+        <div id="triviaUnassignedWrap" class="trivia-unassigned hidden"><div class="trivia-label">Unassigned Owners</div><div id="triviaUnassignedOwners" class="trivia-owner-chips"></div></div>
+        <div class="trivia-team-grid">
+          <div class="trivia-team-box"><input id="triviaTeamAName" value="Team A" aria-label="Team A name"><div id="triviaTeamAOwners" class="trivia-owner-chips"></div></div>
+          <div class="trivia-team-box"><input id="triviaTeamBName" value="Team B" aria-label="Team B name"><div id="triviaTeamBOwners" class="trivia-owner-chips"></div></div>
+        </div>
+      </div>
+
+      <div id="triviaSurvivalControls" class="hidden">
+        <div class="trivia-control-grid">
+          <label>Difficulty<select id="survivalDifficulty"><option value="casual" selected>Casual</option><option value="competitive">Competitive</option><option value="sicko">Sicko</option><option value="mixed">Mixed</option></select></label>
+          <label>Round<select id="survivalRoundSelect"></select></label>
+          <label>Whiff Rule<select id="survivalRule"><option value="first" selected>First Whiff Loses</option><option value="lastman">Last Player Standing</option></select></label>
+        </div>
+        <p class="trivia-survival-help">Teams alternate answers. Within each team, the required answering owner rotates after every accepted answer. Repeat, invalid answer, or pass = whiff.</p>
+      </div>
+
+      <button type="button" id="triviaGenerate" class="trivia-generate">Generate Trivia Night</button>
+      <div id="triviaBankMeta" class="trivia-bank-meta"></div>
+    </div>
+  </div>
+
+  <div id="triviaHost" class="trivia-host hidden">
+    <div class="trivia-scoreboard hidden" id="triviaScoreboard">
+      <div><span id="scoreTeamAName">Team A</span><strong id="scoreTeamA">0</strong></div>
+      <div class="trivia-versus">VS</div>
+      <div><span id="scoreTeamBName">Team B</span><strong id="scoreTeamB">0</strong></div>
+    </div>
+    <div class="trivia-host-top"><div><div id="triviaHostCategory" class="trivia-eyebrow"></div><div id="triviaProgress" class="trivia-progress"></div></div><div class="trivia-commish-actions"><button type="button" id="triviaMulligan" class="trivia-mulligan" title="Commissioner discretion: discard this question with no score or turn penalty.">↻ Mulligan / New Question</button><button type="button" id="triviaExit" class="trivia-exit">Exit Game</button></div></div>
+    <div class="trivia-question-card">
+      <div class="trivia-turn-banner hidden" id="triviaTurnBanner"></div>
+      <div id="triviaDifficultyPill" class="trivia-difficulty-pill"></div>
+      <h3 id="triviaPrompt"></h3>
+      <div id="triviaVisual" class="trivia-visual-wrap hidden"></div>
+      <div id="triviaChoices" class="trivia-choices"></div>
+      <div id="triviaAnswerPanel" class="trivia-answer-panel hidden"></div>
+      <div class="trivia-host-actions"><button type="button" id="triviaReveal" class="trivia-reveal">Reveal Answer</button><button type="button" id="triviaNext" class="trivia-next hidden">Next Question</button></div>
+    </div>
+  </div>
+
+  <div id="triviaResults" class="trivia-results hidden"><div class="trivia-eyebrow">Trivia Complete</div><h3 id="triviaResultsTitle">Final Score</h3><div id="triviaResultsScore" class="trivia-results-score"></div><div id="triviaResultsSub" class="trivia-results-sub"></div><div id="triviaResultsRecap" class="trivia-results-recap"></div><div class="trivia-results-actions"><button type="button" id="triviaPlayAgain" class="trivia-reveal">Play Again</button><button type="button" id="triviaBackSetup" class="trivia-next">Back to Setup</button></div></div>
+
+<div id="survivalHost" class="trivia-host hidden">
+    <div class="trivia-scoreboard" id="survivalScoreboard">
+      <div><span id="survTeamAName">Team A</span><strong id="survScoreA">0</strong></div><div class="trivia-versus">VS</div><div><span id="survTeamBName">Team B</span><strong id="survScoreB">0</strong></div>
+    </div>
+    <div class="trivia-host-top"><div><div class="trivia-eyebrow">Name One · Survival</div><div id="survivalRemaining" class="trivia-progress"></div></div><div class="trivia-commish-actions"><button type="button" id="survivalMulligan" class="trivia-mulligan" title="Commissioner discretion: replace this round with no penalty and keep the current turn.">↻ Mulligan / New Round</button><button type="button" id="survivalExit" class="trivia-exit">Exit Game</button></div></div>
+    <div class="trivia-question-card">
+      <div id="survivalTurn" class="trivia-turn-banner"></div>
+      <h3 id="survivalPrompt"></h3>
+      <div class="survival-entry-row"><input id="survivalAnswerInput" placeholder="Type the player's answer…"><button id="survivalSubmit" type="button">Check Answer</button><button id="survivalWhiff" type="button">Whiff / Pass</button></div>
+      <div id="survivalMessage" class="survival-message"></div><button id="survivalAnother" type="button" class="trivia-next hidden">Play Another Round</button>
+      <div id="survivalLives" class="survival-lives hidden"></div>
+      <div id="survivalUsed" class="survival-used"></div>
+      <details class="survival-host-answers"><summary>Host Answers</summary><div id="survivalAnswers"></div></details>
+    </div>
+  </div>
+</div>
+</section>
+
 <section class="view" id="draftHub">
 <div class="draft-shell">
 <div class="draft-head">
@@ -4781,6 +4962,25 @@ let draftSkillPickMode="best";
 let draftSkillSelectedOwner=null;
 let draftClassMode="best";
 let draftClassSort={key:"score",dir:"desc"};
+let TRIVIA_DATA=null;
+let triviaGame=[];
+let triviaIndex=0;
+let triviaMode="standard";
+let triviaSelectedAnswer=null;
+let triviaTeams={A:[],B:[]};
+let triviaUnassigned=[];
+let triviaPendingOwner=null;
+let triviaScores={A:0,B:0};
+let triviaCorrectCount=0;
+let triviaAnswerHistory=[];
+let triviaTurnTeam="A";
+let triviaTurnIndex={A:0,B:0};
+let survivalRound=null;
+let survivalUsed=[];
+let survivalScore={A:0,B:0};
+let survivalRule="first";
+let survivalAlive={A:[],B:[]};
+let survivalRecentRounds=[];
 let draftTableOwner="ALL";
 let draftTablePosition="ALL";
 let draftTableRound="ALL";
@@ -7501,6 +7701,359 @@ function renderPlayoffShrine(){
 
 async function openPlayoffHub(){const state=document.getElementById("playoffLoadState");try{state.textContent="Loading playoff history…";await ensurePlayoffHistoryLoaded();state.classList.add("hidden");document.getElementById("playoffContent").classList.remove("hidden");playoffSetView(playoffActiveView)}catch(error){state.textContent=`Unable to load playoff history: ${error.message}`}}
 
+
+
+async function ensureTriviaLoaded(){
+ if(TRIVIA_DATA)return TRIVIA_DATA;
+ const response=await fetch("./data/triviaQuestions.json",{cache:"no-store"});
+ if(!response.ok)throw new Error(`Could not load triviaQuestions.json (HTTP ${response.status})`);
+ TRIVIA_DATA=await response.json();return TRIVIA_DATA;
+}
+function triviaShuffle(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function teamName(t){return document.getElementById(t==="A"?"triviaTeamAName":"triviaTeamBName").value||`Team ${t}`}
+
+function triviaOwnerPool(){return ["Sam","Zac","Habble","Bob","Ben","Adrian","RJ","Harp","Dan","Cory"]}
+function initTriviaTeams(){
+ const mixed=triviaShuffle(triviaOwnerPool());triviaTeams.A=mixed.slice(0,5);triviaTeams.B=mixed.slice(5);
+ triviaUnassigned=[];triviaPendingOwner=null;renderTriviaTeams();
+}
+function clearTriviaTeams(){
+ triviaTeams={A:[],B:[]};triviaUnassigned=[...triviaOwnerPool()];triviaPendingOwner=null;renderTriviaTeams();
+}
+function renderTriviaTeams(){
+ for(const t of ["A","B"]){
+  const el=document.getElementById(t==="A"?"triviaTeamAOwners":"triviaTeamBOwners");
+  el.innerHTML=triviaTeams[t].map(o=>`<button type="button" class="trivia-owner-chip" data-owner="${o}" data-team="${t}">${o}</button>`).join("");
+ }
+ const uw=document.getElementById("triviaUnassignedWrap"),ue=document.getElementById("triviaUnassignedOwners");
+ uw.classList.toggle("hidden",triviaUnassigned.length===0);
+ ue.innerHTML=triviaUnassigned.map(o=>`<span class="trivia-manual-owner"><button type="button" class="trivia-owner-chip ${triviaPendingOwner===o?"selected-owner":""}" data-unassigned-owner="${o}">${o}</button><button type="button" class="trivia-mini-team" data-assign-owner="${o}" data-assign-team="A">A</button><button type="button" class="trivia-mini-team" data-assign-owner="${o}" data-assign-team="B">B</button></span>`).join("");
+ document.querySelectorAll("[data-team]").forEach(b=>b.onclick=()=>removeTriviaOwner(b.dataset.owner,b.dataset.team));
+ document.querySelectorAll("[data-unassigned-owner]").forEach(b=>b.onclick=()=>selectUnassignedOwner(b.dataset.unassignedOwner));
+ document.querySelectorAll("[data-assign-owner]").forEach(b=>b.onclick=()=>assignOwnerToTeam(b.dataset.assignOwner,b.dataset.assignTeam));
+ // Clicking a team box assigns the pending owner.
+ document.getElementById("triviaTeamAOwners").onclick=e=>{if(e.target===e.currentTarget&&triviaPendingOwner)assignPendingOwner("A")};
+ document.getElementById("triviaTeamBOwners").onclick=e=>{if(e.target===e.currentTarget&&triviaPendingOwner)assignPendingOwner("B")};
+}
+function selectUnassignedOwner(owner){triviaPendingOwner=owner;renderTriviaTeams()}
+function assignPendingOwner(team){
+ if(!triviaPendingOwner||triviaTeams[team].length>=5)return;
+ triviaTeams[team].push(triviaPendingOwner);triviaUnassigned=triviaUnassigned.filter(x=>x!==triviaPendingOwner);triviaPendingOwner=null;renderTriviaTeams();
+}
+function removeTriviaOwner(owner,from){
+ triviaTeams[from]=triviaTeams[from].filter(x=>x!==owner);triviaUnassigned.push(owner);triviaPendingOwner=owner;renderTriviaTeams();
+}
+// Team-box click buttons make manual assignment explicit even without drag/drop.
+function assignOwnerToTeam(owner,team){
+ if(triviaTeams[team].length>=5)return;
+ triviaUnassigned=triviaUnassigned.filter(x=>x!==owner);triviaTeams[team].push(owner);triviaPendingOwner=null;renderTriviaTeams();
+}
+function setTriviaMode(mode){
+ triviaMode=mode;
+ document.querySelectorAll(".trivia-mode").forEach(b=>b.classList.toggle("active",b.dataset.triviaMode===mode));
+ document.getElementById("triviaStandardControls").classList.toggle("hidden",mode==="survival");
+ document.getElementById("triviaTeamBuilder").classList.toggle("hidden",mode==="standard");
+ document.getElementById("triviaSurvivalControls").classList.toggle("hidden",mode!=="survival");
+ document.getElementById("triviaGenerate").textContent=mode==="survival"?"Start Survival Round":"Generate Trivia Night";
+}
+async function renderTriviaStudio(){
+ await ensureTriviaLoaded();
+ const wrap=document.getElementById("triviaCategoryChecks");
+ if(wrap&&!wrap.children.length)wrap.innerHTML=TRIVIA_DATA.categories.map(c=>`<label class="trivia-category-chip"><input type="checkbox" value="${c}" checked> ${c}</label>`).join("");
+ if(!triviaTeams.A.length)initTriviaTeams();
+ populateSurvivalRounds();
+ document.getElementById("triviaBankMeta").textContent=`${TRIVIA_DATA.questions.length} multiple-choice questions · ${TRIVIA_DATA.survivalRounds?.length||0} survival rounds`;
+}
+function populateSurvivalRounds(){
+ const diff=document.getElementById("survivalDifficulty")?.value||"casual";
+ const select=document.getElementById("survivalRoundSelect");if(!select||!TRIVIA_DATA)return;
+ const pool=(TRIVIA_DATA.survivalRounds||[]).filter(r=>(r.randomEligible!==false)&&(diff==="mixed"||r.difficulty===diff));
+ select.innerHTML=`<option value="__random__">🎲 Random qualifying round</option>`+pool.map(r=>`<option value="${r.id}">${r.prompt}</option>`).join("");
+}
+function generateTriviaGame(){
+ if(triviaMode==="survival"){startSurvivalRound();return}
+ if(triviaMode==="teams"&&(triviaTeams.A.length!==5||triviaTeams.B.length!==5)){document.getElementById("triviaBankMeta").textContent="Team mode requires exactly 5 owners on each team.";return}
+ const count=+document.getElementById("triviaQuestionCount").value,diff=document.getElementById("triviaDifficulty").value;
+ const cats=[...document.querySelectorAll("#triviaCategoryChecks input:checked")].map(x=>x.value);
+ let pool=TRIVIA_DATA.questions.filter(q=>cats.includes(q.category)&&(diff==="mixed"||q.difficulty===diff));
+ if(!pool.length){document.getElementById("triviaBankMeta").textContent="No questions match those filters yet.";return}
+ triviaGame=triviaShuffle(pool).slice(0,Math.min(count,pool.length));triviaIndex=0;triviaSelectedAnswer=null;triviaScores={A:0,B:0};triviaCorrectCount=0;triviaAnswerHistory=[];triviaTurnTeam="A";triviaTurnIndex={A:0,B:0};
+ document.getElementById("triviaBuilder").classList.add("hidden");document.getElementById("triviaHost").classList.remove("hidden");
+ document.getElementById("triviaScoreboard").classList.toggle("hidden",triviaMode!=="teams");
+ updateTriviaScoreboard();renderTriviaQuestion();
+}
+function currentTriviaOwner(){const arr=triviaTeams[triviaTurnTeam];return arr[triviaTurnIndex[triviaTurnTeam]%arr.length]}
+function updateTriviaScoreboard(){
+ document.getElementById("scoreTeamAName").textContent=teamName("A");document.getElementById("scoreTeamBName").textContent=teamName("B");
+ document.getElementById("scoreTeamA").textContent=triviaScores.A;document.getElementById("scoreTeamB").textContent=triviaScores.B;
+}
+function renderTriviaVisual(q){
+ const el=document.getElementById("triviaVisual");if(!q.visualType){el.classList.add("hidden");el.innerHTML="";return}
+ if(q.visualType==="ownerSequence")el.innerHTML=`<div class="trivia-visual-title">${q.year} · ${q.owner} draft sequence</div><div class="missing-owner-board">${q.cards.map(c=>`<div class="missing-owner-card ${c.player?"":"hidden-pick"}"><div class="round">Rd ${c.round} · Pick #${c.overallPick}</div><div class="player">${c.player||"???"}</div><div class="meta">${c.player?`${c.position}${c.finalRank?` · finished ${c.position}${c.finalRank}`:""}`:"Missing selection"}</div></div>`).join("")}</div>`;
+ else el.innerHTML=`<div class="trivia-visual-title">${q.year} · consecutive draft picks</div><div class="missing-round-board">${q.cards.map(c=>`<div class="missing-round-card ${c.player?"":"hidden-pick"}"><div class="pickno">#${c.overallPick}</div><div class="owner">${c.owner}</div><div class="player">${c.player||"???"}</div><div class="meta">${c.player?c.position:"Missing selection"}</div></div>`).join("")}</div>`;
+ el.classList.remove("hidden");
+}
+function renderTriviaQuestion(){
+ const q=triviaGame[triviaIndex];if(!q)return;triviaSelectedAnswer=null;
+ document.getElementById("triviaHostCategory").textContent=q.category;document.getElementById("triviaProgress").textContent=`Question ${triviaIndex+1} of ${triviaGame.length}`;
+ document.getElementById("triviaDifficultyPill").textContent=q.difficulty;document.getElementById("triviaPrompt").textContent=q.prompt;renderTriviaVisual(q);
+ document.getElementById("triviaChoices").innerHTML=q.choices.map((c,i)=>`<div class="trivia-choice" data-trivia-choice="${c}"><b>${String.fromCharCode(65+i)})</b>${c}</div>`).join("");
+ document.querySelectorAll("[data-trivia-choice]").forEach(el=>el.onclick=()=>selectTriviaAnswer(el.dataset.triviaChoice));
+ const turn=document.getElementById("triviaTurnBanner");turn.classList.toggle("hidden",triviaMode!=="teams");
+ if(triviaMode==="teams")turn.textContent=`${teamName(triviaTurnTeam)} · ${currentTriviaOwner()}'s turn`;
+ document.getElementById("triviaAnswerPanel").classList.add("hidden");document.getElementById("triviaReveal").classList.remove("hidden");document.getElementById("triviaNext").classList.add("hidden");
+ document.getElementById("triviaNext").textContent=triviaIndex===triviaGame.length-1?"Finish":"Next Question";
+}
+function selectTriviaAnswer(answer){
+ triviaSelectedAnswer=answer;document.querySelectorAll("[data-trivia-choice]").forEach(el=>el.classList.toggle("selected",el.dataset.triviaChoice===answer));
+}
+function revealTriviaAnswer(){
+ const q=triviaGame[triviaIndex],selected=triviaSelectedAnswer,correct=selected===q.answer;
+ triviaAnswerHistory.push({index:triviaIndex+1,correct,selected,answer:q.answer,questionId:q.id,team:triviaMode==="teams"?triviaTurnTeam:null});if(correct)triviaCorrectCount++;
+ document.querySelectorAll("[data-trivia-choice]").forEach(el=>{el.classList.remove("selected");el.classList.toggle("correct",el.dataset.triviaChoice===q.answer);el.classList.toggle("wrong",!!selected&&el.dataset.triviaChoice===selected&&selected!==q.answer)});
+ let detail="";
+ if(selected){
+  const selectedInfo=q.choiceFeedback?.[selected]||"";
+  if(correct)detail=`<span class="trivia-result-right">✓ ${selected} — Correct</span><br>${selectedInfo||q.explanation}`;
+  else detail=`<span class="trivia-result-wrong">✕ ${selected} — Incorrect</span><br>${selectedInfo}<br><br><b>Correct: ${q.answer}</b><br>${q.explanation}`;
+ }else detail=`<b>${q.answer}</b><br>${q.explanation}`;
+ const p=document.getElementById("triviaAnswerPanel");p.innerHTML=detail;p.classList.remove("hidden");
+ if(triviaMode==="teams"&&correct){triviaScores[triviaTurnTeam]++;updateTriviaScoreboard()}
+ document.getElementById("triviaReveal").classList.add("hidden");document.getElementById("triviaNext").classList.remove("hidden");
+}
+
+function undoCurrentQuestionIfRevealed(){
+ const q=triviaGame[triviaIndex];
+ for(let i=triviaAnswerHistory.length-1;i>=0;i--){
+   const h=triviaAnswerHistory[i];
+   if(h.index===triviaIndex+1 && h.questionId===q.id){
+     triviaAnswerHistory.splice(i,1);
+     if(h.correct){
+       triviaCorrectCount=Math.max(0,triviaCorrectCount-1);
+       if(triviaMode==="teams" && h.team){
+         triviaScores[h.team]=Math.max(0,triviaScores[h.team]-1);
+         updateTriviaScoreboard();
+       }
+     }
+     break;
+   }
+ }
+}
+function mulliganTriviaQuestion(){
+ const current=triviaGame[triviaIndex];if(!current||!TRIVIA_DATA)return;
+ undoCurrentQuestionIfRevealed();
+ const used=new Set(triviaGame.map(q=>q.id));
+ let pool=TRIVIA_DATA.questions.filter(q=>q.id!==current.id && !used.has(q.id) && q.category===current.category && q.difficulty===current.difficulty);
+ if(!pool.length)pool=TRIVIA_DATA.questions.filter(q=>q.id!==current.id && !used.has(q.id) && q.difficulty===current.difficulty);
+ if(!pool.length)pool=TRIVIA_DATA.questions.filter(q=>q.id!==current.id && !used.has(q.id));
+ if(!pool.length)return;
+ triviaGame[triviaIndex]=triviaShuffle(pool)[0];
+ renderTriviaQuestion();
+}
+function mulliganSurvivalRound(){
+ if(!survivalRound||!TRIVIA_DATA)return;
+ const oldTeam=triviaTurnTeam,oldIndex={A:triviaTurnIndex.A,B:triviaTurnIndex.B};
+ const diff=survivalRound.difficulty,cat=survivalRound.category;
+ let pool=(TRIVIA_DATA.survivalRounds||[]).filter(r=>r.randomEligible!==false && r.id!==survivalRound.id && !survivalRecentRounds.includes(r.id) && r.difficulty===diff && r.category===cat);
+ if(!pool.length)pool=(TRIVIA_DATA.survivalRounds||[]).filter(r=>r.randomEligible!==false && r.id!==survivalRound.id && !survivalRecentRounds.includes(r.id) && r.difficulty===diff);
+ if(!pool.length)pool=(TRIVIA_DATA.survivalRounds||[]).filter(r=>r.randomEligible!==false && r.id!==survivalRound.id);
+ if(!pool.length)return;
+ survivalRound=triviaShuffle(pool)[0];
+ survivalRecentRounds.push(survivalRound.id);if(survivalRecentRounds.length>8)survivalRecentRounds.shift();
+ survivalUsed=[];survivalScore={A:0,B:0};
+ survivalAlive={A:triviaTeams.A.map(owner=>({owner,alive:true})),B:triviaTeams.B.map(owner=>({owner,alive:true}))};
+ triviaTurnTeam=oldTeam;triviaTurnIndex=oldIndex;
+ document.getElementById("survivalPrompt").textContent=survivalRound.prompt;
+ document.getElementById("survivalAnswers").innerHTML=survivalRound.answers.map(a=>`<span>${a}</span>`).join("");
+ document.getElementById("survivalMessage").className="survival-message";
+ document.getElementById("survivalMessage").textContent="Commissioner mulligan — replacement round loaded. No penalty.";
+ document.getElementById("survivalSubmit").disabled=false;document.getElementById("survivalWhiff").disabled=false;
+ document.getElementById("survivalAnother").classList.add("hidden");
+ renderSurvivalTurn();
+}
+
+function nextTriviaQuestion(){
+ if(triviaIndex>=triviaGame.length-1){showTriviaResults();return}
+ if(triviaMode==="teams"){triviaTurnIndex[triviaTurnTeam]++;triviaTurnTeam=triviaTurnTeam==="A"?"B":"A"}
+ triviaIndex++;renderTriviaQuestion();
+}
+function showTriviaResults(){
+ document.getElementById("triviaHost").classList.add("hidden");const panel=document.getElementById("triviaResults");const total=triviaGame.length,pct=total?Math.round(triviaCorrectCount/total*100):0;
+ if(triviaMode==="teams"){const a=triviaScores.A,b=triviaScores.B;document.getElementById("triviaResultsTitle").textContent=a===b?"It's a Tie":`${a>b?teamName("A"):teamName("B")} Wins`;document.getElementById("triviaResultsScore").textContent=`${a} – ${b}`;document.getElementById("triviaResultsSub").textContent=`${teamName("A")} vs ${teamName("B")}`;}
+ else{document.getElementById("triviaResultsTitle").textContent="Trivia Complete";document.getElementById("triviaResultsScore").textContent=`${triviaCorrectCount} / ${total}`;document.getElementById("triviaResultsSub").textContent=`${pct}% correct`;}
+ const good=triviaAnswerHistory.filter(x=>x.correct).map(x=>x.index),bad=triviaAnswerHistory.filter(x=>!x.correct).map(x=>x.index);document.getElementById("triviaResultsRecap").innerHTML=`<div class="trivia-results-box"><b>Correct</b><span>${good.length?good.join(", "):"None"}</span></div><div class="trivia-results-box"><b>Missed</b><span>${bad.length?bad.join(", "):"None"}</span></div>`;panel.classList.remove("hidden");
+}
+function resetTriviaToSetup(){document.getElementById("triviaResults").classList.add("hidden");document.getElementById("triviaBuilder").classList.remove("hidden");}
+function playTriviaAgain(){document.getElementById("triviaResults").classList.add("hidden");generateTriviaGame();}
+function exitTriviaGame(){triviaGame=[];triviaIndex=0;document.getElementById("triviaHost").classList.add("hidden");document.getElementById("survivalHost").classList.add("hidden");document.getElementById("triviaResults").classList.add("hidden");document.getElementById("triviaBuilder").classList.remove("hidden")}
+
+
+function normAnswer(s){
+ return String(s||"").toLowerCase()
+  .replace(/['’.-]/g,"")
+  .replace(/\b(jr|sr|ii|iii|iv|v)\b/g,"")
+  .replace(/[^a-z0-9]/g,"");
+}
+function splitName(s){
+ return String(s||"").trim().toLowerCase().replace(/['’.-]/g,"").split(/\s+/).filter(Boolean);
+}
+function lastNameOf(s){const p=splitName(s);return p.length?p[p.length-1]:""}
+function editDistance(a,b){
+ a=normAnswer(a);b=normAnswer(b);
+ const m=a.length,n=b.length,dp=Array.from({length:m+1},()=>Array(n+1).fill(0));
+ for(let i=0;i<=m;i++)dp[i][0]=i;for(let j=0;j<=n;j++)dp[0][j]=j;
+ for(let i=1;i<=m;i++)for(let j=1;j<=n;j++)dp[i][j]=Math.min(dp[i-1][j]+1,dp[i][j-1]+1,dp[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+ return dp[m][n];
+}
+function fuzzyClose(a,b){
+ const na=normAnswer(a),nb=normAnswer(b);if(!na||!nb)return false;
+ const d=editDistance(na,nb),longer=Math.max(na.length,nb.length);
+ if(longer<=5)return d<=1;
+ if(longer<=10)return d<=2;
+ return d<=2 || (d/longer)<=0.18;
+}
+function survivalAllKnownNames(){
+ const s=new Set(survivalRound?.answers||[]);
+ Object.keys(survivalRound?.lookup||{}).forEach(x=>s.add(x));
+ return [...s];
+}
+function matchSurvivalName(raw){
+ const names=survivalAllKnownNames(),nr=normAnswer(raw);
+ if(!nr)return {type:"none"};
+ // exact full normalized
+ let exact=names.filter(n=>normAnswer(n)===nr);
+ if(exact.length===1)return {type:"match",name:exact[0],method:"exact"};
+ // exact unique last name
+ const rawParts=splitName(raw);
+ if(rawParts.length===1){
+   const ln=rawParts[0];
+   const last=names.filter(n=>lastNameOf(n)===ln);
+   if(last.length===1)return {type:"match",name:last[0],method:"lastname"};
+   if(last.length>1)return {type:"ambiguous",names:last};
+ }
+ // fuzzy full-name matching
+ const fuzzy=names.filter(n=>fuzzyClose(raw,n));
+ if(fuzzy.length===1)return {type:"match",name:fuzzy[0],method:"fuzzy"};
+ if(fuzzy.length>1){
+   fuzzy.sort((a,b)=>editDistance(raw,a)-editDistance(raw,b));
+   const d1=editDistance(raw,fuzzy[0]),d2=editDistance(raw,fuzzy[1]);
+   if(d1<d2)return {type:"match",name:fuzzy[0],method:"fuzzy"};
+   return {type:"ambiguous",names:fuzzy.slice(0,4)};
+ }
+ return {type:"none"};
+}
+function survivalContextFor(name){
+ const info=survivalRound?.lookup?.[name];
+ if(!info)return "";
+ if(survivalRound?.category==="Draft Fallout" && info.year){
+   if(info.undrafted===false && info.overallPick)return `${name} was drafted #${info.overallPick} in ${info.year} and finished ${info.position}${info.finalRank}.`;
+   if(info.undrafted===true)return `${name} did go undrafted, but finished ${info.position}${info.finalRank} and does not meet this round's Top-X cutoff.`;
+ }
+ if(info.year&&info.overallPick){
+   if(/Top 20/.test(survivalRound.prompt))return `${name} was selected #${info.overallPick} overall in ${info.year}${info.overallPick>20?" — outside the Top 20.":"."}`;
+   if(/Round 1/.test(survivalRound.prompt))return `${name} was selected in Round ${info.round} at #${info.overallPick} in ${info.year}${info.round!==1?" — outside Round 1.":"."}`;
+   if(/first three rounds/.test(survivalRound.prompt))return `${name} was selected in Round ${info.round} at #${info.overallPick} in ${info.year}${info.round>3?" — outside the first three rounds.":"."}`;
+   return `${name} was selected #${info.overallPick} in ${info.year}.`;
+ }
+ if(info.ownerTarget&&info.occurrences){
+   const target=info.occurrences.filter(x=>x.owner===info.ownerTarget);
+   if(target.length)return `${name} was drafted by ${info.ownerTarget} in ${target.map(x=>x.year).join(", ")}.`;
+   const who=[...new Set(info.occurrences.map(x=>x.owner))];
+   return `${name} was drafted by ${who.join(", ")}, not ${info.ownerTarget}.`;
+ }
+ return "";
+}
+function activeTeamOwners(team){return survivalAlive[team].filter(x=>x.alive).map(x=>x.owner)}
+function currentSurvivalOwner(){
+ const active=activeTeamOwners(triviaTurnTeam);if(!active.length)return null;
+ const idx=triviaTurnIndex[triviaTurnTeam]%active.length;return active[idx];
+}
+function advanceSurvivalTurn(){
+ const currentTeam=triviaTurnTeam;
+ triviaTurnIndex[currentTeam]++;
+ triviaTurnTeam=currentTeam==="A"?"B":"A";
+}
+function startSurvivalRound(){
+ if(triviaTeams.A.length!==5||triviaTeams.B.length!==5){document.getElementById("triviaBankMeta").textContent="Survival requires exactly 5 owners on each team.";return}
+ const selected=document.getElementById("survivalRoundSelect").value;
+ const diff=document.getElementById("survivalDifficulty").value;
+ let pool=(TRIVIA_DATA.survivalRounds||[]).filter(r=>(r.randomEligible!==false)&&(diff==="mixed"||r.difficulty===diff));
+ if(selected==="__random__"){
+   let fresh=pool.filter(r=>!survivalRecentRounds.includes(r.id));if(!fresh.length){survivalRecentRounds=[];fresh=pool}
+   survivalRound=triviaShuffle(fresh)[0];
+ }else survivalRound=pool.find(r=>r.id===selected)||(TRIVIA_DATA.survivalRounds||[]).find(r=>r.id===selected);
+ if(!survivalRound)return;
+ survivalRecentRounds.push(survivalRound.id);if(survivalRecentRounds.length>8)survivalRecentRounds.shift();
+ survivalRule=document.getElementById("survivalRule").value;
+ survivalUsed=[];survivalScore={A:0,B:0};triviaTurnTeam="A";triviaTurnIndex={A:0,B:0};
+ survivalAlive={A:triviaTeams.A.map(owner=>({owner,alive:true})),B:triviaTeams.B.map(owner=>({owner,alive:true}))};
+ document.getElementById("triviaBuilder").classList.add("hidden");document.getElementById("survivalHost").classList.remove("hidden");
+ document.getElementById("survivalPrompt").textContent=survivalRound.prompt;
+ document.getElementById("survivalAnswers").innerHTML=survivalRound.answers.map(a=>`<span>${a}</span>`).join("");
+ document.getElementById("survTeamAName").textContent=teamName("A");document.getElementById("survTeamBName").textContent=teamName("B");
+ const lives=document.getElementById("survivalLives");lives.classList.toggle("hidden",survivalRule!=="lastman");
+ document.getElementById("survivalSubmit").disabled=false;document.getElementById("survivalWhiff").disabled=false;document.getElementById("survivalAnother").classList.add("hidden");
+ renderSurvivalTurn();
+}
+function renderSurvivalLives(){
+ if(survivalRule!=="lastman")return;
+ const html=["A","B"].map(t=>`<div class="survival-life-team"><b>${teamName(t)}</b><div class="survival-life-chips">${survivalAlive[t].map(x=>`<span class="survival-life ${x.alive?"":"out"}">${x.owner}</span>`).join("")}</div></div>`).join("");
+ document.getElementById("survivalLives").innerHTML=html;
+}
+function renderSurvivalTurn(){
+ const remaining=survivalRound.answers.length-survivalUsed.length;
+ document.getElementById("survivalRemaining").textContent=`${remaining} valid answers remain`;
+ const owner=survivalRule==="lastman"?currentSurvivalOwner():currentTriviaOwner();
+ document.getElementById("survivalTurn").textContent=`${teamName(triviaTurnTeam)} · ${owner}'s required turn`;
+ document.getElementById("survScoreA").textContent=survivalScore.A;document.getElementById("survScoreB").textContent=survivalScore.B;
+ document.getElementById("survivalUsed").innerHTML=survivalUsed.map(x=>`<span>${x}</span>`).join("");
+ renderSurvivalLives();
+ document.getElementById("survivalAnswerInput").value="";document.getElementById("survivalAnswerInput").focus();
+}
+function submitSurvivalAnswer(){
+ const raw=document.getElementById("survivalAnswerInput").value.trim(),msg=document.getElementById("survivalMessage");if(!raw)return;
+ const result=matchSurvivalName(raw);
+ if(result.type==="ambiguous"){
+   msg.className="survival-message ambiguous";msg.textContent=`“${raw}” is ambiguous. Be more specific: ${result.names.join(", ")}.`;return;
+ }
+ const match=result.type==="match"?result.name:null;
+ if(match&&survivalRound.answers.includes(match)&&!survivalUsed.includes(match)){
+   survivalUsed.push(match);survivalScore[triviaTurnTeam]++;
+   const note=result.method==="fuzzy"||result.method==="lastname"?` (accepted as ${match})`:"";
+   const owner=survivalRule==="lastman"?currentSurvivalOwner():currentTriviaOwner();
+   msg.className="survival-message good";msg.textContent=`✓ ${match} counts${note}. ${owner} survives.`;
+   advanceSurvivalTurn();renderSurvivalTurn();return;
+ }
+ if(match&&survivalUsed.includes(match)){
+   msg.className="survival-message bad";msg.textContent=`✕ ${match} was already used — whiff.`;handleSurvivalWhiff();return;
+ }
+ if(match){
+   const context=survivalContextFor(match);
+   msg.className="survival-message bad";msg.textContent=`✕ ${match} does not qualify.${context?` ${context}`:""}`;handleSurvivalWhiff();return;
+ }
+ msg.className="survival-message bad";msg.textContent=`✕ ${raw} is not on the qualifying list — whiff.`;handleSurvivalWhiff();
+}
+function handleSurvivalWhiff(){
+ if(survivalRule==="first"){finishSurvivalRound(triviaTurnTeam==="A"?"B":"A");return}
+ const owner=currentSurvivalOwner();
+ const entry=survivalAlive[triviaTurnTeam].find(x=>x.owner===owner);if(entry)entry.alive=false;
+ const losingTeam=triviaTurnTeam;
+ if(activeTeamOwners(losingTeam).length===0){finishSurvivalRound(losingTeam==="A"?"B":"A");return}
+ advanceSurvivalTurn();renderSurvivalTurn();
+}
+function finishSurvivalRound(winner){
+ const msg=document.getElementById("survivalMessage");
+ msg.innerHTML+=`<br><b>${teamName(winner)} wins the round.</b>`;
+ document.getElementById("survivalSubmit").disabled=true;document.getElementById("survivalWhiff").disabled=true;
+ document.getElementById("survivalAnother").classList.remove("hidden");
+ renderSurvivalLives();
+}
+function survivalWhiff(){
+ const owner=survivalRule==="lastman"?currentSurvivalOwner():currentTriviaOwner();
+ const msg=document.getElementById("survivalMessage");msg.className="survival-message bad";msg.textContent=`✕ ${owner} passes / whiffs.`;
+ handleSurvivalWhiff();
+}
+
 function openView(viewName){
  const button=document.querySelector(`.nav button[data-view="${viewName}"]`);
  if(!button || button.hidden)return;
@@ -7516,6 +8069,7 @@ function openView(viewName){
  if(viewName==="weeklyAnalytics") openWeeklyAnalytics();
  if(viewName==="playoffHub") openPlayoffHub();
  if(viewName==="survivorHub") openSurvivorHub();
+ if(viewName==="triviaStudio") renderTriviaStudio();
 }
 
 let commissionerMode=sessionStorage.getItem("bigBoardCommissionerMode")==="on";
@@ -7554,6 +8108,7 @@ document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",(
  if(b.dataset.view==="weeklyAnalytics") openWeeklyAnalytics();
  if(b.dataset.view==="playoffHub") openPlayoffHub();
  if(b.dataset.view==="survivorHub") openSurvivorHub();
+ if(b.dataset.view==="triviaStudio") renderTriviaStudio();
 }));
 
 
@@ -7572,6 +8127,25 @@ document.getElementById("draftYear").addEventListener("change",e=>{
 });
 document.getElementById("draftOwnerFilter").addEventListener("change",e=>{draftSelectedOwner=e.target.value;renderDraftHub();});
 document.getElementById("draftCapitalScope").addEventListener("change",e=>{draftCapitalScope=e.target.value;renderDraftOwnerCards();});
+document.getElementById("triviaGenerate").addEventListener("click",generateTriviaGame);
+document.getElementById("triviaReveal").addEventListener("click",revealTriviaAnswer);
+document.getElementById("triviaNext").addEventListener("click",nextTriviaQuestion);
+document.getElementById("triviaExit").addEventListener("click",exitTriviaGame);
+document.getElementById("triviaMulligan").addEventListener("click",mulliganTriviaQuestion);
+document.getElementById("triviaPlayAgain").addEventListener("click",playTriviaAgain);
+document.getElementById("triviaBackSetup").addEventListener("click",resetTriviaToSetup);
+
+document.querySelectorAll(".trivia-mode").forEach(b=>b.addEventListener("click",()=>setTriviaMode(b.dataset.triviaMode)));
+document.getElementById("triviaRandomizeTeams").addEventListener("click",initTriviaTeams);
+document.getElementById("triviaClearTeams").addEventListener("click",clearTriviaTeams);
+document.getElementById("survivalDifficulty").addEventListener("change",populateSurvivalRounds);
+document.getElementById("survivalSubmit").addEventListener("click",submitSurvivalAnswer);
+document.getElementById("survivalWhiff").addEventListener("click",survivalWhiff);
+document.getElementById("survivalExit").addEventListener("click",exitTriviaGame);
+document.getElementById("survivalMulligan").addEventListener("click",mulliganSurvivalRound);
+document.getElementById("survivalAnother").addEventListener("click",startSurvivalRound);
+document.getElementById("survivalAnswerInput").addEventListener("keydown",e=>{if(e.key==="Enter")submitSurvivalAnswer()});
+
 document.getElementById("draftSkillView").addEventListener("click",()=>setDraftView("skill"));
 document.getElementById("draftSkillScope").addEventListener("change",e=>{
   draftSkillScope=e.target.value;
