@@ -2800,6 +2800,42 @@ body.dnl-presentation header{
 /* v5.4.6 — DNL presentation data-load hardening */
 body.dnl-presentation #dnlGo:disabled{opacity:.6;cursor:wait}
 body.dnl-presentation #dnlLoadMsg{margin-top:8px;color:#9aa8b1;font-size:9px}
+
+/* v5.5.0 Mock Draft Lab */
+.mock-shell{background:#f7f4ed;border:1px solid #d7d0c3;border-radius:14px;padding:20px;color:#1e252d}
+.mock-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:13px}.mock-head h2{margin:3px 0}.mock-head p{margin:0;color:#6d747b;font-size:10px}
+.mock-kicker,.mock-label{font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#8a6a22;font-weight:950}.mock-version{padding:5px 8px;border:1px solid #c9b986;border-radius:999px;color:#80631f;font-size:8px;font-weight:900}
+.mock-toolbar{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.mock-toolbar button{padding:8px 10px;border:1px solid #b7b0a4;border-radius:8px;background:white;color:#30373d;font-size:9px;font-weight:850}.mock-toolbar .mock-primary{background:#202a34;color:white;border-color:#202a34}
+.mock-layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:12px}.mock-main,.mock-side-card{background:white;border:1px solid #d8d2c7;border-radius:10px}.mock-status{padding:10px 12px;border-bottom:1px solid #e0dbd2;font-size:10px;font-weight:800}
+.mock-board-wrap{overflow:auto;max-height:690px}.mock-board{border-collapse:collapse;width:100%;font-size:8px}.mock-board th{position:sticky;top:0;background:#202a34;color:white;padding:7px;z-index:2}.mock-board td{border:1px solid #e1ddd5;padding:6px;min-width:105px;vertical-align:top;height:48px}.mock-board td.sam-col{box-shadow:inset 0 0 0 2px #c7a54a}.mock-board .pickmeta{font-size:7px;color:#91979c}.mock-board .pname{font-size:9px;font-weight:900;margin-top:3px}.mock-board .ppos{font-size:7px;color:#687078}
+.mock-side{display:flex;flex-direction:column;gap:10px}.mock-side-card{padding:11px}.mock-filter-row{display:grid;grid-template-columns:90px 1fr;gap:6px;margin:8px 0}.mock-filter-row select,.mock-filter-row input{padding:7px;border:1px solid #c9c3b8;border-radius:6px;background:white;font-size:9px}
+.mock-available{max-height:425px;overflow:auto;border-top:1px solid #e4dfd6}.mock-player{display:grid;grid-template-columns:1fr auto;gap:8px;padding:7px 3px;border-bottom:1px solid #eee9df;cursor:pointer}.mock-player:hover{background:#f7f2e7}.mock-player b{font-size:9px}.mock-player small{display:block;color:#7d858b;font-size:7px;margin-top:2px}.mock-player .adp{font-size:8px;color:#8a6a22;font-weight:900;text-align:right}
+.mock-calibration{font-size:8px;line-height:1.6;color:#535b61;margin-top:7px}.mock-calibration b{color:#222}.mock-monte{margin-top:12px;background:white;border:1px solid #d8d2c7;border-radius:10px;padding:13px}.mock-monte h3{margin:0 0 8px}.mock-sim-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}.mock-sim-card{padding:9px;border:1px solid #e0dbd2;border-radius:8px}.mock-sim-card b{display:block;font-size:9px}.mock-sim-card span{font-size:17px;color:#8a6a22;font-weight:950}.mock-sim-card small{font-size:7px;color:#7b8389}
+@media(max-width:1000px){.mock-layout{grid-template-columns:1fr}.mock-side{display:grid;grid-template-columns:1fr 1fr}}@media(max-width:650px){.mock-sim-grid,.mock-side{grid-template-columns:1fr}}
+
+
+/* v5.5.4 scenario controls */
+#mockScenarioToggle{border-color:#9e7f35}
+#mockScenarioToggle:hover{background:#f3ead4}
+
+/* v5.5.5 — live draft composition tally */
+.mock-pos-tally{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;padding:9px 10px;border-bottom:1px solid #e0dbd2;background:#fbfaf6}
+.mock-pos-chip{padding:7px 8px;border-radius:7px;border:1px solid #d7d1c7;text-align:center}
+.mock-pos-chip b{display:block;font-size:14px;line-height:1.1}.mock-pos-chip span{font-size:7px;font-weight:900;text-transform:uppercase}
+.mock-final-comp{margin-top:12px;padding:12px;border:1px solid #d8d2c7;border-radius:10px;background:white}
+.mock-final-comp h3{margin:0 0 8px}
+.mock-final-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.mock-final-card{padding:9px;border:1px solid #ddd6ca;border-radius:8px;text-align:center}
+.mock-final-card strong{display:block;font-size:22px}.mock-final-card small{font-size:8px;text-transform:uppercase}
+@media(max-width:760px){.mock-pos-tally,.mock-final-grid{grid-template-columns:repeat(3,1fr)}}
+
+
+/* v5.5.7 live draft */
+#mockLiveToggle{border-color:#4d7a5a}
+#mockPickOwner{padding:8px 9px;border:1px solid #b7b0a4;border-radius:8px;background:white;font-size:9px;font-weight:800}
+
+/* v5.5.9 live-draft safety */
+body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -2878,7 +2914,7 @@ body.dnl-presentation #dnlLoadMsg{margin-top:8px;color:#9aa8b1;font-size:9px}
 <div class="header-subtitle">Career Prestige Rankings</div>
 <p>A measure of sustained excellence across league history.</p>
 </div>
-<nav class="nav"><button class="nav-group-primary active" data-view="matrix" id="careerTotalsTab">Career Totals</button><button class="nav-group-primary" data-view="presentation">The Big Board</button><button class="nav-group-primary" data-view="journey">Career Journey</button><button class="nav-group-primary" data-view="audit">Season Audit</button><button class="nav-group-analytics" data-view="draftHub">Draft Hub</button><button class="nav-group-analytics commissioner-only" data-view="draftLab" hidden="" id="draftLabTab">Draft Lab</button><button class="nav-group-analytics" data-view="weeklyAnalytics">Weekly Analytics</button><button class="nav-group-analytics" data-view="playoffHub">Playoff Hub</button><button class="nav-group-analytics" data-view="survivorHub">Survivor Belt</button><button class="nav-group-analytics" data-view="triviaStudio">Trivia Studio</button><button class="nav-group-analytics" data-view="draftNightLive">Draft Night Live</button><button class="nav-group-reference" data-view="glossary">Glossary</button><button class="nav-group-reference commissioner-only" data-view="data" hidden="" id="commissionerDataTab">Data &amp; Settings</button></nav>
+<nav class="nav"><button class="nav-group-primary active" data-view="matrix" id="careerTotalsTab">Career Totals</button><button class="nav-group-primary" data-view="presentation">The Big Board</button><button class="nav-group-primary" data-view="journey">Career Journey</button><button class="nav-group-primary" data-view="audit">Season Audit</button><button class="nav-group-analytics" data-view="draftHub">Draft Hub</button><button class="nav-group-analytics commissioner-only" data-view="draftLab" hidden="" id="draftLabTab">Draft Lab</button><button class="nav-group-analytics" data-view="weeklyAnalytics">Weekly Analytics</button><button class="nav-group-analytics" data-view="playoffHub">Playoff Hub</button><button class="nav-group-analytics" data-view="survivorHub">Survivor Belt</button><button class="nav-group-analytics" data-view="triviaStudio">Trivia Studio</button><button class="nav-group-analytics" data-view="draftNightLive">Draft Night Live</button><button class="nav-group-analytics" data-view="mockDraftLab">Mock Draft Lab</button><button class="nav-group-reference" data-view="glossary">Glossary</button><button class="nav-group-reference commissioner-only" data-view="data" hidden="" id="commissionerDataTab">Data &amp; Settings</button></nav>
 <div aria-label="League links" class="league-links">
 <a href="https://football.fantasysports.yahoo.com/league/hot_n_bothered/2026" rel="noopener noreferrer" target="_blank" title="Open Yahoo League">
 <span aria-hidden="true">🏈</span> Yahoo <span aria-hidden="true" class="league-link-arrow">↗</span>
@@ -3132,6 +3168,47 @@ body.dnl-presentation #dnlLoadMsg{margin-top:8px;color:#9aa8b1;font-size:9px}
   </div>
 </div>
 </section>
+
+<section class="view" id="mockDraftLab">
+<div class="mock-shell">
+  <div class="mock-head">
+    <div><div class="mock-kicker">2026 Draft Prep</div><h2>Mock Draft Lab</h2><p>League-adjusted 2QB simulation · historical owner tendencies · manual Sam picks.</p></div>
+    <span class="mock-version">Engine v0.5.1</span>
+  </div>
+  <div class="mock-toolbar">
+    <button id="mockNew" class="mock-primary">New Mock</button>
+    <button id="mockSimToMe">Sim to Sam</button>
+    <button id="mockSimRound">Sim CPU Picks This Round</button>
+    <button id="mockRun100">Run 100 to Sam #9</button>
+    <button id="mockSimAll">Sim Full Draft (incl. Sam)</button>
+    <button id="mockScenarioToggle">Scenario Mode: Off</button>
+    <button id="mockCpuPick">CPU Pick</button>
+    <button id="mockUndo">Undo Last Pick</button>
+    <button id="mockExport">Export Draft CSV</button>
+    <button id="mockLiveToggle">Live Draft Mode: Off</button>
+    <select id="mockPickOwner" title="Assign current pick to owner">
+      <option value="">Current pick owner</option>
+    </select>
+  </div>
+  <div class="mock-layout">
+    <div class="mock-main">
+      <div class="mock-status" id="mockStatus"></div>
+      <div class="mock-pos-tally" id="mockPosTally"></div>
+      <div class="mock-board-wrap"><table class="mock-board" id="mockBoard"></table></div>
+    </div>
+    <aside class="mock-side">
+      <div class="mock-side-card">
+        <div class="mock-label">Available Players</div>
+        <div class="mock-filter-row"><select id="mockPosFilter"><option value="ALL">All</option><option>QB</option><option>RB</option><option>WR</option><option>TE</option><option>K</option><option>DST</option></select><input id="mockSearch" placeholder="Search"></div>
+        <div id="mockAvailable" class="mock-available"></div>
+      </div>
+      <div class="mock-side-card"><div class="mock-label">Engine Calibration</div><div id="mockCalibration" class="mock-calibration"></div></div>
+    </aside>
+  </div>
+  <div id="mockMonteCarlo" class="mock-monte hidden"></div>
+</div>
+</section>
+
 <section class="view" id="triviaStudio">
 <div class="trivia-shell">
   <div class="trivia-head">
@@ -5046,6 +5123,8 @@ let draftSkillSelectedOwner=null;
 let draftClassMode="best";
 let draftClassSort={key:"score",dir:"desc"};
 let DNL={teams:{A:[],B:[]},unassigned:[],score:{A:0,B:0},phase:1,team:'A',rot:{A:0,B:0},selected:null,triviaStep:0,survStep:0,missingStep:0};
+let MOCK_DATA={"schemaVersion":"0.1","draftOrder":["Ben","Dan","Bob","Bubbs","Cory","Habble","RJ","Zac","Sam","Mac"],"humanOwner":"Sam","rounds":18,"roster":{"QB":1,"SUPERFLEX":1,"RB":2,"WR":3,"FLEX":2,"K":1,"DST":1,"BENCH":6},"config":{"qbDiscount":{"QB1":0,"QB2to3":7,"QB4to6":14,"QB7to10":22,"QB11to16":28,"QB17plus":34},"candidateWindow":14,"temperature":0.9},"ownerTendencies":{"Ben":{"early":{"QB":1.156,"RB":1.12,"WR":0.824,"TE":0.72},"middle":{"QB":1.022,"RB":1.02,"WR":1.006,"TE":0.836},"late":{"QB":0.834,"RB":0.834,"WR":1.117,"TE":1.35}},"Dan":{"early":{"QB":0.998,"RB":1.079,"WR":0.9,"TE":0.969},"middle":{"QB":1.167,"RB":1.044,"WR":0.863,"TE":1.077},"late":{"QB":1.007,"RB":1.01,"WR":1.06,"TE":0.72}},"Bob":{"early":{"QB":0.905,"RB":1.046,"WR":1.019,"TE":0.939},"middle":{"QB":1.055,"RB":0.882,"WR":1.12,"TE":0.73},"late":{"QB":1.167,"RB":1.037,"WR":0.85,"TE":1.143}},"Bubbs":{"early":{"QB":1.281,"RB":1.046,"WR":0.824,"TE":0.72},"middle":{"QB":0.769,"RB":1.185,"WR":1.032,"TE":0.72},"late":{"QB":0.767,"RB":1.24,"WR":0.896,"TE":0.787}},"Cory":{"early":{"QB":1.031,"RB":1.083,"WR":0.922,"TE":0.72},"middle":{"QB":1.011,"RB":1.042,"WR":0.996,"TE":0.828},"late":{"QB":1.113,"RB":0.863,"WR":0.932,"TE":1.35}},"Habble":{"early":{"QB":0.905,"RB":0.789,"WR":1.215,"TE":1.35},"middle":{"QB":1.072,"RB":1.119,"WR":0.875,"TE":0.965},"late":{"QB":0.903,"RB":1.091,"WR":1.101,"TE":0.72}},"RJ":{"early":{"QB":0.968,"RB":1.083,"WR":0.922,"TE":0.939},"middle":{"QB":0.87,"RB":0.789,"WR":1.268,"TE":0.836},"late":{"QB":1.065,"RB":0.799,"WR":1.099,"TE":1.35}},"Zac":{"early":{"QB":0.953,"RB":0.922,"WR":1.149,"TE":0.925},"middle":{"QB":0.839,"RB":1.041,"WR":1.069,"TE":0.912},"late":{"QB":1.325,"RB":0.919,"WR":0.94,"TE":1.015}},"Sam":{"early":{"QB":0.72,"RB":0.973,"WR":1.215,"TE":1.35},"middle":{"QB":1.161,"RB":1.009,"WR":0.892,"TE":1.083},"late":{"QB":0.867,"RB":1.276,"WR":0.83,"TE":0.72}},"Mac":{"early":{"QB":1.077,"RB":0.958,"WR":1.052,"TE":0.72},"middle":{"QB":0.961,"RB":0.892,"WR":0.968,"TE":1.35},"late":{"QB":0.856,"RB":0.925,"WR":1.264,"TE":0.72}}},"players":[{"player":"Josh Allen","position":"QB","team":"BUF","adp":1.4,"posRank":1,"marketRank":1,"etrRank":2,"source":"2QB ADP","estimatedAdp":false},{"player":"Jahmyr Gibbs","position":"RB","team":"DET","adp":2.1,"posRank":1,"marketRank":2,"etrRank":1,"source":"2QB ADP","estimatedAdp":false},{"player":"Bijan Robinson","position":"RB","team":"ATL","adp":2.7,"posRank":2,"marketRank":3,"etrRank":3,"source":"2QB ADP","estimatedAdp":false},{"player":"Lamar Jackson","position":"QB","team":"BAL","adp":5.7,"posRank":2,"marketRank":4,"etrRank":7,"source":"2QB ADP","estimatedAdp":false},{"player":"Puka Nacua","position":"WR","team":"LAR","adp":5.9,"posRank":1,"marketRank":5,"etrRank":5,"source":"2QB ADP","estimatedAdp":false},{"player":"Drake Maye","position":"QB","team":"NE","adp":6.0,"posRank":3,"marketRank":6,"etrRank":12,"source":"2QB ADP","estimatedAdp":false},{"player":"Jonathan Taylor","position":"RB","team":"IND","adp":6.5,"posRank":3,"marketRank":7,"etrRank":13,"source":"2QB ADP","estimatedAdp":false},{"player":"Joe Burrow","position":"QB","team":"CIN","adp":6.9,"posRank":4,"marketRank":8,"etrRank":10,"source":"2QB ADP","estimatedAdp":false},{"player":"Ja'Marr Chase","position":"WR","team":"CIN","adp":9.6,"posRank":2,"marketRank":9,"etrRank":4,"source":"2QB ADP","estimatedAdp":false},{"player":"Dak Prescott","position":"QB","team":"DAL","adp":10.7,"posRank":5,"marketRank":10,"etrRank":16,"source":"2QB ADP","estimatedAdp":false},{"player":"Christian McCaffrey","position":"RB","team":"SF","adp":11.8,"posRank":4,"marketRank":11,"etrRank":9,"source":"2QB ADP","estimatedAdp":false},{"player":"Jayden Daniels","position":"QB","team":"WAS","adp":12.3,"posRank":6,"marketRank":12,"etrRank":8,"source":"2QB ADP","estimatedAdp":false},{"player":"Derrick Henry","position":"RB","team":"BAL","adp":13.5,"posRank":5,"marketRank":13,"etrRank":31,"source":"2QB ADP","estimatedAdp":false},{"player":"Jaxon Smith-Njigba","position":"WR","team":"SEA","adp":13.8,"posRank":3,"marketRank":14,"etrRank":6,"source":"2QB ADP","estimatedAdp":false},{"player":"Jalen Hurts","position":"QB","team":"PHI","adp":15.8,"posRank":7,"marketRank":15,"etrRank":11,"source":"2QB ADP","estimatedAdp":false},{"player":"Trevor Lawrence","position":"QB","team":"JAX","adp":16.1,"posRank":8,"marketRank":16,"etrRank":20,"source":"2QB ADP","estimatedAdp":false},{"player":"Brock Purdy","position":"QB","team":"SF","adp":16.8,"posRank":9,"marketRank":17,"etrRank":26,"source":"2QB ADP","estimatedAdp":false},{"player":"Matthew Stafford","position":"QB","team":"LAR","adp":17.8,"posRank":10,"marketRank":18,"etrRank":22,"source":"2QB ADP","estimatedAdp":false},{"player":"Patrick Mahomes","position":"QB","team":"KC","adp":18.3,"posRank":11,"marketRank":19,"etrRank":19,"source":"2QB ADP","estimatedAdp":false},{"player":"Amon-Ra St. Brown","position":"WR","team":"DET","adp":18.7,"posRank":4,"marketRank":20,"etrRank":18,"source":"2QB ADP","estimatedAdp":false},{"player":"James Cook III","position":"RB","team":"BUF","adp":19.4,"posRank":6,"marketRank":21,"etrRank":29,"source":"2QB ADP","estimatedAdp":false},{"player":"Caleb Williams","position":"QB","team":"CHI","adp":22.7,"posRank":12,"marketRank":22,"etrRank":17,"source":"2QB ADP","estimatedAdp":false},{"player":"Justin Herbert","position":"QB","team":"LAC","adp":22.9,"posRank":13,"marketRank":23,"etrRank":15,"source":"2QB ADP","estimatedAdp":false},{"player":"Jared Goff","position":"QB","team":"DET","adp":23.1,"posRank":14,"marketRank":24,"etrRank":30,"source":"2QB ADP","estimatedAdp":false},{"player":"De'Von Achane","position":"RB","team":"MIA","adp":24.7,"posRank":7,"marketRank":25,"etrRank":42,"source":"2QB ADP","estimatedAdp":false},{"player":"Drake London","position":"WR","team":"ATL","adp":25.1,"posRank":5,"marketRank":26,"etrRank":37,"source":"2QB ADP","estimatedAdp":false},{"player":"Jaxson Dart","position":"QB","team":"NYG","adp":25.9,"posRank":15,"marketRank":27,"etrRank":21,"source":"2QB ADP","estimatedAdp":false},{"player":"Saquon Barkley","position":"RB","team":"PHI","adp":26.6,"posRank":8,"marketRank":28,"etrRank":27,"source":"2QB ADP","estimatedAdp":false},{"player":"CeeDee Lamb","position":"WR","team":"DAL","adp":28.0,"posRank":6,"marketRank":29,"etrRank":23,"source":"2QB ADP","estimatedAdp":false},{"player":"Ashton Jeanty","position":"RB","team":"LV","adp":29.6,"posRank":9,"marketRank":30,"etrRank":35,"source":"2QB ADP","estimatedAdp":false},{"player":"Bo Nix","position":"QB","team":"DEN","adp":30.3,"posRank":16,"marketRank":31,"etrRank":28,"source":"2QB ADP","estimatedAdp":false},{"player":"Justin Jefferson","position":"WR","team":"MIN","adp":31.5,"posRank":7,"marketRank":32,"etrRank":14,"source":"2QB ADP","estimatedAdp":false},{"player":"Josh Jacobs","position":"RB","team":"GB","adp":32.4,"posRank":10,"marketRank":33,"etrRank":54,"source":"2QB ADP","estimatedAdp":false},{"player":"George Pickens","position":"WR","team":"DAL","adp":34.2,"posRank":8,"marketRank":34,"etrRank":47,"source":"2QB ADP","estimatedAdp":false},{"player":"A.J. Brown","position":"WR","team":"NE","adp":34.4,"posRank":9,"marketRank":35,"etrRank":43,"source":"2QB ADP","estimatedAdp":false},{"player":"Omarion Hampton","position":"RB","team":"LAC","adp":37.1,"posRank":11,"marketRank":36,"etrRank":36,"source":"2QB ADP","estimatedAdp":false},{"player":"Baker Mayfield","position":"QB","team":"TB","adp":37.2,"posRank":17,"marketRank":37,"etrRank":32,"source":"2QB ADP","estimatedAdp":false},{"player":"Chase Brown","position":"RB","team":"CIN","adp":37.6,"posRank":12,"marketRank":38,"etrRank":38,"source":"2QB ADP","estimatedAdp":false},{"player":"Rashee Rice","position":"WR","team":"KC","adp":38.9,"posRank":10,"marketRank":39,"etrRank":56,"source":"2QB ADP","estimatedAdp":false},{"player":"Nico Collins","position":"WR","team":"HOU","adp":39.1,"posRank":11,"marketRank":40,"etrRank":48,"source":"2QB ADP","estimatedAdp":false},{"player":"Chris Olave","position":"WR","team":"NO","adp":41.8,"posRank":12,"marketRank":41,"etrRank":50,"source":"2QB ADP","estimatedAdp":false},{"player":"Zay Flowers","position":"WR","team":"BAL","adp":42.8,"posRank":13,"marketRank":42,"etrRank":61,"source":"2QB ADP","estimatedAdp":false},{"player":"Kenneth Walker","position":"RB","team":"KC","adp":43.2,"posRank":13,"marketRank":43,"etrRank":33,"source":"2QB ADP","estimatedAdp":false},{"player":"Kyren Williams","position":"RB","team":"LAR","adp":43.3,"posRank":14,"marketRank":44,"etrRank":49,"source":"2QB ADP","estimatedAdp":false},{"player":"Breece Hall","position":"RB","team":"NYJ","adp":46.9,"posRank":15,"marketRank":45,"etrRank":55,"source":"2QB ADP","estimatedAdp":false},{"player":"Jeremiyah Love","position":"RB","team":"ARI","adp":47.4,"posRank":16,"marketRank":46,"etrRank":46,"source":"2QB ADP","estimatedAdp":false},{"player":"Tyler Shough","position":"QB","team":"NO","adp":49.2,"posRank":18,"marketRank":47,"etrRank":40,"source":"2QB ADP","estimatedAdp":false},{"player":"Javonte Williams","position":"RB","team":"DAL","adp":49.5,"posRank":17,"marketRank":48,"etrRank":52,"source":"2QB ADP","estimatedAdp":false},{"player":"Tee Higgins","position":"WR","team":"CIN","adp":50.4,"posRank":14,"marketRank":49,"etrRank":63,"source":"2QB ADP","estimatedAdp":false},{"player":"Sam Darnold","position":"QB","team":"SEA","adp":51.5,"posRank":19,"marketRank":50,"etrRank":41,"source":"2QB ADP","estimatedAdp":false},{"player":"Emeka Egbuka","position":"WR","team":"TB","adp":52.1,"posRank":15,"marketRank":51,"etrRank":62,"source":"2QB ADP","estimatedAdp":false},{"player":"Jordan Love","position":"QB","team":"GB","adp":52.1,"posRank":20,"marketRank":52,"etrRank":25,"source":"2QB ADP","estimatedAdp":false},{"player":"Cam Skattebo","position":"RB","team":"NYG","adp":52.8,"posRank":18,"marketRank":53,"etrRank":68,"source":"2QB ADP","estimatedAdp":false},{"player":"Tetairoa McMillan","position":"WR","team":"CAR","adp":53.1,"posRank":16,"marketRank":54,"etrRank":72,"source":"2QB ADP","estimatedAdp":false},{"player":"Davante Adams","position":"WR","team":"LAR","adp":53.6,"posRank":17,"marketRank":55,"etrRank":71,"source":"2QB ADP","estimatedAdp":false},{"player":"DeVonta Smith","position":"WR","team":"PHI","adp":55.7,"posRank":18,"marketRank":56,"etrRank":59,"source":"2QB ADP","estimatedAdp":false},{"player":"Kyler Murray","position":"QB","team":"MIN","adp":56.4,"posRank":21,"marketRank":57,"etrRank":24,"source":"2QB ADP","estimatedAdp":false},{"player":"Jameson Williams","position":"WR","team":"DET","adp":58.0,"posRank":19,"marketRank":58,"etrRank":73,"source":"2QB ADP","estimatedAdp":false},{"player":"Malik Nabers","position":"WR","team":"NYG","adp":58.6,"posRank":20,"marketRank":59,"etrRank":53,"source":"2QB ADP","estimatedAdp":false},{"player":"Garrett Wilson","position":"WR","team":"NYJ","adp":58.8,"posRank":21,"marketRank":60,"etrRank":60,"source":"2QB ADP","estimatedAdp":false},{"player":"Travis Etienne Jr.","position":"RB","team":"NO","adp":59.0,"posRank":19,"marketRank":61,"etrRank":57,"source":"2QB ADP","estimatedAdp":false},{"player":"D'Andre Swift","position":"RB","team":"CHI","adp":61.7,"posRank":20,"marketRank":62,"etrRank":67,"source":"2QB ADP","estimatedAdp":false},{"player":"Rome Odunze","position":"WR","team":"CHI","adp":61.8,"posRank":22,"marketRank":63,"etrRank":92,"source":"2QB ADP","estimatedAdp":false},{"player":"Terry McLaurin","position":"WR","team":"WAS","adp":63.0,"posRank":23,"marketRank":64,"etrRank":74,"source":"2QB ADP","estimatedAdp":false},{"player":"Brock Bowers","position":"TE","team":"LV","adp":63.2,"posRank":1,"marketRank":65,"etrRank":44,"source":"2QB ADP","estimatedAdp":false},{"player":"Quinshon Judkins","position":"RB","team":"CLE","adp":63.5,"posRank":21,"marketRank":66,"etrRank":82,"source":"2QB ADP","estimatedAdp":false},{"player":"Bucky Irving","position":"RB","team":"TB","adp":65.1,"posRank":22,"marketRank":67,"etrRank":80,"source":"2QB ADP","estimatedAdp":false},{"player":"C.J. Stroud","position":"QB","team":"HOU","adp":65.3,"posRank":22,"marketRank":68,"etrRank":39,"source":"2QB ADP","estimatedAdp":false},{"player":"Trey McBride","position":"TE","team":"ARI","adp":66.3,"posRank":2,"marketRank":69,"etrRank":51,"source":"2QB ADP","estimatedAdp":false},{"player":"Ladd McConkey","position":"WR","team":"LAC","adp":68.0,"posRank":24,"marketRank":70,"etrRank":58,"source":"2QB ADP","estimatedAdp":false},{"player":"Bhayshul Tuten","position":"RB","team":"JAX","adp":68.4,"posRank":23,"marketRank":71,"etrRank":78,"source":"2QB ADP","estimatedAdp":false},{"player":"Daniel Jones","position":"QB","team":"IND","adp":70.2,"posRank":23,"marketRank":72,"etrRank":45,"source":"2QB ADP","estimatedAdp":false},{"player":"Alec Pierce","position":"WR","team":"IND","adp":71.6,"posRank":25,"marketRank":73,"etrRank":112,"source":"2QB ADP","estimatedAdp":false},{"player":"Jaylen Waddle","position":"WR","team":"DEN","adp":72.9,"posRank":26,"marketRank":74,"etrRank":66,"source":"2QB ADP","estimatedAdp":false},{"player":"Jadarian Price","position":"RB","team":"SEA","adp":73.8,"posRank":24,"marketRank":75,"etrRank":79,"source":"2QB ADP","estimatedAdp":false},{"player":"TreVeyon Henderson","position":"RB","team":"NE","adp":74.4,"posRank":25,"marketRank":76,"etrRank":85,"source":"2QB ADP","estimatedAdp":false},{"player":"Malik Willis","position":"QB","team":"MIA","adp":74.5,"posRank":24,"marketRank":77,"etrRank":34,"source":"2QB ADP","estimatedAdp":false},{"player":"David Montgomery","position":"RB","team":"HOU","adp":74.8,"posRank":26,"marketRank":78,"etrRank":75,"source":"2QB ADP","estimatedAdp":false},{"player":"Luther Burden III","position":"WR","team":"CHI","adp":75.5,"posRank":27,"marketRank":79,"etrRank":81,"source":"2QB ADP","estimatedAdp":false},{"player":"DJ Moore","position":"WR","team":"BUF","adp":76.4,"posRank":28,"marketRank":80,"etrRank":83,"source":"2QB ADP","estimatedAdp":false},{"player":"Mike Evans","position":"WR","team":"SF","adp":78.9,"posRank":29,"marketRank":81,"etrRank":77,"source":"2QB ADP","estimatedAdp":false},{"player":"Christian Watson","position":"WR","team":"GB","adp":79.5,"posRank":30,"marketRank":82,"etrRank":84,"source":"2QB ADP","estimatedAdp":false},{"player":"DK Metcalf","position":"WR","team":"PIT","adp":81.4,"posRank":31,"marketRank":83,"etrRank":89,"source":"2QB ADP","estimatedAdp":false},{"player":"Colston Loveland","position":"TE","team":"CHI","adp":81.9,"posRank":3,"marketRank":84,"etrRank":70,"source":"2QB ADP","estimatedAdp":false},{"player":"Courtland Sutton","position":"WR","team":"DEN","adp":82.3,"posRank":32,"marketRank":85,"etrRank":109,"source":"2QB ADP","estimatedAdp":false},{"player":"Tony Pollard","position":"RB","team":"TEN","adp":83.3,"posRank":27,"marketRank":86,"etrRank":91,"source":"2QB ADP","estimatedAdp":false},{"player":"Marvin Harrison Jr.","position":"WR","team":"ARI","adp":85.0,"posRank":33,"marketRank":87,"etrRank":97,"source":"2QB ADP","estimatedAdp":false},{"player":"Bryce Young","position":"QB","team":"CAR","adp":88.5,"posRank":25,"marketRank":88,"etrRank":65,"source":"2QB ADP","estimatedAdp":false},{"player":"Tyler Warren","position":"TE","team":"IND","adp":89.3,"posRank":4,"marketRank":89,"etrRank":90,"source":"2QB ADP","estimatedAdp":false},{"player":"Brian Thomas Jr.","position":"WR","team":"JAX","adp":90.4,"posRank":34,"marketRank":90,"etrRank":95,"source":"2QB ADP","estimatedAdp":false},{"player":"Parker Washington","position":"WR","team":"JAX","adp":90.5,"posRank":35,"marketRank":91,"etrRank":88,"source":"2QB ADP","estimatedAdp":false},{"player":"Carnell Tate","position":"WR","team":"TEN","adp":91.2,"posRank":36,"marketRank":92,"etrRank":94,"source":"2QB ADP","estimatedAdp":false},{"player":"Rico Dowdle","position":"RB","team":"PIT","adp":91.5,"posRank":28,"marketRank":93,"etrRank":96,"source":"2QB ADP","estimatedAdp":false},{"player":"Cameron Ward","position":"QB","team":"TEN","adp":93.0,"posRank":null,"marketRank":null,"etrRank":64,"source":"ETR depth","estimatedAdp":true},{"player":"Cam Ward","position":"QB","team":"TEN","adp":93.5,"posRank":26,"marketRank":94,"etrRank":null,"source":"2QB ADP","estimatedAdp":false},{"player":"J.K. Dobbins","position":"RB","team":"DEN","adp":94.4,"posRank":29,"marketRank":95,"etrRank":110,"source":"2QB ADP","estimatedAdp":false},{"player":"Rhamondre Stevenson","position":"RB","team":"NE","adp":94.5,"posRank":30,"marketRank":96,"etrRank":86,"source":"2QB ADP","estimatedAdp":false},{"player":"Jaylen Warren","position":"RB","team":"PIT","adp":97.4,"posRank":31,"marketRank":97,"etrRank":93,"source":"2QB ADP","estimatedAdp":false},{"player":"Chuba Hubbard","position":"RB","team":"CAR","adp":97.5,"posRank":32,"marketRank":98,"etrRank":102,"source":"2QB ADP","estimatedAdp":false},{"player":"Jordyn Tyson","position":"WR","team":"NO","adp":98.6,"posRank":37,"marketRank":99,"etrRank":87,"source":"2QB ADP","estimatedAdp":false},{"player":"Quentin Johnston","position":"WR","team":"LAC","adp":98.9,"posRank":38,"marketRank":100,"etrRank":106,"source":"2QB ADP","estimatedAdp":false},{"player":"Geno Smith","position":"QB","team":"NYJ","adp":106.1,"posRank":null,"marketRank":null,"etrRank":105,"source":"ETR depth","estimatedAdp":true},{"player":"Jordan Addison","position":"WR","team":"MIN","adp":106.8,"posRank":null,"marketRank":null,"etrRank":99,"source":"ETR depth","estimatedAdp":true},{"player":"Kyle Monangai","position":"RB","team":"CHI","adp":107.5,"posRank":null,"marketRank":null,"etrRank":108,"source":"ETR depth","estimatedAdp":true},{"player":"Tucker Kraft","position":"TE","team":"GB","adp":107.7,"posRank":null,"marketRank":null,"etrRank":98,"source":"ETR depth","estimatedAdp":true},{"player":"Jayden Reed","position":"WR","team":"GB","adp":108.7,"posRank":null,"marketRank":null,"etrRank":100,"source":"ETR depth","estimatedAdp":true},{"player":"Jacoby Brissett","position":"QB","team":"ARI","adp":108.8,"posRank":null,"marketRank":null,"etrRank":122,"source":"ETR depth","estimatedAdp":true},{"player":"Harold Fannin","position":"TE","team":"CLE","adp":109.2,"posRank":null,"marketRank":null,"etrRank":114,"source":"ETR depth","estimatedAdp":true},{"player":"Jakobi Meyers","position":"WR","team":"JAX","adp":109.5,"posRank":null,"marketRank":null,"etrRank":126,"source":"ETR depth","estimatedAdp":true},{"player":"Jacory Croskey-Merritt","position":"RB","team":"WAS","adp":111.0,"posRank":null,"marketRank":null,"etrRank":129,"source":"ETR depth","estimatedAdp":true},{"player":"Deebo Samuel","position":"WR","team":"SF","adp":111.7,"posRank":null,"marketRank":null,"etrRank":141,"source":"ETR depth","estimatedAdp":true},{"player":"Sam LaPorta","position":"TE","team":"DET","adp":112.2,"posRank":null,"marketRank":null,"etrRank":107,"source":"ETR depth","estimatedAdp":true},{"player":"Aaron Rodgers","position":"QB","team":"PIT","adp":112.6,"posRank":null,"marketRank":null,"etrRank":69,"source":"ETR depth","estimatedAdp":true},{"player":"Xavier Worthy","position":"WR","team":"KC","adp":113.0,"posRank":null,"marketRank":null,"etrRank":113,"source":"ETR depth","estimatedAdp":true},{"player":"Aaron Jones","position":"RB","team":"MIN","adp":113.4,"posRank":null,"marketRank":null,"etrRank":146,"source":"ETR depth","estimatedAdp":true},{"player":"RJ Harvey","position":"RB","team":"DEN","adp":113.4,"posRank":null,"marketRank":null,"etrRank":104,"source":"ETR depth","estimatedAdp":true},{"player":"Kyle Pitts","position":"TE","team":"ATL","adp":113.7,"posRank":null,"marketRank":null,"etrRank":116,"source":"ETR depth","estimatedAdp":true},{"player":"Chris Godwin","position":"WR","team":"TB","adp":114.3,"posRank":null,"marketRank":null,"etrRank":111,"source":"ETR depth","estimatedAdp":true},{"player":"Michael Wilson","position":"WR","team":"ARI","adp":114.4,"posRank":null,"marketRank":null,"etrRank":115,"source":"ETR depth","estimatedAdp":true},{"player":"Michael Pittman","position":"WR","team":"PIT","adp":115.5,"posRank":null,"marketRank":null,"etrRank":121,"source":"ETR depth","estimatedAdp":true},{"player":"Makai Lemon","position":"WR","team":"PHI","adp":119.6,"posRank":null,"marketRank":null,"etrRank":120,"source":"ETR depth","estimatedAdp":true},{"player":"Blake Corum","position":"RB","team":"LA","adp":119.9,"posRank":null,"marketRank":null,"etrRank":101,"source":"ETR depth","estimatedAdp":true},{"player":"Stefon Diggs","position":"WR","team":"WAS","adp":121.5,"posRank":null,"marketRank":null,"etrRank":117,"source":"ETR depth","estimatedAdp":true},{"player":"Jordan Mason","position":"RB","team":"MIN","adp":122.2,"posRank":null,"marketRank":null,"etrRank":125,"source":"ETR depth","estimatedAdp":true},{"player":"Rachaad White","position":"RB","team":"WAS","adp":124.0,"posRank":null,"marketRank":null,"etrRank":139,"source":"ETR depth","estimatedAdp":true},{"player":"Dallas Goedert","position":"TE","team":"PHI","adp":125.9,"posRank":null,"marketRank":null,"etrRank":132,"source":"ETR depth","estimatedAdp":true},{"player":"George Kittle","position":"TE","team":"SF","adp":126.0,"posRank":null,"marketRank":null,"etrRank":123,"source":"ETR depth","estimatedAdp":true},{"player":"Romeo Doubs","position":"WR","team":"NE","adp":126.9,"posRank":null,"marketRank":null,"etrRank":133,"source":"ETR depth","estimatedAdp":true},{"player":"Fernando Mendoza","position":"QB","team":"LV","adp":127.3,"posRank":null,"marketRank":null,"etrRank":76,"source":"ETR depth","estimatedAdp":true},{"player":"Kenneth Gainwell","position":"RB","team":"TB","adp":128.8,"posRank":null,"marketRank":null,"etrRank":118,"source":"ETR depth","estimatedAdp":true},{"player":"Wan'Dale Robinson","position":"WR","team":"TEN","adp":130.6,"posRank":null,"marketRank":null,"etrRank":128,"source":"ETR depth","estimatedAdp":true},{"player":"Mark Andrews","position":"TE","team":"BAL","adp":130.7,"posRank":null,"marketRank":null,"etrRank":136,"source":"ETR depth","estimatedAdp":true},{"player":"Rashid Shaheed","position":"WR","team":"SEA","adp":131.4,"posRank":null,"marketRank":null,"etrRank":147,"source":"ETR depth","estimatedAdp":true},{"player":"Zach Charbonnet","position":"RB","team":"SEA","adp":132.4,"posRank":null,"marketRank":null,"etrRank":199,"source":"ETR depth","estimatedAdp":true},{"player":"Deshaun Watson","position":"QB","team":"CLE","adp":132.9,"posRank":null,"marketRank":null,"etrRank":180,"source":"ETR depth","estimatedAdp":true},{"player":"Jonathon Brooks","position":"RB","team":"CAR","adp":135.1,"posRank":null,"marketRank":null,"etrRank":124,"source":"ETR depth","estimatedAdp":true},{"player":"Michael Penix","position":"QB","team":"ATL","adp":135.1,"posRank":null,"marketRank":null,"etrRank":167,"source":"ETR depth","estimatedAdp":true},{"player":"Kenyon Sadiq","position":"TE","team":"NYJ","adp":135.2,"posRank":null,"marketRank":null,"etrRank":191,"source":"ETR depth","estimatedAdp":true},{"player":"Matthew Golden","position":"WR","team":"GB","adp":135.5,"posRank":null,"marketRank":null,"etrRank":119,"source":"ETR depth","estimatedAdp":true},{"player":"Tua Tagovailoa","position":"QB","team":"ATL","adp":136.2,"posRank":null,"marketRank":null,"etrRank":166,"source":"ETR depth","estimatedAdp":true},{"player":"Josh Downs","position":"WR","team":"IND","adp":137.6,"posRank":null,"marketRank":null,"etrRank":103,"source":"ETR depth","estimatedAdp":true},{"player":"Travis Kelce","position":"TE","team":"KC","adp":137.9,"posRank":null,"marketRank":null,"etrRank":130,"source":"ETR depth","estimatedAdp":true},{"player":"Brandon Aubrey","position":"K","team":"DAL","adp":138.1,"posRank":null,"marketRank":null,"etrRank":150,"source":"ETR depth","estimatedAdp":true},{"player":"KC Concepcion","position":"WR","team":"CLE","adp":139.1,"posRank":null,"marketRank":null,"etrRank":127,"source":"ETR depth","estimatedAdp":true},{"player":"Jayden Higgins","position":"WR","team":"HOU","adp":141.1,"posRank":null,"marketRank":null,"etrRank":140,"source":"ETR depth","estimatedAdp":true},{"player":"Jason Myers","position":"K","team":"SEA","adp":141.6,"posRank":null,"marketRank":null,"etrRank":176,"source":"ETR depth","estimatedAdp":true},{"player":"Khalil Shakir","position":"WR","team":"BUF","adp":142.1,"posRank":null,"marketRank":null,"etrRank":134,"source":"ETR depth","estimatedAdp":true},{"player":"Jalen Coker","position":"WR","team":"CAR","adp":143.2,"posRank":null,"marketRank":null,"etrRank":137,"source":"ETR depth","estimatedAdp":true},{"player":"Tyler Allgeier","position":"RB","team":"ARI","adp":144.0,"posRank":null,"marketRank":null,"etrRank":165,"source":"ETR depth","estimatedAdp":true},{"player":"Tyjae Spears","position":"RB","team":"TEN","adp":145.1,"posRank":null,"marketRank":null,"etrRank":160,"source":"ETR depth","estimatedAdp":true},{"player":"Dalton Kincaid","position":"TE","team":"BUF","adp":145.7,"posRank":null,"marketRank":null,"etrRank":131,"source":"ETR depth","estimatedAdp":true},{"player":"Calvin Ridley","position":"WR","team":"TEN","adp":146.0,"posRank":null,"marketRank":null,"etrRank":177,"source":"ETR depth","estimatedAdp":true},{"player":"Tre Tucker","position":"WR","team":"LV","adp":146.5,"posRank":null,"marketRank":null,"etrRank":164,"source":"ETR depth","estimatedAdp":true},{"player":"Isiah Pacheco","position":"RB","team":"DET","adp":146.6,"posRank":null,"marketRank":null,"etrRank":155,"source":"ETR depth","estimatedAdp":true},{"player":"Ka'imi Fairbairn","position":"K","team":"HOU","adp":146.6,"posRank":null,"marketRank":null,"etrRank":183,"source":"ETR depth","estimatedAdp":true},{"player":"Hunter Henry","position":"TE","team":"NE","adp":146.7,"posRank":null,"marketRank":null,"etrRank":149,"source":"ETR depth","estimatedAdp":true},{"player":"Alvin Kamara","position":"RB","team":"NO","adp":147.4,"posRank":null,"marketRank":null,"etrRank":163,"source":"ETR depth","estimatedAdp":true},{"player":"Brenton Strange","position":"TE","team":"JAX","adp":147.6,"posRank":null,"marketRank":null,"etrRank":151,"source":"ETR depth","estimatedAdp":true},{"player":"Isaiah Likely","position":"TE","team":"NYG","adp":147.9,"posRank":null,"marketRank":null,"etrRank":145,"source":"ETR depth","estimatedAdp":true},{"player":"Cameron Dicker","position":"K","team":"LAC","adp":148.1,"posRank":null,"marketRank":null,"etrRank":172,"source":"ETR depth","estimatedAdp":true},{"player":"Chris Rodriguez","position":"RB","team":"JAX","adp":149.1,"posRank":null,"marketRank":null,"etrRank":135,"source":"ETR depth","estimatedAdp":true},{"player":"Chig Okonkwo","position":"TE","team":"WAS","adp":150.0,"posRank":null,"marketRank":null,"etrRank":161,"source":"ETR depth","estimatedAdp":true},{"player":"Jake Ferguson","position":"TE","team":"DAL","adp":151.0,"posRank":null,"marketRank":null,"etrRank":138,"source":"ETR depth","estimatedAdp":true},{"player":"Woody Marks","position":"RB","team":"HOU","adp":151.2,"posRank":null,"marketRank":null,"etrRank":154,"source":"ETR depth","estimatedAdp":true},{"player":"Keaton Mitchell","position":"RB","team":"LAC","adp":153.1,"posRank":null,"marketRank":null,"etrRank":143,"source":"ETR depth","estimatedAdp":true},{"player":"Chris Boswell","position":"K","team":"PIT","adp":153.6,"posRank":null,"marketRank":null,"etrRank":203,"source":"ETR depth","estimatedAdp":true},{"player":"Eddy Pineiro","position":"K","team":"SF","adp":155.5,"posRank":null,"marketRank":null,"etrRank":200,"source":"ETR depth","estimatedAdp":true},{"player":"De'Zhaun Stribling","position":"WR","team":"SF","adp":156.5,"posRank":null,"marketRank":null,"etrRank":144,"source":"ETR depth","estimatedAdp":true},{"player":"Jalen McMillan","position":"WR","team":"TB","adp":157.9,"posRank":null,"marketRank":null,"etrRank":152,"source":"ETR depth","estimatedAdp":true},{"player":"Omar Cooper","position":"WR","team":"NYJ","adp":158.0,"posRank":null,"marketRank":null,"etrRank":157,"source":"ETR depth","estimatedAdp":true},{"player":"Jerry Jeudy","position":"WR","team":"CLE","adp":158.1,"posRank":null,"marketRank":null,"etrRank":185,"source":"ETR depth","estimatedAdp":true},{"player":"Tyrone Tracy","position":"RB","team":"NYG","adp":159.7,"posRank":null,"marketRank":null,"etrRank":142,"source":"ETR depth","estimatedAdp":true},{"player":"Tyler Loop","position":"K","team":"BAL","adp":161.2,"posRank":null,"marketRank":null,"etrRank":223,"source":"ETR depth","estimatedAdp":true},{"player":"Jauan Jennings","position":"WR","team":"MIN","adp":162.7,"posRank":null,"marketRank":null,"etrRank":158,"source":"ETR depth","estimatedAdp":true},{"player":"Jalen Nailor","position":"WR","team":"LV","adp":162.8,"posRank":null,"marketRank":null,"etrRank":162,"source":"ETR depth","estimatedAdp":true},{"player":"Travis Hunter","position":"WR","team":"JAX","adp":163.3,"posRank":null,"marketRank":null,"etrRank":198,"source":"ETR depth","estimatedAdp":true},{"player":"Ryan Flournoy","position":"WR","team":"DAL","adp":163.7,"posRank":null,"marketRank":null,"etrRank":171,"source":"ETR depth","estimatedAdp":true},{"player":"Denzel Boston","position":"WR","team":"CLE","adp":164.0,"posRank":null,"marketRank":null,"etrRank":148,"source":"ETR depth","estimatedAdp":true},{"player":"Harrison Butker","position":"K","team":"KC","adp":164.1,"posRank":null,"marketRank":null,"etrRank":234,"source":"ETR depth","estimatedAdp":true},{"player":"Cooper Kupp","position":"WR","team":"SEA","adp":164.9,"posRank":null,"marketRank":null,"etrRank":208,"source":"ETR depth","estimatedAdp":true},{"player":"Isaac TeSlaa","position":"WR","team":"DET","adp":168.4,"posRank":null,"marketRank":null,"etrRank":189,"source":"ETR depth","estimatedAdp":true},{"player":"Tank Bigsby","position":"RB","team":"PHI","adp":168.4,"posRank":null,"marketRank":null,"etrRank":156,"source":"ETR depth","estimatedAdp":true},{"player":"Tank Dell","position":"WR","team":"HOU","adp":169.3,"posRank":null,"marketRank":null,"etrRank":232,"source":"ETR depth","estimatedAdp":true},{"player":"Dalton Schultz","position":"TE","team":"HOU","adp":170.2,"posRank":null,"marketRank":null,"etrRank":181,"source":"ETR depth","estimatedAdp":true},{"player":"Adonai Mitchell","position":"WR","team":"NYJ","adp":174.1,"posRank":null,"marketRank":null,"etrRank":182,"source":"ETR depth","estimatedAdp":true},{"player":"Germie Bernard","position":"WR","team":"PIT","adp":174.2,"posRank":null,"marketRank":null,"etrRank":233,"source":"ETR depth","estimatedAdp":true},{"player":"Brian Robinson","position":"RB","team":"ATL","adp":237.0,"posRank":null,"marketRank":null,"etrRank":178,"source":"ETR depth","estimatedAdp":true},{"player":"Dylan Sampson","position":"RB","team":"CLE","adp":237.0,"posRank":null,"marketRank":null,"etrRank":187,"source":"ETR depth","estimatedAdp":true},{"player":"Jaydon Blue","position":"RB","team":"DAL","adp":237.0,"posRank":null,"marketRank":null,"etrRank":169,"source":"ETR depth","estimatedAdp":true},{"player":"Jonah Coleman","position":"RB","team":"DEN","adp":237.0,"posRank":null,"marketRank":null,"etrRank":170,"source":"ETR depth","estimatedAdp":true},{"player":"Jordan James","position":"RB","team":"SF","adp":237.0,"posRank":null,"marketRank":null,"etrRank":211,"source":"ETR depth","estimatedAdp":true},{"player":"Justice Hill","position":"RB","team":"BAL","adp":237.0,"posRank":null,"marketRank":null,"etrRank":240,"source":"ETR depth","estimatedAdp":true},{"player":"Kaelon Black","position":"RB","team":"SF","adp":237.0,"posRank":null,"marketRank":null,"etrRank":220,"source":"ETR depth","estimatedAdp":true},{"player":"Kaytron Allen","position":"RB","team":"WAS","adp":237.0,"posRank":null,"marketRank":null,"etrRank":225,"source":"ETR depth","estimatedAdp":true},{"player":"MarShawn Lloyd","position":"RB","team":"GB","adp":237.0,"posRank":null,"marketRank":null,"etrRank":173,"source":"ETR depth","estimatedAdp":true},{"player":"Mike Washington","position":"RB","team":"LV","adp":237.0,"posRank":null,"marketRank":null,"etrRank":227,"source":"ETR depth","estimatedAdp":true},{"player":"Ray Davis","position":"RB","team":"BUF","adp":237.0,"posRank":null,"marketRank":null,"etrRank":197,"source":"ETR depth","estimatedAdp":true},{"player":"Samaje Perine","position":"RB","team":"CIN","adp":237.0,"posRank":null,"marketRank":null,"etrRank":226,"source":"ETR depth","estimatedAdp":true},{"player":"Sean Tucker","position":"RB","team":"TB","adp":237.0,"posRank":null,"marketRank":null,"etrRank":195,"source":"ETR depth","estimatedAdp":true},{"player":"Seth McGowan","position":"RB","team":"IND","adp":237.0,"posRank":null,"marketRank":null,"etrRank":228,"source":"ETR depth","estimatedAdp":true},{"player":"AJ Barner","position":"TE","team":"SEA","adp":244.0,"posRank":null,"marketRank":null,"etrRank":235,"source":"ETR depth","estimatedAdp":true},{"player":"Cade Otton","position":"TE","team":"TB","adp":244.0,"posRank":null,"marketRank":null,"etrRank":174,"source":"ETR depth","estimatedAdp":true},{"player":"Greg Dulcich","position":"TE","team":"MIA","adp":244.0,"posRank":null,"marketRank":null,"etrRank":222,"source":"ETR depth","estimatedAdp":true},{"player":"Gunnar Helm","position":"TE","team":"TEN","adp":244.0,"posRank":null,"marketRank":null,"etrRank":207,"source":"ETR depth","estimatedAdp":true},{"player":"Juwan Johnson","position":"TE","team":"NO","adp":244.0,"posRank":null,"marketRank":null,"etrRank":153,"source":"ETR depth","estimatedAdp":true},{"player":"Oronde Gadsden","position":"TE","team":"LAC","adp":244.0,"posRank":null,"marketRank":null,"etrRank":184,"source":"ETR depth","estimatedAdp":true},{"player":"Pat Freiermuth","position":"TE","team":"PIT","adp":244.0,"posRank":null,"marketRank":null,"etrRank":175,"source":"ETR depth","estimatedAdp":true},{"player":"TJ Hockenson","position":"TE","team":"MIN","adp":244.0,"posRank":null,"marketRank":null,"etrRank":159,"source":"ETR depth","estimatedAdp":true},{"player":"Terrance Ferguson","position":"TE","team":"LA","adp":244.0,"posRank":null,"marketRank":null,"etrRank":186,"source":"ETR depth","estimatedAdp":true},{"player":"Pat Bryant","position":"WR","team":"DEN","adp":247.0,"posRank":null,"marketRank":null,"etrRank":217,"source":"ETR depth","estimatedAdp":true},{"player":"Tre' Harris","position":"WR","team":"LAC","adp":247.0,"posRank":null,"marketRank":null,"etrRank":179,"source":"ETR depth","estimatedAdp":true},{"player":"Zachariah Branch","position":"WR","team":"ATL","adp":247.0,"posRank":null,"marketRank":null,"etrRank":231,"source":"ETR depth","estimatedAdp":true},{"player":"BAL DST","position":"DST","team":"BAL","adp":248.0,"posRank":null,"marketRank":null,"etrRank":213,"source":"ETR depth","estimatedAdp":true},{"player":"BUF DST","position":"DST","team":"BUF","adp":248.0,"posRank":null,"marketRank":null,"etrRank":209,"source":"ETR depth","estimatedAdp":true},{"player":"CAR DST","position":"DST","team":"CAR","adp":248.0,"posRank":null,"marketRank":null,"etrRank":236,"source":"ETR depth","estimatedAdp":true},{"player":"CHI DST","position":"DST","team":"CHI","adp":248.0,"posRank":null,"marketRank":null,"etrRank":230,"source":"ETR depth","estimatedAdp":true},{"player":"CIN DST","position":"DST","team":"CIN","adp":248.0,"posRank":null,"marketRank":null,"etrRank":239,"source":"ETR depth","estimatedAdp":true},{"player":"CLE DST","position":"DST","team":"CLE","adp":248.0,"posRank":null,"marketRank":null,"etrRank":215,"source":"ETR depth","estimatedAdp":true},{"player":"DAL DST","position":"DST","team":"DAL","adp":248.0,"posRank":null,"marketRank":null,"etrRank":206,"source":"ETR depth","estimatedAdp":true},{"player":"DEN DST","position":"DST","team":"DEN","adp":248.0,"posRank":null,"marketRank":null,"etrRank":201,"source":"ETR depth","estimatedAdp":true},{"player":"DET DST","position":"DST","team":"DET","adp":248.0,"posRank":null,"marketRank":null,"etrRank":205,"source":"ETR depth","estimatedAdp":true},{"player":"GB DST","position":"DST","team":"GB","adp":248.0,"posRank":null,"marketRank":null,"etrRank":229,"source":"ETR depth","estimatedAdp":true},{"player":"HOU DST","position":"DST","team":"HOU","adp":248.0,"posRank":null,"marketRank":null,"etrRank":194,"source":"ETR depth","estimatedAdp":true},{"player":"IND DST","position":"DST","team":"IND","adp":248.0,"posRank":null,"marketRank":null,"etrRank":219,"source":"ETR depth","estimatedAdp":true},{"player":"JAX DST","position":"DST","team":"JAX","adp":248.0,"posRank":null,"marketRank":null,"etrRank":190,"source":"ETR depth","estimatedAdp":true},{"player":"KC DST","position":"DST","team":"KC","adp":248.0,"posRank":null,"marketRank":null,"etrRank":212,"source":"ETR depth","estimatedAdp":true},{"player":"LA DST","position":"DST","team":"LA","adp":248.0,"posRank":null,"marketRank":null,"etrRank":192,"source":"ETR depth","estimatedAdp":true},{"player":"LAC DST","position":"DST","team":"LAC","adp":248.0,"posRank":null,"marketRank":null,"etrRank":188,"source":"ETR depth","estimatedAdp":true},{"player":"LV DST","position":"DST","team":"LV","adp":248.0,"posRank":null,"marketRank":null,"etrRank":238,"source":"ETR depth","estimatedAdp":true},{"player":"MIN DST","position":"DST","team":"MIN","adp":248.0,"posRank":null,"marketRank":null,"etrRank":204,"source":"ETR depth","estimatedAdp":true},{"player":"NE DST","position":"DST","team":"NE","adp":248.0,"posRank":null,"marketRank":null,"etrRank":224,"source":"ETR depth","estimatedAdp":true},{"player":"NO DST","position":"DST","team":"NO","adp":248.0,"posRank":null,"marketRank":null,"etrRank":218,"source":"ETR depth","estimatedAdp":true},{"player":"NYG DST","position":"DST","team":"NYG","adp":248.0,"posRank":null,"marketRank":null,"etrRank":221,"source":"ETR depth","estimatedAdp":true},{"player":"NYJ DST","position":"DST","team":"NYJ","adp":248.0,"posRank":null,"marketRank":null,"etrRank":216,"source":"ETR depth","estimatedAdp":true},{"player":"PHI DST","position":"DST","team":"PHI","adp":248.0,"posRank":null,"marketRank":null,"etrRank":196,"source":"ETR depth","estimatedAdp":true},{"player":"PIT DST","position":"DST","team":"PIT","adp":248.0,"posRank":null,"marketRank":null,"etrRank":193,"source":"ETR depth","estimatedAdp":true},{"player":"SEA DST","position":"DST","team":"SEA","adp":248.0,"posRank":null,"marketRank":null,"etrRank":168,"source":"ETR depth","estimatedAdp":true},{"player":"SF DST","position":"DST","team":"SF","adp":248.0,"posRank":null,"marketRank":null,"etrRank":210,"source":"ETR depth","estimatedAdp":true},{"player":"TB DST","position":"DST","team":"TB","adp":248.0,"posRank":null,"marketRank":null,"etrRank":214,"source":"ETR depth","estimatedAdp":true},{"player":"TEN DST","position":"DST","team":"TEN","adp":248.0,"posRank":null,"marketRank":null,"etrRank":202,"source":"ETR depth","estimatedAdp":true},{"player":"WAS DST","position":"DST","team":"WAS","adp":248.0,"posRank":null,"marketRank":null,"etrRank":237,"source":"ETR depth","estimatedAdp":true}]};
+let MOCK_STATE=null;
 let TRIVIA_DATA=null;
 let triviaGame=[];
 let triviaIndex=0;
@@ -8085,6 +8164,322 @@ function dnlDone(msg){document.getElementById("dnlStage").innerHTML=`<div class=
 function dnlAdjust(){const t=(prompt("Adjust which team? A or B")||"").toUpperCase(),v=Number(prompt("Point adjustment (negative allowed)")||0);if(["A","B"].includes(t)&&Number.isFinite(v)){DNL.score[t]+=v;dnlScore()}}
 async function renderDraftNightLive(){try{await ensureTriviaLoaded();if(!DNL.teams.A.length&&!DNL.unassigned.length)dnlRandomize();dnlRenderTeams();return true}catch(err){console.error("Draft Night Live initialization failed",err);const msg=document.getElementById("dnlSetupMsg");if(msg)msg.textContent="Draft Night Live data did not load. Refresh the page and try again.";return false}}
 
+
+async function ensureMockData(){if(MOCK_DATA&&MOCK_DATA.players&&MOCK_DATA.players.length)return MOCK_DATA;const r=await fetch("./data/mockDraft.json",{cache:"no-store"});if(!r.ok)throw new Error(`mockDraft.json HTTP ${r.status}`);MOCK_DATA=await r.json();return MOCK_DATA}
+function mockSnake(pick){const n=MOCK_DATA.draftOrder.length,round=Math.floor((pick-1)/n)+1,within=(pick-1)%n,idx=round%2===1?within:n-1-within;return {round,owner:MOCK_DATA.draftOrder[idx],col:idx}}
+function mockEmptyState(){return {pick:1,drafted:{},byOwner:Object.fromEntries(MOCK_DATA.draftOrder.map(o=>[o,[]])),history:[],scenarioMode:false,liveMode:false,pickOwners:{}}}
+function mockNew(){
+ if(MOCK_STATE&&MOCK_STATE.liveMode&&!mockLiveConfirm("New Mock"))return;
+ MOCK_STATE=mockEmptyState();
+ const b=document.getElementById("mockScenarioToggle");if(b)b.textContent="Scenario Mode: Off";
+ const l=document.getElementById("mockLiveToggle");if(l)l.textContent="Live Draft Mode: Off";
+ mockRender();
+}
+function mockOriginalOwner(pick){return mockSnake(pick).owner}
+function mockEffectiveOwner(pick){
+ return MOCK_STATE?.pickOwners?.[pick] || mockOriginalOwner(pick);
+}
+function mockAssignCurrentPickOwner(owner){
+ if(!MOCK_STATE||MOCK_STATE.pick>180)return;
+ const original=mockOriginalOwner(MOCK_STATE.pick);
+ if(!owner||owner===original)delete MOCK_STATE.pickOwners[MOCK_STATE.pick];
+ else MOCK_STATE.pickOwners[MOCK_STATE.pick]=owner;
+ mockRender();
+}
+
+function mockQbAdjusted(p){
+ if(p.position!=="QB")return p.adp;
+ let r=p.posRank;
+ if(!r){const qs=MOCK_DATA.players.filter(x=>x.position==="QB").sort((a,b)=>a.adp-b.adp);r=qs.findIndex(x=>x.player===p.player)+1}
+ const q=MOCK_DATA.config.qbDiscount;
+ const d=r===1?q.QB1:r<=3?q.QB2to3:r<=6?q.QB4to6:r<=10?q.QB7to10:r<=16?q.QB11to16:q.QB17plus;
+ return p.adp+d;
+}
+function mockCount(st,o,pos){return st.byOwner[o].filter(p=>p.position===pos).length}
+function mockNeed(st,o,p,round){
+ const q=mockCount(st,o,"QB"),rb=mockCount(st,o,"RB"),wr=mockCount(st,o,"WR"),te=mockCount(st,o,"TE"),k=mockCount(st,o,"K"),dst=mockCount(st,o,"DST");
+ let m=1;
+
+ // Hard caps: nobody drafts more than one kicker or defense.
+ if(p.position==="K"&&k>=1)return 0;
+ if(p.position==="DST"&&dst>=1)return 0;
+
+ if(p.position==="QB"){
+   if(q===0&&round>=2)m*=1.22;
+   if(q===1&&round>=4)m*=1.14;
+   if(q===2)m*=round<=8?.50:.72;
+   if(q===3)m*=.16;
+   if(q>=4)return 0;
+ }
+ if(p.position==="RB"){
+   if(rb<2&&round>=4)m*=1.13;
+   if(rb===4)m*=.90;
+   if(rb===5)m*=.68;
+   if(rb===6)m*=.42;
+   if(rb>=7)m*=.18;
+ }
+ if(p.position==="WR"){
+   if(wr<3&&round>=5)m*=1.12;
+   if(wr===4)m*=.92;
+   if(wr===5)m*=.66;
+   if(wr===6)m*=.38;
+   if(wr===7)m*=.18;
+   if(wr>=8)m*=.07;
+ }
+ if(p.position==="TE"){
+   if(te===0&&round>=7)m*=1.08;
+   if(te===1)m*=round<=10?.62:.78;
+   if(te===2)m*=.20;
+   if(te>=3)return 0;
+ }
+ if(p.position==="K"||p.position==="DST"){
+   if(round<=13)m*=.025;
+   else m*=.72;
+ }
+ return m;
+}function mockTendency(o,p,round){
+ const b=round<=4?"early":round<=10?"middle":"late";
+ let t=MOCK_DATA.ownerTendencies?.[o]?.[b]?.[p.position]||1;
+ const c=MOCK_STATE?mockCount(MOCK_STATE,o,p.position):0;
+ if((p.position==="WR"&&c>=5)||(p.position==="RB"&&c>=5)||(p.position==="TE"&&c>=2)||(p.position==="QB"&&c>=2)){
+   t=1+(t-1)*.35;
+ }
+ return t;
+}
+function mockScore(st,o,p,pick){
+ const {round}=mockSnake(pick),target=mockQbAdjusted(p),gap=target-pick;
+ // V0.2: much tighter market gravity. Large reaches are strongly punished,
+ // and overdue elite players become very difficult for the room to keep passing.
+ const reachScale=round<=2?5.5:round<=5?7.5:10;
+ const slideScale=round<=3?9:round<=8?12:16;
+ const market=gap>=0?Math.exp(-gap/reachScale):Math.exp((-gap)/slideScale);
+ const need=Math.pow(mockNeed(st,o,p,round),1.18);
+ const tend=Math.pow(mockTendency(o,p,round),.42);
+ let depth=1;if(p.source==="ETR depth"){if(p.position==="RB")depth=1.05;if(p.position==="WR")depth=.94;if(p.position==="TE")depth=.96}
+
+ // League-shape calibration v0.5.
+ // Historical league shape: ~59 RB / 58 WR long-run, with recent RB totals
+ // often in the low 60s. This is intentionally stronger than the prior nudge.
+ let leagueShape=1;
+ const draftedRB=st.history.filter(x=>x.position==="RB").length;
+ const draftedWR=st.history.filter(x=>x.position==="WR").length;
+ const draftedTE=st.history.filter(x=>x.position==="TE").length;
+ const total=st.history.length||1;
+ const rbShare=draftedRB/total,wrShare=draftedWR/total;
+
+ if(p.position==="RB"){
+   leagueShape*=1.34;
+   if(draftedRB<draftedWR)leagueShape*=1.12;
+   if(rbShare<.33)leagueShape*=1.10;
+   if(rbShare>.37)leagueShape*=.88;
+ }
+ if(p.position==="WR"){
+   leagueShape*=.74;
+   if(draftedWR>draftedRB+4)leagueShape*=.78;
+   if(wrShare>.34)leagueShape*=.80;
+   if(wrShare<.29)leagueShape*=1.08;
+ }
+ // CPU simulation hard ceiling only. Manual/live entries may still exceed this.
+ if(p.position==="TE" && draftedTE>=16)return 0;
+
+ return market*need*tend*depth*leagueShape;
+}
+function mockChooseCpu(st,o,pick){
+ const {round}=mockSnake(pick);
+ const reachAllowance=round===1?8:round===2?11:round<=5?15:22;
+ const leagueTE=st.history.filter(x=>x.position==="TE").length;
+ let avail=MOCK_DATA.players.filter(p=>!st.drafted[p.player]&&mockNeed(st,o,p,round)>0&&!(p.position==="TE"&&leagueTE>=16)&&mockQbAdjusted(p)<=pick+reachAllowance);
+ if(avail.length<8)avail=MOCK_DATA.players.filter(p=>!st.drafted[p.player]&&mockNeed(st,o,p,round)>0&&!(p.position==="TE"&&leagueTE>=16));
+ const ranked=avail.map(p=>({p,s:mockScore(st,o,p,pick)})).sort((a,b)=>b.s-a.s).slice(0,10);
+ const temp=.72,weights=ranked.map(x=>Math.pow(Math.max(x.s,.0001),1/temp)),total=weights.reduce((a,b)=>a+b,0);let r=Math.random()*total;
+ for(let i=0;i<ranked.length;i++){r-=weights[i];if(r<=0)return ranked[i].p}return ranked[0].p;
+}
+function mockApply(st,o,p,manual=false){const pk=st.pick,m=mockSnake(pk);st.drafted[p.player]=pk;st.byOwner[o].push({...p,pick:pk,round:m.round});st.history.push({pick:pk,owner:o,player:p.player,position:p.position,manual});st.pick++}
+function mockCpuUi(){const m=mockSnake(MOCK_STATE.pick),owner=mockEffectiveOwner(MOCK_STATE.pick);if(owner===MOCK_DATA.humanOwner&&!MOCK_STATE.liveMode)return false;mockApply(MOCK_STATE,owner,mockChooseCpu(MOCK_STATE,owner,MOCK_STATE.pick));return true}
+function mockSimToMe(){if(!mockLiveConfirm("Sim to Sam"))return;let g=0;while(MOCK_STATE.pick<=180&&mockCpuUi()&&g++<200){}mockRender()}
+function mockSimRound(){if(!mockLiveConfirm("Sim CPU Picks This Round"))return;const rd=mockSnake(MOCK_STATE.pick).round;let g=0;while(MOCK_STATE.pick<=180&&mockSnake(MOCK_STATE.pick).round===rd&&g++<50){if(!mockCpuUi())break}mockRender()}
+function mockBoard(){
+ let h="<thead><tr><th>Rd</th>"+MOCK_DATA.draftOrder.map(o=>`<th>${o}</th>`).join("")+"</tr></thead><tbody>";
+ for(let rd=1;rd<=18;rd++){h+=`<tr><th>${rd}</th>`;for(let col=0;col<10;col++){const overall=(rd-1)*10+(rd%2===1?col+1:10-col),x=MOCK_STATE.history.find(y=>y.pick===overall);const eff=MOCK_STATE.pickOwners?.[overall]||MOCK_DATA.draftOrder[col];
+     h+=`<td class="${MOCK_DATA.draftOrder[col]==="Sam"?"sam-col":""}" ${x?`style="${draftPositionStyle(x.position)}"`:""}><div class="pickmeta">#${overall}${eff!==MOCK_DATA.draftOrder[col]?` · → ${eff}`:""}</div>${x?`<div class="pname">${x.player}</div><div class="ppos">${x.position}</div>`:""}</td>`}h+="</tr>"}h+="</tbody>";document.getElementById("mockBoard").innerHTML=h;
+}
+function mockAvailable(){
+ const f=document.getElementById("mockPosFilter").value,q=document.getElementById("mockSearch").value.toLowerCase().trim(),m=mockSnake(MOCK_STATE.pick),human=m.owner==="Sam";
+ const a=MOCK_DATA.players.filter(p=>!MOCK_STATE.drafted[p.player]&&(f==="ALL"||p.position===f)&&(!q||p.player.toLowerCase().includes(q))).sort((x,y)=>mockQbAdjusted(x)-mockQbAdjusted(y)).slice(0,90);
+ document.getElementById("mockAvailable").innerHTML=a.map(p=>`<div class="mock-player" data-mp="${p.player}" style="${draftPositionStyle(p.position)}"><div><b>${p.player}</b><small>${p.team} · ${p.position} · ${p.source}${p.estimatedAdp?" · depth":""}</small></div><div class="adp">ADP ${p.adp.toFixed(1)}${p.position==="QB"?`<br><small>LG ${mockQbAdjusted(p).toFixed(1)}</small>`:""}</div></div>`).join("");
+ document.querySelectorAll("[data-mp]").forEach(el=>el.onclick=()=>{
+   const p=MOCK_DATA.players.find(x=>x.player===el.dataset.mp);if(!p)return;
+   const cur=mockSnake(MOCK_STATE.pick),owner=mockEffectiveOwner(MOCK_STATE.pick);
+   if(MOCK_STATE.liveMode){
+     mockApply(MOCK_STATE,owner,p,true);mockRender();return;
+   }
+   if(MOCK_STATE.scenarioMode){
+     mockApply(MOCK_STATE,owner,p,true);mockRender();return;
+   }
+   if(!human)return;
+   mockApply(MOCK_STATE,"Sam",p,true);mockRender();
+ });
+}
+function mockStatus(){
+ if(MOCK_STATE.pick>180){document.getElementById("mockStatus").innerHTML=`<b>Mock complete.</b> Final position totals shown below.`;return}
+ const m=mockSnake(MOCK_STATE.pick),owner=mockEffectiveOwner(MOCK_STATE.pick),original=m.owner;
+ let mode="";
+ if(MOCK_STATE.liveMode)mode=` · <b>Live Draft Mode</b>: click a player to assign to ${owner}`;
+ else if(MOCK_STATE.scenarioMode)mode=` · <b>Scenario Mode</b>: click any player to assign to ${owner}`;
+ else if(owner==="Sam")mode=" · click an available player to draft";
+ const tradeNote=owner!==original?` · original slot: ${original}`:"";
+ document.getElementById("mockStatus").innerHTML=`On the clock: <b>${owner}</b> · Round ${m.round} · Pick #${MOCK_STATE.pick}${tradeNote}${mode}`;
+}
+function mockCalibration(){const q=MOCK_DATA.config.qbDiscount;document.getElementById("mockCalibration").innerHTML=`<b>Market anchor:</b> 2026 2QB ADP<br><b>QB adjustment:</b> QB1 +${q.QB1}; QB2–3 +${q.QB2to3}; QB4–6 +${q.QB4to6}; QB7–10 +${q.QB7to10}; QB11–16 +${q.QB11to16} picks<br><b>Owner tendencies:</b> 2010–2025 position/round-band nudge (2017 excluded)<br><b>Roster need:</b> dynamic; QB3 heavily suppressed early<br><b>K/DST:</b> hard max 1 each; optional and heavily suppressed before Round 14<br><b>League shape:</b> strong calibration toward ~61–63 RB / ~56–59 WR across 180 picks<br><b>TE ceiling:</b> CPU simulation max 16 league-wide (live/manual tracker may exceed)<br><b>Saturation:</b> progressive WR/RB penalties; QB4 and TE4 impossible<br><b>Depth:</b> ETR-only players adjusted modestly away from half-PPR WR inflation<br><br><small>“LG” beside QBs is the league-adjusted draft slot used by the CPU. It is not a player-value ranking.</small>`}
+function mockPositionCounts(){
+ const c={QB:0,RB:0,WR:0,TE:0,K:0,DST:0};
+ (MOCK_STATE.history||[]).forEach(x=>{if(c[x.position]!==undefined)c[x.position]++});
+ return c;
+}
+function mockPosStyle(pos){
+ const map={
+   QB:"background:#f7c9c7;color:#4f2020",
+   RB:"background:#d8ead2;color:#244d2a",
+   WR:"background:#cfe1f2;color:#24445b",
+   TE:"background:#f4b36e;color:#5b3518",
+   K:"background:#f5e3a1;color:#5a4b16",
+   DST:"background:#ded8ef;color:#453d66"
+ };
+ return map[pos]||"";
+}
+function mockRenderPositionTally(){
+ const c=mockPositionCounts();
+ const el=document.getElementById("mockPosTally");if(!el)return;
+ el.innerHTML=["QB","RB","WR","TE","K","DST"].map(pos=>`<div class="mock-pos-chip" style="${mockPosStyle(pos)}"><b>${c[pos]}</b><span>${pos} drafted</span></div>`).join("");
+}
+function mockFinalCompositionHtml(){
+ const c=mockPositionCounts(),total=MOCK_STATE.history.length||1;
+ return `<div class="mock-final-comp"><h3>Draft Composition</h3><div class="mock-final-grid">${["QB","RB","WR","TE","K","DST"].map(pos=>`<div class="mock-final-card" style="${mockPosStyle(pos)}"><strong>${c[pos]}</strong><small>${pos} · ${(c[pos]/total*100).toFixed(1)}%</small></div>`).join("")}</div></div>`;
+}
+function mockRender(){
+ if(!MOCK_STATE)return;
+ mockBoard();mockAvailable();mockStatus();mockCalibration();mockRenderPositionTally();mockRenderPickOwner();
+ if(MOCK_STATE.pick>180){
+   const m=document.getElementById("mockMonteCarlo");
+   if(m&&!m.innerHTML.includes("Draft Composition")){
+     m.classList.remove("hidden");
+     m.innerHTML=mockFinalCompositionHtml();
+   }
+ }
+}
+function mockPureTo(target){
+ const st=mockEmptyState();
+ while(st.pick<target){const m=mockSnake(st.pick);mockApply(st,m.owner,mockChooseCpu(st,m.owner,st.pick))}
+ return st;
+}
+function mockCsvEscape(v){
+ const x=String(v??"");
+ return /[",\n]/.test(x)?`"${x.replace(/"/g,'""')}"`:x;
+}
+function mockExportCsv(){
+ if(!MOCK_STATE||!MOCK_STATE.history.length){
+   alert("Draft at least one player before exporting.");
+   return;
+ }
+ const counts=mockPositionCounts();
+ const rows=[
+   ["2026 Mock Draft Export"],
+   ["Generated",new Date().toLocaleString()],
+   [],
+   ["Overall Pick","Round","Round Pick","Original Slot Owner","Effective Pick Owner","Player","Position","Team","Market ADP","League-Adjusted Slot","Selection Type"]
+ ];
+ MOCK_STATE.history.forEach(x=>{
+   const m=mockSnake(x.pick);
+   const p=MOCK_DATA.players.find(y=>y.player===x.player);
+   const roundPick=((x.pick-1)%MOCK_DATA.draftOrder.length)+1;
+   rows.push([
+     x.pick,m.round,roundPick,m.owner,x.owner,x.player,x.position,p?.team||"",
+     p?.adp?.toFixed?.(1)??"",
+     p?mockQbAdjusted(p).toFixed(1):"",
+     x.manual?"Manual/Scenario":"CPU"
+   ]);
+ });
+ rows.push([],["FINAL POSITION TOTALS"],["QB",counts.QB],["RB",counts.RB],["WR",counts.WR],["TE",counts.TE],["K",counts.K],["DST",counts.DST]);
+ rows.push([],["OWNER ROSTERS"]);
+ MOCK_DATA.draftOrder.forEach(o=>{
+   const roster=MOCK_STATE.byOwner[o]||[];
+   rows.push([o,...roster.map(p=>`${p.player} (${p.position})`)]);
+ });
+ const csv=rows.map(r=>r.map(mockCsvEscape).join(",")).join("\r\n");
+ const blob=new Blob([csv],{type:"text/csv;charset=utf-8;"});
+ const url=URL.createObjectURL(blob),a=document.createElement("a");
+ a.href=url;
+ const stamp=new Date().toISOString().slice(0,10);
+ a.download=`2026_Mock_Draft_${stamp}.csv`;
+ document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function mockLiveConfirm(actionLabel){
+ if(!MOCK_STATE?.liveMode)return true;
+ return window.confirm(`LIVE DRAFT MODE IS ON.\n\n${actionLabel} may simulate or reset draft data.\n\nAre you sure you want to continue?`);
+}
+
+function mockToggleLive(){
+ MOCK_STATE.liveMode=!MOCK_STATE.liveMode;
+ if(MOCK_STATE.liveMode)MOCK_STATE.scenarioMode=false;
+ const b=document.getElementById("mockLiveToggle");
+ if(b)b.textContent=`Live Draft Mode: ${MOCK_STATE.liveMode?"On":"Off"}`;
+ const sb=document.getElementById("mockScenarioToggle");
+ if(sb&&MOCK_STATE.liveMode)sb.textContent="Scenario Mode: Off";
+ mockRender();
+}
+function mockRenderPickOwner(){
+ const sel=document.getElementById("mockPickOwner");if(!sel||!MOCK_STATE)return;
+ if(MOCK_STATE.pick>180){sel.disabled=true;return}
+ sel.disabled=false;
+ const orig=mockOriginalOwner(MOCK_STATE.pick),eff=mockEffectiveOwner(MOCK_STATE.pick);
+ sel.innerHTML=MOCK_DATA.draftOrder.map(o=>`<option value="${o}" ${o===eff?"selected":""}>${o}${o===orig?" (original)":""}</option>`).join("");
+}
+
+function mockToggleScenario(){
+ if(MOCK_STATE.liveMode&&!mockLiveConfirm("Switch to Scenario Mode"))return;
+ MOCK_STATE.scenarioMode=!MOCK_STATE.scenarioMode;
+ document.getElementById("mockScenarioToggle").textContent=`Scenario Mode: ${MOCK_STATE.scenarioMode?"On":"Off"}`;
+ mockRender();
+}
+function mockCpuCurrentPick(){
+ if(!mockLiveConfirm("CPU Pick"))return;
+ if(MOCK_STATE.pick>180)return;
+ const m=mockSnake(MOCK_STATE.pick),owner=mockEffectiveOwner(MOCK_STATE.pick);
+ const p=mockChooseCpu(MOCK_STATE,owner,MOCK_STATE.pick);
+ mockApply(MOCK_STATE,owner,p,false);mockRender();
+}
+function mockUndo(){
+ if(!MOCK_STATE.history.length)return;
+ const last=MOCK_STATE.history.pop();
+ MOCK_STATE.pick=last.pick;
+ delete MOCK_STATE.drafted[last.player];
+ MOCK_STATE.byOwner[last.owner]=MOCK_STATE.byOwner[last.owner].filter(x=>x.pick!==last.pick);
+ mockRender();
+}
+function mockSimAll(){if(!mockLiveConfirm("Sim Full Draft (including Sam)"))return;
+ mockNew();
+ let guard=0;
+ while(MOCK_STATE.pick<=MOCK_DATA.rounds*MOCK_DATA.draftOrder.length&&guard++<500){
+   const m=mockSnake(MOCK_STATE.pick);
+   mockApply(MOCK_STATE,m.owner,mockChooseCpu(MOCK_STATE,m.owner,MOCK_STATE.pick),m.owner==="Sam");
+ }
+ mockRender();
+ const sam=MOCK_STATE.byOwner.Sam||[];
+ document.getElementById("mockMonteCarlo").classList.remove("hidden");
+ document.getElementById("mockMonteCarlo").innerHTML=`<h3>Engine-Drafted Sam Roster</h3><div class="mock-sim-grid">${sam.map(p=>`<div class="mock-sim-card" style="${draftPositionStyle(p.position)}"><b>Rd ${p.round} · #${p.pick}</b><span style="font-size:12px">${p.player}</span><small>${p.position} · market ADP ${p.adp.toFixed(1)}</small></div>`).join("")}</div><p style="font-size:9px;color:#6e767c;margin-top:10px">This is one randomized engine outcome, not a recommendation list.</p>${mockFinalCompositionHtml()}`;
+}
+function mockRun100(){if(!mockLiveConfirm("Run 100 Simulations"))return;
+ const btn=document.getElementById("mockRun100");btn.disabled=true;btn.textContent="Running…";
+ const avail={},r1={};
+ let totalQb=0;
+ for(let i=0;i<100;i++){const st=mockPureTo(9);MOCK_DATA.players.filter(p=>!st.drafted[p.player]).forEach(p=>avail[p.player]=(avail[p.player]||0)+1);st.history.forEach(x=>{r1[x.player]=(r1[x.player]||0)+1;if(x.position==="QB")totalQb++})}
+ const top=MOCK_DATA.players.filter(p=>(avail[p.player]||0)>0).sort((a,b)=>mockQbAdjusted(a)-mockQbAdjusted(b)||a.adp-b.adp).slice(0,20);
+ const qbs=Object.entries(r1).filter(([pl])=>MOCK_DATA.players.find(p=>p.player===pl)?.position==="QB").sort((a,b)=>b[1]-a[1]).slice(0,8);
+ document.getElementById("mockMonteCarlo").classList.remove("hidden");document.getElementById("mockMonteCarlo").innerHTML=`<h3>100 Sims · Best Players Available at Sam #9</h3><p style="font-size:9px;color:#6e767c;margin:-2px 0 10px">Sorted by league-adjusted draft value; percentage shows how often each player survives to #9.</p><div class="mock-sim-grid">${top.map(p=>`<div class="mock-sim-card"><b>${p.player}</b><span>${avail[p.player]}%</span><small>${p.position} · ${p.position==="QB"?`LG ${mockQbAdjusted(p).toFixed(1)} · `:""}ADP ${p.adp.toFixed(1)}</small></div>`).join("")}</div><h3 style="margin-top:14px">QB Frequency in Picks 1–8</h3><div class="mock-sim-grid">${qbs.map(([pl,n])=>`<div class="mock-sim-card"><b>${pl}</b><span>${n}%</span><small>taken before Sam</small></div>`).join("")}</div><p style="font-size:9px;color:#6e767c;margin-top:10px">Average QBs selected before Sam: <b>${(totalQb/100).toFixed(2)}</b></p>`;
+ btn.disabled=false;btn.textContent="Run 100 to Sam #9";mockRender();
+}
+async function renderMockDraftLab(){try{await ensureMockData();if(!MOCK_STATE)mockNew();else mockRender()}catch(err){console.error("Mock Draft Lab failed:",err);const s=document.getElementById("mockStatus");if(s)s.innerHTML=`<b>Mock Draft Lab failed to initialize.</b> ${err.message}`}}
+
 async function ensureTriviaLoaded(){
  if(TRIVIA_DATA)return TRIVIA_DATA;
  const response=await fetch("./data/triviaQuestions.json",{cache:"no-store"});
@@ -8453,6 +8848,7 @@ function openView(viewName){
  if(viewName==="survivorHub") openSurvivorHub();
  if(viewName==="triviaStudio") renderTriviaStudio();
  if(viewName==="draftNightLive") renderDraftNightLive();
+ if(viewName==="mockDraftLab") renderMockDraftLab();
 }
 
 let commissionerMode=sessionStorage.getItem("bigBoardCommissionerMode")==="on";
@@ -8513,6 +8909,19 @@ document.getElementById("draftOwnerFilter").addEventListener("change",e=>{draftS
 document.getElementById("draftCapitalScope").addEventListener("change",e=>{draftCapitalScope=e.target.value;renderDraftOwnerCards();});
 document.getElementById("dnlRandomize").addEventListener("click",dnlRandomize);
 document.getElementById("dnlClear").addEventListener("click",dnlClear);
+document.getElementById("mockNew").addEventListener("click",mockNew);
+document.getElementById("mockSimToMe").addEventListener("click",mockSimToMe);
+document.getElementById("mockSimRound").addEventListener("click",mockSimRound);
+document.getElementById("mockRun100").addEventListener("click",mockRun100);
+document.getElementById("mockSimAll").addEventListener("click",mockSimAll);
+document.getElementById("mockScenarioToggle").addEventListener("click",mockToggleScenario);
+document.getElementById("mockCpuPick").addEventListener("click",mockCpuCurrentPick);
+document.getElementById("mockUndo").addEventListener("click",mockUndo);
+document.getElementById("mockExport").addEventListener("click",mockExportCsv);
+document.getElementById("mockLiveToggle").addEventListener("click",mockToggleLive);
+document.getElementById("mockPickOwner").addEventListener("change",e=>mockAssignCurrentPickOwner(e.target.value));
+document.getElementById("mockPosFilter").addEventListener("change",mockAvailable);
+document.getElementById("mockSearch").addEventListener("input",mockAvailable);
 document.getElementById("dnlStart").addEventListener("click",dnlStart);
 document.getElementById("dnlPrev").addEventListener("click",()=>dnlPhase(DNL.phase-1));
 document.getElementById("dnlNext").addEventListener("click",()=>dnlPhase(DNL.phase+1));
@@ -8735,6 +9144,17 @@ async function bootDnlPresentationMode(){
   document.querySelectorAll("[data-view]").forEach(b=>b.classList.remove("active"));
   const ready=await renderDraftNightLive();
   if(!ready) console.warn("Draft Night Live presentation mode opened before its data was available.");
+}
+
+
+function bootMockDraftLab(){
+ const v=document.getElementById("mockDraftLab");
+ if(v&&v.classList.contains("active")) renderMockDraftLab();
+}
+if(document.readyState==="loading"){
+ document.addEventListener("DOMContentLoaded",bootMockDraftLab);
+}else{
+ setTimeout(bootMockDraftLab,0);
 }
 
 </script>
