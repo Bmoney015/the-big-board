@@ -2858,10 +2858,10 @@
         }
       ],
       "choices": [
-        "Drew Brees",
-        "Peyton Manning",
-        "Aaron Rodgers",
-        "Eli Manning"
+        "Kevin Kolb",
+        "Eli Manning",
+        "Jay Cutler",
+        "Joseph Addai"
       ],
       "answer": "Eli Manning",
       "explanation": "Ben selected Eli Manning #47 overall in 2010. He went on to finish QB11."
@@ -2907,10 +2907,10 @@
         }
       ],
       "choices": [
-        "Maurice Jones-Drew",
         "Ryan Mathews",
-        "Chris Johnson",
-        "Adrian Peterson"
+        "Andre Johnson",
+        "Steven Jackson",
+        "Michael Turner"
       ],
       "answer": "Ryan Mathews",
       "explanation": "RJ selected Ryan Mathews #13 overall in 2010. Yikes \u2014 he finished just RB32."
@@ -2962,10 +2962,10 @@
         }
       ],
       "choices": [
-        "Andre Johnson",
-        "Roddy White",
+        "Vincent Jackson",
         "DeSean Jackson",
-        "Calvin Johnson"
+        "Dwayne Bowe",
+        "Peyton Hillis"
       ],
       "answer": "DeSean Jackson",
       "explanation": "Ben selected DeSean Jackson #32 overall in 2011. Yikes \u2014 he finished just WR27."
@@ -3011,10 +3011,10 @@
         }
       ],
       "choices": [
-        "Joe Flacco",
-        "Drew Brees",
-        "Aaron Rodgers",
-        "Michael Vick"
+        "Matthew Stafford",
+        "Josh Freeman",
+        "Mike Wallace",
+        "Joe Flacco"
       ],
       "answer": "Joe Flacco",
       "explanation": "Dan selected Joe Flacco #41 overall in 2011. He went on to finish QB17."
@@ -3066,10 +3066,10 @@
         }
       ],
       "choices": [
-        "Drew Brees",
-        "Aaron Rodgers",
-        "Tom Brady",
-        "Robert Griffin III"
+        "Hakeem Nicks",
+        "Robert Griffin III",
+        "Ben Roethlisberger",
+        "Jay Cutler"
       ],
       "answer": "Robert Griffin III",
       "explanation": "Ben selected Robert Griffin III #36 overall in 2012. Strong return \u2014 he finished QB5."
@@ -3118,7 +3118,7 @@
         "Ray Rice",
         "Chris Johnson",
         "LeSean McCoy",
-        "Arian Foster"
+        "Calvin Johnson"
       ],
       "answer": "Chris Johnson",
       "explanation": "Bob selected Chris Johnson #9 overall in 2012. He went on to finish RB13."
@@ -3170,9 +3170,9 @@
         }
       ],
       "choices": [
-        "Brandon Marshall",
-        "Dez Bryant",
+        "C.J. Spiller",
         "A.J. Green",
+        "Dez Bryant",
         "Calvin Johnson"
       ],
       "answer": "Calvin Johnson",
@@ -3219,10 +3219,10 @@
         }
       ],
       "choices": [
+        "Ahmad Bradshaw",
         "Ben Roethlisberger",
-        "Aaron Rodgers",
-        "Drew Brees",
-        "Cam Newton"
+        "Carson Palmer",
+        "Jay Cutler"
       ],
       "answer": "Ben Roethlisberger",
       "explanation": "Bob selected Ben Roethlisberger #68 overall in 2013. He went on to finish QB11."
@@ -3274,9 +3274,9 @@
         }
       ],
       "choices": [
-        "Demaryius Thomas",
-        "Dez Bryant",
-        "Calvin Johnson",
+        "Keenan Allen",
+        "Ben Roethlisberger",
+        "Victor Cruz",
         "Larry Fitzgerald"
       ],
       "answer": "Larry Fitzgerald",
@@ -3323,10 +3323,10 @@
         }
       ],
       "choices": [
-        "Drew Brees",
         "Carson Palmer",
-        "Aaron Rodgers",
-        "Peyton Manning"
+        "Ben Roethlisberger",
+        "Torrey Smith",
+        "Ryan Tannehill"
       ],
       "answer": "Carson Palmer",
       "explanation": "Bob selected Carson Palmer #69 overall in 2014. Yikes \u2014 he finished just QB31."
@@ -3378,10 +3378,10 @@
         }
       ],
       "choices": [
-        "Andrew Luck",
-        "Russell Wilson",
-        "Aaron Rodgers",
-        "Cam Newton"
+        "Emmanuel Sanders",
+        "Cam Newton",
+        "Philip Rivers",
+        "Eli Manning"
       ],
       "answer": "Cam Newton",
       "explanation": "Dan selected Cam Newton #47 overall in 2015. Nailed it \u2014 he finished QB1."
@@ -3427,10 +3427,10 @@
         }
       ],
       "choices": [
-        "Drew Brees",
-        "Aaron Rodgers",
         "Russell Wilson",
-        "Andrew Luck"
+        "Aaron Rodgers",
+        "C.J. Anderson",
+        "Eddie Lacy"
       ],
       "answer": "Aaron Rodgers",
       "explanation": "Ben selected Aaron Rodgers #3 overall in 2015. Strong return \u2014 he finished QB7."
@@ -3482,10 +3482,10 @@
         }
       ],
       "choices": [
-        "Lamar Miller",
-        "Todd Gurley",
-        "Adrian Peterson",
-        "Rashad Jennings"
+        "DeVante Parker",
+        "Dion Lewis",
+        "Rashad Jennings",
+        "Giovani Bernard"
       ],
       "answer": "Rashad Jennings",
       "explanation": "Habble selected Rashad Jennings #88 overall in 2016. Yikes \u2014 he finished just RB34."
@@ -3531,10 +3531,10 @@
         }
       ],
       "choices": [
-        "Adrian Peterson",
-        "Lamar Miller",
-        "Todd Gurley",
-        "Giovani Bernard"
+        "Giovani Bernard",
+        "Chris Ivory",
+        "Frank Gore",
+        "Allen Hurns"
       ],
       "answer": "Giovani Bernard",
       "explanation": "Dan selected Giovani Bernard #87 overall in 2016. Yikes \u2014 he finished just RB43."
@@ -3586,10 +3586,10 @@
         }
       ],
       "choices": [
+        "Dak Prescott",
+        "Matt Breida",
         "Eli Manning",
-        "Tom Brady",
-        "Russell Wilson",
-        "Aaron Rodgers"
+        "Tyrod Taylor"
       ],
       "answer": "Eli Manning",
       "explanation": "Bob selected Eli Manning #108 overall in 2018. He went on to finish QB17."
@@ -3635,10 +3635,10 @@
         }
       ],
       "choices": [
+        "Jimmy Garoppolo",
+        "Robert Woods",
         "Marcus Mariota",
-        "Aaron Rodgers",
-        "Tom Brady",
-        "Russell Wilson"
+        "Kirk Cousins"
       ],
       "answer": "Marcus Mariota",
       "explanation": "Zac selected Marcus Mariota #74 overall in 2018. Yikes \u2014 he finished just QB24."
@@ -3690,10 +3690,10 @@
         }
       ],
       "choices": [
-        "Michael Thomas",
+        "Odell Beckham Jr.",
         "JuJu Smith-Schuster",
-        "Julio Jones",
-        "DeAndre Hopkins"
+        "Travis Kelce",
+        "Antonio Brown"
       ],
       "answer": "JuJu Smith-Schuster",
       "explanation": "Sam selected JuJu Smith-Schuster #16 overall in 2019. Yikes \u2014 he finished just WR65."
@@ -3739,10 +3739,10 @@
         }
       ],
       "choices": [
-        "Julio Jones",
+        "Tyreek Hill",
         "Amari Cooper",
-        "Michael Thomas",
-        "DeAndre Hopkins"
+        "Nick Chubb",
+        "Mike Evans"
       ],
       "answer": "Amari Cooper",
       "explanation": "Sam selected Amari Cooper #25 overall in 2019. Strong return \u2014 he finished WR7."
@@ -3794,10 +3794,10 @@
         }
       ],
       "choices": [
-        "Zach Ertz",
         "Darren Waller",
-        "George Kittle",
-        "Travis Kelce"
+        "Mark Andrews",
+        "Evan Engram",
+        "Jordan Howard"
       ],
       "answer": "Darren Waller",
       "explanation": "Dan selected Darren Waller #84 overall in 2020. Nailed it \u2014 he finished TE2."
@@ -3843,10 +3843,10 @@
         }
       ],
       "choices": [
+        "Kenny Golladay",
+        "Kyler Murray",
         "Chris Godwin",
-        "Davante Adams",
-        "Julio Jones",
-        "Michael Thomas"
+        "Mike Evans"
       ],
       "answer": "Chris Godwin",
       "explanation": "Bob selected Chris Godwin #27 overall in 2020. Yikes \u2014 he finished just WR30."
@@ -3899,9 +3899,9 @@
       ],
       "choices": [
         "Kyle Pitts",
-        "George Kittle",
-        "Travis Kelce",
-        "Darren Waller"
+        "Brandon Aiyuk",
+        "Mark Andrews",
+        "Damian Harris"
       ],
       "answer": "Kyle Pitts",
       "explanation": "Mac selected Kyle Pitts #66 overall in 2021. Strong return \u2014 he finished TE9."
@@ -3947,10 +3947,10 @@
         }
       ],
       "choices": [
-        "Stefon Diggs",
-        "Tyreek Hill",
-        "AJ Brown",
-        "Davante Adams"
+        "DeAndre Hopkins",
+        "Russell Wilson",
+        "Terry McLaurin",
+        "AJ Brown"
       ],
       "answer": "AJ Brown",
       "explanation": "Habble selected AJ Brown #28 overall in 2021. Yikes \u2014 he finished just WR32."
@@ -4002,10 +4002,10 @@
         }
       ],
       "choices": [
-        "Ja'marr Chase",
-        "Cooper Kupp",
         "Terry McLaurin",
-        "Justin Jefferson"
+        "Keenan Allen",
+        "Elijah Mitchell",
+        "Courtland Sutton"
       ],
       "answer": "Terry McLaurin",
       "explanation": "Dan selected Terry McLaurin #49 overall in 2022. He went on to finish WR14."
@@ -4052,9 +4052,9 @@
       ],
       "choices": [
         "George Kittle",
-        "Travis Kelce",
-        "Mark Andrews",
-        "Kyle Pitts"
+        "DK Metcalf",
+        "Kyle Pitts",
+        "Mark Andrews"
       ],
       "answer": "Kyle Pitts",
       "explanation": "Bob selected Kyle Pitts #62 overall in 2022. Yikes \u2014 he finished just TE33."
@@ -4106,10 +4106,10 @@
         }
       ],
       "choices": [
-        "Christian McCaffrey",
-        "Nick Chubb",
-        "Rhamondre Stevenson",
-        "Austin Ekeler"
+        "DJ Moore",
+        "Breece Hall",
+        "James Cook",
+        "Rhamondre Stevenson"
       ],
       "answer": "Rhamondre Stevenson",
       "explanation": "Dan selected Rhamondre Stevenson #47 overall in 2023. Yikes \u2014 he finished just RB35."
@@ -4155,10 +4155,10 @@
         }
       ],
       "choices": [
-        "Nick Chubb",
-        "Austin Ekeler",
+        "Isaih Pacheco",
+        "Dameon Pierce",
         "Cam Akers",
-        "Christian McCaffrey"
+        "Terry McLaurin"
       ],
       "answer": "Cam Akers",
       "explanation": "Bubbs selected Cam Akers #66 overall in 2023. Yikes \u2014 he finished just RB68."
@@ -4210,10 +4210,10 @@
         }
       ],
       "choices": [
-        "Josh Allen",
-        "Lamar Jackson",
-        "Jalen Hurts",
-        "CJ Stroud"
+        "CJ Stroud",
+        "AJ Brown",
+        "Joe Burrow",
+        "Dak Prescott"
       ],
       "answer": "CJ Stroud",
       "explanation": "Mac selected CJ Stroud #17 overall in 2024. He went on to finish QB18."
@@ -4259,10 +4259,10 @@
         }
       ],
       "choices": [
-        "Ceedee Lamb",
-        "Drake London",
-        "Tyreek Hill",
-        "Justin Jefferson"
+        "Deebo Samuel",
+        "DJ Moore",
+        "Trevor Lawrence",
+        "Drake London"
       ],
       "answer": "Drake London",
       "explanation": "Sam selected Drake London #40 overall in 2024. Strong return \u2014 he finished WR6."
@@ -4315,9 +4315,9 @@
       ],
       "choices": [
         "Jakobi Meyers",
-        "Justin Jefferson",
-        "Ceedee Lamb",
-        "Jamarr Chase"
+        "Rashee Rice",
+        "Stefon Diggs",
+        "Anthony Richardson"
       ],
       "answer": "Jakobi Meyers",
       "explanation": "Ben selected Jakobi Meyers #105 overall in 2025. Yikes \u2014 he finished just WR38."
@@ -4363,10 +4363,10 @@
         }
       ],
       "choices": [
-        "Saquon Barkley",
         "Devon Achane",
-        "Bijan Robinson",
-        "Jahmyr Gibbs"
+        "Joe Burrow",
+        "Chase Brown",
+        "CMC"
       ],
       "answer": "Devon Achane",
       "explanation": "Zac selected Devon Achane #17 overall in 2025. Strong return \u2014 he finished RB7."
@@ -5972,46 +5972,6 @@
       }
     },
     {
-      "id": "undrafted_mc_2022_RB_15",
-      "difficulty": "competitive",
-      "category": "Draft Fallout",
-      "prompt": "Which RB went undrafted in our league and still finished Top 15 in 2022?",
-      "choices": [
-        "Rhamondre Stevenson",
-        "Tony Pollard",
-        "Joe Mixon",
-        "Ezekiel Elliott"
-      ],
-      "answer": "Rhamondre Stevenson",
-      "explanation": "Rhamondre Stevenson went undrafted and finished RB13 in 2022.",
-      "choiceFeedback": {
-        "Rhamondre Stevenson": "Rhamondre Stevenson went undrafted and finished RB13 in 2022.",
-        "Tony Pollard": "Tony Pollard was drafted #89 in 2022 and finished RB8.",
-        "Joe Mixon": "Joe Mixon was drafted #15 in 2022 and finished RB14.",
-        "Ezekiel Elliott": "Ezekiel Elliott was drafted #39 in 2022 and finished RB17."
-      }
-    },
-    {
-      "id": "undrafted_mc_2022_RB_20",
-      "difficulty": "competitive",
-      "category": "Draft Fallout",
-      "prompt": "Which RB went undrafted in our league and still finished Top 20 in 2022?",
-      "choices": [
-        "Najee Harris",
-        "Miles Sanders",
-        "Rhamondre Stevenson",
-        "Tony Pollard"
-      ],
-      "answer": "Rhamondre Stevenson",
-      "explanation": "Rhamondre Stevenson went undrafted and finished RB13 in 2022.",
-      "choiceFeedback": {
-        "Najee Harris": "Najee Harris was drafted #17 in 2022 and finished RB12.",
-        "Miles Sanders": "Miles Sanders was drafted #69 in 2022 and finished RB10.",
-        "Rhamondre Stevenson": "Rhamondre Stevenson went undrafted and finished RB13 in 2022.",
-        "Tony Pollard": "Tony Pollard was drafted #89 in 2022 and finished RB8."
-      }
-    },
-    {
       "id": "undrafted_mc_2022_TE_5",
       "difficulty": "competitive",
       "category": "Draft Fallout",
@@ -6370,6 +6330,2006 @@
         "Tyler Warren": "Tyler Warren was drafted #153 in 2025 and finished TE7.",
         "Hunter Henry": "Hunter Henry went undrafted and finished TE4 in 2025."
       }
+    },
+    {
+      "id": "owner_loyal_1",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Aaron Rodgers the most times in league history?",
+      "choices": [
+        "Dan",
+        "Ben",
+        "Sam",
+        "RJ"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ drafted Aaron Rodgers 5 times (2010, 2014, 2017, 2018, 2024), the outright most of any owner. Aaron Rodgers was drafted 16 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_2",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Stefon Diggs the most times in league history?",
+      "choices": [
+        "Mac",
+        "Sam",
+        "Bob",
+        "RJ"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac drafted Stefon Diggs 5 times (2018, 2019, 2021, 2024, 2025), the outright most of any owner. Stefon Diggs was drafted 10 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_3",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Joe Mixon the most times in league history?",
+      "choices": [
+        "Bob",
+        "Adrian",
+        "Mac",
+        "Dan"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan drafted Joe Mixon 5 times (2019, 2020, 2023, 2024, 2025), the outright most of any owner. Joe Mixon was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_5",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Tony Romo the most times in league history?",
+      "choices": [
+        "Bob",
+        "Ben",
+        "Sam",
+        "Adrian"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Tony Romo 5 times (2010, 2011, 2012, 2014, 2016), the outright most of any owner. Tony Romo was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_4",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Tevin Coleman the most times in league history?",
+      "choices": [
+        "Sam",
+        "Adrian",
+        "Cory",
+        "Zac"
+      ],
+      "answer": "Zac",
+      "explanation": "Zac drafted Tevin Coleman 5 times (2016, 2017, 2018, 2020, 2021), the outright most of any owner. Tevin Coleman was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_6",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Matthew Stafford the most times in league history?",
+      "choices": [
+        "Adrian",
+        "Sam",
+        "RJ",
+        "Bob"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob drafted Matthew Stafford 4 times (2016, 2021, 2023, 2025), the outright most of any owner. Matthew Stafford was drafted 15 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_7",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Tom Brady the most times in league history?",
+      "choices": [
+        "Bob",
+        "Mac",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory drafted Tom Brady 4 times (2015, 2016, 2018, 2020), the outright most of any owner. Tom Brady was drafted 13 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_8",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Adrian Peterson the most times in league history?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Bob",
+        "Cory"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Adrian Peterson 4 times (2010, 2013, 2014, 2015), the outright most of any owner. Adrian Peterson was drafted 11 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_11",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Stephen Gostkowski the most times in league history?",
+      "choices": [
+        "Mac",
+        "Cory",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory drafted Stephen Gostkowski 4 times (2012, 2013, 2014, 2019), the outright most of any owner. Stephen Gostkowski was drafted 10 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_10",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Larry Fitzgerald the most times in league history?",
+      "choices": [
+        "Mac",
+        "Dan",
+        "Bob",
+        "Sam"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam drafted Larry Fitzgerald 4 times (2011, 2013, 2014, 2017), the outright most of any owner. Larry Fitzgerald was drafted 10 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_9",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted DeSean Jackson the most times in league history?",
+      "choices": [
+        "Harp",
+        "Ben",
+        "RJ",
+        "Bob"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben drafted DeSean Jackson 4 times (2011, 2017, 2019, 2020), the outright most of any owner. DeSean Jackson was drafted 10 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_12",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Joe Flacco the most times in league history?",
+      "choices": [
+        "Dan",
+        "RJ",
+        "Ben",
+        "Bob"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ drafted Joe Flacco 4 times (2014, 2015, 2016, 2018), the outright most of any owner. Joe Flacco was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_15",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Ryan Fitzpatrick the most times in league history?",
+      "choices": [
+        "Cory",
+        "RJ",
+        "Zac",
+        "Mac"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ drafted Ryan Fitzpatrick 4 times (2014, 2019, 2020, 2021), the outright most of any owner. Ryan Fitzpatrick was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_14",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Christian McCaffrey the most times in league history?",
+      "choices": [
+        "Sam",
+        "Zac",
+        "RJ",
+        "Dan"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan drafted Christian McCaffrey 4 times (2017, 2018, 2019, 2020), the outright most of any owner. Christian McCaffrey was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_13",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Brandon Marshall the most times in league history?",
+      "choices": [
+        "RJ",
+        "Adrian",
+        "Sam",
+        "Ben"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam drafted Brandon Marshall 4 times (2010, 2014, 2015, 2016), the outright most of any owner. Brandon Marshall was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_17",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Harrison Butker the most times in league history?",
+      "choices": [
+        "Mac",
+        "Adrian",
+        "Cory",
+        "Ben"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Harrison Butker 4 times (2018, 2019, 2020, 2023), the outright most of any owner. Harrison Butker was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_16",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Courtland Sutton the most times in league history?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory drafted Courtland Sutton 4 times (2019, 2020, 2021, 2025), the outright most of any owner. Courtland Sutton was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_21",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Tyrod Taylor the most times in league history?",
+      "choices": [
+        "Adrian",
+        "Ben",
+        "Harp",
+        "Zac"
+      ],
+      "answer": "Zac",
+      "explanation": "Zac drafted Tyrod Taylor 4 times (2015, 2017, 2020, 2021), the outright most of any owner. Tyrod Taylor was drafted 6 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_20",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Mark Andrews the most times in league history?",
+      "choices": [
+        "Harp",
+        "Sam",
+        "Cory",
+        "Adrian"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam drafted Mark Andrews 4 times (2021, 2022, 2023, 2024), the outright most of any owner. Mark Andrews was drafted 6 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_19",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Justin Jefferson the most times in league history?",
+      "choices": [
+        "Dan",
+        "Bob",
+        "Ben",
+        "Adrian"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob drafted Justin Jefferson 4 times (2022, 2023, 2024, 2025), the outright most of any owner. Justin Jefferson was drafted 6 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_18",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Carson Wentz the most times in league history?",
+      "choices": [
+        "Zac",
+        "Adrian",
+        "RJ",
+        "Ben"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ drafted Carson Wentz 4 times (2017, 2018, 2019, 2022), the outright most of any owner. Carson Wentz was drafted 6 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_22",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Michael Floyd the most times in league history?",
+      "choices": [
+        "Adrian",
+        "Ben",
+        "Mac",
+        "Harp"
+      ],
+      "answer": "Harp",
+      "explanation": "Harp drafted Michael Floyd 4 times (2013, 2014, 2015, 2016), the outright most of any owner. Michael Floyd was drafted 5 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_25",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Russell Wilson the most times in league history?",
+      "choices": [
+        "Zac",
+        "Dan",
+        "Bob",
+        "Ben"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben drafted Russell Wilson 3 times (2015, 2016, 2021), the outright most of any owner. Russell Wilson was drafted 12 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_24",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Mike Evans the most times in league history?",
+      "choices": [
+        "Dan",
+        "Harp",
+        "Zac",
+        "Ben"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan drafted Mike Evans 3 times (2014, 2019, 2024), the outright most of any owner. Mike Evans was drafted 12 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_23",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Julio Jones the most times in league history?",
+      "choices": [
+        "Dan",
+        "Mac",
+        "Zac",
+        "Harp"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac drafted Julio Jones 3 times (2011, 2020, 2021), the outright most of any owner. Julio Jones was drafted 12 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_28",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Philip Rivers the most times in league history?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Mac",
+        "Sam"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam drafted Philip Rivers 3 times (2016, 2017, 2018), the outright most of any owner. Philip Rivers was drafted 11 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_27",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Keenan Allen the most times in league history?",
+      "choices": [
+        "RJ",
+        "Harp",
+        "Zac",
+        "Adrian"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Keenan Allen 3 times (2014, 2015, 2016), the outright most of any owner. Keenan Allen was drafted 11 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_26",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Justin Tucker the most times in league history?",
+      "choices": [
+        "Zac",
+        "Dan",
+        "Mac",
+        "Cory"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan drafted Justin Tucker 3 times (2019, 2021, 2023), the outright most of any owner. Justin Tucker was drafted 11 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_33",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Ryan Tannehill the most times in league history?",
+      "choices": [
+        "Cory",
+        "Dan",
+        "RJ",
+        "Sam"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam drafted Ryan Tannehill 3 times (2014, 2016, 2022), the outright most of any owner. Ryan Tannehill was drafted 10 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_32",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Who drafted Rob Gronkowski the most times in league history?",
+      "choices": [
+        "Sam",
+        "Harp",
+        "Bob",
+        "RJ"
+      ],
+      "answer": "Harp",
+      "explanation": "Harp drafted Rob Gronkowski 3 times (2012, 2014, 2015), the outright most of any owner. Rob Gronkowski was drafted 10 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_31",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted LeSean McCoy the most times in league history?",
+      "choices": [
+        "Ben",
+        "Cory",
+        "Adrian",
+        "Mac"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac drafted LeSean McCoy 3 times (2011, 2015, 2016), the outright most of any owner. LeSean McCoy was drafted 10 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_30",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Andy Dalton the most times in league history?",
+      "choices": [
+        "Dan",
+        "Sam",
+        "Harp",
+        "Zac"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam drafted Andy Dalton 3 times (2013, 2018, 2019), the outright most of any owner. Andy Dalton was drafted 10 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_29",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Amari Cooper the most times in league history?",
+      "choices": [
+        "Mac",
+        "Adrian",
+        "Cory",
+        "Bob"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Amari Cooper 3 times (2018, 2020, 2021), the outright most of any owner. Amari Cooper was drafted 10 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_41",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Tyreek Hill the most times in league history?",
+      "choices": [
+        "Adrian",
+        "Harp",
+        "Cory",
+        "Ben"
+      ],
+      "answer": "Harp",
+      "explanation": "Harp drafted Tyreek Hill 3 times (2021, 2022, 2025), the outright most of any owner. Tyreek Hill was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_40",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Mike Wallace the most times in league history?",
+      "choices": [
+        "Harp",
+        "Cory",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Mike Wallace 3 times (2014, 2017, 2018), the outright most of any owner. Mike Wallace was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_39",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Mark Ingram II the most times in league history?",
+      "choices": [
+        "Bob",
+        "Dan",
+        "Zac",
+        "Ben"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob drafted Mark Ingram II 3 times (2011, 2012, 2018), the outright most of any owner. Mark Ingram II was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_38",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Jared Goff the most times in league history?",
+      "choices": [
+        "RJ",
+        "Zac",
+        "Cory",
+        "Ben"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben drafted Jared Goff 3 times (2018, 2019, 2025), the outright most of any owner. Jared Goff was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_37",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Golden Tate the most times in league history?",
+      "choices": [
+        "Adrian",
+        "Mac",
+        "Harp",
+        "Cory"
+      ],
+      "answer": "Harp",
+      "explanation": "Harp drafted Golden Tate 3 times (2010, 2014, 2018), the outright most of any owner. Golden Tate was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_36",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Eli Manning the most times in league history?",
+      "choices": [
+        "Dan",
+        "Mac",
+        "Adrian",
+        "Ben"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan drafted Eli Manning 3 times (2013, 2014, 2017), the outright most of any owner. Eli Manning was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_35",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Dak Prescott the most times in league history?",
+      "choices": [
+        "RJ",
+        "Bob",
+        "Harp",
+        "Ben"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob drafted Dak Prescott 3 times (2019, 2020, 2021), the outright most of any owner. Dak Prescott was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_34",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Cooper Kupp the most times in league history?",
+      "choices": [
+        "Adrian",
+        "Sam",
+        "Bob",
+        "Mac"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Cooper Kupp 3 times (2018, 2019, 2020), the outright most of any owner. Cooper Kupp was drafted 9 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_50",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Zach Ertz the most times in league history?",
+      "choices": [
+        "Ben",
+        "Adrian",
+        "Zac",
+        "Cory"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben drafted Zach Ertz 3 times (2015, 2016, 2020), the outright most of any owner. Zach Ertz was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_49",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Saquon Barkley the most times in league history?",
+      "choices": [
+        "Ben",
+        "Sam",
+        "Cory",
+        "Mac"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben drafted Saquon Barkley 3 times (2019, 2024, 2025), the outright most of any owner. Saquon Barkley was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_48",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Patrick Mahomes the most times in league history?",
+      "choices": [
+        "Adrian",
+        "Mac",
+        "Dan",
+        "Sam"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Patrick Mahomes 3 times (2018, 2019, 2020), the outright most of any owner. Patrick Mahomes was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_47",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Nick Chubb the most times in league history?",
+      "choices": [
+        "Mac",
+        "Bob",
+        "Ben",
+        "RJ"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben drafted Nick Chubb 3 times (2019, 2020, 2022), the outright most of any owner. Nick Chubb was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_46",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Marshawn Lynch the most times in league history?",
+      "choices": [
+        "RJ",
+        "Ben",
+        "Cory",
+        "Dan"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory drafted Marshawn Lynch 3 times (2013, 2015, 2017), the outright most of any owner. Marshawn Lynch was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_45",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Le'Veon Bell the most times in league history?",
+      "choices": [
+        "Cory",
+        "Harp",
+        "Sam",
+        "Dan"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory drafted Le'Veon Bell 3 times (2013, 2014, 2018), the outright most of any owner. Le'Veon Bell was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_44",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Jamaal Charles the most times in league history?",
+      "choices": [
+        "RJ",
+        "Bob",
+        "Mac",
+        "Adrian"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ drafted Jamaal Charles 3 times (2010, 2011, 2015), the outright most of any owner. Jamaal Charles was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_43",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Dez Bryant the most times in league history?",
+      "choices": [
+        "Zac",
+        "RJ",
+        "Mac",
+        "Bob"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac drafted Dez Bryant 3 times (2012, 2013, 2014), the outright most of any owner. Dez Bryant was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_42",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Andrew Luck the most times in league history?",
+      "choices": [
+        "RJ",
+        "Zac",
+        "Bob",
+        "Mac"
+      ],
+      "answer": "Zac",
+      "explanation": "Zac drafted Andrew Luck 3 times (2016, 2017, 2019), the outright most of any owner. Andrew Luck was drafted 8 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_63",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Vikings the most times in league history?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Mac",
+        "Harp"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac drafted Vikings 3 times (2014, 2016, 2019), the outright most of any owner. Vikings was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_62",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Ryan Mathews the most times in league history?",
+      "choices": [
+        "Mac",
+        "Ben",
+        "Cory",
+        "RJ"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben drafted Ryan Mathews 3 times (2013, 2015, 2016), the outright most of any owner. Ryan Mathews was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_61",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Michael Crabtree the most times in league history?",
+      "choices": [
+        "Cory",
+        "Harp",
+        "RJ",
+        "Bob"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory drafted Michael Crabtree 3 times (2011, 2016, 2018), the outright most of any owner. Michael Crabtree was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_60",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Mason Crosby the most times in league history?",
+      "choices": [
+        "Cory",
+        "Adrian",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Mason Crosby 3 times (2010, 2014, 2017), the outright most of any owner. Mason Crosby was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_59",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Latavius Murray the most times in league history?",
+      "choices": [
+        "Sam",
+        "Harp",
+        "Bob",
+        "Ben"
+      ],
+      "answer": "Harp",
+      "explanation": "Harp drafted Latavius Murray 3 times (2015, 2016, 2019), the outright most of any owner. Latavius Murray was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_58",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Lamar Miller the most times in league history?",
+      "choices": [
+        "Harp",
+        "Dan",
+        "Cory",
+        "Adrian"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Lamar Miller 3 times (2013, 2014, 2015), the outright most of any owner. Lamar Miller was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_57",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Kyler Murray the most times in league history?",
+      "choices": [
+        "Harp",
+        "Zac",
+        "Adrian",
+        "Dan"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Kyler Murray 3 times (2021, 2022, 2024), the outright most of any owner. Kyler Murray was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_56",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Kareem Hunt the most times in league history?",
+      "choices": [
+        "Zac",
+        "Ben",
+        "Cory",
+        "Adrian"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian drafted Kareem Hunt 3 times (2017, 2022, 2025), the outright most of any owner. Kareem Hunt was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_55",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Josh Jacobs the most times in league history?",
+      "choices": [
+        "Cory",
+        "RJ",
+        "Dan",
+        "Bob"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ drafted Josh Jacobs 3 times (2020, 2024, 2025), the outright most of any owner. Josh Jacobs was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_loyal_54",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Who drafted Jameis Winston the most times in league history?",
+      "choices": [
+        "Dan",
+        "Zac",
+        "Bob",
+        "Harp"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob drafted Jameis Winston 3 times (2016, 2018, 2022), the outright most of any owner. Jameis Winston was drafted 7 times overall.",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerMost"
+    },
+    {
+      "id": "owner_never_1",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Aaron Rodgers?",
+      "choices": [
+        "Dan",
+        "Ben",
+        "Cory",
+        "RJ"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory never drafted Aaron Rodgers. Aaron Rodgers was drafted 16 times in league history; the other choices all drafted him at least once (RJ 5x, Ben 3x, Dan 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_2",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Matthew Stafford?",
+      "choices": [
+        "Mac",
+        "Sam",
+        "Adrian",
+        "Bob"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac never drafted Matthew Stafford. Matthew Stafford was drafted 15 times in league history; the other choices all drafted him at least once (Bob 4x, Adrian 3x, Sam 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_4",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Tom Brady?",
+      "choices": [
+        "Zac",
+        "Adrian",
+        "Cory",
+        "Mac"
+      ],
+      "answer": "Zac",
+      "explanation": "Zac never drafted Tom Brady. Tom Brady was drafted 13 times in league history; the other choices all drafted him at least once (Cory 4x, Mac 2x, Adrian 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_3",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Matt Ryan?",
+      "choices": [
+        "Ben",
+        "Cory",
+        "Sam",
+        "Adrian"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Matt Ryan. Matt Ryan was drafted 13 times in league history; the other choices all drafted him at least once (Adrian 2x, Ben 2x, Cory 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_9",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Russell Wilson?",
+      "choices": [
+        "Ben",
+        "Harp",
+        "Cory",
+        "Bob"
+      ],
+      "answer": "Harp",
+      "explanation": "Harp never drafted Russell Wilson. Russell Wilson was drafted 12 times in league history; the other choices all drafted him at least once (Ben 3x, Bob 2x, Cory 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_8",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Mike Evans?",
+      "choices": [
+        "Ben",
+        "RJ",
+        "Dan",
+        "Harp"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ never drafted Mike Evans. Mike Evans was drafted 12 times in league history; the other choices all drafted him at least once (Dan 3x, Ben 2x, Harp 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_7",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Julio Jones?",
+      "choices": [
+        "Adrian",
+        "Zac",
+        "Dan",
+        "Mac"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian never drafted Julio Jones. Julio Jones was drafted 12 times in league history; the other choices all drafted him at least once (Mac 3x, Dan 2x, Zac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_6",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted DeAndre Hopkins?",
+      "choices": [
+        "RJ",
+        "Zac",
+        "Harp",
+        "Cory"
+      ],
+      "answer": "Harp",
+      "explanation": "Harp never drafted DeAndre Hopkins. DeAndre Hopkins was drafted 12 times in league history; the other choices all drafted him at least once (Cory 3x, RJ 3x, Zac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_5",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Ben Roethlisberger?",
+      "choices": [
+        "Cory",
+        "Mac",
+        "Ben",
+        "Bob"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac never drafted Ben Roethlisberger. Ben Roethlisberger was drafted 12 times in league history; the other choices all drafted him at least once (Bob 4x, Cory 4x, Ben 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_17",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Travis Kelce?",
+      "choices": [
+        "Mac",
+        "Harp",
+        "Dan",
+        "Ben"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben never drafted Travis Kelce. Travis Kelce was drafted 11 times in league history; the other choices all drafted him at least once (Dan 3x, Harp 3x, Mac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_16",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Philip Rivers?",
+      "choices": [
+        "Harp",
+        "Dan",
+        "Cory",
+        "Sam"
+      ],
+      "answer": "Harp",
+      "explanation": "Harp never drafted Philip Rivers. Philip Rivers was drafted 11 times in league history; the other choices all drafted him at least once (Sam 3x, Cory 2x, Dan 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_15",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Keenan Allen?",
+      "choices": [
+        "Adrian",
+        "Zac",
+        "RJ",
+        "Ben"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben never drafted Keenan Allen. Keenan Allen was drafted 11 times in league history; the other choices all drafted him at least once (Adrian 3x, RJ 2x, Zac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_14",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Justin Tucker?",
+      "choices": [
+        "Cory",
+        "Dan",
+        "Sam",
+        "Mac"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Justin Tucker. Justin Tucker was drafted 11 times in league history; the other choices all drafted him at least once (Dan 3x, Cory 2x, Mac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_13",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Drew Brees?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Bob",
+        "Mac"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob never drafted Drew Brees. Drew Brees was drafted 11 times in league history; the other choices all drafted him at least once (Cory 2x, Dan 2x, Mac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_12",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Cam Newton?",
+      "choices": [
+        "Bob",
+        "Harp",
+        "Sam",
+        "Mac"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Cam Newton. Cam Newton was drafted 11 times in league history; the other choices all drafted him at least once (Bob 3x, Mac 3x, Harp 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_11",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Brandin Cooks?",
+      "choices": [
+        "Ben",
+        "Dan",
+        "Zac",
+        "Mac"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac never drafted Brandin Cooks. Brandin Cooks was drafted 11 times in league history; the other choices all drafted him at least once (Ben 3x, Dan 3x, Zac 3x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_10",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Adrian Peterson?",
+      "choices": [
+        "RJ",
+        "Cory",
+        "Dan",
+        "Adrian"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan never drafted Adrian Peterson. Adrian Peterson was drafted 11 times in league history; the other choices all drafted him at least once (Adrian 4x, Cory 2x, RJ 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_31",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Stephen Gostkowski?",
+      "choices": [
+        "Adrian",
+        "Bob",
+        "RJ",
+        "Cory"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob never drafted Stephen Gostkowski. Stephen Gostkowski was drafted 10 times in league history; the other choices all drafted him at least once (Cory 4x, RJ 2x, Adrian 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_30",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Stefon Diggs?",
+      "choices": [
+        "Mac",
+        "RJ",
+        "Bob",
+        "Ben"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben never drafted Stefon Diggs. Stefon Diggs was drafted 10 times in league history; the other choices all drafted him at least once (Mac 5x, Bob 2x, RJ 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_29",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Ryan Tannehill?",
+      "choices": [
+        "Ben",
+        "Dan",
+        "Cory",
+        "Sam"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben never drafted Ryan Tannehill. Ryan Tannehill was drafted 10 times in league history; the other choices all drafted him at least once (Sam 3x, Cory 2x, Dan 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_28",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Rob Gronkowski?",
+      "choices": [
+        "Mac",
+        "Harp",
+        "Sam",
+        "RJ"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac never drafted Rob Gronkowski. Rob Gronkowski was drafted 10 times in league history; the other choices all drafted him at least once (Harp 3x, RJ 2x, Sam 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_27",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Mike Williams?",
+      "choices": [
+        "Mac",
+        "Ben",
+        "Harp",
+        "Cory"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory never drafted Mike Williams. Mike Williams was drafted 10 times in league history; the other choices all drafted him at least once (Ben 2x, Harp 2x, Mac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_26",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted LeSean McCoy?",
+      "choices": [
+        "Cory",
+        "Mac",
+        "Bob",
+        "Adrian"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob never drafted LeSean McCoy. LeSean McCoy was drafted 10 times in league history; the other choices all drafted him at least once (Mac 3x, Cory 2x, Adrian 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_25",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Larry Fitzgerald?",
+      "choices": [
+        "Sam",
+        "Mac",
+        "Zac",
+        "Bob"
+      ],
+      "answer": "Zac",
+      "explanation": "Zac never drafted Larry Fitzgerald. Larry Fitzgerald was drafted 10 times in league history; the other choices all drafted him at least once (Sam 4x, Mac 3x, Bob 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_24",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Kirk Cousins?",
+      "choices": [
+        "Ben",
+        "Cory",
+        "Sam",
+        "Adrian"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Kirk Cousins. Kirk Cousins was drafted 10 times in league history; the other choices all drafted him at least once (Adrian 2x, Cory 2x, Ben 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_23",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Derrick Henry?",
+      "choices": [
+        "Ben",
+        "Sam",
+        "Zac",
+        "Harp"
+      ],
+      "answer": "Zac",
+      "explanation": "Zac never drafted Derrick Henry. Derrick Henry was drafted 10 times in league history; the other choices all drafted him at least once (Ben 2x, Harp 2x, Sam 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_22",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Derek Carr?",
+      "choices": [
+        "Adrian",
+        "Ben",
+        "RJ",
+        "Sam"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ never drafted Derek Carr. Derek Carr was drafted 10 times in league history; the other choices all drafted him at least once (Ben 2x, Sam 2x, Adrian 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_21",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted DeSean Jackson?",
+      "choices": [
+        "Ben",
+        "Harp",
+        "Bob",
+        "Dan"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan never drafted DeSean Jackson. DeSean Jackson was drafted 10 times in league history; the other choices all drafted him at least once (Ben 4x, Bob 2x, Harp 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_20",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Davante Adams?",
+      "choices": [
+        "Adrian",
+        "Bob",
+        "Ben",
+        "Cory"
+      ],
+      "answer": "Ben",
+      "explanation": "Ben never drafted Davante Adams. Davante Adams was drafted 10 times in league history; the other choices all drafted him at least once (Adrian 2x, Bob 2x, Cory 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_19",
+      "difficulty": "competitive",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Andy Dalton?",
+      "choices": [
+        "Sam",
+        "Cory",
+        "Dan",
+        "Harp"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory never drafted Andy Dalton. Andy Dalton was drafted 10 times in league history; the other choices all drafted him at least once (Sam 3x, Dan 2x, Harp 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_18",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Amari Cooper?",
+      "choices": [
+        "Ben",
+        "Dan",
+        "Cory",
+        "Adrian"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan never drafted Amari Cooper. Amari Cooper was drafted 10 times in league history; the other choices all drafted him at least once (Adrian 3x, Cory 2x, Ben 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_45",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Tyreek Hill?",
+      "choices": [
+        "Sam",
+        "Adrian",
+        "Harp",
+        "Ben"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Tyreek Hill. Tyreek Hill was drafted 9 times in league history; the other choices all drafted him at least once (Harp 3x, Adrian 2x, Ben 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_44",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Mike Wallace?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Bob",
+        "Cory"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob never drafted Mike Wallace. Mike Wallace was drafted 9 times in league history; the other choices all drafted him at least once (Adrian 3x, Cory 2x, RJ 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_43",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Mark Ingram II?",
+      "choices": [
+        "Mac",
+        "Ben",
+        "Dan",
+        "Bob"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac never drafted Mark Ingram II. Mark Ingram II was drafted 9 times in league history; the other choices all drafted him at least once (Bob 3x, Ben 2x, Dan 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_42",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Joe Mixon?",
+      "choices": [
+        "Bob",
+        "Mac",
+        "Sam",
+        "Dan"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Joe Mixon. Joe Mixon was drafted 9 times in league history; the other choices all drafted him at least once (Dan 5x, Bob 2x, Mac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_41",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Joe Flacco?",
+      "choices": [
+        "Ben",
+        "Dan",
+        "RJ",
+        "Mac"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac never drafted Joe Flacco. Joe Flacco was drafted 9 times in league history; the other choices all drafted him at least once (RJ 4x, Dan 3x, Ben 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_40",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Jared Goff?",
+      "choices": [
+        "Cory",
+        "RJ",
+        "Ben",
+        "Adrian"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian never drafted Jared Goff. Jared Goff was drafted 9 times in league history; the other choices all drafted him at least once (Ben 3x, Cory 2x, RJ 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_39",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Golden Tate?",
+      "choices": [
+        "Harp",
+        "Cory",
+        "Dan",
+        "Adrian"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan never drafted Golden Tate. Golden Tate was drafted 9 times in league history; the other choices all drafted him at least once (Harp 3x, Cory 2x, Adrian 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_38",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Emmanuel Sanders?",
+      "choices": [
+        "Zac",
+        "Ben",
+        "Adrian",
+        "Bob"
+      ],
+      "answer": "Zac",
+      "explanation": "Zac never drafted Emmanuel Sanders. Emmanuel Sanders was drafted 9 times in league history; the other choices all drafted him at least once (Adrian 2x, Bob 2x, Ben 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_37",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Eli Manning?",
+      "choices": [
+        "Harp",
+        "Ben",
+        "Dan",
+        "Adrian"
+      ],
+      "answer": "Harp",
+      "explanation": "Harp never drafted Eli Manning. Eli Manning was drafted 9 times in league history; the other choices all drafted him at least once (Dan 3x, Adrian 2x, Ben 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_36",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Dak Prescott?",
+      "choices": [
+        "Adrian",
+        "Harp",
+        "Bob",
+        "RJ"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian never drafted Dak Prescott. Dak Prescott was drafted 9 times in league history; the other choices all drafted him at least once (Bob 3x, Harp 2x, RJ 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_35",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Cooper Kupp?",
+      "choices": [
+        "Bob",
+        "RJ",
+        "Mac",
+        "Adrian"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ never drafted Cooper Kupp. Cooper Kupp was drafted 9 times in league history; the other choices all drafted him at least once (Adrian 3x, Bob 2x, Mac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_34",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Antonio Brown?",
+      "choices": [
+        "Zac",
+        "Bob",
+        "Adrian",
+        "Harp"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob never drafted Antonio Brown. Antonio Brown was drafted 9 times in league history; the other choices all drafted him at least once (Harp 2x, Zac 2x, Adrian 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_33",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Alex Smith?",
+      "choices": [
+        "Ben",
+        "Harp",
+        "Adrian",
+        "Bob"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian never drafted Alex Smith. Alex Smith was drafted 9 times in league history; the other choices all drafted him at least once (Ben 2x, Harp 2x, Bob 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_32",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted A.J. Green?",
+      "choices": [
+        "Bob",
+        "RJ",
+        "Adrian",
+        "Harp"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian never drafted A.J. Green. A.J. Green was drafted 9 times in league history; the other choices all drafted him at least once (Harp 2x, RJ 2x, Bob 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_73",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Zach Ertz?",
+      "choices": [
+        "Adrian",
+        "Sam",
+        "Cory",
+        "Ben"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Zach Ertz. Zach Ertz was drafted 8 times in league history; the other choices all drafted him at least once (Ben 3x, Cory 2x, Adrian 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_72",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Tyler Lockett?",
+      "choices": [
+        "Sam",
+        "Harp",
+        "Ben",
+        "Bob"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Tyler Lockett. Tyler Lockett was drafted 8 times in league history; the other choices all drafted him at least once (Ben 2x, Harp 2x, Bob 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_71",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Saquon Barkley?",
+      "choices": [
+        "Dan",
+        "Ben",
+        "Mac",
+        "Bob"
+      ],
+      "answer": "Dan",
+      "explanation": "Dan never drafted Saquon Barkley. Saquon Barkley was drafted 8 times in league history; the other choices all drafted him at least once (Ben 3x, Mac 2x, Bob 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_70",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Ryan Fitzpatrick?",
+      "choices": [
+        "Cory",
+        "Sam",
+        "RJ",
+        "Mac"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Ryan Fitzpatrick. Ryan Fitzpatrick was drafted 8 times in league history; the other choices all drafted him at least once (RJ 4x, Mac 2x, Cory 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_69",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Randall Cobb?",
+      "choices": [
+        "Cory",
+        "Adrian",
+        "Ben",
+        "Bob"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian never drafted Randall Cobb. Randall Cobb was drafted 8 times in league history; the other choices all drafted him at least once (Ben 1x, Bob 1x, Cory 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_68",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Pierre Garcon?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Adrian",
+        "Ben"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob never drafted Pierre Garcon. Pierre Garcon was drafted 8 times in league history; the other choices all drafted him at least once (Adrian 2x, Ben 2x, Zac 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_67",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Patrick Mahomes?",
+      "choices": [
+        "Bob",
+        "Sam",
+        "Dan",
+        "Adrian"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob never drafted Patrick Mahomes. Patrick Mahomes was drafted 8 times in league history; the other choices all drafted him at least once (Adrian 3x, Dan 2x, Sam 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_66",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Nick Chubb?",
+      "choices": [
+        "Cory",
+        "Bob",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory never drafted Nick Chubb. Nick Chubb was drafted 8 times in league history; the other choices all drafted him at least once (Ben 3x, Mac 2x, Bob 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_65",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Michael Thomas?",
+      "choices": [
+        "Bob",
+        "Adrian",
+        "Dan",
+        "RJ"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian never drafted Michael Thomas. Michael Thomas was drafted 8 times in league history; the other choices all drafted him at least once (Bob 2x, Dan 2x, RJ 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_64",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Matt Forte?",
+      "choices": [
+        "Mac",
+        "Bob",
+        "Ben",
+        "Adrian"
+      ],
+      "answer": "Mac",
+      "explanation": "Mac never drafted Matt Forte. Matt Forte was drafted 8 times in league history; the other choices all drafted him at least once (Ben 2x, Adrian 1x, Bob 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_63",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Marshawn Lynch?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Ben",
+        "Sam"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam never drafted Marshawn Lynch. Marshawn Lynch was drafted 8 times in league history; the other choices all drafted him at least once (Cory 3x, Dan 2x, Ben 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_62",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Le'Veon Bell?",
+      "choices": [
+        "Cory",
+        "Harp",
+        "Bob",
+        "Dan"
+      ],
+      "answer": "Bob",
+      "explanation": "Bob never drafted Le'Veon Bell. Le'Veon Bell was drafted 8 times in league history; the other choices all drafted him at least once (Cory 3x, Dan 1x, Harp 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_61",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Jimmy Graham?",
+      "choices": [
+        "Sam",
+        "Zac",
+        "Harp",
+        "RJ"
+      ],
+      "answer": "Zac",
+      "explanation": "Zac never drafted Jimmy Graham. Jimmy Graham was drafted 8 times in league history; the other choices all drafted him at least once (Harp 2x, RJ 2x, Sam 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_60",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Jay Cutler?",
+      "choices": [
+        "RJ",
+        "Mac",
+        "Dan",
+        "Ben"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ never drafted Jay Cutler. Jay Cutler was drafted 8 times in league history; the other choices all drafted him at least once (Dan 2x, Mac 2x, Ben 1x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "owner_never_59",
+      "difficulty": "sicko",
+      "category": "Player Careers",
+      "prompt": "Which of these owners has NEVER drafted Jarvis Landry?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Bob",
+        "Harp"
+      ],
+      "answer": "Adrian",
+      "explanation": "Adrian never drafted Jarvis Landry. Jarvis Landry was drafted 8 times in league history; the other choices all drafted him at least once (Bob 2x, Harp 2x, RJ 2x).",
+      "choiceFeedback": {},
+      "questionFamily": "ownerPlayerNever"
+    },
+    {
+      "id": "bridesmaid_weekly_runnerup",
+      "difficulty": "competitive",
+      "category": "League History",
+      "questionFamily": "bridesmaid",
+      "prompt": "Who has finished 2nd in weekly scoring the most times in league history?",
+      "choices": [
+        "Sam",
+        "Zac",
+        "Bubbs",
+        "Bob"
+      ],
+      "answer": "Sam",
+      "explanation": "Sam has the most career weekly runner-up scores: 37.",
+      "choiceFeedback": {}
+    },
+    {
+      "id": "bridesmaid_playoff_bubble",
+      "difficulty": "sicko",
+      "category": "League History",
+      "questionFamily": "bridesmaid",
+      "prompt": "Who has missed the playoffs by exactly one standings position the most times?",
+      "choices": [
+        "Bubbs",
+        "RJ",
+        "Mac",
+        "Zac"
+      ],
+      "answer": "RJ",
+      "explanation": "RJ has landed exactly one spot outside the playoff field 4 times.",
+      "choiceFeedback": {}
+    },
+    {
+      "id": "bridesmaid_rs_runnerup",
+      "difficulty": "competitive",
+      "category": "League History",
+      "questionFamily": "bridesmaid",
+      "prompt": "Who has the most 2nd-place regular-season finishes?",
+      "choices": [
+        "Zac",
+        "Dan",
+        "Sam",
+        "Ben"
+      ],
+      "answer": "Zac",
+      "explanation": "Zac has finished 2nd in the regular season 3 times.",
+      "choiceFeedback": {}
+    },
+    {
+      "id": "bridesmaid_points_runnerup",
+      "difficulty": "sicko",
+      "category": "League History",
+      "questionFamily": "bridesmaid",
+      "prompt": "Who has the most seasons finishing 2nd in total points?",
+      "choices": [
+        "Sam",
+        "Cory",
+        "Zac",
+        "Bubbs"
+      ],
+      "answer": "Cory",
+      "explanation": "Cory has finished 2nd in points 4 times.",
+      "choiceFeedback": {}
+    },
+    {
+      "id": "bridesmaid_championship_runnerups",
+      "difficulty": "competitive",
+      "category": "League History",
+      "questionFamily": "bridesmaid",
+      "prompt": "Which pair shares the league record for the most championship runner-up finishes?",
+      "choices": [
+        "Dan & Sam",
+        "Bob & Habble",
+        "Habble & Sam",
+        "Bob & Dan"
+      ],
+      "answer": "Bob & Habble",
+      "explanation": "Bob and Habble have each finished 2nd in the playoffs 3 times.",
+      "choiceFeedback": {}
     }
   ],
   "difficultyNotes": {
@@ -284030,8 +285990,7 @@
         "Davis Mills",
         "Geno Smith",
         "Jacoby Brissett",
-        "Jimmy Garoppolo",
-        "Tua Tagovailoa"
+        "Jimmy Garoppolo"
       ],
       "hostNote": "6 qualifying undrafted QBs.",
       "lookup": {
@@ -284179,11 +286138,11 @@
           "year": 2022,
           "position": "QB",
           "finalRank": 15,
-          "qualifies": true,
-          "undrafted": true,
-          "overallPick": null,
-          "round": null,
-          "owner": null
+          "qualifies": false,
+          "undrafted": false,
+          "overallPick": 63,
+          "round": 7,
+          "owner": "Mac"
         },
         "Russell Wilson": {
           "year": 2022,
@@ -296102,10 +298061,8 @@
       "prompt": "Name a WR who finished Top 20 in 2025 after going undrafted in our league.",
       "answers": [
         "Alec Pierce",
-        "Emeka Egbuka",
         "Jaxon Smith-Njigba",
-        "Michael Wilson",
-        "Puka Nacua"
+        "Michael Wilson"
       ],
       "hostNote": "5 qualifying undrafted WRs.",
       "lookup": {
@@ -296113,11 +298070,11 @@
           "year": 2025,
           "position": "WR",
           "finalRank": 1,
-          "qualifies": true,
-          "undrafted": true,
-          "overallPick": null,
-          "round": null,
-          "owner": null
+          "qualifies": false,
+          "undrafted": false,
+          "overallPick": 18,
+          "round": 2,
+          "owner": "Ben"
         },
         "Jaxon Smith-Njigba": {
           "year": 2025,
@@ -296283,11 +298240,11 @@
           "year": 2025,
           "position": "WR",
           "finalRank": 18,
-          "qualifies": true,
-          "undrafted": true,
-          "overallPick": null,
-          "round": null,
-          "owner": null
+          "qualifies": false,
+          "undrafted": false,
+          "overallPick": 93,
+          "round": 10,
+          "owner": "RJ"
         },
         "Jaylen Waddle": {
           "year": 2025,
@@ -297119,10 +299076,8 @@
       "prompt": "Name a WR who finished Top 25 in 2025 after going undrafted in our league.",
       "answers": [
         "Alec Pierce",
-        "Emeka Egbuka",
         "Jaxon Smith-Njigba",
         "Michael Wilson",
-        "Puka Nacua",
         "Wan'Dale Robinson"
       ],
       "hostNote": "6 qualifying undrafted WRs.",
@@ -297131,11 +299086,11 @@
           "year": 2025,
           "position": "WR",
           "finalRank": 1,
-          "qualifies": true,
-          "undrafted": true,
-          "overallPick": null,
-          "round": null,
-          "owner": null
+          "qualifies": false,
+          "undrafted": false,
+          "overallPick": 18,
+          "round": 2,
+          "owner": "Ben"
         },
         "Jaxon Smith-Njigba": {
           "year": 2025,
@@ -297301,11 +299256,11 @@
           "year": 2025,
           "position": "WR",
           "finalRank": 18,
-          "qualifies": true,
-          "undrafted": true,
-          "overallPick": null,
-          "round": null,
-          "owner": null
+          "qualifies": false,
+          "undrafted": false,
+          "overallPick": 93,
+          "round": 10,
+          "owner": "RJ"
         },
         "Jaylen Waddle": {
           "year": 2025,
@@ -301203,348 +303158,546 @@
     {
       "id": "best_qb_seasons",
       "title": "Best QB Seasons Ever",
-      "type": "ranked_seasons",
+      "type": "ranked_seasons_unique",
       "answers": [
         {
           "rank": 1,
           "player": "Lamar Jackson",
           "year": 2024,
-          "label": "Lamar Jackson (2024)",
+          "label": "Lamar Jackson",
           "points": 5,
-          "value": 430.4
+          "value": 430.4,
+          "drafted": true,
+          "draftOwner": "Mac",
+          "overallPick": 4,
+          "draftRound": 1,
+          "draftSourceName": "Lamar Jackson"
         },
         {
           "rank": 2,
           "player": "Patrick Mahomes",
           "year": 2018,
-          "label": "Patrick Mahomes (2018)",
+          "label": "Patrick Mahomes",
           "points": 5,
-          "value": 417.1
+          "value": 417.1,
+          "drafted": true,
+          "draftOwner": "Adrian",
+          "overallPick": 64,
+          "draftRound": 7,
+          "draftSourceName": "Patrick Mahomes"
         },
         {
           "rank": 3,
-          "player": "Patrick Mahomes",
-          "year": 2022,
-          "label": "Patrick Mahomes (2022)",
+          "player": "Peyton Manning",
+          "year": 2013,
+          "label": "Peyton Manning",
           "points": 4,
-          "value": 416.4
+          "value": 410.0,
+          "drafted": true,
+          "draftOwner": "Cory",
+          "overallPick": 7,
+          "draftRound": 1,
+          "draftSourceName": "Peyton Manning"
         },
         {
           "rank": 4,
-          "player": "Lamar Jackson",
-          "year": 2019,
-          "label": "Lamar Jackson (2019)",
+          "player": "Josh Allen",
+          "year": 2021,
+          "label": "Josh Allen",
           "points": 4,
-          "value": 415.7
+          "value": 402.6,
+          "drafted": true,
+          "draftOwner": "Zac",
+          "overallPick": 7,
+          "draftRound": 1,
+          "draftSourceName": "Josh Allen"
         },
         {
           "rank": 5,
-          "player": "Peyton Manning",
-          "year": 2013,
-          "label": "Peyton Manning (2013)",
+          "player": "Aaron Rodgers",
+          "year": 2011,
+          "label": "Aaron Rodgers",
           "points": 3,
-          "value": 410.0
+          "value": 397.2,
+          "drafted": true,
+          "draftOwner": "Harp",
+          "overallPick": 3,
+          "draftRound": 1,
+          "draftSourceName": "Aaron Rodgers"
         },
         {
           "rank": 6,
-          "player": "Josh Allen",
-          "year": 2021,
-          "label": "Josh Allen (2021)",
+          "player": "Drew Brees",
+          "year": 2011,
+          "label": "Drew Brees",
           "points": 3,
-          "value": 402.6
+          "value": 391.6,
+          "drafted": true,
+          "draftOwner": "Zac",
+          "overallPick": 10,
+          "draftRound": 1,
+          "draftSourceName": "Drew Brees"
         },
         {
           "rank": 7,
-          "player": "Aaron Rodgers",
-          "year": 2011,
-          "label": "Aaron Rodgers (2011)",
+          "player": "Cam Newton",
+          "year": 2015,
+          "label": "Cam Newton",
           "points": 2,
-          "value": 397.2
+          "value": 389.1,
+          "drafted": true,
+          "draftOwner": "Dan",
+          "overallPick": 47,
+          "draftRound": 5,
+          "draftSourceName": "Cam Newton"
         },
         {
           "rank": 8,
-          "player": "Josh Allen",
-          "year": 2022,
-          "label": "Josh Allen (2022)",
+          "player": "Justin Herbert",
+          "year": 2021,
+          "label": "Justin Herbert",
           "points": 2,
-          "value": 395.5
+          "value": 380.8,
+          "drafted": true,
+          "draftOwner": "Cory",
+          "overallPick": 41,
+          "draftRound": 5,
+          "draftSourceName": "Justin Herbert"
         },
         {
           "rank": 9,
-          "player": "Josh Allen",
+          "player": "Kyler Murray",
           "year": 2020,
-          "label": "Josh Allen (2020)",
+          "label": "Kyler Murray",
           "points": 1,
-          "value": 395.1
+          "value": 378.7,
+          "drafted": true,
+          "draftOwner": "Dan",
+          "overallPick": 24,
+          "draftRound": 3,
+          "draftSourceName": "Kyler Murray"
         },
         {
           "rank": 10,
-          "player": "Josh Allen",
-          "year": 2023,
-          "label": "Josh Allen (2023)",
+          "player": "Jalen Hurts",
+          "year": 2022,
+          "label": "Jalen Hurts",
           "points": 1,
-          "value": 392.6
+          "value": 378.0,
+          "drafted": true,
+          "draftOwner": "Adrian",
+          "overallPick": 12,
+          "draftRound": 2,
+          "draftSourceName": "Jalen Hurts"
         }
       ]
     },
     {
       "id": "best_rb_seasons",
       "title": "Best RB Seasons Ever",
-      "type": "ranked_seasons",
+      "type": "ranked_seasons_unique",
       "answers": [
         {
           "rank": 1,
           "player": "Christian McCaffrey",
           "year": 2019,
-          "label": "Christian McCaffrey (2019)",
+          "label": "Christian McCaffrey",
           "points": 5,
-          "value": 355.2
+          "value": 355.2,
+          "drafted": true,
+          "draftOwner": "Dan",
+          "overallPick": 1,
+          "draftRound": 1,
+          "draftSourceName": "Christian McCaffrey"
         },
         {
           "rank": 2,
           "player": "Jonathan Taylor",
           "year": 2021,
-          "label": "Jonathan Taylor (2021)",
+          "label": "Jonathan Taylor",
           "points": 5,
-          "value": 333.1
+          "value": 333.1,
+          "drafted": true,
+          "draftOwner": "Adrian",
+          "overallPick": 17,
+          "draftRound": 2,
+          "draftSourceName": "Jonathan Taylor"
         },
         {
           "rank": 3,
           "player": "David Johnson",
           "year": 2016,
-          "label": "David Johnson (2016)",
+          "label": "David Johnson",
           "points": 4,
-          "value": 327.8
+          "value": 327.8,
+          "drafted": true,
+          "draftOwner": "Adrian",
+          "overallPick": 9,
+          "draftRound": 1,
+          "draftSourceName": "David Johnson"
         },
         {
           "rank": 4,
           "player": "Arian Foster",
           "year": 2010,
-          "label": "Arian Foster (2010)",
+          "label": "Arian Foster",
           "points": 4,
-          "value": 326.0
+          "value": 326.0,
+          "drafted": true,
+          "draftOwner": "Sam",
+          "overallPick": 78,
+          "draftRound": 8,
+          "draftSourceName": "Arian Foster"
         },
         {
           "rank": 5,
-          "player": "Christian McCaffrey",
-          "year": 2023,
-          "label": "Christian McCaffrey (2023)",
+          "player": "Saquon Barkley",
+          "year": 2024,
+          "label": "Saquon Barkley",
           "points": 3,
-          "value": 324.3
+          "value": 322.3,
+          "drafted": true,
+          "draftOwner": "Ben",
+          "overallPick": 18,
+          "draftRound": 2,
+          "draftSourceName": "Saquon Barkley"
         },
         {
           "rank": 6,
-          "player": "Saquon Barkley",
-          "year": 2024,
-          "label": "Saquon Barkley (2024)",
+          "player": "Todd Gurley II",
+          "year": 2017,
+          "label": "Todd Gurley II",
           "points": 3,
-          "value": 322.3
+          "value": 319.3,
+          "drafted": true,
+          "draftOwner": "RJ",
+          "overallPick": 15,
+          "draftRound": 2,
+          "draftSourceName": "Todd Gurley"
         },
         {
           "rank": 7,
-          "player": "Todd Gurley II",
-          "year": 2017,
-          "label": "Todd Gurley II (2017)",
+          "player": "Derrick Henry",
+          "year": 2024,
+          "label": "Derrick Henry",
           "points": 2,
-          "value": 319.3
+          "value": 317.4,
+          "drafted": true,
+          "draftOwner": "Bob",
+          "overallPick": 24,
+          "draftRound": 3,
+          "draftSourceName": "Derrick Henry"
         },
         {
           "rank": 8,
-          "player": "Derrick Henry",
+          "player": "Jahmyr Gibbs",
           "year": 2024,
-          "label": "Derrick Henry (2024)",
+          "label": "Jahmyr Gibbs",
           "points": 2,
-          "value": 317.4
+          "value": 310.9,
+          "drafted": true,
+          "draftOwner": "RJ",
+          "overallPick": 20,
+          "draftRound": 2,
+          "draftSourceName": "Jahmyr Gibbs"
         },
         {
           "rank": 9,
-          "player": "Jonathan Taylor",
-          "year": 2025,
-          "label": "Jonathan Taylor (2025)",
+          "player": "Jamaal Charles",
+          "year": 2013,
+          "label": "Jamaal Charles",
           "points": 1,
-          "value": 316.3
+          "value": 308.0,
+          "drafted": true,
+          "draftOwner": "Bob",
+          "overallPick": 8,
+          "draftRound": 1,
+          "draftSourceName": "Jamaal Charles"
         },
         {
           "rank": 10,
-          "player": "Christian McCaffrey",
-          "year": 2025,
-          "label": "Christian McCaffrey (2025)",
+          "player": "Adrian Peterson",
+          "year": 2012,
+          "label": "Adrian Peterson",
           "points": 1,
-          "value": 314.6
+          "value": 307.4,
+          "drafted": true,
+          "draftOwner": "Cory",
+          "overallPick": 15,
+          "draftRound": 2,
+          "draftSourceName": "Adrian Peterson"
         }
       ]
     },
     {
       "id": "best_wr_seasons",
       "title": "Best WR Seasons Ever",
-      "type": "ranked_seasons",
+      "type": "ranked_seasons_unique",
       "answers": [
         {
           "rank": 1,
           "player": "Cooper Kupp",
           "year": 2021,
-          "label": "Cooper Kupp (2021)",
+          "label": "Cooper Kupp",
           "points": 5,
-          "value": 294.5
+          "value": 294.5,
+          "drafted": true,
+          "draftOwner": "Bob",
+          "overallPick": 52,
+          "draftRound": 6,
+          "draftSourceName": "Cooper Kupp"
         },
         {
           "rank": 2,
           "player": "Ja'Marr Chase",
           "year": 2024,
-          "label": "Ja'Marr Chase (2024)",
+          "label": "Ja'Marr Chase",
           "points": 5,
-          "value": 276.0
+          "value": 276.0,
+          "drafted": true,
+          "draftOwner": "Sam",
+          "overallPick": 13,
+          "draftRound": 2,
+          "draftSourceName": "Jamarr Chase"
         },
         {
           "rank": 3,
           "player": "CeeDee Lamb",
           "year": 2023,
-          "label": "CeeDee Lamb (2023)",
+          "label": "CeeDee Lamb",
           "points": 4,
-          "value": 268.2
+          "value": 268.2,
+          "drafted": true,
+          "draftOwner": "Ben",
+          "overallPick": 22,
+          "draftRound": 3,
+          "draftSourceName": "Ceedee Lamb"
         },
         {
           "rank": 4,
           "player": "Calvin Johnson",
           "year": 2011,
-          "label": "Calvin Johnson (2011)",
+          "label": "Calvin Johnson",
           "points": 4,
-          "value": 263.2
+          "value": 263.2,
+          "drafted": true,
+          "draftOwner": "Cory",
+          "overallPick": 14,
+          "draftRound": 2,
+          "draftSourceName": "Calvin Johnson"
         },
         {
           "rank": 5,
           "player": "Deebo Samuel Sr.",
           "year": 2021,
-          "label": "Deebo Samuel Sr. (2021)",
+          "label": "Deebo Samuel Sr.",
           "points": 3,
-          "value": 262.0
+          "value": 262.0,
+          "drafted": true,
+          "draftOwner": "Adrian",
+          "overallPick": 77,
+          "draftRound": 8,
+          "draftSourceName": "Deebo Samuel"
         },
         {
           "rank": 6,
           "player": "Tyreek Hill",
           "year": 2023,
-          "label": "Tyreek Hill (2023)",
+          "label": "Tyreek Hill",
           "points": 3,
-          "value": 257.4
+          "value": 257.4,
+          "drafted": true,
+          "draftOwner": "Adrian",
+          "overallPick": 13,
+          "draftRound": 2,
+          "draftSourceName": "Tyreek Hill"
         },
         {
           "rank": 7,
           "player": "Antonio Brown",
           "year": 2014,
-          "label": "Antonio Brown (2014)",
+          "label": "Antonio Brown",
           "points": 2,
-          "value": 251.9
+          "value": 251.9,
+          "drafted": true,
+          "draftOwner": "Cory",
+          "overallPick": 42,
+          "draftRound": 5,
+          "draftSourceName": "Antonio Brown"
         },
         {
           "rank": 8,
-          "player": "Antonio Brown",
-          "year": 2015,
-          "label": "Antonio Brown (2015)",
+          "player": "Puka Nacua",
+          "year": 2025,
+          "label": "Puka Nacua",
           "points": 2,
-          "value": 246.2
+          "value": 246.0,
+          "drafted": true,
+          "draftOwner": "Ben",
+          "overallPick": 18,
+          "draftRound": 2,
+          "draftSourceName": "Puka Nakua"
         },
         {
           "rank": 9,
-          "player": "Puka Nacua",
-          "year": 2025,
-          "label": "Puka Nacua (2025)",
+          "player": "Julio Jones",
+          "year": 2015,
+          "label": "Julio Jones",
           "points": 1,
-          "value": 246.0
+          "value": 245.1,
+          "drafted": true,
+          "draftOwner": "Zac",
+          "overallPick": 13,
+          "draftRound": 2,
+          "draftSourceName": "Julio Jones"
         },
         {
           "rank": 10,
-          "player": "Julio Jones",
-          "year": 2015,
-          "label": "Julio Jones (2015)",
+          "player": "Davante Adams",
+          "year": 2020,
+          "label": "Davante Adams",
           "points": 1,
-          "value": 245.1
+          "value": 243.4,
+          "drafted": true,
+          "draftOwner": "Harp",
+          "overallPick": 10,
+          "draftRound": 1,
+          "draftSourceName": "Davante Adams"
         }
       ]
     },
     {
       "id": "best_te_seasons",
       "title": "Best TE Seasons Ever",
-      "type": "ranked_seasons",
+      "type": "ranked_seasons_unique",
       "answers": [
         {
           "rank": 1,
           "player": "Rob Gronkowski",
           "year": 2011,
-          "label": "Rob Gronkowski (2011)",
+          "label": "Rob Gronkowski",
           "points": 5,
-          "value": 240.9
+          "value": 240.9,
+          "drafted": false,
+          "draftOwner": null,
+          "overallPick": null,
+          "draftRound": null
         },
         {
           "rank": 2,
           "player": "Jimmy Graham",
           "year": 2013,
-          "label": "Jimmy Graham (2013)",
+          "label": "Jimmy Graham",
           "points": 5,
-          "value": 217.5
+          "value": 217.5,
+          "drafted": true,
+          "draftOwner": "Harp",
+          "overallPick": 29,
+          "draftRound": 3,
+          "draftSourceName": "Jimmy Graham"
         },
         {
           "rank": 3,
           "player": "Travis Kelce",
           "year": 2020,
-          "label": "Travis Kelce (2020)",
+          "label": "Travis Kelce",
           "points": 4,
-          "value": 207.8
+          "value": 207.8,
+          "drafted": true,
+          "draftOwner": "Mac",
+          "overallPick": 23,
+          "draftRound": 3,
+          "draftSourceName": "Travis Kelce"
         },
         {
           "rank": 4,
-          "player": "Travis Kelce",
-          "year": 2022,
-          "label": "Travis Kelce (2022)",
+          "player": "Mark Andrews",
+          "year": 2021,
+          "label": "Mark Andrews",
           "points": 4,
-          "value": 206.3
+          "value": 194.1,
+          "drafted": true,
+          "draftOwner": "Sam",
+          "overallPick": 81,
+          "draftRound": 9,
+          "draftSourceName": "Mark Andrews"
         },
         {
           "rank": 5,
-          "player": "Jimmy Graham",
-          "year": 2011,
-          "label": "Jimmy Graham (2011)",
+          "player": "Trey McBride",
+          "year": 2025,
+          "label": "Trey McBride",
           "points": 3,
-          "value": 195.0
+          "value": 189.9,
+          "drafted": true,
+          "draftOwner": "Cory",
+          "overallPick": 54,
+          "draftRound": 6,
+          "draftSourceName": "Trey McBride"
         },
         {
           "rank": 6,
-          "player": "Mark Andrews",
-          "year": 2021,
-          "label": "Mark Andrews (2021)",
+          "player": "Darren Waller",
+          "year": 2020,
+          "label": "Darren Waller",
           "points": 3,
-          "value": 194.1
+          "value": 171.6,
+          "drafted": true,
+          "draftOwner": "Dan",
+          "overallPick": 84,
+          "draftRound": 9,
+          "draftSourceName": "Darren Waller"
         },
         {
           "rank": 7,
-          "player": "Travis Kelce",
+          "player": "George Kittle",
           "year": 2018,
-          "label": "Travis Kelce (2018)",
+          "label": "George Kittle",
           "points": 2,
-          "value": 191.6
+          "value": 170.7,
+          "drafted": true,
+          "draftOwner": "Zac",
+          "overallPick": 174,
+          "draftRound": 18,
+          "draftSourceName": "George Kittle"
         },
         {
           "rank": 8,
-          "player": "Trey McBride",
-          "year": 2025,
-          "label": "Trey McBride (2025)",
+          "player": "Zach Ertz",
+          "year": 2018,
+          "label": "Zach Ertz",
           "points": 2,
-          "value": 189.9
+          "value": 164.3,
+          "drafted": true,
+          "draftOwner": "Zac",
+          "overallPick": 47,
+          "draftRound": 5,
+          "draftSourceName": "Zach Ertz"
         },
         {
           "rank": 9,
-          "player": "Rob Gronkowski",
-          "year": 2014,
-          "label": "Rob Gronkowski (2014)",
+          "player": "Vernon Davis",
+          "year": 2013,
+          "label": "Vernon Davis",
           "points": 1,
-          "value": 184.4
+          "value": 161.0,
+          "drafted": true,
+          "draftOwner": "Ben",
+          "overallPick": 91,
+          "draftRound": 10,
+          "draftSourceName": "Vernon Davis"
         },
         {
           "rank": 10,
-          "player": "Rob Gronkowski",
+          "player": "Gary Barnidge",
           "year": 2015,
-          "label": "Rob Gronkowski (2015)",
+          "label": "Gary Barnidge",
           "points": 1,
-          "value": 183.6
+          "value": 158.3,
+          "drafted": false,
+          "draftOwner": null,
+          "overallPick": null,
+          "draftRound": null
         }
       ]
     },
