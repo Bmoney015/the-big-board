@@ -2954,6 +2954,94 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
   .rivalry-school.crhs{justify-content:flex-start;text-align:left;flex-direction:row-reverse}
 }
 
+
+/* v5.9.1 — grouped navigation preview, fixed */
+.nav-preview{
+  display:flex;
+  align-items:stretch;
+  gap:8px;
+  flex-wrap:nowrap;
+  overflow:visible;
+}
+.nav-preview .nav-menu{position:relative;display:inline-flex}
+.nav-preview>button,
+.nav-preview .nav-menu-button{
+  min-height:50px;
+  padding:8px 13px;
+  border-radius:9px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  white-space:nowrap;
+  font-size:10px;
+  font-weight:850;
+}
+.nav-preview .nav-icon{font-size:14px;line-height:1}
+.nav-preview .nav-caret{font-size:8px;color:#9aa7b0;transition:transform .14s ease}
+.nav-preview .nav-menu-button.menu-open .nav-caret{transform:rotate(180deg)}
+.nav-preview .nav-dropdown{
+  position:absolute;
+  top:calc(100% + 7px);
+  left:0;
+  min-width:165px;
+  padding:6px;
+  border:1px solid #44515b;
+  border-radius:9px;
+  background:#111a21;
+  box-shadow:0 14px 30px rgba(0,0,0,.32);
+  display:none;
+  z-index:2000;
+}
+.nav-preview .nav-dropdown.open{
+  display:flex;
+  flex-direction:column;
+  gap:3px;
+}
+.nav-preview .nav-dropdown button{
+  width:100%;
+  text-align:left;
+  padding:10px 11px;
+  border:0;
+  border-radius:6px;
+  background:transparent;
+  color:#dce3e8;
+  font-size:9px;
+  font-weight:800;
+}
+.nav-preview .nav-dropdown button:hover{
+  background:#28333c;
+  color:#f0d276;
+  transform:none;
+}
+.nav-preview .nav-menu-button.active,
+.nav-preview .nav-direct.active{
+  background:#f6f1e8;
+  color:#17212a;
+  border-color:#c8a34b;
+  box-shadow:inset 0 0 0 1px rgba(200,163,75,.18);
+}
+.nav-preview .nav-menu-button.active .nav-caret{color:#735b23}
+
+@media(max-width:1220px){
+  .nav-preview{flex-wrap:wrap}
+  .nav-preview>button,.nav-preview .nav-menu-button{min-height:44px}
+}
+
+
+/* v5.9.4 — Career playoff HFA */
+#playoffHub .playoff-table{min-width:720px}
+#playoffHub .playoff-hfa-career{
+  color:#f1d17e !important;
+  font-weight:900;
+}
+
+
+/* v5.9.6 — Record Book wins + sortable columns */
+.career-record-table th.career-record-sortable{cursor:pointer;user-select:none}
+.career-record-table th.career-record-sortable:hover{background:#ded6c8;color:#6f5415}
+.career-record-sort-arrow{display:inline-block;min-width:10px;margin-left:4px;color:#9a7727;font-size:7px}
+
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -3032,7 +3120,60 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 <div class="header-subtitle">Career Prestige Rankings</div>
 <p>A measure of sustained excellence across league history.</p>
 </div>
-<nav class="nav"><button class="nav-group-primary active" data-view="matrix" id="careerTotalsTab">Career Totals</button><button class="nav-group-primary" data-view="presentation">The Big Board</button><button class="nav-group-primary" data-view="journey">Career Journey</button><button class="nav-group-primary" data-view="audit">Season Audit</button><button class="nav-group-analytics" data-view="draftHub">Draft Hub</button><button class="nav-group-analytics commissioner-only" data-view="draftLab" hidden="" id="draftLabTab">Draft Lab</button><button class="nav-group-analytics" data-view="weeklyAnalytics">Weekly Analytics</button><button class="nav-group-analytics" data-view="playoffHub">Playoff Hub</button><button class="nav-group-analytics" data-view="survivorHub">Survivor Belt</button><button class="nav-group-analytics" data-view="triviaStudio">Trivia Studio</button><button class="nav-group-analytics" data-view="draftNightLive">Draft Night Live</button><button class="nav-group-analytics" data-view="mockDraftLab">Mock Draft Lab</button><button class="nav-group-reference" data-view="glossary">Glossary</button><button class="nav-group-reference commissioner-only" data-view="data" hidden="" id="commissionerDataTab">Data &amp; Settings</button></nav>
+<nav class="nav nav-preview">
+  <button class="nav-group-primary nav-direct active" data-view="presentation" type="button">
+    <span class="nav-icon">♛</span><span>The Big Board</span>
+  </button>
+
+  <div class="nav-menu">
+    <button class="nav-group-primary nav-menu-button" data-nav-menu="career" type="button">
+      <span class="nav-icon">🏆</span><span>Career</span><span class="nav-caret">▾</span>
+    </button>
+    <div class="nav-dropdown" data-nav-dropdown="career">
+      <button data-view="matrix" id="careerTotalsTab" type="button">Career Totals</button>
+      <button data-view="journey" type="button">Career Journey</button>
+      <button data-view="audit" type="button">Season Audit</button>
+      <button class="commissioner-only" data-view="data" hidden="" id="commissionerDataTab" type="button">Data &amp; Settings</button>
+    </div>
+  </div>
+
+  <div class="nav-menu">
+    <button class="nav-group-analytics nav-menu-button" data-nav-menu="draft" type="button">
+      <span class="nav-icon">🏈</span><span>Draft</span><span class="nav-caret">▾</span>
+    </button>
+    <div class="nav-dropdown" data-nav-dropdown="draft">
+      <button data-view="draftHub" type="button">Draft Hub</button>
+      <button class="commissioner-only" data-view="draftLab" hidden="" id="draftLabTab" type="button">Draft Lab</button>
+      <button data-view="mockDraftLab" type="button">Mock Draft Lab</button>
+    </div>
+  </div>
+
+  <button class="nav-group-analytics nav-direct" data-view="weeklyAnalytics" type="button">
+    <span class="nav-icon">📈</span><span>Weekly Analytics</span>
+  </button>
+
+  <button class="nav-group-analytics nav-direct" data-view="playoffHub" type="button">
+    <span class="nav-icon">🏁</span><span>Playoff Hub</span>
+  </button>
+
+  <button class="nav-group-analytics nav-direct" data-view="survivorHub" type="button">
+    <span class="nav-icon">🥊</span><span>Survivor Belt</span>
+  </button>
+
+  <div class="nav-menu">
+    <button class="nav-group-analytics nav-menu-button" data-nav-menu="gameNight" type="button">
+      <span class="nav-icon">🎲</span><span>Game Night</span><span class="nav-caret">▾</span>
+    </button>
+    <div class="nav-dropdown" data-nav-dropdown="gameNight">
+      <button data-view="triviaStudio" type="button">Trivia Studio</button>
+      <button data-view="draftNightLive" type="button">Draft Night Live</button>
+    </div>
+  </div>
+
+  <button class="nav-group-reference nav-direct" data-view="glossary" type="button">
+    <span class="nav-icon">▣</span><span>Glossary</span>
+  </button>
+</nav>
 <div aria-label="League links" class="league-links">
 <a href="https://football.fantasysports.yahoo.com/league/hot_n_bothered/2026" rel="noopener noreferrer" target="_blank" title="Open Yahoo League">
 <span aria-hidden="true">🏈</span> Yahoo <span aria-hidden="true" class="league-link-arrow">↗</span>
@@ -3047,7 +3188,7 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 </header>
 <main>
 
-<section class="view active" id="matrix">
+<section class="view" id="matrix">
 <div class="toolbar">
 <h2>Career Totals</h2>
 </div>
@@ -3076,9 +3217,10 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
     <div class="career-record-tabs" role="tablist" aria-label="Career record book metric">
       <button class="active" type="button" data-career-record="PO_Finish">Playoff Finish</button>
       <button type="button" data-career-record="RS_Finish">Regular Season</button>
-      <button type="button" data-career-record="DraftSlot">Draft Position</button>
+      <button type="button" data-career-record="W">Wins</button>
       <button type="button" data-career-record="PointsFor">Total Points</button>
       <button type="button" data-career-record="Pts Rank">Points Rank</button>
+      <button type="button" data-career-record="DraftSlot">Draft Position</button>
     </div>
   </div>
   <div class="career-record-subnote" id="careerRecordBookSubnote"></div>
@@ -3169,7 +3311,7 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 <div class="table-wrap"><table class="editor-table" id="editorTable"></table></div>
 </div>
 </section>
-<section class="view" id="presentation">
+<section class="view active" id="presentation">
 <div class="reveal-shell">
 <div class="reveal-head">
 <h2>The Big Board</h2>
@@ -4019,7 +4161,7 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
         <div class="playoff-section"><div class="playoff-section-head"><div><div class="playoff-eyebrow">Title Hopes Alive</div><h3>Championship Bracket</h3></div><button id="playoffFormatInfo">How this format worked</button></div><div id="playoffChampionshipBracket" class="playoff-bracket"></div></div>
         <div class="playoff-section muted-section"><div class="playoff-eyebrow">Placement Still Matters</div><h3>Placement, Consolation & Toilet</h3><div id="playoffPlacement" class="playoff-placement-grid"></div></div>
       </div>
-      <div id="playoffRecordsPanel" class="hidden"><div class="playoff-record-grid"><div class="playoff-section"><div class="playoff-eyebrow">Prestige Record</div><h3>Championship Playoff Record</h3><p>Only games played while a title remained attainable.</p><div id="playoffTrueRecords" class="playoff-table-wrap"></div></div><div class="playoff-section muted-section"><div class="playoff-eyebrow">Season Finish Record</div><h3>Placement & Consolation Record</h3><p>Third-place, consolation, placement and Toilet Bowl results.</p><div id="playoffPlacementRecords" class="playoff-table-wrap"></div></div></div><div class="playoff-all-postseason">
+      <div id="playoffRecordsPanel" class="hidden"><div class="playoff-record-grid"><div class="playoff-section"><div class="playoff-eyebrow">Prestige Record</div><h3>Championship Playoff Record</h3><p>Only games played while a title remained attainable. HFA totals reflect bonus points actually awarded in the 2019+ HFA era.</p><div id="playoffTrueRecords" class="playoff-table-wrap"></div></div><div class="playoff-section muted-section"><div class="playoff-eyebrow">Season Finish Record</div><h3>Placement & Consolation Record</h3><p>Third-place, consolation, placement and Toilet Bowl results.</p><div id="playoffPlacementRecords" class="playoff-table-wrap"></div></div></div><div class="playoff-all-postseason">
   <span>All Postseason Totals</span>
   <div class="playoff-all-note">Championship, placement, consolation, and Toilet Bowl results combined. Shown for completeness; championship-playoff performance remains the primary record.</div>
   <div id="playoffAllRecords"></div>
@@ -4177,6 +4319,7 @@ let pointMode = false, revealIndex = 0, revealed = [], autoTimer = null, tickerB
 let careerResumeSort={key:"winPct",direction:"desc"};
 let careerSelectedOwner=null;
 let careerRecordBookMetric="PO_Finish";
+let careerRecordBookSort={key:null,direction:null};
 let careerHistoryMode="record";
 let auditSort={key:null,direction:null};
 let pendingRecords = structuredClone(state.records);
@@ -4531,7 +4674,7 @@ function careerRecordBookSummary(owner,metric){
   const years=careerRecordBookYears();
   const vals=years.map(y=>careerRecordBookValue(owner,y,metric)).filter(Number.isFinite);
   if(!vals.length)return {a:null,b:null};
-  if(metric==="PointsFor"){
+  if(metric==="PointsFor"||metric==="W"){
     return {a:vals.reduce((x,y)=>x+y,0),b:vals.reduce((x,y)=>x+y,0)/vals.length};
   }
   const avg=vals.reduce((x,y)=>x+y,0)/vals.length;
@@ -4540,7 +4683,7 @@ function careerRecordBookSummary(owner,metric){
 function careerRecordBookRank(owner,metric){
   const owners=careerRecordBookOwners();
   const rows=owners.map(o=>({owner:o,...careerRecordBookSummary(o,metric)})).filter(x=>Number.isFinite(x.a));
-  const higher=metric==="PointsFor";
+  const higher=metric==="PointsFor"||metric==="W";
   rows.sort((x,y)=>higher?y.a-x.a:x.a-y.a);
   const target=rows.find(x=>x.owner===owner);if(!target)return null;
   const better=rows.filter(x=>higher?x.a>target.a:x.a<target.a).length;
@@ -4551,7 +4694,7 @@ function careerRecordBookLeader(year,metric){
   const owners=careerRecordBookOwners();
   const values=owners.map(owner=>({owner,value:careerRecordBookValue(owner,year,metric)})).filter(x=>Number.isFinite(x.value));
   if(!values.length)return null;
-  const higher=metric==="PointsFor";
+  const higher=metric==="PointsFor"||metric==="W";
   return higher?Math.max(...values.map(x=>x.value)):Math.min(...values.map(x=>x.value));
 }
 function careerRecordBookFormat(value,metric){
@@ -4559,25 +4702,70 @@ function careerRecordBookFormat(value,metric){
   if(metric==="PointsFor")return Math.round(value).toLocaleString();
   return String(value);
 }
+function careerRecordSortDefaultDirection(metric,key){
+  if(key==="owner")return "asc";
+  // Higher is better for wins/points; lower is better for finishes/ranks/draft slot.
+  return (metric==="PointsFor"||metric==="W")?"desc":"asc";
+}
+function careerRecordSortValue(owner,key,metric){
+  if(key==="owner")return displayName(owner);
+  if(String(key).startsWith("year:")){
+    return careerRecordBookValue(owner,+String(key).split(":")[1],metric);
+  }
+  const summary=careerRecordBookSummary(owner,metric);
+  if(key==="summaryA")return summary.a;
+  if(key==="summaryB")return metric==="PointsFor"||metric==="W"?summary.b:null;
+  if(key==="rank"){
+    const label=careerRecordBookRank(owner,metric);
+    const m=String(label||"").match(/\d+/);
+    return m?+m[0]:null;
+  }
+  return null;
+}
+function careerRecordSortableHeader(label,key,metric){
+  const active=careerRecordBookSort.key===key;
+  const arrow=active?(careerRecordBookSort.direction==="asc"?"▲":"▼"):"";
+  return `<th class="career-record-sortable" data-record-sort="${key}" title="Sort by ${label}">${label}<span class="career-record-sort-arrow">${arrow}</span></th>`;
+}
 function renderCareerRecordBook(){
   const table=document.getElementById("careerRecordBookTable");if(!table)return;
-  const years=careerRecordBookYears(),owners=careerRecordBookOwners(),metric=careerRecordBookMetric;
+  const years=careerRecordBookYears(),metric=careerRecordBookMetric;
+  let owners=careerRecordBookOwners();
   const labels={
     PO_Finish:["Playoff Finish","Lower is better · career summary shows average playoff finish and rank."],
     RS_Finish:["Regular Season Finish","Lower is better · career summary shows average regular-season finish and rank."],
+    W:["Wins","Higher is better · career summary shows career wins and average wins per season."],
     DraftSlot:["Draft Position","Draft slot by season · lower means an earlier draft slot. Career summary shows average slot and rank."],
     PointsFor:["Total Points","Higher is better · career summary shows career points total and average points per season."],
     "Pts Rank":["Points Rank","Lower is better · career summary shows average points rank and career rank."]
   };
-  const [label,note]=labels[metric];
+  const [,note]=labels[metric];
   document.getElementById("careerRecordBookSubnote").textContent=note;
   document.querySelectorAll("[data-career-record]").forEach(b=>b.classList.toggle("active",b.dataset.careerRecord===metric));
 
-  const summaryHeads=metric==="PointsFor"
-    ?"<th>Career Total</th><th>Avg / Season</th>"
-    :"<th>Career Avg</th><th>Rank</th>";
+  if(careerRecordBookSort.key){
+    const {key,direction}=careerRecordBookSort;
+    owners=[...owners].sort((a,b)=>{
+      let av=careerRecordSortValue(a,key,metric),bv=careerRecordSortValue(b,key,metric);
+      const aMissing=av===null||av===undefined||Number.isNaN(av);
+      const bMissing=bv===null||bv===undefined||Number.isNaN(bv);
+      if(aMissing&&bMissing)return displayName(a).localeCompare(displayName(b));
+      if(aMissing)return 1;
+      if(bMissing)return -1;
+      let cmp;
+      if(typeof av==="string"||typeof bv==="string")cmp=String(av).localeCompare(String(bv));
+      else cmp=(+av)-(+bv);
+      if(cmp===0)cmp=displayName(a).localeCompare(displayName(b));
+      return direction==="asc"?cmp:-cmp;
+    });
+  }
 
-  let html=`<thead><tr><th class="owner-col">Owner</th>${years.map(y=>`<th>${y}</th>`).join("")}${summaryHeads}</tr></thead><tbody>`;
+  const totalStyle=metric==="PointsFor"||metric==="W";
+  const summaryHeads=totalStyle
+    ?careerRecordSortableHeader("Career Total","summaryA",metric)+careerRecordSortableHeader("Avg / Season","summaryB",metric)
+    :careerRecordSortableHeader("Career Avg","summaryA",metric)+careerRecordSortableHeader("Rank","rank",metric);
+
+  let html=`<thead><tr>${careerRecordSortableHeader("Owner","owner",metric)}${years.map(y=>careerRecordSortableHeader(String(y),`year:${y}`,metric)).join("")}${summaryHeads}</tr></thead><tbody>`;
   owners.forEach(owner=>{
     const summary=careerRecordBookSummary(owner,metric);
     html+=`<tr><td class="owner-col">${displayName(owner)}</td>`;
@@ -4586,24 +4774,34 @@ function renderCareerRecordBook(){
       const isLeader=Number.isFinite(v)&&v===leader;
       html+=`<td class="${isLeader?"season-leader":""}">${careerRecordBookFormat(v,metric)}</td>`;
     });
-    if(metric==="PointsFor"){
-      html+=`<td class="summary-cell">${Math.round(summary.a||0).toLocaleString()}</td><td class="summary-cell">${Math.round(summary.b||0).toLocaleString()}</td>`;
+    if(totalStyle){
+      html+=`<td class="summary-cell">${metric==="PointsFor"?Math.round(summary.a||0).toLocaleString():Math.round(summary.a||0)}</td><td class="summary-cell">${Number.isFinite(summary.b)?(metric==="PointsFor"?Math.round(summary.b).toLocaleString():summary.b.toFixed(2)):"—"}</td>`;
     }else{
       html+=`<td class="summary-cell">${Number.isFinite(summary.a)?summary.a.toFixed(2):"—"}</td><td class="summary-cell">${careerRecordBookRank(owner,metric)||"—"}</td>`;
     }
     html+="</tr>";
   });
 
-  if(metric==="PointsFor"){
+  if(metric==="PointsFor"||metric==="W"){
     html+=`<tr class="league-total-row"><td class="owner-col">League Total</td>${years.map(year=>{
       const total=owners.map(o=>careerRecordBookValue(o,year,metric)).filter(Number.isFinite).reduce((a,b)=>a+b,0);
-      return `<td>${Math.round(total).toLocaleString()}</td>`;
+      return `<td>${metric==="PointsFor"?Math.round(total).toLocaleString():Math.round(total)}</td>`;
     }).join("")}<td colspan="2">—</td></tr>`;
   }
   html+="</tbody>";
   table.innerHTML=html;
-}
 
+  table.querySelectorAll("[data-record-sort]").forEach(th=>th.addEventListener("click",()=>{
+    const key=th.dataset.recordSort;
+    if(careerRecordBookSort.key===key){
+      careerRecordBookSort.direction=careerRecordBookSort.direction==="asc"?"desc":"asc";
+    }else{
+      careerRecordBookSort.key=key;
+      careerRecordBookSort.direction=careerRecordSortDefaultDirection(metric,key);
+    }
+    renderCareerRecordBook();
+  }));
+}
 function renderCareerResume(){
   const all=careerResumeData();
   if(!careerSelectedOwner || !all.some(r=>r.owner===careerSelectedOwner)){
@@ -8066,10 +8264,14 @@ function playoffOwnerRecords(filter){
     const l=decisions.filter(e=>e.outcome==="Loss").length;
     const titles=summaries.filter(s=>playoffOwnerKey(s.champion)===owner).length;
     const finals=summaries.filter(s=>playoffOwnerKey(s.champion)===owner||playoffOwnerKey(s.runnerUp)===owner).length;
+    const hfaPoints=all
+      .filter(e=>+e.year>=2019)
+      .reduce((sum,e)=>sum+(Number(e.hfa)||0),0);
     return {
       owner,gp:decisions.length,w,l,pct:decisions.length?w/decisions.length:0,
       avgPoints:scored.length?scored.reduce((sum,e)=>sum+Number(e.finalScore),0)/scored.length:null,
-      titles,finals,totalPoints:scored.reduce((sum,e)=>sum+Number(e.finalScore),0),scoredGames:scored.length
+      titles,finals,totalPoints:scored.reduce((sum,e)=>sum+Number(e.finalScore),0),scoredGames:scored.length,
+      hfaPoints
     };
   });
 }
@@ -8100,7 +8302,8 @@ function playoffRecordTotals(rows,showTitles){
   const avgPoints=scoredGames?totalPoints/scoredGames:null;
   const finals=rows.reduce((s,r)=>s+r.finals,0);
   const titles=rows.reduce((s,r)=>s+r.titles,0);
-  return {gp,w,l,pct,avgPoints,finals,titles};
+  const hfaPoints=rows.reduce((s,r)=>s+(Number(r.hfaPoints)||0),0);
+  return {gp,w,l,pct,avgPoints,finals,titles,hfaPoints};
 }
 function playoffRecordTable(rows,showTitles,tableType){
   const sorted=playoffSortedRows(rows,tableType);
@@ -8112,10 +8315,11 @@ function playoffRecordTable(rows,showTitles,tableType){
     ${playoffRecordHeader("L","l",tableType)}
     ${playoffRecordHeader("Win %","pct",tableType)}
     ${playoffRecordHeader("Avg Points","avgPoints",tableType)}
+    ${playoffRecordHeader("HFA Pts","hfaPoints",tableType)}
     ${showTitles?playoffRecordHeader("Finals","finals",tableType)+playoffRecordHeader("Titles","titles",tableType):""}
   </tr></thead><tbody>
-    ${sorted.map(r=>`<tr><td>${playoffOwnerLabel(r.owner)}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.l}</td><td>${(r.pct*100).toFixed(1)}%</td><td>${Number.isFinite(r.avgPoints)?r.avgPoints.toFixed(2):"—"}</td>${showTitles?`<td>${r.finals}</td><td>${r.titles}</td>`:""}</tr>`).join("")}
-    <tr class="playoff-total-row"><td>Total</td><td>${totals.gp}</td><td>${totals.w}</td><td>${totals.l}</td><td>${(totals.pct*100).toFixed(1)}%</td><td>${Number.isFinite(totals.avgPoints)?totals.avgPoints.toFixed(2):"—"}</td>${showTitles?`<td>${totals.finals}</td><td>${totals.titles}</td>`:""}</tr>
+    ${sorted.map(r=>`<tr><td>${playoffOwnerLabel(r.owner)}</td><td>${r.gp}</td><td>${r.w}</td><td>${r.l}</td><td>${(r.pct*100).toFixed(1)}%</td><td>${Number.isFinite(r.avgPoints)?r.avgPoints.toFixed(2):"—"}</td><td class="playoff-hfa-career">${Number(r.hfaPoints||0).toFixed(1)}</td>${showTitles?`<td>${r.finals}</td><td>${r.titles}</td>`:""}</tr>`).join("")}
+    <tr class="playoff-total-row"><td>Total</td><td>${totals.gp}</td><td>${totals.w}</td><td>${totals.l}</td><td>${(totals.pct*100).toFixed(1)}%</td><td>${Number.isFinite(totals.avgPoints)?totals.avgPoints.toFixed(2):"—"}</td><td>${Number(totals.hfaPoints||0).toFixed(1)}</td>${showTitles?`<td>${totals.finals}</td><td>${totals.titles}</td>`:""}</tr>
   </tbody></table>`;
 }
 function bindPlayoffRecordSort(){
@@ -9433,11 +9637,31 @@ function survivalWhiff(){
  handleSurvivalWhiff();
 }
 
+function navGroupForView(viewName){
+ if(["matrix","journey","audit","data"].includes(viewName))return "career";
+ if(["draftHub","draftLab","mockDraftLab"].includes(viewName))return "draft";
+ if(["triviaStudio","draftNightLive"].includes(viewName))return "gameNight";
+ return null;
+}
+function navCloseMenus(){
+ document.querySelectorAll("[data-nav-dropdown]").forEach(d=>d.classList.remove("open"));
+ document.querySelectorAll("[data-nav-menu]").forEach(b=>b.classList.remove("menu-open"));
+}
+function navSetActive(viewName){
+ document.querySelectorAll(".nav-preview .nav-direct,.nav-preview .nav-menu-button").forEach(x=>x.classList.remove("active"));
+ const direct=document.querySelector(`.nav-preview .nav-direct[data-view="${viewName}"]`);
+ if(direct)direct.classList.add("active");
+ const group=navGroupForView(viewName);
+ if(group){
+   const parent=document.querySelector(`.nav-preview [data-nav-menu="${group}"]`);
+   if(parent)parent.classList.add("active");
+ }
+}
 function openView(viewName){
  const button=document.querySelector(`.nav button[data-view="${viewName}"]`);
  if(!button || button.hidden)return;
- document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));
- button.classList.add("active");
+ navCloseMenus();
+ navSetActive(viewName);
  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
  const view=document.getElementById(viewName);
  if(view)view.classList.add("active");
@@ -9462,7 +9686,7 @@ function setCommissionerMode(enabled,announce=true){
  if(labTab)labTab.hidden=!commissionerMode;
  sessionStorage.setItem("bigBoardCommissionerMode",commissionerMode?"on":"off");
  if(!commissionerMode && (document.getElementById("data")?.classList.contains("active") || document.getElementById("draftLab")?.classList.contains("active"))){
-   openView("matrix");
+   openView("presentation");
  }
  if(announce){
    alert(commissionerMode
@@ -9479,19 +9703,24 @@ document.addEventListener("keydown",event=>{
  }
 });
 
-document.querySelectorAll(".nav button").forEach(b=>b.addEventListener("click",()=>{
- document.querySelectorAll(".nav button").forEach(x=>x.classList.remove("active"));b.classList.add("active");
- document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));document.getElementById(b.dataset.view).classList.add("active");
- if(b.dataset.view==="journey") renderJourney(); else journeyStop();
- if(b.dataset.view==="draftHub") renderDraftHub();
- if(b.dataset.view==="draftLab") renderDraftLab();
- if(b.dataset.view==="glossary") renderGlossary();
- if(b.dataset.view==="weeklyAnalytics") openWeeklyAnalytics();
- if(b.dataset.view==="playoffHub") openPlayoffHub();
- if(b.dataset.view==="survivorHub") openSurvivorHub();
- if(b.dataset.view==="triviaStudio") renderTriviaStudio();
- if(b.dataset.view==="draftNightLive") renderDraftNightLive();
+document.querySelectorAll(".nav-preview [data-view]").forEach(b=>b.addEventListener("click",event=>{
+ event.stopPropagation();
+ openView(b.dataset.view);
 }));
+document.querySelectorAll(".nav-preview [data-nav-menu]").forEach(b=>b.addEventListener("click",event=>{
+ event.stopPropagation();
+ const key=b.dataset.navMenu;
+ const dropdown=document.querySelector(`[data-nav-dropdown="${key}"]`);
+ const opening=dropdown&&!dropdown.classList.contains("open");
+ navCloseMenus();
+ if(opening){dropdown.classList.add("open");b.classList.add("menu-open");}
+}));
+document.addEventListener("click",event=>{
+ if(!event.target.closest(".nav-menu"))navCloseMenus();
+});
+document.addEventListener("keydown",event=>{
+ if(event.key==="Escape")navCloseMenus();
+});
 
 
 
@@ -9642,6 +9871,7 @@ document.querySelectorAll("[data-career-history-mode]").forEach(btn=>btn.addEven
 }));
 document.querySelectorAll("[data-career-record]").forEach(btn=>btn.addEventListener("click",()=>{
   careerRecordBookMetric=btn.dataset.careerRecord;
+  careerRecordBookSort={key:null,direction:null};
   renderCareerRecordBook();
 }));
 document.getElementById("togglePoints").addEventListener("click",e=>{pointMode=!pointMode;e.target.textContent=pointMode?"Show Raw Totals":"Show Point Contributions";renderMatrix()});
