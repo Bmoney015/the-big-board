@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "5.11.0",
+  "schemaVersion": "5.11.2",
   "categories": [
     "Draft Classes",
     "Draft Fallout",
@@ -8277,7 +8277,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2010?",
       "choices": [
         "Mac",
@@ -8294,7 +8294,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2010?",
       "choices": [
         "2muchrookiefilm",
@@ -8627,7 +8627,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2011?",
       "choices": [
         "Adrian",
@@ -8644,7 +8644,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2011?",
       "choices": [
         "Corn on the Cobb",
@@ -8977,7 +8977,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2012?",
       "choices": [
         "Dan",
@@ -8994,7 +8994,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2012?",
       "choices": [
         "City of Black Out",
@@ -9327,7 +9327,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2013?",
       "choices": [
         "Adrian",
@@ -9344,7 +9344,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2013?",
       "choices": [
         "Jaspers",
@@ -9677,7 +9677,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2014?",
       "choices": [
         "Habble",
@@ -9694,7 +9694,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2014?",
       "choices": [
         "GrinchStoleGronk",
@@ -10027,7 +10027,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2015?",
       "choices": [
         "Sam",
@@ -10044,7 +10044,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "sicko",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2015?",
       "choices": [
         "Keenan & Kelories",
@@ -10272,7 +10272,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "Who was \"#Dan&BenVSTheWorld\" in 2016?",
       "choices": [
         "Ben",
@@ -10289,7 +10289,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "What was Ben's team name in 2016?",
       "choices": [
         "Fat Boy Swan Song #PaChumpo",
@@ -10377,7 +10377,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2016?",
       "choices": [
         "Dan",
@@ -10394,7 +10394,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2016?",
       "choices": [
         "Saved By The Bell?",
@@ -10727,7 +10727,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2017?",
       "choices": [
         "Sam",
@@ -10744,7 +10744,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2017?",
       "choices": [
         "Jaspers",
@@ -11077,7 +11077,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2018?",
       "choices": [
         "Zac",
@@ -11094,7 +11094,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2018?",
       "choices": [
         "Truth and Justice",
@@ -11427,7 +11427,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2019?",
       "choices": [
         "Ben",
@@ -11444,7 +11444,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2019?",
       "choices": [
         "KittlesNTrubiscuits",
@@ -11777,7 +11777,7 @@
       "category": "Team Names",
       "questionFamily": "teamNameToOwner",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "Who was \"Jaspers\" in 2020?",
       "choices": [
         "Dan",
@@ -11794,7 +11794,7 @@
       "category": "Team Names",
       "questionFamily": "ownerYearToTeamName",
       "pairFamily": "teamNames",
-      "difficulty": "competitive",
+      "difficulty": "casual",
       "prompt": "What was Dan's team name in 2020?",
       "choices": [
         "G5 Sittin OnDaRunway",
@@ -309832,6 +309832,7 @@
     },
     "absencePremiseGuard": "Runtime validation cross-checks 'undrafted' and 'never drafted' premises against historical draft records before allowing the question.",
     "ownerCanonicalName": "Adrian",
-    "teamNameTrivia": "Shared bank; Owner+Year distractors exclude same-owner names within \u00b15 seasons."
+    "teamNameTrivia": "Shared bank; Owner+Year distractors exclude same-owner names within \u00b15 seasons.",
+    "teamNameDifficultyOverrides": "All Team Names questions involving Dan or Jaspers are Casual."
   }
 }

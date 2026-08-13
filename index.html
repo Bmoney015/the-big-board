@@ -3212,6 +3212,33 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 }
 
 /* v5.11.0 */.playoff-record-controls{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:12px;padding:14px 16px;border:1px solid #d3ccbf;border-radius:10px;background:#f4f0e7}.playoff-record-controls h3{margin:2px 0 4px}.playoff-record-controls p{margin:0;color:#66717a;font-size:10px}.playoff-record-controls label{display:grid;gap:4px;font-size:9px;font-weight:900;text-transform:uppercase;color:#5d6670}.playoff-record-controls select{min-width:170px;padding:8px 9px;border:1px solid #b8b0a3;border-radius:7px;background:#fff;color:#17212b;font-weight:800}.dnl-footer{flex-wrap:wrap}#dnlReset{border-color:#735d32;background:#211d15;color:#e6cf91}.dnl-team .dnl-chips{min-height:72px}
+
+/* v5.11.2 — Trivia category bulk controls */
+.trivia-category-actions{
+  display:inline-flex;
+  gap:6px;
+  margin-left:10px;
+  vertical-align:middle;
+}
+.trivia-category-actions.standalone{
+  display:flex;
+  margin:0 0 8px 0;
+}
+.trivia-category-actions button{
+  border:1px solid #6d7880;
+  background:#18232b;
+  color:#dce4e8;
+  border-radius:7px;
+  padding:5px 9px;
+  font-size:9px;
+  font-weight:850;
+  cursor:pointer;
+}
+.trivia-category-actions button:hover{
+  border-color:#c7a75c;
+  color:#f1d37a;
+}
+
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -3282,7 +3309,7 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 }
 </style>
 
-<!-- v5.11.1 Team Names Trivia Studio UI Patch -->
+<!-- v5.11.2 Trivia Category Controls + Dan/Jaspers Difficulty Override -->
 </head>
 <body>
 <header>
@@ -3810,7 +3837,10 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
             <label><input type="checkbox" value="sicko"> Sicko</label>
           </div></div>
         </div>
-        <div class="trivia-category-wrap"><div class="trivia-label">Categories</div><div id="triviaCategoryChecks" class="trivia-category-checks"></div></div>
+        <div class="trivia-category-wrap"><div class="trivia-label">Categories</div><div class="trivia-category-actions">
+      <button type="button" id="triviaSelectAllCats">Select All</button>
+      <button type="button" id="triviaDeselectAllCats">Deselect All</button>
+    </div><div id="triviaCategoryChecks" class="trivia-category-checks"></div></div>
       </div>
 
       <div id="triviaTeamBuilder" class="hidden">
@@ -9647,10 +9677,16 @@ function setTriviaMode(mode){
  document.getElementById("triviaSurvivalControls").classList.toggle("hidden",mode!=="survival");
  document.getElementById("triviaGenerate").textContent=mode==="survival"?"Start Survival Round":"Generate Trivia Night";
 }
+
+function setAllTriviaCategories(checked){
+  document.querySelectorAll("#triviaCategoryChecks input[type='checkbox']").forEach(cb=>cb.checked=checked);
+}
 async function renderTriviaStudio(){
  await ensureTriviaLoaded();
  const wrap=document.getElementById("triviaCategoryChecks");
  if(wrap&&!wrap.children.length)wrap.innerHTML=TRIVIA_DATA.categories.map(c=>`<label class="trivia-category-chip"><input type="checkbox" value="${c}" checked> ${c}</label>`).join("");
+ document.getElementById("triviaSelectAllCats").onclick=()=>setAllTriviaCategories(true);
+ document.getElementById("triviaDeselectAllCats").onclick=()=>setAllTriviaCategories(false);
  if(!triviaTeams.A.length)initTriviaTeams();
  populateSurvivalRounds();
  document.getElementById("triviaBankMeta").textContent=`${TRIVIA_DATA.questions.length} multiple-choice questions · ${TRIVIA_DATA.survivalRounds?.length||0} survival rounds`;
