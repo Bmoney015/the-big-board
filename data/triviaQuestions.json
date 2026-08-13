@@ -1,5 +1,5 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "5.11.0",
   "categories": [
     "Draft Classes",
     "Draft Fallout",
@@ -39,7 +39,7 @@
         "DeAndre Hopkins"
       ],
       "answer": "Adrian Peterson",
-      "explanation": "Bubbs Peterson was drafted in Round 1 6 times.",
+      "explanation": "Adrian Peterson was drafted in Round 1 6 times.",
       "choiceFeedback": {}
     },
     {
@@ -449,7 +449,7 @@
       "prompt": "Who drafted Arian Foster in 2010 before a RB1 finish?",
       "choices": [
         "Sam",
-        "Bubbs",
+        "Adrian",
         "Zac",
         "Habble"
       ],
@@ -464,7 +464,7 @@
       "prompt": "Who drafted Devonta Freeman in 2015 before a RB1 finish?",
       "choices": [
         "Zac",
-        "Bubbs",
+        "Adrian",
         "Habble",
         "Bob"
       ],
@@ -524,7 +524,7 @@
       "prompt": "Who drafted Raheem Mostert in 2023 before a RB2 finish?",
       "choices": [
         "Bob",
-        "Bubbs",
+        "Adrian",
         "Ben",
         "Mac"
       ],
@@ -538,7 +538,7 @@
       "category": "Draft Steals",
       "prompt": "Who drafted Lamar Jackson in 2019 before a QB1 finish?",
       "choices": [
-        "Bubbs",
+        "Adrian",
         "Sam",
         "Zac",
         "Mac"
@@ -616,10 +616,10 @@
         "Dan",
         "Zac",
         "Mac",
-        "Bubbs"
+        "Adrian"
       ],
-      "answer": "Bubbs",
-      "explanation": "Bubbs selected Deebo Samuel at pick #77 (8.7).",
+      "answer": "Adrian",
+      "explanation": "Adrian selected Deebo Samuel at pick #77 (8.7).",
       "choiceFeedback": {}
     },
     {
@@ -646,7 +646,7 @@
         "Dan",
         "Sam",
         "Bob",
-        "Bubbs"
+        "Adrian"
       ],
       "answer": "Bob",
       "explanation": "Bob selected Cam Newton at pick #115 (12.5).",
@@ -659,7 +659,7 @@
       "prompt": "Who drafted Knowshon Moreno in 2013 before a RB5 finish?",
       "choices": [
         "Bob",
-        "Bubbs",
+        "Adrian",
         "Zac",
         "Sam"
       ],
@@ -814,7 +814,7 @@
         "Allen Robinson"
       ],
       "answer": "Allen Robinson",
-      "explanation": "Allen Robinson was taken at pick #76 by Bubbs.",
+      "explanation": "Allen Robinson was taken at pick #76 by Adrian.",
       "choiceFeedback": {}
     },
     {
@@ -829,7 +829,7 @@
         "Jamaal Williams"
       ],
       "answer": "Jamaal Williams",
-      "explanation": "Jamaal Williams was taken at pick #108 by Bubbs.",
+      "explanation": "Jamaal Williams was taken at pick #108 by Adrian.",
       "choiceFeedback": {}
     },
     {
@@ -961,12 +961,12 @@
         "Bob",
         "Cory",
         "Habble",
-        "Bubbs"
+        "Adrian"
       ],
-      "answer": "Bubbs",
-      "explanation": "Bubbs's 2010 draft graded 80.6, best in the league. That class helped produce a 6th-place playoff finish.",
+      "answer": "Adrian",
+      "explanation": "Adrian's 2010 draft graded 80.6, best in the league. That class helped produce a 6th-place playoff finish.",
       "choiceFeedback": {
-        "Bubbs": "Bubbs's 2010 draft graded 80.6, best in the league. That class helped produce a 6th-place playoff finish."
+        "Bubbs": "Adrian's 2010 draft graded 80.6, best in the league. That class helped produce a 6th-place playoff finish."
       }
     },
     {
@@ -1045,13 +1045,13 @@
       "choices": [
         "Ben",
         "Habble",
-        "Bubbs",
+        "Adrian",
         "Dan"
       ],
-      "answer": "Bubbs",
-      "explanation": "Bubbs's 2015 draft graded 90.2, best in the league. Whoops \u2014 that draft class ultimately ended in a 7th-place finish.",
+      "answer": "Adrian",
+      "explanation": "Adrian's 2015 draft graded 90.2, best in the league. Whoops \u2014 that draft class ultimately ended in a 7th-place finish.",
       "choiceFeedback": {
-        "Bubbs": "Bubbs's 2015 draft graded 90.2, best in the league. Whoops \u2014 that draft class ultimately ended in a 7th-place finish."
+        "Bubbs": "Adrian's 2015 draft graded 90.2, best in the league. Whoops \u2014 that draft class ultimately ended in a 7th-place finish."
       }
     },
     {
@@ -1687,12 +1687,12 @@
         "Aaron Rodgers"
       ],
       "answer": "Aaron Rodgers",
-      "explanation": "Aaron Rodgers went #1 overall to Bubbs in 2012. Nailed it \u2014 he finished QB2.",
+      "explanation": "Aaron Rodgers went #1 overall to Adrian in 2012. Nailed it \u2014 he finished QB2.",
       "choiceFeedback": {
         "Michael Vick": "Michael Vick was selected #8 by Zac in 2012.",
         "Chris Johnson": "Chris Johnson was selected #9 by Bob in 2012.",
         "Darren McFadden": "Darren McFadden was selected #11 by Habble in 2012.",
-        "Aaron Rodgers": "Aaron Rodgers went #1 overall to Bubbs in 2012."
+        "Aaron Rodgers": "Aaron Rodgers went #1 overall to Adrian in 2012."
       }
     },
     {
@@ -1701,13 +1701,13 @@
       "category": "Draft History",
       "prompt": "Who selected Aaron Rodgers #1 overall in 2012?",
       "choices": [
-        "Bubbs",
+        "Adrian",
         "Mac",
         "Habble",
         "RJ"
       ],
-      "answer": "Bubbs",
-      "explanation": "Bubbs owned the #1 pick and selected Aaron Rodgers in 2012. Nailed it \u2014 he finished QB2."
+      "answer": "Adrian",
+      "explanation": "Adrian owned the #1 pick and selected Aaron Rodgers in 2012. Nailed it \u2014 he finished QB2."
     },
     {
       "id": "one_overall_player_2013",
@@ -1721,27 +1721,27 @@
         "Adrian Peterson"
       ],
       "answer": "Adrian Peterson",
-      "explanation": "Adrian Peterson went #1 overall to Bubbs in 2013. Strong return \u2014 he finished RB8.",
+      "explanation": "Adrian Peterson went #1 overall to Adrian in 2013. Strong return \u2014 he finished RB8.",
       "choiceFeedback": {
         "Drew Brees": "Drew Brees was selected #2 by Mac in 2013.",
         "Cam Newton": "Cam Newton was selected #5 by Zac in 2013.",
         "Jamaal Charles": "Jamaal Charles was selected #8 by Bob in 2013.",
-        "Adrian Peterson": "Bubbs Peterson went #1 overall to Bubbs in 2013."
+        "Adrian Peterson": "Adrian Peterson went #1 overall to Adrian in 2013."
       }
     },
     {
       "id": "one_overall_owner_2013",
       "difficulty": "competitive",
       "category": "Draft History",
-      "prompt": "Who selected Bubbs Peterson #1 overall in 2013?",
+      "prompt": "Who selected Adrian Peterson #1 overall in 2013?",
       "choices": [
         "Dan",
-        "Bubbs",
+        "Adrian",
         "Habble",
         "Mac"
       ],
-      "answer": "Bubbs",
-      "explanation": "Bubbs owned the #1 pick and selected Adrian Peterson in 2013. Strong return \u2014 he finished RB8."
+      "answer": "Adrian",
+      "explanation": "Adrian owned the #1 pick and selected Adrian Peterson in 2013. Strong return \u2014 he finished RB8."
     },
     {
       "id": "one_overall_player_2014",
@@ -1792,7 +1792,7 @@
       "explanation": "Andrew Luck went #1 overall to Mac in 2015. Yikes \u2014 he finished just QB28.",
       "choiceFeedback": {
         "Aaron Rodgers": "Aaron Rodgers was selected #3 by Ben in 2015.",
-        "Adrian Peterson": "Bubbs Peterson was selected #5 by Bubbs in 2015.",
+        "Adrian Peterson": "Adrian Peterson was selected #5 by Adrian in 2015.",
         "Andrew Luck": "Andrew Luck went #1 overall to Mac in 2015.",
         "C.J. Anderson": "C.J. Anderson was selected #6 by Sam in 2015."
       }
@@ -1803,7 +1803,7 @@
       "category": "Draft History",
       "prompt": "Who selected Andrew Luck #1 overall in 2015?",
       "choices": [
-        "Bubbs",
+        "Adrian",
         "Sam",
         "Zac",
         "Mac"
@@ -1827,8 +1827,8 @@
       "choiceFeedback": {
         "Lamar Miller": "Lamar Miller was selected #8 by Habble in 2016.",
         "Antonio Brown": "Antonio Brown went #1 overall to Sam in 2016.",
-        "David Johnson": "David Johnson was selected #9 by Bubbs in 2016.",
-        "Dez Bryant": "Dez Bryant was selected #12 by Bubbs in 2016."
+        "David Johnson": "David Johnson was selected #9 by Adrian in 2016.",
+        "Dez Bryant": "Dez Bryant was selected #12 by Adrian in 2016."
       }
     },
     {
@@ -1905,7 +1905,7 @@
       "category": "Draft History",
       "prompt": "Who selected Christian McCaffrey #1 overall in 2019?",
       "choices": [
-        "Bubbs",
+        "Adrian",
         "Sam",
         "Habble",
         "Dan"
@@ -1973,7 +1973,7 @@
       "category": "Draft History",
       "prompt": "Who selected Patrick Mahomes #1 overall in 2021?",
       "choices": [
-        "Bubbs",
+        "Adrian",
         "Cory",
         "Sam",
         "Bob"
@@ -2010,7 +2010,7 @@
         "Mac",
         "Ben",
         "Dan",
-        "Bubbs"
+        "Adrian"
       ],
       "answer": "Ben",
       "explanation": "Ben owned the #1 pick and selected Johnathan Taylor in 2022. Yikes \u2014 he finished just RB36."
@@ -2090,7 +2090,7 @@
       "prompt": "Who was selected #1 overall in the 2025 league draft?",
       "choices": [
         "Josh Allen",
-        "CMC",
+        "Christian McCaffrey",
         "Jalen Hurts",
         "Jahmyr Gibbs"
       ],
@@ -2111,7 +2111,7 @@
       "choices": [
         "Zac",
         "RJ",
-        "Bubbs",
+        "Adrian",
         "Dan"
       ],
       "answer": "Dan",
@@ -2222,7 +2222,7 @@
       "prompt": "Who completed the Reverse Triple Crown in 2013 \u2014 last in the regular season, last in points, and last in the playoffs?",
       "choices": [
         "Habble",
-        "Bubbs",
+        "Adrian",
         "Sam",
         "RJ"
       ],
@@ -2263,7 +2263,7 @@
       "category": "League History",
       "prompt": "Who completed the Reverse Triple Crown in 2024 \u2014 last in the regular season, last in points, and last in the playoffs?",
       "choices": [
-        "Bubbs",
+        "Adrian",
         "Zac",
         "Mac",
         "Habble"
@@ -2399,7 +2399,7 @@
       "id": "title_drought_adrian",
       "difficulty": "sicko",
       "category": "League History",
-      "prompt": "What is Bubbs's longest championship drought?",
+      "prompt": "What is Adrian's longest championship drought?",
       "choices": [
         "15",
         "16",
@@ -2407,7 +2407,7 @@
         "18"
       ],
       "answer": "16",
-      "explanation": "Bubbs's longest run is 16 seasons (2010\u20132025)."
+      "explanation": "Adrian's longest run is 16 seasons (2010\u20132025)."
     },
     {
       "id": "title_drought_bob",
@@ -2469,7 +2469,7 @@
       "id": "postseason_win_drought_adrian",
       "difficulty": "sicko",
       "category": "League History",
-      "prompt": "What is Bubbs's longest stretch without a postseason victory?",
+      "prompt": "What is Adrian's longest stretch without a postseason victory?",
       "choices": [
         "3",
         "5",
@@ -2477,7 +2477,7 @@
         "7"
       ],
       "answer": "5",
-      "explanation": "Bubbs's longest run is 5 seasons (2013\u20132017)."
+      "explanation": "Adrian's longest run is 5 seasons (2013\u20132017)."
     },
     {
       "id": "record_podium_streak",
@@ -2488,7 +2488,7 @@
         "Dan",
         "Zac",
         "Ben",
-        "Bubbs"
+        "Adrian"
       ],
       "answer": "Zac",
       "explanation": "Zac's record is 4 seasons (2018\u20132021).",
@@ -2496,7 +2496,7 @@
         "Dan": "Dan's longest mark is 2 seasons (2010\u20132011).",
         "Zac": "Zac's record is 4 seasons (2018\u20132021).",
         "Ben": "Ben's longest mark is 2 seasons (2012\u20132013).",
-        "Bubbs": "Bubbs's longest mark is 2 seasons (2022\u20132023)."
+        "Bubbs": "Adrian's longest mark is 2 seasons (2022\u20132023)."
       }
     },
     {
@@ -2531,7 +2531,7 @@
       "id": "podium_streak_adrian",
       "difficulty": "sicko",
       "category": "League History",
-      "prompt": "What is Bubbs's career-best run of consecutive podium finishes?",
+      "prompt": "What is Adrian's career-best run of consecutive podium finishes?",
       "choices": [
         "1",
         "3",
@@ -2539,7 +2539,7 @@
         "2"
       ],
       "answer": "2",
-      "explanation": "Bubbs's longest run is 2 seasons (2022\u20132023)."
+      "explanation": "Adrian's longest run is 2 seasons (2022\u20132023)."
     },
     {
       "id": "record_podium_drought",
@@ -2548,7 +2548,7 @@
       "prompt": "Who owns the league record for the most seasons without a podium finish?",
       "choices": [
         "Habble",
-        "Bubbs",
+        "Adrian",
         "Sam",
         "Ben"
       ],
@@ -2556,7 +2556,7 @@
       "explanation": "Ben's record is 9 seasons (2014\u20132022).",
       "choiceFeedback": {
         "Habble": "Habble's longest mark is 3 seasons (2021\u20132023).",
-        "Bubbs": "Bubbs's longest mark is 8 seasons (2010\u20132017).",
+        "Bubbs": "Adrian's longest mark is 8 seasons (2010\u20132017).",
         "Sam": "Sam's longest mark is 6 seasons (2013\u20132018).",
         "Ben": "Ben's record is 9 seasons (2014\u20132022)."
       }
@@ -2579,7 +2579,7 @@
       "id": "podium_drought_adrian",
       "difficulty": "sicko",
       "category": "League History",
-      "prompt": "What is Bubbs's longest podium drought?",
+      "prompt": "What is Adrian's longest podium drought?",
       "choices": [
         "8",
         "6",
@@ -2587,7 +2587,7 @@
         "9"
       ],
       "answer": "8",
-      "explanation": "Bubbs's longest run is 8 seasons (2010\u20132017)."
+      "explanation": "Adrian's longest run is 8 seasons (2010\u20132017)."
     },
     {
       "id": "podium_drought_mac",
@@ -2745,7 +2745,7 @@
       "id": "top3_rs_streak_adrian",
       "difficulty": "sicko",
       "category": "League History",
-      "prompt": "What is Bubbs's career-best run of consecutive Top-3 regular-season finishes?",
+      "prompt": "What is Adrian's career-best run of consecutive Top-3 regular-season finishes?",
       "choices": [
         "4",
         "2",
@@ -2753,7 +2753,7 @@
         "1"
       ],
       "answer": "2",
-      "explanation": "Bubbs's longest run is 2 seasons (2011\u20132012)."
+      "explanation": "Adrian's longest run is 2 seasons (2011\u20132012)."
     },
     {
       "id": "top3_rs_streak_ben",
@@ -2773,7 +2773,7 @@
       "id": "most_points_drought_adrian",
       "difficulty": "sicko",
       "category": "League History",
-      "prompt": "What is Bubbs's longest Most-Points drought?",
+      "prompt": "What is Adrian's longest Most-Points drought?",
       "choices": [
         "16",
         "17",
@@ -2781,7 +2781,7 @@
         "14"
       ],
       "answer": "16",
-      "explanation": "Bubbs's longest run is 16 seasons (2010\u20132025)."
+      "explanation": "Adrian's longest run is 16 seasons (2010\u20132025)."
     },
     {
       "id": "most_points_drought_dan",
@@ -2981,7 +2981,7 @@
       "cards": [
         {
           "overallPick": 39,
-          "owner": "Bubbs",
+          "owner": "Adrian",
           "player": "Eli Manning",
           "position": "QB"
         },
@@ -2999,7 +2999,7 @@
         },
         {
           "overallPick": 42,
-          "owner": "Bubbs",
+          "owner": "Adrian",
           "player": "Brandon Marshall",
           "position": "WR"
         },
@@ -3421,7 +3421,7 @@
         },
         {
           "overallPick": 5,
-          "owner": "Bubbs",
+          "owner": "Adrian",
           "player": "Adrian Peterson",
           "position": "RB"
         }
@@ -3525,7 +3525,7 @@
         },
         {
           "overallPick": 89,
-          "owner": "Bubbs",
+          "owner": "Adrian",
           "player": "DeVante Parker",
           "position": "WR"
         }
@@ -3733,7 +3733,7 @@
         },
         {
           "overallPick": 27,
-          "owner": "Bubbs",
+          "owner": "Adrian",
           "player": "Damien Williams",
           "position": "RB"
         }
@@ -4027,7 +4027,7 @@
         },
         {
           "overallPick": 61,
-          "owner": "Bubbs",
+          "owner": "Adrian",
           "player": "Marquise Brown",
           "position": "WR"
         },
@@ -4137,7 +4137,7 @@
         },
         {
           "overallPick": 66,
-          "owner": "Bubbs",
+          "owner": "Adrian",
           "player": null,
           "position": "RB"
         },
@@ -4161,7 +4161,7 @@
         "Terry McLaurin"
       ],
       "answer": "Cam Akers",
-      "explanation": "Bubbs selected Cam Akers #66 overall in 2023. Yikes \u2014 he finished just RB68."
+      "explanation": "Adrian selected Cam Akers #66 overall in 2023. Yikes \u2014 he finished just RB68."
     },
     {
       "id": "visual_owner_2024_17",
@@ -4339,7 +4339,7 @@
         },
         {
           "overallPick": 16,
-          "owner": "Bubbs",
+          "owner": "Adrian",
           "player": "Nico Collins",
           "position": "WR"
         },
@@ -4366,7 +4366,7 @@
         "Devon Achane",
         "Joe Burrow",
         "Chase Brown",
-        "CMC"
+        "Christian McCaffrey"
       ],
       "answer": "Devon Achane",
       "explanation": "Zac selected Devon Achane #17 overall in 2025. Strong return \u2014 he finished RB7."
@@ -6189,126 +6189,6 @@
         "Justin Herbert": "Justin Herbert was drafted #69 in 2025 and finished QB10.",
         "Baker Mayfield": "Baker Mayfield was drafted #46 in 2025 and finished QB12.",
         "Patrick Mahomes": "Patrick Mahomes was drafted #20 in 2025 and finished QB11."
-      }
-    },
-    {
-      "id": "undrafted_mc_2025_RB_5",
-      "difficulty": "competitive",
-      "category": "Draft Fallout",
-      "prompt": "Which RB went undrafted in our league and still finished Top 5 in 2025?",
-      "choices": [
-        "De'Von Achane",
-        "Christian McCaffrey",
-        "Jonathan Taylor",
-        "Jahmyr Gibbs"
-      ],
-      "answer": "Christian McCaffrey",
-      "explanation": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-      "choiceFeedback": {
-        "De'Von Achane": "De'Von Achane was drafted #17 in 2025 and finished RB7.",
-        "Christian McCaffrey": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-        "Jonathan Taylor": "Jonathan Taylor was drafted #19 in 2025 and finished RB1.",
-        "Jahmyr Gibbs": "Jahmyr Gibbs was drafted #8 in 2025 and finished RB4."
-      }
-    },
-    {
-      "id": "undrafted_mc_2025_RB_8",
-      "difficulty": "competitive",
-      "category": "Draft Fallout",
-      "prompt": "Which RB went undrafted in our league and still finished Top 8 in 2025?",
-      "choices": [
-        "James Cook III",
-        "Christian McCaffrey",
-        "Jahmyr Gibbs",
-        "Travis Etienne Jr."
-      ],
-      "answer": "Christian McCaffrey",
-      "explanation": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-      "choiceFeedback": {
-        "James Cook III": "James Cook III was drafted #32 in 2025 and finished RB5.",
-        "Christian McCaffrey": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-        "Jahmyr Gibbs": "Jahmyr Gibbs was drafted #8 in 2025 and finished RB4.",
-        "Travis Etienne Jr.": "Travis Etienne Jr. was drafted #117 in 2025 and finished RB9."
-      }
-    },
-    {
-      "id": "undrafted_mc_2025_RB_10",
-      "difficulty": "competitive",
-      "category": "Draft Fallout",
-      "prompt": "Which RB went undrafted in our league and still finished Top 10 in 2025?",
-      "choices": [
-        "Christian McCaffrey",
-        "Chase Brown",
-        "De'Von Achane",
-        "Derrick Henry"
-      ],
-      "answer": "Christian McCaffrey",
-      "explanation": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-      "choiceFeedback": {
-        "Christian McCaffrey": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-        "Chase Brown": "Chase Brown was drafted #22 in 2025 and finished RB10.",
-        "De'Von Achane": "De'Von Achane was drafted #17 in 2025 and finished RB7.",
-        "Derrick Henry": "Derrick Henry was drafted #11 in 2025 and finished RB6."
-      }
-    },
-    {
-      "id": "undrafted_mc_2025_RB_12",
-      "difficulty": "competitive",
-      "category": "Draft Fallout",
-      "prompt": "Which RB went undrafted in our league and still finished Top 12 in 2025?",
-      "choices": [
-        "Christian McCaffrey",
-        "Jonathan Taylor",
-        "Bijan Robinson",
-        "Travis Etienne Jr."
-      ],
-      "answer": "Christian McCaffrey",
-      "explanation": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-      "choiceFeedback": {
-        "Christian McCaffrey": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-        "Jonathan Taylor": "Jonathan Taylor was drafted #19 in 2025 and finished RB1.",
-        "Bijan Robinson": "Bijan Robinson was drafted #3 in 2025 and finished RB3.",
-        "Travis Etienne Jr.": "Travis Etienne Jr. was drafted #117 in 2025 and finished RB9."
-      }
-    },
-    {
-      "id": "undrafted_mc_2025_RB_15",
-      "difficulty": "competitive",
-      "category": "Draft Fallout",
-      "prompt": "Which RB went undrafted in our league and still finished Top 15 in 2025?",
-      "choices": [
-        "Christian McCaffrey",
-        "Travis Etienne Jr.",
-        "Derrick Henry",
-        "Javonte Williams"
-      ],
-      "answer": "Christian McCaffrey",
-      "explanation": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-      "choiceFeedback": {
-        "Christian McCaffrey": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-        "Travis Etienne Jr.": "Travis Etienne Jr. was drafted #117 in 2025 and finished RB9.",
-        "Derrick Henry": "Derrick Henry was drafted #11 in 2025 and finished RB6.",
-        "Javonte Williams": "Javonte Williams was drafted #102 in 2025 and finished RB11."
-      }
-    },
-    {
-      "id": "undrafted_mc_2025_RB_20",
-      "difficulty": "competitive",
-      "category": "Draft Fallout",
-      "prompt": "Which RB went undrafted in our league and still finished Top 20 in 2025?",
-      "choices": [
-        "Jahmyr Gibbs",
-        "De'Von Achane",
-        "Christian McCaffrey",
-        "Kyren Williams"
-      ],
-      "answer": "Christian McCaffrey",
-      "explanation": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-      "choiceFeedback": {
-        "Jahmyr Gibbs": "Jahmyr Gibbs was drafted #8 in 2025 and finished RB4.",
-        "De'Von Achane": "De'Von Achane was drafted #17 in 2025 and finished RB7.",
-        "Christian McCaffrey": "Christian McCaffrey went undrafted and finished RB2 in 2025.",
-        "Kyren Williams": "Kyren Williams was drafted #29 in 2025 and finished RB8."
       }
     },
     {
@@ -8252,84 +8132,5604 @@
       "questionFamily": "ownerPlayerNever"
     },
     {
-      "id": "bridesmaid_weekly_runnerup",
-      "difficulty": "competitive",
-      "category": "League History",
-      "questionFamily": "bridesmaid",
-      "prompt": "Who has finished 2nd in weekly scoring the most times in league history?",
+      "id": "teamname_owner_2010_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Murpheys Law\" in 2010?",
       "choices": [
-        "Sam",
+        "Bob",
         "Zac",
-        "Bubbs",
-        "Bob"
+        "Adrian",
+        "Sam"
       ],
-      "answer": "Sam",
-      "explanation": "Sam has the most career weekly runner-up scores: 37.",
-      "choiceFeedback": {}
+      "answer": "Adrian",
+      "explanation": "\"Murpheys Law\" belonged to Adrian in 2010.",
+      "sourceYear": 2010
     },
     {
-      "id": "bridesmaid_playoff_bubble",
+      "id": "owner_teamname_2010_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
       "difficulty": "sicko",
-      "category": "League History",
-      "questionFamily": "bridesmaid",
-      "prompt": "Who has missed the playoffs by exactly one standings position the most times?",
+      "prompt": "What was Adrian's team name in 2010?",
       "choices": [
-        "Bubbs",
+        "Murpheys Law",
+        "Christian Mingle",
+        "Return of da Mac",
+        "City of Black Out"
+      ],
+      "answer": "Murpheys Law",
+      "explanation": "Adrian used \"Murpheys Law\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2010_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"BENNY VS BBB\" in 2010?",
+      "choices": [
         "RJ",
+        "Habble",
+        "Ben",
+        "Adrian"
+      ],
+      "answer": "Ben",
+      "explanation": "\"BENNY VS BBB\" belonged to Ben in 2010.",
+      "sourceYear": 2010
+    },
+    {
+      "id": "owner_teamname_2010_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Ben's team name in 2010?",
+      "choices": [
+        "ChubbHub",
+        "Team FZS",
+        "Dakless in Dallas",
+        "BENNY VS BBB"
+      ],
+      "answer": "BENNY VS BBB",
+      "explanation": "Ben used \"BENNY VS BBB\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2010_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Call Me Awful\" in 2010?",
+      "choices": [
+        "Ben",
+        "Adrian",
+        "Bob",
+        "Mac"
+      ],
+      "answer": "Bob",
+      "explanation": "\"Call Me Awful\" belonged to Bob in 2010.",
+      "sourceYear": 2010
+    },
+    {
+      "id": "owner_teamname_2010_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Bob's team name in 2010?",
+      "choices": [
+        "5th place",
+        "Queen Of The HILL",
+        "BrueggeRJ\u2019s Bagels",
+        "Call Me Awful"
+      ],
+      "answer": "Call Me Awful",
+      "explanation": "Bob used \"Call Me Awful\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2010_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Papi Chulo\" in 2010?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Cory",
+        "Sam"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Papi Chulo\" belonged to Cory in 2010.",
+      "sourceYear": 2010
+    },
+    {
+      "id": "owner_teamname_2010_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Cory's team name in 2010?",
+      "choices": [
+        "Sixty",
+        "GrinchStoleGronk",
+        "Papi Chulo",
+        "2muchrookiefilm"
+      ],
+      "answer": "Papi Chulo",
+      "explanation": "Cory used \"Papi Chulo\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2010_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Jaspers\" in 2010?",
+      "choices": [
         "Mac",
+        "Ben",
+        "Dan",
         "Zac"
       ],
-      "answer": "RJ",
-      "explanation": "RJ has landed exactly one spot outside the playoff field 4 times.",
-      "choiceFeedback": {}
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2010.",
+      "sourceYear": 2010
     },
     {
-      "id": "bridesmaid_rs_runnerup",
-      "difficulty": "competitive",
-      "category": "League History",
-      "questionFamily": "bridesmaid",
-      "prompt": "Who has the most 2nd-place regular-season finishes?",
+      "id": "owner_teamname_2010_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Dan's team name in 2010?",
       "choices": [
-        "Zac",
-        "Dan",
+        "2muchrookiefilm",
+        "dumpster diving",
+        "Return of da Mac",
+        "Jaspers"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2010_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Kibs Extinction\" in 2010?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Habble",
+        "Ben"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Kibs Extinction\" belonged to Habble in 2010.",
+      "sourceYear": 2010
+    },
+    {
+      "id": "owner_teamname_2010_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Habble's team name in 2010?",
+      "choices": [
+        "Kibs Extinction",
+        "2Guys1Suit?",
+        "MontyPythonHolyFail",
+        "That's Advantageous"
+      ],
+      "answer": "Kibs Extinction",
+      "explanation": "Habble used \"Kibs Extinction\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2010_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Mac-A-Trons Revenge\" in 2010?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Mac",
+      "explanation": "\"Mac-A-Trons Revenge\" belonged to Mac in 2010.",
+      "sourceYear": 2010
+    },
+    {
+      "id": "owner_teamname_2010_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Mac's team name in 2010?",
+      "choices": [
+        "MontyPythonHolyFail",
+        "BrueggeRJ\u2019s Bagels",
+        "Nuk if uLuck(retire)",
+        "Mac-A-Trons Revenge"
+      ],
+      "answer": "Mac-A-Trons Revenge",
+      "explanation": "Mac used \"Mac-A-Trons Revenge\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2010_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Podium-Bound\" in 2010?",
+      "choices": [
+        "Adrian",
+        "Habble",
+        "RJ",
+        "Ben"
+      ],
+      "answer": "RJ",
+      "explanation": "\"Podium-Bound\" belonged to RJ in 2010.",
+      "sourceYear": 2010
+    },
+    {
+      "id": "owner_teamname_2010_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was RJ's team name in 2010?",
+      "choices": [
+        "Podium-Bound",
+        "Christian Mingle",
+        "Return of da Mac",
+        "City of Black Out"
+      ],
+      "answer": "Podium-Bound",
+      "explanation": "RJ used \"Podium-Bound\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2010_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Imma Gee\" in 2010?",
+      "choices": [
+        "Adrian",
+        "RJ",
         "Sam",
         "Ben"
       ],
-      "answer": "Zac",
-      "explanation": "Zac has finished 2nd in the regular season 3 times.",
-      "choiceFeedback": {}
+      "answer": "Sam",
+      "explanation": "\"Imma Gee\" belonged to Sam in 2010.",
+      "sourceYear": 2010
     },
     {
-      "id": "bridesmaid_points_runnerup",
+      "id": "owner_teamname_2010_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
       "difficulty": "sicko",
-      "category": "League History",
-      "questionFamily": "bridesmaid",
-      "prompt": "Who has the most seasons finishing 2nd in total points?",
+      "prompt": "What was Sam's team name in 2010?",
       "choices": [
-        "Sam",
-        "Cory",
+        "Over The Hill",
+        "ZEKEKEKEKEKEKE",
+        "dumpster diving",
+        "Imma Gee"
+      ],
+      "answer": "Imma Gee",
+      "explanation": "Sam used \"Imma Gee\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2010_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"dumpster diving\" in 2010?",
+      "choices": [
+        "Adrian",
+        "RJ",
         "Zac",
-        "Bubbs"
+        "Ben"
+      ],
+      "answer": "Zac",
+      "explanation": "\"dumpster diving\" belonged to Zac in 2010.",
+      "sourceYear": 2010
+    },
+    {
+      "id": "owner_teamname_2010_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Zac's team name in 2010?",
+      "choices": [
+        "Smoke a bowe",
+        "Minshew Musty Mania",
+        "RoMac\u2019s Dad",
+        "dumpster diving"
+      ],
+      "answer": "dumpster diving",
+      "explanation": "Zac used \"dumpster diving\" in 2010.",
+      "sourceYear": 2010,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"G5 Sittin OnDaRunway\" in 2011?",
+      "choices": [
+        "Zac",
+        "Adrian",
+        "Sam",
+        "Bob"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"G5 Sittin OnDaRunway\" belonged to Adrian in 2011.",
+      "sourceYear": 2011
+    },
+    {
+      "id": "owner_teamname_2011_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Adrian's team name in 2011?",
+      "choices": [
+        "ChubbHub",
+        "Dexter",
+        "Ass",
+        "G5 Sittin OnDaRunway"
+      ],
+      "answer": "G5 Sittin OnDaRunway",
+      "explanation": "Adrian used \"G5 Sittin OnDaRunway\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Sather/Vukson #1 fan\" in 2011?",
+      "choices": [
+        "Dan",
+        "Ben",
+        "RJ",
+        "Habble"
+      ],
+      "answer": "Ben",
+      "explanation": "\"Sather/Vukson #1 fan\" belonged to Ben in 2011.",
+      "sourceYear": 2011
+    },
+    {
+      "id": "owner_teamname_2011_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Ben's team name in 2011?",
+      "choices": [
+        "Dexter",
+        "Ass",
+        "Sather/Vukson #1 fan",
+        "ChubbHub"
+      ],
+      "answer": "Sather/Vukson #1 fan",
+      "explanation": "Ben used \"Sather/Vukson #1 fan\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Priest Brady\" in 2011?",
+      "choices": [
+        "Habble",
+        "Bob",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Bob",
+      "explanation": "\"Priest Brady\" belonged to Bob in 2011.",
+      "sourceYear": 2011
+    },
+    {
+      "id": "owner_teamname_2011_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Bob's team name in 2011?",
+      "choices": [
+        "FBV",
+        "Fat Boy Swan Song #PaChumpo",
+        "Priest Brady",
+        "Team Vukson #Boberto"
+      ],
+      "answer": "Priest Brady",
+      "explanation": "Bob used \"Priest Brady\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Flyin Wit Ryan\" in 2011?",
+      "choices": [
+        "RJ",
+        "Cory",
+        "Ben",
+        "Adrian"
       ],
       "answer": "Cory",
-      "explanation": "Cory has finished 2nd in points 4 times.",
-      "choiceFeedback": {}
+      "explanation": "\"Flyin Wit Ryan\" belonged to Cory in 2011.",
+      "sourceYear": 2011
     },
     {
-      "id": "bridesmaid_championship_runnerups",
-      "difficulty": "competitive",
-      "category": "League History",
-      "questionFamily": "bridesmaid",
-      "prompt": "Which pair shares the league record for the most championship runner-up finishes?",
+      "id": "owner_teamname_2011_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Cory's team name in 2011?",
       "choices": [
-        "Dan & Sam",
-        "Bob & Habble",
-        "Habble & Sam",
-        "Bob & Dan"
+        "Fat Boy Swan Song #PaChumpo",
+        "Flyin Wit Ryan",
+        "Bryce Young's Panthers",
+        "????21pt kicker MNF ????"
       ],
-      "answer": "Bob & Habble",
-      "explanation": "Bob and Habble have each finished 2nd in the playoffs 3 times.",
-      "choiceFeedback": {}
+      "answer": "Flyin Wit Ryan",
+      "explanation": "Cory used \"Flyin Wit Ryan\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Jaspers\" in 2011?",
+      "choices": [
+        "Adrian",
+        "Dan",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2011.",
+      "sourceYear": 2011
+    },
+    {
+      "id": "owner_teamname_2011_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Dan's team name in 2011?",
+      "choices": [
+        "Corn on the Cobb",
+        "All Bark no chase",
+        "Jaspers",
+        "Kibs Extinction"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Dumpsville\" in 2011?",
+      "choices": [
+        "Adrian",
+        "Habble",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Dumpsville\" belonged to Habble in 2011.",
+      "sourceYear": 2011
+    },
+    {
+      "id": "owner_teamname_2011_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Habble's team name in 2011?",
+      "choices": [
+        "QB Sneak FAR (FRH-L)",
+        "A Team Came & Wentz??",
+        "Fat Boy Swan Song #PaChumpo",
+        "Dumpsville"
+      ],
+      "answer": "Dumpsville",
+      "explanation": "Habble used \"Dumpsville\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"out Out OUT\" in 2011?",
+      "choices": [
+        "Zac",
+        "Mac",
+        "Sam",
+        "Bob"
+      ],
+      "answer": "Mac",
+      "explanation": "\"out Out OUT\" belonged to Mac in 2011.",
+      "sourceYear": 2011
+    },
+    {
+      "id": "owner_teamname_2011_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Mac's team name in 2011?",
+      "choices": [
+        "GrinchStoleGronk",
+        "Belichick Yo Self",
+        "out Out OUT",
+        "dumpster diving"
+      ],
+      "answer": "out Out OUT",
+      "explanation": "Mac used \"out Out OUT\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"SquallValleySpoilers\" in 2011?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "RJ",
+      "explanation": "\"SquallValleySpoilers\" belonged to RJ in 2011.",
+      "sourceYear": 2011
+    },
+    {
+      "id": "owner_teamname_2011_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was RJ's team name in 2011?",
+      "choices": [
+        "Trash Can",
+        "Cursed",
+        "Ass",
+        "SquallValleySpoilers"
+      ],
+      "answer": "SquallValleySpoilers",
+      "explanation": "RJ used \"SquallValleySpoilers\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"TheEiffel(High)Tower\" in 2011?",
+      "choices": [
+        "Adrian",
+        "Sam",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Sam",
+      "explanation": "\"TheEiffel(High)Tower\" belonged to Sam in 2011.",
+      "sourceYear": 2011
+    },
+    {
+      "id": "owner_teamname_2011_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Sam's team name in 2011?",
+      "choices": [
+        "Cursed",
+        "Ass",
+        "TheEiffel(High)Tower",
+        "Trash Can"
+      ],
+      "answer": "TheEiffel(High)Tower",
+      "explanation": "Sam used \"TheEiffel(High)Tower\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2011_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Giant-mistake\" in 2011?",
+      "choices": [
+        "Adrian",
+        "Zac",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Giant-mistake\" belonged to Zac in 2011.",
+      "sourceYear": 2011
+    },
+    {
+      "id": "owner_teamname_2011_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Zac's team name in 2011?",
+      "choices": [
+        "-14",
+        "Fat Boy Swan Song #PaChumpo",
+        "Giant-mistake",
+        "A Team Came & Wentz??"
+      ],
+      "answer": "Giant-mistake",
+      "explanation": "Zac used \"Giant-mistake\" in 2011.",
+      "sourceYear": 2011,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"The Cam cam\" in 2012?",
+      "choices": [
+        "Adrian",
+        "Sam",
+        "Bob",
+        "Zac"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"The Cam cam\" belonged to Adrian in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Adrian's team name in 2012?",
+      "choices": [
+        "ZEKEKEKEKEKEKE",
+        "Kibs Extinction",
+        "The Cam cam",
+        "ChubbHub"
+      ],
+      "answer": "The Cam cam",
+      "explanation": "Adrian used \"The Cam cam\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Im thinkin RB's\" in 2012?",
+      "choices": [
+        "Ben",
+        "RJ",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Ben",
+      "explanation": "\"Im thinkin RB's\" belonged to Ben in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Ben's team name in 2012?",
+      "choices": [
+        "Saved By The Bell?",
+        "Im thinkin RB's",
+        "Queen Of The HILL",
+        "Little Plumber Boy"
+      ],
+      "answer": "Im thinkin RB's",
+      "explanation": "Ben used \"Im thinkin RB's\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"City of Black Out\" in 2012?",
+      "choices": [
+        "Bob",
+        "Sam",
+        "Zac",
+        "Mac"
+      ],
+      "answer": "Bob",
+      "explanation": "\"City of Black Out\" belonged to Bob in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Bob's team name in 2012?",
+      "choices": [
+        "Nuk if uLuck(retire)",
+        "City of Black Out",
+        "That's Advantageous",
+        "Flyin Wit Ryan"
+      ],
+      "answer": "City of Black Out",
+      "explanation": "Bob used \"City of Black Out\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Armed Schaubbery\" in 2012?",
+      "choices": [
+        "Cory",
+        "Bob",
+        "Zac",
+        "Mac"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Armed Schaubbery\" belonged to Cory in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Cory's team name in 2012?",
+      "choices": [
+        "Armed Schaubbery",
+        "-Vacant Team-",
+        "KittlesNTrubiscuits",
+        "Mrs Fields Cooksiez"
+      ],
+      "answer": "Armed Schaubbery",
+      "explanation": "Cory used \"Armed Schaubbery\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Jaspers\" in 2012?",
+      "choices": [
+        "Dan",
+        "Ben",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Dan's team name in 2012?",
+      "choices": [
+        "City of Black Out",
+        "Jaspers",
+        "Upsetting Wendy",
+        "On to Cincinnati"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Corn on the Cobb\" in 2012?",
+      "choices": [
+        "Habble",
+        "RJ",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Corn on the Cobb\" belonged to Habble in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Habble's team name in 2012?",
+      "choices": [
+        "Sixty",
+        "Armed Schaubbery",
+        "Corn on the Cobb",
+        "Dexter"
+      ],
+      "answer": "Corn on the Cobb",
+      "explanation": "Habble used \"Corn on the Cobb\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Nonfactor 4 Eternity\" in 2012?",
+      "choices": [
+        "Mac",
+        "Ben",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Mac",
+      "explanation": "\"Nonfactor 4 Eternity\" belonged to Mac in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Mac's team name in 2012?",
+      "choices": [
+        "#WhatUpWhatsHappenin",
+        "Nonfactor 4 Eternity",
+        "?? & ??",
+        "RB1LL"
+      ],
+      "answer": "Nonfactor 4 Eternity",
+      "explanation": "Mac used \"Nonfactor 4 Eternity\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"De-Welker\" in 2012?",
+      "choices": [
+        "RJ",
+        "Sam",
+        "Bob",
+        "Zac"
+      ],
+      "answer": "RJ",
+      "explanation": "\"De-Welker\" belonged to RJ in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was RJ's team name in 2012?",
+      "choices": [
+        "Minor HicKupp",
+        "Lotto Ball Mac",
+        "De-Welker",
+        "2 Week Notice"
+      ],
+      "answer": "De-Welker",
+      "explanation": "RJ used \"De-Welker\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"(Thorough)BredWinner\" in 2012?",
+      "choices": [
+        "Sam",
+        "Dan",
+        "Cory",
+        "Bob"
+      ],
+      "answer": "Sam",
+      "explanation": "\"(Thorough)BredWinner\" belonged to Sam in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Sam's team name in 2012?",
+      "choices": [
+        "Fat DooDoo Master #9th ??",
+        "(Thorough)BredWinner",
+        "Queen Of The HILL",
+        "End Zone Jax(on)"
+      ],
+      "answer": "(Thorough)BredWinner",
+      "explanation": "Sam used \"(Thorough)BredWinner\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2012_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"That's Advantageous\" in 2012?",
+      "choices": [
+        "Zac",
+        "Habble",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Zac",
+      "explanation": "\"That's Advantageous\" belonged to Zac in 2012.",
+      "sourceYear": 2012
+    },
+    {
+      "id": "owner_teamname_2012_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Zac's team name in 2012?",
+      "choices": [
+        "2muchrookiefilm",
+        "That's Advantageous",
+        "Keenan & Kelories",
+        "Christian Mingle"
+      ],
+      "answer": "That's Advantageous",
+      "explanation": "Zac used \"That's Advantageous\" in 2012.",
+      "sourceYear": 2012,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Watch The Throne\" in 2013?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Mac",
+        "Adrian"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Watch The Throne\" belonged to Adrian in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Adrian's team name in 2013?",
+      "choices": [
+        "Jaspers",
+        "Watch The Throne",
+        "Pup listed",
+        "????21pt kicker MNF ????"
+      ],
+      "answer": "Watch The Throne",
+      "explanation": "Adrian used \"Watch The Throne\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Belichick Yo Self\" in 2013?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Ben",
+      "explanation": "\"Belichick Yo Self\" belonged to Ben in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Ben's team name in 2013?",
+      "choices": [
+        "Belichick Yo Self",
+        "Papi Chulo",
+        "Trash Can",
+        "Doormat"
+      ],
+      "answer": "Belichick Yo Self",
+      "explanation": "Ben used \"Belichick Yo Self\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Smoke a bowe\" in 2013?",
+      "choices": [
+        "Sam",
+        "Zac",
+        "Mac",
+        "Bob"
+      ],
+      "answer": "Bob",
+      "explanation": "\"Smoke a bowe\" belonged to Bob in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Bob's team name in 2013?",
+      "choices": [
+        "Smoke a bowe",
+        "Stank",
+        "How Fucking Bad Am I",
+        "Team Vukson #Boberto"
+      ],
+      "answer": "Smoke a bowe",
+      "explanation": "Bob used \"Smoke a bowe\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Old & Tasty\" in 2013?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Mac",
+        "Cory"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Old & Tasty\" belonged to Cory in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Cory's team name in 2013?",
+      "choices": [
+        "Minshew Musty Mania",
+        "??",
+        "ReplaceMeWitUgzNxtYr",
+        "Old & Tasty"
+      ],
+      "answer": "Old & Tasty",
+      "explanation": "Cory used \"Old & Tasty\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Jaspers\" in 2013?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Dan's team name in 2013?",
+      "choices": [
+        "Jaspers",
+        "Christian Mingle",
+        "Zeke and Da boys",
+        "Queen Of The HILL"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"2 Week Notice\" in 2013?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Mac",
+        "Habble"
+      ],
+      "answer": "Habble",
+      "explanation": "\"2 Week Notice\" belonged to Habble in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Habble's team name in 2013?",
+      "choices": [
+        "Call Me Awful",
+        "2 Week Notice",
+        "Bryce Young's Panthers",
+        "Bo Brix & Da Orange ?? Club"
+      ],
+      "answer": "2 Week Notice",
+      "explanation": "Habble used \"2 Week Notice\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"-Vacant Team-\" in 2013?",
+      "choices": [
+        "Cory",
+        "Sam",
+        "Bob",
+        "Mac"
+      ],
+      "answer": "Mac",
+      "explanation": "\"-Vacant Team-\" belonged to Mac in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Mac's team name in 2013?",
+      "choices": [
+        "-Vacant Team-",
+        "#Mr.Bagels",
+        "Love Hurts",
+        "5th place"
+      ],
+      "answer": "-Vacant Team-",
+      "explanation": "Mac used \"-Vacant Team-\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Rasharded my Pants\" in 2013?",
+      "choices": [
+        "Sam",
+        "Bob",
+        "Zac",
+        "RJ"
+      ],
+      "answer": "RJ",
+      "explanation": "\"Rasharded my Pants\" belonged to RJ in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was RJ's team name in 2013?",
+      "choices": [
+        "dumpster diving",
+        "Rasharded my Pants",
+        "Sather/Vukson #1 fan",
+        "Bucking Broncos"
+      ],
+      "answer": "Rasharded my Pants",
+      "explanation": "RJ used \"Rasharded my Pants\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Stank\" in 2013?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "Cory",
+        "Sam"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Stank\" belonged to Sam in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Sam's team name in 2013?",
+      "choices": [
+        "Stank",
+        "Fat Piece A Shit ??",
+        "#WhatUpWhatsHappenin",
+        "QB Sneak FAR (FRH-L)"
+      ],
+      "answer": "Stank",
+      "explanation": "Sam used \"Stank\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2013_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Never any Salsa\" in 2013?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "Cory",
+        "Zac"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Never any Salsa\" belonged to Zac in 2013.",
+      "sourceYear": 2013
+    },
+    {
+      "id": "owner_teamname_2013_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Zac's team name in 2013?",
+      "choices": [
+        "Never any Salsa",
+        "Cry & Win\u2026LOL #DooDoo",
+        "ChubbHub",
+        "Cursed"
+      ],
+      "answer": "Never any Salsa",
+      "explanation": "Zac used \"Never any Salsa\" in 2013.",
+      "sourceYear": 2013,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Team Vukson #Boberto\" in 2014?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Adrian",
+        "Habble"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Team Vukson #Boberto\" belonged to Adrian in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Adrian's team name in 2014?",
+      "choices": [
+        "Team Vukson #Boberto",
+        "BrueggeRJ\u2019s Bagels",
+        "All Bark no chase",
+        "nextyrjustflipups"
+      ],
+      "answer": "Team Vukson #Boberto",
+      "explanation": "Adrian used \"Team Vukson #Boberto\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"#WhatUpWhatsHappenin\" in 2014?",
+      "choices": [
+        "Zac",
+        "Mac",
+        "Ben",
+        "Bob"
+      ],
+      "answer": "Ben",
+      "explanation": "\"#WhatUpWhatsHappenin\" belonged to Ben in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Ben's team name in 2014?",
+      "choices": [
+        "Bryce Young's Panthers",
+        "Brockness Monster",
+        "????21pt kicker MNF ????",
+        "#WhatUpWhatsHappenin"
+      ],
+      "answer": "#WhatUpWhatsHappenin",
+      "explanation": "Ben used \"#WhatUpWhatsHappenin\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Chuckyyyyyy\" in 2014?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Bob",
+        "Ben"
+      ],
+      "answer": "Bob",
+      "explanation": "\"Chuckyyyyyy\" belonged to Bob in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Bob's team name in 2014?",
+      "choices": [
+        "De-Welker",
+        "Trash Can",
+        "McCoy For Sale",
+        "Chuckyyyyyy"
+      ],
+      "answer": "Chuckyyyyyy",
+      "explanation": "Bob used \"Chuckyyyyyy\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"nextyrjustflipups\" in 2014?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "Cory",
+        "RJ"
+      ],
+      "answer": "Cory",
+      "explanation": "\"nextyrjustflipups\" belonged to Cory in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Cory's team name in 2014?",
+      "choices": [
+        "MontyPythonHolyFail",
+        "(Thorough)BredWinner",
+        "nextyrjustflipups",
+        "Fat Piece A Shit ??"
+      ],
+      "answer": "nextyrjustflipups",
+      "explanation": "Cory used \"nextyrjustflipups\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Jaspers\" in 2014?",
+      "choices": [
+        "Habble",
+        "Cory",
+        "Dan",
+        "RJ"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Dan's team name in 2014?",
+      "choices": [
+        "GrinchStoleGronk",
+        "Brockness Monster",
+        "#Dan&BenVSTheWorld",
+        "Jaspers"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"McCoy For Sale\" in 2014?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Habble",
+        "RJ"
+      ],
+      "answer": "Habble",
+      "explanation": "\"McCoy For Sale\" belonged to Habble in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Habble's team name in 2014?",
+      "choices": [
+        "McCoy For Sale",
+        "Ass",
+        "One Tua Many Concussions #CTE",
+        "7-6? Nope FBV"
+      ],
+      "answer": "McCoy For Sale",
+      "explanation": "Habble used \"McCoy For Sale\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Maybe Someday\" in 2014?",
+      "choices": [
+        "RJ",
+        "Habble",
+        "Mac",
+        "Adrian"
+      ],
+      "answer": "Mac",
+      "explanation": "\"Maybe Someday\" belonged to Mac in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Mac's team name in 2014?",
+      "choices": [
+        "Gut Shot On Da River",
+        "SquallValleySpoilers",
+        "RB1LL",
+        "Maybe Someday"
+      ],
+      "answer": "Maybe Someday",
+      "explanation": "Mac used \"Maybe Someday\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Team FZS\" in 2014?",
+      "choices": [
+        "Cory",
+        "Sam",
+        "RJ",
+        "Dan"
+      ],
+      "answer": "RJ",
+      "explanation": "\"Team FZS\" belonged to RJ in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was RJ's team name in 2014?",
+      "choices": [
+        "Team FZS",
+        "Minshew Musty Mania",
+        "Discount Double Down",
+        "Sather/Vukson #1 fan"
+      ],
+      "answer": "Team FZS",
+      "explanation": "RJ used \"Team FZS\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Drewbacle Pt. Deux\" in 2014?",
+      "choices": [
+        "RJ",
+        "Habble",
+        "Sam",
+        "Adrian"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Drewbacle Pt. Deux\" belonged to Sam in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Sam's team name in 2014?",
+      "choices": [
+        "Corn on the Cobb",
+        "Nonfactor 4 Eternity",
+        "SquallValleySpoilers",
+        "Drewbacle Pt. Deux"
+      ],
+      "answer": "Drewbacle Pt. Deux",
+      "explanation": "Sam used \"Drewbacle Pt. Deux\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2014_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"5th place\" in 2014?",
+      "choices": [
+        "Mac",
+        "Ben",
+        "Zac",
+        "Bob"
+      ],
+      "answer": "Zac",
+      "explanation": "\"5th place\" belonged to Zac in 2014.",
+      "sourceYear": 2014
+    },
+    {
+      "id": "owner_teamname_2014_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Zac's team name in 2014?",
+      "choices": [
+        "out Out OUT",
+        "Podium-Bound",
+        "7-6? Nope FBV",
+        "5th place"
+      ],
+      "answer": "5th place",
+      "explanation": "Zac used \"5th place\" in 2014.",
+      "sourceYear": 2014,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Queen Of The HILL\" in 2015?",
+      "choices": [
+        "Habble",
+        "Adrian",
+        "Ben",
+        "RJ"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Queen Of The HILL\" belonged to Adrian in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Adrian's team name in 2015?",
+      "choices": [
+        "Move Achane",
+        "Dumpsville",
+        "Fat DooDoo Master #9th ??",
+        "Queen Of The HILL"
+      ],
+      "answer": "Queen Of The HILL",
+      "explanation": "Adrian used \"Queen Of The HILL\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"#Mr.Bagels\" in 2015?",
+      "choices": [
+        "Cory",
+        "Ben",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Ben",
+      "explanation": "\"#Mr.Bagels\" belonged to Ben in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Ben's team name in 2015?",
+      "choices": [
+        "Return of da Bitch",
+        "Mrs Fields Cooksiez",
+        "#Mr.Bagels",
+        "Truth and Justice"
+      ],
+      "answer": "#Mr.Bagels",
+      "explanation": "Ben used \"#Mr.Bagels\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"2Guys1Suit?\" in 2015?",
+      "choices": [
+        "Sam",
+        "Bob",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Bob",
+      "explanation": "\"2Guys1Suit?\" belonged to Bob in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Bob's team name in 2015?",
+      "choices": [
+        "KittlesNTrubiscuits",
+        "#WhatUpWhatsHappenin",
+        "2Guys1Suit?",
+        "Rasharded my Pants"
+      ],
+      "answer": "2Guys1Suit?",
+      "explanation": "Bob used \"2Guys1Suit?\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Gut Shot On Da River\" in 2015?",
+      "choices": [
+        "Zac",
+        "Cory",
+        "Sam",
+        "Bob"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Gut Shot On Da River\" belonged to Cory in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Cory's team name in 2015?",
+      "choices": [
+        "Dumpsville",
+        "Gut Shot On Da River",
+        "Post Mahomes",
+        "One Tua Many Concussions #CTE"
+      ],
+      "answer": "Gut Shot On Da River",
+      "explanation": "Cory used \"Gut Shot On Da River\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Jaspers\" in 2015?",
+      "choices": [
+        "Sam",
+        "Dan",
+        "Habble",
+        "Cory"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Dan's team name in 2015?",
+      "choices": [
+        "Keenan & Kelories",
+        "Little Plumber Boy",
+        "Jaspers",
+        "Watch The Throne"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Popped Belloon\" in 2015?",
+      "choices": [
+        "Adrian",
+        "Habble",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Popped Belloon\" belonged to Habble in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Habble's team name in 2015?",
+      "choices": [
+        "Move Achane",
+        "Truth and Justice",
+        "Little Plumber Boy",
+        "Popped Belloon"
+      ],
+      "answer": "Popped Belloon",
+      "explanation": "Habble used \"Popped Belloon\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Nonfactor 4 Eternity\" in 2015?",
+      "choices": [
+        "Cory",
+        "Mac",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Mac",
+      "explanation": "\"Nonfactor 4 Eternity\" belonged to Mac in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Mac's team name in 2015?",
+      "choices": [
+        "City of Black Out",
+        "Christian Mingle",
+        "Nonfactor 4 Eternity",
+        "Drewbacle Pt. Deux"
+      ],
+      "answer": "Nonfactor 4 Eternity",
+      "explanation": "Mac used \"Nonfactor 4 Eternity\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"How Fucking Bad Am I\" in 2015?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "RJ",
+      "explanation": "\"How Fucking Bad Am I\" belonged to RJ in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was RJ's team name in 2015?",
+      "choices": [
+        "Dumpsville",
+        "Trash Can",
+        "Cursed",
+        "How Fucking Bad Am I"
+      ],
+      "answer": "How Fucking Bad Am I",
+      "explanation": "RJ used \"How Fucking Bad Am I\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Bucking Broncos\" in 2015?",
+      "choices": [
+        "Cory",
+        "Sam",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Bucking Broncos\" belonged to Sam in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Sam's team name in 2015?",
+      "choices": [
+        "SquallValleySpoilers",
+        "Trash Can",
+        "Bucking Broncos",
+        "Nuk if uLuck(retire)"
+      ],
+      "answer": "Bucking Broncos",
+      "explanation": "Sam used \"Bucking Broncos\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2015_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "Who was \"Curb stomped\" in 2015?",
+      "choices": [
+        "RJ",
+        "Zac",
+        "Ben",
+        "Adrian"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Curb stomped\" belonged to Zac in 2015.",
+      "sourceYear": 2015
+    },
+    {
+      "id": "owner_teamname_2015_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "sicko",
+      "prompt": "What was Zac's team name in 2015?",
+      "choices": [
+        "RB1LL",
+        "G5 Sittin OnDaRunway",
+        "Curb stomped",
+        "Return of da Bitch"
+      ],
+      "answer": "Curb stomped",
+      "explanation": "Zac used \"Curb stomped\" in 2015.",
+      "sourceYear": 2015,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Post Mortem\" in 2016?",
+      "choices": [
+        "Adrian",
+        "Zac",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Post Mortem\" belonged to Adrian in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Adrian's team name in 2016?",
+      "choices": [
+        "Flyin Wit Ryan",
+        "2muchrookiefilm",
+        "Post Mortem",
+        "Minor HicKupp"
+      ],
+      "answer": "Post Mortem",
+      "explanation": "Adrian used \"Post Mortem\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"#Dan&BenVSTheWorld\" in 2016?",
+      "choices": [
+        "Ben",
+        "Bob",
+        "Zac",
+        "Mac"
+      ],
+      "answer": "Ben",
+      "explanation": "\"#Dan&BenVSTheWorld\" belonged to Ben in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Ben's team name in 2016?",
+      "choices": [
+        "Fat Boy Swan Song #PaChumpo",
+        "#Dan&BenVSTheWorld",
+        "Old & Tasty",
+        "Love Hurts"
+      ],
+      "answer": "#Dan&BenVSTheWorld",
+      "explanation": "Ben used \"#Dan&BenVSTheWorld\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"GrinchStoleGronk\" in 2016?",
+      "choices": [
+        "Bob",
+        "Habble",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Bob",
+      "explanation": "\"GrinchStoleGronk\" belonged to Bob in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Bob's team name in 2016?",
+      "choices": [
+        "????21pt kicker MNF ????",
+        "GrinchStoleGronk",
+        "out Out OUT",
+        "Pup listed"
+      ],
+      "answer": "GrinchStoleGronk",
+      "explanation": "Bob used \"GrinchStoleGronk\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Cursed\" in 2016?",
+      "choices": [
+        "Cory",
+        "Zac",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Cursed\" belonged to Cory in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Cory's team name in 2016?",
+      "choices": [
+        "Cursed",
+        "BrueggeRJ\u2019s Bagels",
+        "Mac-A-Trons Revenge",
+        "Discount Double Down"
+      ],
+      "answer": "Cursed",
+      "explanation": "Cory used \"Cursed\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Jaspers\" in 2016?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Sam",
+        "Bob"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Dan's team name in 2016?",
+      "choices": [
+        "Saved By The Bell?",
+        "Jaspers",
+        "Belichick Yo Self",
+        "nextyrjustflipups"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Seabiscuit\" in 2016?",
+      "choices": [
+        "Habble",
+        "Bob",
+        "Zac",
+        "Mac"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Seabiscuit\" belonged to Habble in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Habble's team name in 2016?",
+      "choices": [
+        "5th place",
+        "RoMac\u2019s Dad",
+        "Seabiscuit",
+        "Judge Jeudy and Executioner"
+      ],
+      "answer": "Seabiscuit",
+      "explanation": "Habble used \"Seabiscuit\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Return of da Mac\" in 2016?",
+      "choices": [
+        "Mac",
+        "Habble",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Mac",
+      "explanation": "\"Return of da Mac\" belonged to Mac in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Mac's team name in 2016?",
+      "choices": [
+        "Milked ??????",
+        "Return of da Mac",
+        "Lotto Ball Mac",
+        "7-6? Nope FBV"
+      ],
+      "answer": "Return of da Mac",
+      "explanation": "Mac used \"Return of da Mac\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"PODIUM\" in 2016?",
+      "choices": [
+        "RJ",
+        "Mac",
+        "Ben",
+        "Adrian"
+      ],
+      "answer": "RJ",
+      "explanation": "\"PODIUM\" belonged to RJ in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was RJ's team name in 2016?",
+      "choices": [
+        "Lotto Ball Mac",
+        "Kibs Extinction",
+        "PODIUM",
+        "Giant-mistake"
+      ],
+      "answer": "PODIUM",
+      "explanation": "RJ used \"PODIUM\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Swan Song\" in 2016?",
+      "choices": [
+        "Sam",
+        "Mac",
+        "Ben",
+        "Adrian"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Swan Song\" belonged to Sam in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Sam's team name in 2016?",
+      "choices": [
+        "That's Advantageous",
+        "Swan Song",
+        "Queen Of The HILL",
+        "Saved By The Bell?"
+      ],
+      "answer": "Swan Song",
+      "explanation": "Sam used \"Swan Song\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2016_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Zeke and Da boys\" in 2016?",
+      "choices": [
+        "Zac",
+        "Cory",
+        "Sam",
+        "Bob"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Zeke and Da boys\" belonged to Zac in 2016.",
+      "sourceYear": 2016
+    },
+    {
+      "id": "owner_teamname_2016_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Zac's team name in 2016?",
+      "choices": [
+        "ChubbHub",
+        "Zeke and Da boys",
+        "The Titanic",
+        "Papi Chulo"
+      ],
+      "answer": "Zeke and Da boys",
+      "explanation": "Zac used \"Zeke and Da boys\" in 2016.",
+      "sourceYear": 2016,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Milked ??????\" in 2017?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Mac",
+        "Adrian"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Milked ??????\" belonged to Adrian in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Adrian's team name in 2017?",
+      "choices": [
+        "Papi Chulo",
+        "Milked ??????",
+        "RoMac\u2019s Dad",
+        "Christian Mingle"
+      ],
+      "answer": "Milked ??????",
+      "explanation": "Adrian used \"Milked ??????\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Upsetting Wendy\" in 2017?",
+      "choices": [
+        "Mac",
+        "Adrian",
+        "RJ",
+        "Ben"
+      ],
+      "answer": "Ben",
+      "explanation": "\"Upsetting Wendy\" belonged to Ben in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Ben's team name in 2017?",
+      "choices": [
+        "Upsetting Wendy",
+        "Team Vukson #Boberto",
+        "Swan Song",
+        "Team FZS"
+      ],
+      "answer": "Upsetting Wendy",
+      "explanation": "Ben used \"Upsetting Wendy\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"ZEKEKEKEKEKEKE\" in 2017?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Sam",
+        "Bob"
+      ],
+      "answer": "Bob",
+      "explanation": "\"ZEKEKEKEKEKEKE\" belonged to Bob in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Bob's team name in 2017?",
+      "choices": [
+        "ZEKEKEKEKEKEKE",
+        "Nonfactor 4 Eternity",
+        "Team Vukson #Boberto",
+        "Bijan with the runs ??"
+      ],
+      "answer": "ZEKEKEKEKEKEKE",
+      "explanation": "Bob used \"ZEKEKEKEKEKEKE\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Over The Hill\" in 2017?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "Sam",
+        "Cory"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Over The Hill\" belonged to Cory in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Cory's team name in 2017?",
+      "choices": [
+        "#WhatUpWhatsHappenin",
+        "Nuk if uLuck(retire)",
+        "TheEiffel(High)Tower",
+        "Over The Hill"
+      ],
+      "answer": "Over The Hill",
+      "explanation": "Cory used \"Over The Hill\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Jaspers\" in 2017?",
+      "choices": [
+        "Sam",
+        "Bob",
+        "Zac",
+        "Dan"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Dan's team name in 2017?",
+      "choices": [
+        "Jaspers",
+        "Dakless in Dallas",
+        "Drewbacle Pt. Deux",
+        "Mac-A-Trons Revenge"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Seabiscuit\" in 2017?",
+      "choices": [
+        "Zac",
+        "Mac",
+        "Ben",
+        "Habble"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Seabiscuit\" belonged to Habble in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Habble's team name in 2017?",
+      "choices": [
+        "Return of da Bitch",
+        "Seabiscuit",
+        "Brockness Monster",
+        "nextyrjustflipups"
+      ],
+      "answer": "Seabiscuit",
+      "explanation": "Habble used \"Seabiscuit\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"????21pt kicker MNF ????\" in 2017?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Habble",
+        "Mac"
+      ],
+      "answer": "Mac",
+      "explanation": "\"????21pt kicker MNF ????\" belonged to Mac in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Mac's team name in 2017?",
+      "choices": [
+        "????21pt kicker MNF ????",
+        "Drewbacle Pt. Deux",
+        "City of Black Out",
+        "Christian Mingle"
+      ],
+      "answer": "????21pt kicker MNF ????",
+      "explanation": "Mac used \"????21pt kicker MNF ????\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"A Team Came & Wentz??\" in 2017?",
+      "choices": [
+        "Mac",
+        "Ben",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "RJ",
+      "explanation": "\"A Team Came & Wentz??\" belonged to RJ in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was RJ's team name in 2017?",
+      "choices": [
+        "Popped Belloon",
+        "A Team Came & Wentz??",
+        "Bo Brix & Da Orange ?? Club",
+        "Never any Salsa"
+      ],
+      "answer": "A Team Came & Wentz??",
+      "explanation": "RJ used \"A Team Came & Wentz??\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"MontyPythonHolyFail\" in 2017?",
+      "choices": [
+        "Cory",
+        "Bob",
+        "Zac",
+        "Sam"
+      ],
+      "answer": "Sam",
+      "explanation": "\"MontyPythonHolyFail\" belonged to Sam in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Sam's team name in 2017?",
+      "choices": [
+        "MontyPythonHolyFail",
+        "Move Achane",
+        "Dumpsville",
+        "One Tua Many Concussions #CTE"
+      ],
+      "answer": "MontyPythonHolyFail",
+      "explanation": "Sam used \"MontyPythonHolyFail\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2017_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Pup listed\" in 2017?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "Cory",
+        "Zac"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Pup listed\" belonged to Zac in 2017.",
+      "sourceYear": 2017
+    },
+    {
+      "id": "owner_teamname_2017_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Zac's team name in 2017?",
+      "choices": [
+        "Pup listed",
+        "Drewbacle Pt. Deux",
+        "MontyPythonHolyFail",
+        "How Fucking Bad Am I"
+      ],
+      "answer": "Pup listed",
+      "explanation": "Zac used \"Pup listed\" in 2017.",
+      "sourceYear": 2017,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Post Mahomes\" in 2018?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Adrian",
+        "Sam"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Post Mahomes\" belonged to Adrian in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Adrian's team name in 2018?",
+      "choices": [
+        "Post Mahomes",
+        "ZEKEKEKEKEKEKE",
+        "MACtion Jackson",
+        "Armed Schaubbery"
+      ],
+      "answer": "Post Mahomes",
+      "explanation": "Adrian used \"Post Mahomes\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"ReplaceMeWitUgzNxtYr\" in 2018?",
+      "choices": [
+        "Sam",
+        "Bob",
+        "Ben",
+        "Cory"
+      ],
+      "answer": "Ben",
+      "explanation": "\"ReplaceMeWitUgzNxtYr\" belonged to Ben in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Ben's team name in 2018?",
+      "choices": [
+        "Queen Of The HILL",
+        "End Zone Jax(on)",
+        "Bucking Broncos",
+        "ReplaceMeWitUgzNxtYr"
+      ],
+      "answer": "ReplaceMeWitUgzNxtYr",
+      "explanation": "Ben used \"ReplaceMeWitUgzNxtYr\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"WreckOfTheFitzgerald\" in 2018?",
+      "choices": [
+        "Zac",
+        "Mac",
+        "Bob",
+        "Sam"
+      ],
+      "answer": "Bob",
+      "explanation": "\"WreckOfTheFitzgerald\" belonged to Bob in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Bob's team name in 2018?",
+      "choices": [
+        "The Cam cam",
+        "Pup listed",
+        "Imma Gee",
+        "WreckOfTheFitzgerald"
+      ],
+      "answer": "WreckOfTheFitzgerald",
+      "explanation": "Bob used \"WreckOfTheFitzgerald\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Saved By The Bell?\" in 2018?",
+      "choices": [
+        "Dan",
+        "Sam",
+        "Cory",
+        "Habble"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Saved By The Bell?\" belonged to Cory in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Cory's team name in 2018?",
+      "choices": [
+        "2muchrookiefilm",
+        "Never any Salsa",
+        "Saved By The Bell?",
+        "Sather/Vukson #1 fan"
+      ],
+      "answer": "Saved By The Bell?",
+      "explanation": "Cory used \"Saved By The Bell?\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Jaspers\" in 2018?",
+      "choices": [
+        "Zac",
+        "Mac",
+        "Dan",
+        "Bob"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Dan's team name in 2018?",
+      "choices": [
+        "Truth and Justice",
+        "Return of da Bitch",
+        "Mrs Fields Cooksiez",
+        "Jaspers"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Seabiscuit\" in 2018?",
+      "choices": [
+        "Ben",
+        "Adrian",
+        "Habble",
+        "Mac"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Seabiscuit\" belonged to Habble in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Habble's team name in 2018?",
+      "choices": [
+        "Seabiscuit",
+        "Priest Brady",
+        "Call Me Awful",
+        "Over The Hill"
+      ],
+      "answer": "Seabiscuit",
+      "explanation": "Habble used \"Seabiscuit\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"-14\" in 2018?",
+      "choices": [
+        "RJ",
+        "Habble",
+        "Mac",
+        "Adrian"
+      ],
+      "answer": "Mac",
+      "explanation": "\"-14\" belonged to Mac in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Mac's team name in 2018?",
+      "choices": [
+        "KittlesNTrubiscuits",
+        "#WhatUpWhatsHappenin",
+        "QB Sneak FAR (FRH-L)",
+        "-14"
+      ],
+      "answer": "-14",
+      "explanation": "Mac used \"-14\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"A Team Came & Wentz??\" in 2018?",
+      "choices": [
+        "Adrian",
+        "Habble",
+        "RJ",
+        "Ben"
+      ],
+      "answer": "RJ",
+      "explanation": "\"A Team Came & Wentz??\" belonged to RJ in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was RJ's team name in 2018?",
+      "choices": [
+        "A Team Came & Wentz??",
+        "Bryce Young's Panthers",
+        "ReplaceMeWitUgzNxtYr",
+        "KittlesNTrubiscuits"
+      ],
+      "answer": "A Team Came & Wentz??",
+      "explanation": "RJ used \"A Team Came & Wentz??\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"The Titanic\" in 2018?",
+      "choices": [
+        "RJ",
+        "Habble",
+        "Sam",
+        "Adrian"
+      ],
+      "answer": "Sam",
+      "explanation": "\"The Titanic\" belonged to Sam in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Sam's team name in 2018?",
+      "choices": [
+        "KittlesNTrubiscuits",
+        "(Thorough)BredWinner",
+        "QB Sneak FAR (FRH-L)",
+        "The Titanic"
+      ],
+      "answer": "The Titanic",
+      "explanation": "Sam used \"The Titanic\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2018_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"KittlesNTrubiscuits\" in 2018?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Zac",
+        "Ben"
+      ],
+      "answer": "Zac",
+      "explanation": "\"KittlesNTrubiscuits\" belonged to Zac in 2018.",
+      "sourceYear": 2018
+    },
+    {
+      "id": "owner_teamname_2018_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Zac's team name in 2018?",
+      "choices": [
+        "The Cam cam",
+        "Seabiscuit",
+        "Imma Gee",
+        "KittlesNTrubiscuits"
+      ],
+      "answer": "KittlesNTrubiscuits",
+      "explanation": "Zac used \"KittlesNTrubiscuits\" in 2018.",
+      "sourceYear": 2018,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"QB Sneak FAR (FRH-L)\" in 2019?",
+      "choices": [
+        "Mac",
+        "Adrian",
+        "Bob",
+        "Zac"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"QB Sneak FAR (FRH-L)\" belonged to Adrian in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Adrian's team name in 2019?",
+      "choices": [
+        "Armed Schaubbery",
+        "Watch The Throne",
+        "Never any Salsa",
+        "QB Sneak FAR (FRH-L)"
+      ],
+      "answer": "QB Sneak FAR (FRH-L)",
+      "explanation": "Adrian used \"QB Sneak FAR (FRH-L)\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"7-6? Nope FBV\" in 2019?",
+      "choices": [
+        "Bob",
+        "Ben",
+        "Cory",
+        "Sam"
+      ],
+      "answer": "Ben",
+      "explanation": "\"7-6? Nope FBV\" belonged to Ben in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Ben's team name in 2019?",
+      "choices": [
+        "Papi Chulo",
+        "All Bark no chase",
+        "7-6? Nope FBV",
+        "Armed Schaubbery"
+      ],
+      "answer": "7-6? Nope FBV",
+      "explanation": "Ben used \"7-6? Nope FBV\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Bagel Beckham\" in 2019?",
+      "choices": [
+        "Dan",
+        "Bob",
+        "RJ",
+        "Habble"
+      ],
+      "answer": "Bob",
+      "explanation": "\"Bagel Beckham\" belonged to Bob in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Bob's team name in 2019?",
+      "choices": [
+        "SquallValleySpoilers",
+        "Sixty",
+        "Bagel Beckham",
+        "How Fucking Bad Am I"
+      ],
+      "answer": "Bagel Beckham",
+      "explanation": "Bob used \"Bagel Beckham\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Remember the Titans\" in 2019?",
+      "choices": [
+        "Adrian",
+        "Cory",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Remember the Titans\" belonged to Cory in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Cory's team name in 2019?",
+      "choices": [
+        "dumpster diving",
+        "Remember the Titans",
+        "Christian Mingle",
+        "2muchrookiefilm"
+      ],
+      "answer": "Remember the Titans",
+      "explanation": "Cory used \"Remember the Titans\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Jaspers\" in 2019?",
+      "choices": [
+        "Ben",
+        "Dan",
+        "Zac",
+        "Mac"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Dan's team name in 2019?",
+      "choices": [
+        "KittlesNTrubiscuits",
+        "#WhatUpWhatsHappenin",
+        "Jaspers",
+        "BrueggeRJ\u2019s Bagels"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Seabiscuit\" in 2019?",
+      "choices": [
+        "RJ",
+        "Habble",
+        "Ben",
+        "Adrian"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Seabiscuit\" belonged to Habble in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Habble's team name in 2019?",
+      "choices": [
+        "Nonfactor 4 Eternity",
+        "TheEiffel(High)Tower",
+        "Fat DooDoo Master #9th ??",
+        "Seabiscuit"
+      ],
+      "answer": "Seabiscuit",
+      "explanation": "Habble used \"Seabiscuit\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Return of da Bitch\" in 2019?",
+      "choices": [
+        "Ben",
+        "Mac",
+        "Bob",
+        "Zac"
+      ],
+      "answer": "Mac",
+      "explanation": "\"Return of da Bitch\" belonged to Mac in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Mac's team name in 2019?",
+      "choices": [
+        "Judge Jeudy and Executioner",
+        "?? & ??",
+        "Return of da Bitch",
+        "Papi Chulo"
+      ],
+      "answer": "Return of da Bitch",
+      "explanation": "Mac used \"Return of da Bitch\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"BrueggeRJ\u2019s Bagels\" in 2019?",
+      "choices": [
+        "Bob",
+        "RJ",
+        "Cory",
+        "Sam"
+      ],
+      "answer": "RJ",
+      "explanation": "\"BrueggeRJ\u2019s Bagels\" belonged to RJ in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was RJ's team name in 2019?",
+      "choices": [
+        "Belichick Yo Self",
+        "Mac-A-Trons Revenge",
+        "Truth and Justice",
+        "BrueggeRJ\u2019s Bagels"
+      ],
+      "answer": "BrueggeRJ\u2019s Bagels",
+      "explanation": "RJ used \"BrueggeRJ\u2019s Bagels\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Truth and Justice\" in 2019?",
+      "choices": [
+        "Bob",
+        "Sam",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Truth and Justice\" belonged to Sam in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Sam's team name in 2019?",
+      "choices": [
+        "ChubbHub",
+        "Jaspers",
+        "Truth and Justice",
+        "Pup listed"
+      ],
+      "answer": "Truth and Justice",
+      "explanation": "Sam used \"Truth and Justice\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2019_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Nuk if uLuck(retire)\" in 2019?",
+      "choices": [
+        "Cory",
+        "Zac",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Nuk if uLuck(retire)\" belonged to Zac in 2019.",
+      "sourceYear": 2019
+    },
+    {
+      "id": "owner_teamname_2019_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Zac's team name in 2019?",
+      "choices": [
+        "2muchrookiefilm",
+        "Upsetting Wendy",
+        "Nuk if uLuck(retire)",
+        "Armed Schaubbery"
+      ],
+      "answer": "Nuk if uLuck(retire)",
+      "explanation": "Zac used \"Nuk if uLuck(retire)\" in 2019.",
+      "sourceYear": 2019,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Fat Piece A Shit ??\" in 2020?",
+      "choices": [
+        "Adrian",
+        "Habble",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Fat Piece A Shit ??\" belonged to Adrian in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Adrian's team name in 2020?",
+      "choices": [
+        "Bucking Broncos",
+        "?? (??) ??(??)",
+        "Fat Piece A Shit ??",
+        "End Zone Jax(on)"
+      ],
+      "answer": "Fat Piece A Shit ??",
+      "explanation": "Adrian used \"Fat Piece A Shit ??\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Ben O\u2019Brien\" in 2020?",
+      "choices": [
+        "Ben",
+        "Habble",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Ben",
+      "explanation": "\"Ben O\u2019Brien\" belonged to Ben in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Ben's team name in 2020?",
+      "choices": [
+        "Cursed",
+        "Ben O\u2019Brien",
+        "Team FZS",
+        "Kibs Extinction"
+      ],
+      "answer": "Ben O\u2019Brien",
+      "explanation": "Ben used \"Ben O\u2019Brien\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Dakless in Dallas\" in 2020?",
+      "choices": [
+        "Bob",
+        "Ben",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Bob",
+      "explanation": "\"Dakless in Dallas\" belonged to Bob in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Bob's team name in 2020?",
+      "choices": [
+        "Cursed",
+        "Dakless in Dallas",
+        "5th place",
+        "Team FZS"
+      ],
+      "answer": "Dakless in Dallas",
+      "explanation": "Bob used \"Dakless in Dallas\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"On to Cincinnati\" in 2020?",
+      "choices": [
+        "Cory",
+        "Adrian",
+        "RJ",
+        "Habble"
+      ],
+      "answer": "Cory",
+      "explanation": "\"On to Cincinnati\" belonged to Cory in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Cory's team name in 2020?",
+      "choices": [
+        "On to Cincinnati",
+        "Fat Piece A Shit ??",
+        "Minshew Musty Mania",
+        "Curb stomped"
+      ],
+      "answer": "On to Cincinnati",
+      "explanation": "Cory used \"On to Cincinnati\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Jaspers\" in 2020?",
+      "choices": [
+        "Dan",
+        "Mac",
+        "Ben",
+        "Adrian"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Dan's team name in 2020?",
+      "choices": [
+        "G5 Sittin OnDaRunway",
+        "Jaspers",
+        "Rasharded my Pants",
+        "MontyPythonHolyFail"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Trash Can\" in 2020?",
+      "choices": [
+        "Habble",
+        "Adrian",
+        "RJ",
+        "Dan"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Trash Can\" belonged to Habble in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Habble's team name in 2020?",
+      "choices": [
+        "Armed Schaubbery",
+        "Watch The Throne",
+        "Trash Can",
+        "Im thinkin RB's"
+      ],
+      "answer": "Trash Can",
+      "explanation": "Habble used \"Trash Can\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"MACtion Jackson\" in 2020?",
+      "choices": [
+        "Mac",
+        "RJ",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Mac",
+      "explanation": "\"MACtion Jackson\" belonged to Mac in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Mac's team name in 2020?",
+      "choices": [
+        "1+6=7",
+        "MACtion Jackson",
+        "Swan Song",
+        "Team FZS"
+      ],
+      "answer": "MACtion Jackson",
+      "explanation": "Mac used \"MACtion Jackson\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"BrueggeRJ\u2019s Bagels\" in 2020?",
+      "choices": [
+        "RJ",
+        "Sam",
+        "Bob",
+        "Zac"
+      ],
+      "answer": "RJ",
+      "explanation": "\"BrueggeRJ\u2019s Bagels\" belonged to RJ in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was RJ's team name in 2020?",
+      "choices": [
+        "Mrs Fields Cooksiez",
+        "(Thorough)BredWinner",
+        "BrueggeRJ\u2019s Bagels",
+        "Dakless in Dallas"
+      ],
+      "answer": "BrueggeRJ\u2019s Bagels",
+      "explanation": "RJ used \"BrueggeRJ\u2019s Bagels\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Discount Double Down\" in 2020?",
+      "choices": [
+        "Sam",
+        "Ben",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Discount Double Down\" belonged to Sam in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Sam's team name in 2020?",
+      "choices": [
+        "Dexter",
+        "Discount Double Down",
+        "Papi Chulo",
+        "ChubbHub"
+      ],
+      "answer": "Discount Double Down",
+      "explanation": "Sam used \"Discount Double Down\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2020_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "Who was \"Minshew Musty Mania\" in 2020?",
+      "choices": [
+        "Zac",
+        "Adrian",
+        "RJ",
+        "Habble"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Minshew Musty Mania\" belonged to Zac in 2020.",
+      "sourceYear": 2020
+    },
+    {
+      "id": "owner_teamname_2020_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "competitive",
+      "prompt": "What was Zac's team name in 2020?",
+      "choices": [
+        "Lotto Ball Mac",
+        "Minshew Musty Mania",
+        "On to Cincinnati",
+        "MACtion Jackson"
+      ],
+      "answer": "Minshew Musty Mania",
+      "explanation": "Zac used \"Minshew Musty Mania\" in 2020.",
+      "sourceYear": 2020,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Fat Piece A Shit ??\" in 2021?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Sam",
+        "Adrian"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Fat Piece A Shit ??\" belonged to Adrian in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Adrian's team name in 2021?",
+      "choices": [
+        "#WhatUpWhatsHappenin",
+        "Fat Piece A Shit ??",
+        "Sixty",
+        "Mac-A-Trons Revenge"
+      ],
+      "answer": "Fat Piece A Shit ??",
+      "explanation": "Adrian used \"Fat Piece A Shit ??\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"1+6=7\" in 2021?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "Cory",
+        "Ben"
+      ],
+      "answer": "Ben",
+      "explanation": "\"1+6=7\" belonged to Ben in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Ben's team name in 2021?",
+      "choices": [
+        "1+6=7",
+        "????21pt kicker MNF ????",
+        "Sixty",
+        "Ass"
+      ],
+      "answer": "1+6=7",
+      "explanation": "Ben used \"1+6=7\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"ChubbHub\" in 2021?",
+      "choices": [
+        "Mac",
+        "Ben",
+        "Adrian",
+        "Bob"
+      ],
+      "answer": "Bob",
+      "explanation": "\"ChubbHub\" belonged to Bob in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Bob's team name in 2021?",
+      "choices": [
+        "ChubbHub",
+        "Call Me Awful",
+        "??",
+        "Bucking Broncos"
+      ],
+      "answer": "ChubbHub",
+      "explanation": "Bob used \"ChubbHub\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Drawing Dead\" in 2021?",
+      "choices": [
+        "Mac",
+        "Ben",
+        "Adrian",
+        "Cory"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Drawing Dead\" belonged to Cory in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Cory's team name in 2021?",
+      "choices": [
+        "????21pt kicker MNF ????",
+        "Curb stomped",
+        "2 Week Notice",
+        "Drawing Dead"
+      ],
+      "answer": "Drawing Dead",
+      "explanation": "Cory used \"Drawing Dead\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Jaspers\" in 2021?",
+      "choices": [
+        "Ben",
+        "Adrian",
+        "RJ",
+        "Dan"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Dan's team name in 2021?",
+      "choices": [
+        "Jaspers",
+        "Fat Piece A Shit ??",
+        "That's Advantageous",
+        "Nonfactor 4 Eternity"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Trash Can\" in 2021?",
+      "choices": [
+        "RJ",
+        "Dan",
+        "Cory",
+        "Habble"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Trash Can\" belonged to Habble in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Habble's team name in 2021?",
+      "choices": [
+        "Drawing Dead",
+        "Trash Can",
+        "Chuckyyyyyy",
+        "The Cam cam"
+      ],
+      "answer": "Trash Can",
+      "explanation": "Habble used \"Trash Can\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"RoMac\u2019s Dad\" in 2021?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Ben",
+        "Mac"
+      ],
+      "answer": "Mac",
+      "explanation": "\"RoMac\u2019s Dad\" belonged to Mac in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Mac's team name in 2021?",
+      "choices": [
+        "RoMac\u2019s Dad",
+        "2muchrookiefilm",
+        "Never any Salsa",
+        "Dexter"
+      ],
+      "answer": "RoMac\u2019s Dad",
+      "explanation": "Mac used \"RoMac\u2019s Dad\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"BrueggeRJ\u2019s Bagels\" in 2021?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Mac",
+        "RJ"
+      ],
+      "answer": "RJ",
+      "explanation": "\"BrueggeRJ\u2019s Bagels\" belonged to RJ in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was RJ's team name in 2021?",
+      "choices": [
+        "5th place",
+        "BrueggeRJ\u2019s Bagels",
+        "Fat DooDoo Master #9th ??",
+        "out Out OUT"
+      ],
+      "answer": "BrueggeRJ\u2019s Bagels",
+      "explanation": "RJ used \"BrueggeRJ\u2019s Bagels\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Judge Jeudy and Executioner\" in 2021?",
+      "choices": [
+        "RJ",
+        "Habble",
+        "Dan",
+        "Sam"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Judge Jeudy and Executioner\" belonged to Sam in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Sam's team name in 2021?",
+      "choices": [
+        "Judge Jeudy and Executioner",
+        "Corn on the Cobb",
+        "Bucking Broncos",
+        "?? (??) ??(??)"
+      ],
+      "answer": "Judge Jeudy and Executioner",
+      "explanation": "Sam used \"Judge Jeudy and Executioner\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2021_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Christian Mingle\" in 2021?",
+      "choices": [
+        "Cory",
+        "Sam",
+        "Bob",
+        "Zac"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Christian Mingle\" belonged to Zac in 2021.",
+      "sourceYear": 2021
+    },
+    {
+      "id": "owner_teamname_2021_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Zac's team name in 2021?",
+      "choices": [
+        "Christian Mingle",
+        "Stank",
+        "Corn on the Cobb",
+        "All Bark no chase"
+      ],
+      "answer": "Christian Mingle",
+      "explanation": "Zac used \"Christian Mingle\" in 2021.",
+      "sourceYear": 2021,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Fat DooDoo Master #9th ??\" in 2022?",
+      "choices": [
+        "Ben",
+        "RJ",
+        "Adrian",
+        "Mac"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Fat DooDoo Master #9th ??\" belonged to Adrian in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Adrian's team name in 2022?",
+      "choices": [
+        "Fat DooDoo Master #9th ??",
+        "-Vacant Team-",
+        "Minor HicKupp",
+        "Priest Brady"
+      ],
+      "answer": "Fat DooDoo Master #9th ??",
+      "explanation": "Adrian used \"Fat DooDoo Master #9th ??\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Doormat\" in 2022?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Ben",
+        "Mac"
+      ],
+      "answer": "Ben",
+      "explanation": "\"Doormat\" belonged to Ben in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Ben's team name in 2022?",
+      "choices": [
+        "End Zone Jax(on)",
+        "Belichick Yo Self",
+        "nextyrjustflipups",
+        "Doormat"
+      ],
+      "answer": "Doormat",
+      "explanation": "Ben used \"Doormat\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Little Plumber Boy\" in 2022?",
+      "choices": [
+        "Cory",
+        "Sam",
+        "Bob",
+        "Dan"
+      ],
+      "answer": "Bob",
+      "explanation": "\"Little Plumber Boy\" belonged to Bob in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Bob's team name in 2022?",
+      "choices": [
+        "-14",
+        "Return of da Bitch",
+        "KittlesNTrubiscuits",
+        "Little Plumber Boy"
+      ],
+      "answer": "Little Plumber Boy",
+      "explanation": "Bob used \"Little Plumber Boy\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Sixty\" in 2022?",
+      "choices": [
+        "Mac",
+        "Ben",
+        "Cory",
+        "Zac"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Sixty\" belonged to Cory in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Cory's team name in 2022?",
+      "choices": [
+        "Zeke and Da boys",
+        "Queen Of The HILL",
+        "Sixty",
+        "Armed Schaubbery"
+      ],
+      "answer": "Sixty",
+      "explanation": "Cory used \"Sixty\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Jaspers\" in 2022?",
+      "choices": [
+        "RJ",
+        "Habble",
+        "Dan",
+        "Adrian"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Dan's team name in 2022?",
+      "choices": [
+        "Minshew Musty Mania",
+        "Discount Double Down",
+        "ReplaceMeWitUgzNxtYr",
+        "Jaspers"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Trash Can\" in 2022?",
+      "choices": [
+        "Cory",
+        "Sam",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Trash Can\" belonged to Habble in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Habble's team name in 2022?",
+      "choices": [
+        "Trash Can",
+        "Move Achane",
+        "BENNY VS BBB",
+        "Podium-Bound"
+      ],
+      "answer": "Trash Can",
+      "explanation": "Habble used \"Trash Can\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Lotto Ball Mac\" in 2022?",
+      "choices": [
+        "Zac",
+        "Ben",
+        "Mac",
+        "Bob"
+      ],
+      "answer": "Mac",
+      "explanation": "\"Lotto Ball Mac\" belonged to Mac in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Mac's team name in 2022?",
+      "choices": [
+        "Fat Boy Swan Song #PaChumpo",
+        "-Vacant Team-",
+        "Giant-mistake",
+        "Lotto Ball Mac"
+      ],
+      "answer": "Lotto Ball Mac",
+      "explanation": "Mac used \"Lotto Ball Mac\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Dexter\" in 2022?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "RJ",
+        "Adrian"
+      ],
+      "answer": "RJ",
+      "explanation": "\"Dexter\" belonged to RJ in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was RJ's team name in 2022?",
+      "choices": [
+        "Dexter",
+        "Murpheys Law",
+        "7-6? Nope FBV",
+        "Over The Hill"
+      ],
+      "answer": "Dexter",
+      "explanation": "RJ used \"Dexter\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Minor HicKupp\" in 2022?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "Sam",
+        "RJ"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Minor HicKupp\" belonged to Sam in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Sam's team name in 2022?",
+      "choices": [
+        "Bo Brix & Da Orange ?? Club",
+        "Call Me Awful",
+        "Curb stomped",
+        "Minor HicKupp"
+      ],
+      "answer": "Minor HicKupp",
+      "explanation": "Sam used \"Minor HicKupp\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2022_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Mrs Fields Cooksiez\" in 2022?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "Zac",
+        "RJ"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Mrs Fields Cooksiez\" belonged to Zac in 2022.",
+      "sourceYear": 2022
+    },
+    {
+      "id": "owner_teamname_2022_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Zac's team name in 2022?",
+      "choices": [
+        "Fat DooDoo Master #9th ??",
+        "Curb stomped",
+        "2Guys1Suit?",
+        "Mrs Fields Cooksiez"
+      ],
+      "answer": "Mrs Fields Cooksiez",
+      "explanation": "Zac used \"Mrs Fields Cooksiez\" in 2022.",
+      "sourceYear": 2022,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Cry & Win\u2026LOL #DooDoo\" in 2023?",
+      "choices": [
+        "Ben",
+        "Adrian",
+        "Zac",
+        "Mac"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Cry & Win\u2026LOL #DooDoo\" belonged to Adrian in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Adrian's team name in 2023?",
+      "choices": [
+        "Minshew Musty Mania",
+        "BrueggeRJ\u2019s Bagels",
+        "Belichick Yo Self",
+        "Cry & Win\u2026LOL #DooDoo"
+      ],
+      "answer": "Cry & Win\u2026LOL #DooDoo",
+      "explanation": "Adrian used \"Cry & Win\u2026LOL #DooDoo\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Doormat\" in 2023?",
+      "choices": [
+        "Habble",
+        "Ben",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Ben",
+      "explanation": "\"Doormat\" belonged to Ben in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Ben's team name in 2023?",
+      "choices": [
+        "Old & Tasty",
+        "BENNY VS BBB",
+        "Doormat",
+        "Pup listed"
+      ],
+      "answer": "Doormat",
+      "explanation": "Ben used \"Doormat\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"All Bark no chase\" in 2023?",
+      "choices": [
+        "Adrian",
+        "Bob",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Bob",
+      "explanation": "\"All Bark no chase\" belonged to Bob in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Bob's team name in 2023?",
+      "choices": [
+        "Post Mahomes",
+        "Old & Tasty",
+        "All Bark no chase",
+        "BENNY VS BBB"
+      ],
+      "answer": "All Bark no chase",
+      "explanation": "Bob used \"All Bark no chase\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Sixty\" in 2023?",
+      "choices": [
+        "Adrian",
+        "Cory",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Sixty\" belonged to Cory in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Cory's team name in 2023?",
+      "choices": [
+        "The Cam cam",
+        "Sixty",
+        "Trash Can",
+        "2Guys1Suit?"
+      ],
+      "answer": "Sixty",
+      "explanation": "Cory used \"Sixty\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Jaspers\" in 2023?",
+      "choices": [
+        "Cory",
+        "Dan",
+        "RJ",
+        "Habble"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Dan's team name in 2023?",
+      "choices": [
+        "How Fucking Bad Am I",
+        "Team Vukson #Boberto",
+        "Jaspers",
+        "Remember the Titans"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Trash Can\" in 2023?",
+      "choices": [
+        "Bob",
+        "Habble",
+        "Cory",
+        "Sam"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Trash Can\" belonged to Habble in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Habble's team name in 2023?",
+      "choices": [
+        "RoMac\u2019s Dad",
+        "Dexter",
+        "Smoke a bowe",
+        "Trash Can"
+      ],
+      "answer": "Trash Can",
+      "explanation": "Habble used \"Trash Can\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"??\" in 2023?",
+      "choices": [
+        "Sam",
+        "Mac",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Mac",
+      "explanation": "\"??\" belonged to Mac in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Mac's team name in 2023?",
+      "choices": [
+        "Dakless in Dallas",
+        "Drewbacle Pt. Deux",
+        "??",
+        "Return of da Mac"
+      ],
+      "answer": "??",
+      "explanation": "Mac used \"??\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Dexter\" in 2023?",
+      "choices": [
+        "Cory",
+        "RJ",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "RJ",
+      "explanation": "\"Dexter\" belonged to RJ in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was RJ's team name in 2023?",
+      "choices": [
+        "Priest Brady",
+        "Giant-mistake",
+        "Lotto Ball Mac",
+        "Dexter"
+      ],
+      "answer": "Dexter",
+      "explanation": "RJ used \"Dexter\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"End Zone Jax(on)\" in 2023?",
+      "choices": [
+        "Dan",
+        "Sam",
+        "RJ",
+        "Habble"
+      ],
+      "answer": "Sam",
+      "explanation": "\"End Zone Jax(on)\" belonged to Sam in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Sam's team name in 2023?",
+      "choices": [
+        "Ben O\u2019Brien",
+        "The Cam cam",
+        "End Zone Jax(on)",
+        "Smoke a bowe"
+      ],
+      "answer": "End Zone Jax(on)",
+      "explanation": "Sam used \"End Zone Jax(on)\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2023_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Bijan with the runs ??\" in 2023?",
+      "choices": [
+        "Habble",
+        "Zac",
+        "Adrian",
+        "RJ"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Bijan with the runs ??\" belonged to Zac in 2023.",
+      "sourceYear": 2023
+    },
+    {
+      "id": "owner_teamname_2023_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Zac's team name in 2023?",
+      "choices": [
+        "Drewbacle Pt. Deux",
+        "Bo Brix & Da Orange ?? Club",
+        "Bijan with the runs ??",
+        "Fat Piece A Shit ??"
+      ],
+      "answer": "Bijan with the runs ??",
+      "explanation": "Zac used \"Bijan with the runs ??\" in 2023.",
+      "sourceYear": 2023,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Fat Boy Swan Song #PaChumpo\" in 2024?",
+      "choices": [
+        "Adrian",
+        "Dan",
+        "Cory",
+        "Sam"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Fat Boy Swan Song #PaChumpo\" belonged to Adrian in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Adrian's team name in 2024?",
+      "choices": [
+        "De-Welker",
+        "?? & ??",
+        "Fat Boy Swan Song #PaChumpo",
+        "#Mr.Bagels"
+      ],
+      "answer": "Fat Boy Swan Song #PaChumpo",
+      "explanation": "Adrian used \"Fat Boy Swan Song #PaChumpo\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Love Hurts\" in 2024?",
+      "choices": [
+        "Ben",
+        "Cory",
+        "Sam",
+        "Bob"
+      ],
+      "answer": "Ben",
+      "explanation": "\"Love Hurts\" belonged to Ben in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Ben's team name in 2024?",
+      "choices": [
+        "SquallValleySpoilers",
+        "Love Hurts",
+        "Mrs Fields Cooksiez",
+        "Gut Shot On Da River"
+      ],
+      "answer": "Love Hurts",
+      "explanation": "Ben used \"Love Hurts\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Ass\" in 2024?",
+      "choices": [
+        "Bob",
+        "Habble",
+        "Dan",
+        "Cory"
+      ],
+      "answer": "Bob",
+      "explanation": "\"Ass\" belonged to Bob in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Bob's team name in 2024?",
+      "choices": [
+        "BENNY VS BBB",
+        "Ass",
+        "Love Hurts",
+        "Move Achane"
+      ],
+      "answer": "Ass",
+      "explanation": "Bob used \"Ass\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Bryce Young's Panthers\" in 2024?",
+      "choices": [
+        "Cory",
+        "RJ",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Cory",
+      "explanation": "\"Bryce Young's Panthers\" belonged to Cory in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Cory's team name in 2024?",
+      "choices": [
+        "Bryce Young's Panthers",
+        "The Titanic",
+        "Seabiscuit",
+        "Team FZS"
+      ],
+      "answer": "Bryce Young's Panthers",
+      "explanation": "Cory used \"Bryce Young's Panthers\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Jaspers\" in 2024?",
+      "choices": [
+        "Dan",
+        "Habble",
+        "Cory",
+        "Sam"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Dan's team name in 2024?",
+      "choices": [
+        "A Team Came & Wentz??",
+        "Jaspers",
+        "(Thorough)BredWinner",
+        "QB Sneak FAR (FRH-L)"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Trash Can\" in 2024?",
+      "choices": [
+        "Habble",
+        "Sam",
+        "Bob",
+        "Zac"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Trash Can\" belonged to Habble in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Habble's team name in 2024?",
+      "choices": [
+        "PODIUM",
+        "2 Week Notice",
+        "Trash Can",
+        "out Out OUT"
+      ],
+      "answer": "Trash Can",
+      "explanation": "Habble used \"Trash Can\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"?? (??) ??(??)\" in 2024?",
+      "choices": [
+        "Mac",
+        "Sam",
+        "Bob",
+        "Zac"
+      ],
+      "answer": "Mac",
+      "explanation": "\"?? (??) ??(??)\" belonged to Mac in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Mac's team name in 2024?",
+      "choices": [
+        "Watch The Throne",
+        "?? (??) ??(??)",
+        "BENNY VS BBB",
+        "Murpheys Law"
+      ],
+      "answer": "?? (??) ??(??)",
+      "explanation": "Mac used \"?? (??) ??(??)\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"?? & ??\" in 2024?",
+      "choices": [
+        "RJ",
+        "Zac",
+        "Mac",
+        "Ben"
+      ],
+      "answer": "RJ",
+      "explanation": "\"?? & ??\" belonged to RJ in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was RJ's team name in 2024?",
+      "choices": [
+        "ChubbHub",
+        "De-Welker",
+        "?? & ??",
+        "Bo Brix & Da Orange ?? Club"
+      ],
+      "answer": "?? & ??",
+      "explanation": "RJ used \"?? & ??\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Keenan & Kelories\" in 2024?",
+      "choices": [
+        "Sam",
+        "Adrian",
+        "RJ",
+        "Habble"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Keenan & Kelories\" belonged to Sam in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Sam's team name in 2024?",
+      "choices": [
+        "dumpster diving",
+        "Keenan & Kelories",
+        "Bucking Broncos",
+        "Minshew Musty Mania"
+      ],
+      "answer": "Keenan & Kelories",
+      "explanation": "Sam used \"Keenan & Kelories\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2024_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Bijan with the runs ??\" in 2024?",
+      "choices": [
+        "Zac",
+        "RJ",
+        "Habble",
+        "Dan"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Bijan with the runs ??\" belonged to Zac in 2024.",
+      "sourceYear": 2024
+    },
+    {
+      "id": "owner_teamname_2024_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Zac's team name in 2024?",
+      "choices": [
+        "?? & ??",
+        "Bijan with the runs ??",
+        "#Mr.Bagels",
+        "De-Welker"
+      ],
+      "answer": "Bijan with the runs ??",
+      "explanation": "Zac used \"Bijan with the runs ??\" in 2024.",
+      "sourceYear": 2024,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_adrian",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Bo Brix & Da Orange ?? Club\" in 2025?",
+      "choices": [
+        "Sam",
+        "Bob",
+        "Zac",
+        "Adrian"
+      ],
+      "answer": "Adrian",
+      "explanation": "\"Bo Brix & Da Orange ?? Club\" belonged to Adrian in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_adrian",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Adrian's team name in 2025?",
+      "choices": [
+        "Flyin Wit Ryan",
+        "Bo Brix & Da Orange ?? Club",
+        "GrinchStoleGronk",
+        "Im thinkin RB's"
+      ],
+      "answer": "Bo Brix & Da Orange ?? Club",
+      "explanation": "Adrian used \"Bo Brix & Da Orange ?? Club\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_ben",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"FBV\" in 2025?",
+      "choices": [
+        "Habble",
+        "Dan",
+        "Cory",
+        "Ben"
+      ],
+      "answer": "Ben",
+      "explanation": "\"FBV\" belonged to Ben in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_ben",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Ben's team name in 2025?",
+      "choices": [
+        "FBV",
+        "Milked ??????",
+        "Popped Belloon",
+        "Never any Salsa"
+      ],
+      "answer": "FBV",
+      "explanation": "Ben used \"FBV\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_bob",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"One Tua Many Concussions #CTE\" in 2025?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Habble",
+        "Bob"
+      ],
+      "answer": "Bob",
+      "explanation": "\"One Tua Many Concussions #CTE\" belonged to Bob in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_bob",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Bob's team name in 2025?",
+      "choices": [
+        "One Tua Many Concussions #CTE",
+        "Dumpsville",
+        "Swan Song",
+        "Jaspers"
+      ],
+      "answer": "One Tua Many Concussions #CTE",
+      "explanation": "Bob used \"One Tua Many Concussions #CTE\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_cory",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"08 Lions\" in 2025?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Habble",
+        "Cory"
+      ],
+      "answer": "Cory",
+      "explanation": "\"08 Lions\" belonged to Cory in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_cory",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Cory's team name in 2025?",
+      "choices": [
+        "Maybe Someday",
+        "Lotto Ball Mac",
+        "Kibs Extinction",
+        "08 Lions"
+      ],
+      "answer": "08 Lions",
+      "explanation": "Cory used \"08 Lions\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_dan",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Jaspers\" in 2025?",
+      "choices": [
+        "Cory",
+        "Sam",
+        "Bob",
+        "Dan"
+      ],
+      "answer": "Dan",
+      "explanation": "\"Jaspers\" belonged to Dan in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_dan",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Dan's team name in 2025?",
+      "choices": [
+        "Jaspers",
+        "Gut Shot On Da River",
+        "SquallValleySpoilers",
+        "Bryce Young's Panthers"
+      ],
+      "answer": "Jaspers",
+      "explanation": "Dan used \"Jaspers\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_habble",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Trash Can\" in 2025?",
+      "choices": [
+        "Bob",
+        "Zac",
+        "Mac",
+        "Habble"
+      ],
+      "answer": "Habble",
+      "explanation": "\"Trash Can\" belonged to Habble in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_habble",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Habble's team name in 2025?",
+      "choices": [
+        "Bryce Young's Panthers",
+        "Trash Can",
+        "Gut Shot On Da River",
+        "SquallValleySpoilers"
+      ],
+      "answer": "Trash Can",
+      "explanation": "Habble used \"Trash Can\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_mac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"RB1LL\" in 2025?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Sam",
+        "Mac"
+      ],
+      "answer": "Mac",
+      "explanation": "\"RB1LL\" belonged to Mac in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_mac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Mac's team name in 2025?",
+      "choices": [
+        "RB1LL",
+        "#WhatUpWhatsHappenin",
+        "Nuk if uLuck(retire)",
+        "WreckOfTheFitzgerald"
+      ],
+      "answer": "RB1LL",
+      "explanation": "Mac used \"RB1LL\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_rj",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"2muchrookiefilm\" in 2025?",
+      "choices": [
+        "Ben",
+        "Adrian",
+        "Habble",
+        "RJ"
+      ],
+      "answer": "RJ",
+      "explanation": "\"2muchrookiefilm\" belonged to RJ in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_rj",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was RJ's team name in 2025?",
+      "choices": [
+        "GrinchStoleGronk",
+        "2muchrookiefilm",
+        "One Tua Many Concussions #CTE",
+        "dumpster diving"
+      ],
+      "answer": "2muchrookiefilm",
+      "explanation": "RJ used \"2muchrookiefilm\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_sam",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Brockness Monster\" in 2025?",
+      "choices": [
+        "Adrian",
+        "RJ",
+        "Habble",
+        "Sam"
+      ],
+      "answer": "Sam",
+      "explanation": "\"Brockness Monster\" belonged to Sam in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_sam",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Sam's team name in 2025?",
+      "choices": [
+        "Brockness Monster",
+        "De-Welker",
+        "Team FZS",
+        "Dexter"
+      ],
+      "answer": "Brockness Monster",
+      "explanation": "Sam used \"Brockness Monster\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
+    },
+    {
+      "id": "teamname_owner_2025_zac",
+      "category": "Team Names",
+      "questionFamily": "teamNameToOwner",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "Who was \"Move Achane\" in 2025?",
+      "choices": [
+        "Dan",
+        "Cory",
+        "Sam",
+        "Zac"
+      ],
+      "answer": "Zac",
+      "explanation": "\"Move Achane\" belonged to Zac in 2025.",
+      "sourceYear": 2025
+    },
+    {
+      "id": "owner_teamname_2025_zac",
+      "category": "Team Names",
+      "questionFamily": "ownerYearToTeamName",
+      "pairFamily": "teamNames",
+      "difficulty": "casual",
+      "prompt": "What was Zac's team name in 2025?",
+      "choices": [
+        "Move Achane",
+        "?? & ??",
+        "Never any Salsa",
+        "End Zone Jax(on)"
+      ],
+      "answer": "Move Achane",
+      "explanation": "Zac used \"Move Achane\" in 2025.",
+      "sourceYear": 2025,
+      "distractorRule": "Same-owner names within \u00b15 seasons excluded."
     }
   ],
   "difficultyNotes": {
@@ -24778,7 +30178,7 @@
       "answers": [
         "Ashton Jeanty",
         "Bijan Robinson",
-        "CMC",
+        "Christian McCaffrey",
         "Ceedee Lamb",
         "Derrick Henry",
         "Devon Achane",
@@ -27570,7 +32970,7 @@
         "Bijan Robinson",
         "Brian Thomas Jr",
         "Bucky Irving",
-        "CMC",
+        "Christian McCaffrey",
         "Ceedee Lamb",
         "Chase Brown",
         "Derrick Henry",
@@ -68356,7 +73756,7 @@
         "Brandon Weeden",
         "Braylon Edwards",
         "Bryce Brown",
-        "CMC",
+        "Christian McCaffrey",
         "Caleb Williams",
         "Calvin Johnson",
         "Cam Newton",
@@ -304424,5 +309824,13 @@
         }
       ]
     }
-  ]
+  ],
+  "validationNotes": {
+    "playerAliases": {
+      "CMC": "Christian McCaffrey"
+    },
+    "absencePremiseGuard": "Runtime validation cross-checks 'undrafted' and 'never drafted' premises against historical draft records before allowing the question.",
+    "ownerCanonicalName": "Adrian",
+    "teamNameTrivia": "Shared bank; Owner+Year distractors exclude same-owner names within \u00b15 seasons."
+  }
 }
