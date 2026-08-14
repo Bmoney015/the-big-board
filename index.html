@@ -2760,6 +2760,7 @@ header,
 .dnl-board-msg{max-width:900px;margin:10px auto 0;padding:10px;border-radius:8px;background:#111a20;color:#b9c4ca;font-size:10px;min-height:22px}
 .dnl-board-msg.good{border-left:3px solid #5f9d74;color:#bfe6ca}.dnl-board-msg.bad{border-left:3px solid #ac6262;color:#efc0c0}.dnl-board-msg.info{border-left:3px solid #c3a159;color:#ead8a6}
 .dnl-slot.claimA{border-color:#4d8ea7;background:#17303a}.dnl-slot.claimB{border-color:#b47d4e;background:#35271a}.dnl-slot.revealed .ans{color:#f2f5f6}
+.dnl-slot.selectable{cursor:pointer;transition:border-color .15s,box-shadow .15s,transform .15s}.dnl-slot.selectable:hover{border-color:#8d7746;transform:translateY(-1px)}.dnl-slot.selected{border:2px solid #d2aa4f;box-shadow:0 0 0 2px rgba(210,170,79,.18);background:#2a2518}.dnl-slot.selected .ans{color:#f4d77d}
 .dnl-board-turn{display:inline-block;margin-top:10px;padding:7px 11px;border:1px solid #7f6838;border-radius:999px;background:#282316;color:#f0cf72;font-size:9px;font-weight:950}
 .dnl-board-end{max-width:760px;margin:18px auto 0;padding:15px;border:1px solid #3d4a54;border-radius:10px;background:#121c23}.dnl-board-end h3{margin:0 0 6px}.dnl-board-end .big{font-size:28px;color:#efd078;font-weight:950}
 @media(max-width:760px){.dnl-board-entry{grid-template-columns:1fr}}
@@ -10002,24 +10003,44 @@ function dnlMissingQ(){const q=DNL.mqs[DNL.missingStep];if(!q){dnlDone("Missing 
 const DNL_BOARDS=["Best QB Seasons Ever","Best RB Seasons Ever","Best WR Seasons Ever","Best TE Seasons Ever","Career QB Fantasy Points","Career RB Fantasy Points","Career WR Fantasy Points","Career TE Fantasy Points","Most Times Drafted Round 1","Most Times Drafted Overall","Greatest Draft Picks / Steals","Highest-Scoring Owner Seasons Ever","Last 10 Champions"],DNL_PTS=[5,5,4,4,3,3,2,2,1,1];
 function dnlBoardStart(){
  const pool=TRIVIA_DATA.draftNightLiveBoards||[];if(!pool.length){dnlDone("No Final Board categories are available.");return}
- DNL.board=dnlShuffle(pool)[0];DNL.boardRevealed={};DNL.boardStrikes={A:0,B:0};DNL.boardTeam="A";dnlBoardRender();
+ DNL.board=dnlShuffle(pool)[0];DNL.boardRevealed={};DNL.boardStrikes={A:0,B:0};DNL.boardTeam="A";DNL.boardSelected=null;dnlBoardRender();
 }
 function dnlBoardAlive(t){return DNL.boardStrikes[t]<3}
 function dnlBoardRemaining(){return DNL.board.answers.filter((a,i)=>!DNL.boardRevealed[i]).length}
+function dnlExactOwnerMatch(raw,names){
+ const nr=dnlNorm(raw);if(!nr)return {type:"none"};
+ const exact=names.filter(n=>dnlNorm(n)===nr);
+ if(exact.length===1)return {type:"match",name:exact[0],method:"exact"};
+ if(exact.length>1)return {type:"ambiguous",names:exact};
+ return {type:"none"};
+}
 function dnlBoardFind(raw){
  const b=DNL.board;
  const text=String(raw||"").trim();
  const ym=text.match(/\b(201\d|202\d)\b/);
 
- // History / owner-season boards always require owner + year.
- if(b.type==="history"||b.type==="ranked_owner_year"){
+ // Ranked owner-season boards: the year is the clue. The host/team must first
+ // select one specific slot, then enter that owner's name. Owner matching is
+ // intentionally exact so Zac can never be accepted as Mac (or vice versa).
+ if(b.type==="ranked_owner_year"){
+   const i=Number.isInteger(DNL.boardSelected)?DNL.boardSelected:null;
+   if(i===null)return {type:"needslot"};
+   if(DNL.boardRevealed[i])return {type:"used",answer:b.answers[i]};
+   const a=b.answers[i];
+   const mm=dnlExactOwnerMatch(text,[a.owner]);
+   if(mm.type!=="match")return {type:"slotmiss",index:i,answer:a,guess:text};
+   return {type:"match",index:i,answer:a};
+ }
+
+ // Other history boards retain owner + year entry.
+ if(b.type==="history"){
    if(!ym)return {type:"needyear"};
    const year=+ym[1];
    const namePart=text.replace(ym[1],"").replace(/[-–—,]/g," ").trim();
    if(!namePart)return {type:"none"};
    const candidates=b.answers.map((a,i)=>({a,i})).filter(x=>x.a.year===year);
    if(!candidates.length)return {type:"none"};
-   const mm=dnlMatchName(namePart,candidates.map(x=>x.a.owner));
+   const mm=dnlExactOwnerMatch(namePart,candidates.map(x=>x.a.owner));
    if(mm.type!=="match")return mm;
    const hit=candidates.find(x=>x.a.owner===mm.name);
    return {type:"match",index:hit.i,answer:hit.a};
@@ -10037,8 +10058,6 @@ function dnlBoardFind(raw){
  const all=b.answers.map((a,i)=>({a,i})).filter(x=>(x.a.player||x.a.label)===mm.name);
  const fresh=all.filter(x=>!DNL.boardRevealed[x.i]);
 
- // If player appears multiple times anywhere on this season board,
- // require an explicit year on every attempt for that player.
  if(b.type==="ranked_seasons_unique" && all.length>1){
    if(!ym)return {type:"needyear",player:mm.name};
    const year=+ym[1];
@@ -10048,7 +10067,6 @@ function dnlBoardFind(raw){
    return {type:"match",index:hit.i,answer:hit.a};
  }
 
- // Single-slot player: supplied wrong year should still be wrong.
  if(ym && all.length===1 && all[0].a.year && all[0].a.year!==+ym[1]){
    return {type:"wrongyear",player:mm.name,year:+ym[1]};
  }
@@ -10058,15 +10076,26 @@ function dnlBoardFind(raw){
 }
 function dnlBoardAdvance(){const other=DNL.boardTeam==="A"?"B":"A";if(dnlBoardAlive(other))DNL.boardTeam=other}
 function dnlBoardRender(msg="",cls=""){
- const b=DNL.board,hist=b.type==="history",seasonBoard=b.type==="ranked_seasons_unique",rem=dnlBoardRemaining(),slots=b.answers.map((a,i)=>{const c=DNL.boardRevealed[i],shown=!!c;return `<div class="dnl-slot ${shown?"revealed":""} ${c?`claim${c}`:""}"><div class="rank">${hist?a.year:`#${i+1}`}</div><div class="ans">${shown?a.label:"Hidden"}${seasonBoard?` <span class="dnl-slot-year">${a.year}</span>`:""}</div><div class="pts">${a.points} pts</div></div>`}).join("");
- document.getElementById("dnlStage").innerHTML=`<div class="dnl-kicker" style="text-align:center">The Final Board</div><div class="dnl-board-title">${b.title}</div><div class="dnl-board-sub">${hist?"History board · owner + year required · 3 points each":seasonBoard?"Year is shown · name the player · 5/5/4/4/3/3/2/2/1/1":"Ranked board · 5/5/4/4/3/3/2/2/1/1"} · 3 strikes per team · +5 Board Clear bonus</div><div class="dnl-board">${slots}</div><div class="dnl-strikes"><span>${dnlName("A")} <b>${"✕ ".repeat(DNL.boardStrikes.A)}${"○ ".repeat(3-DNL.boardStrikes.A)}</b></span><span>${dnlName("B")} <b>${"✕ ".repeat(DNL.boardStrikes.B)}${"○ ".repeat(3-DNL.boardStrikes.B)}</b></span></div><div class="dnl-board-turn">${dnlName(DNL.boardTeam)}'s turn · ${rem} remaining</div><div class="dnl-board-entry"><input id="dnlBoardInput" placeholder="${hist?"Type owner + year…":"Type an answer…"}"><button id="dnlBoardGuess" class="dnl-primary">Submit Guess</button><button id="dnlBoardPass">Strike / Pass</button>${Object.keys(DNL.boardRevealed).length===0&&DNL.boardStrikes.A===0&&DNL.boardStrikes.B===0?`<button id="dnlBoardMull">↻ Mulligan Board</button>`:""}</div><div class="dnl-board-msg ${cls}">${msg}</div>`;
- document.getElementById("dnlBoardGuess").onclick=dnlBoardSubmit;document.getElementById("dnlBoardPass").onclick=()=>dnlBoardStrike("Pass");const bm=document.getElementById("dnlBoardMull");if(bm)bm.onclick=dnlBoardMulligan;document.getElementById("dnlBoardInput").addEventListener("keydown",e=>{if(e.key==="Enter")dnlBoardSubmit()});document.getElementById("dnlBoardInput").focus();
+ const b=DNL.board,hist=b.type==="history",ownerSeason=b.type==="ranked_owner_year",seasonBoard=b.type==="ranked_seasons_unique",rem=dnlBoardRemaining();
+ const slots=b.answers.map((a,i)=>{
+   const c=DNL.boardRevealed[i],shown=!!c,selected=ownerSeason&&DNL.boardSelected===i;
+   const rank=hist?a.year:`#${i+1}`;
+   const answerText=ownerSeason?(shown?`${a.year} — ${a.label}`:`${a.year} — Hidden`):(shown?a.label:"Hidden");
+   return `<div class="dnl-slot ${shown?"revealed":""} ${c?`claim${c}`:""} ${ownerSeason&&!shown?"selectable":""} ${selected?"selected":""}" ${ownerSeason&&!shown?`data-dnl-board-slot="${i}"`:""}><div class="rank">${rank}</div><div class="ans">${answerText}${seasonBoard?` <span class="dnl-slot-year">${a.year}</span>`:""}</div><div class="pts">${a.points} pts</div></div>`;
+ }).join("");
+ const selectedAnswer=ownerSeason&&Number.isInteger(DNL.boardSelected)?b.answers[DNL.boardSelected]:null;
+ const sub=hist?"History board · owner + year required · 3 points each":ownerSeason?"Year is shown · select a slot, then name the owner · 5/5/4/4/3/3/2/2/1/1":seasonBoard?"Year is shown · name the player · 5/5/4/4/3/3/2/2/1/1":"Ranked board · 5/5/4/4/3/3/2/2/1/1";
+ const placeholder=hist?"Type owner + year…":ownerSeason?(selectedAnswer?`Guess owner for #${DNL.boardSelected+1} · ${selectedAnswer.year}…`:"Select a board slot first…"):"Type an answer…";
+ const selectionNote=ownerSeason?(selectedAnswer?`Selected: #${DNL.boardSelected+1} · ${selectedAnswer.year}`:"Click one unrevealed slot to choose the year you are guessing."):"";
+ document.getElementById("dnlStage").innerHTML=`<div class="dnl-kicker" style="text-align:center">The Final Board</div><div class="dnl-board-title">${ownerSeason?"Highest-Scoring Regular-Season Owner Seasons Ever":b.title}</div><div class="dnl-board-sub">${sub} · 3 strikes per team · +5 Board Clear bonus</div><div class="dnl-board">${slots}</div><div class="dnl-strikes"><span>${dnlName("A")} <b>${"✕ ".repeat(DNL.boardStrikes.A)}${"○ ".repeat(3-DNL.boardStrikes.A)}</b></span><span>${dnlName("B")} <b>${"✕ ".repeat(DNL.boardStrikes.B)}${"○ ".repeat(3-DNL.boardStrikes.B)}</b></span></div><div class="dnl-board-turn">${dnlName(DNL.boardTeam)}'s turn · ${rem} remaining${selectionNote?` · ${selectionNote}`:""}</div><div class="dnl-board-entry"><input id="dnlBoardInput" placeholder="${placeholder}" ${ownerSeason&&!selectedAnswer?"disabled":""}><button id="dnlBoardGuess" class="dnl-primary" ${ownerSeason&&!selectedAnswer?"disabled":""}>Submit Guess</button><button id="dnlBoardPass">Strike / Pass</button>${Object.keys(DNL.boardRevealed).length===0&&DNL.boardStrikes.A===0&&DNL.boardStrikes.B===0?`<button id="dnlBoardMull">↻ Mulligan Board</button>`:""}</div><div class="dnl-board-msg ${cls}">${msg}</div>`;
+ if(ownerSeason){document.querySelectorAll("[data-dnl-board-slot]").forEach(el=>el.onclick=()=>{DNL.boardSelected=+el.dataset.dnlBoardSlot;dnlBoardRender();});}
+ document.getElementById("dnlBoardGuess").onclick=dnlBoardSubmit;document.getElementById("dnlBoardPass").onclick=()=>dnlBoardStrike("Pass");const bm=document.getElementById("dnlBoardMull");if(bm)bm.onclick=dnlBoardMulligan;const input=document.getElementById("dnlBoardInput");input.addEventListener("keydown",e=>{if(e.key==="Enter")dnlBoardSubmit()});if(!input.disabled)input.focus();
 }
 function dnlBoardMulligan(){
  const pool=(TRIVIA_DATA.draftNightLiveBoards||[]).filter(b=>b.id!==DNL.board?.id);
  if(!pool.length)return;
  DNL.board=dnlShuffle(pool)[0];
- DNL.boardRevealed={};DNL.boardStrikes={A:0,B:0};
+ DNL.boardRevealed={};DNL.boardStrikes={A:0,B:0};DNL.boardSelected=null;
  dnlBoardRender("↻ Commissioner mulligan — new Final Board, no score or strike penalty.","info");
 }
 
@@ -10082,19 +10111,35 @@ function dnlBoardContext(a){
  return "";
 }
 
+function dnlOwnerSeasonDetail(a){
+ if(!a||DNL.board?.type!=="ranked_owner_year")return "";
+ const owner=String(a.owner||a.label||"");
+ const year=+a.year;
+ const row=(INITIAL_RECORDS||[]).find(r=>+r.Year===year && dnlNorm(r.Owner)===dnlNorm(owner));
+ if(!row)return `${a.label}`;
+ const pts=Number(row.PointsFor);
+ const games=(Number(row.W)||0)+(Number(row.L)||0)+(Number(row.T)||0)+(Number(row.Ties)||0);
+ const total=Number.isFinite(pts)?Math.round(pts).toLocaleString():null;
+ const ppw=Number.isFinite(pts)&&games>0?(pts/games).toFixed(1):null;
+ return [a.label,total?`${total} pts`:null,ppw?`${ppw} ppw`:null].filter(Boolean).join(" · ");
+}
+
 function dnlBoardSubmit(){
  const raw=document.getElementById("dnlBoardInput").value.trim();if(!raw)return;const r=dnlBoardFind(raw);
+ if(r.type==="needslot"){dnlBoardRender("Select the specific year/slot you want to guess first.","info");return}
  if(r.type==="needyear"){dnlBoardRender(r.player?`${r.player} appears multiple times on this board. Correct answers must include the year.`:"This board requires owner + year.","info");return}
+ if(r.type==="slotmiss"){dnlBoardStrike(`${r.guess} is not the owner for #${r.index+1} · ${r.answer.year}`);return}
  if(r.type==="wrongyear"){dnlBoardStrike(`${r.player} ${r.year} is not a correct board answer`);return}
  if(r.type==="ambiguous"){dnlBoardRender(`“${raw}” is ambiguous. Be more specific: ${r.names.join(", ")}.`,"info");return}
  if(r.type==="used"){dnlBoardStrike(`${r.answer.label} was already revealed`);return}
  if(r.type!=="match"){dnlBoardStrike(`${raw} is not on the board`);return}
- const t=DNL.boardTeam,a=r.answer,i=r.index;DNL.boardRevealed[i]=t;DNL.score[t]+=a.points;let bonus=0;if(dnlBoardRemaining()===0){bonus=5;DNL.score[t]+=5}dnlScore();
- if(bonus){dnlBoardFinish(`${dnlName(t)} cleared the board with ${a.label}: +${a.points} plus +5!${dnlBoardContext(a)}`);return}
- dnlBoardAdvance();dnlBoardRender(`✓ ${a.label} · +${a.points} for ${dnlName(t)}${dnlBoardContext(a)}`,"good");
+ const t=DNL.boardTeam,a=r.answer,i=r.index;DNL.boardRevealed[i]=t;DNL.boardSelected=null;DNL.score[t]+=a.points;let bonus=0;if(dnlBoardRemaining()===0){bonus=5;DNL.score[t]+=5}dnlScore();
+ const answerDetail=DNL.board?.type==="ranked_owner_year"?dnlOwnerSeasonDetail(a):a.label;
+ if(bonus){dnlBoardFinish(`${dnlName(t)} cleared the board with ${answerDetail}: +${a.points} plus +5!${dnlBoardContext(a)}`);return}
+ dnlBoardAdvance();dnlBoardRender(`✓ ${answerDetail} · +${a.points} for ${dnlName(t)}${dnlBoardContext(a)}`,"good");
 }
 function dnlBoardStrike(reason){
- const t=DNL.boardTeam;DNL.boardStrikes[t]++;if(!dnlBoardAlive("A")&&!dnlBoardAlive("B")){dnlBoardFinish(`Both teams struck out. ${reason}.`);return}
+ const t=DNL.boardTeam;DNL.boardSelected=null;DNL.boardStrikes[t]++;if(!dnlBoardAlive("A")&&!dnlBoardAlive("B")){dnlBoardFinish(`Both teams struck out. ${reason}.`);return}
  dnlBoardAdvance();dnlBoardRender(`✕ Strike on ${dnlName(t)} · ${reason}`,"bad");
 }
 function dnlBoardFinish(msg){
