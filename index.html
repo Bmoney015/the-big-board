@@ -2770,18 +2770,23 @@ body.dnl-presentation nav,
 body.dnl-presentation .sidebar,
 body.dnl-presentation .top-nav,
 body.dnl-presentation .app-nav,
-body.dnl-presentation [data-view]:not([data-view="draftNightLive"]){
+body.dnl-presentation [data-view]:not([data-view="draftNightLive"]):not([data-view="prizeVault"]){
   display:none !important;
 }
-body.dnl-presentation #draftNightLive{
-  display:block !important;
+body.dnl-presentation #draftNightLive,
+body.dnl-presentation #prizeVault{
+  display:block;
 }
 body.dnl-presentation main{
   margin-left:0 !important;
   width:100% !important;
   max-width:none !important;
 }
-body.dnl-presentation .view:not(#draftNightLive){
+body.dnl-presentation .view:not(#draftNightLive):not(#prizeVault){
+  display:none !important;
+}
+body.dnl-presentation #draftNightLive.hidden,
+body.dnl-presentation #prizeVault.hidden{
   display:none !important;
 }
 
@@ -3241,7 +3246,7 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 
 
 /* =========================================================
-   v5.12.6 — Super Bowl Envelope Vault
+   v5.12.9 — Super Bowl Envelope Vault
    ========================================================= */
 .vault-shell{max-width:1180px;margin:0 auto;padding:8px 0 40px}
 .vault-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:18px}
@@ -3395,6 +3400,143 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
   padding:9px 18px;font-weight:900;cursor:pointer
 }
 
+
+/* =========================================================
+   v5.12.7 — H2H regular season + championship playoffs
+   ========================================================= */
+.weekly-h2h-scope{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:11px;
+}
+.weekly-h2h-scope button{
+  border:1px solid #51606c;
+  border-radius:8px;
+  background:#16212b;
+  color:#dce4e9;
+  padding:6px 10px;
+  font-size:10px;
+  font-weight:800;
+  cursor:pointer;
+}
+.weekly-h2h-scope button.active{
+  border-color:#b99045;
+  background:#f3eee4;
+  color:#14202b;
+  box-shadow:inset 0 0 0 1px rgba(185,144,69,.18);
+}
+.weekly-h2h-stage{
+  color:#8f9da7;
+  font-size:9px;
+  font-weight:800;
+  white-space:nowrap;
+}
+.weekly-h2h-stage.playoff{
+  color:#d0ad5c;
+}
+.weekly-hfa-badge{
+  display:inline-flex;
+  align-items:center;
+  margin-left:5px;
+  padding:2px 5px;
+  border:1px solid #8b733b;
+  border-radius:999px;
+  background:#2b2518;
+  color:#efd27e;
+  font-size:8px;
+  font-weight:900;
+  white-space:nowrap;
+  vertical-align:middle;
+}
+.weekly-h2h-note{
+  margin-top:8px;
+  color:#78858e;
+  font-size:9px;
+}
+
+
+/* v5.12.8 — spoiler-safe DNL presentation switcher */
+.dnl-presentation-switcher{display:none}
+body.dnl-presentation .dnl-presentation-switcher{
+  display:flex;
+  position:fixed;
+  top:12px;
+  right:14px;
+  z-index:13000;
+  align-items:center;
+  gap:8px;
+  padding:7px 9px;
+  border:1px solid #5a6873;
+  border-radius:10px;
+  background:rgba(15,24,33,.95);
+  box-shadow:0 8px 24px rgba(0,0,0,.28);
+}
+body.dnl-presentation .dnl-presentation-switcher label{
+  color:#d7b66f;
+  font-size:9px;
+  font-weight:900;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+}
+body.dnl-presentation .dnl-presentation-switcher select{
+  min-width:150px;
+  padding:7px 9px;
+  border:1px solid #697783;
+  border-radius:7px;
+  background:#f4f0e8;
+  color:#14202b;
+  font-weight:800;
+}
+@media(max-width:620px){
+  body.dnl-presentation .dnl-presentation-switcher{
+    top:8px;right:8px;padding:5px 6px
+  }
+  body.dnl-presentation .dnl-presentation-switcher label{display:none}
+  body.dnl-presentation .dnl-presentation-switcher select{min-width:128px;font-size:12px}
+}
+
+
+/* =========================================================
+   v5.12.9 — DNL Prize Claim visibility + claimant labels
+   ========================================================= */
+body.dnl-presentation #draftNightLive,
+body.dnl-presentation #prizeVault{
+  display:none !important;
+}
+body.dnl-presentation #draftNightLive.dnl-active-view,
+body.dnl-presentation #prizeVault.dnl-active-view{
+  display:block !important;
+}
+.vault-claimant{
+  display:none;
+  position:absolute;
+  z-index:5;
+  left:12px;
+  top:12px;
+  max-width:58%;
+  padding:5px 8px;
+  border:1px solid rgba(255,255,255,.25);
+  border-radius:999px;
+  background:#111827;
+  color:#fff;
+  font-size:10px;
+  font-weight:900;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.vault-envelope.claimed .vault-claimant{display:block}
+.vault-claimed-stamp{
+  text-align:center;
+}
+.vault-reveal .vault-claimant-reveal{
+  margin:7px 0 1px;
+  color:#d8b664;
+  font-size:14px;
+  font-weight:900;
+}
+
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -3468,6 +3610,13 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 <!-- v5.11.2 Trivia Category Controls + Dan/Jaspers Difficulty Override -->
 </head>
 <body>
+<div class="dnl-presentation-switcher" id="dnlPresentationSwitcher">
+  <label for="dnlPresentationView">Draft Night</label>
+  <select id="dnlPresentationView">
+    <option value="draftNightLive">Trivia Game</option>
+    <option value="prizeVault">Prize Claim</option>
+  </select>
+</div>
 <header>
 <div class="site-header-title">
 <h1>The Big Board</h1>
@@ -3962,6 +4111,7 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
     <div class="vault-team-seal" id="vaultRevealSeal">SF</div>
     <h3 id="vaultRevealTeam">San Francisco</h3>
     <div class="vault-money" id="vaultRevealPrize">$15 Super Bowl Wager</div>
+    <div class="vault-claimant-reveal" id="vaultRevealClaimant"></div>
     <p>The wager will be placed at the current Super Bowl odds.</p>
     <button id="vaultRevealClose">Lock It In</button>
   </div>
@@ -4504,9 +4654,14 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 <div class="weekly-section weekly-h2h-section">
 <div class="weekly-section-head weekly-h2h-head">
 <div>
-<div class="weekly-eyebrow">Phase 2</div>
+<div class="weekly-eyebrow">Rivalry History</div>
 <h3>Head-to-Head Records</h3>
-<p>Regular-season meetings from the weekly history currently loaded into the site.</p>
+<p>Regular season, championship-contention playoffs, or every meaningful meeting combined. Placement, consolation, 3rd-place and Toilet games are excluded.</p>
+<div class="weekly-h2h-scope" id="weeklyH2HScope">
+  <button data-h2h-scope="REGULAR" type="button">Regular Season</button>
+  <button data-h2h-scope="PLAYOFF" type="button">Championship Playoffs</button>
+  <button data-h2h-scope="COMBINED" type="button">Combined</button>
+</div>
 </div>
 <div class="weekly-h2h-controls">
 <label>Owner A<select id="weeklyH2HOwnerA"></select></label>
@@ -7748,7 +7903,7 @@ function renderGlossary(){
 }
 
 
-let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL",weeklyH2HSort={key:"year",direction:"desc"},weeklySelectedFeatId=null,SCHEDULE_LAB_DATA=null,scheduleLabLoadingPromise=null,scheduleLabSelectedYear="CAREER",scheduleLabSort={key:"scheduleDifficultyIndex",direction:"desc"},scheduleRandomIndex=0;
+let WEEKLY_HISTORY_DATA=null,weeklyLoadingPromise=null,weeklySelectedYear=null,weeklyScope="SEASON",weeklySelectedOwner=null,weeklyActiveView="OVERVIEW",weeklyH2HOwnerA="Sam",weeklyH2HOwnerB="Zac",weeklyH2HYear="ALL",weeklyH2HScope="COMBINED",weeklyH2HSort={key:"year",direction:"desc"},weeklySelectedFeatId=null,SCHEDULE_LAB_DATA=null,scheduleLabLoadingPromise=null,scheduleLabSelectedYear="CAREER",scheduleLabSort={key:"scheduleDifficultyIndex",direction:"desc"},scheduleRandomIndex=0;
 let PLAYOFF_HISTORY_DATA=null,playoffLoadingPromise=null,playoffSelectedYear=2025,playoffActiveView="BRACKET",playoffRecordsYear="CAREER",playoffRecordSort={true:{key:"w",direction:"desc"},placement:{key:"w",direction:"desc"},all:{key:"w",direction:"desc"}};
 let weeklySortStates={alt:{key:"allPlayWins",direction:"desc"},luck:{key:"luckDelta",direction:"desc"},distribution:{key:"weeklyHighs",direction:"desc"}};
 async function ensureWeeklyHistoryLoaded(){if(WEEKLY_HISTORY_DATA)return WEEKLY_HISTORY_DATA;if(weeklyLoadingPromise)return weeklyLoadingPromise;const s=document.getElementById("weeklyLoadState");if(s)s.textContent="Loading weekly history…";weeklyLoadingPromise=fetch("./data/weeklyHistory.json",{cache:"no-store"}).then(r=>{if(!r.ok)throw new Error(`Could not load weeklyHistory.json (${r.status})`);return r.json();}).then(d=>{WEEKLY_HISTORY_DATA=d;weeklySelectedYear=Math.max(...d.years.map(Number));return d;});return weeklyLoadingPromise;}
@@ -8024,8 +8179,17 @@ function weeklySetActiveView(view){
   if(schedule)renderScheduleLab();
 }
 
+function weeklyH2HOwnerKey(owner){
+  if(!owner)return owner;
+  return INTERNAL_NAMES[owner]||owner;
+}
 function weeklyH2HOwners(){
-  return [...new Set((WEEKLY_HISTORY_DATA?.records||[]).flatMap(r=>[r.owner,r.opponent]))]
+  const regular=(WEEKLY_HISTORY_DATA?.records||[])
+    .flatMap(r=>[weeklyH2HOwnerKey(r.owner),weeklyH2HOwnerKey(r.opponent)]);
+  const playoff=(PLAYOFF_HISTORY_DATA?.entries||[])
+    .filter(e=>e.titleHopesAlive)
+    .map(e=>weeklyH2HOwnerKey(playoffOwnerKey(e.owner)));
+  return [...new Set([...regular,...playoff].filter(Boolean))]
     .sort((a,b)=>displayName(a).localeCompare(displayName(b)));
 }
 function weeklyUniqueGames(){
@@ -8035,9 +8199,77 @@ function weeklyUniqueGames(){
     const key=`${r.year}|${r.week}|${owners[0]}|${owners[1]}`;
     if(seen.has(key))return;
     seen.add(key);
-    games.push({...r});
+    games.push({
+      ...r,
+      owner:weeklyH2HOwnerKey(r.owner),
+      opponent:weeklyH2HOwnerKey(r.opponent),
+      source:"REGULAR",
+      round:"Regular Season",
+      hfaFor:0,
+      hfaAgainst:0,
+      finalFor:Number(r.pointsFor),
+      finalAgainst:Number(r.pointsAgainst)
+    });
   });
   return games;
+}
+function weeklyFiniteNumber(v){
+  return v!==null&&v!==""&&typeof v!=="undefined"&&Number.isFinite(Number(v));
+}
+function weeklyChampionshipPlayoffGames(){
+  if(!PLAYOFF_HISTORY_DATA)return [];
+  const groups=new Map();
+  (PLAYOFF_HISTORY_DATA.entries||[])
+    .filter(e=>e.titleHopesAlive)
+    .forEach(e=>{
+      const key=`${e.year}|${e.week}|${e.contestId||e.round}`;
+      if(!groups.has(key))groups.set(key,[]);
+      groups.get(key).push(e);
+    });
+
+  const games=[];
+  groups.forEach(entries=>{
+    const valid=entries.filter(e=>weeklyFiniteNumber(e.rawScore));
+    if(valid.length<2)return;
+
+    // A three-team elimination pod is one shared title-contending event.
+    // For H2H purposes, each pair that shared the pod is treated as a meeting.
+    for(let i=0;i<valid.length;i++){
+      for(let j=i+1;j<valid.length;j++){
+        const a=valid[i],b=valid[j];
+        const rawA=Number(a.rawScore),rawB=Number(b.rawScore);
+        const hfaA=weeklyFiniteNumber(a.hfa)?Number(a.hfa):0;
+        const hfaB=weeklyFiniteNumber(b.hfa)?Number(b.hfa):0;
+        const finalA=weeklyFiniteNumber(a.finalScore)?Number(a.finalScore):rawA+hfaA;
+        const finalB=weeklyFiniteNumber(b.finalScore)?Number(b.finalScore):rawB+hfaB;
+        const ownerA=weeklyH2HOwnerKey(playoffOwnerKey(a.owner)),ownerB=weeklyH2HOwnerKey(playoffOwnerKey(b.owner));
+        if(!ownerA||!ownerB||ownerA===ownerB)continue;
+        games.push({
+          year:+a.year,
+          week:+a.week,
+          owner:ownerA,
+          opponent:ownerB,
+          pointsFor:rawA,
+          pointsAgainst:rawB,
+          finalFor:finalA,
+          finalAgainst:finalB,
+          hfaFor:hfaA,
+          hfaAgainst:hfaB,
+          result:finalA>finalB?"Win":finalA<finalB?"Loss":"Tie",
+          source:"PLAYOFF",
+          round:a.round||"Championship Playoff",
+          contestId:a.contestId||"",
+          threeTeamPod:valid.length>2
+        });
+      }
+    }
+  });
+  return games;
+}
+function weeklyH2HBaseGames(){
+  if(weeklyH2HScope==="REGULAR")return weeklyUniqueGames();
+  if(weeklyH2HScope==="PLAYOFF")return weeklyChampionshipPlayoffGames();
+  return [...weeklyUniqueGames(),...weeklyChampionshipPlayoffGames()];
 }
 function weeklyH2HMode(){
   if(weeklyH2HOwnerA==="ALL"&&weeklyH2HOwnerB==="ALL")return "LEAGUE";
@@ -8051,43 +8283,85 @@ function weeklyH2HFocusOwner(){
 }
 function weeklyH2HMeetings(){
   const mode=weeklyH2HMode();
-  let meetings=weeklyUniqueGames();
+  let meetings=weeklyH2HBaseGames();
 
   if(mode==="RIVALRY"){
     meetings=meetings.filter(r=>{
       const pair=new Set([r.owner,r.opponent]);
       return pair.has(weeklyH2HOwnerA)&&pair.has(weeklyH2HOwnerB);
     }).map(r=>{
-      if(r.owner===weeklyH2HOwnerA)return {...r,viewOwnerA:weeklyH2HOwnerA,viewOwnerB:weeklyH2HOwnerB,scoreA:r.pointsFor,scoreB:r.pointsAgainst};
-      return {...r,viewOwnerA:weeklyH2HOwnerA,viewOwnerB:weeklyH2HOwnerB,scoreA:r.pointsAgainst,scoreB:r.pointsFor};
+      if(r.owner===weeklyH2HOwnerA)return {
+        ...r,
+        viewOwnerA:weeklyH2HOwnerA,viewOwnerB:weeklyH2HOwnerB,
+        scoreA:Number(r.pointsFor),scoreB:Number(r.pointsAgainst),
+        officialA:Number(r.finalFor),officialB:Number(r.finalAgainst),
+        hfaA:Number(r.hfaFor||0),hfaB:Number(r.hfaAgainst||0)
+      };
+      return {
+        ...r,
+        viewOwnerA:weeklyH2HOwnerA,viewOwnerB:weeklyH2HOwnerB,
+        scoreA:Number(r.pointsAgainst),scoreB:Number(r.pointsFor),
+        officialA:Number(r.finalAgainst),officialB:Number(r.finalFor),
+        hfaA:Number(r.hfaAgainst||0),hfaB:Number(r.hfaFor||0)
+      };
     });
   }else if(mode==="OWNER_ALL"){
     const focus=weeklyH2HFocusOwner();
     meetings=meetings.filter(r=>r.owner===focus||r.opponent===focus).map(r=>{
-      if(r.owner===focus)return {...r,focusOwner:focus,otherOwner:r.opponent,focusScore:r.pointsFor,otherScore:r.pointsAgainst};
-      return {...r,focusOwner:focus,otherOwner:r.owner,focusScore:r.pointsAgainst,otherScore:r.pointsFor};
+      if(r.owner===focus)return {
+        ...r,focusOwner:focus,otherOwner:r.opponent,
+        focusScore:Number(r.pointsFor),otherScore:Number(r.pointsAgainst),
+        focusOfficial:Number(r.finalFor),otherOfficial:Number(r.finalAgainst),
+        focusHfa:Number(r.hfaFor||0),otherHfa:Number(r.hfaAgainst||0)
+      };
+      return {
+        ...r,focusOwner:focus,otherOwner:r.owner,
+        focusScore:Number(r.pointsAgainst),otherScore:Number(r.pointsFor),
+        focusOfficial:Number(r.finalAgainst),otherOfficial:Number(r.finalFor),
+        focusHfa:Number(r.hfaAgainst||0),otherHfa:Number(r.hfaFor||0)
+      };
     });
   }else{
     meetings=meetings.map(r=>{
-      const tie=r.pointsFor===r.pointsAgainst;
-      const winner=tie?"Tie":r.pointsFor>r.pointsAgainst?r.owner:r.opponent;
-      const loser=tie?"Tie":r.pointsFor>r.pointsAgainst?r.opponent:r.owner;
-      const winningScore=Math.max(r.pointsFor,r.pointsAgainst);
-      const losingScore=Math.min(r.pointsFor,r.pointsAgainst);
-      return {...r,winner,loser,winningScore,losingScore};
+      const finalFor=Number(r.finalFor),finalAgainst=Number(r.finalAgainst);
+      const tie=finalFor===finalAgainst;
+      const winner=tie?"Tie":finalFor>finalAgainst?r.owner:r.opponent;
+      const loser=tie?"Tie":finalFor>finalAgainst?r.opponent:r.owner;
+      const winningScore=Math.max(Number(r.pointsFor),Number(r.pointsAgainst));
+      const losingScore=Math.min(Number(r.pointsFor),Number(r.pointsAgainst));
+      const winningOfficial=Math.max(finalFor,finalAgainst);
+      const losingOfficial=Math.min(finalFor,finalAgainst);
+      const winnerHfa=tie?0:finalFor>finalAgainst?Number(r.hfaFor||0):Number(r.hfaAgainst||0);
+      const loserHfa=tie?0:finalFor>finalAgainst?Number(r.hfaAgainst||0):Number(r.hfaFor||0);
+      return {...r,winner,loser,winningScore,losingScore,winningOfficial,losingOfficial,winnerHfa,loserHfa};
     });
   }
 
   if(weeklyH2HYear!=="ALL")meetings=meetings.filter(r=>+r.year===+weeklyH2HYear);
   return meetings;
 }
+function weeklyH2HScopeLabel(){
+  if(weeklyH2HScope==="REGULAR")return "regular-season";
+  if(weeklyH2HScope==="PLAYOFF")return "championship-playoff";
+  return "combined";
+}
+function weeklyH2HStage(r){
+  return r.source==="PLAYOFF"?(r.round||"Championship Playoff"):"Regular Season";
+}
+function weeklyH2HGameLabel(r){
+  if(!r)return "—";
+  return `${r.year} W${r.week}${r.source==="PLAYOFF"?` · ${r.round}`:""}`;
+}
+function weeklyH2HScoreHtml(score,hfa=0){
+  return `${Number(score).toFixed(2)}${Number(hfa)>0?`<span class="weekly-hfa-badge">+${Number(hfa).toFixed(1)} HFA</span>`:""}`;
+}
 function weeklyLongestH2HStreak(meetings,mode){
   let bestOwner=null,best=0,currentOwner=null,current=0;
   const ordered=[...meetings].sort((a,b)=>a.year-b.year||a.week-b.week);
   ordered.forEach(r=>{
     let winner;
-    if(mode==="RIVALRY")winner=r.scoreA>r.scoreB?r.viewOwnerA:r.scoreA<r.scoreB?r.viewOwnerB:"TIE";
-    else if(mode==="OWNER_ALL")winner=r.focusScore>r.otherScore?r.focusOwner:r.focusScore<r.otherScore?r.otherOwner:"TIE";
+    if(mode==="RIVALRY")winner=r.officialA>r.officialB?r.viewOwnerA:r.officialA<r.officialB?r.viewOwnerB:"TIE";
+    else if(mode==="OWNER_ALL")winner=r.focusOfficial>r.otherOfficial?r.focusOwner:r.focusOfficial<r.otherOfficial?r.otherOwner:"TIE";
     else winner=r.winner;
     if(winner==="TIE"||winner==="Tie"){currentOwner=null;current=0;return;}
     if(winner===currentOwner)current+=1;
@@ -8099,10 +8373,11 @@ function weeklyLongestH2HStreak(meetings,mode){
 function weeklyH2HSortValue(r,key,mode){
   if(key==="year")return r.year;
   if(key==="week")return r.week;
+  if(key==="stage")return weeklyH2HStage(r);
   if(key==="margin"){
-    if(mode==="RIVALRY")return Math.abs(r.scoreA-r.scoreB);
-    if(mode==="OWNER_ALL")return Math.abs(r.focusScore-r.otherScore);
-    return r.winningScore-r.losingScore;
+    if(mode==="RIVALRY")return Math.abs(r.officialA-r.officialB);
+    if(mode==="OWNER_ALL")return Math.abs(r.focusOfficial-r.otherOfficial);
+    return r.winningOfficial-r.losingOfficial;
   }
   if(key==="combined"){
     if(mode==="RIVALRY")return r.scoreA+r.scoreB;
@@ -8142,10 +8417,15 @@ function bindWeeklyH2HSort(){
     if(weeklyH2HSort.key===key)weeklyH2HSort.direction=weeklyH2HSort.direction==="asc"?"desc":"asc";
     else{
       weeklyH2HSort.key=key;
-      weeklyH2HSort.direction=["owner"].includes(key)?"asc":"desc";
+      weeklyH2HSort.direction=["owner","stage"].includes(key)?"asc":"desc";
     }
     renderWeeklyH2H();
   }));
+}
+function renderWeeklyH2HScope(){
+  document.querySelectorAll("[data-h2h-scope]").forEach(btn=>{
+    btn.classList.toggle("active",btn.dataset.h2hScope===weeklyH2HScope);
+  });
 }
 function renderWeeklyH2HControls(){
   const owners=weeklyH2HOwners();
@@ -8154,119 +8434,136 @@ function renderWeeklyH2HControls(){
   a.innerHTML=ownerOptions;b.innerHTML=ownerOptions;
   if(!y.options.length)y.innerHTML=`<option value="ALL">All Loaded Seasons</option>${[...WEEKLY_HISTORY_DATA.years].sort((x,z)=>z-x).map(year=>`<option value="${year}">${year}</option>`).join("")}`;
   a.value=weeklyH2HOwnerA;b.value=weeklyH2HOwnerB;y.value=weeklyH2HYear;
+  renderWeeklyH2HScope();
 }
 function renderWeeklyH2H(){
   renderWeeklyH2HControls();
+
+  if(weeklyH2HScope!=="REGULAR"&&!PLAYOFF_HISTORY_DATA){
+    document.getElementById("weeklyH2HSummary").innerHTML="";
+    document.getElementById("weeklyH2HTable").innerHTML=`<div class="weekly-load-state">Loading championship-playoff history…</div>`;
+    ensurePlayoffHistoryLoaded().then(()=>renderWeeklyH2H()).catch(error=>{
+      document.getElementById("weeklyH2HTable").innerHTML=`<div class="weekly-load-state">Could not load playoff history: ${error.message}</div>`;
+    });
+    return;
+  }
+
   const mode=weeklyH2HMode();
   const meetings=weeklyH2HMeetings();
   const sorted=weeklyH2HSorted(meetings,mode);
-  const gameLabel=r=>r?`${r.year} W${r.week}`:"—";
+  const gameLabel=weeklyH2HGameLabel;
+  const showStage=weeklyH2HScope!=="REGULAR";
   let cards=[],table="";
 
   if(mode==="RIVALRY"){
     const aName=displayName(weeklyH2HOwnerA),bName=displayName(weeklyH2HOwnerB);
-    const aWins=meetings.filter(r=>r.scoreA>r.scoreB).length;
-    const bWins=meetings.filter(r=>r.scoreA<r.scoreB).length;
+    const aWins=meetings.filter(r=>r.officialA>r.officialB).length;
+    const bWins=meetings.filter(r=>r.officialA<r.officialB).length;
     const ties=meetings.length-aWins-bWins;
     const avgA=meetings.length?meetings.reduce((s,r)=>s+r.scoreA,0)/meetings.length:0;
     const avgB=meetings.length?meetings.reduce((s,r)=>s+r.scoreB,0)/meetings.length:0;
-    const largest=[...meetings].sort((x,z)=>Math.abs(z.scoreA-z.scoreB)-Math.abs(x.scoreA-x.scoreB))[0];
-    const closest=[...meetings].sort((x,z)=>Math.abs(x.scoreA-x.scoreB)-Math.abs(z.scoreA-z.scoreB))[0];
+    const largest=[...meetings].sort((x,z)=>Math.abs(z.officialA-z.officialB)-Math.abs(x.officialA-x.officialB))[0];
+    const closest=[...meetings].sort((x,z)=>Math.abs(x.officialA-x.officialB)-Math.abs(z.officialA-z.officialB))[0];
     const highest=[...meetings].sort((x,z)=>(z.scoreA+z.scoreB)-(x.scoreA+x.scoreB))[0];
     const streak=weeklyLongestH2HStreak(meetings,mode);
-    const winner=r=>!r?"—":r.scoreA>r.scoreB?aName:r.scoreA<r.scoreB?bName:"Tie";
+    const winner=r=>!r?"—":r.officialA>r.officialB?aName:r.officialA<r.officialB?bName:"Tie";
 
     cards=[
-      ["Series Record",`${aWins}–${bWins}${ties?`–${ties}`:""}`,`${aName} listed first`],
-      ["Average Score",`${avgA.toFixed(1)} – ${avgB.toFixed(1)}`,`${aName} – ${bName}`],
-      ["Largest Win",largest?`${winner(largest)} +${Math.abs(largest.scoreA-largest.scoreB).toFixed(2)}`:"—",gameLabel(largest)],
-      ["Closest Game",closest?`${Math.abs(closest.scoreA-closest.scoreB).toFixed(2)} pts`:"—",closest?`${gameLabel(closest)} · ${winner(closest)}`:""],
-      ["Highest Combined",highest?`${(highest.scoreA+highest.scoreB).toFixed(2)}`:"—",gameLabel(highest)],
+      ["Series Record",`${aWins}–${bWins}${ties?`–${ties}`:""}`,`${aName} listed first · ${weeklyH2HScopeLabel()}`],
+      ["Avg Raw Score",`${avgA.toFixed(1)} – ${avgB.toFixed(1)}`,`${aName} – ${bName}`],
+      ["Largest Win",largest?`${winner(largest)} +${Math.abs(largest.officialA-largest.officialB).toFixed(2)}`:"—",gameLabel(largest)],
+      ["Closest Game",closest?`${Math.abs(closest.officialA-closest.officialB).toFixed(2)} pts`:"—",closest?`${gameLabel(closest)} · ${winner(closest)}`:""],
+      ["Highest Combined Raw",highest?`${(highest.scoreA+highest.scoreB).toFixed(2)}`:"—",gameLabel(highest)],
       ["Longest Streak",streak.owner?`${displayName(streak.owner)} · ${streak.count}`:"—",`${meetings.length} total meetings`]
     ];
 
     table=`<table class="weekly-table"><thead><tr>
       ${weeklyH2HHeader("Season","year")}${weeklyH2HHeader("Week","week")}
+      ${showStage?weeklyH2HHeader("Stage","stage"):""}
       ${weeklyH2HHeader(aName,"scoreA")}${weeklyH2HHeader(bName,"scoreB")}
-      <th>Winner</th>${weeklyH2HHeader("Margin","margin")}${weeklyH2HHeader("Combined","combined")}
+      <th>Winner</th>${weeklyH2HHeader("Official Margin","margin")}${weeklyH2HHeader("Combined Raw","combined")}
     </tr></thead><tbody>${sorted.map(r=>{
       const w=winner(r),tie=w==="Tie";
       return `<tr><td style="text-align:left">${r.year}</td><td>${r.week}</td>
-        <td class="weekly-h2h-score-a">${r.scoreA.toFixed(2)}</td>
-        <td class="weekly-h2h-score-b">${r.scoreB.toFixed(2)}</td>
+        ${showStage?`<td class="weekly-h2h-stage ${r.source==="PLAYOFF"?"playoff":""}">${weeklyH2HStage(r)}</td>`:""}
+        <td class="weekly-h2h-score-a">${weeklyH2HScoreHtml(r.scoreA,r.hfaA)}</td>
+        <td class="weekly-h2h-score-b">${weeklyH2HScoreHtml(r.scoreB,r.hfaB)}</td>
         <td class="${tie?"weekly-h2h-tie":"weekly-h2h-winner"}">${w}</td>
-        <td>${Math.abs(r.scoreA-r.scoreB).toFixed(2)}</td>
+        <td>${Math.abs(r.officialA-r.officialB).toFixed(2)}</td>
         <td>${(r.scoreA+r.scoreB).toFixed(2)}</td></tr>`;
     }).join("")}</tbody></table>`;
   }else if(mode==="OWNER_ALL"){
     const focus=weeklyH2HFocusOwner(),focusName=displayName(focus);
-    const wins=meetings.filter(r=>r.focusScore>r.otherScore).length;
-    const losses=meetings.filter(r=>r.focusScore<r.otherScore).length;
+    const wins=meetings.filter(r=>r.focusOfficial>r.otherOfficial).length;
+    const losses=meetings.filter(r=>r.focusOfficial<r.otherOfficial).length;
     const ties=meetings.length-wins-losses;
     const avg=meetings.length?meetings.reduce((s,r)=>s+r.focusScore,0)/meetings.length:0;
-    const largest=[...meetings].filter(r=>r.focusScore>r.otherScore).sort((x,z)=>(z.focusScore-z.otherScore)-(x.focusScore-x.otherScore))[0];
-    const closest=[...meetings].sort((x,z)=>Math.abs(x.focusScore-x.otherScore)-Math.abs(z.focusScore-z.otherScore))[0];
+    const largest=[...meetings].filter(r=>r.focusOfficial>r.otherOfficial).sort((x,z)=>(z.focusOfficial-z.otherOfficial)-(x.focusOfficial-x.otherOfficial))[0];
+    const closest=[...meetings].sort((x,z)=>Math.abs(x.focusOfficial-x.otherOfficial)-Math.abs(z.focusOfficial-z.otherOfficial))[0];
     const highest=[...meetings].sort((x,z)=>(z.focusScore+z.otherScore)-(x.focusScore+x.otherScore))[0];
     const highScore=[...meetings].sort((x,z)=>z.focusScore-x.focusScore)[0];
-    const streak=weeklyLongestH2HStreak(meetings,mode);
 
     cards=[
-      ["Overall Record",`${wins}–${losses}${ties?`–${ties}`:""}`,`${meetings.length} regular-season games`],
-      ["Average Score",avg.toFixed(1),focusName],
-      ["Largest Win",largest?`+${(largest.focusScore-largest.otherScore).toFixed(2)}`:"—",largest?`${gameLabel(largest)} · vs ${displayName(largest.otherOwner)}`:""],
-      ["Closest Game",closest?`${Math.abs(closest.focusScore-closest.otherScore).toFixed(2)} pts`:"—",closest?`${gameLabel(closest)} · vs ${displayName(closest.otherOwner)}`:""],
-      ["Highest Score",highScore?highScore.focusScore.toFixed(2):"—",highScore?`${gameLabel(highScore)} · vs ${displayName(highScore.otherOwner)}`:""],
-      ["Highest Combined",highest?(highest.focusScore+highest.otherScore).toFixed(2):"—",highest?`${gameLabel(highest)} · vs ${displayName(highest.otherOwner)}`:""]
+      ["Overall Record",`${wins}–${losses}${ties?`–${ties}`:""}`,`${meetings.length} ${weeklyH2HScopeLabel()} games`],
+      ["Avg Raw Score",avg.toFixed(1),focusName],
+      ["Largest Win",largest?`+${(largest.focusOfficial-largest.otherOfficial).toFixed(2)}`:"—",largest?`${gameLabel(largest)} · vs ${displayName(largest.otherOwner)}`:""],
+      ["Closest Game",closest?`${Math.abs(closest.focusOfficial-closest.otherOfficial).toFixed(2)} pts`:"—",closest?`${gameLabel(closest)} · vs ${displayName(closest.otherOwner)}`:""],
+      ["Highest Raw Score",highScore?highScore.focusScore.toFixed(2):"—",highScore?`${gameLabel(highScore)} · vs ${displayName(highScore.otherOwner)}`:""],
+      ["Highest Combined Raw",highest?(highest.focusScore+highest.otherScore).toFixed(2):"—",highest?`${gameLabel(highest)} · vs ${displayName(highest.otherOwner)}`:""]
     ];
 
     table=`<table class="weekly-table"><thead><tr>
       ${weeklyH2HHeader("Season","year")}${weeklyH2HHeader("Week","week")}
+      ${showStage?weeklyH2HHeader("Stage","stage"):""}
       ${weeklyH2HHeader("Opponent","owner")}${weeklyH2HHeader(focusName,"focusScore")}
-      ${weeklyH2HHeader("Opponent Score","otherScore")}<th>Result</th>
-      ${weeklyH2HHeader("Margin","margin")}${weeklyH2HHeader("Combined","combined")}
+      ${weeklyH2HHeader("Opponent Raw","otherScore")}<th>Result</th>
+      ${weeklyH2HHeader("Official Margin","margin")}${weeklyH2HHeader("Combined Raw","combined")}
     </tr></thead><tbody>${sorted.map(r=>{
-      const result=r.focusScore>r.otherScore?"Win":r.focusScore<r.otherScore?"Loss":"Tie";
+      const result=r.focusOfficial>r.otherOfficial?"Win":r.focusOfficial<r.otherOfficial?"Loss":"Tie";
       return `<tr><td style="text-align:left">${r.year}</td><td>${r.week}</td>
-        <td>${displayName(r.otherOwner)}</td><td class="weekly-h2h-score-a">${r.focusScore.toFixed(2)}</td>
-        <td class="weekly-h2h-score-b">${r.otherScore.toFixed(2)}</td>
+        ${showStage?`<td class="weekly-h2h-stage ${r.source==="PLAYOFF"?"playoff":""}">${weeklyH2HStage(r)}</td>`:""}
+        <td>${displayName(r.otherOwner)}</td><td class="weekly-h2h-score-a">${weeklyH2HScoreHtml(r.focusScore,r.focusHfa)}</td>
+        <td class="weekly-h2h-score-b">${weeklyH2HScoreHtml(r.otherScore,r.otherHfa)}</td>
         <td class="${result==="Win"?"weekly-h2h-winner":result==="Tie"?"weekly-h2h-tie":""}">${result}</td>
-        <td>${Math.abs(r.focusScore-r.otherScore).toFixed(2)}</td>
+        <td>${Math.abs(r.focusOfficial-r.otherOfficial).toFixed(2)}</td>
         <td>${(r.focusScore+r.otherScore).toFixed(2)}</td></tr>`;
     }).join("")}</tbody></table>`;
   }else{
-    const largest=[...meetings].sort((x,z)=>(z.winningScore-z.losingScore)-(x.winningScore-x.losingScore))[0];
-    const closest=[...meetings].sort((x,z)=>(x.winningScore-x.losingScore)-(z.winningScore-z.losingScore))[0];
+    const largest=[...meetings].sort((x,z)=>(z.winningOfficial-z.losingOfficial)-(x.winningOfficial-x.losingOfficial))[0];
+    const closest=[...meetings].sort((x,z)=>(x.winningOfficial-x.losingOfficial)-(z.winningOfficial-z.losingOfficial))[0];
     const highestCombined=[...meetings].sort((x,z)=>(z.winningScore+z.losingScore)-(x.winningScore+x.losingScore))[0];
     const highestScore=[...meetings].sort((x,z)=>z.winningScore-x.winningScore)[0];
-    const lowestWin=[...meetings].filter(r=>r.winner!=="Tie").sort((x,z)=>x.winningScore-z.winningScore)[0];
     const highestLoss=[...meetings].filter(r=>r.loser!=="Tie").sort((x,z)=>z.losingScore-x.losingScore)[0];
 
     cards=[
-      ["Games Loaded",String(meetings.length),weeklyH2HYear==="ALL"?"All regular seasons":String(weeklyH2HYear)],
-      ["Highest Score",highestScore?highestScore.winningScore.toFixed(2):"—",highestScore?`${gameLabel(highestScore)} · ${displayName(highestScore.winner)}`:""],
-      ["Largest Margin",largest?(largest.winningScore-largest.losingScore).toFixed(2):"—",largest?`${gameLabel(largest)} · ${displayName(largest.winner)}`:""],
-      ["Closest Game",closest?(closest.winningScore-closest.losingScore).toFixed(2):"—",closest?`${gameLabel(closest)} · ${displayName(closest.winner)}`:""],
-      ["Highest Combined",highestCombined?(highestCombined.winningScore+highestCombined.losingScore).toFixed(2):"—",highestCombined?gameLabel(highestCombined):""],
-      ["Highest Losing Score",highestLoss?highestLoss.losingScore.toFixed(2):"—",highestLoss?`${gameLabel(highestLoss)} · ${displayName(highestLoss.loser)}`:""]
+      ["Games Loaded",String(meetings.length),weeklyH2HYear==="ALL"?`All ${weeklyH2HScopeLabel()} meetings`:String(weeklyH2HYear)],
+      ["Highest Raw Score",highestScore?highestScore.winningScore.toFixed(2):"—",highestScore?`${gameLabel(highestScore)} · ${displayName(highestScore.winner)}`:""],
+      ["Largest Official Margin",largest?(largest.winningOfficial-largest.losingOfficial).toFixed(2):"—",largest?`${gameLabel(largest)} · ${displayName(largest.winner)}`:""],
+      ["Closest Game",closest?(closest.winningOfficial-closest.losingOfficial).toFixed(2):"—",closest?`${gameLabel(closest)} · ${displayName(closest.winner)}`:""],
+      ["Highest Combined Raw",highestCombined?(highestCombined.winningScore+highestCombined.losingScore).toFixed(2):"—",highestCombined?gameLabel(highestCombined):""],
+      ["Highest Losing Raw",highestLoss?highestLoss.losingScore.toFixed(2):"—",highestLoss?`${gameLabel(highestLoss)} · ${displayName(highestLoss.loser)}`:""]
     ];
 
     table=`<table class="weekly-table"><thead><tr>
       ${weeklyH2HHeader("Season","year")}${weeklyH2HHeader("Week","week")}
+      ${showStage?weeklyH2HHeader("Stage","stage"):""}
       ${weeklyH2HHeader("Winner","owner")}<th>Loser</th>
-      ${weeklyH2HHeader("Winning Score","winningScore")}${weeklyH2HHeader("Losing Score","losingScore")}
-      ${weeklyH2HHeader("Margin","margin")}${weeklyH2HHeader("Combined","combined")}
+      ${weeklyH2HHeader("Winning Raw","winningScore")}${weeklyH2HHeader("Losing Raw","losingScore")}
+      ${weeklyH2HHeader("Official Margin","margin")}${weeklyH2HHeader("Combined Raw","combined")}
     </tr></thead><tbody>${sorted.map(r=>`<tr>
       <td style="text-align:left">${r.year}</td><td>${r.week}</td>
+      ${showStage?`<td class="weekly-h2h-stage ${r.source==="PLAYOFF"?"playoff":""}">${weeklyH2HStage(r)}</td>`:""}
       <td class="weekly-h2h-winner">${displayName(r.winner)}</td><td>${displayName(r.loser)}</td>
-      <td class="weekly-h2h-score-a">${r.winningScore.toFixed(2)}</td>
-      <td class="weekly-h2h-score-b">${r.losingScore.toFixed(2)}</td>
-      <td>${(r.winningScore-r.losingScore).toFixed(2)}</td>
+      <td class="weekly-h2h-score-a">${weeklyH2HScoreHtml(r.winningScore,r.winnerHfa)}</td>
+      <td class="weekly-h2h-score-b">${weeklyH2HScoreHtml(r.losingScore,r.loserHfa)}</td>
+      <td>${(r.winningOfficial-r.losingOfficial).toFixed(2)}</td>
       <td>${(r.winningScore+r.losingScore).toFixed(2)}</td></tr>`).join("")}</tbody></table>`;
   }
 
   document.getElementById("weeklyH2HSummary").innerHTML=cards.map(([label,value,detail])=>`
     <div class="weekly-h2h-card"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`).join("");
-  document.getElementById("weeklyH2HTable").innerHTML=meetings.length?table:`<div class="weekly-load-state">No matchups are available for this selection.</div>`;
+  document.getElementById("weeklyH2HTable").innerHTML=(meetings.length?table:`<div class="weekly-load-state">No matchups are available for this selection.</div>`)
+    +(weeklyH2HScope!=="REGULAR"?`<div class="weekly-h2h-note">Championship Playoffs includes only games where the title remained attainable. W/L and margin include HFA; scoring averages and displayed base scores remain raw. Three-team elimination pods are treated as pairwise meetings among all three participants.</div>`:"");
   bindWeeklyH2HSort();
 }
 function weeklyOrderedOwnerGames(owner){
@@ -10621,10 +10918,11 @@ function renderPrizeVault(){
          <path d="M 0 0 L 50 47 L 100 0"></path>
        </svg>
        <span class="vault-claim-meta">${c?c.prize:""}</span>
+       <span class="vault-claimant">${c?.claimedBy?`CLAIMED · ${c.claimedBy}`:"CLAIMED"}</span>
        <div class="vault-team-seal"><img src="${team.logo}" alt="${team.city} ${team.name} logo" onerror="this.outerHTML='\x3cspan class=&quot;vault-fallback&quot;\x3e${team.id}\x3c/span\x3e'"></div>
        <div class="vault-team-line"><div class="vault-team-name">${team.name}</div><div class="vault-team-odds">${team.odds}</div></div>
        <div class="vault-team-city">${team.city}</div>
-       <span class="vault-claimed-stamp">CLAIMED</span>
+       <span class="vault-claimed-stamp">${c?.claimedBy?`CLAIMED — ${c.claimedBy}`:"CLAIMED"}</span>
      </div>
    </button>`;
  }).join("");
@@ -10636,13 +10934,33 @@ function vaultClaim(teamId){
  if(PRIZE_VAULT_STATE.claims.length>=6)return;
  const team=PRIZE_VAULT_TEAMS.find(t=>t.id===teamId);
  if(!team||PRIZE_VAULT_STATE.claims.some(c=>c.team===teamId))return;
+
  const claim=PRIZE_VAULT_CLAIMS[PRIZE_VAULT_STATE.claims.length];
- const entry={team:teamId,label:claim.label,prize:claim.prize,claimedAt:new Date().toISOString()};
- PRIZE_VAULT_STATE.claims.push(entry);vaultSave();renderPrizeVault();
+
+ // Commissioner records who actually claimed the envelope.
+ // Cancel or blank = do not finalize the claim.
+ const claimedByRaw=prompt(`Who is claiming the ${team.city} ${team.name} envelope?`);
+ if(claimedByRaw===null)return;
+ const claimedBy=claimedByRaw.trim();
+ if(!claimedBy)return;
+
+ const entry={
+   team:teamId,
+   label:claim.label,
+   prize:claim.prize,
+   claimedBy,
+   claimedAt:new Date().toISOString()
+ };
+ PRIZE_VAULT_STATE.claims.push(entry);
+ vaultSave();
+ renderPrizeVault();
+
  document.getElementById("vaultRevealClaim").textContent=claim.label;
- document.getElementById("vaultRevealSeal").innerHTML=`<img src="${team.logo}" alt="${team.city} ${team.name} logo">`;
+ document.getElementById("vaultRevealSeal").textContent=team.id;
  document.getElementById("vaultRevealTeam").textContent=`${team.city} ${team.name}`;
  document.getElementById("vaultRevealPrize").textContent=claim.prize;
+ const claimantLine=document.getElementById("vaultRevealClaimant");
+ if(claimantLine)claimantLine.textContent=`Claimed by ${claimedBy}`;
  document.getElementById("vaultModal").classList.remove("hidden");
 }
 function vaultUndo(){
@@ -10726,33 +11044,48 @@ document.addEventListener("keydown",event=>{
 });
 
 // Mobile equivalent of Ctrl+Shift+D:
-// press and hold the main Big Board title area for ~2 seconds.
+// press and hold the "The Big Board" title area for ~2 seconds.
+// Pointer events are more reliable across modern Android/iOS browsers than touch-only listeners.
 (()=>{
  const target=document.querySelector(".site-header-title");
  if(!target)return;
- let timer=null,startX=0,startY=0,fired=false;
- const cancel=()=>{if(timer){clearTimeout(timer);timer=null}};
- target.addEventListener("touchstart",event=>{
-   if(event.touches.length!==1)return;
-   fired=false;
-   startX=event.touches[0].clientX;
-   startY=event.touches[0].clientY;
-   cancel();
+ let timer=null,startX=0,startY=0,fired=false,activePointer=null;
+ const cancel=()=>{
+   if(timer){clearTimeout(timer);timer=null}
+   activePointer=null;
+ };
+ const arm=(x,y,pointerId=null)=>{
+   fired=false;startX=x;startY=y;activePointer=pointerId;cancel();
+   activePointer=pointerId;
    timer=setTimeout(()=>{
-     fired=true;
-     timer=null;
-     if(navigator.vibrate)navigator.vibrate(35);
+     fired=true;timer=null;
+     if(navigator.vibrate)navigator.vibrate([35,25,35]);
      setCommissionerMode(!commissionerMode,true);
-   },1900);
- },{passive:true});
- target.addEventListener("touchmove",event=>{
-   if(!event.touches.length)return;
-   const dx=Math.abs(event.touches[0].clientX-startX);
-   const dy=Math.abs(event.touches[0].clientY-startY);
-   if(dx>12||dy>12)cancel();
- },{passive:true});
- target.addEventListener("touchend",cancel,{passive:true});
- target.addEventListener("touchcancel",cancel,{passive:true});
+   },1800);
+ };
+ if(window.PointerEvent){
+   target.addEventListener("pointerdown",event=>{
+     if(event.pointerType==="mouse")return;
+     arm(event.clientX,event.clientY,event.pointerId);
+   });
+   target.addEventListener("pointermove",event=>{
+     if(activePointer!==event.pointerId||!timer)return;
+     if(Math.abs(event.clientX-startX)>32||Math.abs(event.clientY-startY)>32)cancel();
+   });
+   target.addEventListener("pointerup",cancel);
+   target.addEventListener("pointercancel",cancel);
+ }else{
+   target.addEventListener("touchstart",event=>{
+     if(event.touches.length!==1)return;
+     arm(event.touches[0].clientX,event.touches[0].clientY,null);
+   },{passive:true});
+   target.addEventListener("touchmove",event=>{
+     if(!event.touches.length||!timer)return;
+     if(Math.abs(event.touches[0].clientX-startX)>32||Math.abs(event.touches[0].clientY-startY)>32)cancel();
+   },{passive:true});
+   target.addEventListener("touchend",cancel,{passive:true});
+   target.addEventListener("touchcancel",cancel,{passive:true});
+ }
  target.addEventListener("contextmenu",event=>{
    if(fired)event.preventDefault();
  });
@@ -10935,6 +11268,13 @@ document.getElementById("weeklyH2HOwnerB").addEventListener("change",e=>{
   renderWeeklyH2H();
 });
 document.getElementById("weeklyH2HYear").addEventListener("change",e=>{weeklyH2HYear=e.target.value;weeklyH2HSort={key:"year",direction:"desc"};renderWeeklyH2H();});
+
+document.querySelectorAll("[data-h2h-scope]").forEach(btn=>btn.addEventListener("click",()=>{
+  weeklyH2HScope=btn.dataset.h2hScope;
+  weeklyH2HSort={key:"year",direction:"desc"};
+  renderWeeklyH2H();
+}));
+
 document.querySelectorAll("[data-career-history-mode]").forEach(btn=>btn.addEventListener("click",()=>{
   careerHistoryMode=btn.dataset.careerHistoryMode;
   renderCareerHistoryMode();
@@ -11044,19 +11384,46 @@ function isDnlPresentationMode(){
   const params=new URLSearchParams(window.location.search);
   return params.get("mode")==="dnl";
 }
+async function setDnlPresentationView(viewName){
+  if(!isDnlPresentationMode())return;
+  const allowed=new Set(["draftNightLive","prizeVault"]);
+  if(!allowed.has(viewName))viewName="draftNightLive";
+
+  ["draftNightLive","prizeVault"].forEach(id=>{
+    const el=document.getElementById(id);
+    if(!el)return;
+    el.classList.toggle("dnl-active-view",id===viewName);
+    el.classList.toggle("hidden",id!==viewName);
+  });
+
+  const select=document.getElementById("dnlPresentationView");
+  if(select)select.value=viewName;
+
+  if(viewName==="draftNightLive"){
+    const ready=await renderDraftNightLive();
+    if(!ready)console.warn("Draft Night Live presentation mode opened before its data was available.");
+  }else{
+    renderPrizeVault();
+  }
+
+  // Force browser layout after view swap; useful on mobile/TV browsers.
+  requestAnimationFrame(()=>window.dispatchEvent(new Event("resize")));
+}
 async function bootDnlPresentationMode(){
   if(!isDnlPresentationMode())return;
   document.body.classList.add("dnl-presentation");
 
-  // Hide every known view except Draft Night Live.
-  document.querySelectorAll(".view").forEach(v=>v.classList.toggle("hidden",v.id!=="draftNightLive"));
-  const dnl=document.getElementById("draftNightLive");
-  if(dnl)dnl.classList.remove("hidden");
-
-  // Remove active styling from hidden navigation and initialize the game view.
+  // Spoiler-safe mode: only Draft Night Live and Prize Claim can ever be shown.
+  document.querySelectorAll(".view").forEach(v=>{
+    const allowed=v.id==="draftNightLive"||v.id==="prizeVault";
+    v.classList.toggle("hidden",!allowed);
+    v.classList.remove("dnl-active-view");
+  });
   document.querySelectorAll("[data-view]").forEach(b=>b.classList.remove("active"));
-  const ready=await renderDraftNightLive();
-  if(!ready) console.warn("Draft Night Live presentation mode opened before its data was available.");
+
+  const select=document.getElementById("dnlPresentationView");
+  if(select)select.addEventListener("change",()=>setDnlPresentationView(select.value));
+  await setDnlPresentationView("draftNightLive");
 }
 
 
