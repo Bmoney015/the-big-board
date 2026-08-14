@@ -3567,6 +3567,177 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 .mock-personal-empty{padding:16px 4px;color:#7b8389;font-size:8px;text-align:center}
 @media(max-width:1000px){.mock-personal-list{max-height:520px}}
 
+
+
+/* =========================================================
+   v5.9.13 TV Trivia readability patch
+   Presentation-first sizing for cast / living-room displays.
+   ========================================================= */
+#triviaHost.trivia-host,
+#survivalHost.trivia-host{
+  max-width:1180px;
+}
+#triviaHost .trivia-question-card,
+#survivalHost .trivia-question-card{
+  padding:30px 34px;
+}
+#triviaHost .trivia-question-card h3,
+#survivalHost .trivia-question-card h3{
+  font-size:34px !important;
+  line-height:1.18 !important;
+  margin:16px 0 24px;
+}
+#triviaHost .trivia-choices{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:16px;
+}
+#triviaHost .trivia-choice{
+  min-height:112px;
+  padding:20px 22px !important;
+  border-radius:13px;
+  font-size:23px !important;
+  line-height:1.2 !important;
+  display:flex;
+  align-items:center;
+  text-align:left;
+}
+#triviaHost .trivia-choice b{
+  width:38px;
+  flex:0 0 38px;
+  font-size:24px;
+}
+#triviaHost .trivia-answer-panel,
+#survivalHost .trivia-answer-panel{
+  font-size:17px;
+  line-height:1.45;
+  padding:16px 18px;
+}
+#triviaHost .trivia-answer-panel strong,
+#survivalHost .trivia-answer-panel strong{
+  font-size:21px;
+}
+#triviaHost .trivia-turn-banner,
+#survivalHost .trivia-turn-banner{
+  font-size:16px;
+  padding:11px 14px;
+}
+#triviaHost .trivia-progress,
+#survivalHost .trivia-progress,
+#triviaHost .trivia-eyebrow,
+#survivalHost .trivia-eyebrow{
+  font-size:12px;
+}
+
+/* Name One — make the shared-screen prompt/status legible from across a room. */
+#survivalHost .survival-entry-row input{
+  font-size:19px;
+  padding:14px 16px;
+}
+#survivalHost .survival-entry-row button{
+  font-size:13px;
+  padding:12px 15px;
+}
+#survivalHost .survival-message{
+  font-size:15px;
+  min-height:48px;
+  padding:12px 14px;
+}
+#survivalHost .survival-life{
+  font-size:12px;
+  padding:7px 10px;
+}
+#survivalHost .survival-life-team b{
+  font-size:12px;
+}
+#survivalHost .survival-used span{
+  font-size:11px;
+  padding:6px 8px;
+}
+
+/* Missing Draft Pick visual questions — larger board labels and player names. */
+#triviaHost .trivia-visual-title{
+  font-size:13px;
+  margin-bottom:12px;
+}
+#triviaHost .missing-owner-board{
+  gap:12px;
+}
+#triviaHost .missing-owner-card{
+  min-width:175px;
+  padding:14px;
+}
+#triviaHost .missing-owner-card .round{
+  font-size:11px;
+}
+#triviaHost .missing-owner-card .player,
+#triviaHost .missing-round-card .player{
+  font-size:16px;
+  line-height:1.18;
+}
+#triviaHost .missing-owner-card.hidden-pick .player,
+#triviaHost .missing-round-card.hidden-pick .player{
+  font-size:25px;
+}
+#triviaHost .missing-owner-card .meta,
+#triviaHost .missing-round-card .meta{
+  font-size:11px;
+}
+#triviaHost .missing-round-board{
+  gap:11px;
+}
+#triviaHost .missing-round-card{
+  min-height:118px;
+  padding:14px;
+}
+#triviaHost .missing-round-card .pickno{
+  font-size:13px;
+}
+#triviaHost .missing-round-card .owner{
+  font-size:11px;
+}
+
+/* Draft Night Live uses parallel trivia components; keep those TV-friendly too. */
+.dnl-live .dnl-q,
+.dnl-live h3{
+  font-size:30px;
+  line-height:1.18;
+}
+.dnl-choices{
+  gap:14px;
+}
+.dnl-choice{
+  min-height:92px;
+  padding:17px 19px !important;
+  font-size:20px !important;
+  line-height:1.2;
+}
+.dnl-mcard{
+  min-height:110px;
+  padding:13px;
+}
+.dnl-mcard .pno,
+.dnl-mcard .owner{
+  font-size:11px;
+}
+.dnl-mcard .player{
+  font-size:15px;
+  line-height:1.16;
+}
+.dnl-mcard.blank .player{
+  font-size:25px;
+}
+
+@media(max-width:760px){
+  #triviaHost .trivia-question-card,
+  #survivalHost .trivia-question-card{padding:20px}
+  #triviaHost .trivia-question-card h3,
+  #survivalHost .trivia-question-card h3{font-size:24px !important}
+  #triviaHost .trivia-choices{grid-template-columns:1fr}
+  #triviaHost .trivia-choice{min-height:76px;font-size:17px !important;padding:15px 16px !important}
+  #triviaHost .trivia-choice b{width:30px;flex-basis:30px;font-size:18px}
+  #triviaHost .missing-round-board{grid-template-columns:1fr}
+  .dnl-choice{min-height:70px;font-size:16px !important}
+}
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
