@@ -3213,7 +3213,7 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 
 /* v5.11.0 */.playoff-record-controls{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:12px;padding:14px 16px;border:1px solid #d3ccbf;border-radius:10px;background:#f4f0e7}.playoff-record-controls h3{margin:2px 0 4px}.playoff-record-controls p{margin:0;color:#66717a;font-size:10px}.playoff-record-controls label{display:grid;gap:4px;font-size:9px;font-weight:900;text-transform:uppercase;color:#5d6670}.playoff-record-controls select{min-width:170px;padding:8px 9px;border:1px solid #b8b0a3;border-radius:7px;background:#fff;color:#17212b;font-weight:800}.dnl-footer{flex-wrap:wrap}#dnlReset{border-color:#735d32;background:#211d15;color:#e6cf91}.dnl-team .dnl-chips{min-height:72px}
 
-/* v5.11.2 — Trivia category bulk controls */
+/* v5.12.0 — Trivia category bulk controls */
 .trivia-category-actions{
   display:inline-flex;
   gap:6px;
@@ -3237,6 +3237,162 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 .trivia-category-actions button:hover{
   border-color:#c7a75c;
   color:#f1d37a;
+}
+
+
+/* =========================================================
+   v5.12.6 — Super Bowl Envelope Vault
+   ========================================================= */
+.vault-shell{max-width:1180px;margin:0 auto;padding:8px 0 40px}
+.vault-head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;margin-bottom:18px}
+.vault-kicker{font-size:12px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:#b99045}
+.vault-head h2{margin:4px 0 5px;font-size:34px}
+.vault-head p{margin:0;color:var(--muted);max-width:700px}
+.vault-progress{min-width:210px;background:#111827;color:white;border-radius:16px;padding:14px 18px;text-align:center;box-shadow:0 10px 28px rgba(15,23,42,.16)}
+.vault-progress small{display:block;text-transform:uppercase;letter-spacing:.12em;opacity:.68;font-weight:800}
+.vault-progress strong{display:block;font-size:24px;margin-top:3px}
+.vault-prize-card{background:linear-gradient(135deg,#111827,#24344f);color:white;border-radius:20px;padding:20px 24px;margin-bottom:20px;box-shadow:0 14px 32px rgba(15,23,42,.15)}
+.vault-prize-card small{font-weight:900;letter-spacing:.13em;text-transform:uppercase;color:#d7b66f}
+.vault-prize-card h3{font-size:26px;margin:4px 0}
+.vault-prize-card p{margin:0;opacity:.78}
+.vault-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.vault-envelope{position:relative;min-height:225px;border:0;border-radius:20px;padding:0;cursor:pointer;background:transparent;perspective:900px;text-align:inherit}
+.vault-envelope:disabled{cursor:default}
+.vault-envelope-inner{height:100%;min-height:225px;border-radius:20px;background:linear-gradient(145deg,#f6f0e5,#e8dcc8);border:1px solid #d8c7aa;box-shadow:0 12px 28px rgba(37,30,20,.14);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;transition:transform .22s ease,box-shadow .22s ease,filter .22s ease;overflow:hidden;position:relative}
+.vault-envelope:not(:disabled):hover .vault-envelope-inner{transform:translateY(-6px) rotateX(2deg);box-shadow:0 20px 38px rgba(37,30,20,.2)}
+.vault-envelope-inner:before,.vault-envelope-inner:after{display:none}
+.vault-envelope-lines{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.vault-envelope-lines path{fill:none;stroke:#d5c3a5;stroke-width:1.35;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+.vault-team-seal{width:104px;height:82px;border-radius:12px;display:grid;place-items:center;background:transparent;border:0;outline:2px solid #b99045;z-index:1;box-shadow:0 5px 12px rgba(0,0,0,.14);overflow:hidden}
+.vault-team-seal img{width:100%;height:100%;object-fit:cover;display:block}
+.vault-team-min .vault-team-seal img{transform:translateY(-4px) scale(1.03)}
+.vault-team-seal .vault-fallback{font-size:24px;font-weight:950;color:#111827}
+.vault-team-line{display:flex;align-items:baseline;justify-content:center;gap:11px;z-index:1}
+.vault-team-name{font-size:20px;font-weight:950;color:#1f2937}
+.vault-team-odds{font-size:15px;font-weight:950;color:#2f8f57;white-space:nowrap}
+.vault-team-city{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#766a58;z-index:1}
+.vault-envelope.claimed .vault-envelope-inner{filter:grayscale(1);opacity:.46;transform:none}
+.vault-claimed-stamp{display:none;position:absolute;z-index:4;inset:auto 16px 18px;transform:rotate(-7deg);border:3px solid #7f1d1d;color:#7f1d1d;border-radius:8px;padding:7px 12px;font-weight:950;font-size:18px;letter-spacing:.12em;background:rgba(255,255,255,.72)}
+.vault-envelope.claimed .vault-claimed-stamp{display:block}
+.vault-claim-meta{display:none;position:absolute;z-index:4;top:12px;right:12px;background:#111827;color:#fff;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900}
+.vault-envelope.claimed .vault-claim-meta{display:block}
+.vault-controls{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}
+.vault-controls button{border:1px solid #cbd5e1;background:white;border-radius:10px;padding:9px 13px;font-weight:800;cursor:pointer}
+.vault-empty{text-align:center;padding:30px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:18px;color:#64748b}
+.vault-modal{position:fixed;inset:0;z-index:9999;background:rgba(8,15,28,.76);display:grid;place-items:center;padding:20px;backdrop-filter:blur(5px)}
+.vault-modal.hidden{display:none}
+.vault-reveal{width:min(560px,94vw);background:white;border-radius:26px;padding:34px;text-align:center;box-shadow:0 30px 80px rgba(0,0,0,.35);animation:vaultPop .42s cubic-bezier(.2,.85,.3,1.15)}
+@keyframes vaultPop{from{transform:scale(.82) translateY(18px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.vault-reveal .vault-team-seal{margin:4px auto 18px;width:150px;height:118px;outline-width:3px}
+.vault-reveal small{font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:#9a762f}
+.vault-reveal h3{font-size:38px;margin:5px 0 4px}
+.vault-reveal .vault-money{font-size:23px;font-weight:950;margin:12px 0 3px}
+.vault-reveal p{color:#64748b;margin:0 0 20px}
+.vault-reveal button{border:0;border-radius:12px;background:#111827;color:white;padding:11px 20px;font-weight:900;cursor:pointer}
+@media(max-width:800px){.vault-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.vault-head{display:block}.vault-progress{margin-top:14px}.vault-head h2{font-size:29px}}
+@media(max-width:520px){.vault-grid{grid-template-columns:1fr}.vault-envelope-inner{min-height:190px}}
+
+
+/* =========================================================
+   v5.12.5 — 2026 Reveal owner bank + three-act pacing
+   ========================================================= */
+#presentation .reveal-title-bank-row{
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:22px;
+  text-align:left;
+}
+#presentation .reveal-title-bank-row>div:first-child{
+  flex:0 0 auto;
+}
+#presentation .reveal-owner-bank-wrap{
+  width:min(650px,58%);
+  margin-left:auto;
+  padding:10px 12px 11px;
+  border:1px solid rgba(185,149,74,.46);
+  border-radius:10px;
+  background:rgba(15,24,33,.55);
+}
+#presentation .reveal-owner-bank-label{
+  margin-bottom:7px;
+  color:#d8b664;
+  font-size:9px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.11em;
+}
+#presentation .reveal-owner-bank{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:6px;
+}
+#presentation .reveal-owner-chip{
+  min-width:0;
+  padding:6px 5px;
+  border:1px solid #43505b;
+  border-radius:7px;
+  background:#18232d;
+  color:#f2f5f6;
+  font-size:11px;
+  font-weight:800;
+  text-align:center;
+  transition:.25s ease;
+}
+#presentation .reveal-owner-chip.revealed{
+  opacity:.25;
+  color:#82909b;
+  text-decoration:line-through;
+  background:#121a21;
+}
+#presentation #autoReveal{
+  min-width:100px;
+  font-weight:850;
+}
+#presentation #autoReveal:disabled{
+  opacity:.42;
+  cursor:default;
+}
+@media(max-width:900px){
+  #presentation .reveal-title-bank-row{display:block}
+  #presentation .reveal-owner-bank-wrap{width:100%;margin:12px 0 0}
+}
+@media(max-width:560px){
+  #presentation .reveal-owner-bank{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+
+
+/* =========================================================
+   v5.12.6 — Reveal Prize Unlocked moments
+   ========================================================= */
+.reveal-prize-modal{
+  position:fixed;inset:0;z-index:12000;display:grid;place-items:center;
+  padding:20px;background:rgba(5,11,18,.78);backdrop-filter:blur(5px)
+}
+.reveal-prize-modal.hidden{display:none}
+.reveal-prize-card{
+  width:min(470px,92vw);padding:30px 32px 28px;border:1px solid #b99045;
+  border-radius:20px;background:linear-gradient(145deg,#15212c,#0f1821);
+  color:#fff;text-align:center;box-shadow:0 28px 80px rgba(0,0,0,.45);
+  animation:revealPrizePop .42s cubic-bezier(.2,.85,.3,1.12)
+}
+@keyframes revealPrizePop{
+  from{transform:scale(.82) translateY(16px);opacity:0}
+  to{transform:scale(1) translateY(0);opacity:1}
+}
+.reveal-prize-token{
+  width:78px;height:78px;margin:0 auto 14px;display:grid;place-items:center;
+  border:2px solid #d5b25f;border-radius:50%;background:#201b11;color:#f2d47d;
+  font-size:34px;box-shadow:0 0 0 6px rgba(213,178,95,.09)
+}
+.reveal-prize-kicker{
+  color:#d8b664;font-size:10px;font-weight:950;letter-spacing:.16em;text-transform:uppercase
+}
+.reveal-prize-card h3{margin:7px 0 6px;font-size:28px;color:#fff}
+.reveal-prize-card p{margin:0 0 20px;color:#b8c4cc;font-size:15px}
+.reveal-prize-card button{
+  border:1px solid #d5b25f;border-radius:10px;background:#f4efe4;color:#14202b;
+  padding:9px 18px;font-weight:900;cursor:pointer
 }
 
 </style>
@@ -3366,6 +3522,7 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
     <div class="nav-dropdown" data-nav-dropdown="gameNight">
       <button data-view="triviaStudio" type="button">Trivia Studio</button>
       <button data-view="draftNightLive" type="button">Draft Night Live</button>
+      <button data-view="prizeVault" type="button">Super Bowl Prize Vault</button>
     </div>
   </div>
 
@@ -3541,9 +3698,15 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 <div class="snapshot-rankings" id="snapshotRows2022"></div>
 </div>
 <div id="current2026">
-<div class="recap-title presentation-section-title reveal-section-title">
+<div class="recap-title presentation-section-title reveal-section-title reveal-title-bank-row">
+<div>
 <h3>2026 Reveal</h3>
 <p>Career Prestige Rankings</p>
+</div>
+<div class="reveal-owner-bank-wrap">
+  <div class="reveal-owner-bank-label">Owners Remaining</div>
+  <div class="reveal-owner-bank" id="revealOwnerBank"></div>
+</div>
 </div>
 <div id="revealMain">
 <div class="reveal-stage">
@@ -3562,7 +3725,7 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 <div class="reveal-controls">
 <button id="startReveal">Start / Replay</button>
 <button id="nextReveal">Reveal Next</button>
-<button id="autoReveal">Auto Play</button>
+<button id="autoReveal">Continue</button>
 <button id="showFinal">Show Final Table</button>
 </div>
 </div>
@@ -3767,6 +3930,40 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
     <div class="dnl-tabs"><button data-dnlphase="1" class="active">1 · Opening Trivia</button><button data-dnlphase="2">2 · Name One</button><button data-dnlphase="3">3 · Missing Pick</button><button data-dnlphase="4">4 · The Final Board</button></div>
     <div id="dnlStage" class="dnl-stage"></div>
     <div class="dnl-footer"><button id="dnlReset">↺ Start Over</button><button id="dnlPrev">← Previous Phase</button><button id="dnlAdjust">Commissioner Score Adjust</button><button id="dnlNext" class="dnl-primary">Next Phase →</button></div>
+  </div>
+</div>
+</section>
+
+
+<section class="view" id="prizeVault">
+<div class="vault-shell">
+  <div class="vault-head">
+    <div>
+      <div class="vault-kicker">Game Night Prizes</div>
+      <h2>Super Bowl Prize Vault</h2>
+      <p>Choose an available envelope. Once claimed, that team is off the board for the rest of the night.</p>
+    </div>
+    <div class="vault-progress"><small>Envelope Claim</small><strong id="vaultProgress">1 of 6</strong></div>
+  </div>
+  <div class="vault-prize-card">
+    <small id="vaultClaimLabel">Claim #1 · Winning Team MVP</small>
+    <h3 id="vaultPrize">$15 Super Bowl Wager</h3>
+    <p id="vaultInstruction">Choose one of the six available teams. The commissioner will place the wager at the current odds after selections are complete.</p>
+  </div>
+  <div class="vault-grid" id="vaultGrid"></div>
+  <div class="vault-controls" id="vaultCommissionerControls">
+    <button id="vaultUndo">↶ Undo Last Claim</button>
+    <button id="vaultReset">Reset Vault</button>
+  </div>
+</div>
+<div class="vault-modal hidden" id="vaultModal">
+  <div class="vault-reveal">
+    <small id="vaultRevealClaim">Envelope Claimed</small>
+    <div class="vault-team-seal" id="vaultRevealSeal">SF</div>
+    <h3 id="vaultRevealTeam">San Francisco</h3>
+    <div class="vault-money" id="vaultRevealPrize">$15 Super Bowl Wager</div>
+    <p>The wager will be placed at the current Super Bowl odds.</p>
+    <button id="vaultRevealClose">Lock It In</button>
   </div>
 </div>
 </section>
@@ -4426,6 +4623,17 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 </div>
 </section>
 
+
+<div class="reveal-prize-modal hidden" id="revealPrizeModal">
+  <div class="reveal-prize-card">
+    <div class="reveal-prize-token">🏆</div>
+    <div class="reveal-prize-kicker">Prize Unlocked</div>
+    <h3>Please collect your prize</h3>
+    <p id="revealPrizeDetail">Your reveal prize is ready.</p>
+    <button id="revealPrizeClose" type="button">Continue</button>
+  </div>
+</div>
+
 <section class="view" id="playoffHub">
   <div class="playoff-shell">
     <div class="playoff-head">
@@ -4601,7 +4809,7 @@ const categoryLabels = {
 };
 const matrixOrder = ["title","runner_up","podium","pennant","most_points","playoffs","above_500","exact_500","below_500","least_points","toilet"];
 const revealOrder = [6,5,4,7,8,3,9,10,2,1];
-let pointMode = false, revealIndex = 0, revealed = [], autoTimer = null, tickerBusy = false, autoPlaying = false;
+let pointMode = false, revealIndex = 0, revealed = [], autoTimer = null, tickerBusy = false, autoPlaying = false, revealActTarget = 0;
 let careerResumeSort={key:"winPct",direction:"desc"};
 let careerSelectedOwner=null;
 let careerRecordBookMetric="PO_Finish";
@@ -5519,9 +5727,54 @@ function showEdition(view){
  if(key!=="2026"){
    if(autoTimer) clearTimeout(autoTimer);
    autoTimer=null;autoPlaying=false;tickerBusy=false;
-   document.getElementById("autoReveal").textContent="Auto Play";
+   setRevealContinueState();
  }
 }
+
+function renderRevealOwnerBank(){
+ const bank=document.getElementById("revealOwnerBank");
+ if(!bank)return;
+ const curr=career();
+ const revealedOwners=new Set(
+   revealOrder.slice(0,revealIndex)
+     .map(rank=>curr.find(x=>x.rank===rank)?.owner)
+     .filter(Boolean)
+ );
+ const owners=curr.map(x=>x.owner).sort((a,b)=>displayName(a).localeCompare(displayName(b)));
+ bank.innerHTML=owners.map(owner=>`<div class="reveal-owner-chip ${revealedOwners.has(owner)?"revealed":""}">${displayName(owner)}</div>`).join("");
+}
+function setRevealContinueState(){
+ const btn=document.getElementById("autoReveal");
+ if(!btn)return;
+ btn.textContent="Continue";
+ btn.disabled=autoPlaying || tickerBusy || revealIndex===0 || revealIndex>=revealOrder.length;
+}
+function revealActEndForIndex(){
+ if(revealIndex<6)return 6;
+ if(revealIndex<8)return 8;
+ return 10;
+}
+
+
+let revealPrizeCloseAction=null;
+function showRevealPrizeMoment(rank,onClose){
+ const modal=document.getElementById("revealPrizeModal");
+ if(!modal){if(onClose)onClose();return}
+ document.getElementById("revealPrizeDetail").textContent=
+   rank===10
+     ?"10th place has been revealed. Prize unlocked."
+     :"The 2026 Reveal is complete. Prize unlocked.";
+ revealPrizeCloseAction=typeof onClose==="function"?onClose:null;
+ modal.classList.remove("hidden");
+}
+function closeRevealPrizeMoment(){
+ const modal=document.getElementById("revealPrizeModal");
+ if(modal)modal.classList.add("hidden");
+ const action=revealPrizeCloseAction;
+ revealPrizeCloseAction=null;
+ if(action)action();
+}
+
 function resetReveal(){
  if(autoTimer) clearTimeout(autoTimer);
  autoTimer=null;autoPlaying=false;tickerBusy=false;revealIndex=0;revealed=[];
@@ -5529,7 +5782,9 @@ function resetReveal(){
  document.getElementById("revealMain").classList.remove("hidden");
  document.getElementById("finalTable").classList.remove("show");
  document.getElementById("spotContent").innerHTML=`<div class="rank-big">READY TO REVEAL</div><div class="owner-big">2026 Rankings</div><div class="change-big">Starting from the official 2022 edition</div>`;
- document.getElementById("autoReveal").textContent="Auto Play";
+ revealActTarget=0;
+ renderRevealOwnerBank();
+ setRevealContinueState();
 }
 function getRevealTarget(){
  const curr=career(), rank=revealOrder[revealIndex]; return curr.find(x=>x.rank===rank);
@@ -5566,17 +5821,31 @@ function revealNext(onComplete){
    spot.querySelector(".change-big").innerHTML=`<span class="${deltaClass}">${delta>=0?"+":""}${delta} Prestige since ${state.snapshotYear}</span> · <span class="${rankClass}">${moveText}</span>${delta===0?'<br><span class="no-change-badge">NO PRESTIGE CHANGE</span>':""}`;
    addAssembled(x,old);
    revealIndex++;
+   renderRevealOwnerBank();
    setTimeout(()=>{
      tickerBusy=false;
      const revealFinished=revealIndex>=revealOrder.length;
+
+     // Pause for a prize-collection moment immediately after #10.
+     if(x.rank===10){
+       showRevealPrizeMoment(10,()=>{
+         if(onComplete)onComplete();
+       });
+       return;
+     }
+
+     // After #1 fully finishes its count-up/presentation, pause on the
+     // final reveal and collect the prize before transitioning to recap.
      if(revealFinished){
-       document.querySelector('[data-edition="2026"]').classList.add("completed");
-       document.getElementById("current2026").classList.add("hidden");
-       document.getElementById("revealTransition").classList.remove("hidden");
-       setTimeout(()=>{
-         document.getElementById("revealTransition").classList.add("hidden");
-         showEdition("recap");
-       },2200);
+       showRevealPrizeMoment(1,()=>{
+         document.querySelector('[data-edition="2026"]').classList.add("completed");
+         document.getElementById("current2026").classList.add("hidden");
+         document.getElementById("revealTransition").classList.remove("hidden");
+         setTimeout(()=>{
+           document.getElementById("revealTransition").classList.add("hidden");
+           showEdition("recap");
+         },2200);
+       });
      }else if(onComplete){
        onComplete();
      }
@@ -5603,11 +5872,25 @@ function runAutoReveal(){
  if(!autoPlaying || tickerBusy)return;
  if(revealIndex>=revealOrder.length){
    autoPlaying=false;
-   document.getElementById("autoReveal").textContent="Auto Play";
-   autoTimer=setTimeout(showFinal,1200);
+   setRevealContinueState();
    return;
  }
- revealNext(()=>{ if(autoPlaying) autoTimer=setTimeout(runAutoReveal,250); });
+ if(revealActTarget && revealIndex>=revealActTarget){
+   autoPlaying=false;
+   autoTimer=null;
+   setRevealContinueState();
+   return;
+ }
+ revealNext(()=>{
+   if(!autoPlaying){setRevealContinueState();return}
+   if(revealActTarget && revealIndex>=revealActTarget){
+     autoPlaying=false;
+     autoTimer=null;
+     setRevealContinueState();
+     return;
+   }
+   autoTimer=setTimeout(runAutoReveal,250);
+ });
 }
 function showFinal(){
  if(autoTimer) clearTimeout(autoTimer);autoTimer=null;autoPlaying=false;tickerBusy=false;
@@ -10286,10 +10569,97 @@ function renderScheduleBuilder(){
   sbRenderAll();
 }
 
+
+// =========================================================
+// v5.12.0 — Super Bowl Envelope Vault
+// =========================================================
+const PRIZE_VAULT_TEAMS=[
+ {id:"SF",city:"San Francisco",name:"49ers",odds:"19/1",logo:"assets/prize-vault/sf.png"},
+ {id:"BUF",city:"Buffalo",name:"Bills",odds:"10/1",logo:"assets/prize-vault/buf.png"},
+ {id:"MIN",city:"Minnesota",name:"Vikings",odds:"50/1",logo:"assets/prize-vault/min.png"},
+ {id:"KC",city:"Kansas City",name:"Chiefs",odds:"16/1",logo:"assets/prize-vault/kc.png"},
+ {id:"JAX",city:"Jacksonville",name:"Jaguars",odds:"30/1",logo:"assets/prize-vault/jax.png"},
+ {id:"PHI",city:"Philadelphia",name:"Eagles",odds:"16/1",logo:"assets/prize-vault/phi.png"}
+];
+const PRIZE_VAULT_CLAIMS=[
+ {label:"Claim #1 · Winning Team MVP",prize:"$15 Super Bowl Wager"},
+ {label:"Claim #2 · Winning Trivia Team",prize:"$10 Super Bowl Wager"},
+ {label:"Claim #3 · Winning Trivia Team",prize:"$10 Super Bowl Wager"},
+ {label:"Claim #4 · Winning Trivia Team",prize:"$10 Super Bowl Wager"},
+ {label:"Claim #5 · Losing Team MVP",prize:"$5 Super Bowl Wager"},
+ {label:"Final Envelope · Draft Grades Challenge Winner",prize:"Final Super Bowl Wager"}
+];
+let PRIZE_VAULT_STATE={claims:[]};
+function vaultLoad(){
+ try{
+   const saved=JSON.parse(localStorage.getItem("bigBoardPrizeVault2026")||"null");
+   if(saved&&Array.isArray(saved.claims))PRIZE_VAULT_STATE=saved;
+ }catch{}
+}
+function vaultSave(){localStorage.setItem("bigBoardPrizeVault2026",JSON.stringify(PRIZE_VAULT_STATE))}
+function vaultClaimIndex(){return Math.min(PRIZE_VAULT_STATE.claims.length,PRIZE_VAULT_CLAIMS.length-1)}
+function renderPrizeVault(){
+ vaultLoad();
+ const count=PRIZE_VAULT_STATE.claims.length;
+ const done=count>=6;
+ const idx=vaultClaimIndex();
+ const claim=PRIZE_VAULT_CLAIMS[idx];
+ document.getElementById("vaultProgress").textContent=done?"Complete":`${count+1} of 6`;
+ document.getElementById("vaultClaimLabel").textContent=done?"All Envelopes Claimed":claim.label;
+ document.getElementById("vaultPrize").textContent=done?"Prize Vault Complete":claim.prize;
+ document.getElementById("vaultInstruction").textContent=done
+   ?"All six Super Bowl teams have been claimed."
+   :(count===5
+      ?"One envelope remains. The Draft Grades Challenge winner still has to claim and open it."
+      :"Choose any available envelope. Once claimed, that team is removed from the board.");
+ const claimedMap=new Map(PRIZE_VAULT_STATE.claims.map(c=>[c.team,c]));
+ document.getElementById("vaultGrid").innerHTML=PRIZE_VAULT_TEAMS.map(team=>{
+   const c=claimedMap.get(team.id);
+   return `<button class="vault-envelope vault-team-${team.id.toLowerCase()} ${c?"claimed":""}" data-vault-team="${team.id}" ${c?"disabled":""}>
+     <div class="vault-envelope-inner">
+       <svg class="vault-envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+         <path d="M 0 0 L 50 47 L 100 0"></path>
+       </svg>
+       <span class="vault-claim-meta">${c?c.prize:""}</span>
+       <div class="vault-team-seal"><img src="${team.logo}" alt="${team.city} ${team.name} logo" onerror="this.outerHTML='\x3cspan class=&quot;vault-fallback&quot;\x3e${team.id}\x3c/span\x3e'"></div>
+       <div class="vault-team-line"><div class="vault-team-name">${team.name}</div><div class="vault-team-odds">${team.odds}</div></div>
+       <div class="vault-team-city">${team.city}</div>
+       <span class="vault-claimed-stamp">CLAIMED</span>
+     </div>
+   </button>`;
+ }).join("");
+ document.querySelectorAll("[data-vault-team]:not(:disabled)").forEach(b=>b.addEventListener("click",()=>vaultClaim(b.dataset.vaultTeam)));
+ const controls=document.getElementById("vaultCommissionerControls");
+ if(controls)controls.hidden=typeof commissionerMode!=="undefined"?!commissionerMode:false;
+}
+function vaultClaim(teamId){
+ if(PRIZE_VAULT_STATE.claims.length>=6)return;
+ const team=PRIZE_VAULT_TEAMS.find(t=>t.id===teamId);
+ if(!team||PRIZE_VAULT_STATE.claims.some(c=>c.team===teamId))return;
+ const claim=PRIZE_VAULT_CLAIMS[PRIZE_VAULT_STATE.claims.length];
+ const entry={team:teamId,label:claim.label,prize:claim.prize,claimedAt:new Date().toISOString()};
+ PRIZE_VAULT_STATE.claims.push(entry);vaultSave();renderPrizeVault();
+ document.getElementById("vaultRevealClaim").textContent=claim.label;
+ document.getElementById("vaultRevealSeal").innerHTML=`<img src="${team.logo}" alt="${team.city} ${team.name} logo">`;
+ document.getElementById("vaultRevealTeam").textContent=`${team.city} ${team.name}`;
+ document.getElementById("vaultRevealPrize").textContent=claim.prize;
+ document.getElementById("vaultModal").classList.remove("hidden");
+}
+function vaultUndo(){
+ if(!PRIZE_VAULT_STATE.claims.length)return;
+ const last=PRIZE_VAULT_STATE.claims.at(-1);
+ if(!confirm(`Undo the ${last.team} envelope claim?`))return;
+ PRIZE_VAULT_STATE.claims.pop();vaultSave();renderPrizeVault();
+}
+function vaultReset(){
+ if(!confirm("Reset all six envelope claims? This cannot be undone."))return;
+ PRIZE_VAULT_STATE={claims:[]};vaultSave();renderPrizeVault();
+}
+
 function navGroupForView(viewName){
  if(["matrix","journey","audit","data"].includes(viewName))return "career";
  if(["draftHub","scheduleBuilder","draftLab","mockDraftLab"].includes(viewName))return "draft";
- if(["triviaStudio","draftNightLive"].includes(viewName))return "gameNight";
+ if(["triviaStudio","draftNightLive","prizeVault"].includes(viewName))return "gameNight";
  return null;
 }
 function navCloseMenus(){
@@ -10324,12 +10694,14 @@ function openView(viewName){
  if(viewName==="survivorHub") openSurvivorHub();
  if(viewName==="triviaStudio") renderTriviaStudio();
  if(viewName==="draftNightLive") renderDraftNightLive();
+ if(viewName==="prizeVault") renderPrizeVault();
  if(viewName==="mockDraftLab") renderMockDraftLab();
 }
 
 let commissionerMode=sessionStorage.getItem("bigBoardCommissionerMode")==="on";
 function setCommissionerMode(enabled,announce=true){
  commissionerMode=Boolean(enabled);
+ const vaultControls=document.getElementById("vaultCommissionerControls");if(vaultControls)vaultControls.hidden=!commissionerMode;
  const tab=document.getElementById("commissionerDataTab");
  const labTab=document.getElementById("draftLabTab");
  if(tab)tab.hidden=!commissionerMode;
@@ -10452,6 +10824,10 @@ document.getElementById("dnlPrev").addEventListener("click",()=>dnlPhase(DNL.pha
 document.getElementById("dnlNext").addEventListener("click",()=>dnlPhase(DNL.phase+1));
 document.getElementById("dnlAdjust").addEventListener("click",dnlAdjust);
 document.querySelectorAll("[data-dnlphase]").forEach(b=>b.addEventListener("click",()=>dnlPhase(+b.dataset.dnlphase)));
+document.getElementById("vaultUndo").addEventListener("click",vaultUndo);
+document.getElementById("vaultReset").addEventListener("click",vaultReset);
+document.getElementById("vaultRevealClose").addEventListener("click",()=>document.getElementById("vaultModal").classList.add("hidden"));
+document.getElementById("vaultModal").addEventListener("click",e=>{if(e.target.id==="vaultModal")e.currentTarget.classList.add("hidden")});
 document.getElementById("triviaGenerate").addEventListener("click",generateTriviaGame);
 document.getElementById("triviaReveal").addEventListener("click",revealTriviaAnswer);
 document.getElementById("triviaNext").addEventListener("click",nextTriviaQuestion);
@@ -10614,25 +10990,27 @@ document.querySelectorAll(".edition-tabs button").forEach(b=>b.addEventListener(
 document.getElementById("goFinalFromRecap").addEventListener("click",()=>showEdition("final"));
 document.getElementById("startReveal").addEventListener("click",()=>{
  resetReveal();
+ revealActTarget=6;
  autoPlaying=true;
- document.getElementById("autoReveal").textContent="Pause";
+ setRevealContinueState();
  autoTimer=setTimeout(runAutoReveal,350);
 });
-document.getElementById("nextReveal").addEventListener("click",()=>revealNext());
+document.getElementById("nextReveal").addEventListener("click",()=>{
+ if(autoPlaying||tickerBusy)return;
+ revealNext(()=>setRevealContinueState());
+});
 document.getElementById("autoReveal").addEventListener("click",()=>{
- if(autoPlaying){
-   autoPlaying=false;
-   if(autoTimer) clearTimeout(autoTimer);
-   autoTimer=null;
-   document.getElementById("autoReveal").textContent="Resume Auto";
- }else{
-   autoPlaying=true;
-   document.getElementById("autoReveal").textContent="Pause";
-   if(!tickerBusy) runAutoReveal();
- }
+ if(autoPlaying||tickerBusy||revealIndex===0||revealIndex>=revealOrder.length)return;
+ revealActTarget=revealActEndForIndex();
+ autoPlaying=true;
+ setRevealContinueState();
+ runAutoReveal();
 });
 document.getElementById("showFinal").addEventListener("click",()=>showEdition("final"));
 document.getElementById("replayFinal").addEventListener("click",resetReveal);
+document.getElementById("revealPrizeClose").addEventListener("click",closeRevealPrizeMoment);
+renderRevealOwnerBank();
+setRevealContinueState();
 
 document.getElementById("journeyPlay").addEventListener("click",journeyPlay);
 document.getElementById("journeyPause").addEventListener("click",journeyStop);
