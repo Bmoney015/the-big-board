@@ -140,6 +140,13 @@ select,input[type=number],input[type=text]{padding:8px;border:1px solid var(--li
 .reveal-stage{display:grid;grid-template-columns:minmax(250px,1.05fr) minmax(320px,1fr);gap:22px;margin-top:24px}
 .spotlight{min-height:460px;display:flex;align-items:center;justify-content:center;text-align:center;border:1px solid #3a4652;border-radius:14px;background:#17212b}
 .rank-big{font-size:22px;color:#aab4bd;letter-spacing:.08em}
+.rank-big.rank-concealed{visibility:hidden}
+.rank-big.rank-reveal{visibility:visible;animation:rankRevealFocus .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes rankRevealFocus{
+  0%{opacity:0;filter:blur(7px);transform:scale(.92)}
+  55%{opacity:1;filter:blur(1px);transform:scale(1.045)}
+  100%{opacity:1;filter:blur(0);transform:scale(1)}
+}
 .owner-big{font-size:58px;font-weight:750;margin:14px 0}
 .score-label{color:#aab4bd;text-transform:uppercase;letter-spacing:.15em;font-size:12px}
 .score-big{font-size:80px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.05;margin-top:6px}
@@ -4494,8 +4501,8 @@ body.dnl-presentation #prizeVault.dnl-active-view{
         <select id="draftOwnerFilter"></select>
 </label>
 <div aria-label="Draft Hub view" class="draft-view-switch" role="group">
-<button class="active" id="draftSkillView">Draft Skill</button>
-<button id="draftBoardView">Draft Board</button>
+<button id="draftSkillView">Draft Skill</button>
+<button class="active" id="draftBoardView">Draft Board</button>
 <button id="draftTableView">Pick Table</button>
 <button id="draftOwnerView">Owner Cards</button>
 <button id="draftSlotsView">Draft Slots</button>
@@ -4504,7 +4511,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 <div class="draft-summary-grid" id="draftSummary"></div>
 <div class="draft-position-volume" id="draftPositionVolume"></div>
 <div class="draft-legend" id="draftLegend"></div>
-<div id="draftSkillPanel">
+<div class="hidden" id="draftSkillPanel">
   <div class="draft-skill-hero">
     <div>
       <div class="draft-skill-eyebrow">Historical Drafting Performance</div>
@@ -6190,11 +6197,16 @@ function revealNext(onComplete){
  tickerBusy=true;
  const x=getRevealTarget(),old=career(state.snapshotYear).find(o=>o.owner===x.owner);
  const spot=document.getElementById("spotContent"),start=old.prestige,end=x.prestige,delta=end-start;
- spot.innerHTML=`<div class="rank-big">RANK #${x.rank}</div><div class="owner-big">${displayName(x.owner)}</div><div class="score-label">Prestige</div><div id="ticker" class="score-big ${start<0?"negative":""}">${start}</div><div class="change-big">${start} in ${state.snapshotYear}</div>`;
+ spot.innerHTML=`<div class="rank-big rank-concealed">RANK #${x.rank}</div><div class="owner-big">${displayName(x.owner)}</div><div class="score-label">Prestige</div><div id="ticker" class="score-big ${start<0?"negative":""}">${start}</div><div class="change-big">${start} in ${state.snapshotYear}</div>`;
  const ticker=document.getElementById("ticker"),duration=3500,steps=Math.max(1,Math.abs(delta)),base=Math.max(45,Math.floor(duration/steps));
  let val=start;
  const finish=()=>{
    ticker.classList.toggle("negative",val<0);
+   const rankLabel=spot.querySelector(".rank-big");
+   if(rankLabel){
+     rankLabel.classList.remove("rank-concealed");
+     rankLabel.classList.add("rank-reveal");
+   }
    const moveText=movementText(old.rank,x.rank);
    const rankClass=movementClass(old.rank,x.rank);
    const deltaClass=valueClass(delta);
@@ -6244,7 +6256,7 @@ function revealNext(onComplete){
      return;
    }
    val+=Math.sign(delta);ticker.textContent=val;ticker.classList.toggle("negative",val<0);
-   const pause=(val===0 && end<0 && start>=0)?650:base;
+   const pause=(val===0 && end<0 && start>=0)?(x.owner==="Mac"?1050:650):base;
    setTimeout(advance,pause);
  };
  setTimeout(advance,350);
@@ -6650,7 +6662,7 @@ function journeyReplay(){
 let draftSelectedYear=Math.max(...DRAFTS_DATA.years.map(Number));
 let draftCapitalScope=String(draftSelectedYear);
 let draftSelectedOwner="ALL";
-let draftCurrentView="skill";
+let draftCurrentView="board";
 let DRAFT_SKILL_DATA=null;
 let draftSkillScope="CAREER";
 let draftSkillOwner="ALL";
@@ -10613,6 +10625,41 @@ function triviaQuestionIsSupported(q){
 function sanitizeTriviaData(data){
   if(!data)return data;
   data.questions=(data.questions||[]).filter(triviaQuestionIsSupported);
+
+  // v5.9.13 trivia cleanup: keep league-age answers plausible and remove misleading draft-pick editorializing.
+  data.questions.forEach(q=>{
+    const prompt=String(q?.prompt||"");
+    const explanation=String(q?.explanation||"");
+    const combined=`${prompt} ${explanation}`.toLowerCase();
+
+    // RJ's Most Points drought spans the full 16 completed league seasons.
+    if(combined.includes("rj") && combined.includes("most points") && (combined.includes("drought") || combined.includes("without"))){
+      q.choices=["10 years","12 years","15 years","16 years"];
+      q.answer="16 years";
+      q.explanation="RJ has gone all 16 completed league seasons without a Most Points finish.";
+    }
+
+    // Ben's 2025 Jakobi Meyers pick was WR40 off the board and finished WR38: essentially par for the course.
+    if(combined.includes("jakobi meyers") && combined.includes("2025") && combined.includes("ben")){
+      q.explanation="Ben took Jakobi Meyers at #105 overall as WR40 off the board; Meyers finished WR38 — basically par for the course.";
+    }
+
+    // Casual Round 1 repeat-draft question: one plausible standout, without three near-miss decoys.
+    if(prompt.includes("Which of these players was drafted in Round 1 at least four times in league history?")){
+      q.prompt="Which of these players was drafted in Round 1 exactly four times in league history?";
+      q.choices=["Marshawn Lynch","Derrick Henry","Alvin Kamara","Davante Adams"];
+      q.answer="Alvin Kamara";
+      q.explanation="Alvin Kamara was drafted in Round 1 four straight times from 2018–2021.";
+    }
+
+    // Make league-bounded player-performance trivia explicit for players whose careers extend outside our 2010–2025 data.
+    if(
+      /which of these players has never recorded a top[- ]?5 positional (season|finish)/i.test(prompt) ||
+      /which of these (qbs|rbs|wrs|tes) never recorded a top[- ]?5 fantasy finish at the position\??/i.test(prompt)
+    ){
+      q.prompt=prompt.replace(/\?\s*$/, "").replace(/\s+during our league['’]s history\s*$/i, "") + " during our league's history?";
+    }
+  });
 
   // Repair Draft Fallout / undrafted survival rounds using definitive draft history.
   (data.survivalRounds||[]).forEach(round=>{
