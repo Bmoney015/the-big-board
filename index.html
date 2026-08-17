@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v5.9.12 Mock Draft Lab — personal ETR rankings board + calibration UI hidden -->
+<!-- v5.9.17 — 2026 Prestige Strength of Schedule -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -829,6 +829,9 @@ main{
 .draft-board{display:grid;grid-template-columns:62px repeat(10,minmax(125px,1fr));gap:7px;min-width:1390px}
 .draft-board-header{font-size:10px;text-align:center;color:#9aa7b2;text-transform:uppercase;letter-spacing:.06em;padding:4px}
 .draft-round-label{display:flex;align-items:center;justify-content:center;background:#202a34;border:1px solid #45515d;border-radius:8px;font-size:12px;font-weight:850;color:#d6dde3;min-height:70px}
+.draft-round-label{flex-direction:column;gap:4px}
+.draft-round-direction{font-size:15px;line-height:1;color:#9aa7b2;font-weight:700}
+
 .draft-pick-card{position:relative;border-radius:8px;padding:8px 8px 7px;min-height:70px;border:2px solid transparent;color:#17202a;transition:opacity .18s,transform .18s}
 .draft-pick-card:hover{transform:translateY(-1px)}
 .draft-pick-card.draft-muted{opacity:.18}
@@ -3746,6 +3749,32 @@ body.dnl-presentation #prizeVault.dnl-active-view{
   #triviaHost .missing-round-board{grid-template-columns:1fr}
   .dnl-choice{min-height:70px;font-size:16px !important}
 }
+
+.schedule-finalized-lock{display:inline-flex;align-items:center;gap:6px;border:1px solid #6b5c37;background:#201c14;color:#d8bd78;border-radius:999px;padding:7px 11px;font-size:11px;font-weight:850}
+.schedule-finalized-tools{align-items:center}
+#scheduleBuilderConfig select:disabled,#scheduleBuilderConfig input:disabled{opacity:.78;cursor:not-allowed}
+
+
+.schedule-prestige-sos{margin-top:14px;background:#17212b;border:1px solid #3a4652;border-radius:10px;padding:15px;color:#eef2f5}
+.schedule-prestige-sos-head{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:11px}
+.schedule-prestige-sos-head h3{margin:3px 0 5px;font-size:18px}
+.schedule-prestige-sos-head p{margin:0;color:#aeb8c1;font-size:11px;line-height:1.45}
+.schedule-prestige-sos-note{font-size:10px;color:#c8ad6b;border:1px solid #665936;background:#201c14;border-radius:999px;padding:6px 9px;white-space:nowrap}
+.schedule-prestige-sos-wrap{overflow:auto;border:1px solid #36424d;border-radius:9px}
+.schedule-prestige-sos-table{min-width:850px;background:#111922;color:#eff2f5;font-size:11px}
+.schedule-prestige-sos-table th{background:#26313b!important;color:#eef2f5!important;padding:9px 10px}
+.schedule-prestige-sos-table td{background:#17212b!important;color:#e9eef2!important;padding:9px 10px;text-align:right;font-variant-numeric:tabular-nums}
+.schedule-prestige-sos-table th:nth-child(2),.schedule-prestige-sos-table td:nth-child(2),
+.schedule-prestige-sos-table th:nth-child(5),.schedule-prestige-sos-table td:nth-child(5){text-align:left}
+.schedule-prestige-sos-table td:nth-child(2){font-weight:850}
+.schedule-prestige-rank{font-weight:900}
+.schedule-prestige-repeat{color:#b8c1c9;font-size:10px;white-space:normal;line-height:1.4}
+.schedule-sos-pill{display:inline-block;border-radius:999px;padding:4px 8px;font-size:9px;font-weight:900;letter-spacing:.04em;text-transform:uppercase}
+.schedule-sos-pill.hard{background:#4b2428;color:#ffd9dd;border:1px solid #7a3b42}
+.schedule-sos-pill.average{background:#3b3524;color:#f5e5b2;border:1px solid #6a5c39}
+.schedule-sos-pill.easy{background:#213a2a;color:#d8f2df;border:1px solid #3e684a}
+.schedule-prestige-sos-table tr.sos-current-owner td{box-shadow:inset 0 1px 0 rgba(185,154,85,.5),inset 0 -1px 0 rgba(185,154,85,.5)}
+
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -4192,14 +4221,14 @@ body.dnl-presentation #prizeVault.dnl-active-view{
   <div class="schedule-builder-head">
     <div>
       <div class="schedule-builder-kicker">League Schedule Engine</div>
-      <h2>Schedule Builder</h2>
-      <p>Preserve the fixed Draft Slot round robin, run the inverse-order cross-tier Schedule Draft, and generate a complete Weeks 1–14 schedule without manual matchup juggling.</p>
+      <h2>2026 Schedule</h2>
+      <p>The 2026 schedule is finalized: fixed Draft Slot round robin for Weeks 1–9 plus the completed cross-tier Schedule Draft for Weeks 10–14.</p>
     </div>
-    <span class="schedule-builder-version">2026 · Builder v1</span>
+    <span class="schedule-builder-version">2026 · FINALIZED ✓</span>
   </div>
 
   <div class="schedule-builder-card">
-    <div class="schedule-builder-kicker">Step 1</div>
+    <div class="schedule-builder-kicker">League Setup · Locked</div>
     <h3>League Setup</h3>
     <p>Draft Slot drives Weeks 1–9. Prior-year finish determines the two Weeks 10–14 tiers. Yahoo names are only used for the Yahoo output view.</p>
     <div class="schedule-config-wrap">
@@ -4208,9 +4237,10 @@ body.dnl-presentation #prizeVault.dnl-active-view{
         <tbody id="scheduleBuilderConfig"></tbody>
       </table>
     </div>
-    <div class="schedule-builder-actions">
-      <button class="primary" id="scheduleBuilderApply">Apply / Validate Setup</button>
-      <button class="secondary" id="scheduleBuilderReset">Reset 2026 Defaults</button>
+    <div class="schedule-builder-actions schedule-finalized-tools">
+      <span class="schedule-finalized-lock">🔒 2026 setup locked</span>
+      <button class="primary hidden" id="scheduleBuilderApply">Apply / Validate Setup</button>
+      <button class="secondary hidden" id="scheduleBuilderReset">Reset 2026 Defaults</button>
     </div>
     <div id="scheduleBuilderSetupAlert" class="schedule-builder-alert"></div>
   </div>
@@ -4223,9 +4253,9 @@ body.dnl-presentation #prizeVault.dnl-active-view{
   </div>
 
   <div class="schedule-builder-card dark">
-    <div class="schedule-builder-kicker">Step 2</div>
-    <h3>Cross-Tier Schedule Draft</h3>
-    <p>Selections proceed in inverse fantasy draft-slot order. Once an owner is paired, they are skipped later in the order. The first locked pair becomes the Week 10 crossover, the second Week 11, and so on.</p>
+    <div class="schedule-builder-kicker">Schedule Draft · Final</div>
+    <h3>Final Cross-Tier Pairings</h3>
+    <p>The Schedule Draft is complete. Pairings below are locked in draft order; Round 1 becomes the Week 10 crossover, through Round 5 in Week 14.</p>
     <div class="schedule-draft-status">
       <div id="scheduleBuilderCurrent" class="schedule-draft-current"></div>
       <div>
@@ -4233,15 +4263,16 @@ body.dnl-presentation #prizeVault.dnl-active-view{
         <div id="scheduleBuilderPairs" class="schedule-pair-list"></div>
       </div>
     </div>
-    <div class="schedule-builder-actions">
-      <button class="secondary" id="scheduleBuilderUndo">Undo Last Pair</button>
-      <button class="secondary" id="scheduleBuilderClearDraft">Clear Schedule Draft</button>
+    <div class="schedule-builder-actions schedule-finalized-tools">
+      <span class="schedule-finalized-lock">🔒 Schedule Draft finalized</span>
+      <button class="secondary hidden" id="scheduleBuilderUndo">Undo Last Pair</button>
+      <button class="secondary hidden" id="scheduleBuilderClearDraft">Clear Schedule Draft</button>
     </div>
-    <div class="schedule-draft-note">The engine builds Weeks 10–14 after the five crossover pairs are known, so any currently available opposite-tier owner is a valid choice and the draft cannot dead-end.</div>
+    <div class="schedule-draft-note">Final draft results: Mac → Sam · Zac → Bob · RJ → Dan · Habble → Ben · Cory → Adrian (defaulted).</div>
   </div>
 
   <div class="schedule-builder-card">
-    <div class="schedule-builder-kicker">Step 3</div>
+    <div class="schedule-builder-kicker">Official Schedule</div>
     <h3>Final 2026 Schedule</h3>
     <p id="scheduleBuilderFinalNote">Complete the five crossover pairings to generate Weeks 10–14.</p>
     <div class="schedule-view-tabs">
@@ -4262,6 +4293,26 @@ body.dnl-presentation #prizeVault.dnl-active-view{
     </div>
 
     <div id="scheduleBuilderSummary" class="schedule-summary-grid"></div>
+
+    <div class="schedule-prestige-sos">
+      <div class="schedule-prestige-sos-head">
+        <div>
+          <div class="schedule-builder-kicker">2026 Prestige SOS</div>
+          <h3>Strength of Schedule · The Big Board</h3>
+          <p>Average opponent Prestige across all 14 regular-season matchups. Rematches count twice. Higher opponent Prestige = harder schedule.</p>
+        </div>
+        <div class="schedule-prestige-sos-note">Based on the current career Prestige leaderboard through 2025</div>
+      </div>
+      <div class="schedule-prestige-sos-wrap">
+        <table class="schedule-prestige-sos-table">
+          <thead>
+            <tr><th>SOS Rank</th><th>Owner</th><th>Avg Opp. Prestige</th><th>Prestige Load</th><th>Repeat Opponents</th><th>Difficulty</th></tr>
+          </thead>
+          <tbody id="schedulePrestigeSOSBody"></tbody>
+        </table>
+      </div>
+    </div>
+
     <div class="schedule-builder-actions">
       <button class="primary" id="scheduleBuilderExport" disabled>Export Schedule CSV</button>
       <button class="secondary" id="scheduleBuilderCopy" disabled>Copy Yahoo Schedule</button>
@@ -4491,7 +4542,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 <h2>Draft Hub</h2>
 <p>Historical boards, owner tendencies, traded selections, and draft-slot outcomes.</p>
 </div>
-<span class="draft-era-badge" id="draftEraBadge">Draft Boards 2010–2025</span>
+<span class="draft-era-badge" id="draftEraBadge">Draft Boards 2010–2026</span>
 </div>
 <div class="draft-controls">
 <label class="draft-legacy-control">Draft Year
@@ -5163,6 +5214,21 @@ try {
   DRAFT_LAB_CONFIG = await draftLabResponse.json();
   GLOSSARY_DATA = await glossaryResponse.json();
   MANAGER_ACTIVITY_DATA = await managerActivityResponse.json();
+  // 2026 completed draft — embedded from the finalized live-draft export.
+  const DRAFT_2026_PICKS=[{"year":2026,"overallPick":1,"round":1,"pickInRound":1,"owner":"Ben","player":"Josh Allen","position":"QB","positionPick":1,"positionLabel":"QB1","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":2,"round":1,"pickInRound":2,"owner":"Bob","player":"Jahmyr Gibbs","position":"RB","positionPick":1,"positionLabel":"RB1","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":3,"round":1,"pickInRound":3,"owner":"Dan","player":"Bijan Robinson","position":"RB","positionPick":2,"positionLabel":"RB2","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":4,"round":1,"pickInRound":4,"owner":"Adrian","player":"Ja'Marr Chase","position":"WR","positionPick":1,"positionLabel":"WR1","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":5,"round":1,"pickInRound":5,"owner":"Cory","player":"Lamar Jackson","position":"QB","positionPick":2,"positionLabel":"QB2","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":6,"round":1,"pickInRound":6,"owner":"Habble","player":"Jaxon Smith-Njigba","position":"WR","positionPick":2,"positionLabel":"WR2","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":7,"round":1,"pickInRound":7,"owner":"RJ","player":"Puka Nacua","position":"WR","positionPick":3,"positionLabel":"WR3","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":8,"round":1,"pickInRound":8,"owner":"Zac","player":"Christian McCaffrey","position":"RB","positionPick":3,"positionLabel":"RB3","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":9,"round":1,"pickInRound":9,"owner":"Sam","player":"Jonathan Taylor","position":"RB","positionPick":4,"positionLabel":"RB4","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":10,"round":1,"pickInRound":10,"owner":"Mac","player":"James Cook III","position":"RB","positionPick":5,"positionLabel":"RB5","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":11,"round":2,"pickInRound":1,"owner":"Mac","player":"Drake Maye","position":"QB","positionPick":3,"positionLabel":"QB3","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":12,"round":2,"pickInRound":2,"owner":"Zac","player":"Jayden Daniels","position":"QB","positionPick":4,"positionLabel":"QB4","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":13,"round":2,"pickInRound":3,"owner":"Sam","player":"Derrick Henry","position":"RB","positionPick":6,"positionLabel":"RB6","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":14,"round":2,"pickInRound":4,"owner":"RJ","player":"Ashton Jeanty","position":"RB","positionPick":7,"positionLabel":"RB7","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":15,"round":2,"pickInRound":5,"owner":"Habble","player":"Kenneth Walker","position":"RB","positionPick":8,"positionLabel":"RB8","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":16,"round":2,"pickInRound":6,"owner":"Cory","player":"De'Von Achane","position":"RB","positionPick":9,"positionLabel":"RB9","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":17,"round":2,"pickInRound":7,"owner":"Adrian","player":"Omarion Hampton","position":"RB","positionPick":10,"positionLabel":"RB10","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":18,"round":2,"pickInRound":8,"owner":"Dan","player":"Saquon Barkley","position":"RB","positionPick":11,"positionLabel":"RB11","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":19,"round":2,"pickInRound":9,"owner":"Bob","player":"Justin Jefferson","position":"WR","positionPick":4,"positionLabel":"WR4","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":20,"round":2,"pickInRound":10,"owner":"Ben","player":"Amon-Ra St. Brown","position":"WR","positionPick":5,"positionLabel":"WR5","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":21,"round":3,"pickInRound":1,"owner":"Ben","player":"CeeDee Lamb","position":"WR","positionPick":6,"positionLabel":"WR6","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":22,"round":3,"pickInRound":2,"owner":"Sam","player":"Chase Brown","position":"RB","positionPick":12,"positionLabel":"RB12","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":23,"round":3,"pickInRound":3,"owner":"Habble","player":"Joe Burrow","position":"QB","positionPick":5,"positionLabel":"QB5","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":24,"round":3,"pickInRound":4,"owner":"Adrian","player":"Kyren Williams","position":"RB","positionPick":13,"positionLabel":"RB13","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":25,"round":3,"pickInRound":5,"owner":"Cory","player":"Nico Collins","position":"WR","positionPick":7,"positionLabel":"WR7","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":26,"round":3,"pickInRound":6,"owner":"Bob","player":"A.J. Brown","position":"WR","positionPick":8,"positionLabel":"WR8","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":27,"round":3,"pickInRound":7,"owner":"RJ","player":"Jalen Hurts","position":"QB","positionPick":6,"positionLabel":"QB6","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":28,"round":3,"pickInRound":8,"owner":"Dan","player":"Malik Nabers","position":"WR","positionPick":9,"positionLabel":"WR9","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":29,"round":3,"pickInRound":9,"owner":"Zac","player":"Drake London","position":"WR","positionPick":10,"positionLabel":"WR10","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":30,"round":3,"pickInRound":10,"owner":"Mac","player":"Breece Hall","position":"RB","positionPick":14,"positionLabel":"RB14","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":31,"round":4,"pickInRound":1,"owner":"Mac","player":"Jeremiyah Love","position":"RB","positionPick":15,"positionLabel":"RB15","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":32,"round":4,"pickInRound":2,"owner":"Dan","player":"Brock Bowers","position":"TE","positionPick":1,"positionLabel":"TE1","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":33,"round":4,"pickInRound":3,"owner":"Zac","player":"George Pickens","position":"WR","positionPick":11,"positionLabel":"WR11","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":34,"round":4,"pickInRound":4,"owner":"RJ","player":"Trey McBride","position":"TE","positionPick":2,"positionLabel":"TE2","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":35,"round":4,"pickInRound":5,"owner":"Bob","player":"Javonte Williams","position":"RB","positionPick":16,"positionLabel":"RB16","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":36,"round":4,"pickInRound":6,"owner":"Cory","player":"Rashee Rice","position":"WR","positionPick":12,"positionLabel":"WR12","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":37,"round":4,"pickInRound":7,"owner":"Adrian","player":"Dak Prescott","position":"QB","positionPick":7,"positionLabel":"QB7","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":38,"round":4,"pickInRound":8,"owner":"Habble","player":"Josh Jacobs","position":"RB","positionPick":17,"positionLabel":"RB17","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":39,"round":4,"pickInRound":9,"owner":"Sam","player":"Chris Olave","position":"WR","positionPick":13,"positionLabel":"WR13","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":40,"round":4,"pickInRound":10,"owner":"Ben","player":"DeVonta Smith","position":"WR","positionPick":14,"positionLabel":"WR14","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":41,"round":5,"pickInRound":1,"owner":"Ben","player":"Emeka Egbuka","position":"WR","positionPick":15,"positionLabel":"WR15","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":42,"round":5,"pickInRound":2,"owner":"Dan","player":"Ladd McConkey","position":"WR","positionPick":16,"positionLabel":"WR16","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":43,"round":5,"pickInRound":3,"owner":"Bob","player":"Justin Herbert","position":"QB","positionPick":8,"positionLabel":"QB8","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":44,"round":5,"pickInRound":4,"owner":"Zac","player":"Caleb Williams","position":"QB","positionPick":9,"positionLabel":"QB9","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":45,"round":5,"pickInRound":5,"owner":"Cory","player":"Travis Etienne Jr.","position":"RB","positionPick":18,"positionLabel":"RB18","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":46,"round":5,"pickInRound":6,"owner":"Habble","player":"Tee Higgins","position":"WR","positionPick":17,"positionLabel":"WR17","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":47,"round":5,"pickInRound":7,"owner":"RJ","player":"Zay Flowers","position":"WR","positionPick":18,"positionLabel":"WR18","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":48,"round":5,"pickInRound":8,"owner":"Adrian","player":"Tetairoa McMillan","position":"WR","positionPick":19,"positionLabel":"WR19","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":49,"round":5,"pickInRound":9,"owner":"Sam","player":"Trevor Lawrence","position":"QB","positionPick":10,"positionLabel":"QB10","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":50,"round":5,"pickInRound":10,"owner":"Mac","player":"Davante Adams","position":"WR","positionPick":20,"positionLabel":"WR20","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":51,"round":6,"pickInRound":1,"owner":"Mac","player":"Jameson Williams","position":"WR","positionPick":21,"positionLabel":"WR21","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":52,"round":6,"pickInRound":2,"owner":"Sam","player":"Jaylen Waddle","position":"WR","positionPick":22,"positionLabel":"WR22","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":53,"round":6,"pickInRound":3,"owner":"Adrian","player":"Bucky Irving","position":"RB","positionPick":19,"positionLabel":"RB19","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":54,"round":6,"pickInRound":4,"owner":"Bob","player":"Garrett Wilson","position":"WR","positionPick":23,"positionLabel":"WR23","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":55,"round":6,"pickInRound":5,"owner":"Habble","player":"Colston Loveland","position":"TE","positionPick":3,"positionLabel":"TE3","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":56,"round":6,"pickInRound":6,"owner":"Cory","player":"Rome Odunze","position":"WR","positionPick":24,"positionLabel":"WR24","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":57,"round":6,"pickInRound":7,"owner":"Zac","player":"Cam Skattebo","position":"RB","positionPick":20,"positionLabel":"RB20","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":58,"round":6,"pickInRound":8,"owner":"RJ","player":"Quinshon Judkins","position":"RB","positionPick":21,"positionLabel":"RB21","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":59,"round":6,"pickInRound":9,"owner":"Dan","player":"Jaxson Dart","position":"QB","positionPick":11,"positionLabel":"QB11","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":60,"round":6,"pickInRound":10,"owner":"Ben","player":"Bhayshul Tuten","position":"RB","positionPick":22,"positionLabel":"RB22","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":61,"round":7,"pickInRound":1,"owner":"Ben","player":"David Montgomery","position":"RB","positionPick":23,"positionLabel":"RB23","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":62,"round":7,"pickInRound":2,"owner":"Cory","player":"Terry McLaurin","position":"WR","positionPick":25,"positionLabel":"WR25","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":63,"round":7,"pickInRound":3,"owner":"RJ","player":"D'Andre Swift","position":"RB","positionPick":24,"positionLabel":"RB24","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":64,"round":7,"pickInRound":4,"owner":"Adrian","player":"Kyler Murray","position":"QB","positionPick":12,"positionLabel":"QB12","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":65,"round":7,"pickInRound":5,"owner":"Dan","player":"Patrick Mahomes","position":"QB","positionPick":13,"positionLabel":"QB13","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":66,"round":7,"pickInRound":6,"owner":"Habble","player":"DJ Moore","position":"WR","positionPick":26,"positionLabel":"WR26","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":67,"round":7,"pickInRound":7,"owner":"Bob","player":"Jadarian Price","position":"RB","positionPick":25,"positionLabel":"RB25","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":68,"round":7,"pickInRound":8,"owner":"Zac","player":"Mike Evans","position":"WR","positionPick":27,"positionLabel":"WR27","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":69,"round":7,"pickInRound":9,"owner":"Sam","player":"Luther Burden III","position":"WR","positionPick":28,"positionLabel":"WR28","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":70,"round":7,"pickInRound":10,"owner":"Mac","player":"Christian Watson","position":"WR","positionPick":29,"positionLabel":"WR29","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":71,"round":8,"pickInRound":1,"owner":"Mac","player":"Parker Washington","position":"WR","positionPick":30,"positionLabel":"WR30","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":72,"round":8,"pickInRound":2,"owner":"Sam","player":"Tucker Kraft","position":"TE","positionPick":4,"positionLabel":"TE4","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":73,"round":8,"pickInRound":3,"owner":"Zac","player":"Brian Thomas Jr.","position":"WR","positionPick":31,"positionLabel":"WR31","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":74,"round":8,"pickInRound":4,"owner":"RJ","player":"Brock Purdy","position":"QB","positionPick":14,"positionLabel":"QB14","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":75,"round":8,"pickInRound":5,"owner":"Habble","player":"Jared Goff","position":"QB","positionPick":15,"positionLabel":"QB15","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":76,"round":8,"pickInRound":6,"owner":"Dan","player":"Tony Pollard","position":"RB","positionPick":26,"positionLabel":"RB26","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":77,"round":8,"pickInRound":7,"owner":"Adrian","player":"Bo Nix","position":"QB","positionPick":16,"positionLabel":"QB16","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":78,"round":8,"pickInRound":8,"owner":"Bob","player":"Carnell Tate","position":"WR","positionPick":32,"positionLabel":"WR32","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":79,"round":8,"pickInRound":9,"owner":"Cory","player":"Matthew Stafford","position":"QB","positionPick":17,"positionLabel":"QB17","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":80,"round":8,"pickInRound":10,"owner":"Ben","player":"Tyler Warren","position":"TE","positionPick":5,"positionLabel":"TE5","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":81,"round":9,"pickInRound":1,"owner":"Ben","player":"Malik Willis","position":"QB","positionPick":18,"positionLabel":"QB18","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":82,"round":9,"pickInRound":2,"owner":"Dan","player":"Marvin Harrison Jr.","position":"WR","positionPick":33,"positionLabel":"WR33","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":83,"round":9,"pickInRound":3,"owner":"Adrian","player":"TreVeyon Henderson","position":"RB","positionPick":27,"positionLabel":"RB27","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":84,"round":9,"pickInRound":4,"owner":"Bob","player":"Tyler Shough","position":"QB","positionPick":19,"positionLabel":"QB19","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":85,"round":9,"pickInRound":5,"owner":"Cory","player":"Baker Mayfield","position":"QB","positionPick":20,"positionLabel":"QB20","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":86,"round":9,"pickInRound":6,"owner":"Habble","player":"DK Metcalf","position":"WR","positionPick":34,"positionLabel":"WR34","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":87,"round":9,"pickInRound":7,"owner":"RJ","player":"Courtland Sutton","position":"WR","positionPick":35,"positionLabel":"WR35","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":88,"round":9,"pickInRound":8,"owner":"Sam","player":"Jordan Love","position":"QB","positionPick":21,"positionLabel":"QB21","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":89,"round":9,"pickInRound":9,"owner":"Zac","player":"Rhamondre Stevenson","position":"RB","positionPick":28,"positionLabel":"RB28","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":90,"round":9,"pickInRound":10,"owner":"Mac","player":"Sam Darnold","position":"QB","positionPick":22,"positionLabel":"QB22","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":91,"round":10,"pickInRound":1,"owner":"Mac","player":"J.K. Dobbins","position":"RB","positionPick":29,"positionLabel":"RB29","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":92,"round":10,"pickInRound":2,"owner":"Zac","player":"Rico Dowdle","position":"RB","positionPick":30,"positionLabel":"RB30","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":93,"round":10,"pickInRound":3,"owner":"Sam","player":"Jonathon Brooks","position":"RB","positionPick":31,"positionLabel":"RB31","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":94,"round":10,"pickInRound":4,"owner":"RJ","player":"Chris Godwin","position":"WR","positionPick":36,"positionLabel":"WR36","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":95,"round":10,"pickInRound":5,"owner":"Habble","player":"Blake Corum","position":"RB","positionPick":32,"positionLabel":"RB32","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":96,"round":10,"pickInRound":6,"owner":"Cory","player":"Jordan Mason","position":"RB","positionPick":33,"positionLabel":"RB33","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":97,"round":10,"pickInRound":7,"owner":"Bob","player":"Jordyn Tyson","position":"WR","positionPick":37,"positionLabel":"WR37","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":98,"round":10,"pickInRound":8,"owner":"Adrian","player":"Alec Pierce","position":"WR","positionPick":38,"positionLabel":"WR38","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":99,"round":10,"pickInRound":9,"owner":"Dan","player":"Jayden Reed","position":"WR","positionPick":39,"positionLabel":"WR39","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":100,"round":10,"pickInRound":10,"owner":"Ben","player":"C.J. Stroud","position":"QB","positionPick":23,"positionLabel":"QB23","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":101,"round":11,"pickInRound":1,"owner":"Ben","player":"Jordan Addison","position":"WR","positionPick":40,"positionLabel":"WR40","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":102,"round":11,"pickInRound":2,"owner":"Dan","player":"Jaylen Warren","position":"RB","positionPick":34,"positionLabel":"RB34","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":103,"round":11,"pickInRound":3,"owner":"Bob","player":"Kyle Monangai","position":"RB","positionPick":35,"positionLabel":"RB35","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":104,"round":11,"pickInRound":4,"owner":"Adrian","player":"Jacory Croskey-Merritt","position":"RB","positionPick":36,"positionLabel":"RB36","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":105,"round":11,"pickInRound":5,"owner":"Cory","player":"Aaron Jones","position":"RB","positionPick":37,"positionLabel":"RB37","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":106,"round":11,"pickInRound":6,"owner":"Habble","player":"Chuba Hubbard","position":"RB","positionPick":38,"positionLabel":"RB38","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":107,"round":11,"pickInRound":7,"owner":"RJ","player":"Daniel Jones","position":"QB","positionPick":24,"positionLabel":"QB24","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":108,"round":11,"pickInRound":8,"owner":"Zac","player":"RJ Harvey","position":"RB","positionPick":39,"positionLabel":"RB39","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":109,"round":11,"pickInRound":9,"owner":"Sam","player":"Josh Downs","position":"WR","positionPick":41,"positionLabel":"WR41","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":110,"round":11,"pickInRound":10,"owner":"Mac","player":"Bryce Young","position":"QB","positionPick":25,"positionLabel":"QB25","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":111,"round":12,"pickInRound":1,"owner":"Mac","player":"Rashid Shaheed","position":"WR","positionPick":42,"positionLabel":"WR42","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":112,"round":12,"pickInRound":2,"owner":"Zac","player":"Quentin Johnston","position":"WR","positionPick":43,"positionLabel":"WR43","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":113,"round":12,"pickInRound":3,"owner":"Sam","player":"Matthew Golden","position":"WR","positionPick":44,"positionLabel":"WR44","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":114,"round":12,"pickInRound":4,"owner":"RJ","player":"Kenneth Gainwell","position":"RB","positionPick":40,"positionLabel":"RB40","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":115,"round":12,"pickInRound":5,"owner":"Habble","player":"Cameron Ward","position":"QB","positionPick":26,"positionLabel":"QB26","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":116,"round":12,"pickInRound":6,"owner":"Cory","player":"Michael Pittman","position":"WR","positionPick":45,"positionLabel":"WR45","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":117,"round":12,"pickInRound":7,"owner":"Adrian","player":"George Kittle","position":"TE","positionPick":6,"positionLabel":"TE6","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":118,"round":12,"pickInRound":8,"owner":"Bob","player":"Tyrone Tracy","position":"RB","positionPick":41,"positionLabel":"RB41","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":119,"round":12,"pickInRound":9,"owner":"Dan","player":"MarShawn Lloyd","position":"RB","positionPick":42,"positionLabel":"RB42","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":120,"round":12,"pickInRound":10,"owner":"Ben","player":"Rachaad White","position":"RB","positionPick":43,"positionLabel":"RB43","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":121,"round":13,"pickInRound":1,"owner":"Ben","player":"Kyle Pitts","position":"TE","positionPick":7,"positionLabel":"TE7","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":122,"round":13,"pickInRound":2,"owner":"Dan","player":"Zach Charbonnet","position":"RB","positionPick":44,"positionLabel":"RB44","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":123,"round":13,"pickInRound":3,"owner":"Bob","player":"Michael Wilson","position":"WR","positionPick":46,"positionLabel":"WR46","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":124,"round":13,"pickInRound":4,"owner":"Adrian","player":"Woody Marks","position":"RB","positionPick":45,"positionLabel":"RB45","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":125,"round":13,"pickInRound":5,"owner":"Cory","player":"Sam LaPorta","position":"TE","positionPick":8,"positionLabel":"TE8","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":126,"round":13,"pickInRound":6,"owner":"Habble","player":"Keaton Mitchell","position":"RB","positionPick":46,"positionLabel":"RB46","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":127,"round":13,"pickInRound":7,"owner":"RJ","player":"Makai Lemon","position":"WR","positionPick":47,"positionLabel":"WR47","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":128,"round":13,"pickInRound":8,"owner":"Zac","player":"Xavier Worthy","position":"WR","positionPick":48,"positionLabel":"WR48","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":129,"round":13,"pickInRound":9,"owner":"Sam","player":"Chris Rodriguez","position":"RB","positionPick":47,"positionLabel":"RB47","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":130,"round":13,"pickInRound":10,"owner":"Mac","player":"Tyler Allgeier","position":"RB","positionPick":48,"positionLabel":"RB48","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":131,"round":14,"pickInRound":1,"owner":"Mac","player":"Dalton Kincaid","position":"TE","positionPick":9,"positionLabel":"TE9","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":132,"round":14,"pickInRound":2,"owner":"Zac","player":"Stefon Diggs","position":"WR","positionPick":49,"positionLabel":"WR49","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":133,"round":14,"pickInRound":3,"owner":"Sam","player":"Harold Fannin","position":"TE","positionPick":10,"positionLabel":"TE10","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":134,"round":14,"pickInRound":4,"owner":"RJ","player":"Deebo Samuel","position":"WR","positionPick":50,"positionLabel":"WR50","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":135,"round":14,"pickInRound":5,"owner":"Habble","player":"Jakobi Meyers","position":"WR","positionPick":51,"positionLabel":"WR51","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":136,"round":14,"pickInRound":6,"owner":"Cory","player":"Khalil Shakir","position":"WR","positionPick":52,"positionLabel":"WR52","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":137,"round":14,"pickInRound":7,"owner":"Adrian","player":"Isiah Pacheco","position":"RB","positionPick":49,"positionLabel":"RB49","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":138,"round":14,"pickInRound":8,"owner":"Bob","player":"Jacoby Brissett","position":"QB","positionPick":27,"positionLabel":"QB27","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":139,"round":14,"pickInRound":9,"owner":"Dan","player":"Brandon Aubrey","position":"K","positionPick":1,"positionLabel":"K1","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":140,"round":14,"pickInRound":10,"owner":"Ben","player":"Tank Bigsby","position":"RB","positionPick":50,"positionLabel":"RB50","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":141,"round":15,"pickInRound":1,"owner":"Ben","player":"Romeo Doubs","position":"WR","positionPick":53,"positionLabel":"WR53","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":142,"round":15,"pickInRound":2,"owner":"Dan","player":"HOU DST","position":"DST","positionPick":1,"positionLabel":"DST1","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":143,"round":15,"pickInRound":3,"owner":"Bob","player":"Alvin Kamara","position":"RB","positionPick":51,"positionLabel":"RB51","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":144,"round":15,"pickInRound":4,"owner":"Adrian","player":"Tyjae Spears","position":"RB","positionPick":52,"positionLabel":"RB52","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":145,"round":15,"pickInRound":5,"owner":"Cory","player":"Brian Robinson","position":"RB","positionPick":53,"positionLabel":"RB53","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":146,"round":15,"pickInRound":6,"owner":"Habble","player":"De'Zhaun Stribling","position":"WR","positionPick":54,"positionLabel":"WR54","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":147,"round":15,"pickInRound":7,"owner":"RJ","player":"Jalen Coker","position":"WR","positionPick":55,"positionLabel":"WR55","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":148,"round":15,"pickInRound":8,"owner":"Zac","player":"KC Concepcion","position":"WR","positionPick":56,"positionLabel":"WR56","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":149,"round":15,"pickInRound":9,"owner":"Sam","player":"Jonah Coleman","position":"RB","positionPick":54,"positionLabel":"RB54","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":150,"round":15,"pickInRound":10,"owner":"Mac","player":"Kaytron Allen","position":"RB","positionPick":55,"positionLabel":"RB55","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":151,"round":16,"pickInRound":1,"owner":"Mac","player":"Pat Bryant","position":"WR","positionPick":57,"positionLabel":"WR57","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":152,"round":16,"pickInRound":2,"owner":"Sam","player":"Jaydon Blue","position":"RB","positionPick":56,"positionLabel":"RB56","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":153,"round":16,"pickInRound":3,"owner":"Zac","player":"Travis Kelce","position":"TE","positionPick":11,"positionLabel":"TE11","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":154,"round":16,"pickInRound":4,"owner":"RJ","player":"Ray Davis","position":"RB","positionPick":57,"positionLabel":"RB57","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":155,"round":16,"pickInRound":5,"owner":"Habble","player":"Sean Tucker","position":"RB","positionPick":58,"positionLabel":"RB58","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":156,"round":16,"pickInRound":6,"owner":"Cory","player":"DEN DST","position":"DST","positionPick":2,"positionLabel":"DST2","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":157,"round":16,"pickInRound":7,"owner":"Adrian","player":"Jordan James","position":"RB","positionPick":59,"positionLabel":"RB59","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":158,"round":16,"pickInRound":8,"owner":"Bob","player":"Fernando Mendoza","position":"QB","positionPick":28,"positionLabel":"QB28","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":159,"round":16,"pickInRound":9,"owner":"Dan","player":"Deshaun Watson","position":"QB","positionPick":29,"positionLabel":"QB29","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":160,"round":16,"pickInRound":10,"owner":"Ben","player":"Wan'Dale Robinson","position":"WR","positionPick":58,"positionLabel":"WR58","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":161,"round":17,"pickInRound":1,"owner":"Ben","player":"SEA DST","position":"DST","positionPick":3,"positionLabel":"DST3","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":162,"round":17,"pickInRound":2,"owner":"Dan","player":"Michael Penix","position":"QB","positionPick":30,"positionLabel":"QB30","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":163,"round":17,"pickInRound":3,"owner":"Bob","player":"LA DST","position":"DST","positionPick":4,"positionLabel":"DST4","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":164,"round":17,"pickInRound":4,"owner":"Adrian","player":"Emari Demarcado","position":"RB","positionPick":60,"positionLabel":"RB60","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":165,"round":17,"pickInRound":5,"owner":"Cory","player":"Dylan Sampson","position":"RB","positionPick":61,"positionLabel":"RB61","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":166,"round":17,"pickInRound":6,"owner":"Habble","player":"Tank Dell","position":"WR","positionPick":59,"positionLabel":"WR59","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":167,"round":17,"pickInRound":7,"owner":"RJ","player":"PIT DST","position":"DST","positionPick":5,"positionLabel":"DST5","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":168,"round":17,"pickInRound":8,"owner":"Zac","player":"Cameron Dicker","position":"K","positionPick":2,"positionLabel":"K2","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":169,"round":17,"pickInRound":9,"owner":"Sam","player":"LAC DST","position":"DST","positionPick":6,"positionLabel":"DST6","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":170,"round":17,"pickInRound":10,"owner":"Mac","player":"Will Reichard","position":"K","positionPick":3,"positionLabel":"K3","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":171,"round":18,"pickInRound":1,"owner":"Mac","player":"MN DST","position":"DST","positionPick":7,"positionLabel":"DST7","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":172,"round":18,"pickInRound":2,"owner":"Sam","player":"Jayden Higgins","position":"WR","positionPick":60,"positionLabel":"WR60","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":173,"round":18,"pickInRound":3,"owner":"Zac","player":"Denzel Boston","position":"WR","positionPick":61,"positionLabel":"WR61","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":174,"round":18,"pickInRound":4,"owner":"RJ","player":"Cam Little","position":"K","positionPick":4,"positionLabel":"K4","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":175,"round":18,"pickInRound":5,"owner":"Habble","player":"Ryan Flournoy","position":"WR","positionPick":62,"positionLabel":"WR62","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":176,"round":18,"pickInRound":6,"owner":"Cory","player":"Harrison Butker","position":"K","positionPick":5,"positionLabel":"K5","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":177,"round":18,"pickInRound":7,"owner":"Adrian","player":"Cyrus Allen","position":"WR","positionPick":63,"positionLabel":"WR63","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":178,"round":18,"pickInRound":8,"owner":"Bob","player":"Dallas Goedart","position":"TE","positionPick":12,"positionLabel":"TE12","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":179,"round":18,"pickInRound":9,"owner":"Dan","player":"Kaelon Black","position":"RB","positionPick":62,"positionLabel":"RB62","tradeStatus":"known","analysisEligible":true},{"year":2026,"overallPick":180,"round":18,"pickInRound":10,"owner":"Ben","player":"Jason Myers","position":"K","positionPick":6,"positionLabel":"K6","tradeStatus":"known","analysisEligible":true}];
+  const DRAFT_2026_SLOTS=[{"year":2026,"owner":"Ben","draftSlot":1},{"year":2026,"owner":"Dan","draftSlot":2},{"year":2026,"owner":"Bob","draftSlot":3},{"year":2026,"owner":"Adrian","draftSlot":4},{"year":2026,"owner":"Cory","draftSlot":5},{"year":2026,"owner":"Habble","draftSlot":6},{"year":2026,"owner":"RJ","draftSlot":7},{"year":2026,"owner":"Zac","draftSlot":8},{"year":2026,"owner":"Sam","draftSlot":9},{"year":2026,"owner":"Mac","draftSlot":10}];
+  if(!DRAFTS_DATA.picks.some(p=>+p.year===2026))DRAFTS_DATA.picks.push(...DRAFT_2026_PICKS);
+  DRAFTS_DATA.years=[...new Set([...(DRAFTS_DATA.years||[]).map(Number),2026])].sort((a,b)=>a-b);
+  DRAFTS_DATA.yearMetadata=DRAFTS_DATA.yearMetadata||{};
+  DRAFTS_DATA.yearMetadata["2026"]={
+    analysisEligible:true,
+    tradeTracking:"known",
+    integrity:"verified",
+    note:"2026 draft complete. Draft outcomes will become gradeable after the season."
+  };
+  DRAFTS_DATA.tradeNotes=DRAFTS_DATA.tradeNotes||{};
+  DRAFTS_DATA.tradeNotes["2026"]=DRAFTS_DATA.tradeNotes["2026"]||[];
+  if(!DRAFT_SLOTS_DATA.records.some(r=>+r.year===2026))DRAFT_SLOTS_DATA.records.push(...DRAFT_2026_SLOTS);
   if(!LEAGUE_CONFIG?.league || !LEAGUE_CONFIG?.scoring || !LEAGUE_CONFIG?.tiers) throw new Error("Invalid league.json");
   if(!Array.isArray(RECORDS_DATA?.records)) throw new Error("Invalid records.json");
   if(!Array.isArray(DRAFTS_DATA?.picks)) throw new Error("Invalid drafts.json");
@@ -7031,7 +7097,7 @@ function renderDraftPositionVolume(){
   const avgGrid=order.map(pos=>`<div class="draft-position-average"><div class="pos">${pos} Avg</div><div class="value">${averages[pos].toFixed(1)}</div></div>`).join("");
   document.getElementById("draftPositionVolume").innerHTML=
     `<div class="draft-position-chart"><h3>${draftSelectedYear} Position Volume</h3><div class="draft-position-bars">${bars}</div></div>
-     <div class="draft-position-averages"><h3>Average Per Draft · 2010–2025 (excl. 2017)</h3><div class="draft-position-average-grid">${avgGrid}</div></div>`;
+     <div class="draft-position-averages"><h3>Average Per Draft · 2010–2026 (excl. 2017)</h3><div class="draft-position-average-grid">${avgGrid}</div></div>`;
 }
 function renderDraftLegend(){
   const order=["QB","RB","WR","TE","K","DST"];
@@ -7062,7 +7128,7 @@ function renderDraftBoard(){
   }).join("")}`;
 
   for(let round=1;round<=rounds;round++){
-    board+=`<div class="draft-round-label">Rd ${round}</div>`;
+    board+=`<div class="draft-round-label"><span>Rd ${round}</span><span class="draft-round-direction" aria-label="${round%2===1?'left to right':'right to left'}">${round%2===1?'→':'←'}</span></div>`;
     for(let visualSlot=1;visualSlot<=10;visualSlot++){
       const pickInRound=round%2===1?visualSlot:11-visualSlot;
       const overall=(round-1)*10+pickInRound;
@@ -7668,8 +7734,8 @@ function renderDraftHub(){
   const eraBadge=document.getElementById("draftEraBadge");
   if(eraBadge){
     eraBadge.innerHTML=draftSelectedYear===2017
-      ? `Draft Boards 2010–2025 · ${glossaryTerm("archiveOnly","2017 Archive Only")} · #MacatronEffect`
-      : "Draft Boards 2010–2025";
+      ? `Draft Boards 2010–2026 · ${glossaryTerm("archiveOnly","2017 Archive Only")} · #MacatronEffect`
+      : "Draft Boards 2010–2026";
   }
   renderDraftSelectors();renderDraftSummary();renderDraftPositionVolume();renderDraftLegend();
   renderDraftBoard();renderDraftTable();renderDraftOwnerCards();renderDraftSlotsView();setDraftView(draftCurrentView);
@@ -11102,9 +11168,11 @@ const SCHEDULE_2026_DEFAULTS=[
   {owner:"Sam",slot:9,finish:1,yahoo:"Brockness Monster"},
   {owner:"Mac",slot:10,finish:8,yahoo:"RB1LL"}
 ];
+const SCHEDULE_2026_FINAL_PAIRS=[{a:"Mac",b:"Sam"},{a:"Zac",b:"Bob"},{a:"RJ",b:"Dan"},{a:"Habble",b:"Ben"},{a:"Cory",b:"Adrian"}];
+const SCHEDULE_2026_FINALIZED=true;
 let SCHEDULE_BUILDER={
   teams:JSON.parse(JSON.stringify(SCHEDULE_2026_DEFAULTS)),
-  pairs:[],
+  pairs:JSON.parse(JSON.stringify(SCHEDULE_2026_FINAL_PAIRS)),
   view:"OWNER",
   valid:true
 };
@@ -11179,7 +11247,7 @@ function sbRenderDraft(){
     cur.querySelectorAll("[data-sb-choice]").forEach(b=>b.addEventListener("click",()=>sbLockPair(chooser.owner,b.dataset.sbChoice)));
   }
   document.getElementById("scheduleBuilderPairs").innerHTML=SCHEDULE_BUILDER.pairs.length
-    ?SCHEDULE_BUILDER.pairs.map((p,i)=>`<div class="schedule-pair"><span><strong>Week ${10+i}</strong></span><span>${sbEsc(p.a)} ↔ ${sbEsc(p.b)}</span></div>`).join("")
+    ?SCHEDULE_BUILDER.pairs.map((p,i)=>`<div class="schedule-pair"><span><strong>Rd ${i+1} · Week ${10+i}</strong></span><span>${sbEsc(p.a)} → ${sbEsc(p.b)}${p.a==="Cory"&&p.b==="Adrian"?' <small>(defaulted)</small>':""}</span></div>`).join("")
     :`<div class="schedule-draft-note">No crossover pairs locked yet.</div>`;
   document.getElementById("scheduleBuilderUndo").disabled=!SCHEDULE_BUILDER.pairs.length;
   document.getElementById("scheduleBuilderClearDraft").disabled=!SCHEDULE_BUILDER.pairs.length;
@@ -11220,6 +11288,60 @@ function sbFinalWeeks(){
   }
   return weeks;
 }
+function sbPrestigeRowForScheduleOwner(owner){
+  const rows=career();
+  return rows.find(r=>r.owner===owner || displayName(r.owner)===owner) || null;
+}
+function sbRenderPrestigeSOS(){
+  const body=document.getElementById("schedulePrestigeSOSBody");
+  if(!body)return;
+  const weeks=sbFinalWeeks();
+  if(SCHEDULE_BUILDER.pairs.length!==5){
+    body.innerHTML='<tr><td colspan="6" style="text-align:left">Schedule must be finalized before Prestige SOS can be calculated.</td></tr>';
+    return;
+  }
+
+  const prestigeRows=career();
+  const prestigeByScheduleOwner=new Map(
+    SCHEDULE_BUILDER.teams.map(t=>{
+      const p=prestigeRows.find(r=>r.owner===t.owner || displayName(r.owner)===t.owner);
+      return [t.owner,p?+p.prestige:0];
+    })
+  );
+
+  const rows=SCHEDULE_BUILDER.teams.map(t=>{
+    const opponents=[];
+    for(let w=1;w<=14;w++){
+      const g=(weeks[w]||[]).find(x=>x.a===t.owner||x.b===t.owner);
+      if(g)opponents.push(g.a===t.owner?g.b:g.a);
+    }
+    const load=opponents.reduce((sum,o)=>sum+(prestigeByScheduleOwner.get(o)||0),0);
+    const avg=opponents.length?load/opponents.length:0;
+    const counts={};
+    opponents.forEach(o=>counts[o]=(counts[o]||0)+1);
+    const repeats=Object.entries(counts)
+      .filter(([,n])=>n>1)
+      .sort((a,b)=>(prestigeByScheduleOwner.get(b[0])||0)-(prestigeByScheduleOwner.get(a[0])||0))
+      .map(([o,n])=>`${o} ${n}× (${prestigeByScheduleOwner.get(o)>=0?"+":""}${prestigeByScheduleOwner.get(o)})`);
+    return {owner:t.owner,avg,load,repeats};
+  }).sort((a,b)=>b.avg-a.avg||a.owner.localeCompare(b.owner));
+
+  rows.forEach((r,i)=>r.rank=i+1);
+  const difficulty=rank=>rank<=3?["Hard","hard"]:rank>=8?["Easy","easy"]:["Average","average"];
+
+  body.innerHTML=rows.map(r=>{
+    const [label,cls]=difficulty(r.rank);
+    return `<tr>
+      <td class="schedule-prestige-rank">#${r.rank}</td>
+      <td>${sbEsc(r.owner)}</td>
+      <td>${r.avg.toFixed(1)}</td>
+      <td>${Math.round(r.load)}</td>
+      <td class="schedule-prestige-repeat">${r.repeats.length?r.repeats.map(sbEsc).join(" · "):"—"}</td>
+      <td><span class="schedule-sos-pill ${cls}">${label}</span></td>
+    </tr>`;
+  }).join("");
+}
+
 function sbAuditFinal(weeks){
   if(SCHEDULE_BUILDER.pairs.length!==5)return null;
   const counts=new Map();
@@ -11315,7 +11437,7 @@ function sbRenderOutput(){
   sbRenderMatrix();
 }
 function sbRenderAll(){
-  sbSetupRows();sbValidate(false);sbRenderFixed();sbRenderDraft();sbRenderOutput();
+  sbSetupRows();sbValidate(false);sbRenderFixed();sbRenderDraft();sbRenderOutput();sbRenderPrestigeSOS();
   document.querySelectorAll("[data-schedule-view]").forEach(b=>b.classList.toggle("active",b.dataset.scheduleView===SCHEDULE_BUILDER.view));
   try{localStorage.setItem("bigBoardScheduleBuilder2026",JSON.stringify(SCHEDULE_BUILDER))}catch{}
 }
@@ -11328,7 +11450,7 @@ function sbApply(){
   sbRenderAll();
 }
 function sbReset(){
-  SCHEDULE_BUILDER={teams:JSON.parse(JSON.stringify(SCHEDULE_2026_DEFAULTS)),pairs:[],view:"OWNER",valid:true};
+  SCHEDULE_BUILDER={teams:JSON.parse(JSON.stringify(SCHEDULE_2026_DEFAULTS)),pairs:JSON.parse(JSON.stringify(SCHEDULE_2026_FINAL_PAIRS)),view:"OWNER",valid:true};
   sbRenderAll();
 }
 function sbCsv(){
@@ -11346,14 +11468,23 @@ async function sbCopyYahoo(){
   try{await navigator.clipboard.writeText(text);alert("Yahoo schedule copied to clipboard.")}catch{alert(text)}
 }
 function renderScheduleBuilder(){
+  // 2026 is finalized. Preserve only the user's display view; official teams/pairs are baked into the site.
+  let savedView="OWNER";
   try{
     const saved=localStorage.getItem("bigBoardScheduleBuilder2026");
     if(saved){
       const parsed=JSON.parse(saved);
-      if(parsed&&Array.isArray(parsed.teams)&&Array.isArray(parsed.pairs))SCHEDULE_BUILDER=parsed;
+      if(parsed&&["OWNER","SLOT","YAHOO"].includes(parsed.view))savedView=parsed.view;
     }
   }catch{}
+  SCHEDULE_BUILDER={
+    teams:JSON.parse(JSON.stringify(SCHEDULE_2026_DEFAULTS)),
+    pairs:JSON.parse(JSON.stringify(SCHEDULE_2026_FINAL_PAIRS)),
+    view:savedView,
+    valid:true
+  };
   sbRenderAll();
+  document.querySelectorAll("#scheduleBuilderConfig select,#scheduleBuilderConfig input").forEach(el=>el.disabled=true);
 }
 
 
