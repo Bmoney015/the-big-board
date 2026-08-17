@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v5.9.20 — Prestige SOS terminology/order cleanup -->
+<!-- v5.10.3 — top-100 drafted-player drop confirmation -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -3775,6 +3775,111 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 .schedule-sos-pill.easy{background:#213a2a;color:#d8f2df;border:1px solid #3e684a}
 .schedule-prestige-sos-table tr.sos-current-owner td{box-shadow:inset 0 1px 0 rgba(185,154,85,.5),inset 0 -1px 0 rgba(185,154,85,.5)}
 
+
+/* =========================================================
+   v5.10.0 — Preseason Waivers V1 local prototype
+   ========================================================= */
+.waiver-shell{padding:18px 14px 40px;max-width:1500px;margin:0 auto}
+.waiver-hero{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;flex-wrap:wrap;margin-bottom:12px}
+.waiver-hero h2{margin:3px 0 4px;font-size:28px}
+.waiver-hero p{margin:0;color:#60707f}
+.waiver-kicker,.waiver-panel-kicker{font-size:10px;font-weight:900;letter-spacing:.13em;color:#b58b2b;text-transform:uppercase}
+.waiver-deadline-card{min-width:320px;border:1px solid #d6c59e;background:#fff8e8;border-radius:12px;padding:11px 14px}
+.waiver-deadline-card .label{font-size:9px;letter-spacing:.11em;text-transform:uppercase;font-weight:900;color:#967124}
+.waiver-deadline-card .value{font-weight:900;margin-top:3px}
+.waiver-deadline-card .sub{font-size:11px;color:#6a6254;margin-top:3px}
+.waiver-prototype-note{border:1px solid #c7d4df;background:#edf4f8;border-radius:10px;padding:9px 12px;font-size:11px;color:#41505d;margin-bottom:12px}
+.waiver-grid{display:grid;grid-template-columns:minmax(230px,310px) 1fr;gap:12px;align-items:start}
+.waiver-panel{border:1px solid #d7d0c4;background:#fffdf9;border-radius:12px;padding:14px}
+.waiver-panel h3{margin:3px 0 10px;font-size:19px}
+.waiver-label,.waiver-form label>span{font-size:10px;font-weight:850;color:#56616b;text-transform:uppercase;letter-spacing:.05em}
+.waiver-access-panel select,.waiver-form input,.waiver-form select{width:100%;box-sizing:border-box}
+.waiver-owner-status{margin-top:8px;font-size:11px;color:#687682}
+.waiver-budget,.waiver-priority{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #e4ded4;padding-top:10px;margin-top:10px;font-size:11px}
+.waiver-budget strong{font-size:20px;color:#173f25}
+.waiver-priority strong{font-size:18px}
+.waiver-mini-note{font-size:9px;color:#7a858d;margin-top:6px;line-height:1.4}
+.waiver-panel-head{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.waiver-panel-head p{margin:0;color:#6d7881;font-size:11px}
+.waiver-status-pill{display:inline-flex;align-items:center;border:1px solid #c6b06b;background:#fff6d9;color:#7a5f15;border-radius:999px;padding:5px 9px;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
+.waiver-status-pill.submitted{border-color:#5e8c6b;background:#eaf5ed;color:#2f603b}
+.waiver-status-pill.commish{background:#1d2730;color:#fff;border-color:#1d2730}
+.waiver-form{border:1px solid #ddd7cc;border-radius:10px;background:#faf8f3;padding:12px;margin-top:6px}
+.waiver-form-grid{display:grid;grid-template-columns:1.7fr .65fr 1.5fr;gap:10px}
+.waiver-form label{display:flex;flex-direction:column;gap:5px}
+.waiver-form input,.waiver-form select{border:1px solid #bfc6cc;border-radius:7px;padding:9px 10px;background:white;color:#1d252c}
+.waiver-money-input{display:flex;align-items:center;border:1px solid #bfc6cc;border-radius:7px;background:white;overflow:hidden}
+.waiver-money-input>span{padding-left:9px;font-weight:900;color:#59636c}
+.waiver-money-input input{border:0!important;outline:0;min-width:0}
+.waiver-check{display:flex!important;flex-direction:row!important;align-items:center;gap:7px!important;margin-top:9px;font-size:11px;color:#4f5d67}
+.waiver-check input{width:auto!important}
+.waiver-form-actions{display:flex;gap:8px;margin-top:10px}
+.waiver-rank-help{font-size:10px;color:#69747c;margin:10px 0 6px}
+.waiver-claims-list{display:grid;gap:7px}
+.waiver-claim-card{display:grid;grid-template-columns:42px 1.7fr 90px 1.35fr auto;gap:9px;align-items:center;border:1px solid #d9dfe4;border-radius:9px;padding:9px;background:white}
+.waiver-claim-rank{font-weight:900;font-size:16px;color:#9a7628}
+.waiver-claim-main strong,.waiver-claim-drop strong{display:block}
+.waiver-claim-main span,.waiver-claim-drop span{display:block;color:#7a858d;font-size:9px;text-transform:uppercase;letter-spacing:.05em}
+.waiver-claim-bid{font-size:17px;font-weight:900;text-align:right}
+.waiver-claim-actions{display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.waiver-claim-actions button{padding:5px 7px;font-size:9px}
+.waiver-empty{border:1px dashed #c9d0d6;border-radius:9px;padding:18px;text-align:center;color:#7a858d;font-size:11px}
+.waiver-submit-row{display:flex;align-items:center;gap:9px;flex-wrap:wrap;border-top:1px solid #e3ddd4;margin-top:12px;padding-top:11px}
+.waiver-submit-row span{font-size:10px;color:#6a747c}
+.waiver-commissioner{margin-top:12px}
+.waiver-commish-summary{display:grid;grid-template-columns:repeat(4,minmax(130px,1fr));gap:8px;margin:12px 0}
+.waiver-summary-card{border:1px solid #d9d3c8;border-radius:9px;padding:10px;background:#faf8f3}
+.waiver-summary-card .label{font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:#7a817f}
+.waiver-summary-card .value{font-size:22px;font-weight:900;margin-top:2px}
+.waiver-commish-actions{display:flex;gap:8px;flex-wrap:wrap}
+.waiver-commish-claims{margin-top:10px;border:1px solid #4f5963;border-radius:10px;background:#111920;color:#eef2f4;overflow:auto}
+.waiver-commish-owner{padding:10px;border-bottom:1px solid #303b45}
+.waiver-commish-owner:last-child{border-bottom:0}
+.waiver-commish-owner h4{margin:0 0 6px;color:#e3c366}
+.waiver-commish-owner table{width:100%;min-width:650px;font-size:10px;color:#eef2f4}
+.waiver-commish-owner th,.waiver-commish-owner td{background:transparent!important;color:inherit!important;border-color:#303b45!important;padding:5px 7px!important}
+.waiver-processing{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;border-top:1px solid #ddd7cc;margin-top:14px;padding-top:14px}
+.waiver-processing h3{margin:3px 0}
+.waiver-processing p{margin:0;font-size:10px;color:#6b757d}
+.waiver-results{margin-top:10px}
+.waiver-results-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.waiver-results-table{width:100%;font-size:10px;border:1px solid #d6dce1;border-radius:9px;overflow:hidden}
+.waiver-results-table th{background:#26313b!important;color:white!important}
+.waiver-results-table td{background:white!important;color:#222b32!important}
+.waiver-result-success{font-weight:900;color:#2f6b3e}
+.waiver-result-fail{color:#7b5555}
+.waiver-priority-strip{margin-top:9px;padding:8px 10px;border:1px solid #dfd8ca;border-radius:8px;background:#faf8f3;font-size:10px}
+.waiver-priority-strip strong{color:#8f6a1e}
+@media(max-width:850px){
+ .waiver-grid{grid-template-columns:1fr}
+ .waiver-form-grid{grid-template-columns:1fr}
+ .waiver-claim-card{grid-template-columns:38px 1fr 75px}
+ .waiver-claim-drop{grid-column:2/4}
+ .waiver-claim-actions{grid-column:1/4}
+ .waiver-commish-summary{grid-template-columns:repeat(2,1fr)}
+}
+
+
+.waiver-landing-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin:14px auto 14px;max-width:980px;padding:13px 15px;
+  border:1px solid #bd9848;border-radius:12px;
+  background:linear-gradient(135deg,#fff9e9,#f4ead0);
+  box-shadow:0 5px 16px rgba(88,67,24,.08);text-align:left
+}
+.waiver-landing-kicker{font-size:9px;font-weight:950;letter-spacing:.12em;color:#9a711d;text-transform:uppercase}
+.waiver-landing-title{font-size:18px;font-weight:950;color:#29251d;margin-top:2px}
+.waiver-landing-sub{font-size:10px;color:#665e4d;margin-top:2px}
+.waiver-landing-button{
+  border:0;border-radius:9px;background:#1f2c37;color:white;padding:10px 14px;
+  font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap
+}
+.waiver-landing-button:hover{transform:translateY(-1px)}
+.waiver-copy-link{
+  margin-top:9px;border:1px solid #aeb8c0;background:#fff;color:#34424d;
+  border-radius:8px;padding:7px 10px;font-size:10px;font-weight:850;cursor:pointer
+}
+
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -3885,6 +3990,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
     <div class="nav-dropdown" data-nav-dropdown="draft">
       <button data-view="draftHub" type="button">Draft Hub</button>
       <button data-view="scheduleBuilder" type="button">Schedule Builder</button>
+      <button data-view="preseasonWaivers" type="button">Preseason Waivers</button>
       <button class="commissioner-only" data-view="draftLab" hidden="" id="draftLabTab" type="button">Draft Lab</button>
       <button data-view="mockDraftLab" type="button">Mock Draft Lab</button>
     </div>
@@ -4060,6 +4166,14 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 <h2>The Big Board</h2>
 <div class="reveal-descriptor">Career Prestige Rankings</div>
 <p>A measure of sustained excellence across league history.</p>
+<div class="waiver-landing-banner" id="waiverLandingBanner">
+  <div>
+    <div class="waiver-landing-kicker">WEEK 0 · ACTION REQUIRED</div>
+    <div class="waiver-landing-title">Preseason Waivers Are Open</div>
+    <div class="waiver-landing-sub">Submit sealed claims by Monday, September 7 at 11:59 PM CST.</div>
+  </div>
+  <button class="waiver-landing-button" id="waiverLandingOpen" type="button">Submit My Waivers →</button>
+</div>
 <div class="edition-tabs">
 <button data-edition="2018">2018</button>
 <button data-edition="2022">2022</button>
@@ -4215,6 +4329,130 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 </section>
 
 
+
+
+<section class="view" id="preseasonWaivers">
+  <div class="waiver-shell">
+    <div class="waiver-hero">
+      <div>
+        <div class="waiver-kicker">2026 · WEEK 0</div>
+        <h2>Preseason Waivers</h2>
+        <p>Submit sealed FAAB claims before the league unlocks for the regular season.</p>
+        <button class="waiver-copy-link" id="waiverCopyDirectLink" type="button">Copy Direct Waiver Link</button>
+      </div>
+      <div class="waiver-deadline-card">
+        <div class="label">Waiver Deadline</div>
+        <div class="value">Monday, September 7 · 11:59 PM CST</div>
+        <div class="sub">Teams will be manually unlocked Tuesday, September 8.</div>
+      </div>
+    </div>
+
+    <div class="waiver-prototype-note">
+      <strong>V1 local prototype.</strong> Claims persist only in this browser. Owner switching is intentionally open for testing.
+      In the live Supabase version, a successful owner login will lock this page to that owner only; there will be no team switcher.
+      Commissioner access will be a separate authorized view.
+    </div>
+
+    <div class="waiver-grid">
+      <aside class="waiver-panel waiver-access-panel">
+        <div class="waiver-panel-kicker">OWNER ACCESS</div>
+        <h3>Your Claims</h3>
+        <label class="waiver-label" for="waiverOwnerSelect">Testing as</label>
+        <select id="waiverOwnerSelect"></select>
+        <div id="waiverOwnerStatus" class="waiver-owner-status"></div>
+        <div class="waiver-budget">
+          <span>Week 0 Budget</span>
+          <strong id="waiverBudgetDisplay">$1,000</strong>
+        </div>
+        <div class="waiver-priority">
+          <span>Current waiver priority</span>
+          <strong id="waiverPriorityDisplay">—</strong>
+        </div>
+        <div class="waiver-mini-note">Priority only changes when it actually breaks a tied winning bid.</div>
+      </aside>
+
+      <section class="waiver-panel waiver-entry-panel">
+        <div class="waiver-panel-head">
+          <div>
+            <div class="waiver-panel-kicker">SEALED CLAIMS</div>
+            <h3 id="waiverClaimsTitle">Claims</h3>
+          </div>
+          <div id="waiverSubmissionBadge" class="waiver-status-pill">Not submitted</div>
+        </div>
+
+        <form id="waiverClaimForm" class="waiver-form">
+          <input type="hidden" id="waiverEditingId">
+          <div class="waiver-form-grid">
+            <label>
+              <span>Add Player</span>
+              <input id="waiverAddPlayer" required placeholder="e.g. Player X" autocomplete="off">
+            </label>
+            <label>
+              <span>FAAB Bid</span>
+              <div class="waiver-money-input"><span>$</span><input id="waiverBid" type="number" min="0" max="1000" step="1" value="0" required></div>
+            </label>
+            <label class="waiver-drop-field">
+              <span>Drop Player</span>
+              <select id="waiverDropPlayer"></select>
+            </label>
+          </div>
+          <label class="waiver-check">
+            <input type="checkbox" id="waiverNoDrop">
+            <span>No drop — empty roster slot / IR</span>
+          </label>
+          <div class="waiver-form-actions">
+            <button class="primary" id="waiverSaveClaim" type="submit">Add Claim</button>
+            <button class="secondary hidden" id="waiverCancelEdit" type="button">Cancel Edit</button>
+          </div>
+        </form>
+
+        <div class="waiver-rank-help">
+          Claims are attempted in rank order. Drop options come from that owner’s completed 2026 draft roster. If an earlier successful claim uses the same drop player, later claims using that drop become invalid.
+        </div>
+
+        <div id="waiverClaimsList" class="waiver-claims-list"></div>
+
+        <div class="waiver-submit-row">
+          <button class="primary" id="waiverSubmitClaims" type="button">Submit / Seal Claims</button>
+          <button class="secondary" id="waiverReopenClaims" type="button">Edit Submission</button>
+          <span id="waiverSubmitNote"></span>
+        </div>
+      </section>
+    </div>
+
+    <section class="waiver-panel waiver-commissioner waiver-commissioner-only hidden" id="waiverCommissionerPanel">
+      <div class="waiver-panel-head">
+        <div>
+          <div class="waiver-panel-kicker">COMMISSIONER REVIEW</div>
+          <h3>Sealed Waiver Room</h3>
+          <p>Submission status is visible by default; bids stay concealed until you deliberately inspect them.</p>
+        </div>
+        <span class="waiver-status-pill commish">Commissioner</span>
+      </div>
+
+      <div id="waiverCommishSummary" class="waiver-commish-summary"></div>
+
+      <div class="waiver-commish-actions">
+        <button class="secondary" id="waiverInspectClaims" type="button">Reveal / Inspect Claims</button>
+        <button class="secondary" id="waiverHideClaims" type="button">Hide Claims</button>
+        <button class="secondary" id="waiverLoadDemo" type="button">Load Demo Claims</button>
+        <button class="secondary" id="waiverResetPrototype" type="button">Reset Prototype</button>
+      </div>
+
+      <div id="waiverCommishClaims" class="waiver-commish-claims hidden"></div>
+
+      <div class="waiver-processing">
+        <div>
+          <div class="waiver-panel-kicker">PROCESSING</div>
+          <h3>Run Week 0 Waivers</h3>
+          <p>Production version will auto-process after the deadline. V1 lets the commissioner run the same engine manually for testing/review.</p>
+        </div>
+        <button class="primary" id="waiverRunEngine" type="button">Run Waiver Preview</button>
+      </div>
+      <div id="waiverResults" class="waiver-results"></div>
+    </section>
+  </div>
+</section>
 
 <section class="view" id="scheduleBuilder">
 <div class="schedule-builder-shell">
@@ -11629,9 +11867,351 @@ function vaultReset(){
  PRIZE_VAULT_STATE={claims:[]};vaultSave();renderPrizeVault();
 }
 
+
+/* =========================================================
+   Preseason Waivers V1 local prototype
+   ========================================================= */
+const WAIVER_OWNERS=["Habble","Zac","Sam","Cory","Bob","Adrian","Dan","RJ","Mac","Ben"];
+const WAIVER_STARTING_PRIORITY=["Mac","Sam","Zac","RJ","Habble","Cory","Adrian","Bob","Dan","Ben"];
+const WAIVER_STARTING_BUDGET=1000;
+const WAIVER_STORAGE_KEY="bigBoardPreseasonWaiversV1";
+let WAIVER_SESSION_OWNER=sessionStorage.getItem("bigBoardWaiverOwner")||"Sam";
+let WAIVER_STATE=waiverLoad();
+
+function waiverBlankState(){
+  return {
+    claims:Object.fromEntries(WAIVER_OWNERS.map(o=>[o,[]])),
+    submitted:Object.fromEntries(WAIVER_OWNERS.map(o=>[o,false])),
+    priority:[...WAIVER_STARTING_PRIORITY],
+    preview:null,
+    updatedAt:null
+  };
+}
+function waiverLoad(){
+  try{
+    const raw=localStorage.getItem(WAIVER_STORAGE_KEY);
+    if(!raw)return waiverBlankState();
+    const parsed=JSON.parse(raw);
+    const blank=waiverBlankState();
+    WAIVER_OWNERS.forEach(o=>{
+      if(!Array.isArray(parsed.claims?.[o]))parsed.claims={...(parsed.claims||{}),[o]:[]};
+      if(typeof parsed.submitted?.[o]!=="boolean")parsed.submitted={...(parsed.submitted||{}),[o]:false};
+    });
+    return {...blank,...parsed,claims:{...blank.claims,...parsed.claims},submitted:{...blank.submitted,...parsed.submitted},priority:Array.isArray(parsed.priority)&&parsed.priority.length===10?parsed.priority:[...WAIVER_STARTING_PRIORITY]};
+  }catch{return waiverBlankState();}
+}
+function waiverSave(){
+  WAIVER_STATE.updatedAt=new Date().toISOString();
+  localStorage.setItem(WAIVER_STORAGE_KEY,JSON.stringify(WAIVER_STATE));
+}
+function waiverEsc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function waiverMoney(n){return `$${Number(n||0).toLocaleString()}`}
+function waiverNormPlayer(v){return String(v||"").trim().toLowerCase().replace(/[^a-z0-9]/g,"")}
+function waiverOwnerClaims(owner=WAIVER_SESSION_OWNER){return WAIVER_STATE.claims[owner]||[]}
+function waiverInternalOwner(owner){return owner==="Habble"?"Harp":owner}
+function waiver2026Roster(owner=WAIVER_SESSION_OWNER){
+  const internal=waiverInternalOwner(owner);
+  const pool=(typeof DRAFTS_DATA!=="undefined"&&Array.isArray(DRAFTS_DATA?.picks))
+    ? DRAFTS_DATA.picks
+    : (typeof INITIAL_DRAFTS!=="undefined"?INITIAL_DRAFTS:[]);
+  return pool
+    .filter(p=>+p.year===2026 && (p.owner===internal || displayName(p.owner)===owner))
+    .sort((a,b)=>+a.overallPick-+b.overallPick)
+    .map(p=>({player:p.player,position:p.position,overall:+p.overallPick}))
+    .filter((p,i,arr)=>p.player && arr.findIndex(x=>waiverNormPlayer(x.player)===waiverNormPlayer(p.player))===i);
+}
+function waiverPopulateDropOptions(selectedValue=""){
+  const sel=document.getElementById("waiverDropPlayer");if(!sel)return;
+  const roster=waiver2026Roster();
+  sel.innerHTML=[
+    '<option value="">Select a player to drop…</option>',
+    ...roster.map(p=>`<option value="${waiverEsc(p.player)}">${waiverEsc(p.player)}${p.position?` · ${waiverEsc(p.position)}`:""}${p.overall?` · Pick ${p.overall}`:""}</option>`)
+  ].join("");
+  if(selectedValue && [...sel.options].some(o=>o.value===selectedValue))sel.value=selectedValue;
+}
+function waiverPriorityNumber(owner){const i=WAIVER_STATE.priority.indexOf(owner);return i>=0?i+1:"—"}
+function waiverRotatePriority(owner,priority){
+  const arr=[...priority],i=arr.indexOf(owner);
+  if(i>=0){arr.splice(i,1);arr.push(owner)}
+  return arr;
+}
+function waiverRenderOwnerSelect(){
+  const sel=document.getElementById("waiverOwnerSelect");if(!sel)return;
+  sel.innerHTML=WAIVER_OWNERS.map(o=>`<option value="${o}" ${o===WAIVER_SESSION_OWNER?"selected":""}>${o}</option>`).join("");
+}
+function waiverRenderClaims(){
+  const currentDrop=document.getElementById("waiverDropPlayer")?.value||"";
+  waiverPopulateDropOptions(currentDrop);
+  const title=document.getElementById("waiverClaimsTitle");
+  const list=document.getElementById("waiverClaimsList");
+  const badge=document.getElementById("waiverSubmissionBadge");
+  const submit=document.getElementById("waiverSubmitClaims");
+  const reopen=document.getElementById("waiverReopenClaims");
+  if(!list)return;
+  const claims=waiverOwnerClaims();
+  const sealed=!!WAIVER_STATE.submitted[WAIVER_SESSION_OWNER];
+  title.textContent=`${WAIVER_SESSION_OWNER}'s Claims`;
+  badge.textContent=sealed?"Submitted":"Not submitted";
+  badge.classList.toggle("submitted",sealed);
+  document.getElementById("waiverPriorityDisplay").textContent=`#${waiverPriorityNumber(WAIVER_SESSION_OWNER)}`;
+  document.getElementById("waiverBudgetDisplay").textContent=waiverMoney(WAIVER_STARTING_BUDGET);
+  document.getElementById("waiverOwnerStatus").textContent=sealed
+    ? `${claims.length} sealed claim${claims.length===1?"":"s"} · hidden from other owners`
+    : `${claims.length} draft claim${claims.length===1?"":"s"} · editable until submitted`;
+  submit.disabled=sealed||!claims.length;
+  reopen.disabled=!sealed;
+  document.getElementById("waiverClaimForm").querySelectorAll("input,button").forEach(el=>{if(el.id!=="waiverCancelEdit")el.disabled=sealed});
+  document.getElementById("waiverSubmitNote").textContent=sealed?"Submission sealed. You may reopen and edit before the deadline.":"Submitting seals this owner's current list.";
+  if(!claims.length){
+    list.innerHTML='<div class="waiver-empty">No claims yet. Add a player above to begin your ranked waiver list.</div>';
+    return;
+  }
+  list.innerHTML=claims.map((c,i)=>`<div class="waiver-claim-card">
+    <div class="waiver-claim-rank">#${i+1}</div>
+    <div class="waiver-claim-main"><span>Add</span><strong>${waiverEsc(c.add)}</strong></div>
+    <div class="waiver-claim-bid">${waiverMoney(c.bid)}</div>
+    <div class="waiver-claim-drop"><span>Drop</span><strong>${waiverEsc(c.drop==="NO_DROP"?"No drop / empty slot":c.drop)}</strong></div>
+    <div class="waiver-claim-actions">
+      <button type="button" data-waiver-up="${waiverEsc(c.id)}" ${i===0||sealed?"disabled":""}>↑</button>
+      <button type="button" data-waiver-down="${waiverEsc(c.id)}" ${i===claims.length-1||sealed?"disabled":""}>↓</button>
+      <button type="button" data-waiver-edit="${waiverEsc(c.id)}" ${sealed?"disabled":""}>Edit</button>
+      <button type="button" data-waiver-delete="${waiverEsc(c.id)}" ${sealed?"disabled":""}>Delete</button>
+    </div>
+  </div>`).join("");
+  list.querySelectorAll("[data-waiver-up]").forEach(b=>b.addEventListener("click",()=>waiverMoveClaim(b.dataset.waiverUp,-1)));
+  list.querySelectorAll("[data-waiver-down]").forEach(b=>b.addEventListener("click",()=>waiverMoveClaim(b.dataset.waiverDown,1)));
+  list.querySelectorAll("[data-waiver-edit]").forEach(b=>b.addEventListener("click",()=>waiverEditClaim(b.dataset.waiverEdit)));
+  list.querySelectorAll("[data-waiver-delete]").forEach(b=>b.addEventListener("click",()=>waiverDeleteClaim(b.dataset.waiverDelete)));
+}
+function waiverResetForm(){
+  document.getElementById("waiverEditingId").value="";
+  document.getElementById("waiverAddPlayer").value="";
+  document.getElementById("waiverBid").value="0";
+  waiverPopulateDropOptions("");
+  document.getElementById("waiverDropPlayer").value="";
+  document.getElementById("waiverNoDrop").checked=false;
+  document.getElementById("waiverDropPlayer").disabled=false;
+  document.getElementById("waiverSaveClaim").textContent="Add Claim";
+  document.getElementById("waiverCancelEdit").classList.add("hidden");
+}
+function waiverEditClaim(id){
+  const c=waiverOwnerClaims().find(x=>x.id===id);if(!c)return;
+  document.getElementById("waiverEditingId").value=c.id;
+  document.getElementById("waiverAddPlayer").value=c.add;
+  document.getElementById("waiverBid").value=c.bid;
+  const nd=c.drop==="NO_DROP";
+  document.getElementById("waiverNoDrop").checked=nd;
+  waiverPopulateDropOptions(nd?"":c.drop);
+  document.getElementById("waiverDropPlayer").value=nd?"":c.drop;
+  document.getElementById("waiverDropPlayer").disabled=nd;
+  document.getElementById("waiverSaveClaim").textContent="Save Changes";
+  document.getElementById("waiverCancelEdit").classList.remove("hidden");
+  document.getElementById("waiverAddPlayer").focus();
+}
+function waiverDeleteClaim(id){
+  WAIVER_STATE.claims[WAIVER_SESSION_OWNER]=waiverOwnerClaims().filter(x=>x.id!==id);
+  WAIVER_STATE.preview=null;waiverSave();waiverResetForm();renderPreseasonWaivers();
+}
+function waiverMoveClaim(id,delta){
+  const arr=waiverOwnerClaims(),i=arr.findIndex(x=>x.id===id),j=i+delta;
+  if(i<0||j<0||j>=arr.length)return;
+  [arr[i],arr[j]]=[arr[j],arr[i]];
+  WAIVER_STATE.preview=null;waiverSave();waiverRenderClaims();waiverRenderCommissioner();
+}
+function waiverSubmitForm(event){
+  event.preventDefault();
+  if(WAIVER_STATE.submitted[WAIVER_SESSION_OWNER])return;
+  const add=document.getElementById("waiverAddPlayer").value.trim();
+  const bid=Number(document.getElementById("waiverBid").value);
+  const noDrop=document.getElementById("waiverNoDrop").checked;
+  const drop=noDrop?"NO_DROP":document.getElementById("waiverDropPlayer").value.trim();
+  if(!add)return alert("Enter the player you want to add.");
+  if(!Number.isInteger(bid)||bid<0||bid>WAIVER_STARTING_BUDGET)return alert("Bid must be a whole-dollar amount from $0 to $1,000.");
+  if(!drop)return alert("Enter a player to drop, or choose No drop / empty slot.");
+  // Confirm before dropping any player drafted in the top 100 overall.
+  if(!noDrop){
+    const dropEl=document.getElementById("waiverDropPlayer");
+    const selectedDropOption=dropEl.options[dropEl.selectedIndex];
+    const selectedDropLabel=(selectedDropOption?.textContent||"").trim();
+    const pickMatch=selectedDropLabel.match(/\bPick\s*#?\s*(\d+)\b/i);
+    const draftedPick=pickMatch?Number(pickMatch[1]):null;
+    if(draftedPick!==null && draftedPick<=100){
+      const playerLabel=selectedDropLabel.replace(/\s*[·•]\s*Pick\s*#?\s*\d+\s*$/i,"").trim();
+      const ok=window.confirm(
+        `ARE YOU SURE?\n\nYou selected ${playerLabel} (Pick #${draftedPick}) to drop.\nThis was a Top 10-round draft pick.\n\nPress OK to add the claim, or Cancel to go back.`
+      );
+      if(!ok)return;
+    }
+  }
+  const editId=document.getElementById("waiverEditingId").value;
+  const arr=waiverOwnerClaims();
+  if(editId){
+    const i=arr.findIndex(x=>x.id===editId);
+    if(i>=0)arr[i]={...arr[i],add,bid,drop};
+  }else{
+    arr.push({id:`${Date.now()}-${Math.random().toString(36).slice(2,7)}`,add,bid,drop});
+  }
+  WAIVER_STATE.preview=null;waiverSave();waiverResetForm();renderPreseasonWaivers();
+}
+function waiverSetSubmitted(value){
+  WAIVER_STATE.submitted[WAIVER_SESSION_OWNER]=Boolean(value);
+  WAIVER_STATE.preview=null;waiverSave();waiverResetForm();renderPreseasonWaivers();
+}
+function waiverRenderCommissioner(){
+  const panel=document.getElementById("waiverCommissionerPanel");if(!panel)return;
+  panel.classList.toggle("hidden",!commissionerMode);
+  if(!commissionerMode)return;
+  const totalClaims=WAIVER_OWNERS.reduce((n,o)=>n+waiverOwnerClaims(o).length,0);
+  const submitted=WAIVER_OWNERS.filter(o=>WAIVER_STATE.submitted[o]).length;
+  const uniqueAdds=new Set(WAIVER_OWNERS.flatMap(o=>waiverOwnerClaims(o).map(c=>waiverNormPlayer(c.add))).filter(Boolean)).size;
+  const zeroBids=WAIVER_OWNERS.reduce((n,o)=>n+waiverOwnerClaims(o).filter(c=>+c.bid===0).length,0);
+  document.getElementById("waiverCommishSummary").innerHTML=[
+    ["Teams Submitted",`${submitted}/10`],
+    ["Claims Received",totalClaims],
+    ["Players Targeted",uniqueAdds],
+    ["$0 Claims",zeroBids]
+  ].map(([label,value])=>`<div class="waiver-summary-card"><div class="label">${label}</div><div class="value">${value}</div></div>`).join("");
+  const inspect=document.getElementById("waiverCommishClaims");
+  inspect.innerHTML=WAIVER_OWNERS.map(o=>{
+    const cs=waiverOwnerClaims(o);
+    return `<div class="waiver-commish-owner"><h4>${waiverEsc(o)} · ${WAIVER_STATE.submitted[o]?"SUBMITTED":"DRAFT"} · ${cs.length} claim${cs.length===1?"":"s"}</h4>
+      ${cs.length?`<table><thead><tr><th>Rank</th><th>Add</th><th>Bid</th><th>Drop</th></tr></thead><tbody>${cs.map((c,i)=>`<tr><td>${i+1}</td><td>${waiverEsc(c.add)}</td><td>${waiverMoney(c.bid)}</td><td>${waiverEsc(c.drop==="NO_DROP"?"No drop / empty slot":c.drop)}</td></tr>`).join("")}</tbody></table>`:"<div>No claims.</div>"}
+    </div>`;
+  }).join("");
+  waiverRenderResults();
+}
+function waiverProcess(){
+  const priority=[...WAIVER_STATE.priority];
+  const budgets=Object.fromEntries(WAIVER_OWNERS.map(o=>[o,WAIVER_STARTING_BUDGET]));
+  const usedDrops=Object.fromEntries(WAIVER_OWNERS.map(o=>[o,new Set()]));
+  const acquired=new Map();
+  const queues=Object.fromEntries(WAIVER_OWNERS.map(o=>[o,waiverOwnerClaims(o).map((c,i)=>({...c,owner:o,rank:i+1,status:"pending"}))]));
+  const audit=[];
+  let guard=0;
+
+  function nextClaim(owner){
+    const q=queues[owner];
+    while(q.length){
+      const c=q[0];
+      if(c.status!=="pending"){q.shift();continue}
+      const addKey=waiverNormPlayer(c.add);
+      if(acquired.has(addKey)){c.status="failed";c.reason=`Already awarded to ${acquired.get(addKey)}`;audit.push({...c});q.shift();continue}
+      if(c.drop!=="NO_DROP"&&usedDrops[owner].has(waiverNormPlayer(c.drop))){c.status="failed";c.reason="Drop player already used by an earlier successful claim";audit.push({...c});q.shift();continue}
+      if(+c.bid>budgets[owner]){c.status="failed";c.reason=`Insufficient remaining FAAB (${waiverMoney(budgets[owner])})`;audit.push({...c});q.shift();continue}
+      return c;
+    }
+    return null;
+  }
+
+  while(guard++<500){
+    const active=WAIVER_OWNERS.map(o=>nextClaim(o)).filter(Boolean);
+    if(!active.length)break;
+    const groups=new Map();
+    active.forEach(c=>{
+      const k=waiverNormPlayer(c.add);
+      if(!groups.has(k))groups.set(k,[]);
+      groups.get(k).push(c);
+    });
+    for(const [key,group] of groups){
+      if(acquired.has(key))continue;
+      const maxBid=Math.max(...group.map(c=>+c.bid));
+      const tied=group.filter(c=>+c.bid===maxBid);
+      tied.sort((a,b)=>priority.indexOf(a.owner)-priority.indexOf(b.owner));
+      const winner=tied[0];
+      const tieUsed=tied.length>1;
+      winner.status="success";
+      winner.reason=tieUsed?`Won ${waiverMoney(maxBid)} tie via waiver priority #${priority.indexOf(winner.owner)+1}`:`Highest bid at ${waiverMoney(maxBid)}`;
+      budgets[winner.owner]-=+winner.bid;
+      acquired.set(key,winner.owner);
+      if(winner.drop!=="NO_DROP")usedDrops[winner.owner].add(waiverNormPlayer(winner.drop));
+      audit.push({...winner,tieUsed});
+      queues[winner.owner].shift();
+      group.filter(c=>c!==winner).forEach(c=>{
+        c.status="failed";c.reason=`Outbid by ${winner.owner} at ${waiverMoney(winner.bid)}`;audit.push({...c});queues[c.owner].shift();
+      });
+      if(tieUsed){
+        const updated=waiverRotatePriority(winner.owner,priority);
+        priority.splice(0,priority.length,...updated);
+      }
+    }
+  }
+  return {
+    createdAt:new Date().toISOString(),
+    audit,
+    budgets,
+    priority,
+    winners:audit.filter(x=>x.status==="success")
+  };
+}
+function waiverRenderResults(){
+  const box=document.getElementById("waiverResults");if(!box)return;
+  const p=WAIVER_STATE.preview;
+  if(!p){box.innerHTML="";return}
+  box.innerHTML=`<div class="waiver-results-head"><div><div class="waiver-panel-kicker">PREVIEW RESULTS</div><h3>${p.winners.length} successful claim${p.winners.length===1?"":"s"}</h3></div><span class="waiver-status-pill">Review only</span></div>
+    <div style="overflow:auto"><table class="waiver-results-table"><thead><tr><th>Result</th><th>Owner</th><th>Rank</th><th>Add</th><th>Bid</th><th>Drop</th><th>Reason</th><th>FAAB Left</th></tr></thead>
+    <tbody>${p.audit.map(r=>`<tr><td class="${r.status==="success"?"waiver-result-success":"waiver-result-fail"}">${r.status==="success"?"✓ WON":"—"}</td><td>${waiverEsc(r.owner)}</td><td>#${r.rank}</td><td>${waiverEsc(r.add)}</td><td>${waiverMoney(r.bid)}</td><td>${waiverEsc(r.drop==="NO_DROP"?"No drop / empty slot":r.drop)}</td><td>${waiverEsc(r.reason)}</td><td>${waiverMoney(p.budgets[r.owner])}</td></tr>`).join("")}</tbody></table></div>
+    <div class="waiver-priority-strip"><strong>Final waiver priority:</strong> ${p.priority.map((o,i)=>`${i+1}. ${waiverEsc(o)}`).join(" · ")}</div>`;
+}
+function waiverLoadDemo(){
+  if(!confirm("Load a demo waiver room? This replaces the current prototype claims."))return;
+  WAIVER_STATE=waiverBlankState();
+  const d={
+    Mac:[["Isaiah Example",5,"Bench Mac"],["Zero Bid Guy",0,"Bench Mac"]],
+    Sam:[["Isaiah Example",5,"Bench Sam"],["Player Beta",42,"Bench Sam"]],
+    Zac:[["Player Beta",25,"Bench Zac"],["Player Gamma",0,"NO_DROP"]],
+    RJ:[["Player Delta",100,"Bench RJ"]],
+    Habble:[["Player Gamma",0,"Bench Habble"]],
+    Cory:[["Player Epsilon",1,"Bench Cory"]],
+    Adrian:[["Player Zeta",0,"NO_DROP"]],
+    Bob:[["Player Eta",75,"Bench Bob"]],
+    Dan:[["Player Theta",0,"Bench Dan"]],
+    Ben:[["Player Iota",12,"Bench Ben"]]
+  };
+  Object.entries(d).forEach(([o,rows])=>{
+    WAIVER_STATE.claims[o]=rows.map((r,i)=>({id:`demo-${o}-${i}`,add:r[0],bid:r[1],drop:r[2]}));
+    WAIVER_STATE.submitted[o]=true;
+  });
+  waiverSave();renderPreseasonWaivers();
+}
+function waiverResetPrototype(){
+  if(!confirm("Reset all local waiver prototype data in this browser?"))return;
+  WAIVER_STATE=waiverBlankState();waiverSave();waiverResetForm();renderPreseasonWaivers();
+}
+function renderPreseasonWaivers(){
+  waiverRenderOwnerSelect();
+  waiverRenderClaims();
+  waiverRenderCommissioner();
+}
+function waiverBind(){
+  const owner=document.getElementById("waiverOwnerSelect");if(!owner||owner.dataset.bound)return;
+  owner.dataset.bound="1";
+  const copyLink=document.getElementById("waiverCopyDirectLink");
+  if(copyLink&&!copyLink.dataset.bound){copyLink.dataset.bound="1";copyLink.addEventListener("click",waiverCopyLink);}
+  owner.addEventListener("change",()=>{
+    WAIVER_SESSION_OWNER=owner.value;
+    sessionStorage.setItem("bigBoardWaiverOwner",WAIVER_SESSION_OWNER);
+    waiverResetForm();renderPreseasonWaivers();
+  });
+  document.getElementById("waiverClaimForm").addEventListener("submit",waiverSubmitForm);
+  document.getElementById("waiverNoDrop").addEventListener("change",e=>{
+    const drop=document.getElementById("waiverDropPlayer");
+    drop.disabled=e.target.checked;if(e.target.checked)drop.value="";
+  });
+  document.getElementById("waiverCancelEdit").addEventListener("click",waiverResetForm);
+  document.getElementById("waiverSubmitClaims").addEventListener("click",()=>waiverSetSubmitted(true));
+  document.getElementById("waiverReopenClaims").addEventListener("click",()=>waiverSetSubmitted(false));
+  document.getElementById("waiverInspectClaims").addEventListener("click",()=>document.getElementById("waiverCommishClaims").classList.remove("hidden"));
+  document.getElementById("waiverHideClaims").addEventListener("click",()=>document.getElementById("waiverCommishClaims").classList.add("hidden"));
+  document.getElementById("waiverLoadDemo").addEventListener("click",waiverLoadDemo);
+  document.getElementById("waiverResetPrototype").addEventListener("click",waiverResetPrototype);
+  document.getElementById("waiverRunEngine").addEventListener("click",()=>{
+    WAIVER_STATE.preview=waiverProcess();waiverSave();waiverRenderCommissioner();
+  });
+}
+
 function navGroupForView(viewName){
  if(["matrix","journey","audit","data"].includes(viewName))return "career";
- if(["draftHub","scheduleBuilder","draftLab","mockDraftLab"].includes(viewName))return "draft";
+ if(["draftHub","scheduleBuilder","draftLab","mockDraftLab","preseasonWaivers"].includes(viewName))return "draft";
  if(["triviaStudio","draftNightLive","prizeVault"].includes(viewName))return "gameNight";
  return null;
 }
@@ -11649,9 +12229,35 @@ function navSetActive(viewName){
    if(parent)parent.classList.add("active");
  }
 }
+function waiverDirectUrl(){
+  const u=new URL(window.location.href);
+  u.searchParams.delete("mode");
+  u.hash="preseason-waivers";
+  return u.toString();
+}
+function waiverCopyLink(){
+  const url=waiverDirectUrl();
+  if(navigator.clipboard?.writeText){
+    navigator.clipboard.writeText(url).then(()=>{
+      const b=document.getElementById("waiverCopyDirectLink");
+      if(b){const old=b.textContent;b.textContent="Copied ✓";setTimeout(()=>b.textContent=old,1400)}
+    }).catch(()=>prompt("Copy this waiver link:",url));
+  }else{
+    prompt("Copy this waiver link:",url);
+  }
+}
+function waiverApplyDeepLink(){
+  if(String(window.location.hash).toLowerCase()==="#preseason-waivers")openView("preseasonWaivers");
+}
+
 function openView(viewName){
  const button=document.querySelector(`.nav button[data-view="${viewName}"]`);
  if(!button || button.hidden)return;
+ if(viewName==="preseasonWaivers"){
+   if(window.location.hash!=="#preseason-waivers")history.replaceState(null,"",`${window.location.pathname}${window.location.search}#preseason-waivers`);
+ }else if(window.location.hash==="#preseason-waivers"){
+   history.replaceState(null,"",`${window.location.pathname}${window.location.search}`);
+ }
  navCloseMenus();
  navSetActive(viewName);
  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
@@ -11660,6 +12266,7 @@ function openView(viewName){
  if(viewName==="journey") renderJourney(); else journeyStop();
  if(viewName==="draftHub") renderDraftHub();
  if(viewName==="scheduleBuilder") renderScheduleBuilder();
+ if(viewName==="preseasonWaivers"){waiverBind();renderPreseasonWaivers();}
  if(viewName==="draftLab") renderDraftLab();
  if(viewName==="glossary") renderGlossary();
  if(viewName==="weeklyAnalytics") openWeeklyAnalytics();
@@ -11675,6 +12282,7 @@ let commissionerMode=sessionStorage.getItem("bigBoardCommissionerMode")==="on";
 function setCommissionerMode(enabled,announce=true){
  commissionerMode=Boolean(enabled);
  const vaultControls=document.getElementById("vaultCommissionerControls");if(vaultControls)vaultControls.hidden=!commissionerMode;
+ document.querySelectorAll(".waiver-commissioner-only").forEach(el=>el.classList.toggle("hidden",!commissionerMode));
  const tab=document.getElementById("commissionerDataTab");
  const labTab=document.getElementById("draftLabTab");
  if(tab)tab.hidden=!commissionerMode;
@@ -12048,6 +12656,10 @@ window.addEventListener("beforeunload",e=>{
 });
 renderAll();
 showEdition("2026");
+const waiverLandingOpen=document.getElementById("waiverLandingOpen");
+if(waiverLandingOpen)waiverLandingOpen.addEventListener("click",()=>openView("preseasonWaivers"));
+window.addEventListener("hashchange",waiverApplyDeepLink);
+waiverApplyDeepLink();
 })();
 
 function isDnlPresentationMode(){
