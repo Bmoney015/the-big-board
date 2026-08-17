@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v5.10.0 — Preseason Waivers V1 local prototype -->
+<!-- v5.10.3 — top-100 drafted-player drop confirmation -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -3793,7 +3793,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 .waiver-panel{border:1px solid #d7d0c4;background:#fffdf9;border-radius:12px;padding:14px}
 .waiver-panel h3{margin:3px 0 10px;font-size:19px}
 .waiver-label,.waiver-form label>span{font-size:10px;font-weight:850;color:#56616b;text-transform:uppercase;letter-spacing:.05em}
-.waiver-access-panel select,.waiver-form input{width:100%;box-sizing:border-box}
+.waiver-access-panel select,.waiver-form input,.waiver-form select{width:100%;box-sizing:border-box}
 .waiver-owner-status{margin-top:8px;font-size:11px;color:#687682}
 .waiver-budget,.waiver-priority{display:flex;align-items:center;justify-content:space-between;gap:10px;border-top:1px solid #e4ded4;padding-top:10px;margin-top:10px;font-size:11px}
 .waiver-budget strong{font-size:20px;color:#173f25}
@@ -3807,7 +3807,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 .waiver-form{border:1px solid #ddd7cc;border-radius:10px;background:#faf8f3;padding:12px;margin-top:6px}
 .waiver-form-grid{display:grid;grid-template-columns:1.7fr .65fr 1.5fr;gap:10px}
 .waiver-form label{display:flex;flex-direction:column;gap:5px}
-.waiver-form input{border:1px solid #bfc6cc;border-radius:7px;padding:9px 10px;background:white;color:#1d252c}
+.waiver-form input,.waiver-form select{border:1px solid #bfc6cc;border-radius:7px;padding:9px 10px;background:white;color:#1d252c}
 .waiver-money-input{display:flex;align-items:center;border:1px solid #bfc6cc;border-radius:7px;background:white;overflow:hidden}
 .waiver-money-input>span{padding-left:9px;font-weight:900;color:#59636c}
 .waiver-money-input input{border:0!important;outline:0;min-width:0}
@@ -3857,6 +3857,27 @@ body.dnl-presentation #prizeVault.dnl-active-view{
  .waiver-claim-drop{grid-column:2/4}
  .waiver-claim-actions{grid-column:1/4}
  .waiver-commish-summary{grid-template-columns:repeat(2,1fr)}
+}
+
+
+.waiver-landing-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  margin:14px auto 14px;max-width:980px;padding:13px 15px;
+  border:1px solid #bd9848;border-radius:12px;
+  background:linear-gradient(135deg,#fff9e9,#f4ead0);
+  box-shadow:0 5px 16px rgba(88,67,24,.08);text-align:left
+}
+.waiver-landing-kicker{font-size:9px;font-weight:950;letter-spacing:.12em;color:#9a711d;text-transform:uppercase}
+.waiver-landing-title{font-size:18px;font-weight:950;color:#29251d;margin-top:2px}
+.waiver-landing-sub{font-size:10px;color:#665e4d;margin-top:2px}
+.waiver-landing-button{
+  border:0;border-radius:9px;background:#1f2c37;color:white;padding:10px 14px;
+  font-size:11px;font-weight:900;cursor:pointer;white-space:nowrap
+}
+.waiver-landing-button:hover{transform:translateY(-1px)}
+.waiver-copy-link{
+  margin-top:9px;border:1px solid #aeb8c0;background:#fff;color:#34424d;
+  border-radius:8px;padding:7px 10px;font-size:10px;font-weight:850;cursor:pointer
 }
 
 </style>
@@ -4145,6 +4166,14 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 <h2>The Big Board</h2>
 <div class="reveal-descriptor">Career Prestige Rankings</div>
 <p>A measure of sustained excellence across league history.</p>
+<div class="waiver-landing-banner" id="waiverLandingBanner">
+  <div>
+    <div class="waiver-landing-kicker">WEEK 0 · ACTION REQUIRED</div>
+    <div class="waiver-landing-title">Preseason Waivers Are Open</div>
+    <div class="waiver-landing-sub">Submit sealed claims by Monday, September 7 at 11:59 PM CST.</div>
+  </div>
+  <button class="waiver-landing-button" id="waiverLandingOpen" type="button">Submit My Waivers →</button>
+</div>
 <div class="edition-tabs">
 <button data-edition="2018">2018</button>
 <button data-edition="2022">2022</button>
@@ -4309,6 +4338,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
         <div class="waiver-kicker">2026 · WEEK 0</div>
         <h2>Preseason Waivers</h2>
         <p>Submit sealed FAAB claims before the league unlocks for the regular season.</p>
+        <button class="waiver-copy-link" id="waiverCopyDirectLink" type="button">Copy Direct Waiver Link</button>
       </div>
       <div class="waiver-deadline-card">
         <div class="label">Waiver Deadline</div>
@@ -4318,8 +4348,9 @@ body.dnl-presentation #prizeVault.dnl-active-view{
     </div>
 
     <div class="waiver-prototype-note">
-      <strong>V1 local prototype.</strong> Claims persist only in this browser. Owner switching is intentionally open for testing;
-      Supabase will replace this with private owner-specific access before league use.
+      <strong>V1 local prototype.</strong> Claims persist only in this browser. Owner switching is intentionally open for testing.
+      In the live Supabase version, a successful owner login will lock this page to that owner only; there will be no team switcher.
+      Commissioner access will be a separate authorized view.
     </div>
 
     <div class="waiver-grid">
@@ -4362,7 +4393,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
             </label>
             <label class="waiver-drop-field">
               <span>Drop Player</span>
-              <input id="waiverDropPlayer" placeholder="e.g. Player AB" autocomplete="off">
+              <select id="waiverDropPlayer"></select>
             </label>
           </div>
           <label class="waiver-check">
@@ -4376,7 +4407,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
         </form>
 
         <div class="waiver-rank-help">
-          Claims are attempted in rank order. If an earlier successful claim uses the same drop player, later claims using that drop become invalid.
+          Claims are attempted in rank order. Drop options come from that owner’s completed 2026 draft roster. If an earlier successful claim uses the same drop player, later claims using that drop become invalid.
         </div>
 
         <div id="waiverClaimsList" class="waiver-claims-list"></div>
@@ -11877,6 +11908,27 @@ function waiverEsc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","
 function waiverMoney(n){return `$${Number(n||0).toLocaleString()}`}
 function waiverNormPlayer(v){return String(v||"").trim().toLowerCase().replace(/[^a-z0-9]/g,"")}
 function waiverOwnerClaims(owner=WAIVER_SESSION_OWNER){return WAIVER_STATE.claims[owner]||[]}
+function waiverInternalOwner(owner){return owner==="Habble"?"Harp":owner}
+function waiver2026Roster(owner=WAIVER_SESSION_OWNER){
+  const internal=waiverInternalOwner(owner);
+  const pool=(typeof DRAFTS_DATA!=="undefined"&&Array.isArray(DRAFTS_DATA?.picks))
+    ? DRAFTS_DATA.picks
+    : (typeof INITIAL_DRAFTS!=="undefined"?INITIAL_DRAFTS:[]);
+  return pool
+    .filter(p=>+p.year===2026 && (p.owner===internal || displayName(p.owner)===owner))
+    .sort((a,b)=>+a.overallPick-+b.overallPick)
+    .map(p=>({player:p.player,position:p.position,overall:+p.overallPick}))
+    .filter((p,i,arr)=>p.player && arr.findIndex(x=>waiverNormPlayer(x.player)===waiverNormPlayer(p.player))===i);
+}
+function waiverPopulateDropOptions(selectedValue=""){
+  const sel=document.getElementById("waiverDropPlayer");if(!sel)return;
+  const roster=waiver2026Roster();
+  sel.innerHTML=[
+    '<option value="">Select a player to drop…</option>',
+    ...roster.map(p=>`<option value="${waiverEsc(p.player)}">${waiverEsc(p.player)}${p.position?` · ${waiverEsc(p.position)}`:""}${p.overall?` · Pick ${p.overall}`:""}</option>`)
+  ].join("");
+  if(selectedValue && [...sel.options].some(o=>o.value===selectedValue))sel.value=selectedValue;
+}
 function waiverPriorityNumber(owner){const i=WAIVER_STATE.priority.indexOf(owner);return i>=0?i+1:"—"}
 function waiverRotatePriority(owner,priority){
   const arr=[...priority],i=arr.indexOf(owner);
@@ -11888,6 +11940,8 @@ function waiverRenderOwnerSelect(){
   sel.innerHTML=WAIVER_OWNERS.map(o=>`<option value="${o}" ${o===WAIVER_SESSION_OWNER?"selected":""}>${o}</option>`).join("");
 }
 function waiverRenderClaims(){
+  const currentDrop=document.getElementById("waiverDropPlayer")?.value||"";
+  waiverPopulateDropOptions(currentDrop);
   const title=document.getElementById("waiverClaimsTitle");
   const list=document.getElementById("waiverClaimsList");
   const badge=document.getElementById("waiverSubmissionBadge");
@@ -11933,6 +11987,7 @@ function waiverResetForm(){
   document.getElementById("waiverEditingId").value="";
   document.getElementById("waiverAddPlayer").value="";
   document.getElementById("waiverBid").value="0";
+  waiverPopulateDropOptions("");
   document.getElementById("waiverDropPlayer").value="";
   document.getElementById("waiverNoDrop").checked=false;
   document.getElementById("waiverDropPlayer").disabled=false;
@@ -11946,6 +12001,7 @@ function waiverEditClaim(id){
   document.getElementById("waiverBid").value=c.bid;
   const nd=c.drop==="NO_DROP";
   document.getElementById("waiverNoDrop").checked=nd;
+  waiverPopulateDropOptions(nd?"":c.drop);
   document.getElementById("waiverDropPlayer").value=nd?"":c.drop;
   document.getElementById("waiverDropPlayer").disabled=nd;
   document.getElementById("waiverSaveClaim").textContent="Save Changes";
@@ -11972,6 +12028,21 @@ function waiverSubmitForm(event){
   if(!add)return alert("Enter the player you want to add.");
   if(!Number.isInteger(bid)||bid<0||bid>WAIVER_STARTING_BUDGET)return alert("Bid must be a whole-dollar amount from $0 to $1,000.");
   if(!drop)return alert("Enter a player to drop, or choose No drop / empty slot.");
+  // Confirm before dropping any player drafted in the top 100 overall.
+  if(!noDrop){
+    const dropEl=document.getElementById("waiverDropPlayer");
+    const selectedDropOption=dropEl.options[dropEl.selectedIndex];
+    const selectedDropLabel=(selectedDropOption?.textContent||"").trim();
+    const pickMatch=selectedDropLabel.match(/\bPick\s*#?\s*(\d+)\b/i);
+    const draftedPick=pickMatch?Number(pickMatch[1]):null;
+    if(draftedPick!==null && draftedPick<=100){
+      const playerLabel=selectedDropLabel.replace(/\s*[·•]\s*Pick\s*#?\s*\d+\s*$/i,"").trim();
+      const ok=window.confirm(
+        `ARE YOU SURE?\n\nYou selected ${playerLabel} (Pick #${draftedPick}) to drop.\nThis was a Top 10-round draft pick.\n\nPress OK to add the claim, or Cancel to go back.`
+      );
+      if(!ok)return;
+    }
+  }
   const editId=document.getElementById("waiverEditingId").value;
   const arr=waiverOwnerClaims();
   if(editId){
@@ -12114,6 +12185,8 @@ function renderPreseasonWaivers(){
 function waiverBind(){
   const owner=document.getElementById("waiverOwnerSelect");if(!owner||owner.dataset.bound)return;
   owner.dataset.bound="1";
+  const copyLink=document.getElementById("waiverCopyDirectLink");
+  if(copyLink&&!copyLink.dataset.bound){copyLink.dataset.bound="1";copyLink.addEventListener("click",waiverCopyLink);}
   owner.addEventListener("change",()=>{
     WAIVER_SESSION_OWNER=owner.value;
     sessionStorage.setItem("bigBoardWaiverOwner",WAIVER_SESSION_OWNER);
@@ -12156,9 +12229,35 @@ function navSetActive(viewName){
    if(parent)parent.classList.add("active");
  }
 }
+function waiverDirectUrl(){
+  const u=new URL(window.location.href);
+  u.searchParams.delete("mode");
+  u.hash="preseason-waivers";
+  return u.toString();
+}
+function waiverCopyLink(){
+  const url=waiverDirectUrl();
+  if(navigator.clipboard?.writeText){
+    navigator.clipboard.writeText(url).then(()=>{
+      const b=document.getElementById("waiverCopyDirectLink");
+      if(b){const old=b.textContent;b.textContent="Copied ✓";setTimeout(()=>b.textContent=old,1400)}
+    }).catch(()=>prompt("Copy this waiver link:",url));
+  }else{
+    prompt("Copy this waiver link:",url);
+  }
+}
+function waiverApplyDeepLink(){
+  if(String(window.location.hash).toLowerCase()==="#preseason-waivers")openView("preseasonWaivers");
+}
+
 function openView(viewName){
  const button=document.querySelector(`.nav button[data-view="${viewName}"]`);
  if(!button || button.hidden)return;
+ if(viewName==="preseasonWaivers"){
+   if(window.location.hash!=="#preseason-waivers")history.replaceState(null,"",`${window.location.pathname}${window.location.search}#preseason-waivers`);
+ }else if(window.location.hash==="#preseason-waivers"){
+   history.replaceState(null,"",`${window.location.pathname}${window.location.search}`);
+ }
  navCloseMenus();
  navSetActive(viewName);
  document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));
@@ -12557,6 +12656,10 @@ window.addEventListener("beforeunload",e=>{
 });
 renderAll();
 showEdition("2026");
+const waiverLandingOpen=document.getElementById("waiverLandingOpen");
+if(waiverLandingOpen)waiverLandingOpen.addEventListener("click",()=>openView("preseasonWaivers"));
+window.addEventListener("hashchange",waiverApplyDeepLink);
+waiverApplyDeepLink();
 })();
 
 function isDnlPresentationMode(){
