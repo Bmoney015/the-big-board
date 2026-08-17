@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v5.9.17 — 2026 Prestige Strength of Schedule -->
+<!-- v5.9.19 — corrected 2026 tier schedule + baked official Weeks 10–14 -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -4230,10 +4230,10 @@ body.dnl-presentation #prizeVault.dnl-active-view{
   <div class="schedule-builder-card">
     <div class="schedule-builder-kicker">League Setup · Locked</div>
     <h3>League Setup</h3>
-    <p>Draft Slot drives Weeks 1–9. Prior-year finish determines the two Weeks 10–14 tiers. Yahoo names are only used for the Yahoo output view.</p>
+    <p>Draft Slot drives Weeks 1–9. Final 2025 playoff/placement finish determines the Weeks 10–14 tiers. This is NOT regular-season finish. Yahoo names are only used for the Yahoo output view.</p>
     <div class="schedule-config-wrap">
       <table class="schedule-config-table">
-        <thead><tr><th>Owner</th><th>Draft Slot</th><th>2025 Finish</th><th>Tier</th><th>Yahoo Team Name</th></tr></thead>
+        <thead><tr><th>Owner</th><th>Draft Slot</th><th>2025 Final Finish</th><th>Tier</th><th>Yahoo Team Name</th></tr></thead>
         <tbody id="scheduleBuilderConfig"></tbody>
       </table>
     </div>
@@ -4269,6 +4269,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
       <button class="secondary hidden" id="scheduleBuilderClearDraft">Clear Schedule Draft</button>
     </div>
     <div class="schedule-draft-note">Final draft results: Mac → Sam · Zac → Bob · RJ → Dan · Habble → Ben · Cory → Adrian (defaulted).</div>
+    <div class="schedule-builder-alert show good">✓ Corrected 2025 final-placement tiers are locked: Top 5 = Sam, Ben, Bob, RJ, Cory · 6–10 = Adrian, Dan, Zac, Habble, Mac. The five Schedule Draft pairings remain valid, and Weeks 10–14 were regenerated from these corrected tiers.</div>
   </div>
 
   <div class="schedule-builder-card">
@@ -5208,6 +5209,14 @@ try {
   if(!managerActivityResponse.ok) throw new Error(`Could not load data/managerActivity.json (HTTP ${managerActivityResponse.status})`);
   LEAGUE_CONFIG = await leagueResponse.json();
   RECORDS_DATA = await recordsResponse.json();
+  // 2025 final placement correction: official playoff/placement bracket is authoritative.
+  // Final order: Sam, Ben, Bob, RJ, Cory, Adrian, Dan, Zac, Harp, Mac.
+  const FINAL_2025_PO_FINISH={Sam:1,Ben:2,Bob:3,RJ:4,Cory:5,Adrian:6,Dan:7,Zac:8,Harp:9,Mac:10};
+  (RECORDS_DATA.records||[]).forEach(r=>{
+    if(+r.Year===2025 && Object.prototype.hasOwnProperty.call(FINAL_2025_PO_FINISH,r.Owner)){
+      r.PO_Finish=FINAL_2025_PO_FINISH[r.Owner];
+    }
+  });
   DRAFTS_DATA = await draftsResponse.json();
   DRAFT_SLOTS_DATA = await draftSlotsResponse.json();
   DRAFT_CAPITAL_CONFIG = await draftCapitalResponse.json();
@@ -11156,19 +11165,35 @@ const SCHEDULE_FIXED_SLOT_MATRIX={
   8:[[1,5],[2,3],[4,8],[7,9],[6,10]],
   9:[[1,6],[2,5],[3,9],[7,8],[4,10]]
 };
-const SCHEDULE_2026_DEFAULTS=[
-  {owner:"Ben",slot:1,finish:4,yahoo:"FBV"},
-  {owner:"Dan",slot:2,finish:6,yahoo:"Jaspers"},
-  {owner:"Bob",slot:3,finish:2,yahoo:"One Tua Many Concussions #CTE"},
-  {owner:"Adrian",slot:4,finish:5,yahoo:"Bo Brix & Da Orange Club"},
-  {owner:"Cory",slot:5,finish:10,yahoo:"08 Lions"},
-  {owner:"Habble",slot:6,finish:9,yahoo:"Trash Can"},
-  {owner:"RJ",slot:7,finish:3,yahoo:"2muchrookiefilm"},
-  {owner:"Zac",slot:8,finish:7,yahoo:"Hold my beer"},
-  {owner:"Sam",slot:9,finish:1,yahoo:"Brockness Monster"},
-  {owner:"Mac",slot:10,finish:8,yahoo:"RB1LL"}
+const SCHEDULE_2026_SLOT_YAHOO=[
+  {owner:"Ben",slot:1,yahoo:"FBV"},
+  {owner:"Dan",slot:2,yahoo:"Jaspers"},
+  {owner:"Bob",slot:3,yahoo:"One Tua Many Concussions #CTE"},
+  {owner:"Adrian",slot:4,yahoo:"Bo Brix & Da Orange Club"},
+  {owner:"Cory",slot:5,yahoo:"08 Lions"},
+  {owner:"Habble",slot:6,yahoo:"Trash Can"},
+  {owner:"RJ",slot:7,yahoo:"2muchrookiefilm"},
+  {owner:"Zac",slot:8,yahoo:"Hold my beer"},
+  {owner:"Sam",slot:9,yahoo:"Brockness Monster"},
+  {owner:"Mac",slot:10,yahoo:"RB1LL"}
 ];
+function scheduleFinal2025Finish(owner){
+  const internal=owner==="Habble"?"Harp":owner;
+  const r=(INITIAL_RECORDS||[]).find(x=>+x.Year===2025&&x.Owner===internal);
+  return r?+r.PO_Finish:null;
+}
+function schedule2026Defaults(){
+  return SCHEDULE_2026_SLOT_YAHOO.map(t=>({...t,finish:scheduleFinal2025Finish(t.owner)}));
+}
+const SCHEDULE_2026_DEFAULTS=schedule2026Defaults();
 const SCHEDULE_2026_FINAL_PAIRS=[{a:"Mac",b:"Sam"},{a:"Zac",b:"Bob"},{a:"RJ",b:"Dan"},{a:"Habble",b:"Ben"},{a:"Cory",b:"Adrian"}];
+const SCHEDULE_2026_FINAL_WEEKS={
+  10:[["Mac","Sam"],["Bob","Cory"],["RJ","Ben"],["Zac","Adrian"],["Dan","Habble"]],
+  11:[["Zac","Bob"],["RJ","Sam"],["Ben","Cory"],["Dan","Mac"],["Habble","Adrian"]],
+  12:[["RJ","Dan"],["Ben","Bob"],["Cory","Sam"],["Habble","Zac"],["Adrian","Mac"]],
+  13:[["Habble","Ben"],["Cory","RJ"],["Sam","Bob"],["Adrian","Dan"],["Mac","Zac"]],
+  14:[["Cory","Adrian"],["Sam","Ben"],["Bob","RJ"],["Mac","Habble"],["Zac","Dan"]]
+};
 const SCHEDULE_2026_FINALIZED=true;
 let SCHEDULE_BUILDER={
   teams:JSON.parse(JSON.stringify(SCHEDULE_2026_DEFAULTS)),
@@ -11276,6 +11301,15 @@ function sbFinalWeeks(){
   Object.entries(SCHEDULE_FIXED_SLOT_MATRIX).forEach(([wk,games])=>{
     weeks[+wk]=games.map(([a,b])=>({a:sbBySlot(a).owner,b:sbBySlot(b).owner,cross:false}));
   });
+  if(SCHEDULE_2026_FINALIZED){
+    Object.entries(SCHEDULE_2026_FINAL_WEEKS).forEach(([wk,games])=>{
+      const crossover=SCHEDULE_2026_FINAL_PAIRS[+wk-10];
+      weeks[+wk]=games.map(([a,b])=>({
+        a,b,cross:!!crossover && ((a===crossover.a&&b===crossover.b)||(a===crossover.b&&b===crossover.a))
+      }));
+    });
+    return weeks;
+  }
   if(SCHEDULE_BUILDER.pairs.length!==5)return weeks;
   const top=SCHEDULE_BUILDER.teams.filter(t=>+t.finish<=5).map(t=>t.owner);
   const low=SCHEDULE_BUILDER.teams.filter(t=>+t.finish>5).map(t=>t.owner);
