@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v5.9.19 — corrected 2026 tier schedule + baked official Weeks 10–14 -->
+<!-- v5.9.20 — Prestige SOS terminology/order cleanup -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -4300,14 +4300,14 @@ body.dnl-presentation #prizeVault.dnl-active-view{
         <div>
           <div class="schedule-builder-kicker">2026 Prestige SOS</div>
           <h3>Strength of Schedule · The Big Board</h3>
-          <p>Average opponent Prestige across all 14 regular-season matchups. Rematches count twice. Higher opponent Prestige = harder schedule.</p>
+          <p>Opponent Prestige across all 14 regular-season matchups. Rematches count twice. Higher total/average opponent Prestige = harder schedule.</p>
         </div>
         <div class="schedule-prestige-sos-note">Based on the current career Prestige leaderboard through 2025</div>
       </div>
       <div class="schedule-prestige-sos-wrap">
         <table class="schedule-prestige-sos-table">
           <thead>
-            <tr><th>SOS Rank</th><th>Owner</th><th>Avg Opp. Prestige</th><th>Prestige Load</th><th>Repeat Opponents</th><th>Difficulty</th></tr>
+            <tr><th>SOS Rank</th><th>Owner</th><th>Opponent Prestige Total</th><th>Avg</th><th>Repeat Opponents</th><th>Difficulty</th></tr>
           </thead>
           <tbody id="schedulePrestigeSOSBody"></tbody>
         </table>
@@ -11368,8 +11368,8 @@ function sbRenderPrestigeSOS(){
     return `<tr>
       <td class="schedule-prestige-rank">#${r.rank}</td>
       <td>${sbEsc(r.owner)}</td>
-      <td>${r.avg.toFixed(1)}</td>
       <td>${Math.round(r.load)}</td>
+      <td>${r.avg.toFixed(1)}</td>
       <td class="schedule-prestige-repeat">${r.repeats.length?r.repeats.map(sbEsc).join(" · "):"—"}</td>
       <td><span class="schedule-sos-pill ${cls}">${label}</span></td>
     </tr>`;
