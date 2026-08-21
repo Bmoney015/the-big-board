@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v5.10.6 — correct Dallas Goedert in 2026 draft board -->
+<!-- v5.11.3 — stronger not-submitted state + hideable preview + Yahoo action export -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -3807,6 +3807,14 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 .waiver-panel-head p{margin:0;color:#6d7881;font-size:11px}
 .waiver-status-pill{display:inline-flex;align-items:center;border:1px solid #c6b06b;background:#fff6d9;color:#7a5f15;border-radius:999px;padding:5px 9px;font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.05em}
 .waiver-status-pill.submitted{border-color:#5e8c6b;background:#eaf5ed;color:#2f603b}
+.waiver-submission-state{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+.waiver-submission-message{font-size:10px;color:#7a858d;text-align:right;max-width:270px;line-height:1.3}
+.waiver-submission-message.submitted{color:#2f603b;font-weight:900}
+.waiver-status-pill.submitted{font-size:11px;padding:7px 11px;box-shadow:0 0 0 2px rgba(74,132,88,.08)}
+.waiver-status-pill:not(.submitted){font-size:11px;padding:7px 11px;border-color:#c99334;background:#fff1c7;color:#7d5711;box-shadow:0 0 0 2px rgba(201,147,52,.08)}
+.waiver-submission-message:not(.submitted){color:#8a6320;font-weight:850}
+
+
 .waiver-status-pill.commish{background:#1d2730;color:#fff;border-color:#1d2730}
 .waiver-form{border:1px solid #ddd7cc;border-radius:10px;background:#faf8f3;padding:12px;margin-top:6px}
 .waiver-form-grid{display:grid;grid-template-columns:1.7fr .65fr 1.5fr;gap:10px}
@@ -3854,6 +3862,16 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 .waiver-result-fail{color:#7b5555}
 .waiver-priority-strip{margin-top:9px;padding:8px 10px;border:1px solid #dfd8ca;border-radius:8px;background:#faf8f3;font-size:10px}
 .waiver-priority-strip strong{color:#8f6a1e}
+.waiver-preview-actions{display:flex;gap:8px;flex-wrap:wrap}
+.waiver-yahoo-actions{margin-top:14px}
+.waiver-yahoo-actions-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:8px}
+.waiver-yahoo-actions-head h3{margin:3px 0 0}
+.waiver-yahoo-actions-head p{margin:3px 0 0;font-size:10px;color:#6d7880}
+.waiver-yahoo-actions-table{width:100%;font-size:10px;border:1px solid #d6dce1;border-radius:9px;overflow:hidden}
+.waiver-yahoo-actions-table th{background:#26313b!important;color:white!important}
+.waiver-yahoo-actions-table td{background:white!important;color:#222b32!important}
+.waiver-action-text{font-weight:850}
+
 @media(max-width:850px){
  .waiver-grid{grid-template-columns:1fr}
  .waiver-form-grid{grid-template-columns:1fr}
@@ -3883,6 +3901,23 @@ body.dnl-presentation #prizeVault.dnl-active-view{
   margin-top:9px;border:1px solid #aeb8c0;background:#fff;color:#34424d;
   border-radius:8px;padding:7px 10px;font-size:10px;font-weight:850;cursor:pointer
 }
+
+
+.waiver-auth-gate{max-width:520px;margin:14px auto}
+.waiver-auth-gate h3{margin:4px 0 5px}
+.waiver-auth-gate p{margin:0 0 11px;color:#68747d;font-size:11px}
+.waiver-login-form{display:grid;grid-template-columns:1fr 1fr auto;gap:9px;align-items:end}
+.waiver-login-form label{display:flex;flex-direction:column;gap:5px}
+.waiver-login-form label span{font-size:9px;font-weight:900;text-transform:uppercase;letter-spacing:.05em;color:#66727c}
+.waiver-login-form input,.waiver-login-form select{border:1px solid #bfc7ce;border-radius:7px;padding:9px 10px;background:white;color:#1e272e}
+.waiver-login-status{min-height:16px;margin-top:8px;font-size:10px;color:#6d7880}
+.waiver-login-status.error{color:#a63d3d;font-weight:800}
+.waiver-login-status.ok{color:#2f6a3c;font-weight:800}
+.waiver-signed-owner{display:flex;align-items:baseline;justify-content:space-between;gap:10px;border-bottom:1px solid #e3ddd2;padding-bottom:9px}
+.waiver-signed-owner span{font-size:9px;text-transform:uppercase;letter-spacing:.06em;color:#79838a;font-weight:850}
+.waiver-signed-owner strong{font-size:18px}
+.waiver-logout{width:100%;margin-top:8px}
+@media(max-width:700px){.waiver-login-form{grid-template-columns:1fr}}
 
 </style>
 <style id="schedule-v510-css">
@@ -4351,18 +4386,47 @@ body.dnl-presentation #prizeVault.dnl-active-view{
       </div>
     </div>
 
-    <div class="waiver-prototype-note">
-      <strong>V1 local prototype.</strong> Claims persist only in this browser. Owner switching is intentionally open for testing.
-      In the live Supabase version, a successful owner login will lock this page to that owner only; there will be no team switcher.
-      Commissioner access will be a separate authorized view.
+    <div class="waiver-prototype-note waiver-live-note">
+      <strong>Private league tool.</strong> Sign in to access your sealed Week 0 claims. Your account is locked to one owner; other teams' bids are not visible.
     </div>
 
-    <div class="waiver-grid">
+    <section class="waiver-panel waiver-auth-gate" id="waiverAuthGate">
+      <div class="waiver-panel-kicker">PRIVATE LEAGUE ACCESS</div>
+      <h3>Sign in to Preseason Waivers</h3>
+      <p>Select your name and enter your league password.</p>
+      <form id="waiverLoginForm" class="waiver-login-form">
+        <label><span>Owner</span>
+          <select id="waiverLoginOwner" required>
+            <option value="">Select your name…</option>
+            <option value="Habble">Habble</option>
+            <option value="Zac">Zac</option>
+            <option value="Sam">Sam</option>
+            <option value="Cory">Cory</option>
+            <option value="Bob">Bob</option>
+            <option value="Adrian">Adrian</option>
+            <option value="Dan">Dan</option>
+            <option value="RJ">RJ</option>
+            <option value="Mac">Mac</option>
+            <option value="Ben">Ben</option>
+          </select>
+        </label>
+        <label><span>Password</span><input id="waiverLoginPassword" type="password" autocomplete="current-password" required></label>
+        <button class="primary" type="submit">Sign In</button>
+      </form>
+      <div id="waiverLoginStatus" class="waiver-login-status"></div>
+    </section>
+
+    <div class="waiver-grid hidden" id="waiverAuthenticatedGrid">
       <aside class="waiver-panel waiver-access-panel">
         <div class="waiver-panel-kicker">OWNER ACCESS</div>
         <h3>Your Claims</h3>
-        <label class="waiver-label" for="waiverOwnerSelect">Testing as</label>
-        <select id="waiverOwnerSelect"></select>
+        <label class="waiver-label hidden" id="waiverOwnerSelectLabel" for="waiverOwnerSelect">Testing as</label>
+        <select id="waiverOwnerSelect" class="hidden"></select>
+        <div class="waiver-signed-owner">
+          <span>Signed in as</span>
+          <strong id="waiverSignedInOwner">—</strong>
+        </div>
+        <button class="secondary waiver-logout" id="waiverLogoutButton" type="button">Sign Out</button>
         <div id="waiverOwnerStatus" class="waiver-owner-status"></div>
         <div class="waiver-budget">
           <span>Week 0 Budget</span>
@@ -4381,7 +4445,10 @@ body.dnl-presentation #prizeVault.dnl-active-view{
             <div class="waiver-panel-kicker">SEALED CLAIMS</div>
             <h3 id="waiverClaimsTitle">Claims</h3>
           </div>
-          <div id="waiverSubmissionBadge" class="waiver-status-pill">Not submitted</div>
+          <div class="waiver-submission-state">
+            <div id="waiverSubmissionBadge" class="waiver-status-pill">Not submitted</div>
+            <div id="waiverSubmissionMessage" class="waiver-submission-message">Changes are not sealed yet.</div>
+          </div>
         </div>
 
         <form id="waiverClaimForm" class="waiver-form">
@@ -4420,13 +4487,13 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 
         <div class="waiver-submit-row">
           <button class="primary" id="waiverSubmitClaims" type="button">Submit / Seal Claims</button>
-          <button class="secondary" id="waiverReopenClaims" type="button">Edit Submission</button>
+          <button class="secondary" id="waiverReopenClaims" type="button">Reopen / Edit Submission</button>
           <span id="waiverSubmitNote"></span>
         </div>
       </section>
     </div>
 
-    <section class="waiver-panel waiver-commissioner waiver-commissioner-only hidden" id="waiverCommissionerPanel">
+    <section class="waiver-panel waiver-commissioner hidden" id="waiverCommissionerPanel">
       <div class="waiver-panel-head">
         <div>
           <div class="waiver-panel-kicker">COMMISSIONER REVIEW</div>
@@ -4441,8 +4508,8 @@ body.dnl-presentation #prizeVault.dnl-active-view{
       <div class="waiver-commish-actions">
         <button class="secondary" id="waiverInspectClaims" type="button">Reveal / Inspect Claims</button>
         <button class="secondary" id="waiverHideClaims" type="button">Hide Claims</button>
-        <button class="secondary" id="waiverLoadDemo" type="button">Load Demo Claims</button>
-        <button class="secondary" id="waiverResetPrototype" type="button">Reset Prototype</button>
+        <button class="secondary hidden" id="waiverLoadDemo" type="button">Load Demo Claims</button>
+        <button class="secondary hidden" id="waiverResetPrototype" type="button">Reset Prototype</button>
       </div>
 
       <div id="waiverCommishClaims" class="waiver-commish-claims hidden"></div>
@@ -4453,9 +4520,13 @@ body.dnl-presentation #prizeVault.dnl-active-view{
           <h3>Run Week 0 Waivers</h3>
           <p>Production version will auto-process after the deadline. V1 lets the commissioner run the same engine manually for testing/review.</p>
         </div>
-        <button class="primary" id="waiverRunEngine" type="button">Run Waiver Preview</button>
+        <div class="waiver-preview-actions">
+          <button class="primary" id="waiverRunEngine" type="button">Run Waiver Preview</button>
+          <button class="secondary hidden" id="waiverHidePreview" type="button">Hide Waiver Preview</button>
+        </div>
       </div>
       <div id="waiverResults" class="waiver-results"></div>
+      <div id="waiverYahooActions" class="waiver-yahoo-actions"></div>
     </section>
   </div>
 </section>
@@ -5420,6 +5491,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 
 </main>
 <div class="tooltip" id="tooltip"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (async function bootBigBoard(){
 let LEAGUE_CONFIG;
@@ -11877,6 +11949,184 @@ function vaultReset(){
 /* =========================================================
    Preseason Waivers V1 local prototype
    ========================================================= */
+
+const WAIVER_SUPABASE_URL='https://aacfbuhyqegfinwgzsmc.supabase.co';
+const WAIVER_SUPABASE_KEY='sb_publishable_-VbgmLTdT4Eckdi5_XMz4A_LGqtJe5O';
+const WAIVER_LIVE_MODE=true;
+const WAIVER_DB=(window.supabase&&window.supabase.createClient)
+  ? window.supabase.createClient(WAIVER_SUPABASE_URL,WAIVER_SUPABASE_KEY)
+  : null;
+let WAIVER_AUTH_USER=null;
+let WAIVER_AUTH_OWNER=null;
+let WAIVER_EVENT=null;
+let WAIVER_OWNER_ROWS=[];
+let WAIVER_DB_SYNC=Promise.resolve();
+const WAIVER_AUTH_EMAIL_BY_OWNER={
+  Habble:"habble@bigboard.local",
+  Zac:"zac@bigboard.local",
+  Sam:"bron0623@gmail.com",
+  Cory:"cory@bigboard.local",
+  Bob:"bob@bigboard.local",
+  Adrian:"adrian@bigboard.local",
+  Dan:"dan@bigboard.local",
+  RJ:"rj@bigboard.local",
+  Mac:"mac@bigboard.local",
+  Ben:"ben@bigboard.local"
+};
+function waiverAuthEmailForOwner(owner){
+  return WAIVER_AUTH_EMAIL_BY_OWNER[owner]||"";
+}
+
+function waiverSetLoginStatus(message,type=""){
+  const el=document.getElementById("waiverLoginStatus");if(!el)return;
+  el.textContent=message||"";
+  el.className=`waiver-login-status ${type||""}`;
+}
+function waiverShowAuthGate(show){
+  document.getElementById("waiverAuthGate")?.classList.toggle("hidden",!show);
+  document.getElementById("waiverAuthenticatedGrid")?.classList.toggle("hidden",show);
+  if(show)document.getElementById("waiverCommissionerPanel")?.classList.add("hidden");
+}
+function waiverDbClaimRow(c,rank){
+  const canonical=waiverCanonicalPlayer(c.add);
+  const noDrop=c.drop==="NO_DROP";
+  return {
+    event_id:WAIVER_EVENT.id,
+    owner_id:WAIVER_AUTH_OWNER.id,
+    claim_rank:rank,
+    add_player_name:canonical.name,
+    add_player_key:canonical.key,
+    add_player_id:(WAIVER_PLAYER_POOL.find(p=>waiverMatchKey(p.name)===canonical.key)?.id)||null,
+    bid:+c.bid,
+    drop_player_name:noDrop?null:c.drop,
+    drop_player_key:noDrop?null:waiverMatchKey(c.drop),
+    no_drop:noDrop
+  };
+}
+async function waiverSyncCurrentOwnerClaims(){
+  if(!WAIVER_DB||!WAIVER_AUTH_OWNER||!WAIVER_EVENT)return;
+  const claims=waiverOwnerClaims(WAIVER_AUTH_OWNER.owner_name);
+  const del=await WAIVER_DB.from("waiver_claims").delete().eq("owner_id",WAIVER_AUTH_OWNER.id);
+  if(del.error)throw del.error;
+  if(claims.length){
+    const rows=claims.map((c,i)=>waiverDbClaimRow(c,i+1));
+    const ins=await WAIVER_DB.from("waiver_claims").insert(rows);
+    if(ins.error)throw ins.error;
+  }
+}
+function waiverQueueDbSync(){
+  if(!WAIVER_LIVE_MODE||!WAIVER_AUTH_OWNER)return;
+  WAIVER_DB_SYNC=WAIVER_DB_SYNC.then(()=>waiverSyncCurrentOwnerClaims()).catch(err=>{
+    console.error("Waiver claim sync failed",err);
+    alert("Your waiver changes could not be saved to the server. Please try again.");
+  });
+}
+async function waiverSyncSubmission(isSubmitted){
+  if(!WAIVER_DB||!WAIVER_AUTH_OWNER||!WAIVER_EVENT)return;
+  const payload={
+    is_submitted:!!isSubmitted,
+    submitted_at:isSubmitted?new Date().toISOString():null
+  };
+  const res=await WAIVER_DB.from("waiver_submissions").update(payload).eq("owner_id",WAIVER_AUTH_OWNER.id);
+  if(res.error)throw res.error;
+}
+async function waiverLoadLiveData(){
+  if(!WAIVER_DB||!WAIVER_AUTH_USER)return;
+  const eventRes=await WAIVER_DB.from("waiver_events").select("*").eq("season",2026).single();
+  if(eventRes.error)throw eventRes.error;
+  WAIVER_EVENT=eventRes.data;
+
+  const meRes=await WAIVER_DB.from("waiver_owners").select("*").eq("auth_user_id",WAIVER_AUTH_USER.id).single();
+  if(meRes.error)throw meRes.error;
+  WAIVER_AUTH_OWNER=meRes.data;
+  WAIVER_SESSION_OWNER=WAIVER_AUTH_OWNER.owner_name;
+
+  const ownerRes=await WAIVER_DB.from("waiver_owners").select("*").eq("event_id",WAIVER_EVENT.id).order("waiver_priority");
+  if(ownerRes.error)throw ownerRes.error;
+  WAIVER_OWNER_ROWS=ownerRes.data||[];
+
+  const claimsRes=await WAIVER_DB.from("waiver_claims").select("*").eq("event_id",WAIVER_EVENT.id).order("claim_rank");
+  if(claimsRes.error)throw claimsRes.error;
+  const submissionRes=await WAIVER_DB.from("waiver_submissions").select("*").eq("event_id",WAIVER_EVENT.id);
+  if(submissionRes.error)throw submissionRes.error;
+
+  const blank=waiverBlankState();
+  const visibleOwners=WAIVER_AUTH_OWNER.is_commissioner?WAIVER_OWNER_ROWS:[WAIVER_AUTH_OWNER];
+  visibleOwners.forEach(o=>{blank.claims[o.owner_name]=[];blank.submitted[o.owner_name]=false;});
+  (claimsRes.data||[]).forEach(r=>{
+    const owner=WAIVER_OWNER_ROWS.find(o=>o.id===r.owner_id)?.owner_name || WAIVER_AUTH_OWNER.owner_name;
+    if(!blank.claims[owner])blank.claims[owner]=[];
+    blank.claims[owner].push({
+      id:r.id,
+      add:r.add_player_name,
+      bid:+r.bid,
+      drop:r.no_drop?"NO_DROP":r.drop_player_name
+    });
+  });
+  (submissionRes.data||[]).forEach(r=>{
+    const owner=WAIVER_OWNER_ROWS.find(o=>o.id===r.owner_id)?.owner_name || (r.owner_id===WAIVER_AUTH_OWNER.id?WAIVER_AUTH_OWNER.owner_name:null);
+    if(owner)blank.submitted[owner]=!!r.is_submitted;
+  });
+  if(WAIVER_AUTH_OWNER.is_commissioner && WAIVER_OWNER_ROWS.length){
+    blank.priority=WAIVER_OWNER_ROWS.slice().sort((a,b)=>a.waiver_priority-b.waiver_priority).map(o=>o.owner_name);
+  }else{
+    blank.priority=[...WAIVER_STARTING_PRIORITY];
+  }
+  WAIVER_STATE=blank;
+  document.getElementById("waiverSignedInOwner").textContent=WAIVER_AUTH_OWNER.owner_name+(WAIVER_AUTH_OWNER.is_commissioner?" · Commissioner":"");
+  waiverShowAuthGate(false);
+  renderPreseasonWaivers();
+}
+async function waiverLogin(event){
+  event.preventDefault();
+  if(!WAIVER_DB)return waiverSetLoginStatus("Supabase failed to load. Refresh the page and try again.","error");
+  const owner=document.getElementById("waiverLoginOwner").value;
+  const email=waiverAuthEmailForOwner(owner);
+  const password=document.getElementById("waiverLoginPassword").value;
+  if(!owner||!email)return waiverSetLoginStatus("Select your owner name first.","error");
+  waiverSetLoginStatus("Signing in…");
+  const res=await WAIVER_DB.auth.signInWithPassword({email,password});
+  if(res.error)return waiverSetLoginStatus(res.error.message,"error");
+  WAIVER_AUTH_USER=res.data.user;
+  try{
+    await waiverLoadLiveData();
+    waiverSetLoginStatus("");
+  }catch(err){
+    console.error(err);
+    waiverSetLoginStatus("Login worked, but this account is not linked to a league owner yet.","error");
+    await WAIVER_DB.auth.signOut();
+    WAIVER_AUTH_USER=null;WAIVER_AUTH_OWNER=null;
+  }
+}
+async function waiverLogout(){
+  if(WAIVER_DB)await WAIVER_DB.auth.signOut();
+  WAIVER_AUTH_USER=null;WAIVER_AUTH_OWNER=null;WAIVER_EVENT=null;WAIVER_OWNER_ROWS=[];
+  WAIVER_STATE=waiverBlankState();
+  waiverResetForm();
+  waiverShowAuthGate(true);
+  const ownerSel=document.getElementById("waiverLoginOwner");if(ownerSel)ownerSel.value="";
+  const pw=document.getElementById("waiverLoginPassword");if(pw)pw.value="";
+  waiverSetLoginStatus("Signed out.","ok");
+}
+async function waiverAuthInit(){
+  if(!WAIVER_DB){
+    waiverShowAuthGate(true);
+    return waiverSetLoginStatus("Supabase library could not load.","error");
+  }
+  const sessionRes=await WAIVER_DB.auth.getSession();
+  const session=sessionRes.data?.session;
+  if(!session){
+    waiverShowAuthGate(true);
+    return;
+  }
+  WAIVER_AUTH_USER=session.user;
+  try{await waiverLoadLiveData();}
+  catch(err){
+    console.error(err);
+    waiverShowAuthGate(true);
+    waiverSetLoginStatus("Could not load your waiver account.","error");
+  }
+}
 const WAIVER_PLAYER_POOL=[{"name":"Jahmyr Gibbs","position":"RB","team":"DET","rank":1,"id":"28741"},{"name":"Bijan Robinson","position":"RB","team":"ATL","rank":2,"id":"28755"},{"name":"Puka Nacua","position":"WR","team":"LA","rank":3,"id":"28819"},{"name":"Ja'Marr Chase","position":"WR","team":"CIN","rank":4,"id":"28227"},{"name":"Jaxon Smith-Njigba","position":"WR","team":"SEA","rank":5,"id":"28828"},{"name":"Christian McCaffrey","position":"RB","team":"SF","rank":6,"id":"26905"},{"name":"Brock Bowers","position":"TE","team":"LV","rank":7,"id":"29126"},{"name":"Amon-Ra St Brown","position":"WR","team":"DET","rank":8,"id":"28234"},{"name":"Justin Jefferson","position":"WR","team":"MIN","rank":9,"id":"27953"},{"name":"Jonathan Taylor","position":"RB","team":"IND","rank":10,"id":"27913"},{"name":"Trey McBride","position":"TE","team":"ARI","rank":11,"id":"28566"},{"name":"CeeDee Lamb","position":"WR","team":"DAL","rank":12,"id":"27946"},{"name":"James Cook","position":"RB","team":"BUF","rank":13,"id":"28458"},{"name":"Saquon Barkley","position":"RB","team":"PHI","rank":14,"id":"27227"},{"name":"Ashton Jeanty","position":"RB","team":"LV","rank":15,"id":"29355"},{"name":"Kenneth Walker","position":"RB","team":"KC","rank":16,"id":"28465"},{"name":"Omarion Hampton","position":"RB","team":"LAC","rank":17,"id":"29356"},{"name":"Chase Brown","position":"RB","team":"CIN","rank":18,"id":"28737"},{"name":"Colston Loveland","position":"TE","team":"CHI","rank":19,"id":"29450"},{"name":"De'Von Achane","position":"RB","team":"MIA","rank":20,"id":"28735"},{"name":"Derrick Henry","position":"RB","team":"BAL","rank":21,"id":"26606"},{"name":"Drake London","position":"WR","team":"ATL","rank":22,"id":"28501"},{"name":"Chris Olave","position":"WR","team":"NO","rank":23,"id":"28233"},{"name":"Nico Collins","position":"WR","team":"HOU","rank":24,"id":"28236"},{"name":"AJ Brown","position":"WR","team":"NE","rank":25,"id":"27609"},{"name":"Breece Hall","position":"RB","team":"NYJ","rank":26,"id":"28448"},{"name":"Jeremiyah Love","position":"RB","team":"ARI","rank":27,"id":"29655"},{"name":"George Pickens","position":"WR","team":"DAL","rank":28,"id":"28505"},{"name":"Rashee Rice","position":"WR","team":"KC","rank":29,"id":"28824"},{"name":"Malik Nabers","position":"WR","team":"NYG","rank":30,"id":"29066"},{"name":"Kyren Williams","position":"RB","team":"LA","rank":31,"id":"28467"},{"name":"Tyler Warren","position":"TE","team":"IND","rank":32,"id":"29451"},{"name":"Travis Etienne","position":"RB","team":"NO","rank":33,"id":"28197"},{"name":"Garrett Wilson","position":"WR","team":"NYJ","rank":34,"id":"28504"},{"name":"Javonte Williams","position":"RB","team":"DAL","rank":35,"id":"28199"},{"name":"Josh Jacobs","position":"RB","team":"GB","rank":36,"id":"27583"},{"name":"Ladd McConkey","position":"WR","team":"LAC","rank":37,"id":"29075"},{"name":"Devonta Smith","position":"WR","team":"PHI","rank":38,"id":"28229"},{"name":"Zay Flowers","position":"WR","team":"BAL","rank":39,"id":"28801"},{"name":"Josh Allen","position":"QB","team":"BUF","rank":40,"id":"27208"},{"name":"Emeka Egbuka","position":"WR","team":"TB","rank":41,"id":"29398"},{"name":"Jaylen Waddle","position":"WR","team":"DEN","rank":42,"id":"28228"},{"name":"Tee Higgins","position":"WR","team":"CIN","rank":43,"id":"27950"},{"name":"D'Andre Swift","position":"RB","team":"CHI","rank":44,"id":"27912"},{"name":"Tetairoa McMillan","position":"WR","team":"CAR","rank":45,"id":"29396"},{"name":"Cam Skattebo","position":"RB","team":"NYG","rank":46,"id":"29360"},{"name":"Luther Burden","position":"WR","team":"CHI","rank":47,"id":"29397"},{"name":"Davante Adams","position":"WR","team":"LA","rank":48,"id":"14287"},{"name":"Bucky Irving","position":"RB","team":"TB","rank":49,"id":"29027"},{"name":"David Montgomery","position":"RB","team":"HOU","rank":50,"id":"27580"},{"name":"Jameson Williams","position":"WR","team":"DET","rank":51,"id":"28510"},{"name":"Terry McLaurin","position":"WR","team":"WAS","rank":52,"id":"27666"},{"name":"Harold Fannin","position":"TE","team":"CLE","rank":53,"id":"29452"},{"name":"Sam LaPorta","position":"TE","team":"DET","rank":54,"id":"28563"},{"name":"Tucker Kraft","position":"TE","team":"GB","rank":55,"id":"28770"},{"name":"Bhayshul Tuten","position":"RB","team":"JAX","rank":56,"id":"29375"},{"name":"Kyle Pitts","position":"TE","team":"ATL","rank":57,"id":"28282"},{"name":"DJ Moore","position":"WR","team":"BUF","rank":58,"id":"27273"},{"name":"TreVeyon Henderson","position":"RB","team":"NE","rank":59,"id":"29357"},{"name":"Jadarian Price","position":"RB","team":"SEA","rank":60,"id":"29656"},{"name":"Mike Evans","position":"WR","team":"SF","rank":61,"id":"14038"},{"name":"Quinshon Judkins","position":"RB","team":"CLE","rank":62,"id":"29358"},{"name":"Jaylen Warren","position":"RB","team":"PIT","rank":63,"id":"28597"},{"name":"Rhamondre Stevenson","position":"RB","team":"NE","rank":64,"id":"28201"},{"name":"Parker Washington","position":"WR","team":"JAX","rank":65,"id":"28832"},{"name":"Lamar Jackson","position":"QB","team":"BAL","rank":66,"id":"27204"},{"name":"Christian Watson","position":"WR","team":"GB","rank":67,"id":"28496"},{"name":"Rico Dowdle","position":"RB","team":"PIT","rank":68,"id":"28106"},{"name":"DK Metcalf","position":"WR","team":"PIT","rank":69,"id":"27606"},{"name":"George Kittle","position":"TE","team":"SF","rank":70,"id":"26990"},{"name":"Joe Burrow","position":"QB","team":"CIN","rank":71,"id":"27887"},{"name":"Carnell Tate","position":"WR","team":"TEN","rank":72,"id":"29693"},{"name":"RJ Harvey","position":"RB","team":"DEN","rank":73,"id":"29367"},{"name":"Tony Pollard","position":"RB","team":"TEN","rank":74,"id":"27670"},{"name":"Jonathon Brooks","position":"RB","team":"CAR","rank":75,"id":"29029"},{"name":"Marvin Harrison","position":"WR","team":"ARI","rank":76,"id":"29065"},{"name":"Jayden Daniels","position":"QB","team":"WAS","rank":77,"id":"29004"},{"name":"Rome Odunze","position":"WR","team":"CHI","rank":78,"id":"29067"},{"name":"Brian Thomas","position":"WR","team":"JAX","rank":79,"id":"29070"},{"name":"Kenneth Gainwell","position":"RB","team":"TB","rank":80,"id":"28202"},{"name":"Blake Corum","position":"RB","team":"LA","rank":81,"id":"29028"},{"name":"Jalen Hurts","position":"QB","team":"PHI","rank":82,"id":"27893"},{"name":"Drake Maye","position":"QB","team":"NE","rank":83,"id":"29012"},{"name":"Jayden Reed","position":"WR","team":"GB","rank":84,"id":"28822"},{"name":"Travis Kelce","position":"TE","team":"KC","rank":85,"id":"14618"},{"name":"Dalton Kincaid","position":"TE","team":"BUF","rank":86,"id":"28769"},{"name":"Dallas Goedert","position":"TE","team":"PHI","rank":87,"id":"27309"},{"name":"Chuba Hubbard","position":"RB","team":"CAR","rank":88,"id":"27921"},{"name":"Dak Prescott","position":"QB","team":"DAL","rank":89,"id":"26593"},{"name":"Josh Downs","position":"WR","team":"IND","rank":90,"id":"28800"},{"name":"Chris Godwin","position":"WR","team":"TB","rank":91,"id":"26943"},{"name":"Jacory Croskey-Merritt","position":"RB","team":"WAS","rank":92,"id":"29388"},{"name":"Justin Herbert","position":"QB","team":"LAC","rank":93,"id":"27889"},{"name":"Caleb Williams","position":"QB","team":"CHI","rank":94,"id":"29025"},{"name":"Quentin Johnston","position":"WR","team":"LAC","rank":95,"id":"28814"},{"name":"Jake Ferguson","position":"TE","team":"DAL","rank":96,"id":"28553"},{"name":"JK Dobbins","position":"RB","team":"DEN","rank":97,"id":"27914"},{"name":"Michael Pittman","position":"WR","team":"PIT","rank":98,"id":"27957"},{"name":"Jordan Addison","position":"WR","team":"MIN","rank":99,"id":"28786"},{"name":"Rachaad White","position":"RB","team":"WAS","rank":100,"id":"28472"},{"name":"Jordan Mason","position":"RB","team":"MIN","rank":101,"id":"28462"},{"name":"Matthew Stafford","position":"QB","team":"LA","rank":102,"id":"T0635"},{"name":"Kyle Monangai","position":"RB","team":"CHI","rank":103,"id":"29394"},{"name":"Courtland Sutton","position":"WR","team":"DEN","rank":104,"id":"27258"},{"name":"Stefon Diggs","position":"WR","team":"WAS","rank":105,"id":"24567"},{"name":"Michael Wilson","position":"WR","team":"ARI","rank":106,"id":"28836"},{"name":"Isaiah Likely","position":"TE","team":"NYG","rank":107,"id":"28552"},{"name":"Makai Lemon","position":"WR","team":"PHI","rank":108,"id":"29695"},{"name":"Wan'Dale Robinson","position":"WR","team":"TEN","rank":109,"id":"28540"},{"name":"Matthew Golden","position":"WR","team":"GB","rank":110,"id":"29410"},{"name":"Trevor Lawrence","position":"QB","team":"JAX","rank":111,"id":"28179"},{"name":"Xavier Worthy","position":"WR","team":"KC","rank":112,"id":"29073"},{"name":"Mark Andrews","position":"TE","team":"BAL","rank":113,"id":"27307"},{"name":"Juwan Johnson","position":"TE","team":"NO","rank":114,"id":"27986"},{"name":"Patrick Mahomes","position":"QB","team":"KC","rank":115,"id":"26890"},{"name":"Alec Pierce","position":"WR","team":"IND","rank":116,"id":"28489"},{"name":"KC Concepcion","position":"WR","team":"CLE","rank":117,"id":"29697"},{"name":"Jakobi Meyers","position":"WR","team":"JAX","rank":118,"id":"27723"},{"name":"Chris Rodriguez","position":"RB","team":"JAX","rank":119,"id":"28756"},{"name":"Khalil Shakir","position":"WR","team":"BUF","rank":120,"id":"28521"},{"name":"Brock Purdy","position":"QB","team":"SF","rank":121,"id":"28429"},{"name":"Aaron Jones","position":"RB","team":"MIN","rank":122,"id":"26930"},{"name":"De'Zhaun Stribling","position":"WR","team":"SF","rank":123,"id":"29721"},{"name":"Kyler Murray","position":"QB","team":"MIN","rank":124,"id":"27571"},{"name":"Keaton Mitchell","position":"RB","team":"LAC","rank":125,"id":"28751"},{"name":"Jordan Love","position":"QB","team":"GB","rank":126,"id":"27890"},{"name":"Jaxson Dart","position":"QB","team":"NYG","rank":127,"id":"29341"},{"name":"Dalton Schultz","position":"TE","team":"HOU","rank":128,"id":"27313"},{"name":"Romeo Doubs","position":"WR","team":"NE","rank":129,"id":"28527"},{"name":"Brenton Strange","position":"TE","team":"JAX","rank":130,"id":"28779"},{"name":"Bo Nix","position":"QB","team":"DEN","rank":131,"id":"28724"},{"name":"Jalen Coker","position":"WR","team":"CAR","rank":132,"id":"29096"},{"name":"Chig Okonkwo","position":"TE","team":"WAS","rank":133,"id":"28543"},{"name":"Tyjae Spears","position":"RB","team":"TEN","rank":134,"id":"28757"},{"name":"TJ Hockenson","position":"TE","team":"MIN","rank":135,"id":"27638"},{"name":"Hunter Henry","position":"TE","team":"NE","rank":136,"id":"26672"},{"name":"Jared Goff","position":"QB","team":"DET","rank":137,"id":"26588"},{"name":"Brandon Aubrey","position":"K","team":"DAL","rank":138,"id":"28985"},{"name":"Deebo Samuel","position":"WR","team":"SF","rank":139,"id":"27613"},{"name":"Malik Willis","position":"QB","team":"MIA","rank":140,"id":"28441"},{"name":"Denzel Boston","position":"WR","team":"CLE","rank":141,"id":"29696"},{"name":"Woody Marks","position":"RB","team":"HOU","rank":142,"id":"29361"},{"name":"Rashid Shaheed","position":"WR","team":"SEA","rank":143,"id":"28625"},{"name":"Tank Bigsby","position":"RB","team":"PHI","rank":144,"id":"28736"},{"name":"Jordyn Tyson","position":"WR","team":"NO","rank":145,"id":"29694"},{"name":"Tyler Allgeier","position":"RB","team":"ARI","rank":146,"id":"28482"},{"name":"CJ Stroud","position":"QB","team":"HOU","rank":147,"id":"28728"},{"name":"Baker Mayfield","position":"QB","team":"TB","rank":148,"id":"27207"},{"name":"Jonah Coleman","position":"RB","team":"DEN","rank":149,"id":"29657"},{"name":"Jaydon Blue","position":"RB","team":"DAL","rank":150,"id":"29392"},{"name":"MarShawn Lloyd","position":"RB","team":"GB","rank":151,"id":"29034"},{"name":"Dylan Sampson","position":"RB","team":"CLE","rank":152,"id":"29365"},{"name":"Cameron Dicker","position":"K","team":"LAC","rank":153,"id":"28706"},{"name":"Jason Myers","position":"K","team":"SEA","rank":154,"id":"24640"},{"name":"SEA DST","position":"DST","team":"SEA","rank":155,"id":"DSEAH"},{"name":"Keenan Allen","position":"WR","team":"IND","rank":156,"id":"12970"},{"name":"Terrance Ferguson","position":"TE","team":"LA","rank":157,"id":"29455"},{"name":"Ka'imi Fairbairn","position":"K","team":"HOU","rank":158,"id":"26692"},{"name":"Cade Otton","position":"TE","team":"TB","rank":159,"id":"28302"},{"name":"Alvin Kamara","position":"RB","team":"NO","rank":160,"id":"26906"},{"name":"Kenyon Sadiq","position":"TE","team":"NYJ","rank":161,"id":"29767"},{"name":"Bryce Young","position":"QB","team":"CAR","rank":162,"id":"28733"},{"name":"Brian Robinson","position":"RB","team":"ATL","rank":163,"id":"28217"},{"name":"Daniel Jones","position":"QB","team":"IND","rank":164,"id":"27573"},{"name":"Cameron Ward","position":"QB","team":"TEN","rank":165,"id":"29337"},{"name":"Jalen Nailor","position":"WR","team":"LV","rank":166,"id":"28508"},{"name":"Jalen McMillan","position":"WR","team":"TB","rank":167,"id":"29081"},{"name":"Pat Freiermuth","position":"TE","team":"PIT","rank":168,"id":"28283"},{"name":"Tre Tucker","position":"WR","team":"LV","rank":169,"id":"28831"},{"name":"Sam Darnold","position":"QB","team":"SEA","rank":170,"id":"27206"},{"name":"Eddy Pineiro","position":"K","team":"SF","rank":171,"id":"27327"},{"name":"Zach Charbonnet","position":"RB","team":"SEA","rank":172,"id":"28738"},{"name":"Tre' Harris","position":"WR","team":"LAC","rank":173,"id":"29400"},{"name":"LAC DST","position":"DST","team":"LAC","rank":174,"id":"DCHGR"},{"name":"Emmett Johnson","position":"RB","team":"KC","rank":175,"id":"29658"},{"name":"Cam Little","position":"K","team":"JAX","rank":176,"id":"29152"},{"name":"Ray Davis","position":"RB","team":"BUF","rank":177,"id":"29037"},{"name":"JAX DST","position":"DST","team":"JAX","rank":178,"id":"DJGRS"},{"name":"LA DST","position":"DST","team":"LA","rank":179,"id":"DRAMS"},{"name":"Aaron Rodgers","position":"QB","team":"PIT","rank":180,"id":"7200"},{"name":"AJ Barner","position":"TE","team":"SEA","rank":181,"id":"29139"},{"name":"Will Reichard","position":"K","team":"MIN","rank":182,"id":"28712"},{"name":"HOU DST","position":"DST","team":"HOU","rank":183,"id":"DTEXN"},{"name":"Chris Boswell","position":"K","team":"PIT","rank":184,"id":"24354"},{"name":"Justice Hill","position":"RB","team":"BAL","rank":185,"id":"27590"},{"name":"Gunnar Helm","position":"TE","team":"TEN","rank":186,"id":"29456"},{"name":"Tyler Loop","position":"K","team":"BAL","rank":187,"id":"29483"},{"name":"Tyler Shough","position":"QB","team":"NO","rank":188,"id":"29347"},{"name":"Harrison Butker","position":"K","team":"KC","rank":189,"id":"27010"},{"name":"PIT DST","position":"DST","team":"PIT","rank":190,"id":"DSTLR"},{"name":"PHI DST","position":"DST","team":"PHI","rank":191,"id":"DEAGL"},{"name":"Braelon Allen","position":"RB","team":"NYJ","rank":192,"id":"29032"},{"name":"DEN DST","position":"DST","team":"DEN","rank":193,"id":"DBRNC"},{"name":"Sean Tucker","position":"RB","team":"TB","rank":194,"id":"28760"},{"name":"Pat Bryant","position":"WR","team":"DEN","rank":195,"id":"29411"},{"name":"Samaje Perine","position":"RB","team":"CIN","rank":196,"id":"26909"},{"name":"Ryan Flournoy","position":"WR","team":"DAL","rank":197,"id":"29170"},{"name":"Jordan James","position":"RB","team":"SF","rank":198,"id":"29379"},{"name":"Isiah Pacheco","position":"RB","team":"DET","rank":199,"id":"28457"},{"name":"TEN DST","position":"DST","team":"TEN","rank":200,"id":"DTITN"},{"name":"Jake Bates","position":"K","team":"DET","rank":201,"id":"28996"},{"name":"Chase McLaughlin","position":"K","team":"TB","rank":202,"id":"27853"},{"name":"Harrison Mevis","position":"K","team":"LA","rank":203,"id":"28837"},{"name":"Mike Washington","position":"RB","team":"LV","rank":204,"id":"29662"},{"name":"Adonai Mitchell","position":"WR","team":"NYJ","rank":205,"id":"29072"},{"name":"Cairo Santos","position":"K","team":"CHI","rank":206,"id":"24406"},{"name":"MIN DST","position":"DST","team":"MIN","rank":207,"id":"DVIKS"},{"name":"Oronde Gadsden","position":"TE","team":"LAC","rank":208,"id":"29457"},{"name":"Joey Slye","position":"K","team":"TEN","rank":209,"id":"27840"},{"name":"Kaelon Black","position":"RB","team":"SF","rank":210,"id":"29674"},{"name":"Fernando Mendoza","position":"QB","team":"LV","rank":211,"id":"29626"},{"name":"DET DST","position":"DST","team":"DET","rank":212,"id":"DLION"},{"name":"DAL DST","position":"DST","team":"DAL","rank":213,"id":"DCWBY"},{"name":"Tyrone Tracy","position":"RB","team":"NYG","rank":214,"id":"29161"},{"name":"KC DST","position":"DST","team":"KC","rank":215,"id":"DCHFS"},{"name":"Kimani Vidal","position":"RB","team":"LAC","rank":216,"id":"29041"},{"name":"Ty Johnson","position":"RB","team":"BUF","rank":217,"id":"27693"},{"name":"NE DST","position":"DST","team":"NE","rank":218,"id":"DPATS"},{"name":"Calvin Ridley","position":"WR","team":"TEN","rank":219,"id":"27263"},{"name":"Greg Dulcich","position":"TE","team":"MIA","rank":220,"id":"28551"},{"name":"BUF DST","position":"DST","team":"BUF","rank":221,"id":"DBILL"},{"name":"Seth McGowan","position":"RB","team":"IND","rank":222,"id":"29665"},{"name":"Demond Claiborne","position":"RB","team":"MIN","rank":223,"id":"29661"},{"name":"TB DST","position":"DST","team":"TB","rank":224,"id":"DBUCS"},{"name":"Andy Borregales","position":"K","team":"NE","rank":225,"id":"29470"},{"name":"NO DST","position":"DST","team":"NO","rank":226,"id":"DSNTS"},{"name":"Chad Ryland","position":"K","team":"ARI","rank":227,"id":"28714"},{"name":"SF DST","position":"DST","team":"SF","rank":228,"id":"D49RS"},{"name":"IND DST","position":"DST","team":"IND","rank":229,"id":"DCOLT"},{"name":"Evan McPherson","position":"K","team":"CIN","rank":230,"id":"28304"},{"name":"BAL DST","position":"DST","team":"BAL","rank":231,"id":"DRAVN"},{"name":"NYJ DST","position":"DST","team":"NYJ","rank":232,"id":"DJETS"},{"name":"Devaughn Vele","position":"WR","team":"NO","rank":233,"id":"29092"},{"name":"CLE DST","position":"DST","team":"CLE","rank":234,"id":"DBRWN"},{"name":"Omar Cooper","position":"WR","team":"NYJ","rank":235,"id":"29705"},{"name":"Nicholas Singleton","position":"RB","team":"TEN","rank":236,"id":"29659"},{"name":"Nick Folk","position":"K","team":"ATL","rank":237,"id":"8432"},{"name":"NYG DST","position":"DST","team":"NYG","rank":238,"id":"DGIAN"},{"name":"Jauan Jennings","position":"WR","team":"MIN","rank":239,"id":"27976"},{"name":"Colby Parkinson","position":"TE","team":"LA","rank":240,"id":"28001"},{"name":"CAR DST","position":"DST","team":"CAR","rank":241,"id":"DPTHR"},{"name":"GB DST","position":"DST","team":"GB","rank":242,"id":"DPCKR"},{"name":"Ryan Fitzgerald","position":"K","team":"CAR","rank":243,"id":"29468"},{"name":"Evan Engram","position":"TE","team":"DEN","rank":244,"id":"26974"},{"name":"Jake Elliott","position":"K","team":"PHI","rank":245,"id":"26993"},{"name":"CIN DST","position":"DST","team":"CIN","rank":246,"id":"DBNGL"},{"name":"WAS DST","position":"DST","team":"WAS","rank":247,"id":"DSKNS"},{"name":"LV DST","position":"DST","team":"LV","rank":248,"id":"DRDRS"},{"name":"Charlie Smyth","position":"K","team":"NO","rank":249,"id":"29164"},{"name":"Zane Gonzalez","position":"K","team":"MIA","rank":250,"id":"26992"},{"name":"Darren Waller","position":"TE","team":"CAR","rank":251,"id":"24668"},{"name":"ARI DST","position":"DST","team":"ARI","rank":252,"id":"DCARD"},{"name":"Kaytron Allen","position":"RB","team":"WAS","rank":253,"id":"29660"},{"name":"Jerry Jeudy","position":"WR","team":"CLE","rank":254,"id":"27945"},{"name":"CHI DST","position":"DST","team":"CHI","rank":255,"id":"DBEAR"},{"name":"MIA DST","position":"DST","team":"MIA","rank":256,"id":"DDLPN"},{"name":"ATL DST","position":"DST","team":"ATL","rank":257,"id":"DFALC"},{"name":"Cyrus Allen","position":"WR","team":"KC","rank":258,"id":"29761"},{"name":"Caleb Douglas","position":"WR","team":"MIA","rank":259,"id":"29732"},{"name":"Blake Grupe","position":"K","team":"IND","rank":260,"id":"28855"},{"name":"Travis Hunter","position":"WR","team":"JAX","rank":261,"id":"29395"},{"name":"Isaiah Davis","position":"RB","team":"NYJ","rank":262,"id":"29046"},{"name":"Jaylin Noel","position":"WR","team":"HOU","rank":263,"id":"29118"},{"name":"Michael Mayer","position":"TE","team":"LV","rank":264,"id":"28774"},{"name":"Jake Moody","position":"K","team":"WAS","rank":265,"id":"28709"},{"name":"Ja'Kobi Lane","position":"WR","team":"BAL","rank":266,"id":"29702"},{"name":"Wil Lutz","position":"K","team":"DEN","rank":267,"id":"26836"},{"name":"Malik Washington","position":"WR","team":"MIA","rank":268,"id":"29099"},{"name":"Zachariah Branch","position":"WR","team":"ATL","rank":269,"id":"29701"},{"name":"Dontayvion Wicks","position":"WR","team":"PHI","rank":270,"id":"28834"},{"name":"Tyler Bass","position":"K","team":"BUF","rank":271,"id":"28017"},{"name":"Germie Bernard","position":"WR","team":"PIT","rank":272,"id":"29703"},{"name":"Dawson Knox","position":"TE","team":"BUF","rank":273,"id":"27643"},{"name":"Malachi Fields","position":"WR","team":"NYG","rank":274,"id":"29704"},{"name":"Jason Sanders","position":"K","team":"NYG","rank":275,"id":"27345"},{"name":"Emanuel Wilson","position":"RB","team":"SEA","rank":276,"id":"28961"},{"name":"Chris Brooks","position":"RB","team":"GB","rank":277,"id":"28838"},{"name":"Geno Smith","position":"QB","team":"NYJ","rank":278,"id":"11327"},{"name":"Rashod Bateman","position":"WR","team":"BAL","rank":279,"id":"28230"},{"name":"George Holani","position":"RB","team":"SEA","rank":280,"id":"29052"},{"name":"Jaylen Wright","position":"RB","team":"MIA","rank":281,"id":"29044"},{"name":"Cooper Kupp","position":"WR","team":"SEA","rank":282,"id":"26937"},{"name":"James Conner","position":"RB","team":"ARI","rank":283,"id":"26916"},{"name":"DJ Giddens","position":"RB","team":"IND","rank":284,"id":"29366"},{"name":"Tank Dell","position":"WR","team":"HOU","rank":285,"id":"28796"},{"name":"Matt Gay","position":"K","team":"LV","rank":286,"id":"27651"},{"name":"Darnell Washington","position":"TE","team":"PIT","rank":287,"id":"28782"},{"name":"Jacoby Brissett","position":"QB","team":"ARI","rank":288,"id":"26601"},{"name":"Charlie Kolar","position":"TE","team":"LAC","rank":289,"id":"28286"},{"name":"Theo Johnson","position":"TE","team":"NYG","rank":290,"id":"29137"},{"name":"Mike Gesicki","position":"TE","team":"CIN","rank":291,"id":"27312"},{"name":"Najee Harris","position":"RB","team":"NYG","rank":292,"id":"27920"},{"name":"Andre Szmyt","position":"K","team":"CLE","rank":293,"id":"28715"},{"name":"Kayshon Boutte","position":"WR","team":"NE","rank":294,"id":"28790"},{"name":"Cade York","position":"K","team":"NYJ","rank":295,"id":"28568"},{"name":"Jahan Dotson","position":"WR","team":"ATL","rank":296,"id":"28270"},{"name":"Cole Kmet","position":"TE","team":"CHI","rank":297,"id":"27998"},{"name":"Tyquan Thornton","position":"WR","team":"KC","rank":298,"id":"28538"},{"name":"Trevor Etienne","position":"RB","team":"CAR","rank":299,"id":"29378"},{"name":"Chris Bell","position":"WR","team":"MIA","rank":300,"id":"29698"}];
 const WAIVER_OWNERS=["Habble","Zac","Sam","Cory","Bob","Adrian","Dan","RJ","Mac","Ben"];
 const WAIVER_STARTING_PRIORITY=["Mac","Sam","Zac","RJ","Habble","Cory","Adrian","Bob","Dan","Ben"];
@@ -11909,7 +12159,8 @@ function waiverLoad(){
 }
 function waiverSave(){
   WAIVER_STATE.updatedAt=new Date().toISOString();
-  localStorage.setItem(WAIVER_STORAGE_KEY,JSON.stringify(WAIVER_STATE));
+  if(!WAIVER_LIVE_MODE)localStorage.setItem(WAIVER_STORAGE_KEY,JSON.stringify(WAIVER_STATE));
+  if(WAIVER_LIVE_MODE)waiverQueueDbSync();
 }
 function waiverEsc(v){return String(v??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
 function waiverMoney(n){return `$${Number(n||0).toLocaleString()}`}
@@ -12024,7 +12275,10 @@ function waiverUpdateAddPlayerNote(){
   }
 }
 
-function waiverPriorityNumber(owner){const i=WAIVER_STATE.priority.indexOf(owner);return i>=0?i+1:"—"}
+function waiverPriorityNumber(owner){
+  if(WAIVER_LIVE_MODE && WAIVER_AUTH_OWNER && owner===WAIVER_AUTH_OWNER.owner_name)return WAIVER_AUTH_OWNER.waiver_priority;
+  const i=WAIVER_STATE.priority.indexOf(owner);return i>=0?i+1:"—";
+}
 function waiverRotatePriority(owner,priority){
   const arr=[...priority],i=arr.indexOf(owner);
   if(i>=0){arr.splice(i,1);arr.push(owner)}
@@ -12032,6 +12286,12 @@ function waiverRotatePriority(owner,priority){
 }
 function waiverRenderOwnerSelect(){
   const sel=document.getElementById("waiverOwnerSelect");if(!sel)return;
+  if(WAIVER_LIVE_MODE){
+    sel.innerHTML=WAIVER_AUTH_OWNER?`<option value="${waiverEsc(WAIVER_AUTH_OWNER.owner_name)}">${waiverEsc(WAIVER_AUTH_OWNER.owner_name)}</option>`:"";
+    sel.classList.add("hidden");
+    document.getElementById("waiverOwnerSelectLabel")?.classList.add("hidden");
+    return;
+  }
   sel.innerHTML=WAIVER_OWNERS.map(o=>`<option value="${o}" ${o===WAIVER_SESSION_OWNER?"selected":""}>${o}</option>`).join("");
 }
 function waiverRenderClaims(){
@@ -12046,8 +12306,13 @@ function waiverRenderClaims(){
   const claims=waiverOwnerClaims();
   const sealed=!!WAIVER_STATE.submitted[WAIVER_SESSION_OWNER];
   title.textContent=`${WAIVER_SESSION_OWNER}'s Claims`;
-  badge.textContent=sealed?"Submitted":"Not submitted";
+  const submissionMessage=document.getElementById("waiverSubmissionMessage");
+  badge.textContent=sealed?"✓ CLAIMS SUBMITTED":"NOT SUBMITTED";
   badge.classList.toggle("submitted",sealed);
+  if(submissionMessage){
+    submissionMessage.textContent=sealed?"You’re all set. Your claims are sealed and saved.":"Changes are not sealed yet.";
+    submissionMessage.classList.toggle("submitted",sealed);
+  }
   document.getElementById("waiverPriorityDisplay").textContent=`#${waiverPriorityNumber(WAIVER_SESSION_OWNER)}`;
   document.getElementById("waiverBudgetDisplay").textContent=waiverMoney(WAIVER_STARTING_BUDGET);
   document.getElementById("waiverOwnerStatus").textContent=sealed
@@ -12056,7 +12321,7 @@ function waiverRenderClaims(){
   submit.disabled=sealed||!claims.length;
   reopen.disabled=!sealed;
   document.getElementById("waiverClaimForm").querySelectorAll("input,button").forEach(el=>{if(el.id!=="waiverCancelEdit")el.disabled=sealed});
-  document.getElementById("waiverSubmitNote").textContent=sealed?"Submission sealed. You may reopen and edit before the deadline.":"Submitting seals this owner's current list.";
+  document.getElementById("waiverSubmitNote").textContent=sealed?"Submission sealed and saved. Editing any claim will reopen the submission.":"Submitting seals this owner's current list.";
   if(!claims.length){
     list.innerHTML='<div class="waiver-empty">No claims yet. Add a player above to begin your ranked waiver list.</div>';
     return;
@@ -12069,8 +12334,8 @@ function waiverRenderClaims(){
     <div class="waiver-claim-actions">
       <button type="button" data-waiver-up="${waiverEsc(c.id)}" ${i===0||sealed?"disabled":""}>↑</button>
       <button type="button" data-waiver-down="${waiverEsc(c.id)}" ${i===claims.length-1||sealed?"disabled":""}>↓</button>
-      <button type="button" data-waiver-edit="${waiverEsc(c.id)}" ${sealed?"disabled":""}>Edit</button>
-      <button type="button" data-waiver-delete="${waiverEsc(c.id)}" ${sealed?"disabled":""}>Delete</button>
+      <button type="button" data-waiver-edit="${waiverEsc(c.id)}">Edit</button>
+      <button type="button" data-waiver-delete="${waiverEsc(c.id)}">Delete</button>
     </div>
   </div>`).join("");
   list.querySelectorAll("[data-waiver-up]").forEach(b=>b.addEventListener("click",()=>waiverMoveClaim(b.dataset.waiverUp,-1)));
@@ -12090,7 +12355,28 @@ function waiverResetForm(){
   document.getElementById("waiverCancelEdit").classList.add("hidden");
   waiverUpdateAddPlayerNote();
 }
-function waiverEditClaim(id){
+async function waiverEnsureEditable(actionLabel="edit this claim"){
+  if(!WAIVER_STATE.submitted[WAIVER_SESSION_OWNER])return true;
+  const ok=window.confirm(
+    `Your claims are currently submitted and sealed.\n\nReopen your submission to ${actionLabel}?\n\nYou will need to Submit / Seal Claims again when finished.`
+  );
+  if(!ok)return false;
+  WAIVER_STATE.submitted[WAIVER_SESSION_OWNER]=false;
+  WAIVER_STATE.preview=null;
+  try{
+    if(WAIVER_LIVE_MODE)await waiverSyncSubmission(false);
+    else waiverSave();
+  }catch(err){
+    console.error(err);
+    WAIVER_STATE.submitted[WAIVER_SESSION_OWNER]=true;
+    alert("Could not reopen your submission. Please try again.");
+    return false;
+  }
+  renderPreseasonWaivers();
+  return true;
+}
+async function waiverEditClaim(id){
+  if(!(await waiverEnsureEditable("edit this claim")))return;
   const c=waiverOwnerClaims().find(x=>x.id===id);if(!c)return;
   document.getElementById("waiverEditingId").value=c.id;
   document.getElementById("waiverAddPlayer").value=c.add;
@@ -12104,7 +12390,12 @@ function waiverEditClaim(id){
   document.getElementById("waiverCancelEdit").classList.remove("hidden");
   document.getElementById("waiverAddPlayer").focus();
 }
-function waiverDeleteClaim(id){
+async function waiverDeleteClaim(id){
+  const c=waiverOwnerClaims().find(x=>x.id===id);if(!c)return;
+  if(!(await waiverEnsureEditable(`delete ${c.add}`)))return;
+  if(!window.confirm(`Delete this claim?
+
+${c.add} — ${waiverMoney(c.bid)}`))return;
   WAIVER_STATE.claims[WAIVER_SESSION_OWNER]=waiverOwnerClaims().filter(x=>x.id!==id);
   WAIVER_STATE.preview=null;waiverSave();waiverResetForm();renderPreseasonWaivers();
 }
@@ -12159,14 +12450,24 @@ function waiverSubmitForm(event){
   }
   WAIVER_STATE.preview=null;waiverSave();waiverResetForm();renderPreseasonWaivers();
 }
-function waiverSetSubmitted(value){
+async function waiverSetSubmitted(value){
   WAIVER_STATE.submitted[WAIVER_SESSION_OWNER]=Boolean(value);
-  WAIVER_STATE.preview=null;waiverSave();waiverResetForm();renderPreseasonWaivers();
+  WAIVER_STATE.preview=null;
+  try{
+    if(WAIVER_LIVE_MODE)await waiverSyncSubmission(value);
+    else waiverSave();
+  }catch(err){
+    console.error(err);
+    WAIVER_STATE.submitted[WAIVER_SESSION_OWNER]=!Boolean(value);
+    return alert("Submission status could not be saved. Please try again.");
+  }
+  waiverResetForm();renderPreseasonWaivers();
 }
 function waiverRenderCommissioner(){
   const panel=document.getElementById("waiverCommissionerPanel");if(!panel)return;
-  panel.classList.toggle("hidden",!commissionerMode);
-  if(!commissionerMode)return;
+  const canView=!!(WAIVER_AUTH_OWNER&&WAIVER_AUTH_OWNER.is_commissioner);
+  panel.classList.toggle("hidden",!canView);
+  if(!canView)return;
   const totalClaims=WAIVER_OWNERS.reduce((n,o)=>n+waiverOwnerClaims(o).length,0);
   const submitted=WAIVER_OWNERS.filter(o=>WAIVER_STATE.submitted[o]).length;
   const uniqueAdds=new Set(WAIVER_OWNERS.flatMap(o=>waiverOwnerClaims(o).map(c=>waiverNormPlayer(c.add))).filter(Boolean)).size;
@@ -12249,15 +12550,83 @@ function waiverProcess(){
     winners:audit.filter(x=>x.status==="success")
   };
 }
+
+function waiverYahooActionRows(){
+  const p=WAIVER_STATE.preview;
+  if(!p)return [];
+  return p.winners.map((r,i)=>({
+    order:i+1,
+    owner:r.owner,
+    add:r.add,
+    drop:r.drop==="NO_DROP"?"No drop / empty slot":r.drop,
+    bid:+r.bid,
+    action:`${r.owner}: Add ${r.add}, Drop ${r.drop==="NO_DROP"?"No drop / empty slot":r.drop}, $${+r.bid}`
+  }));
+}
+function waiverCsvEscape(v){
+  const s=String(v??"");
+  return /[",\n]/.test(s)?`"${s.replace(/"/g,'""')}"`:s;
+}
+function waiverExportYahooActions(){
+  const rows=waiverYahooActionRows();
+  if(!rows.length)return alert("Run Waiver Preview first.");
+  const header=["Order","Owner","Add","Drop","Bid","Yahoo Action"];
+  const csv=[header,...rows.map(r=>[r.order,r.owner,r.add,r.drop,r.bid,r.action])]
+    .map(row=>row.map(waiverCsvEscape).join(",")).join("\n");
+  const blob=new Blob([csv],{type:"text/csv;charset=utf-8"});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement("a");
+  a.href=url;a.download="2026-week0-yahoo-actions.csv";
+  document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);
+}
+function waiverRenderYahooActions(){
+  const box=document.getElementById("waiverYahooActions");if(!box)return;
+  const rows=waiverYahooActionRows();
+  if(!rows.length){box.innerHTML="";return;}
+  box.innerHTML=`<div class="waiver-yahoo-actions-head">
+      <div>
+        <div class="waiver-panel-kicker">FINAL YAHOO ACTION LIST</div>
+        <h3>${rows.length} action${rows.length===1?"":"s"} to take in Yahoo</h3>
+        <p>Clean execution list based on winning claims only.</p>
+      </div>
+      <button class="secondary" id="waiverExportYahooActions" type="button">Export CSV</button>
+    </div>
+    <div style="overflow:auto"><table class="waiver-yahoo-actions-table">
+      <thead><tr><th>#</th><th>Owner</th><th>Add</th><th>Drop</th><th>FAAB</th><th>Action</th></tr></thead>
+      <tbody>${rows.map(r=>`<tr>
+        <td>${r.order}</td>
+        <td>${waiverEsc(r.owner)}</td>
+        <td>${waiverEsc(r.add)}</td>
+        <td>${waiverEsc(r.drop)}</td>
+        <td>${waiverMoney(r.bid)}</td>
+        <td class="waiver-action-text">${waiverEsc(r.action)}</td>
+      </tr>`).join("")}</tbody>
+    </table></div>`;
+  document.getElementById("waiverExportYahooActions")?.addEventListener("click",waiverExportYahooActions);
+}
+
 function waiverRenderResults(){
   const box=document.getElementById("waiverResults");if(!box)return;
   const p=WAIVER_STATE.preview;
-  if(!p){box.innerHTML="";return}
+  if(!p){
+    box.innerHTML="";
+    const yahoo=document.getElementById("waiverYahooActions");if(yahoo)yahoo.innerHTML="";
+    waiverSetPreviewVisibility(false);
+    return;
+  }
   box.innerHTML=`<div class="waiver-results-head"><div><div class="waiver-panel-kicker">PREVIEW RESULTS</div><h3>${p.winners.length} successful claim${p.winners.length===1?"":"s"}</h3></div><span class="waiver-status-pill">Review only</span></div>
     <div style="overflow:auto"><table class="waiver-results-table"><thead><tr><th>Result</th><th>Owner</th><th>Rank</th><th>Add</th><th>Bid</th><th>Drop</th><th>Reason</th><th>FAAB Left</th></tr></thead>
     <tbody>${p.audit.map(r=>`<tr><td class="${r.status==="success"?"waiver-result-success":"waiver-result-fail"}">${r.status==="success"?"✓ WON":"—"}</td><td>${waiverEsc(r.owner)}</td><td>#${r.rank}</td><td>${waiverEsc(r.add)}</td><td>${waiverMoney(r.bid)}</td><td>${waiverEsc(r.drop==="NO_DROP"?"No drop / empty slot":r.drop)}</td><td>${waiverEsc(r.reason)}</td><td>${waiverMoney(p.budgets[r.owner])}</td></tr>`).join("")}</tbody></table></div>
     <div class="waiver-priority-strip"><strong>Final waiver priority:</strong> ${p.priority.map((o,i)=>`${i+1}. ${waiverEsc(o)}`).join(" · ")}</div>`;
+  waiverRenderYahooActions();
+  waiverSetPreviewVisibility(true);
 }
+function waiverSetPreviewVisibility(show){
+  document.getElementById("waiverResults")?.classList.toggle("hidden",!show);
+  document.getElementById("waiverYahooActions")?.classList.toggle("hidden",!show);
+  document.getElementById("waiverHidePreview")?.classList.toggle("hidden",!show);
+}
+
 function waiverLoadDemo(){
   if(!confirm("Load a demo waiver room? This replaces the current prototype claims."))return;
   WAIVER_STATE=waiverBlankState();
@@ -12293,11 +12662,15 @@ function renderPreseasonWaivers(){
 function waiverBind(){
   const owner=document.getElementById("waiverOwnerSelect");if(!owner||owner.dataset.bound)return;
   owner.dataset.bound="1";
+  const loginForm=document.getElementById("waiverLoginForm");
+  if(loginForm&&!loginForm.dataset.bound){loginForm.dataset.bound="1";loginForm.addEventListener("submit",waiverLogin);}
+  const logoutButton=document.getElementById("waiverLogoutButton");
+  if(logoutButton&&!logoutButton.dataset.bound){logoutButton.dataset.bound="1";logoutButton.addEventListener("click",waiverLogout);}
   const copyLink=document.getElementById("waiverCopyDirectLink");
   if(copyLink&&!copyLink.dataset.bound){copyLink.dataset.bound="1";copyLink.addEventListener("click",waiverCopyLink);}
   const addPlayer=document.getElementById("waiverAddPlayer");
   if(addPlayer&&!addPlayer.dataset.bound){addPlayer.dataset.bound="1";addPlayer.addEventListener("input",waiverUpdateAddPlayerNote);addPlayer.addEventListener("change",waiverUpdateAddPlayerNote);}
-  owner.addEventListener("change",()=>{
+  if(!WAIVER_LIVE_MODE)owner.addEventListener("change",()=>{
     WAIVER_SESSION_OWNER=owner.value;
     sessionStorage.setItem("bigBoardWaiverOwner",WAIVER_SESSION_OWNER);
     waiverResetForm();renderPreseasonWaivers();
@@ -12314,9 +12687,17 @@ function waiverBind(){
   document.getElementById("waiverHideClaims").addEventListener("click",()=>document.getElementById("waiverCommishClaims").classList.add("hidden"));
   document.getElementById("waiverLoadDemo").addEventListener("click",waiverLoadDemo);
   document.getElementById("waiverResetPrototype").addEventListener("click",waiverResetPrototype);
-  document.getElementById("waiverRunEngine").addEventListener("click",()=>{
-    WAIVER_STATE.preview=waiverProcess();waiverSave();waiverRenderCommissioner();
+  document.getElementById("waiverRunEngine").addEventListener("click",async()=>{
+    if(WAIVER_LIVE_MODE){
+      try{await waiverLoadLiveData();}catch(err){console.error(err);return alert("Could not refresh waiver claims from the server.");}
+    }
+    WAIVER_STATE.preview=waiverProcess();
+    waiverRenderCommissioner();
   });
+  document.getElementById("waiverHidePreview")?.addEventListener("click",()=>{
+    waiverSetPreviewVisibility(false);
+  });
+
 }
 
 function navGroupForView(viewName){
@@ -12376,7 +12757,7 @@ function openView(viewName){
  if(viewName==="journey") renderJourney(); else journeyStop();
  if(viewName==="draftHub") renderDraftHub();
  if(viewName==="scheduleBuilder") renderScheduleBuilder();
- if(viewName==="preseasonWaivers"){waiverBind();renderPreseasonWaivers();}
+ if(viewName==="preseasonWaivers"){waiverBind();if(WAIVER_LIVE_MODE)waiverAuthInit();else renderPreseasonWaivers();}
  if(viewName==="draftLab") renderDraftLab();
  if(viewName==="glossary") renderGlossary();
  if(viewName==="weeklyAnalytics") openWeeklyAnalytics();
