@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v5.11.3 — stronger not-submitted state + hideable preview + Yahoo action export -->
+<!-- v5.11.4 — permanent claimed Super Bowl Prize Vault -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -3292,6 +3292,14 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 .vault-envelope.claimed .vault-claimed-stamp{display:block}
 .vault-claim-meta{display:none;position:absolute;z-index:4;top:12px;right:12px;background:#111827;color:#fff;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900}
 .vault-envelope.claimed .vault-claim-meta{display:block}
+.vault-envelope.vault-archive-card{cursor:default}
+.vault-envelope.vault-archive-card .vault-envelope-inner{filter:none;opacity:1;transform:none;background:linear-gradient(145deg,#f7f2e8,#ebe0ce)}
+.vault-envelope.vault-archive-card .vault-claimed-stamp{display:block;position:static;transform:none;margin-top:4px;border:2px solid #7f1d1d;background:rgba(255,255,255,.78);font-size:12px;padding:5px 9px;letter-spacing:.08em}
+.vault-envelope.vault-archive-card .vault-claim-meta{display:block;top:12px;right:12px;background:#111827}
+.vault-archive-claimant{font-size:12px;font-weight:900;color:#5f4a2b;text-align:center;z-index:2;line-height:1.25;padding:0 10px}
+.vault-archive-potential{font-size:18px;font-weight:950;color:#2f6e43;z-index:2}
+.vault-archive-caption{font-size:9px;text-transform:uppercase;letter-spacing:.09em;color:#7c6f5d;font-weight:850;z-index:2}
+
 .vault-controls{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}
 .vault-controls button{border:1px solid #cbd5e1;background:white;border-radius:10px;padding:9px 13px;font-weight:800;cursor:pointer}
 .vault-empty{text-align:center;padding:30px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:18px;color:#64748b}
@@ -4666,14 +4674,14 @@ body.dnl-presentation #prizeVault.dnl-active-view{
     <div>
       <div class="vault-kicker">Game Night Prizes</div>
       <h2>Super Bowl Prize Vault</h2>
-      <p>Choose an available envelope. Once claimed, that team is off the board for the rest of the night.</p>
+      <p>All six 2026 Super Bowl prize wagers have been placed and permanently claimed.</p>
     </div>
-    <div class="vault-progress"><small>Envelope Claim</small><strong id="vaultProgress">1 of 6</strong></div>
+    <div class="vault-progress"><small>2026 Prize Vault</small><strong id="vaultProgress">6 of 6 Claimed</strong></div>
   </div>
   <div class="vault-prize-card">
-    <small id="vaultClaimLabel">Claim #1 · Winning Team MVP</small>
-    <h3 id="vaultPrize">$15 Super Bowl Wager</h3>
-    <p id="vaultInstruction">Choose one of the six available teams. The commissioner will place the wager at the current odds after selections are complete.</p>
+    <small id="vaultClaimLabel">Prize Vault Complete</small>
+    <h3 id="vaultPrize">All Wagers Placed</h3>
+    <p id="vaultInstruction">Each envelope below is permanently claimed. Potential winnings reflect the placed wager.</p>
   </div>
   <div class="vault-grid" id="vaultGrid"></div>
   <div class="vault-controls" id="vaultCommissionerControls">
@@ -11849,101 +11857,41 @@ const PRIZE_VAULT_TEAMS=[
  {id:"JAX",city:"Jacksonville",name:"Jaguars",odds:"30/1",logo:"assets/prize-vault/jax.png"},
  {id:"PHI",city:"Philadelphia",name:"Eagles",odds:"16/1",logo:"assets/prize-vault/phi.png"}
 ];
-const PRIZE_VAULT_CLAIMS=[
- {label:"Claim #1 · Winning Team MVP",prize:"$15 Super Bowl Wager"},
- {label:"Claim #2 · Winning Trivia Team",prize:"$10 Super Bowl Wager"},
- {label:"Claim #3 · Winning Trivia Team",prize:"$10 Super Bowl Wager"},
- {label:"Claim #4 · Winning Trivia Team",prize:"$10 Super Bowl Wager"},
- {label:"Claim #5 · Losing Team MVP",prize:"$5 Super Bowl Wager"},
- {label:"Final Envelope · Draft Grades Challenge Winner",prize:"Final Super Bowl Wager"}
-];
-let PRIZE_VAULT_STATE={claims:[]};
-function vaultLoad(){
- try{
-   const saved=JSON.parse(localStorage.getItem("bigBoardPrizeVault2026")||"null");
-   if(saved&&Array.isArray(saved.claims))PRIZE_VAULT_STATE=saved;
- }catch{}
-}
-function vaultSave(){localStorage.setItem("bigBoardPrizeVault2026",JSON.stringify(PRIZE_VAULT_STATE))}
-function vaultClaimIndex(){return Math.min(PRIZE_VAULT_STATE.claims.length,PRIZE_VAULT_CLAIMS.length-1)}
+
+const PRIZE_VAULT_PLACED={"KC":{"claimedBy":"Mac","potential":170},"PHI":{"claimedBy":"Ben","potential":180},"BUF":{"claimedBy":"Cory · MVP","potential":150},"MIN":{"claimedBy":"Adrian · MVP (Losing Team)","potential":250},"JAX":{"claimedBy":"Dan","potential":300},"SF":{"claimedBy":"Survivor Champion · TBD Week 14","potential":132}};
+
 function renderPrizeVault(){
- vaultLoad();
- const count=PRIZE_VAULT_STATE.claims.length;
- const done=count>=6;
- const idx=vaultClaimIndex();
- const claim=PRIZE_VAULT_CLAIMS[idx];
- document.getElementById("vaultProgress").textContent=done?"Complete":`${count+1} of 6`;
- document.getElementById("vaultClaimLabel").textContent=done?"All Envelopes Claimed":claim.label;
- document.getElementById("vaultPrize").textContent=done?"Prize Vault Complete":claim.prize;
- document.getElementById("vaultInstruction").textContent=done
-   ?"All six Super Bowl teams have been claimed."
-   :(count===5
-      ?"One envelope remains. The Draft Grades Challenge winner still has to claim and open it."
-      :"Choose any available envelope. Once claimed, that team is removed from the board.");
- const claimedMap=new Map(PRIZE_VAULT_STATE.claims.map(c=>[c.team,c]));
- document.getElementById("vaultGrid").innerHTML=PRIZE_VAULT_TEAMS.map(team=>{
-   const c=claimedMap.get(team.id);
-   return `<button class="vault-envelope vault-team-${team.id.toLowerCase()} ${c?"claimed":""}" data-vault-team="${team.id}" ${c?"disabled":""}>
-     <div class="vault-envelope-inner">
-       <svg class="vault-envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-         <path d="M 0 0 L 50 47 L 100 0"></path>
-       </svg>
-       <span class="vault-claim-meta">${c?c.prize:""}</span>
-       <span class="vault-claimant">${c?.claimedBy?`CLAIMED · ${c.claimedBy}`:"CLAIMED"}</span>
-       <div class="vault-team-seal"><img src="${team.logo}" alt="${team.city} ${team.name} logo" onerror="this.outerHTML='\x3cspan class=&quot;vault-fallback&quot;\x3e${team.id}\x3c/span\x3e'"></div>
-       <div class="vault-team-line"><div class="vault-team-name">${team.name}</div><div class="vault-team-odds">${team.odds}</div></div>
-       <div class="vault-team-city">${team.city}</div>
-       <span class="vault-claimed-stamp">${c?.claimedBy?`CLAIMED — ${c.claimedBy}`:"CLAIMED"}</span>
-     </div>
-   </button>`;
- }).join("");
- document.querySelectorAll("[data-vault-team]:not(:disabled)").forEach(b=>b.addEventListener("click",()=>vaultClaim(b.dataset.vaultTeam)));
- const controls=document.getElementById("vaultCommissionerControls");
- if(controls)controls.hidden=typeof commissionerMode!=="undefined"?!commissionerMode:false;
-}
-function vaultClaim(teamId){
- if(PRIZE_VAULT_STATE.claims.length>=6)return;
- const team=PRIZE_VAULT_TEAMS.find(t=>t.id===teamId);
- if(!team||PRIZE_VAULT_STATE.claims.some(c=>c.team===teamId))return;
+  document.getElementById("vaultProgress").textContent="6 of 6 Claimed";
+  document.getElementById("vaultClaimLabel").textContent="Prize Vault Complete";
+  document.getElementById("vaultPrize").textContent="All Wagers Placed";
+  document.getElementById("vaultInstruction").textContent="Each envelope below is permanently claimed. Potential winnings reflect the placed wager.";
 
- const claim=PRIZE_VAULT_CLAIMS[PRIZE_VAULT_STATE.claims.length];
+  document.getElementById("vaultGrid").innerHTML=PRIZE_VAULT_TEAMS.map(team=>{
+    const c=PRIZE_VAULT_PLACED[team.id];
+    return `<div class="vault-envelope vault-archive-card vault-team-${team.id.toLowerCase()} claimed">
+      <div class="vault-envelope-inner">
+        <svg class="vault-envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M 0 0 L 50 47 L 100 0"></path>
+        </svg>
+        <span class="vault-claim-meta">Potential $${c.potential}</span>
+        <div class="vault-team-seal"><img src="${team.logo}" alt="${team.city} ${team.name} logo" onerror="this.outerHTML='\x3cspan class=&quot;vault-fallback&quot;\x3e${team.id}\x3c/span\x3e'"></div>
+        <div class="vault-team-line"><div class="vault-team-name">${team.name}</div><div class="vault-team-odds">${team.odds}</div></div>
+        <div class="vault-team-city">${team.city}</div>
+        <div class="vault-archive-caption">Claimed by</div>
+        <div class="vault-archive-claimant">${c.claimedBy}</div>
+        <div class="vault-archive-potential">$${c.potential} potential winnings</div>
+        <span class="vault-claimed-stamp">CLAIMED</span>
+      </div>
+    </div>`;
+  }).join("");
 
- // Commissioner records who actually claimed the envelope.
- // Cancel or blank = do not finalize the claim.
- const claimedByRaw=prompt(`Who is claiming the ${team.city} ${team.name} envelope?`);
- if(claimedByRaw===null)return;
- const claimedBy=claimedByRaw.trim();
- if(!claimedBy)return;
+  const controls=document.getElementById("vaultCommissionerControls");
+  if(controls)controls.hidden=true;
+}
 
- const entry={
-   team:teamId,
-   label:claim.label,
-   prize:claim.prize,
-   claimedBy,
-   claimedAt:new Date().toISOString()
- };
- PRIZE_VAULT_STATE.claims.push(entry);
- vaultSave();
- renderPrizeVault();
-
- document.getElementById("vaultRevealClaim").textContent=claim.label;
- document.getElementById("vaultRevealSeal").textContent=team.id;
- document.getElementById("vaultRevealTeam").textContent=`${team.city} ${team.name}`;
- document.getElementById("vaultRevealPrize").textContent=claim.prize;
- const claimantLine=document.getElementById("vaultRevealClaimant");
- if(claimantLine)claimantLine.textContent=`Claimed by ${claimedBy}`;
- document.getElementById("vaultModal").classList.remove("hidden");
-}
-function vaultUndo(){
- if(!PRIZE_VAULT_STATE.claims.length)return;
- const last=PRIZE_VAULT_STATE.claims.at(-1);
- if(!confirm(`Undo the ${last.team} envelope claim?`))return;
- PRIZE_VAULT_STATE.claims.pop();vaultSave();renderPrizeVault();
-}
-function vaultReset(){
- if(!confirm("Reset all six envelope claims? This cannot be undone."))return;
- PRIZE_VAULT_STATE={claims:[]};vaultSave();renderPrizeVault();
-}
+function vaultClaim(){}
+function vaultUndo(){}
+function vaultReset(){}
 
 
 /* =========================================================
