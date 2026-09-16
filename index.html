@@ -5,7 +5,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1" name="viewport"/>
 <title>The Big Board</title>
-<!-- v5.11.3 — stronger not-submitted state + hideable preview + Yahoo action export -->
+<!-- v5.11.5 — claimed vault hierarchy polish -->
 <meta content="Career Prestige Rankings — a measure of sustained excellence across league history." name="description"/>
 <meta content="#202a34" name="theme-color"/>
 <link href="favicon.ico" rel="icon" type="image/x-icon"/>
@@ -3286,12 +3286,37 @@ body .mock-toolbar button:disabled{opacity:.55;cursor:not-allowed}
 .vault-team-line{display:flex;align-items:baseline;justify-content:center;gap:11px;z-index:1}
 .vault-team-name{font-size:20px;font-weight:950;color:#1f2937}
 .vault-team-odds{font-size:15px;font-weight:950;color:#2f8f57;white-space:nowrap}
-.vault-team-city{font-size:11px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#766a58;z-index:1}
+.vault-team-city{font-size:10px;text-transform:uppercase;letter-spacing:.14em;font-weight:800;color:#766a58;z-index:1}
 .vault-envelope.claimed .vault-envelope-inner{filter:grayscale(1);opacity:.46;transform:none}
 .vault-claimed-stamp{display:none;position:absolute;z-index:4;inset:auto 16px 18px;transform:rotate(-7deg);border:3px solid #7f1d1d;color:#7f1d1d;border-radius:8px;padding:7px 12px;font-weight:950;font-size:18px;letter-spacing:.12em;background:rgba(255,255,255,.72)}
 .vault-envelope.claimed .vault-claimed-stamp{display:block}
 .vault-claim-meta{display:none;position:absolute;z-index:4;top:12px;right:12px;background:#111827;color:#fff;border-radius:999px;padding:6px 9px;font-size:11px;font-weight:900}
 .vault-envelope.claimed .vault-claim-meta{display:block}
+.vault-envelope.vault-archive-card{cursor:default}
+.vault-envelope.vault-archive-card .vault-envelope-inner{filter:none;opacity:1;transform:none;background:linear-gradient(145deg,#f7f2e8,#ebe0ce)}
+.vault-envelope.vault-archive-card .vault-claimed-stamp{display:block;position:static;transform:none;margin-top:4px;border:2px solid #7f1d1d;background:rgba(255,255,255,.78);font-size:12px;padding:5px 9px;letter-spacing:.08em}
+.vault-envelope.vault-archive-card .vault-claim-meta{display:block;top:12px;right:12px;background:#111827}
+.vault-archive-claimant{
+  font-size:22px;
+  font-weight:950;
+  color:#17212b;
+  text-align:center;
+  z-index:2;
+  line-height:1.15;
+  padding:2px 12px 1px;
+  letter-spacing:-.01em;
+}
+.vault-archive-caption{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.11em;
+  color:#8a6a22;
+  font-weight:950;
+  z-index:2;
+  margin-top:4px;
+}
+.vault-archive-potential{font-size:18px;font-weight:950;color:#2f6e43;z-index:2}
+
 .vault-controls{display:flex;justify-content:flex-end;gap:9px;margin-top:18px}
 .vault-controls button{border:1px solid #cbd5e1;background:white;border-radius:10px;padding:9px 13px;font-weight:800;cursor:pointer}
 .vault-empty{text-align:center;padding:30px;background:#f8fafc;border:1px dashed #cbd5e1;border-radius:18px;color:#64748b}
@@ -3919,6 +3944,20 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 .waiver-logout{width:100%;margin-top:8px}
 @media(max-width:700px){.waiver-login-form{grid-template-columns:1fr}}
 
+
+
+/* v5.12.1 TEST — 2026 Live Standings Hub */
+#liveStandings .ls-shell{background:#f7f4ed;border:1px solid #d7d0c3;border-radius:14px;padding:20px;color:#1e252d}
+#liveStandings .ls-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start;flex-wrap:wrap;margin-bottom:14px}
+#liveStandings .ls-head h2{margin:3px 0;font-size:28px} #liveStandings .ls-head p{margin:0;color:#68717a;font-size:11px}
+.ls-kicker{font-size:9px;text-transform:uppercase;letter-spacing:.1em;color:#8a6a22;font-weight:950}.ls-test{padding:5px 9px;border:1px solid #b99a55;border-radius:999px;color:#735b23;font-size:9px;font-weight:900;background:#fff9e8}
+.ls-grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(310px,.75fr);gap:14px;align-items:start}.ls-card{background:#fffdf8;border:1px solid #d9d4ca;border-radius:10px;padding:14px;min-width:0}.ls-card h3{margin:0 0 5px}.ls-sub{font-size:10px;color:#6c747c;margin-bottom:10px;line-height:1.4}
+.ls-table-wrap{overflow:auto;border:1px solid #ddd7cb;border-radius:9px}.ls-table{min-width:860px;background:#fff}.ls-table th{background:#ece8df!important;color:#1e252d!important;font-size:10px;padding:8px}.ls-table td{color:#1e252d!important;background:#fff!important;padding:8px;font-size:11px}.ls-table td:first-child,.ls-table th:first-child{background:#fffdf8!important}.ls-table thead th:first-child{background:#ece8df!important}.ls-table tr.ls-playoff td{background:#eef7f0!important}.ls-table tr.ls-bye td{background:#e3f2e8!important}.ls-table tr.ls-wildcard td{background:#fff7d9!important}.ls-table tr.ls-out td{background:#fbebea!important}.ls-rank{font-weight:950}.ls-owner{font-weight:850}.ls-move-up{color:#2d7a4a;font-weight:850}.ls-move-down{color:#a23b3b;font-weight:850}.ls-hs{color:#46704f;font-weight:900}
+.ls-toolbar{display:flex;gap:8px;align-items:end;flex-wrap:wrap;margin-bottom:10px}.ls-toolbar label{color:#59626b}.ls-toolbar select{background:white!important;color:#1e252d!important}.ls-toolbar button{background:#fff!important;color:#1e252d!important;border:1px solid #cfc9bd}.ls-toolbar button.primary{background:#202a34!important;color:#fff!important}.ls-score-grid{display:grid;grid-template-columns:1fr 1fr;gap:7px}.ls-score-row{display:grid;grid-template-columns:1fr 88px;gap:8px;align-items:center;background:#f5f1e8;border:1px solid #ddd6c8;border-radius:8px;padding:7px 8px;font-size:11px}.ls-score-row input{width:100%;background:#fff!important;color:#1e252d!important;border:1px solid #cfc9bd!important;padding:6px}.ls-score-row .opp{font-size:8px;color:#7b8288;margin-top:2px}.ls-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.ls-note{margin-top:10px;padding:9px 10px;background:#f2eee5;border-left:3px solid #b99a55;font-size:9px;color:#5f676e;line-height:1.45}.ls-summary{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px}.ls-summary div{background:#fffdf8;border:1px solid #d9d4ca;border-radius:9px;padding:10px}.ls-summary .label{font-size:8px;text-transform:uppercase;color:#777}.ls-summary .value{font-size:19px;font-weight:900;margin-top:3px}
+@media(max-width:980px){.ls-grid{grid-template-columns:1fr}.ls-score-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.ls-score-grid,.ls-summary{grid-template-columns:1fr 1fr}}
+
+<!-- v5.11.2 Trivia Category Controls + Dan/Jaspers Difficulty Override -->
+</head>
 </style>
 <style id="schedule-v510-css">
 .schedule-section-copy{margin:4px 0 12px;color:#6b747c;font-size:11px}.schedule-control-grid{display:grid;grid-template-columns:repeat(3,minmax(150px,220px));gap:10px;margin:10px 0 14px}.schedule-control-grid label,.schedule-matrix-head label{font-size:9px;font-weight:850;text-transform:uppercase;color:#69727b}.schedule-control-grid select,.schedule-matrix-head select{display:block;width:100%;margin-top:5px;padding:7px;border:1px solid #c9c4b9;border-radius:7px;background:#fffdf8}.schedule-replay-summary{display:grid;grid-template-columns:repeat(4,minmax(150px,1fr));gap:9px;margin-bottom:12px}.schedule-replay-card,.schedule-equity-card{border:1px solid #d8d2c7;background:#fffdf8;border-radius:9px;padding:11px}.schedule-replay-card .label,.schedule-equity-card .label{font-size:8px;text-transform:uppercase;color:#777;font-weight:900}.schedule-replay-card .value,.schedule-equity-card .value{font-size:20px;font-weight:900;margin-top:4px}.schedule-replay-card.good .value{color:#277047}.schedule-replay-card.bad .value{color:#9a3b3b}.schedule-substitution{font-size:9px;color:#8a6a22;font-weight:800}.schedule-equity-grid{display:grid;grid-template-columns:repeat(6,minmax(130px,1fr));gap:8px;margin:10px 0}.schedule-equity-card .detail{font-size:9px;color:#707880}.schedule-equity-bars{display:grid;gap:6px}.schedule-equity-row{display:grid;grid-template-columns:90px 1fr 55px;gap:8px;align-items:center;font-size:10px}.schedule-equity-track{height:10px;background:#e5e1d8;border-radius:999px;overflow:hidden}.schedule-equity-fill{height:100%;background:#8a7441}.schedule-equity-row.actual .schedule-equity-track{outline:2px solid #b8943e}.schedule-equity-owner{font-weight:800}.schedule-equity-record{text-align:right;font-weight:850}.schedule-matrix-section{padding:0!important;background:transparent!important;border:none!important}.schedule-matrix-toggle{width:100%;display:flex;justify-content:space-between;border:1px solid #cfc8ba;background:#eee9df;border-radius:10px;padding:13px 15px;font-weight:900}.schedule-matrix-toggle small{font-size:9px;color:#727a81}.schedule-matrix-head{display:flex;justify-content:space-between;align-items:end}.schedule-matrix-wrap{overflow:auto}.schedule-matrix-table{min-width:850px}.schedule-matrix-table th,.schedule-matrix-table td{text-align:center!important;white-space:nowrap}.schedule-matrix-cell{font-weight:850;padding:3px 5px;border-radius:5px}.schedule-matrix-cell.better{background:#dff1e6;color:#23633e}.schedule-matrix-cell.worse{background:#f5dfdf;color:#8a3535}.schedule-matrix-cell.same{background:#ece9e2}.schedule-matrix-cell.actual{box-shadow:inset 0 0 0 2px #b58a2a;background:#fff5d8;color:#735715}@media(max-width:800px){.schedule-control-grid{grid-template-columns:1fr}.schedule-replay-summary{grid-template-columns:repeat(2,1fr)}.schedule-equity-grid{grid-template-columns:repeat(2,1fr)}}
@@ -3989,8 +4028,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 }
 </style>
 
-<!-- v5.11.2 Trivia Category Controls + Dan/Jaspers Difficulty Override -->
-</head>
+
 <body>
 <div class="dnl-presentation-switcher" id="dnlPresentationSwitcher">
   <label for="dnlPresentationView">Draft Night</label>
@@ -4029,7 +4067,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
     <div class="nav-dropdown" data-nav-dropdown="draft">
       <button data-view="draftHub" type="button">Draft Hub</button>
       <button data-view="scheduleBuilder" type="button">Schedule Builder</button>
-      <button data-view="preseasonWaivers" type="button">Preseason Waivers</button>
+      <button data-view="preseasonWaivers" type="button" hidden aria-hidden="true" tabindex="-1">Preseason Waivers</button>
       <button class="commissioner-only" data-view="draftLab" hidden="" id="draftLabTab" type="button">Draft Lab</button>
       <button data-view="mockDraftLab" type="button">Mock Draft Lab</button>
     </div>
@@ -4037,6 +4075,10 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 
   <button class="nav-group-analytics nav-direct" data-view="weeklyAnalytics" type="button">
     <span class="nav-icon">📈</span><span>Weekly Analytics</span>
+  </button>
+
+  <button class="nav-group-analytics nav-direct" data-view="liveStandings" type="button">
+    <span class="nav-icon">📊</span><span>Live Standings</span>
   </button>
 
   <button class="nav-group-analytics nav-direct" data-view="playoffHub" type="button">
@@ -4205,7 +4247,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 <h2>The Big Board</h2>
 <div class="reveal-descriptor">Career Prestige Rankings</div>
 <p>A measure of sustained excellence across league history.</p>
-<div class="waiver-landing-banner" id="waiverLandingBanner">
+<div class="waiver-landing-banner hidden" id="waiverLandingBanner" hidden aria-hidden="true">
   <div>
     <div class="waiver-landing-kicker">WEEK 0 · ACTION REQUIRED</div>
     <div class="waiver-landing-title">Preseason Waivers Are Open</div>
@@ -4666,14 +4708,14 @@ body.dnl-presentation #prizeVault.dnl-active-view{
     <div>
       <div class="vault-kicker">Game Night Prizes</div>
       <h2>Super Bowl Prize Vault</h2>
-      <p>Choose an available envelope. Once claimed, that team is off the board for the rest of the night.</p>
+      <p>All six 2026 Super Bowl prize wagers have been placed and permanently claimed.</p>
     </div>
-    <div class="vault-progress"><small>Envelope Claim</small><strong id="vaultProgress">1 of 6</strong></div>
+    <div class="vault-progress"><small>2026 Prize Vault</small><strong id="vaultProgress">6 of 6 Claimed</strong></div>
   </div>
   <div class="vault-prize-card">
-    <small id="vaultClaimLabel">Claim #1 · Winning Team MVP</small>
-    <h3 id="vaultPrize">$15 Super Bowl Wager</h3>
-    <p id="vaultInstruction">Choose one of the six available teams. The commissioner will place the wager at the current odds after selections are complete.</p>
+    <small id="vaultClaimLabel">Prize Vault Complete</small>
+    <h3 id="vaultPrize">All Wagers Placed</h3>
+    <p id="vaultInstruction">Each envelope below is permanently claimed. Potential winnings reflect the placed wager.</p>
   </div>
   <div class="vault-grid" id="vaultGrid"></div>
   <div class="vault-controls" id="vaultCommissionerControls">
@@ -5388,6 +5430,18 @@ body.dnl-presentation #prizeVault.dnl-active-view{
     <button id="revealPrizeClose" type="button">Continue</button>
   </div>
 </div>
+
+
+<section class="view" id="liveStandings">
+  <div class="ls-shell">
+    <div class="ls-head"><div><div class="ls-kicker">2026 Regular Season</div><h2>Live Standings</h2><p>Enter the ten weekly scores. The finalized Big Board schedule drives W/L, points, high scores, the Top-5 field and points wildcard automatically.</p></div><span class="ls-test">TEST BUILD · v5.12.6</span></div>
+    <div id="lsSummary" class="ls-summary"></div>
+    <div class="ls-grid">
+      <div class="ls-card"><h3>Playoff Race</h3><div class="ls-sub">Seeds 1–5 are the five best records (points tiebreaker). Seed 6 is the highest-scoring team among the remaining five. The overall points leader is guaranteed a first-round bye.</div><div class="ls-table-wrap"><table class="ls-table"><thead><tr><th>#</th><th>Team</th><th>W</th><th>L</th><th>Pts</th><th>PA</th><th>GB of 5</th><th>PB of 6</th><th>PB of 2 Seed</th><th>Pts Rank</th><th>HS</th><th>Status</th><th>Prior</th><th>Change</th></tr></thead><tbody id="lsStandingsBody"></tbody></table></div><div class="ls-note">Race helpers: GB of 5 shows distance from the fifth record qualifier; PB of 6 compares season points with the current points-wildcard line; PB of 2 Seed compares season points with the current second-seed points line. Parentheses indicate a points deficit.</div></div>
+      <div class="ls-card"><h3>Commissioner Score Entry</h3><div class="ls-sub">Scores save only in this browser in TEST. Blank scores are treated as games not yet final.</div><div class="ls-toolbar"><label>Week<select id="lsWeek"></select></label><button id="lsPrev">←</button><button id="lsNext">→</button></div><div id="lsScoreGrid" class="ls-score-grid"></div><div class="ls-actions"><button class="primary" id="lsSave">Save Scores & Recalculate</button><button id="lsClearWeek">Clear Week</button></div><div id="lsSaveState" class="ls-note">No changes yet.</div></div>
+    </div>
+  </div>
+</section>
 
 <section class="view" id="playoffHub">
   <div class="playoff-shell">
@@ -11645,7 +11699,7 @@ function sbPrestigeRowForScheduleOwner(owner){
 function sbRenderPrestigeSOS(){
   const body=document.getElementById("schedulePrestigeSOSBody");
   if(!body)return;
-  const weeks=sbFinalWeeks();
+  const weeks=lsFinalWeeks();
   if(SCHEDULE_BUILDER.pairs.length!==5){
     body.innerHTML='<tr><td colspan="6" style="text-align:left">Schedule must be finalized before Prestige SOS can be calculated.</td></tr>';
     return;
@@ -11683,7 +11737,7 @@ function sbRenderPrestigeSOS(){
     const [label,cls]=difficulty(r.rank);
     return `<tr>
       <td class="schedule-prestige-rank">#${r.rank}</td>
-      <td>${sbEsc(r.owner)}</td>
+      <td>${lsEsc(r.owner)}</td>
       <td>${Math.round(r.load)}</td>
       <td>${r.avg.toFixed(1)}</td>
       <td class="schedule-prestige-repeat">${r.repeats.length?r.repeats.map(sbEsc).join(" · "):"—"}</td>
@@ -11718,7 +11772,7 @@ function sbAuditFinal(weeks){
 function sbRenderMatrix(){
   const complete=SCHEDULE_BUILDER.pairs.length===5;
   const owners=[...SCHEDULE_BUILDER.teams].sort((a,b)=>a.owner.localeCompare(b.owner)).map(t=>t.owner);
-  const weeks=sbFinalWeeks();
+  const weeks=lsFinalWeeks();
   const counts={};
   owners.forEach(a=>{counts[a]={};owners.forEach(b=>counts[a][b]=0)});
   for(let w=1;w<=14;w++){
@@ -11729,7 +11783,7 @@ function sbRenderMatrix(){
   }
 
   const matrix=document.getElementById("scheduleBuilderMatrix");
-  matrix.innerHTML=`<thead><tr><th>Owner</th>${owners.map(o=>`<th>${sbEsc(o)}</th>`).join("")}</tr></thead>
+  matrix.innerHTML=`<thead><tr><th>Owner</th>${owners.map(o=>`<th>${lsEsc(o)}</th>`).join("")}</tr></thead>
   <tbody>${owners.map(a=>`<tr><th>${sbEsc(a)}</th>${owners.map(b=>{
     if(a===b)return `<td class="diag">—</td>`;
     const c=counts[a][b]||0;
@@ -11813,7 +11867,7 @@ function sbDownloadCsv(){
   const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="2026_league_schedule.csv";a.click();URL.revokeObjectURL(a.href);
 }
 async function sbCopyYahoo(){
-  const weeks=sbFinalWeeks();
+  const weeks=lsFinalWeeks();
   const text=Array.from({length:14},(_,i)=>i+1).map(w=>`Week ${w}\n${(weeks[w]||[]).map(g=>`${sbFormatTeam(sbTeam(g.a),"YAHOO")} vs ${sbFormatTeam(sbTeam(g.b),"YAHOO")}`).join("\n")}`).join("\n\n");
   try{await navigator.clipboard.writeText(text);alert("Yahoo schedule copied to clipboard.")}catch{alert(text)}
 }
@@ -11849,101 +11903,41 @@ const PRIZE_VAULT_TEAMS=[
  {id:"JAX",city:"Jacksonville",name:"Jaguars",odds:"30/1",logo:"assets/prize-vault/jax.png"},
  {id:"PHI",city:"Philadelphia",name:"Eagles",odds:"16/1",logo:"assets/prize-vault/phi.png"}
 ];
-const PRIZE_VAULT_CLAIMS=[
- {label:"Claim #1 · Winning Team MVP",prize:"$15 Super Bowl Wager"},
- {label:"Claim #2 · Winning Trivia Team",prize:"$10 Super Bowl Wager"},
- {label:"Claim #3 · Winning Trivia Team",prize:"$10 Super Bowl Wager"},
- {label:"Claim #4 · Winning Trivia Team",prize:"$10 Super Bowl Wager"},
- {label:"Claim #5 · Losing Team MVP",prize:"$5 Super Bowl Wager"},
- {label:"Final Envelope · Draft Grades Challenge Winner",prize:"Final Super Bowl Wager"}
-];
-let PRIZE_VAULT_STATE={claims:[]};
-function vaultLoad(){
- try{
-   const saved=JSON.parse(localStorage.getItem("bigBoardPrizeVault2026")||"null");
-   if(saved&&Array.isArray(saved.claims))PRIZE_VAULT_STATE=saved;
- }catch{}
-}
-function vaultSave(){localStorage.setItem("bigBoardPrizeVault2026",JSON.stringify(PRIZE_VAULT_STATE))}
-function vaultClaimIndex(){return Math.min(PRIZE_VAULT_STATE.claims.length,PRIZE_VAULT_CLAIMS.length-1)}
+
+const PRIZE_VAULT_PLACED={"KC":{"claimedBy":"Mac","potential":170},"PHI":{"claimedBy":"Ben","potential":180},"BUF":{"claimedBy":"Cory · MVP","potential":150},"MIN":{"claimedBy":"Adrian · MVP (Losing Team)","potential":250},"JAX":{"claimedBy":"Dan","potential":300},"SF":{"claimedBy":"Survivor Champion · TBD Week 14","potential":132}};
+
 function renderPrizeVault(){
- vaultLoad();
- const count=PRIZE_VAULT_STATE.claims.length;
- const done=count>=6;
- const idx=vaultClaimIndex();
- const claim=PRIZE_VAULT_CLAIMS[idx];
- document.getElementById("vaultProgress").textContent=done?"Complete":`${count+1} of 6`;
- document.getElementById("vaultClaimLabel").textContent=done?"All Envelopes Claimed":claim.label;
- document.getElementById("vaultPrize").textContent=done?"Prize Vault Complete":claim.prize;
- document.getElementById("vaultInstruction").textContent=done
-   ?"All six Super Bowl teams have been claimed."
-   :(count===5
-      ?"One envelope remains. The Draft Grades Challenge winner still has to claim and open it."
-      :"Choose any available envelope. Once claimed, that team is removed from the board.");
- const claimedMap=new Map(PRIZE_VAULT_STATE.claims.map(c=>[c.team,c]));
- document.getElementById("vaultGrid").innerHTML=PRIZE_VAULT_TEAMS.map(team=>{
-   const c=claimedMap.get(team.id);
-   return `<button class="vault-envelope vault-team-${team.id.toLowerCase()} ${c?"claimed":""}" data-vault-team="${team.id}" ${c?"disabled":""}>
-     <div class="vault-envelope-inner">
-       <svg class="vault-envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-         <path d="M 0 0 L 50 47 L 100 0"></path>
-       </svg>
-       <span class="vault-claim-meta">${c?c.prize:""}</span>
-       <span class="vault-claimant">${c?.claimedBy?`CLAIMED · ${c.claimedBy}`:"CLAIMED"}</span>
-       <div class="vault-team-seal"><img src="${team.logo}" alt="${team.city} ${team.name} logo" onerror="this.outerHTML='\x3cspan class=&quot;vault-fallback&quot;\x3e${team.id}\x3c/span\x3e'"></div>
-       <div class="vault-team-line"><div class="vault-team-name">${team.name}</div><div class="vault-team-odds">${team.odds}</div></div>
-       <div class="vault-team-city">${team.city}</div>
-       <span class="vault-claimed-stamp">${c?.claimedBy?`CLAIMED — ${c.claimedBy}`:"CLAIMED"}</span>
-     </div>
-   </button>`;
- }).join("");
- document.querySelectorAll("[data-vault-team]:not(:disabled)").forEach(b=>b.addEventListener("click",()=>vaultClaim(b.dataset.vaultTeam)));
- const controls=document.getElementById("vaultCommissionerControls");
- if(controls)controls.hidden=typeof commissionerMode!=="undefined"?!commissionerMode:false;
-}
-function vaultClaim(teamId){
- if(PRIZE_VAULT_STATE.claims.length>=6)return;
- const team=PRIZE_VAULT_TEAMS.find(t=>t.id===teamId);
- if(!team||PRIZE_VAULT_STATE.claims.some(c=>c.team===teamId))return;
+  document.getElementById("vaultProgress").textContent="6 of 6 Claimed";
+  document.getElementById("vaultClaimLabel").textContent="Prize Vault Complete";
+  document.getElementById("vaultPrize").textContent="All Wagers Placed";
+  document.getElementById("vaultInstruction").textContent="Each envelope below is permanently claimed. Potential winnings reflect the placed wager.";
 
- const claim=PRIZE_VAULT_CLAIMS[PRIZE_VAULT_STATE.claims.length];
+  document.getElementById("vaultGrid").innerHTML=PRIZE_VAULT_TEAMS.map(team=>{
+    const c=PRIZE_VAULT_PLACED[team.id];
+    return `<div class="vault-envelope vault-archive-card vault-team-${team.id.toLowerCase()} claimed">
+      <div class="vault-envelope-inner">
+        <svg class="vault-envelope-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M 0 0 L 50 47 L 100 0"></path>
+        </svg>
+        <span class="vault-claim-meta">Potential $${c.potential}</span>
+        <div class="vault-team-seal"><img src="${team.logo}" alt="${team.city} ${team.name} logo" onerror="this.outerHTML='\x3cspan class=&quot;vault-fallback&quot;\x3e${team.id}\x3c/span\x3e'"></div>
+        <div class="vault-team-line"><div class="vault-team-name">${team.name}</div></div>
+        <div class="vault-team-city">${team.city}</div>
+        <div class="vault-archive-caption">Claimed by</div>
+        <div class="vault-archive-claimant">${c.claimedBy}</div>
+        <div class="vault-archive-potential">$${c.potential} potential winnings</div>
+        <span class="vault-claimed-stamp">CLAIMED</span>
+      </div>
+    </div>`;
+  }).join("");
 
- // Commissioner records who actually claimed the envelope.
- // Cancel or blank = do not finalize the claim.
- const claimedByRaw=prompt(`Who is claiming the ${team.city} ${team.name} envelope?`);
- if(claimedByRaw===null)return;
- const claimedBy=claimedByRaw.trim();
- if(!claimedBy)return;
+  const controls=document.getElementById("vaultCommissionerControls");
+  if(controls)controls.hidden=true;
+}
 
- const entry={
-   team:teamId,
-   label:claim.label,
-   prize:claim.prize,
-   claimedBy,
-   claimedAt:new Date().toISOString()
- };
- PRIZE_VAULT_STATE.claims.push(entry);
- vaultSave();
- renderPrizeVault();
-
- document.getElementById("vaultRevealClaim").textContent=claim.label;
- document.getElementById("vaultRevealSeal").textContent=team.id;
- document.getElementById("vaultRevealTeam").textContent=`${team.city} ${team.name}`;
- document.getElementById("vaultRevealPrize").textContent=claim.prize;
- const claimantLine=document.getElementById("vaultRevealClaimant");
- if(claimantLine)claimantLine.textContent=`Claimed by ${claimedBy}`;
- document.getElementById("vaultModal").classList.remove("hidden");
-}
-function vaultUndo(){
- if(!PRIZE_VAULT_STATE.claims.length)return;
- const last=PRIZE_VAULT_STATE.claims.at(-1);
- if(!confirm(`Undo the ${last.team} envelope claim?`))return;
- PRIZE_VAULT_STATE.claims.pop();vaultSave();renderPrizeVault();
-}
-function vaultReset(){
- if(!confirm("Reset all six envelope claims? This cannot be undone."))return;
- PRIZE_VAULT_STATE={claims:[]};vaultSave();renderPrizeVault();
-}
+function vaultClaim(){}
+function vaultUndo(){}
+function vaultReset(){}
 
 
 /* =========================================================
@@ -12738,10 +12732,11 @@ function waiverCopyLink(){
   }
 }
 function waiverApplyDeepLink(){
-  if(String(window.location.hash).toLowerCase()==="#preseason-waivers")openView("preseasonWaivers");
+  if(String(window.location.hash).toLowerCase()==="#preseason-waivers")history.replaceState(null,"",`${window.location.pathname}${window.location.search}`);
 }
 
 function openView(viewName){
+ if(viewName==="preseasonWaivers")return;
  const button=document.querySelector(`.nav button[data-view="${viewName}"]`);
  if(!button || button.hidden)return;
  if(viewName==="preseasonWaivers"){
@@ -12761,6 +12756,7 @@ function openView(viewName){
  if(viewName==="draftLab") renderDraftLab();
  if(viewName==="glossary") renderGlossary();
  if(viewName==="weeklyAnalytics") openWeeklyAnalytics();
+ if(viewName==="liveStandings") renderLiveStandings();
  if(viewName==="playoffHub") openPlayoffHub();
  if(viewName==="survivorHub") openSurvivorHub();
  if(viewName==="triviaStudio") renderTriviaStudio();
@@ -13477,7 +13473,144 @@ if(document.readyState==="loading"){
   bootDnlPresentationMode();
 }
 
+
+
+
 </script>
 
+
+<script id="live-standings-v5123-js">
+// =========================================================
+// v5.12.6 TEST — 2026 Live Standings
+// =========================================================
+const LS_KEY="bigBoardLiveStandings2026_TEST_v1";
+const LS_OWNERS=["Ben","Dan","Bob","Adrian","Cory","Habble","RJ","Zac","Sam","Mac"];
+function lsEsc(value){
+  return String(value ?? "").replace(/[&<>"']/g,ch=>({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+  }[ch]));
+}
+// Standings uses its own immutable copy of the finalized schedule so it does not
+// depend on Schedule Builder render/state initialization.
+function lsFinalWeeks(){
+ const slotOwner={1:"Ben",2:"Dan",3:"Bob",4:"Adrian",5:"Cory",6:"Habble",7:"RJ",8:"Zac",9:"Sam",10:"Mac"};
+ const fixed={
+  1:[[1,10],[2,9],[3,8],[4,7],[5,6]],
+  2:[[1,2],[3,4],[5,7],[6,8],[9,10]],
+  3:[[1,9],[2,10],[3,7],[5,8],[4,6]],
+  4:[[1,3],[2,4],[5,9],[6,7],[8,10]],
+  5:[[1,8],[2,7],[3,6],[4,9],[5,10]],
+  6:[[1,4],[2,8],[3,5],[6,9],[7,10]],
+  7:[[1,7],[2,6],[4,5],[3,10],[8,9]],
+  8:[[1,5],[2,3],[4,8],[7,9],[6,10]],
+  9:[[1,6],[2,5],[3,9],[7,8],[4,10]]
+ };
+ const final={
+  10:[["Mac","Sam"],["Bob","Cory"],["RJ","Ben"],["Zac","Adrian"],["Dan","Habble"]],
+  11:[["Zac","Bob"],["RJ","Sam"],["Ben","Cory"],["Dan","Mac"],["Habble","Adrian"]],
+  12:[["RJ","Dan"],["Ben","Bob"],["Cory","Sam"],["Habble","Zac"],["Adrian","Mac"]],
+  13:[["Habble","Ben"],["Cory","RJ"],["Sam","Bob"],["Adrian","Dan"],["Mac","Zac"]],
+  14:[["Cory","Adrian"],["Sam","Ben"],["Bob","RJ"],["Mac","Habble"],["Zac","Dan"]]
+ };
+ const weeks={};
+ Object.entries(fixed).forEach(([w,g])=>weeks[+w]=g.map(([a,b])=>({a:slotOwner[a],b:slotOwner[b]})));
+ Object.entries(final).forEach(([w,g])=>weeks[+w]=g.map(([a,b])=>({a,b})));
+ return weeks;
+}
+let LS_STATE={week:1,scores:{}};
+try{const saved=JSON.parse(localStorage.getItem(LS_KEY)||"null");if(saved&&saved.scores)LS_STATE={...LS_STATE,...saved};}catch{}
+function lsSaveState(){try{localStorage.setItem(LS_KEY,JSON.stringify(LS_STATE))}catch{}}
+function lsScore(w,o){const v=LS_STATE.scores?.[w]?.[o];return v==null||v===""?null:+v}
+function lsCompleteGame(w,g){return lsScore(w,g.a)!=null&&lsScore(w,g.b)!=null}
+function lsStatsThrough(throughWeek){
+ const stats=Object.fromEntries(LS_OWNERS.map(o=>[o,{owner:o,w:0,l:0,pts:0,pa:0,hs:0,gp:0}]));
+ const weeks=lsFinalWeeks();
+ for(let w=1;w<=throughWeek;w++){
+   const weekScores=LS_OWNERS.map(o=>({o,s:lsScore(w,o)})).filter(x=>x.s!=null);
+   if(weekScores.length===10){const mx=Math.max(...weekScores.map(x=>x.s));weekScores.filter(x=>Math.abs(x.s-mx)<.0001).forEach(x=>stats[x.o].hs++);}
+   for(const g of weeks[w]||[]){
+     const a=lsScore(w,g.a),b=lsScore(w,g.b);if(a==null||b==null)continue;
+     stats[g.a].pts+=a;stats[g.a].pa+=b;stats[g.a].gp++;stats[g.b].pts+=b;stats[g.b].pa+=a;stats[g.b].gp++;
+     if(a>b){stats[g.a].w++;stats[g.b].l++;}else if(b>a){stats[g.b].w++;stats[g.a].l++;}else{stats[g.a].w+=.5;stats[g.a].l+=.5;stats[g.b].w+=.5;stats[g.b].l+=.5;}
+   }
+ }
+ return Object.values(stats);
+}
+function lsRecordSort(a,b){return b.w-a.w||a.l-b.l||b.pts-a.pts||a.owner.localeCompare(b.owner)}
+function lsRank(throughWeek){
+ const rows=lsStatsThrough(throughWeek);
+ const pointOrder=[...rows].sort((a,b)=>b.pts-a.pts||lsRecordSort(a,b));pointOrder.forEach((r,i)=>r.ptsRank=i+1);
+ const recordOrder=[...rows].sort(lsRecordSort);
+ const top5=recordOrder.slice(0,5),rest=recordOrder.slice(5);
+ const wc=[...rest].sort((a,b)=>b.pts-a.pts||lsRecordSort(a,b))[0];
+ const qualifiers=[...top5,wc];
+ const pointsLeader=pointOrder[0];
+ let bye1=top5[0],bye2=top5[1];
+ if(pointsLeader&&qualifiers.some(x=>x.owner===pointsLeader.owner)&&pointsLeader.owner!==bye1.owner)bye2=pointsLeader;
+ const remainingQ=qualifiers.filter(x=>x.owner!==bye1.owner&&x.owner!==bye2.owner).sort(lsRecordSort);
+ const seeded=[bye1,bye2,...remainingQ];
+ const outside=rows.filter(x=>!qualifiers.some(q=>q.owner===x.owner)).sort(lsRecordSort);
+ const ordered=[...seeded,...outside];
+ ordered.forEach((r,i)=>{r.rank=i+1;r.isBye=i<2;r.isWC=wc&&r.owner===wc.owner;r.qualified=i<6;});
+ return ordered;
+}
+function lsLastCompletedWeek(){let last=0;const weeks=lsFinalWeeks();for(let w=1;w<=14;w++){if((weeks[w]||[]).every(g=>lsCompleteGame(w,g)))last=w;else break;}return last}
+function lsFmt(n){return n.toLocaleString(undefined,{minimumFractionDigits:1,maximumFractionDigits:1})}
+function lsStatus(r,through){if(through===14)return r.isBye?"BYE":r.qualified?"Playoffs":"Toiletville";return r.isBye?"Bye position":r.qualified?(r.isWC?"Points wildcard":"Playoff position"):"Outside field"}
+function lsRaceFmt(n){
+ if(Math.abs(n)<0.05)return "0.0";
+ return n<0?`(${lsFmt(Math.abs(n))})`:lsFmt(n);
+}
+function lsRenderTable(){
+ const through=lsLastCompletedWeek(),rows=lsRank(through),prior=through>1?lsRank(through-1):[];
+ const priorMap=Object.fromEntries(prior.map(r=>[r.owner,r.rank]));
+ const recordOrder=[...rows].sort(lsRecordSort);
+ const top5Owners=new Set(recordOrder.slice(0,5).map(r=>r.owner));
+ const fifth=recordOrder[4];
+ const wc=rows.find(r=>r.isWC);
+ const seed2=rows.find(r=>r.rank===2);
+ document.getElementById("lsStandingsBody").innerHTML=rows.map(r=>{
+   const pr=priorMap[r.owner]??null,d=pr===null?0:pr-r.rank;
+   const cls=r.isBye?"ls-bye":r.isWC?"ls-wildcard":r.qualified?"ls-playoff":"ls-out";
+   let gb5=0;
+   if(!top5Owners.has(r.owner)){
+     const winGap=(fifth?.w??0)-r.w;
+     gb5=winGap>0?winGap:0.5; // tied on record but below the fifth-place points tiebreak line
+   }
+   if(r.isWC)gb5=0.5; // wildcard occupies seed 6 rather than a Top-5 record berth
+   const pb6=r.isBye?0:(wc?r.pts-wc.pts:0);
+   const pb2=seed2?r.pts-seed2.pts:0;
+   return `<tr class="${cls}"><td class="ls-rank">${r.rank}</td><td class="ls-owner">${lsEsc(r.owner)}</td><td>${r.w}</td><td>${r.l}</td><td>${lsFmt(r.pts)}</td><td>${lsFmt(r.pa)}</td><td>${gb5.toFixed(1)}</td><td>${lsRaceFmt(pb6)}</td><td>${lsRaceFmt(pb2)}</td><td>${r.ptsRank}</td><td class="ls-hs">${r.hs}</td><td>${lsStatus(r,through)}</td><td>${through>1&&pr!==null?pr:"—"}</td><td class="${d>0?"ls-move-up":d<0?"ls-move-down":""}">${through>1&&pr!==null?(d>0?`+${d}`:d<0?d:"0"):"—"}</td></tr>`;
+ }).join("");
+ const gamesDone=rows.reduce((s,r)=>s+r.gp,0)/2;const leader=[...rows].sort((a,b)=>b.pts-a.pts)[0];
+ document.getElementById("lsSummary").innerHTML=[["Through Week",through||"—"],["Games Final",`${gamesDone} / 70`],["Points Leader",through?leader.owner:"—"],["High Score Leader",through?([...rows].sort((a,b)=>b.hs-a.hs||b.pts-a.pts)[0].owner):"—"]].map(([l,v])=>`<div><div class="label">${l}</div><div class="value">${v}</div></div>`).join("");
+}
+function lsRenderEntry(){
+ const w=+LS_STATE.week,weeks=lsFinalWeeks(),games=weeks[w]||[],opp={};games.forEach(g=>{opp[g.a]=g.b;opp[g.b]=g.a});
+ document.getElementById("lsWeek").value=String(w);
+ document.getElementById("lsScoreGrid").innerHTML=LS_OWNERS.map(o=>`<div class="ls-score-row"><div><strong>${lsEsc(o)}</strong><div class="opp">vs ${lsEsc(opp[o]||"—")}</div></div><input data-ls-owner="${lsEsc(o)}" inputmode="decimal" type="number" step="0.01" min="0" value="${lsScore(w,o)??""}" placeholder="Score"></div>`).join("");
+ document.getElementById("lsPrev").disabled=w<=1;document.getElementById("lsNext").disabled=w>=14;
+}
+function renderLiveStandings(){
+ const sel=document.getElementById("lsWeek");if(!sel)return;if(!sel.options.length)sel.innerHTML=Array.from({length:14},(_,i)=>`<option value="${i+1}">Week ${i+1}</option>`).join("");
+ // Render score entry first so commissioner inputs remain usable even if a future standings calculation has an issue.
+ lsRenderEntry();
+ try{lsRenderTable();}catch(err){console.error("Live Standings render error",err);document.getElementById("lsSaveState").textContent="Standings calculation error — score entry is still available. Check console.";}
+}
+function lsBind(){
+ const sel=document.getElementById("lsWeek");if(!sel||sel.dataset.bound)return;sel.dataset.bound="1";
+ sel.addEventListener("change",()=>{LS_STATE.week=+sel.value;lsSaveState();lsRenderEntry()});
+ document.getElementById("lsPrev").addEventListener("click",()=>{LS_STATE.week=Math.max(1,+LS_STATE.week-1);lsSaveState();lsRenderEntry()});
+ document.getElementById("lsNext").addEventListener("click",()=>{LS_STATE.week=Math.min(14,+LS_STATE.week+1);lsSaveState();lsRenderEntry()});
+ document.getElementById("lsSave").addEventListener("click",()=>{const w=+LS_STATE.week;LS_STATE.scores[w]=LS_STATE.scores[w]||{};document.querySelectorAll("#lsScoreGrid [data-ls-owner]").forEach(inp=>{const v=inp.value.trim();if(v==="")delete LS_STATE.scores[w][inp.dataset.lsOwner];else LS_STATE.scores[w][inp.dataset.lsOwner]=+v;});lsSaveState();lsRenderTable();document.getElementById("lsSaveState").textContent=`Week ${w} saved in TEST browser storage. Standings recalculated.`;});
+ document.getElementById("lsClearWeek").addEventListener("click",()=>{if(!confirm(`Clear all Week ${LS_STATE.week} TEST scores?`))return;delete LS_STATE.scores[LS_STATE.week];lsSaveState();lsRenderEntry();lsRenderTable();document.getElementById("lsSaveState").textContent=`Week ${LS_STATE.week} cleared.`;});
+}
+function lsBoot(){
+  lsBind();
+  renderLiveStandings();
+}
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",lsBoot);else lsBoot();
+
+</script>
 </body>
 </html>
