@@ -3957,6 +3957,86 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 @media(max-width:980px){.ls-grid{grid-template-columns:1fr}.ls-score-grid{grid-template-columns:1fr 1fr}}@media(max-width:600px){.ls-score-grid,.ls-summary{grid-template-columns:1fr 1fr}}
 
 <!-- v5.11.2 Trivia Category Controls + Dan/Jaspers Difficulty Override -->
+
+<style id="live-standings-v5131-matchups-css">
+#liveStandings .ls-score-grid{display:grid;grid-template-columns:1fr;gap:7px}
+#liveStandings .ls-matchup-row{display:grid;grid-template-columns:minmax(0,1fr) 22px minmax(0,1fr);gap:7px;align-items:center;background:#f5f1e8;border:1px solid #ddd6c8;border-radius:8px;padding:7px 8px}
+#liveStandings .ls-matchup-side{display:grid;grid-template-columns:minmax(0,1fr) 88px;gap:7px;align-items:center;min-width:0}
+#liveStandings .ls-matchup-side strong{font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#liveStandings .ls-matchup-side input{width:100%;min-width:0;background:#fff!important;color:#1e252d!important;border:1px solid #cfc9bd!important;border-radius:7px;padding:6px}
+#liveStandings .ls-vs{text-align:center;font-size:8px;font-weight:900;color:#7b8288;text-transform:uppercase}
+@media(max-width:600px){
+ #liveStandings .ls-matchup-row{grid-template-columns:minmax(0,1fr) 18px minmax(0,1fr);padding:6px}
+ #liveStandings .ls-matchup-side{grid-template-columns:minmax(0,1fr) 70px;gap:5px}
+}
+</style>
+
+
+<style id="live-standings-v5133-landing-css">
+#presentation .live-standings-landing-cta{margin:16px auto 0;display:flex;align-items:center;justify-content:space-between;gap:18px;max-width:760px;padding:11px 14px;border:1px solid rgba(185,149,74,.58);border-radius:10px;background:rgba(255,255,255,.035);text-align:left}
+#presentation .live-standings-landing-kicker{font-size:9px;font-weight:950;letter-spacing:1.2px;text-transform:uppercase;color:#d8b65d;margin-bottom:3px}
+#presentation .live-standings-landing-title{font-size:16px;font-weight:900;color:#fff}
+#presentation .live-standings-landing-sub{font-size:10px;color:#b9c6d1;margin-top:2px}
+#presentation .live-standings-landing-button{flex:0 0 auto;border:1px solid #b9954a;border-radius:8px;padding:9px 13px;background:#f7f4ed;color:#14212d;font-weight:900;cursor:pointer}
+@media(max-width:650px){#presentation .live-standings-landing-cta{align-items:stretch;flex-direction:column}.live-standings-landing-button{width:100%}}
+</style>
+
+
+<style id="live-standings-v5134-matchup-fix">
+#liveStandings #lsScoreGrid{
+  display:grid !important;
+  grid-template-columns:1fr !important;
+  gap:8px !important;
+}
+#liveStandings .ls-matchup-row{
+  display:grid !important;
+  grid-template-columns:minmax(72px,1fr) 92px 24px minmax(72px,1fr) 92px !important;
+  gap:8px !important;
+  align-items:center !important;
+  width:100% !important;
+  box-sizing:border-box !important;
+  background:#f5f1e8 !important;
+  border:1px solid #ddd6c8 !important;
+  border-radius:8px !important;
+  padding:8px 9px !important;
+}
+#liveStandings .ls-matchup-name{
+  min-width:0 !important;
+  font-size:11px !important;
+  font-weight:900 !important;
+  color:#1e252d !important;
+  white-space:nowrap !important;
+  overflow:hidden !important;
+  text-overflow:ellipsis !important;
+}
+#liveStandings .ls-matchup-score{
+  width:100% !important;
+  min-width:0 !important;
+  box-sizing:border-box !important;
+  background:#fff !important;
+  color:#1e252d !important;
+  border:1px solid #cfc9bd !important;
+  border-radius:7px !important;
+  padding:7px 8px !important;
+}
+#liveStandings .ls-vs{
+  text-align:center !important;
+  font-size:9px !important;
+  font-weight:900 !important;
+  color:#7b8288 !important;
+  text-transform:uppercase !important;
+}
+@media(max-width:620px){
+ #liveStandings .ls-matchup-row{
+   grid-template-columns:minmax(55px,1fr) 70px 18px minmax(55px,1fr) 70px !important;
+   gap:5px !important;
+   padding:7px 6px !important;
+ }
+ #liveStandings .ls-matchup-name{font-size:10px !important}
+ #liveStandings .ls-matchup-score{padding:6px 5px !important}
+}
+</style>
+
 </head>
 </style>
 <style id="schedule-v510-css">
@@ -4261,6 +4341,14 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 <button class="active" data-edition="2026">2026 Reveal</button>
 <button data-edition="recap">4-Year Recap</button>
 <button data-edition="final">Final Rankings</button>
+</div>
+<div class="live-standings-landing-cta">
+  <div>
+    <div class="live-standings-landing-kicker">2026 SEASON</div>
+    <div class="live-standings-landing-title">Live Standings</div>
+    <div class="live-standings-landing-sub">Current playoff race · points wildcard · high scores</div>
+  </div>
+  <button class="live-standings-landing-button" id="landingLiveStandingsOpen" type="button">View Live Standings →</button>
 </div>
 </div>
 <div class="snapshot-panel hidden" id="snapshot2018">
@@ -5434,11 +5522,11 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 
 <section class="view" id="liveStandings">
   <div class="ls-shell">
-    <div class="ls-head"><div><div class="ls-kicker">2026 Regular Season</div><h2>Live Standings</h2><p>Enter the ten weekly scores. The finalized Big Board schedule drives W/L, points, high scores, the Top-5 field and points wildcard automatically.</p></div><span class="ls-test">TEST BUILD · v5.12.6</span></div>
+    <div class="ls-head"><div><div class="ls-kicker">2026 Regular Season</div><h2>Live Standings</h2><p>Enter the ten weekly scores. The finalized Big Board schedule drives W/L, points, high scores, the Top-5 field and points wildcard automatically.</p></div><span class="ls-test">TEST BUILD · v5.13.7</span></div>
     <div id="lsSummary" class="ls-summary"></div>
     <div class="ls-grid">
       <div class="ls-card"><h3>Playoff Race</h3><div class="ls-sub">Seeds 1–5 are the five best records (points tiebreaker). Seed 6 is the highest-scoring team among the remaining five. The overall points leader is guaranteed a first-round bye.</div><div class="ls-table-wrap"><table class="ls-table"><thead><tr><th>#</th><th>Team</th><th>W</th><th>L</th><th>Pts</th><th>PA</th><th>GB of 5</th><th>PB of 6</th><th>PB of 2 Seed</th><th>Pts Rank</th><th>HS</th><th>Status</th><th>Prior</th><th>Change</th></tr></thead><tbody id="lsStandingsBody"></tbody></table></div><div class="ls-note">Race helpers: GB of 5 shows distance from the fifth record qualifier; PB of 6 compares season points with the current points-wildcard line; PB of 2 Seed compares season points with the current second-seed points line. Parentheses indicate a points deficit.</div></div>
-      <div class="ls-card"><h3>Commissioner Score Entry</h3><div class="ls-sub">Scores save only in this browser in TEST. Blank scores are treated as games not yet final.</div><div class="ls-toolbar"><label>Week<select id="lsWeek"></select></label><button id="lsPrev">←</button><button id="lsNext">→</button></div><div id="lsScoreGrid" class="ls-score-grid"></div><div class="ls-actions"><button class="primary" id="lsSave">Save Scores & Recalculate</button><button id="lsClearWeek">Clear Week</button></div><div id="lsSaveState" class="ls-note">No changes yet.</div></div>
+      <div class="ls-card"><h3>Commissioner Score Entry</h3><div class="ls-sub">Official scores are shared through Supabase. Commissioner sign-in is required to edit.</div><div id="lsAuthBox" style="margin:10px 0 12px;padding:10px;border:1px solid #d9d4ca;border-radius:9px;background:#f4f1ea"><div id="lsAuthSignedOut"><label style="display:block">Commissioner Password<input id="lsLoginPassword" type="password" autocomplete="current-password" placeholder="Password" style="width:100%;margin-top:5px"></label><button class="primary" id="lsLogin" type="button" style="margin-top:8px">Commissioner Sign In</button></div><div id="lsAuthSignedIn" hidden><strong>Commissioner signed in ✓</strong><button id="lsLogout" type="button" style="margin-left:8px">Sign Out</button></div><div id="lsAuthState" class="ls-note" style="margin-top:6px"></div></div><div class="ls-toolbar"><label>Week<select id="lsWeek"></select></label><button id="lsPrev">←</button><button id="lsNext">→</button></div><div id="lsScoreGrid" class="ls-score-grid"></div><div class="ls-actions"><button class="primary" id="lsSave">Save Scores & Recalculate</button><button id="lsClearWeek">Clear Week</button></div><div id="lsSaveState" class="ls-note">No changes yet.</div></div>
     </div>
   </div>
 </section>
@@ -11947,9 +12035,21 @@ function vaultReset(){}
 const WAIVER_SUPABASE_URL='https://aacfbuhyqegfinwgzsmc.supabase.co';
 const WAIVER_SUPABASE_KEY='sb_publishable_-VbgmLTdT4Eckdi5_XMz4A_LGqtJe5O';
 const WAIVER_LIVE_MODE=true;
-const WAIVER_DB=(window.supabase&&window.supabase.createClient)
-  ? window.supabase.createClient(WAIVER_SUPABASE_URL,WAIVER_SUPABASE_KEY)
-  : null;
+
+// One lazy, site-wide Supabase singleton. This avoids both failure modes:
+// 1) creating the client before the Supabase library has loaded, and
+// 2) creating a second GoTrueClient with a competing auth/session store.
+window.getBigBoardSupabase=function(){
+  if(window.BIG_BOARD_SUPABASE)return window.BIG_BOARD_SUPABASE;
+  if(!(window.supabase&&window.supabase.createClient))return null;
+  window.BIG_BOARD_SUPABASE=window.supabase.createClient(
+    WAIVER_SUPABASE_URL,
+    WAIVER_SUPABASE_KEY
+  );
+  return window.BIG_BOARD_SUPABASE;
+};
+
+const WAIVER_DB=window.getBigBoardSupabase();
 let WAIVER_AUTH_USER=null;
 let WAIVER_AUTH_OWNER=null;
 let WAIVER_EVENT=null;
@@ -13479,9 +13579,9 @@ if(document.readyState==="loading"){
 </script>
 
 
-<script id="live-standings-v5123-js">
+<script id="live-standings-v5137-js">
 // =========================================================
-// v5.12.6 TEST — 2026 Live Standings
+// v5.13.7 TEST — Supabase readiness-gated shared singleton
 // =========================================================
 const LS_KEY="bigBoardLiveStandings2026_TEST_v1";
 const LS_OWNERS=["Ben","Dan","Bob","Adrian","Cory","Habble","RJ","Zac","Sam","Mac"];
@@ -13518,9 +13618,81 @@ function lsFinalWeeks(){
  return weeks;
 }
 let LS_STATE={week:1,scores:{}};
-try{const saved=JSON.parse(localStorage.getItem(LS_KEY)||"null");if(saved&&saved.scores)LS_STATE={...LS_STATE,...saved};}catch{}
-function lsSaveState(){try{localStorage.setItem(LS_KEY,JSON.stringify(LS_STATE))}catch{}}
+try{const saved=JSON.parse(localStorage.getItem(LS_KEY)||"null");if(saved?.week)LS_STATE.week=+saved.week;}catch{}
+function lsSaveState(){try{localStorage.setItem(LS_KEY,JSON.stringify({week:LS_STATE.week}))}catch{}}
+let LS_DB=null;
+function lsGetDb(){
+  if(LS_DB)return LS_DB;
+  // Ask the site-wide singleton for the client at call time, after page libraries
+  // have had a chance to load. It creates at most one Supabase/GoTrue client.
+  if(typeof window.getBigBoardSupabase==="function"){
+    LS_DB=window.getBigBoardSupabase();
+  }
+  return LS_DB;
+}
+const LS_COMMISH_UID="1b87bf77-a6ac-46ab-9252-f04d4aa0a643";
+let LS_AUTH_USER=null;
 function lsScore(w,o){const v=LS_STATE.scores?.[w]?.[o];return v==null||v===""?null:+v}
+async function lsRefreshAuth(){
+ const db=lsGetDb();
+ if(!db)return null;
+ const {data,error}=await db.auth.getUser();
+ if(error){LS_AUTH_USER=null;return null;}
+ LS_AUTH_USER=data?.user||null; return LS_AUTH_USER;
+}
+function lsIsCommissioner(){return LS_AUTH_USER?.id===LS_COMMISH_UID}
+const LS_COMMISH_EMAIL="bron0623@gmail.com";
+function lsRenderAuth(){
+ const signed=lsIsCommissioner();
+ const out=document.getElementById("lsAuthSignedOut"),inside=document.getElementById("lsAuthSignedIn");
+ const save=document.getElementById("lsSave"),clear=document.getElementById("lsClearWeek");
+ if(out)out.hidden=signed;if(inside)inside.hidden=!signed;if(save)save.hidden=!signed;if(clear)clear.hidden=!signed;
+ lsRenderEntry();
+}
+async function lsLogin(){
+ const db=lsGetDb(),state=document.getElementById("lsAuthState"),pw=document.getElementById("lsLoginPassword");
+ if(!db){if(state)state.textContent="Supabase is not ready. Refresh and try again.";return;}
+ if(!pw?.value){if(state)state.textContent="Enter the commissioner password.";return;}
+ if(state)state.textContent="Signing in…";
+ const {data,error}=await db.auth.signInWithPassword({email:LS_COMMISH_EMAIL,password:pw.value});
+ if(error){if(state)state.textContent=error.message;return;}
+ LS_AUTH_USER=data?.user||null;
+ if(!lsIsCommissioner()){await db.auth.signOut();LS_AUTH_USER=null;if(state)state.textContent="That account is not the commissioner account.";lsRenderAuth();return;}
+ pw.value="";if(state)state.textContent="Commissioner editing enabled.";lsRenderAuth();
+}
+async function lsLogout(){
+ const db=lsGetDb();if(db)await db.auth.signOut();LS_AUTH_USER=null;
+ const state=document.getElementById("lsAuthState");if(state)state.textContent="Signed out. Standings remain read-only.";lsRenderAuth();
+}
+async function lsLoadSharedScores(){
+ const db=lsGetDb();
+ if(!db)throw new Error("Supabase client unavailable.");
+ const {data,error}=await db.from("weekly_scores").select("week,owner,score").eq("season",2026).order("week");
+ if(error)throw error;
+ LS_STATE.scores={};
+ (data||[]).forEach(r=>{const w=+r.week;LS_STATE.scores[w]=LS_STATE.scores[w]||{};LS_STATE.scores[w][r.owner]=+r.score;});
+}
+async function lsWriteWeek(w){
+ const db=lsGetDb();
+ if(!db)throw new Error("Supabase client unavailable.");
+ await lsRefreshAuth();
+ if(!lsIsCommissioner())throw new Error("Commissioner sign-in required to edit official scores.");
+ const rows=[];
+ document.querySelectorAll("#lsScoreGrid [data-ls-owner]").forEach(inp=>{const v=inp.value.trim();if(v!=="")rows.push({season:2026,week:w,owner:inp.dataset.lsOwner,score:+v,updated_at:new Date().toISOString()});});
+ const del=await db.from("weekly_scores").delete().eq("season",2026).eq("week",w);
+ if(del.error)throw del.error;
+ if(rows.length){const ins=await db.from("weekly_scores").insert(rows);if(ins.error)throw ins.error;}
+ await lsLoadSharedScores();
+}
+async function lsDeleteWeek(w){
+ const db=lsGetDb();
+ if(!db)throw new Error("Supabase client unavailable.");
+ await lsRefreshAuth();
+ if(!lsIsCommissioner())throw new Error("Commissioner sign-in required to clear official scores.");
+ const del=await db.from("weekly_scores").delete().eq("season",2026).eq("week",w);
+ if(del.error)throw del.error;
+ await lsLoadSharedScores();
+}
 function lsCompleteGame(w,g){return lsScore(w,g.a)!=null&&lsScore(w,g.b)!=null}
 function lsStatsThrough(throughWeek){
  const stats=Object.fromEntries(LS_OWNERS.map(o=>[o,{owner:o,w:0,l:0,pts:0,pa:0,hs:0,gp:0}]));
@@ -13586,9 +13758,15 @@ function lsRenderTable(){
  document.getElementById("lsSummary").innerHTML=[["Through Week",through||"—"],["Games Final",`${gamesDone} / 70`],["Points Leader",through?leader.owner:"—"],["High Score Leader",through?([...rows].sort((a,b)=>b.hs-a.hs||b.pts-a.pts)[0].owner):"—"]].map(([l,v])=>`<div><div class="label">${l}</div><div class="value">${v}</div></div>`).join("");
 }
 function lsRenderEntry(){
- const w=+LS_STATE.week,weeks=lsFinalWeeks(),games=weeks[w]||[],opp={};games.forEach(g=>{opp[g.a]=g.b;opp[g.b]=g.a});
+ const w=+LS_STATE.week,weeks=lsFinalWeeks(),games=weeks[w]||[];
  document.getElementById("lsWeek").value=String(w);
- document.getElementById("lsScoreGrid").innerHTML=LS_OWNERS.map(o=>`<div class="ls-score-row"><div><strong>${lsEsc(o)}</strong><div class="opp">vs ${lsEsc(opp[o]||"—")}</div></div><input data-ls-owner="${lsEsc(o)}" inputmode="decimal" type="number" step="0.01" min="0" value="${lsScore(w,o)??""}" placeholder="Score"></div>`).join("");
+ document.getElementById("lsScoreGrid").innerHTML=games.map(g=>`<div class="ls-matchup-row">
+   <div class="ls-matchup-name">${lsEsc(g.a)}</div>
+   <input class="ls-matchup-score" aria-label="${lsEsc(g.a)} score" data-ls-owner="${lsEsc(g.a)}" inputmode="decimal" type="number" step="0.01" min="0" value="${lsScore(w,g.a)??""}" placeholder="Score" ${lsIsCommissioner()?"":"readonly"}>
+   <div class="ls-vs">vs</div>
+   <div class="ls-matchup-name">${lsEsc(g.b)}</div>
+   <input class="ls-matchup-score" aria-label="${lsEsc(g.b)} score" data-ls-owner="${lsEsc(g.b)}" inputmode="decimal" type="number" step="0.01" min="0" value="${lsScore(w,g.b)??""}" placeholder="Score" ${lsIsCommissioner()?"":"readonly"}>
+ </div>`).join("");
  document.getElementById("lsPrev").disabled=w<=1;document.getElementById("lsNext").disabled=w>=14;
 }
 function renderLiveStandings(){
@@ -13602,15 +13780,67 @@ function lsBind(){
  sel.addEventListener("change",()=>{LS_STATE.week=+sel.value;lsSaveState();lsRenderEntry()});
  document.getElementById("lsPrev").addEventListener("click",()=>{LS_STATE.week=Math.max(1,+LS_STATE.week-1);lsSaveState();lsRenderEntry()});
  document.getElementById("lsNext").addEventListener("click",()=>{LS_STATE.week=Math.min(14,+LS_STATE.week+1);lsSaveState();lsRenderEntry()});
- document.getElementById("lsSave").addEventListener("click",()=>{const w=+LS_STATE.week;LS_STATE.scores[w]=LS_STATE.scores[w]||{};document.querySelectorAll("#lsScoreGrid [data-ls-owner]").forEach(inp=>{const v=inp.value.trim();if(v==="")delete LS_STATE.scores[w][inp.dataset.lsOwner];else LS_STATE.scores[w][inp.dataset.lsOwner]=+v;});lsSaveState();lsRenderTable();document.getElementById("lsSaveState").textContent=`Week ${w} saved in TEST browser storage. Standings recalculated.`;});
- document.getElementById("lsClearWeek").addEventListener("click",()=>{if(!confirm(`Clear all Week ${LS_STATE.week} TEST scores?`))return;delete LS_STATE.scores[LS_STATE.week];lsSaveState();lsRenderEntry();lsRenderTable();document.getElementById("lsSaveState").textContent=`Week ${LS_STATE.week} cleared.`;});
+ document.getElementById("lsSave").addEventListener("click",async()=>{const w=+LS_STATE.week,msg=document.getElementById("lsSaveState");msg.textContent="Saving official scores…";try{await lsWriteWeek(w);lsRenderEntry();lsRenderTable();msg.textContent=`Week ${w} saved to Supabase. Standings are now shared.`;}catch(err){console.error(err);msg.textContent=err.message||"Unable to save scores.";alert(msg.textContent);}});
+ document.getElementById("lsClearWeek").addEventListener("click",async()=>{const w=+LS_STATE.week;if(!confirm(`Clear all official Week ${w} scores?`))return;const msg=document.getElementById("lsSaveState");msg.textContent="Clearing official scores…";try{await lsDeleteWeek(w);lsRenderEntry();lsRenderTable();msg.textContent=`Week ${w} cleared from Supabase.`;}catch(err){console.error(err);msg.textContent=err.message||"Unable to clear scores.";alert(msg.textContent);}});
+ document.getElementById("lsLogin")?.addEventListener("click",lsLogin);
+ document.getElementById("lsLoginPassword")?.addEventListener("keydown",e=>{if(e.key==="Enter")lsLogin();});
+ document.getElementById("lsLogout")?.addEventListener("click",lsLogout);
 }
-function lsBoot(){
+async function lsWaitForSupabase(timeoutMs=8000){
+  const started=Date.now();
+  while(Date.now()-started < timeoutMs){
+    if(window.supabase && typeof window.supabase.createClient==="function"){
+      const db=lsGetDb();
+      if(db)return db;
+    }
+    await new Promise(resolve=>setTimeout(resolve,50));
+  }
+  throw new Error("Supabase shared client was not ready within timeout.");
+}
+
+async function lsBoot(){
+  // Render the schedule and score boxes immediately. Network/auth must never block the UI.
   lsBind();
   renderLiveStandings();
+  const msg=document.getElementById("lsSaveState");
+  const save=document.getElementById("lsSave"),clear=document.getElementById("lsClearWeek");
+  if(save)save.hidden=true;
+  if(clear)clear.hidden=true;
+  if(msg)msg.textContent="Loading shared scores…";
+  try{
+    await lsWaitForSupabase();
+    await lsRefreshAuth();
+    await lsLoadSharedScores();
+    renderLiveStandings();
+    lsRenderAuth();
+    if(save)save.hidden=!lsIsCommissioner();
+    if(clear)clear.hidden=!lsIsCommissioner();
+    if(msg)msg.textContent=lsIsCommissioner()?"Shared scores loaded. Commissioner editing enabled.":"Shared standings loaded from Supabase.";
+  }catch(err){
+    console.error("Live Standings Supabase load error",err);
+    // Keep the already-rendered matchup boxes visible even if Supabase/auth fails.
+    if(msg)msg.textContent="Score entry loaded, but Supabase did not connect. Check console before saving.";
+  }
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",lsBoot);else lsBoot();
 
 </script>
+
+<script id="live-standings-v5133-landing-js">
+(function(){
+ function bindLandingStandings(){
+   const b=document.getElementById("landingLiveStandingsOpen");
+   if(!b||b.dataset.bound)return;
+   b.dataset.bound="1";
+   b.addEventListener("click",function(){
+     const nav=document.querySelector('[data-view="liveStandings"]') ||
+               Array.from(document.querySelectorAll("button")).find(x=>x.textContent.trim().includes("Live Standings"));
+     if(nav)nav.click();
+   });
+ }
+ if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",bindLandingStandings);else bindLandingStandings();
+})();
+</script>
+
 </body>
 </html>
