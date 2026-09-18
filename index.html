@@ -5522,12 +5522,14 @@ body.dnl-presentation #prizeVault.dnl-active-view{
 
 <section class="view" id="liveStandings">
   <div class="ls-shell">
-    <div class="ls-head"><div><div class="ls-kicker">2026 Regular Season</div><h2>Live Standings</h2><p>Enter the ten weekly scores. The finalized Big Board schedule drives W/L, points, high scores, the Top-5 field and points wildcard automatically.</p></div><span class="ls-test">TEST BUILD · v5.13.7</span></div>
+    <div class="ls-head"><div><div class="ls-kicker">2026 Regular Season</div><h2>Live Standings</h2><p>Enter the ten weekly scores. The finalized Big Board schedule drives W/L, points, high scores, the Top-5 field and points wildcard automatically.</p></div><span class="ls-test">LIVE · 2026</span></div>
     <div id="lsSummary" class="ls-summary"></div>
     <div class="ls-grid">
       <div class="ls-card"><h3>Playoff Race</h3><div class="ls-sub">Seeds 1–5 are the five best records (points tiebreaker). Seed 6 is the highest-scoring team among the remaining five. The overall points leader is guaranteed a first-round bye.</div><div class="ls-table-wrap"><table class="ls-table"><thead><tr><th>#</th><th>Team</th><th>W</th><th>L</th><th>Pts</th><th>PA</th><th>GB of 5</th><th>PB of 6</th><th>PB of 2 Seed</th><th>Pts Rank</th><th>HS</th><th>Status</th><th>Prior</th><th>Change</th></tr></thead><tbody id="lsStandingsBody"></tbody></table></div><div class="ls-note">Race helpers: GB of 5 shows distance from the fifth record qualifier; PB of 6 compares season points with the current points-wildcard line; PB of 2 Seed compares season points with the current second-seed points line. Parentheses indicate a points deficit.</div></div>
       <div class="ls-card"><h3>Commissioner Score Entry</h3><div class="ls-sub">Official scores are shared through Supabase. Commissioner sign-in is required to edit.</div><div id="lsAuthBox" style="margin:10px 0 12px;padding:10px;border:1px solid #d9d4ca;border-radius:9px;background:#f4f1ea"><div id="lsAuthSignedOut"><label style="display:block">Commissioner Password<input id="lsLoginPassword" type="password" autocomplete="current-password" placeholder="Password" style="width:100%;margin-top:5px"></label><button class="primary" id="lsLogin" type="button" style="margin-top:8px">Commissioner Sign In</button></div><div id="lsAuthSignedIn" hidden><strong>Commissioner signed in ✓</strong><button id="lsLogout" type="button" style="margin-left:8px">Sign Out</button></div><div id="lsAuthState" class="ls-note" style="margin-top:6px"></div></div><div class="ls-toolbar"><label>Week<select id="lsWeek"></select></label><button id="lsPrev">←</button><button id="lsNext">→</button></div><div id="lsScoreGrid" class="ls-score-grid"></div><div class="ls-actions"><button class="primary" id="lsSave">Save Scores & Recalculate</button><button id="lsClearWeek">Clear Week</button></div><div id="lsSaveState" class="ls-note">No changes yet.</div></div>
     </div>
+    <div class="ls-card ls-proj-card" style="margin-top:18px"><div style="display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap"><div><div class="ls-kicker"></div><h3 style="margin:3px 0">Projection Lab</h3><div class="ls-sub">Historical Big Board model · Rewind to any completed week to see what the outlook was at that point.</div></div><label>Projection snapshot<select id="lsProjWeek" style="margin-left:8px"></select></label></div><div id="lsProjState" class="ls-note" style="margin:10px 0">Loading historical engine…</div><div class="ls-table-wrap"><table class="ls-table"><thead><tr><th>Team</th><th>Record</th><th>Scoring</th><th>Playoff Chance</th><th>Precedent</th><th>🏆 Championship Profile</th><th>Title Comps</th></tr></thead><tbody id="lsProjectionBody"></tbody></table></div><div id="lsProjectionDetail" class="ls-note" style="margin-top:12px">Click a team row for its historical comparison detail.</div></div>
+
   </div>
 </section>
 
@@ -13773,15 +13775,20 @@ function renderLiveStandings(){
  const sel=document.getElementById("lsWeek");if(!sel)return;if(!sel.options.length)sel.innerHTML=Array.from({length:14},(_,i)=>`<option value="${i+1}">Week ${i+1}</option>`).join("");
  // Render score entry first so commissioner inputs remain usable even if a future standings calculation has an issue.
  lsRenderEntry();
- try{lsRenderTable();}catch(err){console.error("Live Standings render error",err);document.getElementById("lsSaveState").textContent="Standings calculation error — score entry is still available. Check console.";}
+ try{
+   lsRenderTable();
+   // Projection history may finish loading before or after Supabase. Re-render here so
+   // projections always use the same shared scores currently shown in Live Standings.
+   if(typeof lsRenderProjections==="function" && Array.isArray(LS_HIST_SNAP) && LS_HIST_SNAP.length) lsRenderProjections();
+ }catch(err){console.error("Live Standings render error",err);document.getElementById("lsSaveState").textContent="Standings calculation error — score entry is still available. Check console.";}
 }
 function lsBind(){
  const sel=document.getElementById("lsWeek");if(!sel||sel.dataset.bound)return;sel.dataset.bound="1";
  sel.addEventListener("change",()=>{LS_STATE.week=+sel.value;lsSaveState();lsRenderEntry()});
  document.getElementById("lsPrev").addEventListener("click",()=>{LS_STATE.week=Math.max(1,+LS_STATE.week-1);lsSaveState();lsRenderEntry()});
  document.getElementById("lsNext").addEventListener("click",()=>{LS_STATE.week=Math.min(14,+LS_STATE.week+1);lsSaveState();lsRenderEntry()});
- document.getElementById("lsSave").addEventListener("click",async()=>{const w=+LS_STATE.week,msg=document.getElementById("lsSaveState");msg.textContent="Saving official scores…";try{await lsWriteWeek(w);lsRenderEntry();lsRenderTable();msg.textContent=`Week ${w} saved to Supabase. Standings are now shared.`;}catch(err){console.error(err);msg.textContent=err.message||"Unable to save scores.";alert(msg.textContent);}});
- document.getElementById("lsClearWeek").addEventListener("click",async()=>{const w=+LS_STATE.week;if(!confirm(`Clear all official Week ${w} scores?`))return;const msg=document.getElementById("lsSaveState");msg.textContent="Clearing official scores…";try{await lsDeleteWeek(w);lsRenderEntry();lsRenderTable();msg.textContent=`Week ${w} cleared from Supabase.`;}catch(err){console.error(err);msg.textContent=err.message||"Unable to clear scores.";alert(msg.textContent);}});
+ document.getElementById("lsSave").addEventListener("click",async()=>{const w=+LS_STATE.week,msg=document.getElementById("lsSaveState");msg.textContent="Saving official scores…";try{await lsWriteWeek(w);renderLiveStandings();msg.textContent=`Week ${w} saved to Supabase. Standings are now shared.`;}catch(err){console.error(err);msg.textContent=err.message||"Unable to save scores.";alert(msg.textContent);}});
+ document.getElementById("lsClearWeek").addEventListener("click",async()=>{const w=+LS_STATE.week;if(!confirm(`Clear all official Week ${w} scores?`))return;const msg=document.getElementById("lsSaveState");msg.textContent="Clearing official scores…";try{await lsDeleteWeek(w);renderLiveStandings();msg.textContent=`Week ${w} cleared from Supabase.`;}catch(err){console.error(err);msg.textContent=err.message||"Unable to clear scores.";alert(msg.textContent);}});
  document.getElementById("lsLogin")?.addEventListener("click",lsLogin);
  document.getElementById("lsLoginPassword")?.addEventListener("keydown",e=>{if(e.key==="Enter")lsLogin();});
  document.getElementById("lsLogout")?.addEventListener("click",lsLogout);
@@ -13823,6 +13830,72 @@ async function lsBoot(){
   }
 }
 if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",lsBoot);else lsBoot();
+
+// =========================================================
+// Projection Engine TEST — historical-only, same-week comps
+// =========================================================
+const LS_PROJ_MODELS={"1":{"mean":[0.5,-5.551115123125783e-17],"scale":[0.5,1.0],"coef":[0.3011672234746205,0.10536645297016281],"intercept":0.41937529244370214},"2":{"mean":[1.0,-1.1657341758564144e-16],"scale":[0.724568837309472,1.0],"coef":[0.6130882039376029,0.34004458191854714],"intercept":0.4720274924188283},"3":{"mean":[1.5,4.9960036108132046e-17],"scale":[0.9287087810503355,1.0],"coef":[0.4869180545346071,0.32954903193759866],"intercept":0.457758554028168},"4":{"mean":[2.0,-1.27675647831893e-16],"scale":[1.0488088481701516,1.0],"coef":[0.5313672313988741,0.530692490241207],"intercept":0.4904469024884536},"5":{"mean":[2.5,1.7208456881689927e-16],"scale":[1.1937336386313322,1.0],"coef":[0.5786616164886533,0.7174733796105727],"intercept":0.5198875738127752},"6":{"mean":[3.0,3.8857805861880476e-17],"scale":[1.3416407864998738,1.0],"coef":[0.5673445346199041,0.903377034985462],"intercept":0.5540416448851349},"7":{"mean":[3.5,-3.0253577421035517e-16],"scale":[1.3829316685939332,1.0],"coef":[0.5708599422532545,1.1755208874595708],"intercept":0.6245715172336886},"8":{"mean":[4.0,-3.6914915568786457e-16],"scale":[1.5206906325745548,1.0],"coef":[0.7414088064812968,1.278492259525992],"intercept":0.6782882618155278},"9":{"mean":[4.5,7.174816296640075e-16],"scale":[1.593933812929508,1.0],"coef":[0.732351330183103,1.483173276155412],"intercept":0.7200342635326432},"10":{"mean":[5.0,1.5265566588595902e-16],"scale":[1.7491069149711804,1.0],"coef":[0.8659925129123726,1.6632955142197987],"intercept":0.7830602047161641},"11":{"mean":[5.5,-4.135580766728708e-16],"scale":[1.8866305944725905,1.0],"coef":[1.0376714180778748,1.7871505068480886],"intercept":0.8213317074255406},"12":{"mean":[6.0,-3.885780586188048e-16],"scale":[2.025617189895465,1.0],"coef":[1.2055190630848764,2.0815941146201458],"intercept":0.9224793347179818},"13":{"mean":[6.5,-8.049116928532385e-17],"scale":[2.1308742337360034,1.0],"coef":[1.4772202525795548,2.083508408033318],"intercept":0.9437390054981558}};
+const LS_PROJ_SHRINK={"1":0.72,"2":0.97,"3":0.925,"4":0.92,"5":0.975,"6":0.95,"7":0.985,"8":0.985,"9":0.965,"10":0.945,"11":0.95,"12":1.06,"13":1.125};
+let LS_HIST=null,LS_HIST_SNAP=[],LS_CHAMPS={},LS_PROJ_SELECTED=null;
+function lsLogit(p){return Math.log(p/(1-p))} function lsSig(x){return 1/(1+Math.exp(-x))}
+function lsHistOwner(o){return o==='Harp'?'Habble':o}
+async function lsLoadProjectionData(){
+ const [h,p]=await Promise.all([fetch('./data/weeklyHistory.json').then(r=>{if(!r.ok)throw Error('weeklyHistory '+r.status);return r.json()}),fetch('./data/playoffHistory.json').then(r=>r.ok?r.json():null).catch(()=>null)]);
+ LS_HIST=h; (p?.seasonSummaries||[]).forEach(x=>LS_CHAMPS[+x.year]=lsHistOwner(x.champion)); lsBuildHistoricalSnapshots();
+}
+function lsBuildHistoricalSnapshots(){
+ const by={};(LS_HIST.records||[]).forEach(r=>{const o=lsHistOwner(r.owner),k=`${r.year}|${o}`;if(!by[k])by[k]=[];by[k].push({...r,owner:o})}); const raw=[];
+ Object.values(by).forEach(a=>{a.sort((x,y)=>x.week-y.week);let wins=0,pts=0,hs=0;a.forEach(r=>{wins+=r.result==='Win'?1:r.result==='Tie'?.5:0;pts+=+r.pointsFor;hs+=r.weeklyHigh?1:0;raw.push({year:+r.year,week:+r.week,owner:r.owner,wins,pts,hs})})});
+ LS_HIST_SNAP=[]; const keys=[...new Set(raw.map(r=>`${r.year}|${r.week}`))];keys.forEach(k=>{let g=raw.filter(r=>`${r.year}|${r.week}`===k),mean=g.reduce((s,r)=>s+r.pts,0)/g.length,sd=Math.sqrt(g.reduce((s,r)=>s+(r.pts-mean)**2,0)/g.length)||1;g.forEach(r=>r.z=(r.pts-mean)/sd);let rec=[...g].sort((a,b)=>b.wins-a.wins||b.pts-a.pts),fifth=rec[4],top=new Set(rec.slice(0,5).map(r=>r.owner)),wc=rec.filter(r=>!top.has(r.owner)).sort((a,b)=>b.pts-a.pts||b.wins-a.wins)[0],po=[...g].sort((a,b)=>b.pts-a.pts);g.forEach(r=>{r.gb5=Math.max(0,(fifth.wins-r.wins)/2);r.wild_gap_z=(r.pts-wc.pts)/sd;r.pts_rank=po.findIndex(x=>x.owner===r.owner)+1;r.hs_rate=r.hs/r.week;LS_HIST_SNAP.push(r)})});
+ // retrofit today's six-team qualification rule for every historical season
+ [...new Set(raw.map(r=>r.year))].forEach(y=>{let g=raw.filter(r=>r.year===y),mw=Math.max(...g.map(r=>r.week)),fin=g.filter(r=>r.week===mw).sort((a,b)=>b.wins-a.wins||b.pts-a.pts),q=fin.slice(0,5),rest=fin.slice(5).sort((a,b)=>b.pts-a.pts||b.wins-a.wins);if(rest[0])q.push(rest[0]);let set=new Set(q.map(r=>r.owner));LS_HIST_SNAP.filter(r=>r.year===y).forEach(r=>r.playoff=set.has(r.owner)?1:0)});
+}
+function lsCurrentFeatures(w){let rows=lsStatsThrough(w),mean=rows.reduce((s,r)=>s+r.pts,0)/10,sd=Math.sqrt(rows.reduce((s,r)=>s+(r.pts-mean)**2,0)/10)||1;rows.forEach(r=>r.z=(r.pts-mean)/sd);let rec=[...rows].sort(lsRecordSort),fifth=rec[4],top=new Set(rec.slice(0,5).map(r=>r.owner)),wc=rec.filter(r=>!top.has(r.owner)).sort((a,b)=>b.pts-a.pts||lsRecordSort(a,b))[0],po=[...rows].sort((a,b)=>b.pts-a.pts);rows.forEach(r=>{r.wins=r.w;r.gb5=Math.max(0,(fifth.w-r.w)/2);r.wild_gap_z=(r.pts-wc.pts)/sd;r.pts_rank=po.findIndex(x=>x.owner===r.owner)+1;r.hs_rate=r.hs/w});return rows}
+function lsPlayoffProb(r,w){
+ if(w>=14)return lsRank(14).find(x=>x.owner===r.owner)?.qualified?1:0;
+ let m=LS_PROJ_MODELS[w]||LS_PROJ_MODELS[13],v=[r.wins,r.z],z=m.intercept;
+ v.forEach((x,i)=>z+=((x-m.mean[i])/m.scale[i])*m.coef[i]);
+ let p=lsSig(z),a=LS_PROJ_SHRINK[w]??1;
+ return lsSig(a*lsLogit(Math.min(.999,Math.max(.001,p)))+(1-a)*lsLogit(.6));
+}
+function lsCompInfo(r,w){
+ // Stable, interpretable same-week neighborhood: record + scoring strength only.
+ // Precedent measures data density, not team quality.
+ let pool=LS_HIST_SNAP.filter(x=>x.week===w);
+ const scoreBand=z=>z>1?'ELITE':z>.25?'ABOVE':z>=-.25?'AVERAGE':z>=-1?'BELOW':'VERY_LOW';
+ const recordBand=x=>{
+   const pct=x.wins/Math.max(1,w);
+   if(w<=3)return `${x.wins}-${x.losses}`;
+   if(pct>=.75)return 'GREAT';
+   if(pct>=.55)return 'GOOD';
+   if(pct>=.40)return 'MIDDLE';
+   if(pct>=.25)return 'POOR';
+   return 'VERY_POOR';
+ };
+ let rb=recordBand(r),sb=scoreBand(r.z);
+ let precedentMatches=pool.filter(x=>recordBand(x)===rb&&scoreBand(x.z)===sb);
+ let precedent=precedentMatches.length>=18?'Strong':precedentMatches.length>=8?'Moderate':'Limited';
+
+ // Closest comps use the same two core dimensions. A full win is intentionally
+ // more meaningful than a modest scoring-z difference.
+ let d=pool.map(x=>({...x,dist:Math.sqrt(Math.pow((x.wins-r.wins)/Math.max(1,w*.25),2)+Math.pow((x.z-r.z)/.75,2))}))
+   .sort((a,b)=>a.dist-b.dist);
+ let near=d.slice(0,35),med=near[Math.floor(near.length/2)]?.dist||1;
+ let wp=near.reduce((s,x)=>s+Math.exp(-x.dist/med)*x.playoff,0)/near.reduce((s,x)=>s+Math.exp(-x.dist/med),0);
+
+ // Championship profile remains same-week and similarity-based, but activates W4.
+ let close=d.filter(x=>x.dist<=1.15).slice(0,35);
+ if(close.length<8)close=d.slice(0,8);
+ let champs=close.filter(x=>LS_CHAMPS[x.year]===x.owner).length;
+ let rate=(champs+1)/(close.length+10);
+ let profile=w<4?'FORMING':rate>=.20?'ELITE':rate>=.14?'STRONG':rate>=.07?'LIVE':'LONG SHOT';
+ return{near,wp,close,champs,rate,profile,precedent,precedentMatches:precedentMatches.length};
+}
+function lsRenderProjections(){const body=document.getElementById('lsProjectionBody'),sel=document.getElementById('lsProjWeek');if(!body||!sel||!LS_HIST_SNAP.length)return;let last=lsLastCompletedWeek();sel.innerHTML=Array.from({length:Math.max(1,last)},(_,i)=>`<option value="${i+1}">Week ${i+1}</option>`).join('');let w=Math.min(+(LS_PROJ_SELECTED||last||1),Math.max(1,last));sel.value=w;LS_PROJ_SELECTED=w;let rows=lsCurrentFeatures(w).sort((a,b)=>lsPlayoffProb(b,w)-lsPlayoffProb(a,w));body.innerHTML=rows.map(r=>{let p=lsPlayoffProb(r,w),c=lsCompInfo(r,w);r._p=p;r._c=c;return `<tr data-proj-owner="${r.owner}" style="cursor:pointer"><td class="ls-owner">${r.owner}</td><td>${r.w}–${r.l}</td><td>${r.z>=0?'+':''}${r.z.toFixed(2)}σ · #${r.pts_rank}</td><td><strong>${Math.round(p*100)}%</strong></td><td>${c.precedent}</td><td><strong>${c.profile}</strong></td><td>${w<4?'Available W4':`${c.champs} of ${c.close.length}`}</td></tr>`}).join('');document.getElementById('lsProjState').textContent=`Week ${w} snapshot · same-week historical comparisons · playoff probability calibrated toward the 60% preseason baseline early.`;body.querySelectorAll('tr').forEach(tr=>tr.onclick=()=>lsProjectionDetail(rows.find(r=>r.owner===tr.dataset.projOwner),w));}
+function lsProjectionDetail(r,w){let c=r._c,n=c.near[0],el=document.getElementById('lsProjectionDetail');el.innerHTML=`<strong>${r.owner} · Week ${w}</strong> — ${r.w}–${r.l}, ${r.z>=0?'+':''}${r.z.toFixed(2)}σ, #${r.pts_rank} points · <strong>${Math.round(r._p*100)}% playoff chance</strong> · precedent: ${c.precedent} (${c.precedentMatches} historical Week-${w} profiles in the same record/scoring cohort).<br>Closest comp: ${n.year} ${n.owner} through W${w} (${n.wins}–${w-n.wins}, ${n.z>=0?'+':''}${n.z.toFixed(2)}σ) — ${n.playoff?'made playoffs':'missed playoffs'}.${w>=4?` Championship cohort: ${c.champs} of ${c.close.length} comparable Week-${w} profiles won the title.`:' Championship Profile activates after Week 4.'}`;}
+function lsBindProjection(){let sel=document.getElementById('lsProjWeek');if(!sel||sel.dataset.bound)return;sel.dataset.bound='1';sel.onchange=()=>{LS_PROJ_SELECTED=+sel.value;lsRenderProjections()}}
+async function lsBootProjection(){lsBindProjection();try{await lsLoadProjectionData();lsRenderProjections()}catch(e){console.error(e);let x=document.getElementById('lsProjState');if(x)x.textContent='Projection engine could not load historical data: '+e.message}}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',lsBootProjection);else lsBootProjection();
 
 </script>
 
