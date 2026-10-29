@@ -1811,6 +1811,7 @@ header,
 .survivor-week-card .week{font-size:9px;color:#c9ad68;text-transform:uppercase;font-weight:850;letter-spacing:.08em}
 .survivor-week-card .out{font-size:15px;font-weight:900;margin-top:5px}
 .survivor-week-card .score{font-size:10px;color:#aeb8c1;margin-top:4px}
+.survivor-safety-gap{font-size:11px;color:#e5bf74;font-weight:850;margin-top:5px}
 .survivor-week-card .alive{font-size:9px;color:#7f8c96;margin-top:6px}
 .survivor-path{display:grid;gap:7px}
 .survivor-path-row{display:grid;grid-template-columns:55px 1fr;gap:8px;align-items:start}
@@ -5525,7 +5526,7 @@ body.dnl-presentation #prizeVault.dnl-active-view{
     <div class="ls-head"><div><div class="ls-kicker">2026 Regular Season</div><h2>Live Standings</h2><p>Enter the ten weekly scores. The finalized Big Board schedule drives W/L, points, high scores, the Top-5 field and points wildcard automatically.</p></div><span class="ls-test">LIVE · 2026</span></div>
     <div id="lsSummary" class="ls-summary"></div>
     <div class="ls-grid">
-      <div class="ls-card"><h3>Playoff Race</h3><div class="ls-sub">Seeds 1–5 are the five best records (points tiebreaker). Seed 6 is the highest-scoring team among the remaining five. The overall points leader is guaranteed a first-round bye.</div><div class="ls-table-wrap"><table class="ls-table"><thead><tr><th>#</th><th>Team</th><th>W</th><th>L</th><th>Pts</th><th>PA</th><th>GB of 5</th><th>PB of 6</th><th>PB of 2 Seed</th><th>Pts Rank</th><th>HS</th><th>Status</th><th>Prior</th><th>Change</th></tr></thead><tbody id="lsStandingsBody"></tbody></table></div><div class="ls-note">Race helpers: GB of 5 shows distance from the fifth record qualifier; PB of 6 compares season points with the current points-wildcard line; PB of 2 Seed compares season points with the current second-seed points line. Parentheses indicate a points deficit.</div></div>
+      <div class="ls-card"><h3>Playoff Race</h3><div class="ls-sub">Seeds 1–5 are the five best records (points tiebreaker). Seed 6 is the highest-scoring team among the remaining five. The overall points leader is guaranteed a first-round bye.</div><div class="ls-table-wrap"><table class="ls-table"><thead><tr><th>#</th><th>Team</th><th>W</th><th>L</th><th>Pts</th><th>PA</th><th>GB of 5</th><th>PB of 6</th><th>PB of 2 Seed</th><th>Pts Rank</th><th>HS</th><th>Surv</th><th>Status</th><th>Prior</th><th>Change</th></tr></thead><tbody id="lsStandingsBody"></tbody></table></div><div class="ls-note">Race helpers: GB of 5 shows distance from the fifth record qualifier; PB of 6 compares season points with the current points-wildcard line; PB of 2 Seed compares season points with the current second-seed points line. Parentheses indicate a points deficit.</div></div>
       <div class="ls-card"><h3>Commissioner Score Entry</h3><div class="ls-sub">Official scores are shared through Supabase. Commissioner sign-in is required to edit.</div><div id="lsAuthBox" style="margin:10px 0 12px;padding:10px;border:1px solid #d9d4ca;border-radius:9px;background:#f4f1ea"><div id="lsAuthSignedOut"><label style="display:block">Commissioner Password<input id="lsLoginPassword" type="password" autocomplete="current-password" placeholder="Password" style="width:100%;margin-top:5px"></label><button class="primary" id="lsLogin" type="button" style="margin-top:8px">Commissioner Sign In</button></div><div id="lsAuthSignedIn" hidden><strong>Commissioner signed in ✓</strong><button id="lsLogout" type="button" style="margin-left:8px">Sign Out</button></div><div id="lsAuthState" class="ls-note" style="margin-top:6px"></div></div><div class="ls-toolbar"><label>Week<select id="lsWeek"></select></label><button id="lsPrev">←</button><button id="lsNext">→</button></div><div id="lsScoreGrid" class="ls-score-grid"></div><div class="ls-actions"><button class="primary" id="lsSave">Save Scores & Recalculate</button><button id="lsClearWeek">Clear Week</button></div><div id="lsSaveState" class="ls-note">No changes yet.</div></div>
     </div>
     <div class="ls-card ls-proj-card" style="margin-top:18px"><div style="display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap"><div><div class="ls-kicker"></div><h3 style="margin:3px 0">Projection Lab</h3><div class="ls-sub">Historical Big Board model · Rewind to any completed week to see what the outlook was at that point.</div></div><label>Projection snapshot<select id="lsProjWeek" style="margin-left:8px"></select></label></div><div id="lsProjState" class="ls-note" style="margin:10px 0">Loading historical engine…</div><div class="ls-table-wrap"><table class="ls-table"><thead><tr><th>Team</th><th>Record</th><th>Scoring</th><th>Playoff Chance</th><th>Precedent</th><th>🏆 Championship Profile</th><th>Title Comps</th></tr></thead><tbody id="lsProjectionBody"></tbody></table></div><div id="lsProjectionDetail" class="ls-note" style="margin-top:12px">Click a team row for its historical comparison detail.</div></div>
@@ -9668,7 +9669,44 @@ async function openWeeklyAnalytics(){await ensureWeeklyHistoryLoaded();renderWee
 
 
 let survivorActiveView="OFFICIAL",survivorSelectedYear=null,survivorSort={key:"officialTitles",direction:"desc"},survivorAnimationTimer=null,survivorAnimationStep=null;
+// 2026 live Survivor: the weekly_scores table is the single source of truth.
+// Do not process a week unless every league member has a valid score.
+function survivorLiveSimulation(){
+  const initial=[...LS_OWNERS].sort((a,b)=>displayName(a).localeCompare(displayName(b)));
+  let alive=[...initial],carried=0,review=false;
+  const events=[],paths=[],eliminationWeek={};
+  let lastCompleteWeek=0;
+  for(let week=1;week<=14;week++){
+    const scores=LS_STATE.scores?.[week]||{};
+    if(!LS_OWNERS.every(o=>scores[o]!==null&&scores[o]!==undefined&&scores[o]!==''&&Number.isFinite(Number(scores[o]))))break;
+    lastCompleteWeek=week;
+    if(week<6)continue;
+    if(alive.length<=1)break;
+    const entering=[...alive],scoreMap=new Map(entering.map(o=>[o,Number(scores[o])]));
+    const due=Math.min(alive.length-1,1+carried);
+    const ordered=[...alive].sort((a,b)=>scoreMap.get(a)-scoreMap.get(b)||displayName(a).localeCompare(displayName(b)));
+    const cutoff=scoreMap.get(ordered[due-1]);
+    const below=ordered.filter(o=>scoreMap.get(o)<cutoff);
+    const tied=ordered.filter(o=>scoreMap.get(o)===cutoff);
+    const eliminated=tied.length>1?below:ordered.slice(0,due);
+    carried=tied.length>1?due-below.length:0;
+    const aliveAverage=entering.reduce((sum,o)=>sum+scoreMap.get(o),0)/entering.length;
+    const eliminationLine=eliminated.length?Math.max(...eliminated.map(o=>scoreMap.get(o))):null;
+    const safetyMargins={};
+    entering.forEach(o=>{if(!eliminated.includes(o)&&eliminationLine!==null)safetyMargins[o]=scoreMap.get(o)-eliminationLine;});
+    eliminated.forEach(o=>{eliminationWeek[o]=week;alive=alive.filter(x=>x!==o);});
+    const path={week,entering,remaining:[...alive],eliminated:[...eliminated],scores:Object.fromEntries(scoreMap),carried,aliveAverage,eliminationLine,safetyMargins};
+    paths.push(path);
+    events.push({week,eliminated:[...eliminated],score:eliminated.length?Math.min(...eliminated.map(o=>scoreMap.get(o))):null,remaining:alive.length,carried,aliveAverage,eliminationLine,safetyMargins});
+  }
+  const complete=alive.length===1;
+  const champion=complete?alive[0]:null;
+  if(champion)eliminationWeek[champion]=lastCompleteWeek+1;
+  const finalPath=paths.at(-1),runnerUp=complete&&finalPath?.eliminated.length===1?finalPath.eliminated[0]:null;
+  return {year:2026,startWeek:6,endWeek:lastCompleteWeek,official:true,initial,champion,runnerUp,events,paths,finalScores:finalPath?.scores||{},eliminationWeek,review,complete,alive,nextWeek:lastCompleteWeek<6?6:lastCompleteWeek+1};
+}
 function survivorSimulation(year){
+  if(+year===2026)return survivorLiveSimulation();
   const metadata=WEEKLY_HISTORY_DATA.yearMetadata?.[String(year)]||{};
   const endWeek=Number(metadata.regularSeasonWeeks||Math.max(...WEEKLY_HISTORY_DATA.records.filter(r=>+r.year===+year).map(r=>+r.week)));
   const startWeek=endWeek-8;
@@ -9733,7 +9771,7 @@ function survivorSetView(view){
 }
 function renderSurvivorYearOptions(){
   const select=document.getElementById("survivorYear");
-  const years=(WEEKLY_HISTORY_DATA.years||[]).map(Number).filter(y=>survivorActiveView==="OFFICIAL"?y>=2023:y<2023).sort((a,b)=>b-a);
+  const years=[...(WEEKLY_HISTORY_DATA.years||[]).map(Number),2026].filter(y=>survivorActiveView==="OFFICIAL"?y>=2023:y<2023).sort((a,b)=>b-a);
   if(!years.includes(+survivorSelectedYear))survivorSelectedYear=years[0];
   select.innerHTML=years.map(y=>`<option value="${y}">${y}</option>`).join("");
   select.value=survivorSelectedYear;
@@ -9791,10 +9829,10 @@ function survivorPlayAnimation(){
 function renderSurvivorSeason(){
   survivorStopAnimation();
   renderSurvivorYearOptions();
-  const result=survivorSimulation(+survivorSelectedYear),retro=!result.official;
+  const result=survivorSimulation(+survivorSelectedYear),retro=!result.official,live=result.year===2026&&!result.complete;
   const note=document.getElementById("survivorEraNote");
   note.className=`survivor-note ${retro?"retro":""}`;
-  note.textContent=retro
+  note.textContent=live?`2026 LIVE · Scores complete through Week ${result.endWeek}. ${result.alive.length} teams remain. Next elimination: Week ${result.nextWeek}. Weeks with incomplete scores are not counted.`:retro
     ? `Hypothetical simulation only. The Survivor Belt did not officially exist in ${result.year}. This season uses Weeks ${result.startWeek}–${result.endWeek}.`
     : `Official Survivor Belt season. The ${result.year} competition ran from Week ${result.startWeek} through Week ${result.endWeek}.`;
   const champScore=result.champion?result.finalScores[result.champion]:null;
@@ -9802,20 +9840,24 @@ function renderSurvivorSeason(){
   const champMetrics=result.champion?survivorOwnerSeasonMetrics(result,result.champion):{};
   const runnerMetrics=result.runnerUp?survivorOwnerSeasonMetrics(result,result.runnerUp):{};
   document.getElementById("survivorSummary").innerHTML=[
-    [retro?"Hypothetical Champion":"Belt Champion",result.champion?displayName(result.champion):"Review",retro?"Simulation only":"Official title","champion"],
-    ["Runner-up",result.runnerUp?displayName(result.runnerUp):"—",result.runnerUp&&runnerScore!=null?`${runnerScore.toFixed(2)} in final week`:"",retro?"retro":""],
-    ["Final Score",champScore!=null&&runnerScore!=null?`${champScore.toFixed(2)}–${runnerScore.toFixed(2)}`:"—",`Week ${result.endWeek}`,retro?"retro":""],
+    [live?"Still Alive":retro?"Hypothetical Champion":"Belt Champion",live?`${result.alive.length} teams`:result.champion?displayName(result.champion):"Review",live?result.alive.map(displayName).join(" · "):retro?"Simulation only":"Official title","champion"],
+    [live?"Next Elimination":"Runner-up",live?`Week ${result.nextWeek}`:result.runnerUp?displayName(result.runnerUp):"—",result.runnerUp&&runnerScore!=null?`${runnerScore.toFixed(2)} in final week`:"",retro?"retro":""],
+    [live?"Latest Completed":"Final Score",live?`Week ${result.endWeek}`:champScore!=null&&runnerScore!=null?`${champScore.toFixed(2)}–${runnerScore.toFixed(2)}`:"—",`Week ${result.endWeek}`,retro?"retro":""],
     ["Champion Avg Safety",Number.isFinite(champMetrics.avgSafety)?`${champMetrics.avgSafety.toFixed(2)} pts`:"—","Average cushion above the elimination line",retro?"retro":""],
     ["Runner-up Exit vs Avg",Number.isFinite(runnerMetrics.eliminationDelta)?survivorFormatDelta(runnerMetrics.eliminationDelta):"—","Final-week score minus alive-field average",retro?"retro":""],
-    ["Competition Window",`W${result.startWeek}–W${result.endWeek}`,"Nine elimination weeks",retro?"retro":""],
-    ["Field",`${result.initial.length} teams`,result.review?"Commissioner review needed":"Simulation complete",retro?"retro":""]
+    ["Competition Window",live?`W6–W${result.endWeek}`:`W${result.startWeek}–W${result.endWeek}`,live?"Season in progress":"Nine elimination weeks",retro?"retro":""],
+    ["Field",`${result.initial.length} teams`,live?"Live competition":result.review?"Commissioner review needed":"Simulation complete",retro?"retro":""]
   ].map(([label,value,detail,cls])=>`<div class="survivor-card ${cls||""}"><div class="label">${label}</div><div class="value">${value}</div><div class="detail">${detail}</div></div>`).join("");
   document.getElementById("survivorTimeline").innerHTML=result.events.map((e,i)=>{
-    const final=i===result.events.length-1;
+    const final=!live&&i===result.events.length-1;
     const names=e.eliminated.length?e.eliminated.map(displayName).join(" & "):"No elimination";
     const elimDelta=e.score!=null&&Number.isFinite(e.aliveAverage)?e.score-e.aliveAverage:null;
     const score=e.score!=null?`${e.score.toFixed(2)} points · ${survivorFormatDelta(elimDelta)} vs alive avg`:e.carried?`${e.carried} elimination${e.carried===1?"":"s"} deferred`:"Tie review";
-    return `<div class="survivor-week-card ${final?"final":""} ${!e.eliminated.length?"deferred":""}"><div class="week">Week ${e.week}${final?" · Final":""}</div><div class="out">${final&&result.champion?`🥇 ${displayName(result.champion)}`:`❌ ${names}`}</div><div class="score">${final&&result.runnerUp?`${displayName(result.runnerUp)} eliminated · ${score}`:score}</div><div class="alive">${e.remaining} team${e.remaining===1?"":"s"} remaining</div></div>`;
+    const path=result.paths.find(p=>p.week===e.week);
+    const survivorScores=path&&e.eliminated.length===1?path.remaining.map(o=>path.scores[o]).filter(Number.isFinite):[];
+    const safetyGap=survivorScores.length&&Number.isFinite(e.score)?Math.min(...survivorScores)-e.score:null;
+    const safetyText=Number.isFinite(safetyGap)?`<div class="survivor-safety-gap">${safetyGap.toFixed(2)} pts short of survival</div>`:"";
+    return `<div class="survivor-week-card ${final?"final":""} ${!e.eliminated.length?"deferred":""}"><div class="week">Week ${e.week}${final?" · Final":""}</div><div class="out">${final&&result.champion?`🥇 ${displayName(result.champion)}`:`❌ ${names}`}</div><div class="score">${final&&result.runnerUp?`${displayName(result.runnerUp)} eliminated · ${score}`:score}</div>${safetyText}<div class="alive">${e.remaining} team${e.remaining===1?"":"s"} remaining</div></div>`;
   }).join("");
   document.getElementById("survivorPath").innerHTML=result.paths.map(p=>`<div class="survivor-path-row"><div class="survivor-path-week">W${p.week}</div><div class="survivor-pills">${result.initial.map(owner=>{
     const entered=p.entering.includes(owner),remaining=p.remaining.includes(owner),winner=owner===result.champion&&p.week===result.endWeek;
@@ -9861,9 +9903,11 @@ async function openSurvivorHub(){
   try{
     if(state)state.textContent="Loading weekly history…";
     await ensureWeeklyHistoryLoaded();
+    await lsWaitForSupabase();
+    await lsLoadSharedScores();
     if(state)state.classList.add("hidden");
     document.getElementById("survivorContent").classList.remove("hidden");
-    if(!survivorSelectedYear)survivorSelectedYear=Math.max(...WEEKLY_HISTORY_DATA.years.filter(y=>+y>=2023).map(Number));
+    if(!survivorSelectedYear)survivorSelectedYear=2026;
     survivorSetView(survivorActiveView);
   }catch(error){if(state)state.textContent=`Unable to load Survivor history: ${error.message}`;}
 }
@@ -13737,6 +13781,23 @@ function lsRaceFmt(n){
 }
 function lsRenderTable(){
  const through=lsLastCompletedWeek(),rows=lsRank(through),prior=through>1?lsRank(through-1):[];
+ // Derive Survivor eliminations directly from the same completed weekly scores
+ // used by Live Standings. No separate Survivor page state is required.
+ const survivorOut=new Set();
+ if(through>=6){
+   let alive=[...LS_OWNERS],carried=0;
+   for(let week=6;week<=through && alive.length>1;week++){
+     const ranked=[...alive].sort((a,b)=>lsScore(week,a)-lsScore(week,b)||a.localeCompare(b));
+     const due=Math.min(alive.length-1,1+carried);
+     const cutoff=lsScore(week,ranked[due-1]);
+     const below=ranked.filter(o=>lsScore(week,o)<cutoff);
+     const tied=ranked.filter(o=>lsScore(week,o)===cutoff);
+     const eliminated=tied.length>1?below:ranked.slice(0,due);
+     carried=tied.length>1?due-below.length:0;
+     eliminated.forEach(o=>survivorOut.add(o));
+     alive=alive.filter(o=>!survivorOut.has(o));
+   }
+ }
  const priorMap=Object.fromEntries(prior.map(r=>[r.owner,r.rank]));
  const recordOrder=[...rows].sort(lsRecordSort);
  const top5Owners=new Set(recordOrder.slice(0,5).map(r=>r.owner));
@@ -13754,7 +13815,7 @@ function lsRenderTable(){
    if(r.isWC)gb5=0.5; // wildcard occupies seed 6 rather than a Top-5 record berth
    const pb6=r.isBye?0:(wc?r.pts-wc.pts:0);
    const pb2=seed2?r.pts-seed2.pts:0;
-   return `<tr class="${cls}"><td class="ls-rank">${r.rank}</td><td class="ls-owner">${lsEsc(r.owner)}</td><td>${r.w}</td><td>${r.l}</td><td>${lsFmt(r.pts)}</td><td>${lsFmt(r.pa)}</td><td>${gb5.toFixed(1)}</td><td>${lsRaceFmt(pb6)}</td><td>${lsRaceFmt(pb2)}</td><td>${r.ptsRank}</td><td class="ls-hs">${r.hs}</td><td>${lsStatus(r,through)}</td><td>${through>1&&pr!==null?pr:"—"}</td><td class="${d>0?"ls-move-up":d<0?"ls-move-down":""}">${through>1&&pr!==null?(d>0?`+${d}`:d<0?d:"0"):"—"}</td></tr>`;
+   return `<tr class="${cls}"><td class="ls-rank">${r.rank}</td><td class="ls-owner">${lsEsc(r.owner)}</td><td>${r.w}</td><td>${r.l}</td><td>${lsFmt(r.pts)}</td><td>${lsFmt(r.pa)}</td><td>${gb5.toFixed(1)}</td><td>${lsRaceFmt(pb6)}</td><td>${lsRaceFmt(pb2)}</td><td>${r.ptsRank}</td><td class="ls-hs">${r.hs}</td><td title="${survivorOut.has(r.owner)?"Eliminated from Survivor":"Still alive in Survivor"}" style="font-weight:900;color:${survivorOut.has(r.owner)?"#b33648":"#2e7852"}">${survivorOut.has(r.owner)?"✕":"✓"}</td><td>${lsStatus(r,through)}</td><td>${through>1&&pr!==null?pr:"—"}</td><td class="${d>0?"ls-move-up":d<0?"ls-move-down":""}">${through>1&&pr!==null?(d>0?`+${d}`:d<0?d:"0"):"—"}</td></tr>`;
  }).join("");
  const gamesDone=rows.reduce((s,r)=>s+r.gp,0)/2;const leader=[...rows].sort((a,b)=>b.pts-a.pts)[0];
  document.getElementById("lsSummary").innerHTML=[["Through Week",through||"—"],["Games Final",`${gamesDone} / 70`],["Points Leader",through?leader.owner:"—"],["High Score Leader",through?([...rows].sort((a,b)=>b.hs-a.hs||b.pts-a.pts)[0].owner):"—"]].map(([l,v])=>`<div><div class="label">${l}</div><div class="value">${v}</div></div>`).join("");
